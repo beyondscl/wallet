@@ -66,12 +66,12 @@ Laya.stage.alignV = "middle";
 Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 function beginLoad() {
     Laya.loader.load("res/atlas/img.atlas");
-    Laya.loader.load("res/atlas/comp.atlas", Laya.Handler.create(null, enter));
     Laya.loader.load("res/atlas/template/Navigator.atlas");
     Laya.loader.load("res/atlas/template/ToolBar.atlas");
     Laya.loader.load("res/atlas/template/Switcher.atlas");
     Laya.loader.load("res/atlas/template/List.atlas");
     Laya.loader.load("res/atlas/template/Search.atlas");
+    Laya.loader.load("res/atlas/comp.atlas", Laya.Handler.create(null, enter));
 }
 function enter() {
     // laya.net.LocalStorage.clear();

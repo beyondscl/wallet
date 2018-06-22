@@ -16,7 +16,7 @@ var view;
         __extends(WalletQuick, _super);
         function WalletQuick() {
             var _this = _super.call(this) || this;
-            //最好不要再界面创建list，可能导致第一个item无法获取点击事件 
+            //最好不要再界面创建list，可能导致第一个item无法获取点击事件
             _this.list_wallet = new Laya.List();
             _this.init();
             _this.initEvent();

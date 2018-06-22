@@ -17,13 +17,15 @@ var view;
             __extends(AddCoins, _super);
             function AddCoins() {
                 var _this = _super.call(this) || this;
+                _this.listCoin = new Laya.List();
                 _this.init();
                 _this.initEvent();
-                _this.setData(null);
+                _this.setData(testData.getCoins()); //test
                 return _this;
             }
             AddCoins.prototype.init = function () {
                 this.comp = new ui.coin.AddCoinsUI();
+                this.comp.addChild(this.listCoin);
                 this.stage.addChild(this.comp);
             };
             AddCoins.prototype.initEvent = function () {
@@ -33,10 +35,13 @@ var view;
             AddCoins.prototype.btnClick = function (index) {
                 switch (index) {
                     case 0:
+                        this.updateSelectItem();
                         this.stage.removeChild(this.comp);
                         new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));
                         break;
                     case 1:
+                        break;
+                    case 2:
                         break;
                     default:
                         break;
@@ -46,7 +51,38 @@ var view;
                 this.parentUI = parentUI;
             };
             AddCoins.prototype.setData = function (data) {
-                this.comp.list_coin.array = [];
+                this.listCoin.x = 0;
+                this.listCoin.width = 300;
+                this.listCoin.top = 60;
+                this.listCoin.bottom = 0;
+                this.listCoin.itemRender = coinItemUI;
+                this.listCoin.repeatX = 1;
+                this.listCoin.repeatY = data.length;
+                this.listCoin.vScrollBarSkin = "";
+                this.listCoin.selectEnable = true;
+                // this.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
+                this.listCoin.renderHandler = new Laya.Handler(this, this.updateItem);
+                this.listCoin.array = data;
+            };
+            AddCoins.prototype.updateItem = function (cell, index) {
+                cell.init(cell.dataSource);
+            };
+            AddCoins.prototype.onSelect = function (index) {
+            };
+            //operator data
+            AddCoins.prototype.updateSelectItem = function () {
+                var coins = [];
+                for (var i = 0; i < this.listCoin.array.length; i++) {
+                    if (this.listCoin.cells[i].coinCheckBox.selected) {
+                        coins[coins.length] = this.listCoin.cells[i].labCoinName.text;
+                    }
+                }
+                var walletName = this.parentUI.lab_wName.text;
+                var wallet = util.getStorageItem(walletName);
+                if (wallet) {
+                    wallet.wCoins = coins;
+                    util.setStorageItem(walletName, JSON.stringify(wallet));
+                }
             };
             return AddCoins;
         }(ui.coin.AddCoinsUI));

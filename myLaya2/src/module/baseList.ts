@@ -1,7 +1,7 @@
-module mod{
-    export class baseList{
-        constructor(){
-            
+module mod {
+    export class baseList {
+        constructor() {
+
         }
     }
 }

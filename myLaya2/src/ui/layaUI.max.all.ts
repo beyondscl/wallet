@@ -5,15 +5,28 @@ module ui.coin {
     export class AddCoinsUI extends View {
 		public btn_goback:Laya.Button;
 		public btn_query:Laya.Button;
-		public list_coin:Laya.List;
-		public render:Laya.Box;
 
-        public static  uiView:any ={"type":"View","props":{"width":300,"height":429},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":300,"lineWidth":1,"height":60,"fillColor":"#c6e2ee"}},{"type":"Button","props":{"width":119,"var":"btn_goback","top":20,"skin":"template/Navigator/btn_BackButton.png","left":20,"height":30}},{"type":"Label","props":{"y":20,"x":110,"valign":"middle","top":20,"text":"添加新资产","height":30,"fontSize":16,"color":"#000000","centerX":0,"align":"center"}},{"type":"Button","props":{"width":30,"var":"btn_query","top":20,"skin":"template/Search/btn_search_icon.png","right":20,"height":30}},{"type":"List","props":{"y":60,"var":"list_coin","right":0,"left":0,"height":130},"child":[{"type":"Box","props":{"var":"render","right":0,"name":"render","left":0,"height":65},"child":[{"type":"Image","props":{"y":0,"width":300,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"height":65}},{"type":"Image","props":{"x":20,"width":30,"skin":"template/List/message icon_57x57.png","height":30,"centerY":0}},{"type":"Label","props":{"y":5,"x":60,"width":69,"valign":"middle","text":"ETH","skin":"template/List/label.png","height":20,"font":"12","color":"#0a0a0a","bold":true,"align":"left"}},{"type":"Label","props":{"y":25,"x":60,"width":113,"valign":"middle","text":"Ethereum Fondation","skin":"template/List/label.png","height":20,"color":"#000000","align":"left"}},{"type":"Label","props":{"y":45,"x":60,"width":69,"valign":"middle","text":"plokmjnh...2sckmjux","skin":"template/List/label.png","height":20,"align":"left"}},{"type":"CheckBox","props":{"stateNum":2,"skin":"template/Switcher/checkbox_switch.png","scaleY":0.5,"scaleX":0.5,"right":20,"centerY":0}}]}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":300,"visible":true,"height":429},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":300,"lineWidth":1,"height":60,"fillColor":"#c6e2ee"}},{"type":"Button","props":{"width":119,"var":"btn_goback","top":20,"skin":"template/Navigator/btn_BackButton.png","left":20,"height":30}},{"type":"Label","props":{"y":20,"x":110,"valign":"middle","top":20,"text":"添加新资产","height":30,"fontSize":16,"color":"#000000","centerX":0,"align":"center"}},{"type":"Button","props":{"width":30,"var":"btn_query","top":20,"skin":"template/Search/btn_search_icon.png","right":20,"height":30}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.coin.AddCoinsUI.uiView);
+
+        }
+
+    }
+}
+
+module ui.coin {
+    export class queryCoinsUI extends View {
+
+        public static  uiView:any ={"type":"View","props":{"width":300,"height":429}};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.coin.queryCoinsUI.uiView);
 
         }
 
@@ -231,7 +244,7 @@ module ui {
 		public btn_assets:Laya.Button;
 		public btn_me:Laya.Button;
 
-        public static  uiView:any ={"type":"View","props":{"width":300,"height":429},"child":[{"type":"ViewStack","props":{"y":0,"x":0,"var":"viewStack","selectedIndex":2},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":300,"name":"item0","lineWidth":1,"height":150,"fillColor":"#c1e2ef"}},{"type":"Image","props":{"y":21,"x":139,"width":22,"skin":"img/eth.jpg","name":"item0","height":22,"centerX":0}},{"type":"Label","props":{"y":51,"x":109,"var":"wallet_name","text":"myWalletName","name":"item0","color":"#000000","centerX":0}},{"type":"Label","props":{"y":70,"x":82,"width":134,"var":"wallet_addr","text":"0x9c4cce43B94A684D119d6d2E8a047B2De702203a","overflow":"hidden","name":"item0","height":12,"color":"#000000","centerX":-1}},{"type":"Label","props":{"y":126,"x":25,"text":"总资产(¥)","name":"item0","color":"#000000"}},{"type":"Label","props":{"y":90,"x":25,"text":"≈ 0","name":"item0","fontSize":22,"color":"#000000"}},{"type":"Image","props":{"y":70,"x":220,"width":10,"skin":"img/ewm.jpg","name":"item0","height":10}},{"type":"Image","props":{"y":125,"x":253,"width":22,"skin":"img/add.png","sizeGrid":"0,0,0,0","right":25,"name":"item0","height":22}},{"type":"List","props":{"y":0,"x":0,"width":0,"var":"list_coin","name":"item0","height":0}},{"type":"Rect","props":{"y":0,"x":0,"width":300,"name":"item1","lineWidth":1,"height":150,"fillColor":"#57a7c6"}},{"type":"Label","props":{"top":20,"text":"我","name":"item1","color":"#ffffff","centerX":0}},{"type":"Image","props":{"y":60,"x":66,"skin":"img/wallet_manage.png","name":"item1"}},{"type":"Image","props":{"y":60,"x":202,"skin":"img/deal_history.png","name":"item1"}},{"type":"Label","props":{"y":95,"x":56,"text":"管理钱包","name":"item1","color":"#ffffff"}},{"type":"Label","props":{"y":95,"x":192,"text":"交易记录","name":"item1","color":"#ffffff"}}]},{"type":"Tab","props":{"y":389,"x":0,"var":"btn_tab","selectedIndex":0},"child":[{"type":"Button","props":{"width":150,"var":"btn_assets","selected":true,"left":0,"labelAlign":"center","label":"资产","height":40,"bottom":0}},{"type":"Button","props":{"x":150,"width":150,"var":"btn_me","mouseEnabled":true,"left":150,"layoutEnabled":true,"label":"我","height":40,"bottom":0}}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":300,"height":429},"child":[{"type":"ViewStack","props":{"y":0,"x":0,"var":"viewStack","selectedIndex":2},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":300,"name":"item0","lineWidth":1,"height":150,"fillColor":"#c1e2ef"}},{"type":"Image","props":{"y":21,"x":139,"width":22,"skin":"img/eth.jpg","name":"item0","height":22,"centerX":0}},{"type":"Label","props":{"y":51,"x":109,"var":"wallet_name","text":"myWalletName","name":"item0","color":"#000000","centerX":0}},{"type":"Label","props":{"y":70,"x":82,"width":134,"var":"wallet_addr","text":"0x9c4cce43B94A684D119d6d2E8a047B2De702203a","overflow":"hidden","name":"item0","height":12,"color":"#000000","centerX":-1}},{"type":"Label","props":{"y":126,"x":25,"text":"总资产(¥)","name":"item0","color":"#000000"}},{"type":"Label","props":{"y":90,"x":25,"text":"≈ 0","name":"item0","fontSize":22,"color":"#000000"}},{"type":"Image","props":{"y":70,"x":220,"width":10,"skin":"img/ewm.jpg","name":"item0","height":10}},{"type":"Image","props":{"y":125,"x":253,"width":22,"skin":"img/add.png","sizeGrid":"0,0,0,0","right":25,"name":"item0","height":22}},{"type":"List","props":{"y":0,"x":0,"width":0,"var":"list_coin","name":"item0","height":0}},{"type":"Rect","props":{"y":0,"x":0,"width":300,"name":"item1","lineWidth":1,"height":150,"fillColor":"#57a7c6"}},{"type":"Label","props":{"top":20,"text":"我","name":"item1","color":"#ffffff","centerX":0}},{"type":"Image","props":{"y":60,"x":66,"skin":"img/wallet_manage.png","name":"item1"}},{"type":"Image","props":{"y":60,"x":202,"skin":"img/deal_history.png","name":"item1"}},{"type":"Label","props":{"y":95,"x":56,"text":"管理钱包","name":"item1","color":"#ffffff"}},{"type":"Label","props":{"y":95,"x":192,"text":"交易记录","name":"item1","color":"#ffffff"}}]},{"type":"Tab","props":{"y":389,"x":0,"var":"btn_tab","selectedIndex":0},"child":[{"type":"Button","props":{"width":150,"var":"btn_assets","selected":true,"left":0,"labelAlign":"center","label":"资产","height":40,"bottom":0}},{"type":"Button","props":{"x":150,"width":150,"var":"btn_me","mouseEnabled":true,"left":150,"layoutEnabled":true,"label":"我","height":40,"bottom":0}}]},{"type":"CheckBox","props":{"stateNum":2,"skin":"template/Switcher/checkbox_switch.png","scaleY":0.4,"scaleX":0.4,"right":20,"centerY":0}}]};
         constructor(){ super()}
         createChildren():void {
         

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":24,
-    "selecteID":6,
+    "selectedBox":1,
+    "selecteID":33,
     "props":{"width":300,"var":"viewstack","sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","height":429},
     "nodeParent":-1,
     "label":"View(viewstack)",
@@ -272,6 +272,19 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"CheckBox",
+            "props":{"stateNum":"2","skin":"template/Switcher/checkbox_switch.png","scaleY":0.4,"scaleX":0.4,"right":20,"centerY":0},
+            "nodeParent":1,
+            "label":"CheckBox",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":33,
+            "child":[
+                ]
         }],
     "animations":[
         {

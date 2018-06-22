@@ -1,4 +1,4 @@
-//钱包列表数据模型
+//钱包币种列表数据模型
 var mod;
 (function (mod) {
     var walItemMod = /** @class */ (function () {

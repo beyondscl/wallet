@@ -9,9 +9,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 //交易列表
-var Box = Laya.Box;
-var Line = Laya.Line;
-var Label = Laya.Label;
 var dealItemUI = /** @class */ (function (_super) {
     __extends(dealItemUI, _super);
     function dealItemUI() {

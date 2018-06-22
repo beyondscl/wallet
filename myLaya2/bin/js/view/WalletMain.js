@@ -35,6 +35,8 @@ var view;
             this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         };
+        WalletMain.prototype.setData = function () {
+        };
         WalletMain.prototype.initQueryData = function (data) {
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;

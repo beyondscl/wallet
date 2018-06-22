@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":14,
-    "selecteID":15,
-    "props":{"width":300,"sceneColor":"#ffffff","height":429},
+    "selectedBox":1,
+    "selecteID":1,
+    "props":{"width":300,"visible":true,"sceneColor":"#ffffff","height":429},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -63,113 +63,6 @@
             "compId":11,
             "child":[
                 ]
-        },
-        {
-            "x":15,
-            "type":"List",
-            "props":{"y":60,"var":"list_coin","right":0,"left":0,"height":130},
-            "nodeParent":1,
-            "label":"List(list_coin)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":14,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"var":"render","right":0,"name":"render","left":0,"height":65},
-                    "nodeParent":14,
-                    "label":"Box(render)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":false,
-                    "hasChild":true,
-                    "compId":15,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":0,"width":300,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"height":65},
-                            "nodeParent":15,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"x":20,"width":30,"skin":"template/List/message icon_57x57.png","height":30,"centerY":0},
-                            "nodeParent":15,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":17,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":5,"x":60,"width":69,"valign":"middle","text":"ETH","skin":"template/List/label.png","height":20,"font":"12","color":"#0a0a0a","bold":true,"align":"left"},
-                            "nodeParent":15,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":18,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":25,"x":60,"width":113,"valign":"middle","text":"Ethereum Fondation","skin":"template/List/label.png","height":20,"color":"#000000","align":"left"},
-                            "nodeParent":15,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":20,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":45,"x":60,"width":69,"valign":"middle","text":"plokmjnh...2sckmjux","skin":"template/List/label.png","height":20,"align":"left"},
-                            "nodeParent":15,
-                            "label":"Label",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":21,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"CheckBox",
-                            "props":{"stateNum":"2","skin":"template/Switcher/checkbox_switch.png","scaleY":0.5,"scaleX":0.5,"right":20,"centerY":0},
-                            "nodeParent":15,
-                            "label":"CheckBox",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":26,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }]
-                }],
-            "$HIDDEN":false
         }],
     "animations":[
         {
