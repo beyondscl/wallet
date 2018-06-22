@@ -1,0 +1,16 @@
+<res>
+   <item name="comp/bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=18,30,30,30" picType="0" scale="0"/>
+   <item name="img/icon_box-checked.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/icon_box-empty.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/add.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/deal_history.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/dialog_banner.png" type="Dialog" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/dialog_bg.png" type="Dialog" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/eth.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/ewm.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/guid_ewm.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/itemSepar.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/transfer_in.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/transfer_out.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/wallet_manage.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+</res>

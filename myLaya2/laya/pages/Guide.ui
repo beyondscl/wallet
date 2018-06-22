@@ -1,0 +1,25 @@
+{
+    "x":0,
+    "type":"View",
+    "selectedBox":1,
+    "selecteID":1,
+    "props":{"y":0,"x":0,"width":300,"sceneColor":"#000000","height":429},
+    "nodeParent":-1,
+    "label":"View",
+    "isOpen":true,
+    "isDirectory":false,
+    "isAniNode":true,
+    "hasChild":false,
+    "compId":1,
+    "child":[
+        ],
+    "animations":[
+        {
+            "nodes":[
+                ],
+            "name":"ani1",
+            "id":1,
+            "frameRate":24,
+            "action":0
+        }]
+}
