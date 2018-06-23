@@ -41,22 +41,16 @@ module view {
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
-                //测试数据
-                let datas: Array<mod.dealtemMod> = [];
-                for (let i = 0; i < 3; i++) {
-                    let t = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                    datas.push(t);
-                }
-                let t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-                datas.push(t);
                 this.comp.visible = false;
+                let datas = service.walletServcie.getDealList();
                 new view.TransHisList().setData(datas, this.comp);
             }
             if (index == 3) {
                 this.comp.visible = false;
-                new view.WalletManage();
+                let wm = new view.WalletManage()
+                wm.setParentUI(this.comp);
+                wm.setData(service.walletServcie.getWallets());
             }
         }
-
     }
 }

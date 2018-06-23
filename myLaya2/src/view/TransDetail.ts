@@ -35,7 +35,7 @@ module view {
             let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//
             this.comp.lab_amount.text = trans_type + data.dealAmount + ' ' + data.dealCoinType.toUpperCase() + " (US$" + (data.dealAmount * mod.userMod.ethToUsd).toFixed(4) + ")";//-0.00001 ETH (US$0.05)
             this.comp.lab_type.text = lab_type;
-            this.comp.lab_addr.text = data.getDealAddr().replace(/([^]{8})([^]{20})([^]*)/, "$1******$3");
+            this.comp.lab_addr.text = util.getAddr(data.getDealAddr());
             this.comp.lab_transId.text = data.dealTransId;
             this.comp.lab_gas.text = data.dealGas + '';
             this.comp.lab_confirm.text = data.dealConfirm + '';

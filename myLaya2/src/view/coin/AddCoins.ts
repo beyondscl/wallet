@@ -3,17 +3,17 @@ module view.coin {
     export class AddCoins extends ui.coin.AddCoinsUI {
         private comp: ui.coin.AddCoinsUI;
         private parentUI: ui.WalletMainUI;
-		private listCoin = new Laya.List();
+        private listCoin = new Laya.List();
+
         constructor() {
             super();
             this.init();
             this.initEvent();
-            this.setData(testData.getCoins());//test
         }
 
         private init() {
             this.comp = new ui.coin.AddCoinsUI();
-			this.comp.addChild(this.listCoin);
+            this.comp.addChild(this.listCoin);
             this.stage.addChild(this.comp)
         }
 
@@ -44,19 +44,19 @@ module view.coin {
             this.parentUI = parentUI;
         }
 
-        private setData(data: Array<mod.coinItemMod>) {
+        public setData(data: Array<mod.coinItemMod>) {
             this.listCoin.x = 0;
-			this.listCoin.width = 300;
+            this.listCoin.width = 300;
             this.listCoin.top = 60;
             this.listCoin.bottom = 0;
             this.listCoin.itemRender = coinItemUI;
             this.listCoin.repeatX = 1;
             this.listCoin.repeatY = data.length;
             this.listCoin.vScrollBarSkin = "";
-            this.listCoin.selectEnable = true;
+            this.listCoin.selectEnable = false;
             // this.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
             this.listCoin.renderHandler = new Laya.Handler(this, this.updateItem);
-			this.listCoin.array = data;
+            this.listCoin.array = data;
         }
 
         private updateItem(cell: coinItemUI, index: number): void {
@@ -67,18 +67,18 @@ module view.coin {
         }
 
         //operator data
-        private updateSelectItem(){
+        private updateSelectItem() {
             let coins = [];
-            for(let i=0;i<this.listCoin.array.length;i++){
-                if(this.listCoin.cells[i].coinCheckBox.selected){
+            for (let i = 0; i < this.listCoin.array.length; i++) {
+                if (this.listCoin.cells[i].coinCheckBox.selected) {
                     coins[coins.length] = this.listCoin.cells[i].labCoinName.text;
                 }
             }
             let walletName = this.parentUI.lab_wName.text;
-            let wallet = util.getStorageItem(walletName);
-            if(wallet){
+            let wallet = util.getItem(walletName);
+            if (wallet) {
                 wallet.wCoins = coins;
-                util.setStorageItem(walletName,JSON.stringify(wallet));
+                util.setItemNoJson(walletName, JSON.stringify(wallet));
             }
         }
 

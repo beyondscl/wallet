@@ -1,4 +1,5 @@
 import EnterApp = view.EnterApp;
+
 class guide {
     private guideUI: ui.GuideUI;
     private guidesImg: Array<string> = ["guide/timg.jpg", "guide/timg1.jpg", "guide/timg2.jpg"];
@@ -19,7 +20,6 @@ class guide {
         this.guideImg.loadImage(this.guidesImg[this.index], 0, 0, Laya.stage.width, Laya.stage.height);
         Laya.stage.addChild(this.guideImg);
 
-        // this.guideImg.on(Laya.Event.CLICK, this, this.touchEvent);
         this.guideImg.on(Laya.Event.MOUSE_DOWN, this, this.mouseHandler);
         this.guideImg.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
         this.guideImg.on(Laya.Event.CLICK, this, this.mouseHandler);
@@ -85,12 +85,12 @@ function beginLoad() {
 
 function enter() {
     // laya.net.LocalStorage.clear();
-    let walletNames = laya.net.LocalStorage.getItem(config.prod.appKey);
+    let walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();
         return;
     }
-    let wallet = JSON.parse(laya.net.LocalStorage.getItem(JSON.parse(walletNames)[0]));
+    let wallet = util.getItem(walletNames[0]);
     let walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);

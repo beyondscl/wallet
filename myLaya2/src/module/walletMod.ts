@@ -7,6 +7,8 @@ module mod {
         public wKeyStore;
         public wAddr: string;
         public wCoins: Array<string>;//['ETH','ABC'...]
+        public wSkin: string = config.resource.walletImg;
+
         constructor(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins: Array<string>) {
             this.wName = wName;
             this.wPassword = wPassword;
@@ -26,6 +28,9 @@ module mod {
                 wCoins: this.wCoins
             };
             return json;
+        }
+
+        public getCoinSelected(coin: string) {
         }
     }
 }

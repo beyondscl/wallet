@@ -31,7 +31,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI == null ? new EnterApp() : new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));//获取数据
+            this.parentUI == null ? new EnterApp() : new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));
         }
 
         private updateArgee() {
@@ -42,20 +42,8 @@ module view {
         private createWallet() {
             if (this.checkArgs()) {
                 Laya.stage.removeChild(this.comp);
-                //创建重复未判定
-                let wallet = new mod.walletMod(this.comp.text_wall_name.text, this.comp.text_pass.text, "privatekey", "keystore", "851a3sdf18851a3sdf18851a3sdf18851a3sdf1852", ['ETH']);
-                let walletString = wallet.toJson();
-                laya.net.LocalStorage.setItem(this.comp.text_wall_name.text, JSON.stringify(walletString));
-                let appStore = laya.net.LocalStorage.getItem(config.prod.appKey);
-                if (appStore) {
-                    let walletOld = JSON.parse(appStore);
-                    walletOld.put(this.comp.text_wall_name.text);
-                    laya.net.LocalStorage.setItem(config.prod.appKey, JSON.stringify(walletOld));
-                } else {
-                    laya.net.LocalStorage.setItem(config.prod.appKey, JSON.stringify([this.comp.text_wall_name.text]));
-                }
+                let wallet = service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text);
                 new view.WalletMain().initQueryData(wallet);
-                return;
             }
         }
 

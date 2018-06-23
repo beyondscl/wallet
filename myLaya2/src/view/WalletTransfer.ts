@@ -32,15 +32,7 @@ module view {
         public setData(data: mod.walItemMod) {
             this.comp.lab_coin_name.text = data.itemName;
             this.comp.lab_coin_total.text = data.itemMonType;
-            //测试数据
-            let datas: Array<mod.dealtemMod> = [];
-            for (let i = 0; i < 3; i++) {
-                let t = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                datas.push(t);
-            }
-            let t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-            datas.push(t);
-            this.setListUp(datas);
+            this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         }
 
         private btnClick(type: number) {
@@ -57,7 +49,7 @@ module view {
             this.list.name = 'item0';
             this.list.itemRender = dealItemUI;
             this.list.repeatX = 1;
-            this.list.repeatY = data.length > 100 ? 100 : data.length;
+            this.list.repeatY = data.length;
             this.list.x = 0;
             this.list.bottom = 40;
             this.list.top = 110;

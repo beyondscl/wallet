@@ -1,6 +1,7 @@
 //币种列表
 import Box = Laya.Box;
 import Label = Laya.Label;
+
 class coinItemUI extends Box {
     public static WID: number = 60;
     public static HEI: number = 60;
@@ -65,8 +66,9 @@ class coinItemUI extends Box {
         //只能缩放，并且无法相对布局
         this.coinCheckBox.skin = 'template/Switcher/checkbox_switch.png';
         this.coinCheckBox.stateNum = 2;
-        this.coinCheckBox.scale(0.4,0.4);
+        this.coinCheckBox.scale(0.4, 0.4);
         this.coinCheckBox.x = 240;
         this.coinCheckBox.y = 20;
+        this.coinCheckBox.selected = coinItem.coinSelected;
     }
 }

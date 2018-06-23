@@ -14,4 +14,18 @@ class testData {
     public static getCoins(): any {
         return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", false)];
     }
+
+    //管理钱包：获取所有钱包
+    public static getWallets(): Array<mod.walletMod> {
+        let walletNames = util.getItem(config.prod.appKey);
+        if (walletNames) {
+            let data = [];
+            for (let i = 0; i < walletNames.length; i++) {
+                let walletJson = util.getItem(walletNames[i]);
+                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null);
+                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null);
+            }
+            return data;
+        }
+    }
 }

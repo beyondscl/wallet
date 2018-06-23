@@ -1,3 +1,4 @@
+//添加币种：币种模型
 module mod {
     export class coinItemMod {
         public coinName: string;

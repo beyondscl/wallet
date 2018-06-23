@@ -4,7 +4,7 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletMain extends ui.WalletMainUI {
-        private data: Array<mod.walItemMod> = [];//模拟列表数据
+        private data: Array<mod.walItemMod> = [];
         private comp: ui.WalletMainUI;
         private list: List = new Laya.List();
 
@@ -71,8 +71,7 @@ module view {
 
         private onSelect(index: number): void {
             let item = this.data[index];
-            this.comp.visible = false;
-            this.list.visible = false;
+            this.stage.removeChild(this.comp);
             new view.WalletTransfer().setData(item);
         }
 
@@ -96,12 +95,14 @@ module view {
                 pom.top = 0;
                 pom.left = 200;
                 pom.setParentUI(this.comp);
-                pom.initData(['myeth']);
+                pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();
             }
             if (index == 4) {
                 this.stage.removeChild(this.comp);
-                new view.coin.AddCoins().setParentUI(this.comp);
+                let coinUI = new view.coin.AddCoins();
+                coinUI.setParentUI(this.comp);
+                coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));
             }
         }
     }
