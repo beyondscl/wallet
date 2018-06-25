@@ -1,247 +1,266 @@
-import View=laya.ui.View;
-import Dialog=laya.ui.Dialog;
-
-module ui.alert {
-    export class EnterPassUI extends Dialog {
-        public btn_cancel: Laya.Button;
-        public btn_submit: Laya.Button;
-        public text_pass: Laya.TextInput;
-
-        public static uiView: any = {
-            "type": "Dialog",
-            "props": {"width": 200, "layoutEnabled": true, "height": 120},
-            "child": [{
-                "type": "Box",
-                "props": {"top": 0, "right": 0, "left": 0, "layoutEnabled": true, "bottom": 0},
-                "child": [{
-                    "type": "Image",
-                    "props": {
-                        "top": 0,
-                        "skin": "template/Warn/alert_dialog.png",
-                        "right": 0,
-                        "left": 0,
-                        "layoutEnabled": true,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "width": 100,
-                        "var": "btn_cancel",
-                        "stateNum": 2,
-                        "skin": "template/Warn/btn_alert dialogLeftButton.png",
-                        "left": 0,
-                        "layoutEnabled": true,
-                        "labelSize": 16,
-                        "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
-                        "label": "取消",
-                        "height": 35,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "width": 100,
-                        "var": "btn_submit",
-                        "stateNum": 2,
-                        "skin": "template/Warn/btn_alert dialogRightButton.png",
-                        "right": 0,
-                        "layoutEnabled": true,
-                        "labelSize": 16,
-                        "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
-                        "label": "确定",
-                        "height": 35,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 27,
-                        "var": "text_pass",
-                        "type": "password",
-                        "right": 5,
-                        "prompt": "请输入密码",
-                        "left": 5,
-                        "layoutEnabled": true,
-                        "height": 30,
-                        "borderColor": "#c0c0c0",
-                        "bgColor": "#ffffff"
-                    }
-                }]
-            }]
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         };
+    return function (d, b) {
+        extendStatics(d, b);
 
-        constructor() {
-            super()
+        function __() {
+            this.constructor = d;
         }
 
-        createChildren(): void {
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var View = laya.ui.View;
+var Dialog = laya.ui.Dialog;
+var ui;
+(function (ui) {
+    var alert;
+    (function (alert) {
+        var EnterPassUI = /** @class */ (function (_super) {
+            __extends(EnterPassUI, _super);
 
-            super.createChildren();
-            this.createView(ui.alert.EnterPassUI.uiView);
+            function EnterPassUI() {
+                return _super.call(this) || this;
+            }
 
-        }
-
-    }
-}
-
-module ui.alert {
-    export class ExportPriKeyUI extends Dialog {
-        public text_pKey: Laya.TextArea;
-        public btn_copy: Laya.Button;
-
-        public static uiView: any = {
-            "type": "Dialog",
-            "props": {"y": 0, "x": 0, "width": 200, "height": 120},
-            "child": [{
-                "type": "Box",
-                "props": {"top": 0, "right": 0, "left": 0, "layoutEnabled": true, "bottom": 0},
+            EnterPassUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.alert.EnterPassUI.uiView);
+            };
+            EnterPassUI.uiView = {
+                "type": "Dialog",
+                "props": {"width": 200, "layoutEnabled": true, "height": 120},
                 "child": [{
-                    "type": "Image",
+                    "type": "Box",
+                    "props": {"top": 0, "right": 0, "left": 0, "layoutEnabled": true, "bottom": 0},
+                    "child": [{
+                        "type": "Image",
+                        "props": {
+                            "top": 0,
+                            "skin": "template/Warn/alert_dialog.png",
+                            "right": 0,
+                            "left": 0,
+                            "layoutEnabled": true,
+                            "bottom": 0
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "width": 100,
+                            "var": "btn_cancel",
+                            "stateNum": 2,
+                            "skin": "template/Warn/btn_alert dialogLeftButton.png",
+                            "left": 0,
+                            "layoutEnabled": true,
+                            "labelSize": 16,
+                            "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
+                            "label": "取消",
+                            "height": 35,
+                            "bottom": 0
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "width": 100,
+                            "var": "btn_submit",
+                            "stateNum": 2,
+                            "skin": "template/Warn/btn_alert dialogRightButton.png",
+                            "right": 0,
+                            "layoutEnabled": true,
+                            "labelSize": 16,
+                            "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
+                            "label": "确定",
+                            "height": 35,
+                            "bottom": 0
+                        }
+                    }, {
+                        "type": "TextInput",
+                        "props": {
+                            "y": 27,
+                            "var": "text_pass",
+                            "type": "password",
+                            "right": 5,
+                            "prompt": "请输入密码",
+                            "left": 5,
+                            "layoutEnabled": true,
+                            "height": 30,
+                            "borderColor": "#c0c0c0",
+                            "bgColor": "#ffffff"
+                        }
+                    }]
+                }]
+            };
+            return EnterPassUI;
+        }(Dialog));
+        alert.EnterPassUI = EnterPassUI;
+    })(alert = ui.alert || (ui.alert = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var alert;
+    (function (alert) {
+        var ExportPriKeyUI = /** @class */ (function (_super) {
+            __extends(ExportPriKeyUI, _super);
+
+            function ExportPriKeyUI() {
+                return _super.call(this) || this;
+            }
+
+            ExportPriKeyUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.alert.ExportPriKeyUI.uiView);
+            };
+            ExportPriKeyUI.uiView = {
+                "type": "Dialog",
+                "props": {"y": 0, "x": 0, "width": 200, "height": 120},
+                "child": [{
+                    "type": "Box",
+                    "props": {"top": 0, "right": 0, "left": 0, "layoutEnabled": true, "bottom": 0},
+                    "child": [{
+                        "type": "Image",
+                        "props": {
+                            "top": 0,
+                            "skin": "template/Warn/alert_dialog.png",
+                            "right": 0,
+                            "left": 0,
+                            "layoutEnabled": true,
+                            "bottom": 0
+                        }
+                    }, {
+                        "type": "TextArea",
+                        "props": {
+                            "wordWrap": true,
+                            "var": "text_pKey",
+                            "type": "text",
+                            "top": 10,
+                            "text": "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b",
+                            "right": 10,
+                            "padding": "10",
+                            "left": 10,
+                            "font": "SimHei",
+                            "editable": false,
+                            "color": "#000000",
+                            "bottom": 40,
+                            "bgColor": "#bbbbbb"
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "var": "btn_copy",
+                            "skin": "comp/button.png",
+                            "right": 10,
+                            "left": 10,
+                            "label": "复制",
+                            "height": 30,
+                            "bottom": 5
+                        }
+                    }]
+                }]
+            };
+            return ExportPriKeyUI;
+        }(Dialog));
+        alert.ExportPriKeyUI = ExportPriKeyUI;
+    })(alert = ui.alert || (ui.alert = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var coin;
+    (function (coin) {
+        var AddCoinsUI = /** @class */ (function (_super) {
+            __extends(AddCoinsUI, _super);
+
+            function AddCoinsUI() {
+                return _super.call(this) || this;
+            }
+
+            AddCoinsUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.coin.AddCoinsUI.uiView);
+            };
+            AddCoinsUI.uiView = {
+                "type": "View",
+                "props": {"width": 300, "visible": true, "height": 429},
+                "child": [{
+                    "type": "Rect",
+                    "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60, "fillColor": "#c6e2ee"}
+                }, {
+                    "type": "Button",
                     "props": {
-                        "top": 0,
-                        "skin": "template/Warn/alert_dialog.png",
-                        "right": 0,
-                        "left": 0,
-                        "layoutEnabled": true,
-                        "bottom": 0
+                        "width": 119,
+                        "var": "btn_goback",
+                        "top": 20,
+                        "skin": "template/Navigator/btn_BackButton.png",
+                        "left": 20,
+                        "height": 30
                     }
                 }, {
-                    "type": "TextArea",
+                    "type": "Label",
                     "props": {
-                        "wordWrap": true,
-                        "var": "text_pKey",
-                        "type": "text",
-                        "top": 10,
-                        "text": "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b",
-                        "right": 10,
-                        "padding": "10",
-                        "left": 10,
-                        "font": "SimHei",
-                        "editable": false,
+                        "y": 20,
+                        "x": 110,
+                        "valign": "middle",
+                        "top": 20,
+                        "text": "添加新资产",
+                        "height": 30,
+                        "fontSize": 16,
                         "color": "#000000",
-                        "bottom": 40,
-                        "bgColor": "#bbbbbb"
+                        "centerX": 0,
+                        "align": "center"
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "var": "btn_copy",
-                        "skin": "comp/button.png",
-                        "right": 10,
-                        "left": 10,
-                        "label": "复制",
-                        "height": 30,
-                        "bottom": 5
+                        "width": 30,
+                        "var": "btn_query",
+                        "top": 20,
+                        "skin": "template/Search/btn_search_icon.png",
+                        "right": 20,
+                        "height": 30
                     }
                 }]
-            }]
+            };
+            return AddCoinsUI;
+        }(View));
+        coin.AddCoinsUI = AddCoinsUI;
+    })(coin = ui.coin || (ui.coin = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var coin;
+    (function (coin) {
+        var queryCoinsUI = /** @class */ (function (_super) {
+            __extends(queryCoinsUI, _super);
+
+            function queryCoinsUI() {
+                return _super.call(this) || this;
+            }
+
+            queryCoinsUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.coin.queryCoinsUI.uiView);
+            };
+            queryCoinsUI.uiView = {"type": "View", "props": {"width": 300, "height": 429}};
+            return queryCoinsUI;
+        }(View));
+        coin.queryCoinsUI = queryCoinsUI;
+    })(coin = ui.coin || (ui.coin = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var EnterAppUI = /** @class */ (function (_super) {
+        __extends(EnterAppUI, _super);
+
+        function EnterAppUI() {
+            return _super.call(this) || this;
+        }
+
+        EnterAppUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.EnterAppUI.uiView);
         };
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.alert.ExportPriKeyUI.uiView);
-
-        }
-
-    }
-}
-
-module ui.coin {
-    export class AddCoinsUI extends View {
-        public btn_goback: Laya.Button;
-        public btn_query: Laya.Button;
-
-        public static uiView: any = {
-            "type": "View",
-            "props": {"width": 300, "visible": true, "height": 429},
-            "child": [{
-                "type": "Rect",
-                "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60, "fillColor": "#c6e2ee"}
-            }, {
-                "type": "Button",
-                "props": {
-                    "width": 119,
-                    "var": "btn_goback",
-                    "top": 20,
-                    "skin": "template/Navigator/btn_BackButton.png",
-                    "left": 20,
-                    "height": 30
-                }
-            }, {
-                "type": "Label",
-                "props": {
-                    "y": 20,
-                    "x": 110,
-                    "valign": "middle",
-                    "top": 20,
-                    "text": "添加新资产",
-                    "height": 30,
-                    "fontSize": 16,
-                    "color": "#000000",
-                    "centerX": 0,
-                    "align": "center"
-                }
-            }, {
-                "type": "Button",
-                "props": {
-                    "width": 30,
-                    "var": "btn_query",
-                    "top": 20,
-                    "skin": "template/Search/btn_search_icon.png",
-                    "right": 20,
-                    "height": 30
-                }
-            }]
-        };
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.coin.AddCoinsUI.uiView);
-
-        }
-
-    }
-}
-
-module ui.coin {
-    export class queryCoinsUI extends View {
-
-        public static uiView: any = {"type": "View", "props": {"width": 300, "height": 429}};
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.coin.queryCoinsUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class EnterAppUI extends View {
-        public spr_bg: Laya.Sprite;
-        public lab_title: Laya.Label;
-        public lab_subTitle: Laya.Label;
-        public btn_create: Laya.Button;
-        public btn_import: Laya.Button;
-
-        public static uiView: any = {
+        EnterAppUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{"type": "Sprite", "props": {"var": "spr_bg"}}, {
@@ -303,50 +322,40 @@ module ui {
                 }
             }]
         };
+        return EnterAppUI;
+    }(View));
+    ui.EnterAppUI = EnterAppUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var GuideUI = /** @class */ (function (_super) {
+        __extends(GuideUI, _super);
 
-        constructor() {
-            super()
+        function GuideUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.EnterAppUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class GuideUI extends View {
-
-        public static uiView: any = {"type": "View", "props": {"y": 0, "x": 0, "width": 300, "height": 429}};
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
+        GuideUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
             this.createView(ui.GuideUI.uiView);
+        };
+        GuideUI.uiView = {"type": "View", "props": {"y": 0, "x": 0, "width": 300, "height": 429}};
+        return GuideUI;
+    }(View));
+    ui.GuideUI = GuideUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var LoginUI = /** @class */ (function (_super) {
+        __extends(LoginUI, _super);
 
+        function LoginUI() {
+            return _super.call(this) || this;
         }
 
-    }
-}
-
-module ui {
-    export class LoginUI extends View {
-        public lab_title: Laya.Label;
-        public lab_quit: Laya.Label;
-        public lab_contury: Laya.Label;
-        public lab_sele_contury: Laya.Label;
-        public text_phoneNum: Laya.TextInput;
-        public text_password: Laya.TextInput;
-
-        public static uiView: any = {
+        LoginUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.LoginUI.uiView);
+        };
+        LoginUI.uiView = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 600, "height": 800},
             "child": [{
@@ -491,27 +500,24 @@ module ui {
                 }
             }]
         };
+        return LoginUI;
+    }(View));
+    ui.LoginUI = LoginUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var MsgUI = /** @class */ (function (_super) {
+        __extends(MsgUI, _super);
 
-        constructor() {
-            super()
+        function MsgUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.LoginUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class MsgUI extends Dialog {
-        public lab_title: Laya.Label;
-        public lab_msg: laya.display.Text;
-
-        public static uiView: any = {
+        MsgUI.prototype.createChildren = function () {
+            View.regComponent("Text", laya.display.Text);
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.MsgUI.uiView);
+        };
+        MsgUI.uiView = {
             "type": "Dialog",
             "props": {
                 "width": 300,
@@ -568,470 +574,446 @@ module ui {
                 }
             }, {"type": "Label", "props": {"text": "label"}}]
         };
+        return MsgUI;
+    }(Dialog));
+    ui.MsgUI = MsgUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var set;
+    (function (set) {
+        var ExpKeystoreUI = /** @class */ (function (_super) {
+            __extends(ExpKeystoreUI, _super);
 
-        constructor() {
-            super()
-        }
+            function ExpKeystoreUI() {
+                return _super.call(this) || this;
+            }
 
-        createChildren(): void {
-            View.regComponent("Text", laya.display.Text);
-
-            super.createChildren();
-            this.createView(ui.MsgUI.uiView);
-
-        }
-
-    }
-}
-
-module ui.set {
-    export class ExpKeystoreUI extends View {
-        public btn_back: Laya.Button;
-        public btn_tab: Laya.Tab;
-        public viewStack: Laya.ViewStack;
-        public text_keystore: Laya.TextArea;
-        public btn_copy: Laya.Button;
-        public img_keystore: Laya.Image;
-
-        public static uiView: any = {
-            "type": "View",
-            "props": {"width": 300, "layoutEnabled": true, "height": 429},
-            "child": [{
-                "type": "Rect",
-                "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60}
-            }, {
-                "type": "Label",
-                "props": {
-                    "y": 10,
-                    "x": 118,
-                    "valign": "middle",
-                    "top": 20,
-                    "text": "导出 Keystore",
-                    "height": 30,
-                    "fontSize": 16,
-                    "color": "#000000",
-                    "centerX": 0,
-                    "align": "center"
-                }
-            }, {
-                "type": "Button",
-                "props": {
-                    "y": 10,
-                    "x": 20,
-                    "width": 117,
-                    "var": "btn_back",
-                    "top": 20,
-                    "skin": "template/Navigator/btn_BackButton.png",
-                    "height": 30
-                }
-            }, {
-                "type": "Image",
-                "props": {"y": 60, "x": 10, "skin": "img/itemSepar.png", "right": 0, "left": 0}
-            }, {
-                "type": "Tab",
-                "props": {
-                    "y": 60,
-                    "var": "btn_tab",
-                    "selectedIndex": 0,
-                    "right": 0,
-                    "left": 0,
-                    "layoutEnabled": true,
-                    "height": 40
-                },
+            ExpKeystoreUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.set.ExpKeystoreUI.uiView);
+            };
+            ExpKeystoreUI.uiView = {
+                "type": "View",
+                "props": {"width": 300, "layoutEnabled": true, "height": 429},
                 "child": [{
-                    "type": "Button",
+                    "type": "Rect",
+                    "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60}
+                }, {
+                    "type": "Label",
                     "props": {
-                        "top": 0,
-                        "right": 150,
-                        "name": "item0",
-                        "left": 0,
-                        "labelSize": 16,
-                        "label": "Keystore 文件",
-                        "bottom": 0
+                        "y": 10,
+                        "x": 118,
+                        "valign": "middle",
+                        "top": 20,
+                        "text": "导出 Keystore",
+                        "height": 30,
+                        "fontSize": 16,
+                        "color": "#000000",
+                        "centerX": 0,
+                        "align": "center"
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "top": 0,
-                        "right": 0,
-                        "name": "item1",
-                        "left": 150,
-                        "labelSize": 16,
-                        "label": "二维码",
-                        "bottom": 0
+                        "y": 10,
+                        "x": 20,
+                        "width": 117,
+                        "var": "btn_back",
+                        "top": 20,
+                        "skin": "template/Navigator/btn_BackButton.png",
+                        "height": 30
                     }
-                }]
-            }, {
-                "type": "ViewStack",
-                "props": {
-                    "var": "viewStack",
-                    "top": 100,
-                    "selectedIndex": 0,
-                    "right": 0,
-                    "mouseEnabled": true,
-                    "left": 0,
-                    "bottom": 0
-                },
-                "child": [{
-                    "type": "Box",
+                }, {
+                    "type": "Image",
+                    "props": {"y": 60, "x": 10, "skin": "img/itemSepar.png", "right": 0, "left": 0}
+                }, {
+                    "type": "Tab",
                     "props": {
-                        "x": 0,
-                        "top": 0,
+                        "y": 60,
+                        "var": "btn_tab",
+                        "selectedIndex": 0,
                         "right": 0,
-                        "name": "item0",
                         "left": 0,
                         "layoutEnabled": true,
-                        "bottom": 0
+                        "height": 40
                     },
                     "child": [{
-                        "type": "Label",
+                        "type": "Button",
                         "props": {
-                            "y": 0,
-                            "valign": "middle",
-                            "text": "离线保存",
-                            "right": 20,
-                            "left": 20,
-                            "height": 20,
-                            "color": "#108bbb",
-                            "align": "left"
-                        }
-                    }, {
-                        "type": "TextArea",
-                        "props": {
-                            "y": 25,
-                            "width": 260,
-                            "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
-                            "right": 20,
-                            "left": 20,
-                            "height": 35,
-                            "color": "#645a5a"
-                        }
-                    }, {
-                        "type": "Label",
-                        "props": {
-                            "y": 60,
-                            "x": 40,
-                            "valign": "middle",
-                            "text": "密码保险箱保存",
-                            "left": 20,
-                            "height": 20,
-                            "color": "#108bbb"
-                        }
-                    }, {
-                        "type": "TextArea",
-                        "props": {
-                            "y": 80,
-                            "x": 20,
-                            "width": 260,
-                            "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
-                            "right": 20,
-                            "left": 20,
-                            "height": 40,
-                            "color": "#645a5a"
-                        }
-                    }, {
-                        "type": "Label",
-                        "props": {
-                            "y": 120,
-                            "x": 20,
-                            "valign": "middle",
-                            "text": "请勿使用网络传输",
-                            "left": 20,
-                            "height": 20,
-                            "color": "#108bbb"
-                        }
-                    }, {
-                        "type": "TextArea",
-                        "props": {
-                            "y": 140,
-                            "x": 10,
-                            "width": 260,
-                            "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
-                            "right": 20,
-                            "left": 20,
-                            "height": 40,
-                            "color": "#645a5a"
-                        }
-                    }, {
-                        "type": "TextArea",
-                        "props": {
-                            "width": 260,
-                            "var": "text_keystore",
-                            "top": 180,
-                            "right": 20,
-                            "overflow": "scroll",
-                            "left": 20,
-                            "height": 69,
-                            "bottom": 60
+                            "top": 0,
+                            "right": 150,
+                            "name": "item0",
+                            "left": 0,
+                            "labelSize": 16,
+                            "label": "Keystore 文件",
+                            "bottom": 0
                         }
                     }, {
                         "type": "Button",
                         "props": {
-                            "x": 20,
-                            "var": "btn_copy",
-                            "skin": "img/blue.png",
-                            "right": 20,
-                            "left": 20,
-                            "layoutEnabled": true,
-                            "label": "复制",
-                            "height": 40,
-                            "bottom": 10
+                            "top": 0,
+                            "right": 0,
+                            "name": "item1",
+                            "left": 150,
+                            "labelSize": 16,
+                            "label": "二维码",
+                            "bottom": 0
                         }
                     }]
                 }, {
-                    "type": "Box",
+                    "type": "ViewStack",
                     "props": {
-                        "x": 0,
-                        "top": 0,
+                        "var": "viewStack",
+                        "top": 100,
+                        "selectedIndex": 0,
                         "right": 0,
-                        "name": "item1",
+                        "mouseEnabled": true,
                         "left": 0,
-                        "layoutEnabled": true,
                         "bottom": 0
                     },
                     "child": [{
-                        "type": "Label",
+                        "type": "Box",
                         "props": {
-                            "y": 0,
-                            "x": 20,
-                            "valign": "middle",
-                            "text": "仅供直接扫描",
-                            "right": 20,
-                            "left": 20,
-                            "height": 20,
-                            "color": "#108bbb",
-                            "align": "left"
-                        }
+                            "x": 0,
+                            "top": 0,
+                            "right": 0,
+                            "name": "item0",
+                            "left": 0,
+                            "layoutEnabled": true,
+                            "bottom": 0
+                        },
+                        "child": [{
+                            "type": "Label",
+                            "props": {
+                                "y": 0,
+                                "valign": "middle",
+                                "text": "离线保存",
+                                "right": 20,
+                                "left": 20,
+                                "height": 20,
+                                "color": "#108bbb",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "y": 25,
+                                "width": 260,
+                                "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
+                                "right": 20,
+                                "left": 20,
+                                "height": 35,
+                                "color": "#645a5a"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 60,
+                                "x": 40,
+                                "valign": "middle",
+                                "text": "密码保险箱保存",
+                                "left": 20,
+                                "height": 20,
+                                "color": "#108bbb"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "y": 80,
+                                "x": 20,
+                                "width": 260,
+                                "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
+                                "right": 20,
+                                "left": 20,
+                                "height": 40,
+                                "color": "#645a5a"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 120,
+                                "x": 20,
+                                "valign": "middle",
+                                "text": "请勿使用网络传输",
+                                "left": 20,
+                                "height": 20,
+                                "color": "#108bbb"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "y": 140,
+                                "x": 10,
+                                "width": 260,
+                                "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
+                                "right": 20,
+                                "left": 20,
+                                "height": 40,
+                                "color": "#645a5a"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "width": 260,
+                                "var": "text_keystore",
+                                "top": 180,
+                                "right": 20,
+                                "overflow": "scroll",
+                                "left": 20,
+                                "height": 69,
+                                "bottom": 60
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "x": 20,
+                                "var": "btn_copy",
+                                "skin": "img/blue.png",
+                                "right": 20,
+                                "left": 20,
+                                "layoutEnabled": true,
+                                "label": "复制",
+                                "height": 40,
+                                "bottom": 10
+                            }
+                        }]
                     }, {
-                        "type": "TextArea",
+                        "type": "Box",
                         "props": {
-                            "y": 25,
-                            "x": 20,
-                            "width": 260,
-                            "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
-                            "right": 20,
-                            "left": 20,
-                            "height": 40,
-                            "color": "#645a5a"
-                        }
-                    }, {
-                        "type": "Label",
-                        "props": {
-                            "y": 65,
-                            "x": 20,
-                            "valign": "middle",
-                            "text": "在安全环境下使用",
-                            "left": 20,
-                            "height": 20,
-                            "color": "#108bbb"
-                        }
-                    }, {
-                        "type": "TextArea",
-                        "props": {
-                            "y": 90,
-                            "x": 20,
-                            "width": 260,
-                            "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
-                            "right": 20,
-                            "left": 20,
-                            "height": 40,
-                            "color": "#645a5a"
-                        }
-                    }, {
-                        "type": "Rect",
-                        "props": {
-                            "y": 140,
-                            "x": 75,
-                            "width": 150,
-                            "lineWidth": 1,
-                            "height": 150,
-                            "fillColor": "#a1a0a0"
-                        }
-                    }, {
-                        "type": "Image",
-                        "props": {
-                            "y": 145,
-                            "x": 80,
-                            "width": 140,
-                            "var": "img_keystore",
-                            "skin": "img/ewm.jpg",
-                            "height": 140
-                        }
+                            "x": 0,
+                            "top": 0,
+                            "right": 0,
+                            "name": "item1",
+                            "left": 0,
+                            "layoutEnabled": true,
+                            "bottom": 0
+                        },
+                        "child": [{
+                            "type": "Label",
+                            "props": {
+                                "y": 0,
+                                "x": 20,
+                                "valign": "middle",
+                                "text": "仅供直接扫描",
+                                "right": 20,
+                                "left": 20,
+                                "height": 20,
+                                "color": "#108bbb",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "y": 25,
+                                "x": 20,
+                                "width": 260,
+                                "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
+                                "right": 20,
+                                "left": 20,
+                                "height": 40,
+                                "color": "#645a5a"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 65,
+                                "x": 20,
+                                "valign": "middle",
+                                "text": "在安全环境下使用",
+                                "left": 20,
+                                "height": 20,
+                                "color": "#108bbb"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "y": 90,
+                                "x": 20,
+                                "width": 260,
+                                "text": "离线保存离线保存离线保存离线保存离线保存离线保存离线保存离线保存",
+                                "right": 20,
+                                "left": 20,
+                                "height": 40,
+                                "color": "#645a5a"
+                            }
+                        }, {
+                            "type": "Rect",
+                            "props": {
+                                "y": 140,
+                                "x": 75,
+                                "width": 150,
+                                "lineWidth": 1,
+                                "height": 150,
+                                "fillColor": "#a1a0a0"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {
+                                "y": 145,
+                                "x": 80,
+                                "width": 140,
+                                "var": "img_keystore",
+                                "skin": "img/ewm.jpg",
+                                "height": 140
+                            }
+                        }]
                     }]
                 }]
-            }]
+            };
+            return ExpKeystoreUI;
+        }(View));
+        set.ExpKeystoreUI = ExpKeystoreUI;
+    })(set = ui.set || (ui.set = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var set;
+    (function (set) {
+        var UpdatePassUI = /** @class */ (function (_super) {
+            __extends(UpdatePassUI, _super);
+
+            function UpdatePassUI() {
+                return _super.call(this) || this;
+            }
+
+            UpdatePassUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.set.UpdatePassUI.uiView);
+            };
+            UpdatePassUI.uiView = {
+                "type": "View",
+                "props": {"width": 300, "height": 429},
+                "child": [{
+                    "type": "Rect",
+                    "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60}
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 10,
+                        "x": 118,
+                        "valign": "middle",
+                        "top": 20,
+                        "text": "更改密码",
+                        "height": 30,
+                        "fontSize": 16,
+                        "color": "#000000",
+                        "centerX": 0,
+                        "align": "center"
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "y": 10,
+                        "x": 20,
+                        "width": 117,
+                        "var": "btn_back",
+                        "top": 20,
+                        "skin": "template/Navigator/btn_BackButton.png",
+                        "height": 30
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 10,
+                        "x": 238,
+                        "var": "lab_save",
+                        "valign": "middle",
+                        "top": 20,
+                        "text": "保存",
+                        "right": 20,
+                        "height": 30,
+                        "fontSize": 16,
+                        "color": "#218d92",
+                        "align": "center"
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {"top": 60, "skin": "img/itemSepar.png", "right": 0, "left": 0}
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 90,
+                        "var": "lab_oldPass",
+                        "type": "password",
+                        "right": 20,
+                        "prompt": "旧密码",
+                        "maxChars": 30,
+                        "left": 20,
+                        "height": 30
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {"y": 130, "x": 0, "skin": "img/itemSepar.png", "right": 0, "left": 0}
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 140,
+                        "var": "lab_newPass",
+                        "type": "password",
+                        "right": 20,
+                        "prompt": "新密码",
+                        "maxChars": 30,
+                        "left": 20,
+                        "height": 30
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {"y": 180, "x": 0, "skin": "img/itemSepar.png", "right": 0, "left": 0}
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 190,
+                        "var": "lab_confPass",
+                        "type": "password",
+                        "right": 20,
+                        "prompt": "确认密码",
+                        "maxChars": 30,
+                        "left": 20,
+                        "height": 30
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 240,
+                        "width": 229,
+                        "valign": "middle",
+                        "text": "忘记密码？导入助记词或私钥可重置密码。",
+                        "left": 20,
+                        "height": 20,
+                        "color": "#9e9999",
+                        "align": "left"
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 240,
+                        "var": "lab_import",
+                        "valign": "middle",
+                        "text": "导入",
+                        "right": 20,
+                        "height": 20,
+                        "color": "#0047ff",
+                        "align": "left"
+                    }
+                }]
+            };
+            return UpdatePassUI;
+        }(View));
+        set.UpdatePassUI = UpdatePassUI;
+    })(set = ui.set || (ui.set = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var TransDetailUI = /** @class */ (function (_super) {
+        __extends(TransDetailUI, _super);
+
+        function TransDetailUI() {
+            return _super.call(this) || this;
+        }
+
+        TransDetailUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.TransDetailUI.uiView);
         };
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.set.ExpKeystoreUI.uiView);
-
-        }
-
-    }
-}
-
-module ui.set {
-    export class UpdatePassUI extends View {
-        public btn_back: Laya.Button;
-        public lab_save: Laya.Label;
-        public lab_oldPass: Laya.TextInput;
-        public lab_newPass: Laya.TextInput;
-        public lab_confPass: Laya.TextInput;
-        public lab_import: Laya.Label;
-
-        public static uiView: any = {
-            "type": "View",
-            "props": {"width": 300, "height": 429},
-            "child": [{
-                "type": "Rect",
-                "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60}
-            }, {
-                "type": "Label",
-                "props": {
-                    "y": 10,
-                    "x": 118,
-                    "valign": "middle",
-                    "top": 20,
-                    "text": "更改密码",
-                    "height": 30,
-                    "fontSize": 16,
-                    "color": "#000000",
-                    "centerX": 0,
-                    "align": "center"
-                }
-            }, {
-                "type": "Button",
-                "props": {
-                    "y": 10,
-                    "x": 20,
-                    "width": 117,
-                    "var": "btn_back",
-                    "top": 20,
-                    "skin": "template/Navigator/btn_BackButton.png",
-                    "height": 30
-                }
-            }, {
-                "type": "Label",
-                "props": {
-                    "y": 10,
-                    "x": 238,
-                    "var": "lab_save",
-                    "valign": "middle",
-                    "top": 20,
-                    "text": "保存",
-                    "right": 20,
-                    "height": 30,
-                    "fontSize": 16,
-                    "color": "#218d92",
-                    "align": "center"
-                }
-            }, {
-                "type": "Image",
-                "props": {"top": 60, "skin": "img/itemSepar.png", "right": 0, "left": 0}
-            }, {
-                "type": "TextInput",
-                "props": {
-                    "y": 90,
-                    "var": "lab_oldPass",
-                    "type": "password",
-                    "right": 20,
-                    "prompt": "旧密码",
-                    "maxChars": 30,
-                    "left": 20,
-                    "height": 30
-                }
-            }, {
-                "type": "Image",
-                "props": {"y": 130, "x": 0, "skin": "img/itemSepar.png", "right": 0, "left": 0}
-            }, {
-                "type": "TextInput",
-                "props": {
-                    "y": 140,
-                    "var": "lab_newPass",
-                    "type": "password",
-                    "right": 20,
-                    "prompt": "新密码",
-                    "maxChars": 30,
-                    "left": 20,
-                    "height": 30
-                }
-            }, {
-                "type": "Image",
-                "props": {"y": 180, "x": 0, "skin": "img/itemSepar.png", "right": 0, "left": 0}
-            }, {
-                "type": "TextInput",
-                "props": {
-                    "y": 190,
-                    "var": "lab_confPass",
-                    "type": "password",
-                    "right": 20,
-                    "prompt": "确认密码",
-                    "maxChars": 30,
-                    "left": 20,
-                    "height": 30
-                }
-            }, {
-                "type": "Label",
-                "props": {
-                    "y": 240,
-                    "width": 229,
-                    "valign": "middle",
-                    "text": "忘记密码？导入助记词或私钥可重置密码。",
-                    "left": 20,
-                    "height": 20,
-                    "color": "#9e9999",
-                    "align": "left"
-                }
-            }, {
-                "type": "Label",
-                "props": {
-                    "y": 240,
-                    "var": "lab_import",
-                    "valign": "middle",
-                    "text": "导入",
-                    "right": 20,
-                    "height": 20,
-                    "color": "#0047ff",
-                    "align": "left"
-                }
-            }]
-        };
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.set.UpdatePassUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class TransDetailUI extends View {
-        public lab_coin_name: Laya.Label;
-        public btn_goback: Laya.Button;
-        public lab_amount: Laya.Label;
-        public lab_type: Laya.Label;
-        public lab_addr: Laya.Label;
-        public lab_transId: Laya.Label;
-        public lab_gas: Laya.Label;
-        public lab_confirm: Laya.Label;
-        public lab_time: Laya.Label;
-        public lab_nonce: Laya.Label;
-        public btn_moreinfo: Laya.Button;
-
-        public static uiView: any = {
+        TransDetailUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1218,26 +1200,23 @@ module ui {
                 "props": {"var": "btn_moreinfo", "right": 0, "left": 0, "label": "查看更多交易详情", "height": 40, "bottom": 0}
             }]
         };
+        return TransDetailUI;
+    }(View));
+    ui.TransDetailUI = TransDetailUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var TransHisListUI = /** @class */ (function (_super) {
+        __extends(TransHisListUI, _super);
 
-        constructor() {
-            super()
+        function TransHisListUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.TransDetailUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class TransHisListUI extends View {
-        public btn_goback: Laya.Button;
-
-        public static uiView: any = {
+        TransHisListUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.TransHisListUI.uiView);
+        };
+        TransHisListUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1271,35 +1250,23 @@ module ui {
                 }
             }]
         };
+        return TransHisListUI;
+    }(View));
+    ui.TransHisListUI = TransHisListUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletCreateUI = /** @class */ (function (_super) {
+        __extends(WalletCreateUI, _super);
 
-        constructor() {
-            super()
+        function WalletCreateUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.TransHisListUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletCreateUI extends View {
-        public text_wall_name: Laya.TextInput;
-        public text_pass: Laya.TextInput;
-        public text_pass_conf: Laya.TextInput;
-        public text_pass_prompt: Laya.TextInput;
-        public lab_info: Laya.Label;
-        public btn_create: Laya.Button;
-        public btn_import: Laya.Button;
-        public check_argee: Laya.CheckBox;
-        public btn_back: Laya.Button;
-        public lab_pass_level: Laya.Label;
-
-        public static uiView: any = {
+        WalletCreateUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletCreateUI.uiView);
+        };
+        WalletCreateUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1452,35 +1419,23 @@ module ui {
                 }
             }]
         };
+        return WalletCreateUI;
+    }(View));
+    ui.WalletCreateUI = WalletCreateUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletDetailUI = /** @class */ (function (_super) {
+        __extends(WalletDetailUI, _super);
 
-        constructor() {
-            super()
+        function WalletDetailUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletCreateUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletDetailUI extends View {
-        public lab_wName: Laya.Label;
-        public btn_back: Laya.Button;
-        public btn_save: Laya.Label;
-        public lab_total: Laya.Label;
-        public img_wImg: Laya.Image;
-        public lab_wAddr: Laya.Label;
-        public text_wName: Laya.TextInput;
-        public box_reverpass: Laya.Box;
-        public box_expSeckey: Laya.Box;
-        public box_expKeystore: Laya.Box;
-
-        public static uiView: any = {
+        WalletDetailUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletDetailUI.uiView);
+        };
+        WalletDetailUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1634,33 +1589,23 @@ module ui {
                 }, {"type": "Image", "props": {"skin": "template/List/arrow.png", "right": 20, "centerY": 0}}]
             }]
         };
+        return WalletDetailUI;
+    }(View));
+    ui.WalletDetailUI = WalletDetailUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletMainUI = /** @class */ (function (_super) {
+        __extends(WalletMainUI, _super);
 
-        constructor() {
-            super()
+        function WalletMainUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletDetailUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletMainUI extends View {
-        public lab_wName: Laya.Label;
-        public lab_wAddr: Laya.Label;
-        public lab_total_usd: Laya.Label;
-        public btn_owner_info: Laya.Image;
-        public btn_addCoin: Laya.Image;
-        public btn_assets: Laya.Button;
-        public btn_me: Laya.Button;
-        public btn_more: Laya.Image;
-
-        public static uiView: any = {
+        WalletMainUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletMainUI.uiView);
+        };
+        WalletMainUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1733,33 +1678,23 @@ module ui {
                 "props": {"width": 30, "var": "btn_more", "top": 20, "skin": "img/more.png", "right": 20, "height": 30}
             }]
         };
+        return WalletMainUI;
+    }(View));
+    ui.WalletMainUI = WalletMainUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletManageUI = /** @class */ (function (_super) {
+        __extends(WalletManageUI, _super);
 
-        constructor() {
-            super()
+        function WalletManageUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletMainUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletManageUI extends View {
-        public btn_goback: Laya.Button;
-        public btn_create: Laya.Button;
-        public btn_import: Laya.Button;
-        public list_wallet: Laya.List;
-        public img_wallet: Laya.Image;
-        public lab_wName: Laya.Label;
-        public lab_wAddr: Laya.Label;
-        public lab_wTotal: Laya.Label;
-
-        public static uiView: any = {
+        WalletManageUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletManageUI.uiView);
+        };
+        WalletManageUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1906,29 +1841,23 @@ module ui {
                 }]
             }]
         };
+        return WalletManageUI;
+    }(View));
+    ui.WalletManageUI = WalletManageUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletMeUI = /** @class */ (function (_super) {
+        __extends(WalletMeUI, _super);
 
-        constructor() {
-            super()
+        function WalletMeUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletManageUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletMeUI extends View {
-        public btn_manageWal: Laya.Image;
-        public btn_dealHistory: Laya.Image;
-        public btn_assets: Laya.Button;
-        public btn_me: Laya.Button;
-
-        public static uiView: any = {
+        WalletMeUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletMeUI.uiView);
+        };
+        WalletMeUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -1984,32 +1913,23 @@ module ui {
                 }
             }]
         };
+        return WalletMeUI;
+    }(View));
+    ui.WalletMeUI = WalletMeUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletMexUI = /** @class */ (function (_super) {
+        __extends(WalletMexUI, _super);
 
-        constructor() {
-            super()
+        function WalletMexUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletMeUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletMexUI extends View {
-        public viewStack: Laya.ViewStack;
-        public wallet_name: Laya.Label;
-        public wallet_addr: Laya.Label;
-        public list_coin: Laya.List;
-        public btn_tab: Laya.Tab;
-        public btn_assets: Laya.Button;
-        public btn_me: Laya.Button;
-
-        public static uiView: any = {
+        WalletMexUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletMexUI.uiView);
+        };
+        WalletMexUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -2151,28 +2071,23 @@ module ui {
                 }
             }]
         };
+        return WalletMexUI;
+    }(View));
+    ui.WalletMexUI = WalletMexUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletQuickUI = /** @class */ (function (_super) {
+        __extends(WalletQuickUI, _super);
 
-        constructor() {
-            super()
+        function WalletQuickUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletMexUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletQuickUI extends Dialog {
-        public bg: Laya.Image;
-        public lab_sao: Laya.Label;
-        public lab_create: Laya.Label;
-
-        public static uiView: any = {
+        WalletQuickUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletQuickUI.uiView);
+        };
+        WalletQuickUI.uiView = {
             "type": "Dialog",
             "props": {"width": 105, "height": 429},
             "child": [{
@@ -2192,27 +2107,23 @@ module ui {
                 "props": {"y": 65, "x": 40, "var": "lab_create", "text": "创建钱包", "color": "#000000"}
             }, {"type": "Image", "props": {"y": 100, "x": 0, "skin": "img/itemSepar.png", "right": 0, "left": 0}}]
         };
+        return WalletQuickUI;
+    }(Dialog));
+    ui.WalletQuickUI = WalletQuickUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletReceiveUI = /** @class */ (function (_super) {
+        __extends(WalletReceiveUI, _super);
 
-        constructor() {
-            super()
+        function WalletReceiveUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletQuickUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletReceiveUI extends View {
-        public btn_goback: Laya.Button;
-        public btn_copy: Laya.Button;
-
-        public static uiView: any = {
+        WalletReceiveUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletReceiveUI.uiView);
+        };
+        WalletReceiveUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -2287,28 +2198,23 @@ module ui {
                 }
             }]
         };
+        return WalletReceiveUI;
+    }(View));
+    ui.WalletReceiveUI = WalletReceiveUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletSendUI = /** @class */ (function (_super) {
+        __extends(WalletSendUI, _super);
 
-        constructor() {
-            super()
+        function WalletSendUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletReceiveUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletSendUI extends View {
-        public btn_goback: Laya.Button;
-        public lab_coin_name: Laya.Label;
-        public btn_next: Laya.Button;
-
-        public static uiView: any = {
+        WalletSendUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletSendUI.uiView);
+        };
+        WalletSendUI.uiView = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 300, "height": 429},
             "child": [{
@@ -2387,35 +2293,23 @@ module ui {
                 }
             }]
         };
+        return WalletSendUI;
+    }(View));
+    ui.WalletSendUI = WalletSendUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletSendSubmitUI = /** @class */ (function (_super) {
+        __extends(WalletSendSubmitUI, _super);
 
-        constructor() {
-            super()
+        function WalletSendSubmitUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletSendUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletSendSubmitUI extends View {
-        public btn_goback: Laya.Button;
-        public text_addr_to: Laya.TextInput;
-        public text_addr_from: Laya.TextInput;
-        public send_amout: Laya.Label;
-        public sli_gas: Laya.HSlider;
-        public lab_max_gas: Laya.TextInput;
-        public lab_max_gas_usd: Laya.TextInput;
-        public lab_max_total: Laya.TextInput;
-        public lab_max_total_usd: Laya.TextInput;
-        public btn_submit: Laya.Button;
-
-        public static uiView: any = {
+        WalletSendSubmitUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletSendSubmitUI.uiView);
+        };
+        WalletSendSubmitUI.uiView = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 300, "height": 429},
             "child": [{
@@ -2612,30 +2506,23 @@ module ui {
                 }
             }]
         };
+        return WalletSendSubmitUI;
+    }(View));
+    ui.WalletSendSubmitUI = WalletSendSubmitUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var WalletTransferUI = /** @class */ (function (_super) {
+        __extends(WalletTransferUI, _super);
 
-        constructor() {
-            super()
+        function WalletTransferUI() {
+            return _super.call(this) || this;
         }
 
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletSendSubmitUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
-    export class WalletTransferUI extends View {
-        public lab_coin_name: Laya.Label;
-        public lab_coin_total: Laya.Label;
-        public btn_send: Laya.Button;
-        public btn_receive: Laya.Button;
-        public btn_goback: Laya.Button;
-
-        public static uiView: any = {
+        WalletTransferUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.WalletTransferUI.uiView);
+        };
+        WalletTransferUI.uiView = {
             "type": "View",
             "props": {"width": 300, "height": 429},
             "child": [{
@@ -2705,17 +2592,8 @@ module ui {
                 }
             }]
         };
-
-        constructor() {
-            super()
-        }
-
-        createChildren(): void {
-
-            super.createChildren();
-            this.createView(ui.WalletTransferUI.uiView);
-
-        }
-
-    }
-}
+        return WalletTransferUI;
+    }(View));
+    ui.WalletTransferUI = WalletTransferUI;
+})(ui || (ui = {}));
+//# sourceMappingURL=layaUI.max.all.js.map

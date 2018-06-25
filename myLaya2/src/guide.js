@@ -1,33 +1,25 @@
-import EnterApp = view.EnterApp;
-
-class guide {
-    private guideUI: ui.GuideUI;
-    private guidesImg: Array<string> = ["guide/timg.jpg", "guide/timg1.jpg", "guide/timg2.jpg"];
-    private guideImg: Laya.Sprite;
-    private index: number = 0;
-;
-
-    private mouseStart = 0;
-
-    constructor() {
+var EnterApp = view.EnterApp;
+var guide = /** @class */ (function () {
+    function guide() {
+        this.guidesImg = ["guide/timg.jpg", "guide/timg1.jpg", "guide/timg2.jpg"];
+        this.index = 0;
+        this.mouseStart = 0;
         this.init();
     }
-
-    protected init(): void {
+    ;
+    guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
         this.guideImg = new Laya.Sprite();
         this.guideImg.loadImage(this.guidesImg[this.index], 0, 0, Laya.stage.width, Laya.stage.height);
         Laya.stage.addChild(this.guideImg);
-
         this.guideImg.on(Laya.Event.MOUSE_DOWN, this, this.mouseHandler);
         this.guideImg.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
         this.guideImg.on(Laya.Event.CLICK, this, this.mouseHandler);
         this.guideImg.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
-    }
-
+    };
     //functions
-    private touchEvent(next: number) {
+    guide.prototype.touchEvent = function (next) {
         next = next <= 0 ? 0 : next;
         this.index = next;
         if (this.index >= this.guidesImg.length) {
@@ -37,9 +29,8 @@ class guide {
             return;
         }
         this.guideImg.loadImage(this.guidesImg[next], 0, 0, Laya.stage.width, Laya.stage.height);
-    }
-
-    private mouseHandler(e: Event): void {
+    };
+    guide.prototype.mouseHandler = function (e) {
         switch (e.type) {
             case Laya.Event.MOUSE_DOWN:
                 this.mouseStart = Laya.stage.mouseX;
@@ -55,9 +46,9 @@ class guide {
             case Laya.Event.MOUSE_OVER:
                 break;
         }
-    }
-}
-
+    };
+    return guide;
+}());
 //程序入口
 Laya.init(Laya.Browser.width, Laya.Browser.height, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
@@ -86,13 +77,15 @@ function beginLoad() {
 
 function enter() {
     // laya.net.LocalStorage.clear();
-    let walletNames = util.getItem(config.prod.appKey);
+    var walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();
         return;
     }
-    let wallet = util.getItem(walletNames[0]);
-    let walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
+    var wallet = util.getItem(walletNames[0]);
+    var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);
 }
+
+//# sourceMappingURL=guide.js.map
