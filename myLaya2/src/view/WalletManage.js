@@ -35,12 +35,24 @@ var view;
             Laya.stage.bgColor = 'white';
         };
         WalletManage.prototype.initEvent = function () {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.btn_create.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+            this.comp.btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         };
-        WalletManage.prototype.goBack = function () {
-            Laya.stage.removeChild(this.comp);
-            Laya.stage.removeChild(this.parentUI);
-            new view.WalletMe();
+        WalletManage.prototype.btnClick = function (index) {
+            if (1 == index) {
+                Laya.stage.removeChild(this.comp);
+                Laya.stage.removeChild(this.parentUI);
+                new view.WalletMe();
+            }
+            if (2 == index) {
+                this.comp.visible = false;
+                new view.CreateWallet().setParentUI(this.comp);
+            }
+            if (3 == index) {
+                this.comp.visible = false;
+                new view.set.WalletImport().setParetUI(this.comp);
+            }
         };
         WalletManage.prototype.setParentUI = function (parentUI) {
             this.parentUI = parentUI;

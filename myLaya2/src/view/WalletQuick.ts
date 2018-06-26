@@ -29,7 +29,7 @@ module view {
             }
             if (index == 2) {
                 this.close();
-                Laya.stage.removeChild(this.parentUI);
+                this.parentUI.visible = false;
                 new CreateWallet().setParentUI(this.parentUI);
             }
         }

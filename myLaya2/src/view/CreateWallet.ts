@@ -2,7 +2,7 @@
 module view {
     export class CreateWallet extends ui.WalletCreateUI {
         private comp: ui.WalletCreateUI;
-        private parentUI: ui.WalletMainUI;
+        private parentUI: any;
         private isAgreeImgs: Array<string> = ["img/icon_box-empty.png", "img/icon_box-checked.png"];
 
         constructor() {
@@ -31,7 +31,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI == null ? new EnterApp() : new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));
+            this.parentUI == null ? new EnterApp() : this.parentUI.visible = true;
         }
 
         private updateArgee() {

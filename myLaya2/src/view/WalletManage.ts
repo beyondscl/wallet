@@ -20,13 +20,25 @@ module view {
         }
 
         private initEvent() {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.btn_create.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+            this.comp.btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         }
 
-        private goBack() {
-            Laya.stage.removeChild(this.comp);
-            Laya.stage.removeChild(this.parentUI);
-            new view.WalletMe();
+        private btnClick(index: number) {
+            if (1 == index) {
+                Laya.stage.removeChild(this.comp);
+                Laya.stage.removeChild(this.parentUI);
+                new view.WalletMe();
+            }
+            if (2 == index) {
+                this.comp.visible = false;
+                new view.CreateWallet().setParentUI(this.comp);
+            }
+            if (3 == index) {
+                this.comp.visible = false;
+                new view.set.WalletImport().setParetUI(this.comp);
+            }
         }
 
         public setParentUI(parentUI: any) {
