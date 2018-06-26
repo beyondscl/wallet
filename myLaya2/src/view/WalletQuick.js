@@ -44,7 +44,7 @@ var view;
             }
             if (index == 2) {
                 this.close();
-                Laya.stage.removeChild(this.parentUI);
+                this.parentUI.visible = false;
                 new view.CreateWallet().setParentUI(this.parentUI);
             }
         };

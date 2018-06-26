@@ -1002,6 +1002,447 @@ var ui;
     })(set = ui.set || (ui.set = {}));
 })(ui || (ui = {}));
 (function (ui) {
+    var set;
+    (function (set) {
+        var WalletImportUI = /** @class */ (function (_super) {
+            __extends(WalletImportUI, _super);
+
+            function WalletImportUI() {
+                return _super.call(this) || this;
+            }
+
+            WalletImportUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.set.WalletImportUI.uiView);
+            };
+            WalletImportUI.uiView = {
+                "type": "View",
+                "props": {"width": 300, "height": 429},
+                "child": [{
+                    "type": "Rect",
+                    "props": {"y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60}
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 10,
+                        "x": 90,
+                        "valign": "middle",
+                        "top": 20,
+                        "text": "导入钱包",
+                        "height": 30,
+                        "fontSize": 16,
+                        "color": "#000000",
+                        "centerX": 0,
+                        "align": "center"
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "y": 10,
+                        "x": 20,
+                        "width": 117,
+                        "var": "btn_back",
+                        "top": 20,
+                        "skin": "template/Navigator/btn_BackButton.png",
+                        "height": 30
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {
+                        "width": 30,
+                        "var": "btn_sao",
+                        "top": 20,
+                        "skin": "img/sao.png",
+                        "right": 20,
+                        "height": 30
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {"top": 60, "skin": "img/itemSepar.png", "right": 0, "left": 0}
+                }, {
+                    "type": "Tab",
+                    "props": {
+                        "y": 60,
+                        "x": 10,
+                        "var": "tab",
+                        "selectedIndex": 0,
+                        "right": 0,
+                        "left": 0,
+                        "layoutEnabled": true,
+                        "height": 40
+                    },
+                    "child": [{
+                        "type": "Button",
+                        "props": {
+                            "width": 100,
+                            "top": 0,
+                            "name": "item0",
+                            "left": 0,
+                            "labelSize": 16,
+                            "label": "助记词",
+                            "bottom": 0
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "x": 100,
+                            "width": 100,
+                            "top": 0,
+                            "name": "item1",
+                            "labelSize": 16,
+                            "label": "官方钱包",
+                            "bottom": 0
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "y": 10,
+                            "width": 100,
+                            "top": 0,
+                            "right": 0,
+                            "name": "item2",
+                            "labelSize": 16,
+                            "label": "私钥",
+                            "bottom": 0
+                        }
+                    }]
+                }, {
+                    "type": "ViewStack",
+                    "props": {"var": "stack", "top": 100, "selectedIndex": 0, "right": 0, "left": 0, "bottom": 0},
+                    "child": [{
+                        "type": "Box",
+                        "props": {"top": 0, "right": 0, "name": "item0", "left": 0, "bottom": 0},
+                        "child": [{
+                            "type": "TextArea",
+                            "props": {
+                                "var": "o_text_zjc",
+                                "top": 0,
+                                "right": 20,
+                                "prompt": "助记词，用空格分开",
+                                "padding": "10",
+                                "left": 20,
+                                "layoutEnabled": true,
+                                "height": 80,
+                                "borderColor": "#b5b5b5"
+                            }
+                        }, {
+                            "type": "ComboBox",
+                            "props": {
+                                "y": 85,
+                                "var": "o_sel_dir",
+                                "skin": "comp/combobox.png",
+                                "sizeGrid": "0,0,0,0",
+                                "selectedIndex": 0,
+                                "right": 20,
+                                "left": 20,
+                                "labels": "m/44’/60’/0’/0/0 Jaxx Metamask(ETH), m/44’/60’/0’/0 Ledger(ETH), m/44’/60’/1’/0/0 自定义路径",
+                                "height": 30
+                            }
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 115,
+                                "var": "o_text_pass",
+                                "type": "password",
+                                "right": 20,
+                                "prompt": "密码",
+                                "maxChars": 30,
+                                "left": 20,
+                                "height": 30
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {"y": 145, "skin": "img/itemSepar.png", "right": 20, "left": 20}
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 145,
+                                "x": 20,
+                                "var": "o_text_confpass",
+                                "type": "password",
+                                "right": 20,
+                                "prompt": "确认密码",
+                                "maxChars": 30,
+                                "left": 20,
+                                "height": 30
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {"y": 175, "x": 10, "skin": "img/itemSepar.png", "right": 20, "left": 20}
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 185,
+                                "x": 40,
+                                "width": 212,
+                                "valign": "middle",
+                                "text": "我已经仔细阅读并同意(隐私及服务条款)",
+                                "height": 20,
+                                "color": "#ff0400"
+                            }
+                        }, {
+                            "type": "CheckBox",
+                            "props": {
+                                "y": 189,
+                                "x": 20,
+                                "width": 16,
+                                "var": "o_check_agree",
+                                "skin": "comp/radio.png",
+                                "mouseEnabled": true,
+                                "layoutEnabled": true,
+                                "hitTestPrior": true,
+                                "height": 16,
+                                "click": "updateArgee"
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 220,
+                                "var": "o_btn_import",
+                                "skin": "img/blue.png",
+                                "right": 20,
+                                "left": 20,
+                                "label": "开始导入",
+                                "height": 40
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "var": "hetp_zjc",
+                                "valign": "middle",
+                                "text": "什么是助记词?",
+                                "right": 20,
+                                "left": 20,
+                                "height": 30,
+                                "color": "#0d7fa3",
+                                "bottom": 20,
+                                "align": "center"
+                            }
+                        }]
+                    }, {
+                        "type": "Box",
+                        "props": {"top": 0, "right": 0, "name": "item1", "left": 0, "bottom": 0},
+                        "child": [{
+                            "type": "TextArea",
+                            "props": {
+                                "y": -120,
+                                "x": -10,
+                                "wordWrap": true,
+                                "valign": "middle",
+                                "top": 0,
+                                "text": "直接复制粘贴以太坊官方钱包keystore文件内容至输入框，或者扫二维码录入。",
+                                "stroke": 0,
+                                "right": 20,
+                                "padding": "5",
+                                "left": 20,
+                                "leading": 5,
+                                "layoutEnabled": true,
+                                "height": 40,
+                                "editable": false,
+                                "disabled": true,
+                                "color": "#8e8e8e",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "TextArea",
+                            "props": {
+                                "y": 45,
+                                "x": 40,
+                                "wordWrap": true,
+                                "width": 260,
+                                "var": "text_keystore",
+                                "top": 45,
+                                "right": 20,
+                                "prompt": "keystore文本内容",
+                                "padding": "10",
+                                "left": 20,
+                                "layoutEnabled": true,
+                                "height": 80,
+                                "borderColor": "#b5b5b5"
+                            }
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 140,
+                                "var": "keystore_pass",
+                                "type": "password",
+                                "right": 20,
+                                "prompt": "keystore密码",
+                                "maxChars": 30,
+                                "left": 20,
+                                "height": 30
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {"y": 170, "x": 20, "skin": "img/itemSepar.png", "right": 20, "left": 20}
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 185,
+                                "x": 40,
+                                "width": 212,
+                                "valign": "middle",
+                                "text": "我已经仔细阅读并同意(隐私及服务条款)",
+                                "height": 20,
+                                "color": "#ff0400"
+                            }
+                        }, {
+                            "type": "CheckBox",
+                            "props": {
+                                "y": 189,
+                                "x": 20,
+                                "width": 16,
+                                "var": "ks_agree",
+                                "skin": "comp/radio.png",
+                                "mouseEnabled": true,
+                                "layoutEnabled": true,
+                                "hitTestPrior": true,
+                                "height": 16,
+                                "click": "updateArgee"
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 220,
+                                "x": 20,
+                                "var": "ks_btn_import",
+                                "skin": "img/blue.png",
+                                "right": 20,
+                                "left": 20,
+                                "label": "开始导入",
+                                "height": 40
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 279,
+                                "x": 20,
+                                "var": "help_keystore",
+                                "valign": "middle",
+                                "text": "什么是keystore?",
+                                "right": 20,
+                                "left": 20,
+                                "height": 30,
+                                "color": "#0d7fa3",
+                                "bottom": 20,
+                                "align": "center"
+                            }
+                        }]
+                    }, {
+                        "type": "Box",
+                        "props": {"top": 0, "right": 0, "name": "item2", "left": 0, "bottom": 0},
+                        "child": [{
+                            "type": "TextArea",
+                            "props": {
+                                "wordWrap": true,
+                                "var": "text_privateKey",
+                                "top": 0,
+                                "stroke": 0,
+                                "right": 20,
+                                "prompt": "明文私钥",
+                                "padding": "5",
+                                "left": 20,
+                                "leading": 5,
+                                "layoutEnabled": true,
+                                "height": 80,
+                                "color": "#8e8e8e",
+                                "borderColor": "#b5b5b5",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 80,
+                                "x": 40,
+                                "var": "pk_text_pass",
+                                "type": "password",
+                                "right": 20,
+                                "prompt": "keystore密码",
+                                "maxChars": 30,
+                                "left": 20,
+                                "height": 30
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {"y": 110, "x": 20, "skin": "img/itemSepar.png", "right": 20, "left": 20}
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 120,
+                                "x": 20,
+                                "var": "pk_text_confPass",
+                                "type": "password",
+                                "right": 20,
+                                "prompt": "keystore密码",
+                                "maxChars": 30,
+                                "left": 20,
+                                "height": 30
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {"y": 150, "x": 40, "skin": "img/itemSepar.png", "right": 20, "left": 20}
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 160,
+                                "x": 40,
+                                "width": 212,
+                                "valign": "middle",
+                                "text": "我已经仔细阅读并同意(隐私及服务条款)",
+                                "height": 20,
+                                "color": "#ff0400"
+                            }
+                        }, {
+                            "type": "CheckBox",
+                            "props": {
+                                "y": 164,
+                                "width": 16,
+                                "var": "pk_agree",
+                                "skin": "comp/radio.png",
+                                "mouseEnabled": true,
+                                "left": 20,
+                                "layoutEnabled": true,
+                                "hitTestPrior": true,
+                                "height": 16,
+                                "click": "updateArgee"
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 220,
+                                "x": 40,
+                                "var": "pk_btn_import",
+                                "skin": "img/blue.png",
+                                "right": 20,
+                                "left": 20,
+                                "label": "开始导入",
+                                "height": 40
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 209,
+                                "x": 40,
+                                "var": "help_pk",
+                                "valign": "middle",
+                                "text": "什么是私钥?",
+                                "right": 20,
+                                "left": 20,
+                                "height": 30,
+                                "color": "#0d7fa3",
+                                "bottom": 20,
+                                "align": "center"
+                            }
+                        }]
+                    }]
+                }]
+            };
+            return WalletImportUI;
+        }(View));
+        set.WalletImportUI = WalletImportUI;
+    })(set = ui.set || (ui.set = {}));
+})(ui || (ui = {}));
+(function (ui) {
     var TransDetailUI = /** @class */ (function (_super) {
         __extends(TransDetailUI, _super);
 
