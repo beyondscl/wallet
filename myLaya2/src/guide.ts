@@ -5,12 +5,11 @@ class guide {
     private guidesImg: Array<string> = ["guide/timg.jpg", "guide/timg1.jpg", "guide/timg2.jpg"];
     private guideImg: Laya.Sprite;
     private index: number = 0;
-;
-
     private mouseStart = 0;
 
     constructor() {
         this.init();
+        // util.setLayoutEnable(this.guideUI);
     }
 
     protected init(): void {
@@ -63,7 +62,7 @@ Laya.init(Laya.Browser.width, Laya.Browser.height, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
 //设置适配模式
-Laya.stage.scaleMode = "exactfit";
+Laya.stage.scaleMode = "SCALE_EXACTFIT";
 //设置横竖屏
 Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 //设置水平对齐
@@ -85,7 +84,7 @@ function beginLoad() {
 }
 
 function enter() {
-    // laya.net.LocalStorage.clear();
+    laya.net.LocalStorage.clear();
     let walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();

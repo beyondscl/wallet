@@ -34,6 +34,8 @@ var view;
             ExpKeystore.prototype.init = function () {
                 this.comp = new ui.set.ExpKeystoreUI();
                 Laya.stage.addChild(this.comp);
+                Laya.stage.bgColor = 'white';
+                Laya.stage.scaleMode = config.prod.appAdapterType;
             };
             ExpKeystore.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);

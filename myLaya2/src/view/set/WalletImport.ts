@@ -2,7 +2,7 @@
 module view.set {
     export class WalletImport extends ui.set.WalletImportUI {
         private comp: ui.set.WalletImportUI;
-        private parentUI: ui.WalletManageUI;
+        private parentUI: any;
 
         constructor() {
             super();
@@ -13,6 +13,8 @@ module view.set {
         private init() {
             this.comp = new ui.set.WalletImportUI();
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
@@ -35,7 +37,7 @@ module view.set {
             }
         }
 
-        public setParetUI(parentUI: ui.WalletManageUI) {
+        public setParetUI(parentUI: any) {
             this.parentUI = parentUI;
         }
     }

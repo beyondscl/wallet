@@ -3,9 +3,9 @@ import Dialog=laya.ui.Dialog;
 
 module ui.alert {
     export class EnterPassUI extends Dialog {
+        public text_pass: Laya.TextInput;
         public btn_cancel: Laya.Button;
         public btn_submit: Laya.Button;
-        public text_pass: Laya.TextInput;
 
         public static uiView: any = {
             "type": "Dialog",
@@ -16,7 +16,7 @@ module ui.alert {
                 "child": [{
                     "type": "Image",
                     "props": {
-                        "top": 0,
+                        "top": -1,
                         "skin": "template/Warn/alert_dialog.png",
                         "right": 0,
                         "left": 0,
@@ -24,8 +24,24 @@ module ui.alert {
                         "bottom": 0
                     }
                 }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 40,
+                        "var": "text_pass",
+                        "type": "password",
+                        "right": 5,
+                        "prompt": "请输入密码",
+                        "left": 5,
+                        "layoutEnabled": true,
+                        "height": 30,
+                        "borderColor": "#c0c0c0",
+                        "bgColor": "#ffffff"
+                    }
+                }, {
                     "type": "Button",
                     "props": {
+                        "y": 85,
+                        "x": 0,
                         "width": 100,
                         "var": "btn_cancel",
                         "stateNum": 2,
@@ -41,6 +57,8 @@ module ui.alert {
                 }, {
                     "type": "Button",
                     "props": {
+                        "y": 85,
+                        "x": 100,
                         "width": 100,
                         "var": "btn_submit",
                         "stateNum": 2,
@@ -54,18 +72,17 @@ module ui.alert {
                         "bottom": 0
                     }
                 }, {
-                    "type": "TextInput",
+                    "type": "Label",
                     "props": {
-                        "y": 27,
-                        "var": "text_pass",
-                        "type": "password",
-                        "right": 5,
-                        "prompt": "请输入密码",
-                        "left": 5,
-                        "layoutEnabled": true,
+                        "valign": "middle",
+                        "top": 0,
+                        "text": "请输入密码",
+                        "right": 0,
+                        "left": 0,
                         "height": 30,
-                        "borderColor": "#c0c0c0",
-                        "bgColor": "#ffffff"
+                        "font": "SimHei",
+                        "color": "#000000",
+                        "align": "center"
                     }
                 }]
             }]
@@ -113,7 +130,6 @@ module ui.alert {
                         "var": "text_pKey",
                         "type": "text",
                         "top": 10,
-                        "text": "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b",
                         "right": 10,
                         "padding": "10",
                         "left": 10,
@@ -127,7 +143,7 @@ module ui.alert {
                     "type": "Button",
                     "props": {
                         "var": "btn_copy",
-                        "skin": "comp/button.png",
+                        "skin": "img/blue.png",
                         "right": 10,
                         "left": 10,
                         "label": "复制",

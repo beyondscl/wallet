@@ -32,6 +32,7 @@ var login = /** @class */ (function (_super) {
         // Laya.loader.load("fzss.ttf",Handler.create(this,this.initFont),null,Loader.BUFFER);
         this.initFont();
         this.initEvent();
+        util.setLayoutEnable(this.comp);
     };
     login.prototype.initFont = function () {
         this.comp.text_phoneNum.font = '宋体';

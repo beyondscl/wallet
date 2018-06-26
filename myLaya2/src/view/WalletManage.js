@@ -33,6 +33,7 @@ var view;
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletManage.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.btnClick, [1]);

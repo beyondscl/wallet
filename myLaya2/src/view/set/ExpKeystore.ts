@@ -13,6 +13,8 @@ module view.set {
         private init() {
             this.comp = new ui.set.ExpKeystoreUI();
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {

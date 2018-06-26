@@ -32,6 +32,8 @@ var view;
         WalletDetail.prototype.init = function () {
             this.comp = new ui.WalletDetailUI();
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletDetail.prototype.initEvent = function () {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.goBack);

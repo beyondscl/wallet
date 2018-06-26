@@ -32,6 +32,8 @@ var view;
         WalletMe.prototype.init = function () {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletMe.prototype.initEvent = function () {
             this.comp.btn_assets.on(Laya.Event.CLICK, this, this.tabSelect, [0]);

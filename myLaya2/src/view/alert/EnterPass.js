@@ -32,6 +32,8 @@ var view;
             }
 
             EnterPass.prototype.init = function () {
+                Laya.stage.bgColor = 'white';
+                Laya.stage.scaleMode = config.prod.appAdapterType;
             };
             EnterPass.prototype.initEvent = function () {
                 this.btn_cancel.on(Laya.Event.CLICK, this, this.btnClick, [1]);

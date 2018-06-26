@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -22,7 +14,6 @@ var view;
     var CreateWallet = view.CreateWallet;
     var EnterApp = /** @class */ (function (_super) {
         __extends(EnterApp, _super);
-
         function EnterApp() {
             var _this = _super.call(this) || this;
             _this.init();
@@ -30,20 +21,21 @@ var view;
             new config.init().initData(mod.userMod.ethAddress);
             return _this;
         }
-
         EnterApp.prototype.init = function () {
             this.comp = new ui.EnterAppUI();
             Laya.stage.addChild(this.comp);
             this.spr_bg.loadImage("guide/timg.jpg", 0, 0, Laya.Browser.width, Laya.Browser.height);
-            Laya.stage.addChild(this.spr_bg);
-            Laya.stage.addChild(this.lab_title);
-            Laya.stage.addChild(this.lab_subTitle);
-            Laya.stage.addChild(this.btn_create);
-            Laya.stage.addChild(this.btn_import);
+            this.comp.addChild(this.spr_bg);
+            this.comp.addChild(this.lab_title);
+            this.comp.addChild(this.lab_subTitle);
+            this.comp.addChild(this.btn_create);
+            this.comp.addChild(this.btn_import);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         EnterApp.prototype.initEvent = function () {
             this.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
-            this.btn_create.on(Laya.Event.CLICK, this, this.importWallet);
+            this.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
         };
         EnterApp.prototype.createWallet = function () {
             Laya.stage.removeChild(this.comp);
@@ -52,6 +44,8 @@ var view;
             new CreateWallet();
         };
         EnterApp.prototype.importWallet = function () {
+            this.comp.visible = false;
+            new view.set.WalletImport().setParetUI(this.comp);
         };
         return EnterApp;
     }(ui.EnterAppUI));

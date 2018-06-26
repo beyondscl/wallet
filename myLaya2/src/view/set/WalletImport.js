@@ -21,42 +21,44 @@ var view;
 (function (view) {
     var set;
     (function (set) {
-        var UpdatePass = /** @class */ (function (_super) {
-            __extends(UpdatePass, _super);
+        var WalletImport = /** @class */ (function (_super) {
+            __extends(WalletImport, _super);
 
-            function UpdatePass() {
+            function WalletImport() {
                 var _this = _super.call(this) || this;
                 _this.init();
                 _this.initEvent();
                 return _this;
             }
 
-            UpdatePass.prototype.init = function () {
-                this.comp = new ui.set.UpdatePassUI();
-                Laya.stage.bgColor = 'white';
+            WalletImport.prototype.init = function () {
+                this.comp = new ui.set.WalletImportUI();
                 Laya.stage.addChild(this.comp);
                 Laya.stage.bgColor = 'white';
                 Laya.stage.scaleMode = config.prod.appAdapterType;
             };
-            UpdatePass.prototype.initEvent = function () {
+            WalletImport.prototype.initEvent = function () {
+                this.comp.tab.selectHandler = new Laya.Handler(this, this.onSelect);
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+                this.comp.btn_sao.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             };
-            UpdatePass.prototype.setParentUI = function (parentUI) {
-                this.parentUI = parentUI;
+            WalletImport.prototype.onSelect = function (index) {
+                this.comp.stack.selectedIndex = index;
             };
-            UpdatePass.prototype.btnClick = function (index) {
+            WalletImport.prototype.setData = function (key) {
+            };
+            WalletImport.prototype.btnClick = function (index) {
                 if (1 == index) {
-                    this.stage.removeChild(this.comp);
+                    this.comp.removeSelf();
                     this.parentUI.visible = true;
                 }
-                if (2 == index) {
-                }
-                if (3 == index) {
-                }
             };
-            return UpdatePass;
-        }(ui.set.UpdatePassUI));
-        set.UpdatePass = UpdatePass;
+            WalletImport.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
+            return WalletImport;
+        }(ui.set.WalletImportUI));
+        set.WalletImport = WalletImport;
     })(set = view.set || (view.set = {}));
 })(view || (view = {}));
-//# sourceMappingURL=UpdatePass.js.map
+//# sourceMappingURL=WalletImport.js.map

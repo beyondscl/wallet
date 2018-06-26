@@ -17,6 +17,8 @@ module view {
 
         private init() {
             this.addChild(this.list_wallet);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {

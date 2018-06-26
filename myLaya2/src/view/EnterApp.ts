@@ -1,11 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view {
     import CreateWallet = view.CreateWallet;
-    import Label = Laya.Label;
-    import Handler = Laya.Handler;
-    import Loader = Laya.Loader;
-    import Sprite = Laya.Sprite;
-    import Button = Laya.Button;
 
     export class EnterApp extends ui.EnterAppUI {
         //properties
@@ -22,16 +17,18 @@ module view {
             this.comp = new ui.EnterAppUI();
             Laya.stage.addChild(this.comp);
             this.spr_bg.loadImage("guide/timg.jpg", 0, 0, Laya.Browser.width, Laya.Browser.height);
-            Laya.stage.addChild(this.spr_bg);
-            Laya.stage.addChild(this.lab_title);
-            Laya.stage.addChild(this.lab_subTitle);
-            Laya.stage.addChild(this.btn_create);
-            Laya.stage.addChild(this.btn_import);
+            this.comp.addChild(this.spr_bg);
+            this.comp.addChild(this.lab_title);
+            this.comp.addChild(this.lab_subTitle);
+            this.comp.addChild(this.btn_create);
+            this.comp.addChild(this.btn_import);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
             this.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
-            this.btn_create.on(Laya.Event.CLICK, this, this.importWallet);
+            this.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
         }
 
         private createWallet() {
@@ -42,7 +39,8 @@ module view {
         }
 
         private importWallet() {
-
+            this.comp.visible = false;
+            new view.set.WalletImport().setParetUI(this.comp);
         }
     }
 }

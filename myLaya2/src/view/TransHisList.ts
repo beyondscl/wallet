@@ -19,6 +19,7 @@ module view {
             this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {

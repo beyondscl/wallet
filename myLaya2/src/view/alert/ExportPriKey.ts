@@ -3,6 +3,8 @@ module view.alert {
     export class ExportPriKey extends ui.alert.ExportPriKeyUI {
         constructor() {
             super();
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
             this.initEvent();
         }
 

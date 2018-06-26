@@ -33,6 +33,7 @@ var view;
             this.comp = new ui.TransDetailUI();
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         TransDetail.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);

@@ -15,6 +15,8 @@ module view {
             let wAddr = service.walletServcie.getWallet(wName).wAddr;
             this.comp.lab_wAddr.text = wAddr;
             util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, wAddr, this, this.getImgSrc);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private getImgSrc(qrcode: any) {

@@ -26,6 +26,8 @@ var view;
 
             function ExportPriKey() {
                 var _this = _super.call(this) || this;
+                Laya.stage.bgColor = 'white';
+                Laya.stage.scaleMode = config.prod.appAdapterType;
                 _this.initEvent();
                 return _this;
             }

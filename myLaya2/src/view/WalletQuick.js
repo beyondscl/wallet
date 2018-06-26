@@ -34,6 +34,8 @@ var view;
 
         WalletQuick.prototype.init = function () {
             this.addChild(this.list_wallet);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletQuick.prototype.initEvent = function () {
             this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1]);

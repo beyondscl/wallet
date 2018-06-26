@@ -10,6 +10,8 @@ module view.alert {
         }
 
         private init() {
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {

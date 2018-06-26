@@ -15,6 +15,8 @@ module view {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.bgColor = 'white';
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
