@@ -72,7 +72,9 @@ module view {
         private onSelect(index: number): void {
             let item = this.data[index];
             this.stage.removeChild(this.comp);
-            new view.WalletTransfer().setData(item);
+            let wTransfer = new view.WalletTransfer();
+            wTransfer.setData(item);
+            wTransfer.setParentUI(this.comp);
         }
 
         private tabSelect(index: number): void {
@@ -86,7 +88,7 @@ module view {
             }
             if (index == 2) {
                 this.stage.removeChild(this.comp);
-                new view.WalletReceive();
+                new view.WalletReceive(this.comp.lab_wName.text);
             }
             if (index == 3) {
                 let pom = new view.WalletQuick();

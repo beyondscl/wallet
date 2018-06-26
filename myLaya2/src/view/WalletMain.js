@@ -81,7 +81,9 @@ var view;
         WalletMain.prototype.onSelect = function (index) {
             var item = this.data[index];
             this.stage.removeChild(this.comp);
-            new view.WalletTransfer().setData(item);
+            var wTransfer = new view.WalletTransfer();
+            wTransfer.setData(item);
+            wTransfer.setParentUI(this.comp);
         };
         WalletMain.prototype.tabSelect = function (index) {
             if (index == 1) {
@@ -94,7 +96,7 @@ var view;
             }
             if (index == 2) {
                 this.stage.removeChild(this.comp);
-                new view.WalletReceive();
+                new view.WalletReceive(this.comp.lab_wName.text);
             }
             if (index == 3) {
                 var pom = new view.WalletQuick();

@@ -34,6 +34,23 @@ var util = /** @class */ (function () {
         // Laya.timer.loop(200, this, callBack(qrcode));
         Laya.timer.loop(300, caller, callBack, [qrcode]);
     };
+    //复制功能
+    util.getCopyValue = function (value, callBack, data) {
+        var btn = Laya.Browser.document.createElement('button');
+        var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
+            text: function () {
+                return value;
+            }
+        });
+        btn.click();
+        clipboard.on('success', function (e) {
+        });
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
+        callBack(data);
+        btn.remove();
+    };
     return util;
 }());
 //# sourceMappingURL=util.js.map

@@ -2182,12 +2182,20 @@ var ui;
                 }
             }, {
                 "type": "Image",
-                "props": {"width": 120, "skin": "img/guid_ewm.jpg", "height": 120, "centerY": 0, "centerX": 0}
+                "props": {
+                    "width": 120,
+                    "var": "img_wAddr",
+                    "skin": "img/guid_ewm.jpg",
+                    "height": 120,
+                    "centerY": 0,
+                    "centerX": 0
+                }
             }, {
                 "type": "TextInput",
                 "props": {
                     "y": 102,
                     "wordWrap": true,
+                    "var": "lab_wAddr",
                     "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
                     "right": 20,
                     "overflow": "visible",

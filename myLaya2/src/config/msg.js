@@ -16,6 +16,8 @@ var config;
         msg.deal_cn_out = "已发送";
         msg.deal_cn_outing = "发送中";
         msg.deal_cn_in = "已接收";
+        msg.SUCCESS = 'SUCCESS';
+        msg.ERROR = "ERROR";
         return msg;
     }());
     config.msg = msg;

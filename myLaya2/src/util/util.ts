@@ -40,4 +40,22 @@ class util {
         // Laya.timer.loop(200, this, callBack(qrcode));
         Laya.timer.loop(300, caller, callBack, [qrcode]);
     }
+
+    //复制功能
+    public static getCopyValue(value: string, callBack: any, data: any) {
+        let btn = Laya.Browser.document.createElement('button');
+        var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
+            text: function () {
+                return value;
+            }
+        });
+        btn.click();
+        clipboard.on('success', function (e) {
+        });
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
+        callBack(data);
+        btn.remove();
+    }
 }

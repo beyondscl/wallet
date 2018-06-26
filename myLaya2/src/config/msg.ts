@@ -14,5 +14,9 @@ module config {
         public static deal_cn_out = "已发送";
         public static deal_cn_outing = "发送中";
         public static deal_cn_in = "已接收";
+
+        public static SUCCESS = 'SUCCESS';
+        public static ERROR = "ERROR";
+
     }
 }

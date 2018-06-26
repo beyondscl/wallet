@@ -41,6 +41,9 @@ var view;
             this.comp.btn_send.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_receive.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         };
+        WalletTransfer.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
         WalletTransfer.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
             new view.WalletMain().initQueryData(mod.userMod.defWallet);
@@ -56,7 +59,7 @@ var view;
                 new view.WalletSend().setData(this.comp.lab_coin_name.text);
             }
             else if (type == 2) {
-                new view.WalletReceive();
+                new view.WalletReceive(this.parentUI.lab_wName.text);
             }
         };
         //init deal history list

@@ -3,15 +3,28 @@ module view {
     export class WalletReceive extends ui.WalletReceiveUI {
         private comp: ui.WalletReceiveUI;
 
-        constructor() {
+        constructor(wName: string) {
             super();
-            this.init();
+            this.init(wName);
             this.initEvent();
         }
 
-        private init() {
+        private init(wName: string) {
             this.comp = new ui.WalletReceiveUI();
             Laya.stage.addChild(this.comp);
+            let wAddr = service.walletServcie.getWallet(wName).wAddr;
+            this.comp.lab_wAddr.text = wAddr;
+            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, wAddr, this, this.getImgSrc);
+        }
+
+        private getImgSrc(qrcode: any) {
+            if (qrcode._oDrawing._elImage.src) {
+                Laya.timer.clearAll(this);
+                let img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
+                img.x = this.comp.img_wAddr.x;
+                img.y = this.comp.img_wAddr.y;
+                this.comp.addChild(img)
+            }
         }
 
         private initEvent() {
@@ -31,12 +44,16 @@ module view {
         private btnClick(type: number) {
             switch (type) {
                 case (1):
-
+                    util.getCopyValue(this.comp.lab_wAddr.text, this.copyBack, this.comp);
                     break;
                 default:
                     console.log("error type");
                     break;
             }
+        }
+
+        private copyBack(comp: ui.WalletReceiveUI) {
+            comp.btn_copy.label = '已复制'
         }
     }
 }
