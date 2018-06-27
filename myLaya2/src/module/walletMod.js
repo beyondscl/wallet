@@ -11,7 +11,6 @@ var mod;
             this.wAddr = wAddr;
             this.wCoins = wCoins;
         }
-
         walletMod.prototype.toJson = function () {
             var json = {
                 wName: this.wName,

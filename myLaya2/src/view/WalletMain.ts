@@ -19,7 +19,6 @@ module view {
             this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
@@ -57,8 +56,8 @@ module view {
             this.list.repeatX = 1;
             this.list.repeatY = data.length;
             this.list.x = 0;
-            this.list.bottom = 40;
-            this.list.top = 150;
+            this.list.bottom = 60;
+            this.list.top = 240;
             this.list.vScrollBarSkin = "";
             this.list.selectEnable = true;
             this.list.selectHandler = new Handler(this, this.onSelect);
@@ -92,11 +91,13 @@ module view {
                 new view.WalletReceive(this.comp.lab_wName.text);
             }
             if (index == 3) {
+                //dialog千万不要设置left r t b..
                 let pom = new view.WalletQuick();
-                pom.width = 150;
-                pom.height = 429;
+                pom.width = Laya.stage.width/3;
+                pom.height = 667;
                 pom.top = 0;
-                pom.left = 200;
+                pom.left = Laya.stage.width * 2 /3;//right 不行
+
                 pom.setParentUI(this.comp);
                 pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();

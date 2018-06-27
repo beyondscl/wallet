@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -22,7 +14,6 @@ var view;
     var Handler = Laya.Handler;
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
-
         function WalletMain() {
             var _this = _super.call(this) || this;
             _this.data = [];
@@ -31,13 +22,11 @@ var view;
             _this.initEvent();
             return _this;
         }
-
         WalletMain.prototype.init = function () {
             this.comp = new ui.WalletMainUI();
             this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletMain.prototype.initEvent = function () {
             this.comp.btn_assets.on(Laya.Event.CLICK, this, this.tabSelect, [0]);
@@ -68,8 +57,8 @@ var view;
             this.list.repeatX = 1;
             this.list.repeatY = data.length;
             this.list.x = 0;
-            this.list.bottom = 40;
-            this.list.top = 150;
+            this.list.bottom = 60;
+            this.list.top = 240;
             this.list.vScrollBarSkin = "";
             this.list.selectEnable = true;
             this.list.selectHandler = new Handler(this, this.onSelect);
@@ -100,11 +89,12 @@ var view;
                 new view.WalletReceive(this.comp.lab_wName.text);
             }
             if (index == 3) {
+                //dialog千万不要设置left r t b..
                 var pom = new view.WalletQuick();
-                pom.width = 150;
-                pom.height = 429;
+                pom.width = Laya.stage.width / 3;
+                pom.height = 667;
                 pom.top = 0;
-                pom.left = 200;
+                pom.left = Laya.stage.width * 2 / 3; //right 不行
                 pom.setParentUI(this.comp);
                 pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();

@@ -4,7 +4,6 @@ var service;
     var walletServcie = /** @class */ (function () {
         function walletServcie() {
         }
-
         //修改钱包名称
         walletServcie.walletUpdateName = function (oName, nName) {
             var ow = util.getItem(oName);

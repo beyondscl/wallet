@@ -1,7 +1,6 @@
 var util = /** @class */ (function () {
     function util() {
     }
-
     util.getAddr = function (addr) {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     };
@@ -25,32 +24,47 @@ var util = /** @class */ (function () {
     };
     //生成二维码:qrcode._oDrawing._elImage.src
     util.createEwm = function (w, h, value, caller, callBack) {
-        var div = Laya.Browser.document.createElement("div");
-        var qrcode = new Laya.Browser.window.QRCode(div, {
-            width: w,
-            height: h
-        });
-        qrcode.makeCode(value);
-        console.log(qrcode._oDrawing._elImage.src); //这里是一个异步的
-        // Laya.timer.loop(200, this, callBack(qrcode));
-        Laya.timer.loop(300, caller, callBack, [qrcode]);
+        try {
+            var div = Laya.Browser.document.createElement("div");
+            var qrcode = new Laya.Browser.window.QRCode(div, {
+                width: w,
+                height: h
+            });
+            qrcode.makeCode(value);
+            console.log(qrcode._oDrawing._elImage.src); //这里是一个异步的
+            // Laya.timer.loop(200, this, callBack(qrcode));
+            Laya.timer.loop(300, caller, callBack, [qrcode]);
+        }
+        catch (error) {
+            console.log(error);
+        }
     };
     //复制功能
     util.getCopyValue = function (value, callBack, data) {
-        var btn = Laya.Browser.document.createElement('button');
-        var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
-            text: function () {
-                return value;
-            }
-        });
-        btn.click();
-        clipboard.on('success', function (e) {
-        });
-        clipboard.on('error', function (e) {
-            console.log(e);
-        });
-        callBack(data);
-        btn.remove();
+        try {
+            var btn = Laya.Browser.document.createElement('button');
+            var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
+                text: function () {
+                    return value;
+                }
+            });
+            btn.click();
+            clipboard.on('success', function (e) {
+            });
+            clipboard.on('error', function (e) {
+                console.log(e);
+            });
+            callBack(data);
+            btn.remove();
+        }
+        catch (error) {
+        }
+    };
+    //设置屏幕
+    util.setScreen = function (comp) {
+        var screenW = Laya.Browser.width;
+        comp.scaleX = screenW / config.prod.appWidth;
+        comp.scaleY = config.prod.scale * screenW / config.prod.appWidth;
     };
     return util;
 }());

@@ -25,7 +25,6 @@ var mod;
             this.dealConfirm = dealConfirm;
             this.dealNonce = dealNonce;
         }
-
         dealtemMod.prototype.getDealImgSrc = function () {
             return this.dealType == config.msg.deal_transfer_in ? config.resource.dealFromSrc : config.resource.dealToSrc;
         };

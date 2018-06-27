@@ -24,14 +24,11 @@ var view;
         EnterApp.prototype.init = function () {
             this.comp = new ui.EnterAppUI();
             Laya.stage.addChild(this.comp);
-            this.spr_bg.loadImage("guide/timg.jpg", 0, 0, Laya.Browser.width, Laya.Browser.height);
-            this.comp.addChild(this.spr_bg);
             this.comp.addChild(this.lab_title);
             this.comp.addChild(this.lab_subTitle);
             this.comp.addChild(this.btn_create);
             this.comp.addChild(this.btn_import);
             Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         EnterApp.prototype.initEvent = function () {
             this.btn_create.on(Laya.Event.CLICK, this, this.createWallet);

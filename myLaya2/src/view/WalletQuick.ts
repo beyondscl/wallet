@@ -3,7 +3,6 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletQuick extends ui.WalletQuickUI {
-        private comp: ui.WalletQuickUI;
         //最好不要再界面创建list，可能导致第一个item无法获取点击事件
         private list_wallet = new Laya.List();
         private listData;
@@ -17,8 +16,6 @@ module view {
 
         private init() {
             this.addChild(this.list_wallet);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
@@ -44,7 +41,7 @@ module view {
             this.listData = walletNames;
 
             this.list_wallet.x = 0;
-            this.list_wallet.top = 120;
+            this.list_wallet.top = 180;
             this.list_wallet.bottom = 0;
             this.list_wallet.repeatX = 1;
             this.list_wallet.repeatY = walletNames.length;

@@ -11,6 +11,9 @@ var config;
         prod.ethBalance = "https://api.etherscan.io/api?"; //获取账户eth
         prod.apiKey = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         prod.appAdapterType = 'SCALE_EXACTFIT';
+        prod.scale = 429 / 300; //当初设计的高与宽比
+        prod.appWidth = 300;
+        prod.appHeight = 429;
         return prod;
     }());
     config.prod = prod;

@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -22,7 +14,6 @@ var view;
     var Handler = Laya.Handler;
     var WalletQuick = /** @class */ (function (_super) {
         __extends(WalletQuick, _super);
-
         function WalletQuick() {
             var _this = _super.call(this) || this;
             //最好不要再界面创建list，可能导致第一个item无法获取点击事件
@@ -31,11 +22,8 @@ var view;
             _this.initEvent();
             return _this;
         }
-
         WalletQuick.prototype.init = function () {
             this.addChild(this.list_wallet);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletQuick.prototype.initEvent = function () {
             this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1]);
@@ -56,7 +44,7 @@ var view;
         WalletQuick.prototype.initData = function (walletNames) {
             this.listData = walletNames;
             this.list_wallet.x = 0;
-            this.list_wallet.top = 120;
+            this.list_wallet.top = 180;
             this.list_wallet.bottom = 0;
             this.list_wallet.repeatX = 1;
             this.list_wallet.repeatY = walletNames.length;

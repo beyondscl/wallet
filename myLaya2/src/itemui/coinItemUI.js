@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,7 +13,6 @@ var Box = Laya.Box;
 var Label = Laya.Label;
 var coinItemUI = /** @class */ (function (_super) {
     __extends(coinItemUI, _super);
-
     function coinItemUI() {
         var _this = _super.call(this) || this;
         //额外注意这里的属性名称 不能与传进来的参数中的属性一致，否则！
@@ -41,7 +32,6 @@ var coinItemUI = /** @class */ (function (_super) {
         _this.addChild(_this.coinCheckBox);
         return _this;
     }
-
     coinItemUI.prototype.init = function (coinItem) {
         this.imgBg.skin = 'template/List/SimpleListBoxItemBackground.png';
         //img/wallet_manage.png';

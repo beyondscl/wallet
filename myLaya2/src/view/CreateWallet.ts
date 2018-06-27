@@ -13,10 +13,8 @@ module view {
 
         private init() {
             this.comp = new ui.WalletCreateUI();
-            Laya.stage.bgColor = 'white';
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
@@ -101,7 +99,8 @@ module view {
         }
 
         private importWallet() {
-
+                this.comp.visible = false;
+                new view.set.WalletImport().setParetUI(this.comp);
         }
     }
 }

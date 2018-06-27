@@ -6,6 +6,10 @@ module config {
         public static apiKey: string = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         public static appAdapterType = 'SCALE_EXACTFIT';
 
+        public static scale = 429/300;//当初设计的高与宽比
+        public static appWidth = 300;
+        public static appHeight = 429;
+
         constructor() {
         }
 

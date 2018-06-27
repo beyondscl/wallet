@@ -48,6 +48,8 @@ class dealItemUI extends Box {
         this.lab_amount.right = 20;
 
         this.sperated.skin = config.resource.sperated;
+        this.sperated.left = 0;
+        this.sperated.right = 0;
         this.sperated.y = 49;
     }
 }
