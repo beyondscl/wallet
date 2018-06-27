@@ -9,7 +9,6 @@ class guide {
 
     constructor() {
         this.init();
-        // util.setLayoutEnable(this.guideUI);
     }
 
     protected init(): void {
@@ -20,22 +19,23 @@ class guide {
         this.guideUI.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.CLICK, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
-        this.guideUI.img_enter.on(Laya.Event.CLICK, this, function(){
+        this.guideUI.img_enter.on(Laya.Event.CLICK, this, function () {
             Laya.stage.removeChild(this.guideUI);
-           new EnterApp();
+            new EnterApp();
         });
     }
+
     //functions
     private touchEvent(next: number) {
         next = next <= 0 ? 0 : next;
         next = next >= 4 ? 3 : next;
         this.index = next;
-        let childs:Array<View> = this.guideUI._childs;
-        for(let i=0;i<childs.length;i++){
-            if(childs[i].name&&childs[i].name==('item'+next)){
+        let childs: Array<View> = this.guideUI._childs;
+        for (let i = 0; i < childs.length; i++) {
+            if (childs[i].name && childs[i].name == ('item' + next)) {
                 childs[i].visible = true;
             }
-            if(childs[i].name&&childs[i].name!=('item'+next)){
+            if (childs[i].name && childs[i].name != ('item' + next)) {
                 childs[i].visible = false;
             }
         }
@@ -61,7 +61,7 @@ class guide {
 }
 
 //程序入口
-Laya.init(375,667, Laya.WebGL);
+Laya.init(375, 667, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
 //设置适配模式
@@ -87,7 +87,7 @@ function beginLoad() {
 }
 
 function enter() {
-    // laya.net.LocalStorage.clear();
+    laya.net.LocalStorage.clear();
     let walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();

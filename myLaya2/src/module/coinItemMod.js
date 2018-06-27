@@ -10,6 +10,7 @@ var mod;
             this.coinImg = coinImg;
             this.coinSelected = coinSelected;
         }
+
         return coinItemMod;
     }());
     mod.coinItemMod = coinItemMod;

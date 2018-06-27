@@ -27,9 +27,11 @@ var view;
             };
             ExportPriKey.prototype.btnClick = function (index) {
                 if (1 == index) {
-                    //复制？？？
-                    this.btn_copy.label = '已复制';
+                    util.getCopyValue(this.text_pKey.text, this.copyBack, this);
                 }
+            };
+            ExportPriKey.prototype.copyBack = function (comp) {
+                comp.btn_copy.label = '已复制';
             };
             ExportPriKey.prototype.setData = function (key) {
                 this.text_pKey.text = key;

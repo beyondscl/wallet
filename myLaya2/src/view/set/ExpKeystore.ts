@@ -37,8 +37,8 @@ module view.set {
                 Laya.timer.clearAll(this);
                 let img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
                 img.x = this.comp.img_keystore.x;
-                img.y = this.comp.img_keystore.y + this.comp.viewStack.y;//因为在box中
-                this.comp.addChild(img)
+                img.y = this.comp.img_keystore.y;
+                this.comp.item1.addChild(img);
             }
         }
 
@@ -55,9 +55,13 @@ module view.set {
             if (2 == index) {
             }
             if (3 == index) {
-                //复制
+                util.getCopyValue(this.comp.text_keystore.text, this.copyBack, this.comp);
                 return;
             }
+        }
+
+        private copyBack(comp: ui.set.ExpKeystoreUI) {
+            comp.btn_copy.label = '已复制'
         }
 
         public setParetUI(parentUI: ui.WalletDetailUI) {

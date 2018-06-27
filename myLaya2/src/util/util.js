@@ -66,6 +66,12 @@ var util = /** @class */ (function () {
         comp.scaleX = screenW / config.prod.appWidth;
         comp.scaleY = config.prod.scale * screenW / config.prod.appWidth;
     };
+    util.getScreenWidth = function () {
+        if (Laya.stage) {
+            return Laya.stage.width;
+        }
+        return config.prod.appWidth;
+    };
     return util;
 }());
 //# sourceMappingURL=util.js.map

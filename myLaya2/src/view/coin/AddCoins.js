@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -15,6 +23,7 @@ var view;
     (function (coin) {
         var AddCoins = /** @class */ (function (_super) {
             __extends(AddCoins, _super);
+
             function AddCoins() {
                 var _this = _super.call(this) || this;
                 _this.listCoin = new Laya.List();
@@ -22,6 +31,7 @@ var view;
                 _this.initEvent();
                 return _this;
             }
+
             AddCoins.prototype.init = function () {
                 this.comp = new ui.coin.AddCoinsUI();
                 this.comp.addChild(this.listCoin);
@@ -51,7 +61,7 @@ var view;
             };
             AddCoins.prototype.setData = function (data) {
                 this.listCoin.x = 0;
-                this.listCoin.width = 300;
+                this.listCoin.width = util.getScreenWidth();
                 this.listCoin.top = 60;
                 this.listCoin.bottom = 0;
                 this.listCoin.itemRender = coinItemUI;

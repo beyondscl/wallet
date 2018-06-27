@@ -4,6 +4,7 @@ var config;
     var resource = /** @class */ (function () {
         function resource() {
         }
+
         resource.abc = "BackProgressBar";
         resource.dealFromSrc = "img/transfer_in.png"; //交易接收图片
         resource.dealToSrc = "img/transfer_out.png"; //交易发送图片

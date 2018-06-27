@@ -14,9 +14,12 @@ module view.alert {
 
         private btnClick(index: number) {
             if (1 == index) {
-                //复制？？？
-                this.btn_copy.label = '已复制'
+                util.getCopyValue(this.text_pKey.text, this.copyBack, this);
             }
+        }
+
+        private copyBack(comp: ui.alert.ExportPriKeyUI) {
+            comp.btn_copy.label = '已复制'
         }
 
         public setData(key: string) {

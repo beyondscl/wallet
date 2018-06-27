@@ -46,7 +46,7 @@ module view.coin {
 
         public setData(data: Array<mod.coinItemMod>) {
             this.listCoin.x = 0;
-            this.listCoin.width = 300;
+            this.listCoin.width = util.getScreenWidth();
             this.listCoin.top = 60;
             this.listCoin.bottom = 0;
             this.listCoin.itemRender = coinItemUI;

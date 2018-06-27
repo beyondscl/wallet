@@ -5,7 +5,6 @@ var guide = /** @class */ (function () {
         this.index = 0;
         this.mouseStart = 0;
         this.init();
-        // util.setLayoutEnable(this.guideUI);
     }
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
@@ -78,7 +77,7 @@ function beginLoad() {
     Laya.loader.load("res/atlas/comp.atlas", Laya.Handler.create(null, enter));
 }
 function enter() {
-    // laya.net.LocalStorage.clear();
+    laya.net.LocalStorage.clear();
     var walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();

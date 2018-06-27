@@ -51,8 +51,8 @@ var walItemUI = /** @class */ (function (_super) {
         this.sperated.right = 0;
         this.sperated.y = walItemUI.HEI - 1;
     };
-    walItemUI.WID = 375;
-    walItemUI.HEI = 100;
+    walItemUI.WID = util.getScreenWidth();
+    walItemUI.HEI = 80;
     return walItemUI;
 }(Box));
 //# sourceMappingURL=walItemUI.js.map

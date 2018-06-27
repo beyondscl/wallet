@@ -1,6 +1,6 @@
 //交易列表
 class dealItemUI extends Box {
-    public static WID: number = 300;
+    public static WID: number = util.getScreenWidth();
     public static HEI: number = 50;
 
     private img = new Laya.Image();//发送或接受

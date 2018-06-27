@@ -20,13 +20,13 @@ class walltNameUI extends Box {
         this.wImg.left = 10;
         this.wImg.width = 30;
         this.wImg.height = 30;
-        this.wImg.top = (this.HEI - this.wImg.height)/2;
+        this.wImg.top = (this.HEI - this.wImg.height) / 2;
 
         this.wName.text = walletName.replace(/([^]{5})([^]+)/, "$1.");
         this.wName.left = 50;
         this.wName.height = 30;
         this.wName.valign = 'middle';
-        this.wName.top = (this.HEI - this.wName.height)/2;
+        this.wName.top = (this.HEI - this.wName.height) / 2;
 
         this.wSpe.skin = config.resource.sperated;
         this.wSpe.top = this.HEI;

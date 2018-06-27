@@ -73,4 +73,11 @@ class util {
         comp.scaleX = screenW / config.prod.appWidth;
         comp.scaleY = config.prod.scale * screenW / config.prod.appWidth;
     }
+
+    public static getScreenWidth() {
+        if (Laya.stage) {
+            return Laya.stage.width
+        }
+        return config.prod.appWidth;
+    }
 }

@@ -1,7 +1,8 @@
 //钱包中币种列表
 class walItemUI extends Box {
-    public static WID: number = 375;
-    public static HEI: number = 100;
+    public static WID: number = util.getScreenWidth();
+
+    public static HEI: number = 80;
 
     private img = new Laya.Image();
     private lab_name: Label = new Label();
@@ -47,6 +48,6 @@ class walItemUI extends Box {
         this.sperated.skin = config.resource.sperated;
         this.sperated.left = 0;
         this.sperated.right = 0;
-        this.sperated.y = walItemUI.HEI-1;
+        this.sperated.y = walItemUI.HEI - 1;
     }
 }

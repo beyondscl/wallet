@@ -44,8 +44,8 @@ var view;
                     Laya.timer.clearAll(this);
                     var img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
                     img.x = this.comp.img_keystore.x;
-                    img.y = this.comp.img_keystore.y + this.comp.viewStack.y; //因为在box中
-                    this.comp.addChild(img);
+                    img.y = this.comp.img_keystore.y;
+                    this.comp.item1.addChild(img);
                 }
             };
             ExpKeystore.prototype.setData = function (key) {
@@ -60,9 +60,12 @@ var view;
                 if (2 == index) {
                 }
                 if (3 == index) {
-                    //复制
+                    util.getCopyValue(this.comp.text_keystore.text, this.copyBack, this.comp);
                     return;
                 }
+            };
+            ExpKeystore.prototype.copyBack = function (comp) {
+                comp.btn_copy.label = '已复制';
             };
             ExpKeystore.prototype.setParetUI = function (parentUI) {
                 this.parentUI = parentUI;

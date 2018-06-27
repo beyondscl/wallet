@@ -93,10 +93,10 @@ module view {
             if (index == 3) {
                 //dialog千万不要设置left r t b..
                 let pom = new view.WalletQuick();
-                pom.width = Laya.stage.width/3;
+                pom.width = Laya.stage.width / 3;
                 pom.height = 667;
                 pom.top = 0;
-                pom.left = Laya.stage.width * 2 /3;//right 不行
+                pom.left = Laya.stage.width * 2 / 3;//right 不行
 
                 pom.setParentUI(this.comp);
                 pom.initData(util.getItem(config.prod.appKey));
