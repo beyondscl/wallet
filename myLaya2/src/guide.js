@@ -6,6 +6,7 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -66,6 +67,7 @@ Laya.stage.alignH = "center";
 Laya.stage.alignV = "middle";
 //激活资源版本控制
 Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
+
 function beginLoad() {
     Laya.loader.load("res/atlas/img.atlas");
     Laya.loader.load("res/atlas/template/Warn.atlas");
@@ -74,10 +76,12 @@ function beginLoad() {
     Laya.loader.load("res/atlas/template/Switcher.atlas");
     Laya.loader.load("res/atlas/template/List.atlas");
     Laya.loader.load("res/atlas/template/Search.atlas");
+    Laya.loader.load("res/atlas/template/ScrollBar.atlas");
     Laya.loader.load("res/atlas/comp.atlas", Laya.Handler.create(null, enter));
 }
+
 function enter() {
-    laya.net.LocalStorage.clear();
+    // laya.net.LocalStorage.clear();
     var walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();
@@ -88,4 +92,27 @@ function enter() {
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);
 }
+
+// function windowTest(){
+//     let conch = Laya.Browser.window.conch;
+//     console.log("=================>"+conch);
+//     conch && conch.showAssistantTouch(false);
+//     var ctx = document.createElement('canvas').getContext('2d');
+//     function render(){
+//         ctx.fillStyle='#99d9ea';
+//         ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+//         window.requestAnimationFrame(render);
+//     }
+//     window.requestAnimationFrame(render);
+//     document.addEventListener('touchstart',()=>{
+//         if(conch){
+//             var l = 50;
+//             var t = 50;
+//             var w = window.innerWidth-l*2;
+//             var h = window.innerHeight-t*2;
+//             // conch.setExternalLinkEx('http://www.layabox.com',l,t,w,h,true);
+//             conch.setExternalLink('http://www.baidu.com');
+//         }
+//     });
+// }
 //# sourceMappingURL=guide.js.map

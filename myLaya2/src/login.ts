@@ -14,7 +14,6 @@ class login extends base {
         // Laya.loader.load("fzss.ttf",Handler.create(this,this.initFont),null,Loader.BUFFER);
         this.initFont();
         this.initEvent();
-        util.setLayoutEnable(this.comp);
     }
 
     private initFont(): void {

@@ -25,14 +25,15 @@ var util = /** @class */ (function () {
     //生成二维码:qrcode._oDrawing._elImage.src
     util.createEwm = function (w, h, value, caller, callBack) {
         try {
+            console.log("createEwm    value:" + value);
             var div = Laya.Browser.document.createElement("div");
             var qrcode = new Laya.Browser.window.QRCode(div, {
                 width: w,
                 height: h
             });
             qrcode.makeCode(value);
-            console.log(qrcode._oDrawing._elImage.src); //这里是一个异步的
-            // Laya.timer.loop(200, this, callBack(qrcode));
+            console.log("qrcode    value:" + value);
+            console.log("qrcode._oDrawing._elImage.src " + qrcode._oDrawing._elImage.src); //这里是一个异步的
             Laya.timer.loop(300, caller, callBack, [qrcode]);
         }
         catch (error) {
@@ -42,6 +43,7 @@ var util = /** @class */ (function () {
     //复制功能
     util.getCopyValue = function (value, callBack, data) {
         try {
+            console.log("getCopyValue    value:" + value);
             var btn = Laya.Browser.document.createElement('button');
             var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
                 text: function () {
@@ -50,14 +52,16 @@ var util = /** @class */ (function () {
             });
             btn.click();
             clipboard.on('success', function (e) {
+                console.log("success", e);
             });
             clipboard.on('error', function (e) {
-                console.log(e);
+                console.log("error" + e);
             });
             callBack(data);
             btn.remove();
         }
         catch (error) {
+            console.log("getCopyValue    error:" + error);
         }
     };
     //设置屏幕

@@ -29,7 +29,9 @@ var view;
             Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletReceive.prototype.getImgSrc = function (qrcode) {
+            console.log("getImgSrc：" + qrcode._oDrawing._elImage.src);
             if (qrcode && qrcode._oDrawing._elImage.src) {
+                console.log("qrcode._oDrawing._elImage.src：" + qrcode._oDrawing._elImage.src);
                 Laya.timer.clearAll(this);
                 var img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
                 img.x = this.comp.img_wAddr.x;

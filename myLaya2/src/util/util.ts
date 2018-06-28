@@ -32,14 +32,16 @@ class util {
     public static createEwm(w: number, h: number, value: string, caller, callBack: any): any {
 
         try {
+            console.log("createEwm    value:" + value);
+
             var div: any = Laya.Browser.document.createElement("div");
             let qrcode = new Laya.Browser.window.QRCode(div, {
                 width: w,
                 height: h
             });
             qrcode.makeCode(value);
-            console.log(qrcode._oDrawing._elImage.src);//这里是一个异步的
-            // Laya.timer.loop(200, this, callBack(qrcode));
+            console.log("qrcode    value:" + value);
+            console.log("qrcode._oDrawing._elImage.src " + qrcode._oDrawing._elImage.src);//这里是一个异步的
             Laya.timer.loop(300, caller, callBack, [qrcode]);
         } catch (error) {
             console.log(error)
@@ -49,6 +51,7 @@ class util {
     //复制功能
     public static getCopyValue(value: string, callBack: any, data: any) {
         try {
+            console.log("getCopyValue    value:" + value);
             let btn = Laya.Browser.document.createElement('button');
             var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
                 text: function () {
@@ -57,13 +60,15 @@ class util {
             });
             btn.click();
             clipboard.on('success', function (e) {
+                console.log("success", e);
             });
             clipboard.on('error', function (e) {
-                console.log(e);
+                console.log("error" + e);
             });
             callBack(data);
             btn.remove();
         } catch (error) {
+            console.log("getCopyValue    error:" + error);
         }
     }
 

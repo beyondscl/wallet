@@ -4,9 +4,12 @@ var service;
     var walletServcie = /** @class */ (function () {
         function walletServcie() {
         }
-
         //修改钱包名称
         walletServcie.walletUpdateName = function (oName, nName) {
+            var walletJson = util.getItem(nName);
+            if (walletJson) { //已经存在该钱包
+                return false;
+            }
             var ow = util.getItem(oName);
             if (ow) {
                 ow.wName = nName;
@@ -22,9 +25,15 @@ var service;
                         }
                     }
                 }
-                return;
+                return true;
             }
             console.log("walletUpdateName no walletName:" + oName);
+            return false;
+        };
+        //检查是否存在该钱包
+        walletServcie.checkDupWal = function (wName) {
+            var walletJson = util.getItem(wName);
+            return null == walletJson ? false : true;
         };
         //创建钱包
         walletServcie.creatWallet = function (wName, wPass) {
@@ -70,10 +79,10 @@ var service;
             var datas = [];
             for (var i = 0; i < 3; i++) {
                 var t_1 = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                datas.push(t_1);
+                datas[datas.length] = t_1;
             }
             var t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-            datas.push(t);
+            datas[datas.length] = t;
             return datas;
         };
         //获取所有交易列表
@@ -82,10 +91,10 @@ var service;
             var datas = [];
             for (var i = 0; i < 3; i++) {
                 var t_2 = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                datas.push(t_2);
+                datas[datas.length] = t_2;
             }
             var t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-            datas.push(t);
+            datas[datas.length] = t;
             return datas;
         };
         //管理钱包：获取所有钱包
@@ -104,6 +113,10 @@ var service;
         //管理钱包：根据钱包名称获取所有信息，备份之后，备份数据后部分数据会被置空
         walletServcie.getWallet = function (wName) {
             var walletJson = util.getItem(wName);
+            if (walletJson == null) {
+                console.log("不存在钱包：" + wName);
+                return null;
+            }
             return new mod.walletMod(walletJson.wName, walletJson.wPassword, walletJson.wPrivateKey, walletJson.wKeyStore, walletJson.wAddr, walletJson.wCoins);
         };
         //检查密码是否正确
