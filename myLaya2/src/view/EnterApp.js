@@ -34,20 +34,14 @@ var view;
         EnterApp.prototype.init = function () {
             this.comp = new ui.EnterAppUI();
             Laya.stage.addChild(this.comp);
-            this.comp.addChild(this.lab_title);
-            this.comp.addChild(this.lab_subTitle);
-            this.comp.addChild(this.btn_create);
-            this.comp.addChild(this.btn_import);
             Laya.stage.bgColor = 'white';
         };
         EnterApp.prototype.initEvent = function () {
-            this.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
-            this.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
+            this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
+            this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
         };
         EnterApp.prototype.createWallet = function () {
-            Laya.stage.removeChild(this.comp);
-            Laya.stage.removeSelf();
-            Laya.stage.removeChildren(0, 99);
+            this.comp.removeSelf();
             new CreateWallet();
         };
         EnterApp.prototype.importWallet = function () {

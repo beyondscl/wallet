@@ -35,7 +35,7 @@ var coinItemUI = /** @class */ (function (_super) {
     coinItemUI.prototype.init = function (coinItem) {
         this.imgBg.skin = 'template/List/SimpleListBoxItemBackground.png';
         //img/wallet_manage.png';
-        this.imgBg.width = 300;
+        this.imgBg.width = util.getScreenWidth();
         this.imgBg.height = 60;
         this.imgBg.x = 0;
         this.imgBg.y = 0;
@@ -67,8 +67,9 @@ var coinItemUI = /** @class */ (function (_super) {
         this.coinCheckBox.skin = 'template/Switcher/checkbox_switch.png';
         this.coinCheckBox.stateNum = 2;
         this.coinCheckBox.scale(0.4, 0.4);
-        this.coinCheckBox.x = 240;
+        this.coinCheckBox.x = 290;
         this.coinCheckBox.y = 20;
+        this.coinCheckBox.selected = coinItem.coinSelected;
     };
     coinItemUI.WID = 60;
     coinItemUI.HEI = 60;

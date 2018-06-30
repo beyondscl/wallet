@@ -27,6 +27,7 @@ var net;
             _this.method = 'get';
             _this.resp = 'json';
             _this.xhr = new Laya.HttpRequest();
+            _this.xhr.http.headers = ['Access-Control-Allow-Origin-*'];
             _this.xhr.http.timeout = 10000;
             _this.xhr.on(Laya.Event.COMPLETE, _this, _this.completeHandler);
             _this.xhr.on(Laya.Event.ERROR, _this, _this.errorHandler);

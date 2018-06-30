@@ -1,3 +1,4 @@
+//添加币种：币种模型
 var mod;
 (function (mod) {
     var coinItemMod = /** @class */ (function () {

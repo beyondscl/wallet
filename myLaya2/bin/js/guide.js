@@ -1,35 +1,36 @@
 var EnterApp = view.EnterApp;
 var guide = /** @class */ (function () {
     function guide() {
-        this.guidesImg = ["guide/timg.jpg", "guide/timg1.jpg", "guide/timg2.jpg"];
         this.index = 0;
         this.mouseStart = 0;
         this.init();
     }
-    ;
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
-        this.guideImg = new Laya.Sprite();
-        this.guideImg.loadImage(this.guidesImg[this.index], 0, 0, Laya.stage.width, Laya.stage.height);
-        Laya.stage.addChild(this.guideImg);
-        // this.guideImg.on(Laya.Event.CLICK, this, this.touchEvent);
-        this.guideImg.on(Laya.Event.MOUSE_DOWN, this, this.mouseHandler);
-        this.guideImg.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
-        this.guideImg.on(Laya.Event.CLICK, this, this.mouseHandler);
-        this.guideImg.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
+        this.guideUI.on(Laya.Event.MOUSE_DOWN, this, this.mouseHandler);
+        this.guideUI.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
+        this.guideUI.on(Laya.Event.CLICK, this, this.mouseHandler);
+        this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
+        this.guideUI.img_enter.on(Laya.Event.CLICK, this, function () {
+            Laya.stage.removeChild(this.guideUI);
+            new EnterApp();
+        });
     };
     //functions
     guide.prototype.touchEvent = function (next) {
         next = next <= 0 ? 0 : next;
+        next = next >= 4 ? 3 : next;
         this.index = next;
-        if (this.index >= this.guidesImg.length) {
-            Laya.stage.removeChild(this.guideImg);
-            Laya.stage.removeChild(this.guideUI);
-            new EnterApp();
-            return;
+        var childs = this.guideUI._childs;
+        for (var i = 0; i < childs.length; i++) {
+            if (childs[i].name && childs[i].name == ('item' + next)) {
+                childs[i].visible = true;
+            }
+            if (childs[i].name && childs[i].name != ('item' + next)) {
+                childs[i].visible = false;
+            }
         }
-        this.guideImg.loadImage(this.guidesImg[next], 0, 0, Laya.stage.width, Laya.stage.height);
     };
     guide.prototype.mouseHandler = function (e) {
         switch (e.type) {
@@ -51,11 +52,11 @@ var guide = /** @class */ (function () {
     return guide;
 }());
 //程序入口
-Laya.init(Laya.Browser.width, Laya.Browser.height, Laya.WebGL);
+Laya.init(config.prod.appWidth, config.prod.appHeight, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
 //设置适配模式
-Laya.stage.scaleMode = "exactfit";
+Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT; //SCALE_EXACTFIT
 //设置横竖屏
 Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 //设置水平对齐
@@ -65,22 +66,29 @@ Laya.stage.alignV = "middle";
 //激活资源版本控制
 Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 function beginLoad() {
-    Laya.loader.load("res/atlas/img.atlas");
-    Laya.loader.load("res/atlas/template/Navigator.atlas");
-    Laya.loader.load("res/atlas/template/ToolBar.atlas");
-    Laya.loader.load("res/atlas/template/Switcher.atlas");
-    Laya.loader.load("res/atlas/template/List.atlas");
-    Laya.loader.load("res/atlas/template/Search.atlas");
-    Laya.loader.load("res/atlas/comp.atlas", Laya.Handler.create(null, enter));
+    // Laya.loader.load("res/atlas/template/Warn.atlas");
+    // Laya.loader.load("res/atlas/template/Navigator.atlas");
+    // Laya.loader.load("res/atlas/template/ToolBar.atlas");
+    // Laya.loader.load("res/atlas/template/Switcher.atlas");
+    // Laya.loader.load("res/atlas/template/List.atlas");
+    // Laya.loader.load("res/atlas/template/Search.atlas");
+    // Laya.loader.load("res/atlas/template/ScrollBar.atlas");
+    // Laya.loader.load("res/atlas/img.atlas");
+    // Laya.loader.load("res/atlas/img/main.atlas");
+    // Laya.loader.load("res/atlas/img/guide.atlas");
+    var res = ["res/atlas/img/main.atlas",
+        "res/atlas/img/guide.atlas",
+        "res/atlas/comp.atlas"];
+    Laya.loader.load(res, Laya.Handler.create(null, enter));
 }
 function enter() {
     // laya.net.LocalStorage.clear();
-    var walletNames = laya.net.LocalStorage.getItem(config.prod.appKey);
+    var walletNames = util.getItem(config.prod.appKey);
     if (!walletNames) {
         new guide();
         return;
     }
-    var wallet = JSON.parse(laya.net.LocalStorage.getItem(JSON.parse(walletNames)[0]));
+    var wallet = util.getItem(walletNames[0]);
     var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);

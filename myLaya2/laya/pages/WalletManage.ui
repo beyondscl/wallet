@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
-    "props":{"width":300,"sceneColor":"#ffffff","height":429},
+    "selecteID":10,
+    "props":{"width":375,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -12,19 +12,6 @@
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Rect",
-            "props":{"y":0,"x":0,"width":300,"lineWidth":1,"height":60,"fillColor":"#c6e2ee"},
-            "nodeParent":1,
-            "label":"Rect",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
-        },
         {
             "x":15,
             "type":"Label",
@@ -54,7 +41,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":389,"x":0,"width":150,"var":"btn_create","labelAlign":"center","label":"创建钱包","height":40,"bottom":0},
+            "props":{"y":389,"x":0,"width":187,"var":"btn_create","labelAlign":"center","label":"创建钱包","height":60,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_create)",
             "isDirectory":false,
@@ -67,7 +54,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":389,"x":150,"width":150,"var":"btn_import","mouseEnabled":true,"left":150,"layoutEnabled":true,"label":"导入钱包","height":40,"bottom":0},
+            "props":{"y":389,"x":187,"width":187,"var":"btn_import","mouseEnabled":true,"layoutEnabled":true,"label":"导入钱包","height":60,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_import)",
             "isDirectory":false,
@@ -76,6 +63,113 @@
             "compId":3,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"List",
+            "props":{"var":"list_wallet","top":60,"selectEnable":true,"right":0,"repeatX":1,"left":0,"bottom":40},
+            "nodeParent":1,
+            "label":"List(list_wallet)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":10,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"right":0,"renderType":"render","name":"render","left":0,"height":80},
+                    "nodeParent":10,
+                    "label":"Box(render)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":11,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"width":300,"skin":"template/List/SimpleListBoxItemBackground.png","height":80},
+                            "nodeParent":11,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":20,"x":20,"width":30,"var":"img_wallet","skin":"template/List/message icon_57x57.png","name":"img_wallet","height":30},
+                            "nodeParent":11,
+                            "label":"Image(img_wallet)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":9,"x":60,"width":170,"var":"lab_wName","valign":"middle","text":"ETH","skin":"template/List/label.png","name":"lab_wName","height":20,"fontSize":16,"color":"#000000","align":"left"},
+                            "nodeParent":11,
+                            "label":"Label(lab_wName)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":31,"x":60,"width":190,"var":"lab_wAddr","valign":"middle","text":"035dx5dx...","skin":"template/List/label.png","name":"lab_wAddr","height":20,"fontSize":12,"color":"#aaaaaa","align":"left"},
+                            "nodeParent":11,
+                            "label":"Label(lab_wAddr)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"top":10,"skin":"template/List/arrow.png","right":20},
+                            "nodeParent":11,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":15,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"width":200,"var":"lab_wTotal","valign":"middle","text":"0 ether","skin":"template/List/label.png","right":20,"name":"lab_wTotal","height":20,"fontSize":16,"color":"#aaaaaa","bottom":10,"align":"right"},
+                            "nodeParent":11,
+                            "label":"Label(lab_wTotal)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":17,
+                            "child":[
+                                ],
+                            "$HIDDEN":true
+                        }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

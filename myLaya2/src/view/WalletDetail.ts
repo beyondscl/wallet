@@ -24,6 +24,8 @@ module view {
             this.comp.box_reverpass.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.box_expSeckey.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
+            this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
+
         }
 
         private goBack() {
@@ -61,6 +63,12 @@ module view {
                 enterPass.setParentUI(this.comp);
                 enterPass.setCallBack(this.exportKeystoreCb);
                 enterPass.popup(true, true)
+                return;
+            }
+            if (5 == index) {
+                this.comp.visible = false;
+                let backupw = new view.WalletBackUp();
+                backupw.setParetUI(this.comp);
                 return;
             }
         }

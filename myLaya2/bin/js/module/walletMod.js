@@ -3,6 +3,7 @@ var mod;
 (function (mod) {
     var walletMod = /** @class */ (function () {
         function walletMod(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins) {
+            this.wSkin = config.resource.walletImg;
             this.wName = wName;
             this.wPassword = wPassword;
             this.wPrivateKey = wPrivateKey;
@@ -20,6 +21,8 @@ var mod;
                 wCoins: this.wCoins
             };
             return json;
+        };
+        walletMod.prototype.getCoinSelected = function (coin) {
         };
         return walletMod;
     }());

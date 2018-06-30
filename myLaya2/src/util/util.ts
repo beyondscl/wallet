@@ -9,7 +9,7 @@ class util {
 
     //获取storage，返回json
     public static getItem(itemName) {
-        let data = Laya.LocalStorage.getItem(itemName);
+        let data = laya.net.LocalStorage.getItem(itemName);
         if (data) {
             return JSON.parse(data);
         }
@@ -18,14 +18,14 @@ class util {
 
     //设置storage，输入jsonString
     public static setItemNoJson(itemName, data) {
-        Laya.LocalStorage.setItem(itemName, data);
+        laya.net.LocalStorage.setItem(itemName, data);
     }
 
     //设置storage，输入json
     //['abc']需要调用下面这个方法
     public static setItemJson(itemName, data) {
         data = JSON.stringify(data);
-        Laya.LocalStorage.setItem(itemName, data);
+        laya.net.LocalStorage.setItem(itemName, data);
     }
 
     //生成二维码:qrcode._oDrawing._elImage.src
@@ -84,5 +84,19 @@ class util {
             return Laya.stage.width
         }
         return config.prod.appWidth;
+    }
+
+    //ui util
+    //密码等级0-3 : 弱-强
+    public static getPassLevel(view: Laya.Box, level: number) {
+        for (let i = view._childs.length - 1; i >= 0; i--) {
+            let t: Laya.Image = view._childs[i];
+            let m = [3, 2, 1, 0];
+            if (m[i] <= level) {
+                t.skin = config.resource.passLevelS;
+            } else {
+                t.skin = config.resource.passLevelW;
+            }
+        }
     }
 }

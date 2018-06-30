@@ -2,8 +2,6 @@ import EnterApp = view.EnterApp;
 
 class guide {
     private guideUI: ui.GuideUI;
-    private guidesImg: Array<string> = ["guide/timg.jpg", "guide/timg1.jpg", "guide/timg2.jpg"];
-    private guideImg: Laya.Sprite;
     private index: number = 0;
     private mouseStart = 0;
 
@@ -61,11 +59,11 @@ class guide {
 }
 
 //程序入口
-Laya.init(375, 667, Laya.WebGL);
+Laya.init(config.prod.appWidth, config.prod.appHeight, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
 //设置适配模式
-Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT;
+Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT;//SCALE_EXACTFIT
 //设置横竖屏
 Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 //设置水平对齐
@@ -76,16 +74,23 @@ Laya.stage.alignV = "middle";
 Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 
 function beginLoad() {
-    Laya.loader.load("res/atlas/img.atlas");
-    Laya.loader.load("res/atlas/template/Warn.atlas");
-    Laya.loader.load("res/atlas/template/Navigator.atlas");
-    Laya.loader.load("res/atlas/template/ToolBar.atlas");
-    Laya.loader.load("res/atlas/template/Switcher.atlas");
-    Laya.loader.load("res/atlas/template/List.atlas");
-    Laya.loader.load("res/atlas/template/Search.atlas");
-    Laya.loader.load("res/atlas/template/ScrollBar.atlas");
 
-    Laya.loader.load("res/atlas/comp.atlas", Laya.Handler.create(null, enter));
+    // Laya.loader.load("res/atlas/template/Warn.atlas");
+    // Laya.loader.load("res/atlas/template/Navigator.atlas");
+    // Laya.loader.load("res/atlas/template/ToolBar.atlas");
+    // Laya.loader.load("res/atlas/template/Switcher.atlas");
+    // Laya.loader.load("res/atlas/template/List.atlas");
+    // Laya.loader.load("res/atlas/template/Search.atlas");
+    // Laya.loader.load("res/atlas/template/ScrollBar.atlas");
+    // Laya.loader.load("res/atlas/img.atlas");
+
+
+    // Laya.loader.load("res/atlas/img/main.atlas");
+    // Laya.loader.load("res/atlas/img/guide.atlas");
+    let res: Array<any> = ["res/atlas/img/main.atlas",
+        "res/atlas/img/guide.atlas",
+        "res/atlas/comp.atlas"];
+    Laya.loader.load(res, Laya.Handler.create(null, enter));
 }
 
 function enter() {
@@ -100,26 +105,3 @@ function enter() {
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);
 }
-
-// function windowTest(){
-//     let conch = Laya.Browser.window.conch;
-//     console.log("=================>"+conch);
-//     conch && conch.showAssistantTouch(false);
-//     var ctx = document.createElement('canvas').getContext('2d');
-//     function render(){
-//         ctx.fillStyle='#99d9ea';
-//         ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
-//         window.requestAnimationFrame(render);
-//     }
-//     window.requestAnimationFrame(render);
-//     document.addEventListener('touchstart',()=>{
-//         if(conch){
-//             var l = 50;
-//             var t = 50;
-//             var w = window.innerWidth-l*2;
-//             var h = window.innerHeight-t*2;
-//             // conch.setExternalLinkEx('http://www.layabox.com',l,t,w,h,true);
-//             conch.setExternalLink('http://www.baidu.com');
-//         }
-//     });
-// }

@@ -1,12 +1,13 @@
 var util = /** @class */ (function () {
     function util() {
     }
+
     util.getAddr = function (addr) {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     };
     //获取storage，返回json
     util.getItem = function (itemName) {
-        var data = Laya.LocalStorage.getItem(itemName);
+        var data = laya.net.LocalStorage.getItem(itemName);
         if (data) {
             return JSON.parse(data);
         }
@@ -14,13 +15,13 @@ var util = /** @class */ (function () {
     };
     //设置storage，输入jsonString
     util.setItemNoJson = function (itemName, data) {
-        Laya.LocalStorage.setItem(itemName, data);
+        laya.net.LocalStorage.setItem(itemName, data);
     };
     //设置storage，输入json
     //['abc']需要调用下面这个方法
     util.setItemJson = function (itemName, data) {
         data = JSON.stringify(data);
-        Laya.LocalStorage.setItem(itemName, data);
+        laya.net.LocalStorage.setItem(itemName, data);
     };
     //生成二维码:qrcode._oDrawing._elImage.src
     util.createEwm = function (w, h, value, caller, callBack) {
@@ -75,6 +76,20 @@ var util = /** @class */ (function () {
             return Laya.stage.width;
         }
         return config.prod.appWidth;
+    };
+    //ui util
+    //密码等级0-3 : 弱-强
+    util.getPassLevel = function (view, level) {
+        for (var i = view._childs.length - 1; i >= 0; i--) {
+            var t = view._childs[i];
+            var m = [3, 2, 1, 0];
+            if (m[i] <= level) {
+                t.skin = config.resource.passLevelS;
+            }
+            else {
+                t.skin = config.resource.passLevelW;
+            }
+        }
     };
     return util;
 }());

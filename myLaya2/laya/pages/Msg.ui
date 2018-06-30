@@ -2,7 +2,6 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":13,
     "props":{"width":300,"staticCache":true,"sceneWidth":600,"sceneHeight":800,"sceneColor":"#000000","popupCenter":true,"layoutEnabled":true,"height":429,"centerY":0,"centerX":0,"cacheAs":"normal"},
     "nodeParent":-1,
     "label":"Dialog",

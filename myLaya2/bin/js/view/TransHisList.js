@@ -27,6 +27,7 @@ var view;
             this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         TransHisList.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);

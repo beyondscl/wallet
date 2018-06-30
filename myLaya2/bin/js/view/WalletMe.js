@@ -22,6 +22,8 @@ var view;
         WalletMe.prototype.init = function () {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletMe.prototype.initEvent = function () {
             this.comp.btn_assets.on(Laya.Event.CLICK, this, this.tabSelect, [0]);
@@ -42,20 +44,15 @@ var view;
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
-                //测试数据
-                var datas = [];
-                for (var i = 0; i < 3; i++) {
-                    var t_1 = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                    datas.push(t_1);
-                }
-                var t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-                datas.push(t);
                 this.comp.visible = false;
+                var datas = service.walletServcie.getDealList();
                 new view.TransHisList().setData(datas, this.comp);
             }
             if (index == 3) {
                 this.comp.visible = false;
-                new view.WalletManage();
+                var wm = new view.WalletManage();
+                wm.setParentUI(this.comp);
+                wm.setData(service.walletServcie.getWallets());
             }
         };
         return WalletMe;

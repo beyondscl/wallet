@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
-    "props":{"width":300,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","height":429},
+    "selecteID":8,
+    "props":{"width":375,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Rect",
-            "props":{"y":0,"x":0,"width":300,"lineWidth":1,"height":150,"fillColor":"#c1e2ef"},
+            "props":{"y":0,"x":0,"width":375,"lineWidth":1,"height":240,"fillColor":"#c1e2ef"},
             "nodeParent":1,
             "label":"Rect",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":20,"width":22,"skin":"img/eth.jpg","height":22,"centerX":0},
+            "props":{"y":50,"width":30,"skin":"img/eth.jpg","height":30,"centerX":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":51,"var":"lab_wName","text":"0","color":"#000000","centerX":0},
+            "props":{"y":81,"var":"lab_wName","text":"0","height":30,"color":"#000000","centerX":0},
             "nodeParent":1,
             "label":"Label(lab_wName)",
             "isDirectory":false,
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":70,"width":134,"var":"lab_wAddr","text":"---------","overflow":"hidden","height":12,"color":"#000000","centerX":-1},
+            "props":{"y":100,"var":"lab_wAddr","valign":"middle","text":"AAAAAAAA......AAAAAAAA","overflow":"hidden","height":30,"color":"#000000","centerX":-5,"align":"left"},
             "nodeParent":1,
             "label":"Label(lab_wAddr)",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":125,"x":25,"valign":"middle","text":"总资产($)","height":20,"color":"#000000"},
+            "props":{"y":190,"x":25,"valign":"middle","text":"总资产($)","height":30,"color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -80,7 +80,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":90,"x":25,"var":"lab_total_usd","text":"≈ 0","fontSize":22,"color":"#000000"},
+            "props":{"y":155,"var":"lab_total_usd","text":"≈ 0","right":20,"left":20,"height":35,"fontSize":32,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_total_usd)",
             "isDirectory":false,
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":70,"x":220,"width":10,"var":"btn_owner_info","skin":"img/ewm.jpg","height":10},
+            "props":{"y":102,"x":260,"width":30,"var":"btn_owner_info","skin":"img/ewm.jpg","height":30},
             "nodeParent":1,
             "label":"Image(btn_owner_info)",
             "isDirectory":false,
@@ -106,7 +106,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":125,"width":20,"var":"btn_addCoin","skin":"img/add.png","sizeGrid":"0,0,0,0","right":25,"height":20},
+            "props":{"y":190,"width":40,"var":"btn_addCoin","skin":"img/add.png","sizeGrid":"0,0,0,0","right":20,"height":40},
             "nodeParent":1,
             "label":"Image(btn_addCoin)",
             "isDirectory":false,
@@ -119,7 +119,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"width":150,"var":"btn_assets","selected":true,"labelAlign":"center","label":"资产","height":40,"bottom":0},
+            "props":{"x":0,"width":187,"var":"btn_assets","selected":true,"labelAlign":"center","label":"资产","height":60,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_assets)",
             "isDirectory":false,
@@ -132,7 +132,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"x":160,"width":150,"var":"btn_me","mouseEnabled":true,"left":150,"layoutEnabled":true,"label":"我","height":40,"bottom":0},
+            "props":{"var":"btn_me","right":0,"mouseEnabled":true,"left":187,"layoutEnabled":true,"label":"我","height":60,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_me)",
             "isDirectory":false,
@@ -145,7 +145,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":30,"var":"btn_more","top":20,"skin":"img/more.png","right":20,"height":30},
+            "props":{"y":50,"width":30,"var":"btn_more","top":20,"skin":"img/more.png","right":20,"height":30},
             "nodeParent":1,
             "label":"Image(btn_more)",
             "isDirectory":false,

@@ -51,9 +51,11 @@ var dealItemUI = /** @class */ (function (_super) {
         this.lab_amount.centerY = 0;
         this.lab_amount.right = 20;
         this.sperated.skin = config.resource.sperated;
+        this.sperated.left = 0;
+        this.sperated.right = 0;
         this.sperated.y = 49;
     };
-    dealItemUI.WID = 300;
+    dealItemUI.WID = util.getScreenWidth();
     dealItemUI.HEI = 50;
     return dealItemUI;
 }(Box));

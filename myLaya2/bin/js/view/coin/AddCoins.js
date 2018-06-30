@@ -20,7 +20,6 @@ var view;
                 _this.listCoin = new Laya.List();
                 _this.init();
                 _this.initEvent();
-                _this.setData(testData.getCoins()); //test
                 return _this;
             }
             AddCoins.prototype.init = function () {
@@ -52,14 +51,14 @@ var view;
             };
             AddCoins.prototype.setData = function (data) {
                 this.listCoin.x = 0;
-                this.listCoin.width = 300;
+                this.listCoin.width = util.getScreenWidth();
                 this.listCoin.top = 60;
                 this.listCoin.bottom = 0;
                 this.listCoin.itemRender = coinItemUI;
                 this.listCoin.repeatX = 1;
                 this.listCoin.repeatY = data.length;
                 this.listCoin.vScrollBarSkin = "";
-                this.listCoin.selectEnable = true;
+                this.listCoin.selectEnable = false;
                 // this.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
                 this.listCoin.renderHandler = new Laya.Handler(this, this.updateItem);
                 this.listCoin.array = data;
@@ -78,10 +77,10 @@ var view;
                     }
                 }
                 var walletName = this.parentUI.lab_wName.text;
-                var wallet = util.getStorageItem(walletName);
+                var wallet = util.getItem(walletName);
                 if (wallet) {
                     wallet.wCoins = coins;
-                    util.setStorageItem(walletName, JSON.stringify(wallet));
+                    util.setItemNoJson(walletName, JSON.stringify(wallet));
                 }
             };
             return AddCoins;

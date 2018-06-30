@@ -13,8 +13,8 @@ var walltNameUI = /** @class */ (function (_super) {
     __extends(walltNameUI, _super);
     function walltNameUI() {
         var _this = _super.call(this) || this;
-        _this.WID = 100;
-        _this.HEI = 30;
+        _this.WID = 150;
+        _this.HEI = 50;
         _this.wImg = new Laya.Image();
         _this.wName = new Laya.Label();
         _this.wSpe = new Laya.Image();
@@ -27,12 +27,16 @@ var walltNameUI = /** @class */ (function (_super) {
     walltNameUI.prototype.init = function (walletName) {
         this.wImg.skin = 'img/wallet_manage.png';
         this.wImg.left = 10;
-        this.wImg.width = 15;
-        this.wImg.height = 15;
-        this.wName.text = walletName.replace(/([^]{5})([^]+)/, "$1...");
-        this.wName.left = 40;
+        this.wImg.width = 30;
+        this.wImg.height = 30;
+        this.wImg.top = (this.HEI - this.wImg.height) / 2;
+        this.wName.text = walletName.replace(/([^]{5})([^]+)/, "$1.");
+        this.wName.left = 50;
+        this.wName.height = 30;
+        this.wName.valign = 'middle';
+        this.wName.top = (this.HEI - this.wName.height) / 2;
         this.wSpe.skin = config.resource.sperated;
-        this.wSpe.top = 25;
+        this.wSpe.top = this.HEI;
         this.wSpe.left = 0;
         this.wSpe.right = 0;
     };

@@ -28,8 +28,8 @@ var walItemUI = /** @class */ (function (_super) {
     }
     walItemUI.prototype.init = function (walItem) {
         this.img.skin = walItem.getItemImgSrc();
-        this.img.width = 30;
-        this.img.height = 30;
+        this.img.width = 60;
+        this.img.height = 60;
         this.img.centerY = 0;
         this.img.x = 20;
         this.lab_name.text = walItem.itemName;
@@ -47,10 +47,12 @@ var walItemUI = /** @class */ (function (_super) {
         this.lab_type.valign = "middle";
         this.lab_type.right = 20;
         this.sperated.skin = config.resource.sperated;
-        this.sperated.y = 49;
+        this.sperated.left = 0;
+        this.sperated.right = 0;
+        this.sperated.y = walItemUI.HEI - 1;
     };
-    walItemUI.WID = 300;
-    walItemUI.HEI = 50;
+    walItemUI.WID = util.getScreenWidth();
+    walItemUI.HEI = 80;
     return walItemUI;
 }(Box));
 //# sourceMappingURL=walItemUI.js.map

@@ -9,6 +9,7 @@ module net {
         constructor() {
             super();
             this.xhr = new Laya.HttpRequest();
+            this.xhr.http.headers = ['Access-Control-Allow-Origin-*'];
             this.xhr.http.timeout = 10000;
             this.xhr.on(Laya.Event.COMPLETE, this, this.completeHandler);
             this.xhr.on(Laya.Event.ERROR, this, this.errorHandler);

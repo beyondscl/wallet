@@ -168,6 +168,248 @@ module ui.alert {
     }
 }
 
+module ui.alert {
+    export class IframeUI extends Dialog {
+
+        public static uiView: any = {
+            "type": "Dialog",
+            "props": {"width": 375, "height": 667},
+            "child": [{
+                "type": "Image",
+                "props": {"top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0}
+            }]
+        };
+
+        constructor() {
+            super()
+        }
+
+        createChildren(): void {
+
+            super.createChildren();
+            this.createView(ui.alert.IframeUI.uiView);
+
+        }
+
+    }
+}
+
+module ui.alert {
+    export class WarnZjcUI extends Dialog {
+        public btn_know: Laya.Button;
+
+        public static uiView: any = {
+            "type": "Dialog",
+            "props": {"width": 345, "height": 314},
+            "child": [{
+                "type": "Box",
+                "props": {"top": 0, "right": 0, "left": 0, "bottom": 0},
+                "child": [{
+                    "type": "Image",
+                    "props": {
+                        "y": 0,
+                        "x": 0,
+                        "top": 0,
+                        "skin": "img/main/white.jpg",
+                        "right": 0,
+                        "left": 0,
+                        "bottom": 0
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {
+                        "y": 22,
+                        "x": 145,
+                        "width": 56,
+                        "skin": "img/main/camera@2x.png",
+                        "height": 56,
+                        "centerX": 0
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 91,
+                        "x": 132,
+                        "text": "请勿截图",
+                        "height": 28,
+                        "fontSize": 20,
+                        "color": "#163853",
+                        "centerX": 0,
+                        "bold": true
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 139,
+                        "x": 30,
+                        "valign": "middle",
+                        "text": "如果有人获取你的助记词将直接获取你的资产",
+                        "height": 22,
+                        "fontSize": 12,
+                        "color": "#687076",
+                        "align": "left"
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 161,
+                        "x": 28,
+                        "valign": "middle",
+                        "text": "请抄写下来助记词并存放在安全的地方。",
+                        "height": 22,
+                        "fontSize": 12,
+                        "color": "#687076",
+                        "align": "left"
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "y": 229,
+                        "x": 71,
+                        "width": 204,
+                        "var": "btn_know",
+                        "stateNum": 1,
+                        "skin": "img/main/anliu@2x.png",
+                        "label": "我知道了",
+                        "height": 40,
+                        "centerX": 0
+                    }
+                }]
+            }]
+        };
+
+        constructor() {
+            super()
+        }
+
+        createChildren(): void {
+
+            super.createChildren();
+            this.createView(ui.alert.WarnZjcUI.uiView);
+
+        }
+
+    }
+}
+
+module ui.backup {
+    export class BackUpZjcUI extends View {
+        public btn_back: Laya.Image;
+        public btn_backup: Laya.Button;
+        public text_zjc: Laya.TextArea;
+
+        public static uiView: any = {
+            "type": "View",
+            "props": {"width": 375, "height": 667},
+            "child": [{
+                "type": "Image",
+                "props": {
+                    "y": 27,
+                    "x": 10,
+                    "width": 30,
+                    "var": "btn_back",
+                    "skin": "img/main/back@2x.png",
+                    "height": 30
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 31,
+                    "valign": "middle",
+                    "text": "备份助记词",
+                    "height": 22,
+                    "fontSize": 16,
+                    "color": "#163853",
+                    "centerX": 0,
+                    "align": "center"
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 99,
+                    "x": 15,
+                    "valign": "middle",
+                    "text": "抄写下你的钱包助记词",
+                    "height": 28,
+                    "fontSize": 20,
+                    "color": "#163853",
+                    "bold": true,
+                    "align": "center"
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 137,
+                    "x": 15,
+                    "valign": "middle",
+                    "text": "助记词用于恢复钱包和充值钱包密码，将它准确的抄写到纸上，",
+                    "height": 22,
+                    "fontSize": 12,
+                    "color": "#687076",
+                    "align": "left"
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 159,
+                    "x": 13,
+                    "valign": "middle",
+                    "text": " 并存放在只有你知道的安全的地方。",
+                    "height": 22,
+                    "fontSize": 12,
+                    "color": "#687076",
+                    "align": "left"
+                }
+            }, {
+                "type": "Button",
+                "props": {
+                    "y": 437,
+                    "width": 354,
+                    "var": "btn_backup",
+                    "stateNum": 1,
+                    "skin": "img/main/anliu@2x.png",
+                    "sizeGrid": "0,0,0,0",
+                    "labelSize": 16,
+                    "labelColors": "#ffffff",
+                    "label": "下一步",
+                    "height": 40,
+                    "centerX": 0
+                }
+            }, {
+                "type": "TextArea",
+                "props": {
+                    "y": 209,
+                    "wordWrap": true,
+                    "width": 344,
+                    "var": "text_zjc",
+                    "text": "wing wing wing wing wing wing wing wing wing wing wing wing",
+                    "padding": "15",
+                    "leading": 15,
+                    "height": 76,
+                    "fontSize": 14,
+                    "editable": false,
+                    "color": "#163853",
+                    "centerX": 0,
+                    "bgColor": "#ECECEC",
+                    "align": "left"
+                }
+            }]
+        };
+
+        constructor() {
+            super()
+        }
+
+        createChildren(): void {
+
+            super.createChildren();
+            this.createView(ui.backup.BackUpZjcUI.uiView);
+
+        }
+
+    }
+}
+
 module ui.coin {
     export class AddCoinsUI extends View {
         public btn_goback: Laya.Button;
@@ -251,8 +493,6 @@ module ui.coin {
 
 module ui {
     export class EnterAppUI extends View {
-        public lab_title: Laya.Label;
-        public lab_subTitle: Laya.Label;
         public btn_create: Laya.Button;
         public btn_import: Laya.Button;
 
@@ -274,58 +514,70 @@ module ui {
                 "props": {"top": 0, "right": 0, "left": 0, "bottom": 0},
                 "child": [{
                     "type": "Image",
-                    "props": {"y": 0, "x": 0, "top": 0, "skin": "guide/timg.jpg", "right": 0, "left": 0, "bottom": 0}
+                    "props": {"y": 0, "x": 0, "visible": false, "top": 0, "right": 0, "left": 0, "bottom": 0}
                 }, {
-                    "type": "Label",
+                    "type": "Image",
                     "props": {
-                        "var": "lab_title",
-                        "valign": "middle",
-                        "top": 60,
-                        "text": "万微钱包",
-                        "padding": "2",
-                        "layoutEnabled": true,
-                        "height": 40,
-                        "fontSize": 32,
-                        "color": "#c8c8c8",
+                        "y": 115,
+                        "width": 113,
+                        "skin": "img/main/qianbaoicon@2x.png",
+                        "height": 113,
                         "centerX": 0
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "var": "lab_subTitle",
+                        "y": 255,
                         "valign": "middle",
-                        "top": 110,
-                        "text": "您的第一个智能轻钱包",
-                        "padding": "2",
-                        "height": 32,
-                        "fontSize": 16,
-                        "color": "#898989",
+                        "text": "WWEC TOKEN",
+                        "height": 28,
+                        "fontSize": 20,
+                        "color": "#163853",
                         "centerX": 0,
+                        "bold": true,
+                        "align": "center"
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 292,
+                        "valign": "middle",
+                        "text": "您的数字钱包管家",
+                        "height": 28,
+                        "fontSize": 20,
+                        "color": "#163853",
+                        "centerX": 0,
+                        "bold": true,
                         "align": "center"
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 180,
+                        "y": 406,
+                        "x": 108,
+                        "width": 345,
                         "var": "btn_create",
-                        "top": 180,
-                        "skin": "comp/button.png",
-                        "sizeGrid": "0,0,0,0",
+                        "stateNum": 1,
+                        "skin": "img/main/anliu@2x.png",
+                        "labelSize": 18,
+                        "labelColors": "#ffffff",
                         "label": "创建钱包",
                         "height": 40,
-                        "centerX": 1
+                        "centerX": 0
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 180,
+                        "y": 473,
+                        "width": 345,
                         "var": "btn_import",
-                        "top": 240,
-                        "skin": "comp/button.png",
-                        "sizeGrid": "0,0,0,0",
+                        "stateNum": 1,
+                        "skin": "img/main/anliu-@2x.png",
+                        "labelSize": 18,
+                        "labelColors": "#ffffff",
                         "label": "导入钱包",
                         "height": 40,
-                        "centerX": 1
+                        "centerX": 0
                     }
                 }]
             }]
@@ -356,29 +608,32 @@ module ui {
 
         public static uiView: any = {
             "type": "View",
-            "props": {"y": 0, "x": 0, "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0},
+            "props": {"y": 0, "x": 0, "width": 375, "height": 667},
             "child": [{
                 "type": "Box",
                 "props": {"var": "item0", "top": 0, "right": 0, "name": "item0", "left": 0, "bottom": 0},
                 "child": [{
                     "type": "Image",
-                    "props": {"y": 0, "x": 0, "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0}
+                    "props": {"top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0}
                 }, {
                     "type": "Image",
-                    "props": {"width": 355, "top": 0, "skin": "img/guide/ydy_1.png", "left": 0, "height": 627}
+                    "props": {"width": 354, "top": 0, "skin": "img/guide/ydy_1.png", "left": 0, "height": 627}
                 }, {
                     "type": "Image",
-                    "props": {"y": 513, "skin": "img/guide/ydy_1_word.png", "right": 0, "left": 0, "height": 82}
+                    "props": {"y": 500, "skin": "img/guide/ydy_1_word.png", "right": 0, "left": 0, "height": 82}
                 }, {
                     "type": "Box",
                     "props": {"y": 638, "x": 0, "var": "leading", "right": 0, "left": 0, "height": 8, "bottom": 21},
-                    "child": [{"type": "Image", "props": {"x": 153, "skin": "img/guide/ty16_1.png"}}, {
+                    "child": [{
                         "type": "Image",
-                        "props": {"x": 174, "skin": "img/guide/tu16.png"}
-                    }, {"type": "Image", "props": {"x": 194, "skin": "img/guide/tu16.png"}}, {
+                        "props": {"x": 153, "width": 8, "skin": "img/guide/ty16_1.png", "height": 8}
+                    }, {
                         "type": "Image",
-                        "props": {"x": 215, "skin": "img/guide/tu16.png"}
-                    }]
+                        "props": {"x": 174, "width": 8, "skin": "img/guide/tu16.png", "height": 8}
+                    }, {
+                        "type": "Image",
+                        "props": {"x": 194, "width": 8, "skin": "img/guide/tu16.png", "height": 8}
+                    }, {"type": "Image", "props": {"x": 215, "width": 8, "skin": "img/guide/tu16.png", "height": 8}}]
                 }]
             }, {
                 "type": "Box",
@@ -399,23 +654,24 @@ module ui {
                     "props": {"y": 0, "x": 0, "width": 355, "skin": "img/guide/ydy_2.png", "height": 657}
                 }, {
                     "type": "Image",
-                    "props": {"y": 513, "skin": "img/guide/ydy_2_word.png", "right": 0, "left": 0, "height": 82}
+                    "props": {"y": 500, "skin": "img/guide/ydy_2_word.png", "right": 0, "left": 0, "height": 82}
                 }, {
                     "type": "Box",
                     "props": {"y": 638, "x": 0, "right": 0, "left": 0, "height": 8, "bottom": 21},
-                    "child": [{"type": "Image", "props": {"x": 153, "skin": "img/guide/tu16.png"}}, {
+                    "child": [{
                         "type": "Image",
-                        "props": {"x": 174, "skin": "img/guide/ty16_1.png"}
-                    }, {"type": "Image", "props": {"x": 194, "skin": "img/guide/tu16.png"}}, {
+                        "props": {"x": 153, "width": 8, "skin": "img/guide/tu16.png", "height": 8}
+                    }, {
                         "type": "Image",
-                        "props": {"x": 215, "skin": "img/guide/tu16.png"}
-                    }]
+                        "props": {"x": 174, "width": 8, "skin": "img/guide/ty16_1.png", "height": 8}
+                    }, {
+                        "type": "Image",
+                        "props": {"x": 194, "width": 8, "skin": "img/guide/tu16.png", "height": 8}
+                    }, {"type": "Image", "props": {"x": 215, "width": 8, "skin": "img/guide/tu16.png", "height": 8}}]
                 }]
             }, {
                 "type": "Box",
                 "props": {
-                    "y": 20,
-                    "x": 20,
                     "visible": false,
                     "var": "item2",
                     "top": 0,
@@ -429,26 +685,27 @@ module ui {
                     "props": {"y": 0, "x": 0, "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0}
                 }, {
                     "type": "Image",
-                    "props": {"width": 375, "top": 0, "skin": "img/guide/ydy_3.png", "left": 0, "height": 597}
+                    "props": {"y": 0, "width": 375, "skin": "img/guide/ydy_3.png", "left": 0, "height": 597}
                 }, {
                     "type": "Image",
-                    "props": {"y": 513, "skin": "img/guide/ydy_3_word.png", "right": 0, "left": 0, "height": 82}
+                    "props": {"y": 500, "skin": "img/guide/ydy_3_word.png", "right": 0, "left": 0, "height": 82}
                 }, {
                     "type": "Box",
                     "props": {"y": 638, "x": 0, "right": 0, "left": 0, "height": 8, "bottom": 21},
-                    "child": [{"type": "Image", "props": {"x": 153, "skin": "img/guide/tu16.png"}}, {
+                    "child": [{
                         "type": "Image",
-                        "props": {"x": 174, "skin": "img/guide/tu16.png"}
-                    }, {"type": "Image", "props": {"x": 194, "skin": "img/guide/ty16_1.png"}}, {
+                        "props": {"x": 153, "width": 8, "skin": "img/guide/tu16.png", "height": 8}
+                    }, {
                         "type": "Image",
-                        "props": {"x": 215, "skin": "img/guide/tu16.png"}
-                    }]
+                        "props": {"x": 174, "width": 8, "skin": "img/guide/tu16.png", "height": 8}
+                    }, {
+                        "type": "Image",
+                        "props": {"x": 194, "width": 8, "skin": "img/guide/ty16_1.png", "height": 8}
+                    }, {"type": "Image", "props": {"x": 215, "width": 8, "skin": "img/guide/tu16.png", "height": 8}}]
                 }]
             }, {
                 "type": "Box",
                 "props": {
-                    "y": 30,
-                    "x": 30,
                     "visible": false,
                     "var": "item3",
                     "top": 0,
@@ -462,10 +719,10 @@ module ui {
                     "props": {"y": 0, "x": 0, "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0}
                 }, {
                     "type": "Image",
-                    "props": {"width": 375, "top": 0, "skin": "img/guide/ydy_4.png", "left": 0, "height": 626}
+                    "props": {"y": 0, "x": 0, "width": 375, "skin": "img/guide/ydy_4.png", "height": 627}
                 }, {
                     "type": "Image",
-                    "props": {"y": 513, "skin": "img/guide/ydy_4_word.png", "right": 0, "left": 0, "height": 82}
+                    "props": {"y": 500, "skin": "img/guide/ydy_4_word.png", "right": 0, "left": 0, "height": 82}
                 }, {
                     "type": "Image",
                     "props": {
@@ -473,7 +730,7 @@ module ui {
                         "x": 121,
                         "width": 133,
                         "var": "img_enter",
-                        "skin": "img/guide/jljr.png",
+                        "skin": "img/guide/ljjr.png",
                         "height": 40,
                         "centerX": 0,
                         "bottom": 34
@@ -1921,163 +2178,267 @@ module ui {
 }
 
 module ui {
+    export class WalletBackUpUI extends View {
+        public btn_back: Laya.Image;
+        public btn_backup: Laya.Button;
+        public info_backup: Laya.Label;
+
+        public static uiView: any = {
+            "type": "View",
+            "props": {"width": 375, "height": 667},
+            "child": [{
+                "type": "Image",
+                "props": {
+                    "y": 27,
+                    "x": 10,
+                    "width": 30,
+                    "var": "btn_back",
+                    "skin": "img/main/back@2x.png",
+                    "height": 30
+                }
+            }, {
+                "type": "Image",
+                "props": {"y": 133, "width": 62, "skin": "img/main/anquan@2x.png", "height": 72, "centerX": 0}
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 31,
+                    "valign": "middle",
+                    "text": "备份钱包",
+                    "height": 22,
+                    "fontSize": 16,
+                    "color": "#163853",
+                    "centerX": 0,
+                    "align": "center"
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 248,
+                    "valign": "middle",
+                    "text": "立即备份你的钱包！",
+                    "height": 28,
+                    "fontSize": 20,
+                    "color": "#163853",
+                    "centerX": 0,
+                    "bold": true,
+                    "align": "center"
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 318,
+                    "valign": "middle",
+                    "text": "备份钱包：导出「助记词」并抄写到安全的地方",
+                    "left": 15,
+                    "height": 22,
+                    "fontSize": 12,
+                    "color": "#687076",
+                    "align": "left"
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 340,
+                    "valign": "middle",
+                    "text": " 千万不要保存到网络上。然后尝试转入，转出小额资产开始使用。",
+                    "left": 13,
+                    "height": 22,
+                    "fontSize": 12,
+                    "color": "#687076",
+                    "align": "left"
+                }
+            }, {
+                "type": "Button",
+                "props": {
+                    "y": 473,
+                    "x": 10,
+                    "width": 354,
+                    "var": "btn_backup",
+                    "stateNum": 1,
+                    "skin": "img/main/anliu@2x.png",
+                    "sizeGrid": "0,0,0,0",
+                    "labelSize": 16,
+                    "labelColors": "#ffffff",
+                    "label": "备份钱包",
+                    "height": 40,
+                    "centerX": 0
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 536,
+                    "x": 10,
+                    "var": "info_backup",
+                    "text": "查看备份详细教程",
+                    "height": 17,
+                    "fontSize": 16,
+                    "color": "#687076",
+                    "centerX": 0,
+                    "align": "center"
+                }
+            }]
+        };
+
+        constructor() {
+            super()
+        }
+
+        createChildren(): void {
+
+            super.createChildren();
+            this.createView(ui.WalletBackUpUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
     export class WalletCreateUI extends View {
         public text_wall_name: Laya.TextInput;
         public text_pass: Laya.TextInput;
         public text_pass_conf: Laya.TextInput;
         public lab_info: Laya.Label;
-        public btn_create: Laya.Button;
-        public btn_import: Laya.Button;
         public check_argee: Laya.CheckBox;
         public btn_back: Laya.Button;
         public lab_pass_level: Laya.Label;
         public lab_warn_wName: Laya.Label;
         public lab_pass: Laya.Label;
         public lab_pass_conf: Laya.Label;
+        public btn_create: Laya.Button;
+        public btn_import: Laya.Label;
+        public lab_words: Laya.Label;
+        public box_pass_level: Laya.Box;
+        public href_ysfw: Laya.Label;
 
         public static uiView: any = {
             "type": "View",
             "props": {"width": 375, "visible": true, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0},
             "child": [{
-                "type": "Image",
-                "props": {"width": 375, "top": 55, "skin": "img/blue.png", "right": 0, "left": 0, "height": 54}
-            }, {
                 "type": "Label",
                 "props": {
-                    "y": 60,
-                    "x": 0,
-                    "text": " 。 密码用于保护私钥和交易授权，强度非常重要",
-                    "right": 0,
-                    "left": 0,
-                    "height": 25,
+                    "y": 93,
+                    "x": 35,
+                    "valign": "middle",
+                    "text": "密码用于保护私匙和交易授权，强度非常重要",
+                    "height": 17,
                     "fontSize": 12,
-                    "color": "#ffffff"
+                    "color": "#163853",
+                    "align": "left"
                 }
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 85,
-                    "x": 0,
-                    "text": " 。WWWallet不存储密码，也无法帮您找回，请务必牢记",
-                    "right": 0,
-                    "left": 0,
-                    "height": 25,
+                    "y": 117,
+                    "x": 35,
+                    "valign": "middle",
+                    "text": "WWECToken 不储存密码，也无法帮您找回，请务必牢记",
+                    "height": 17,
                     "fontSize": 12,
-                    "color": "#ffffff"
+                    "color": "#163853",
+                    "align": "left"
                 }
             }, {
                 "type": "TextInput",
                 "props": {
-                    "y": 130,
-                    "x": 20,
-                    "width": 236,
+                    "y": 174,
+                    "x": 15,
+                    "width": 250,
                     "var": "text_wall_name",
+                    "promptColor": "#8e979f",
                     "prompt": "钱包名称",
                     "maxChars": 20,
                     "layoutEnabled": true,
-                    "height": 30
+                    "height": 17,
+                    "fontSize": 12,
+                    "align": "left"
                 }
             }, {
                 "type": "TextInput",
                 "props": {
-                    "y": 180,
-                    "width": 236,
+                    "y": 232,
+                    "x": 15,
+                    "width": 250,
                     "var": "text_pass",
                     "type": "password",
+                    "promptColor": "#8e979f",
                     "prompt": "密码",
-                    "maxChars": 30,
-                    "left": 23,
+                    "maxChars": 32,
                     "layoutEnabled": true,
-                    "height": 30
+                    "height": 17,
+                    "fontSize": 12,
+                    "align": "left"
                 }
             }, {
                 "type": "TextInput",
                 "props": {
-                    "y": 230,
-                    "width": 236,
+                    "y": 294,
+                    "x": 15,
+                    "width": 250,
                     "var": "text_pass_conf",
                     "type": "password",
+                    "promptColor": "#8e979f",
                     "prompt": "确认密码",
-                    "maxChars": 30,
-                    "left": 23,
+                    "maxChars": 32,
                     "layoutEnabled": true,
-                    "height": 30
+                    "height": 17,
+                    "fontSize": 12,
+                    "align": "left"
                 }
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 286,
-                    "x": 40,
-                    "width": 212,
+                    "y": 353,
+                    "x": 35,
+                    "width": 120,
                     "var": "lab_info",
                     "valign": "middle",
-                    "text": "我已经仔细阅读并同意(隐私及服务条款)",
-                    "height": 20,
-                    "color": "#ff0400"
-                }
-            }, {
-                "type": "Button",
-                "props": {
-                    "y": 329,
-                    "var": "btn_create",
-                    "skin": "comp/button.png",
-                    "sizeGrid": "0,0,0,0",
-                    "right": 20,
-                    "mouseEnabled": false,
-                    "left": 23,
-                    "label": "创建钱包",
-                    "height": 40,
-                    "disabled": true
-                }
-            }, {
-                "type": "Button",
-                "props": {
-                    "y": 387,
-                    "var": "btn_import",
-                    "skin": "comp/button.png",
-                    "sizeGrid": "0,0,0,0",
-                    "right": 20,
-                    "left": 23,
-                    "label": "导入钱包",
-                    "height": 40
+                    "text": "我已经仔细阅读并同意",
+                    "padding": "0",
+                    "name": "隐私及服务条款",
+                    "height": 17,
+                    "font": "12",
+                    "color": "#8E979F",
+                    "align": "left"
                 }
             }, {
                 "type": "CheckBox",
                 "props": {
-                    "y": 290,
-                    "width": 16,
+                    "y": 353,
+                    "x": 15,
+                    "width": 12,
                     "var": "check_argee",
                     "skin": "comp/radio.png",
                     "mouseEnabled": true,
-                    "left": 23,
                     "layoutEnabled": true,
                     "hitTestPrior": true,
-                    "height": 16,
+                    "height": 12,
                     "click": "updateArgee"
                 }
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 19,
+                    "y": 31,
                     "valign": "middle",
                     "text": "创建钱包",
                     "strokeColor": "#f9f9f9",
                     "skin": "template/Navigator/label.png",
-                    "height": 30,
+                    "height": 22,
                     "fontSize": 16,
-                    "font": "SimHei",
+                    "color": "#FF163853",
                     "centerX": 0,
                     "align": "center"
                 }
             }, {
                 "type": "Button",
                 "props": {
-                    "y": 20,
-                    "x": 20,
+                    "y": 27,
+                    "x": 10,
+                    "width": 30,
                     "var": "btn_back",
-                    "top": 20,
-                    "skin": "template/Navigator/btn_BackButton.png",
-                    "left": 20,
+                    "stateNum": 1,
+                    "skin": "img/main/back@2x.png",
                     "labelSize": 22,
                     "labelColors": "#057AFB,#057AFB,#7EB9FB",
                     "height": 30
@@ -2085,57 +2446,133 @@ module ui {
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 187,
-                    "width": 80,
+                    "y": 216,
                     "visible": false,
                     "var": "lab_pass_level",
                     "valign": "middle",
-                    "text": "密码强度：强",
-                    "right": 20,
-                    "height": 20,
-                    "color": "#32ff00",
+                    "text": "弱",
+                    "right": 53,
+                    "height": 17,
+                    "color": "#5eb0c2",
                     "align": "center"
                 }
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 160,
-                    "x": 25,
+                    "y": 193,
                     "width": 294,
                     "visible": false,
                     "var": "lab_warn_wName",
                     "valign": "middle",
                     "text": "钱包已经存在",
-                    "height": 20,
+                    "right": 30,
+                    "height": 17,
                     "color": "#ff0400",
-                    "align": "left"
+                    "align": "right"
                 }
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 210,
-                    "x": 25,
+                    "y": 255,
                     "width": 301,
                     "visible": false,
                     "var": "lab_pass",
                     "valign": "middle",
-                    "text": "密码太简单",
-                    "height": 20,
+                    "text": "简单密码",
+                    "right": 30,
+                    "height": 17,
                     "color": "#ff0400",
-                    "align": "left"
+                    "align": "right"
                 }
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 260,
-                    "x": 25,
+                    "y": 312,
                     "width": 301,
                     "visible": false,
                     "var": "lab_pass_conf",
                     "valign": "middle",
                     "text": "两次密码不一致",
-                    "height": 20,
+                    "right": 30,
+                    "height": 17,
                     "color": "#ff0400",
+                    "align": "right"
+                }
+            }, {
+                "type": "Button",
+                "props": {
+                    "y": 414,
+                    "width": 354,
+                    "var": "btn_create",
+                    "stateNum": 1,
+                    "skin": "img/main/anliu@2x.png",
+                    "sizeGrid": "0,0,0,0",
+                    "labelSize": 16,
+                    "labelColors": "#ffffff",
+                    "label": "创建钱包",
+                    "height": 40,
+                    "disabled": true,
+                    "centerX": 0
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 492,
+                    "var": "btn_import",
+                    "text": "导入钱包",
+                    "height": 22,
+                    "fontSize": 16,
+                    "color": "#8E979F",
+                    "centerX": 0,
+                    "align": "center"
+                }
+            }, {
+                "type": "Image",
+                "props": {"y": 99, "x": 15, "width": 6, "skin": "img/main/Oval@2x.png", "height": 6}
+            }, {
+                "type": "Image",
+                "props": {"y": 123, "x": 15, "width": 6, "skin": "img/main/Oval@2x.png", "height": 6}
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 235,
+                    "var": "lab_words",
+                    "valign": "middle",
+                    "text": "0字符",
+                    "right": 53,
+                    "height": 17,
+                    "color": "#8e979f",
+                    "align": "right"
+                }
+            }, {
+                "type": "Box",
+                "props": {"y": 214, "x": 328, "width": 18, "var": "box_pass_level", "height": 38},
+                "child": [{
+                    "type": "Image",
+                    "props": {"width": 18, "top": 0, "skin": "img/main/fangkuai@2x.png", "name": "a", "height": 8}
+                }, {
+                    "type": "Image",
+                    "props": {"width": 18, "top": 10, "skin": "img/main/fangkuai@2x.png", "name": "b", "height": 8}
+                }, {
+                    "type": "Image",
+                    "props": {"width": 18, "top": 20, "skin": "img/main/fangkuai@2x.png", "name": "c", "height": 8}
+                }, {
+                    "type": "Image",
+                    "props": {"width": 18, "skin": "img/main/fangkuai@2x.png", "name": "d", "height": 8, "bottom": 0}
+                }]
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 353,
+                    "x": 156,
+                    "width": 120,
+                    "var": "href_ysfw",
+                    "valign": "middle",
+                    "text": "隐私及服务条款",
+                    "padding": "0",
+                    "height": 17,
+                    "font": "12",
+                    "color": "#598ADA",
                     "align": "left"
                 }
             }]
@@ -2167,6 +2604,7 @@ module ui {
         public box_reverpass: Laya.Box;
         public box_expSeckey: Laya.Box;
         public box_expKeystore: Laya.Box;
+        public btn_backup: Laya.Button;
 
         public static uiView: any = {
             "type": "View",
@@ -2234,7 +2672,7 @@ module ui {
                     "y": 65,
                     "width": 30,
                     "var": "img_wImg",
-                    "skin": "img/wallet_manage.png",
+                    "skin": "img/main/add.png",
                     "height": 30,
                     "centerX": 0
                 }
@@ -2311,6 +2749,22 @@ module ui {
                         "align": "left"
                     }
                 }, {"type": "Image", "props": {"skin": "template/List/arrow.png", "right": 20, "centerY": 0}}]
+            }, {
+                "type": "Button",
+                "props": {
+                    "y": 483,
+                    "x": 20,
+                    "width": 354,
+                    "var": "btn_backup",
+                    "stateNum": 1,
+                    "skin": "img/main/anliu@2x.png",
+                    "sizeGrid": "0,0,0,0",
+                    "labelSize": 16,
+                    "labelColors": "#ffffff",
+                    "label": "备份钱包",
+                    "height": 40,
+                    "centerX": 0
+                }
             }]
         };
 
@@ -2640,10 +3094,26 @@ module ui {
                 "props": {"y": 20, "x": -6, "top": 20, "text": "我", "name": "item1", "color": "#ffffff", "centerX": 0}
             }, {
                 "type": "Image",
-                "props": {"y": 60, "x": 66, "var": "btn_manageWal", "skin": "img/wallet_manage.png", "name": "item1"}
+                "props": {
+                    "y": 60,
+                    "x": 66,
+                    "width": 30,
+                    "var": "btn_manageWal",
+                    "skin": "img/main/add.png",
+                    "name": "item1",
+                    "height": 30
+                }
             }, {
                 "type": "Image",
-                "props": {"y": 60, "x": 259, "var": "btn_dealHistory", "skin": "img/deal_history.png", "name": "item1"}
+                "props": {
+                    "y": 60,
+                    "x": 259,
+                    "width": 30,
+                    "var": "btn_dealHistory",
+                    "skin": "img/main/add.png",
+                    "name": "item1",
+                    "height": 30
+                }
             }, {
                 "type": "Label",
                 "props": {"y": 95, "x": 56, "text": "管理钱包", "name": "item1", "color": "#ffffff"}
@@ -2870,10 +3340,10 @@ module ui {
             "props": {"y": 0, "x": 0, "width": 150, "height": 667},
             "child": [{
                 "type": "Image",
-                "props": {"y": 0, "x": 0, "width": 150, "var": "bg", "skin": "img/white.jpg", "height": 667}
+                "props": {"y": 0, "x": 0, "width": 150, "var": "bg", "skin": "img/main/white.jpg", "height": 667}
             }, {
                 "type": "Image",
-                "props": {"y": 60, "x": 10, "width": 30, "skin": "img/wallet_manage.png", "height": 30}
+                "props": {"y": 60, "x": 10, "width": 30, "skin": "img/main/add.png", "height": 30}
             }, {
                 "type": "Label",
                 "props": {
@@ -2888,7 +3358,7 @@ module ui {
                 }
             }, {
                 "type": "Image",
-                "props": {"y": 110, "x": 10, "width": 30, "skin": "img/wallet_manage.png", "height": 30}
+                "props": {"y": 110, "x": 10, "width": 30, "skin": "img/main/add.png", "height": 30}
             }, {
                 "type": "Label",
                 "props": {
@@ -2904,7 +3374,14 @@ module ui {
                 }
             }, {
                 "type": "Image",
-                "props": {"var": "img_spe", "top": 180, "skin": "img/itemSepar.png", "right": 0, "left": 0, "height": 2}
+                "props": {
+                    "var": "img_spe",
+                    "top": 180,
+                    "skin": "img/main/itemSepar.png",
+                    "right": 0,
+                    "left": 0,
+                    "height": 2
+                }
             }]
         };
 

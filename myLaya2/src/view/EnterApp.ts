@@ -16,22 +16,16 @@ module view {
         private init() {
             this.comp = new ui.EnterAppUI();
             Laya.stage.addChild(this.comp);
-            this.comp.addChild(this.lab_title);
-            this.comp.addChild(this.lab_subTitle);
-            this.comp.addChild(this.btn_create);
-            this.comp.addChild(this.btn_import);
             Laya.stage.bgColor = 'white';
         }
 
         private initEvent() {
-            this.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
-            this.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
+            this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
+            this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
         }
 
         private createWallet() {
-            Laya.stage.removeChild(this.comp);
-            Laya.stage.removeSelf();
-            Laya.stage.removeChildren(0, 99);
+            this.comp.removeSelf();
             new CreateWallet();
         }
 

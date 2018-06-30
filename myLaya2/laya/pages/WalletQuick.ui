@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":21,
-    "props":{"width":105,"sceneColor":"#ffffff","height":429},
+    "selecteID":16,
+    "props":{"y":0,"x":0,"width":150,"sceneColor":"#ffffff","height":667},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"var":"bg","top":0,"skin":"img/white.jpg","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":150,"var":"bg","skin":"img/main/white.jpg","height":667},
             "nodeParent":1,
             "label":"Image(bg)",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":40,"x":10,"width":15,"skin":"img/wallet_manage.png","height":15},
+            "props":{"y":60,"x":10,"width":30,"skin":"img/main/add.png","height":30},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":40,"x":40,"var":"lab_sao","text":"扫一扫","height":15,"color":"#000000"},
+            "props":{"y":60,"x":50,"var":"lab_sao","valign":"middle","text":"扫一扫","height":30,"fontSize":16,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_sao)",
             "isDirectory":false,
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":65,"x":10,"width":15,"skin":"img/wallet_manage.png","height":15},
+            "props":{"y":110,"x":10,"width":30,"skin":"img/main/add.png","height":30},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":65,"x":40,"var":"lab_create","text":"创建钱包","color":"#000000"},
+            "props":{"y":110,"x":50,"var":"lab_create","valign":"middle","text":"创建钱包","height":30,"fontSize":16,"color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_create)",
             "isDirectory":false,
@@ -80,9 +80,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":100,"x":0,"skin":"img/itemSepar.png","right":0,"left":0},
+            "props":{"var":"img_spe","top":180,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_spe)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

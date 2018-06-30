@@ -23,12 +23,55 @@ var view;
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletManage.prototype.initEvent = function () {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.btn_create.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+            this.comp.btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         };
-        WalletManage.prototype.goBack = function () {
-            Laya.stage.removeChild(this.comp);
+        WalletManage.prototype.btnClick = function (index) {
+            if (1 == index) {
+                Laya.stage.removeChild(this.comp);
+                Laya.stage.removeChild(this.parentUI);
+                new view.WalletMe();
+            }
+            if (2 == index) {
+                this.comp.visible = false;
+                new view.CreateWallet().setParentUI(this.comp);
+            }
+            if (3 == index) {
+                this.comp.visible = false;
+                new view.set.WalletImport().setParetUI(this.comp);
+            }
+        };
+        WalletManage.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
+        WalletManage.prototype.setData = function (data) {
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.x = 1;
+            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.vScrollBarSkin = "";
+            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+        };
+        WalletManage.prototype.onListRender = function (cell, index) {
+            var data = this.comp.list_wallet.array[index];
+            var wImg = cell.getChildByName('img_wallet');
+            wImg.skin = data.wSkin;
+            var wName = cell.getChildByName('lab_wName');
+            wName.text = data.wName;
+            var wAddr = cell.getChildByName('lab_wAddr');
+            wAddr.text = util.getAddr(data.wAddr);
+            var wTotal = cell.getChildByName('lab_wTotal');
+            wTotal.text = '0 ether'; //test
+        };
+        WalletManage.prototype.onSelect = function (index) {
+            this.comp.visible = false;
+            var wd = new view.WalletDetail();
+            wd.setData(this.comp.list_wallet.array[index]);
+            wd.setParetUI(this.comp);
         };
         return WalletManage;
     }(ui.WalletManageUI));

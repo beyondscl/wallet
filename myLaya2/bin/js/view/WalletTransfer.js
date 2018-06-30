@@ -25,11 +25,16 @@ var view;
             this.comp = new ui.WalletTransferUI();
             this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletTransfer.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_send.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_receive.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+        };
+        WalletTransfer.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
         };
         WalletTransfer.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
@@ -38,15 +43,7 @@ var view;
         WalletTransfer.prototype.setData = function (data) {
             this.comp.lab_coin_name.text = data.itemName;
             this.comp.lab_coin_total.text = data.itemMonType;
-            //测试数据
-            var datas = [];
-            for (var i = 0; i < 3; i++) {
-                var t_1 = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                datas.push(t_1);
-            }
-            var t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-            datas.push(t);
-            this.setListUp(datas);
+            this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         };
         WalletTransfer.prototype.btnClick = function (type) {
             Laya.stage.removeChild(this.comp);
@@ -54,7 +51,7 @@ var view;
                 new view.WalletSend().setData(this.comp.lab_coin_name.text);
             }
             else if (type == 2) {
-                new view.WalletReceive();
+                new view.WalletReceive(this.parentUI.lab_wName.text);
             }
         };
         //init deal history list
@@ -62,7 +59,7 @@ var view;
             this.list.name = 'item0';
             this.list.itemRender = dealItemUI;
             this.list.repeatX = 1;
-            this.list.repeatY = data.length > 100 ? 100 : data.length;
+            this.list.repeatY = data.length;
             this.list.x = 0;
             this.list.bottom = 40;
             this.list.top = 110;

@@ -34,7 +34,7 @@ var view;
             }
             if (index == 2) {
                 this.close();
-                Laya.stage.removeChild(this.parentUI);
+                this.parentUI.visible = false;
                 new view.CreateWallet().setParentUI(this.parentUI);
             }
         };
@@ -44,7 +44,7 @@ var view;
         WalletQuick.prototype.initData = function (walletNames) {
             this.listData = walletNames;
             this.list_wallet.x = 0;
-            this.list_wallet.top = 120;
+            this.list_wallet.top = 180;
             this.list_wallet.bottom = 0;
             this.list_wallet.repeatX = 1;
             this.list_wallet.repeatY = walletNames.length;

@@ -1,14 +1,15 @@
 /**Created by the LayaAirIDE*/
 module view {
+    import Browser = Laya.Browser;
+
     export class CreateWallet extends ui.WalletCreateUI {
         private comp: ui.WalletCreateUI;
         private parentUI: any;
-        private isAgreeImgs: Array<string> = ["img/icon_box-empty.png", "img/icon_box-checked.png"];
 
         constructor() {
             super();
             this.init();
-            Laya.loader.load(this.isAgreeImgs, Laya.Handler.create(this, this.initEvent));
+            this.initEvent();
         }
 
         private init() {
@@ -22,8 +23,11 @@ module view {
             this.comp.check_argee.on(Laya.Event.CLICK, this, this.updateArgee);
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
-            this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.infoPassStrong);
-            this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.confPass);
+            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.infoYsfw);
+
+            this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
+            this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
+            this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
         }
 
         public setParentUI(parentUI: any) {
@@ -36,7 +40,7 @@ module view {
         }
 
         private updateArgee() {
-            this.comp.btn_create.disabled = this.comp.check_argee.selected;
+            this.comp.btn_create.disabled = !this.comp.check_argee.selected;
             this.comp.btn_create.mouseEnabled = this.comp.check_argee.selected;
         }
 
@@ -49,30 +53,40 @@ module view {
         }
 
         private checkArgs(): boolean {
-            let warnColor = '#c82624';
+            if (this.checkWname() && this.checkPass() && this.checkPassConf()) {
+                return true;
+            }
+            return false;
+        }
+
+        private checkWname() {
             if (this.comp.text_wall_name.text.length < 3 || this.comp.text_wall_name.text.length > 20) {
-                this.comp.lab_warn_wName.text = "钱包名称:长度2-20";
-                this.comp.lab_warn_wName.color = warnColor;
+                this.comp.lab_warn_wName.text = "钱包名称长度3-20";
                 this.comp.lab_warn_wName.visible = true;
                 return false;
             }
             if (service.walletServcie.checkDupWal(this.comp.text_wall_name.text)) {
                 this.comp.lab_warn_wName.text = "该钱包名称已经存在";
-                this.comp.lab_warn_wName.color = warnColor;
                 this.comp.lab_warn_wName.visible = true;
                 return false;
             }
             this.comp.lab_warn_wName.visible = false;
-            if (this.comp.text_pass.text.length < 8 || this.comp.text_pass.text.length > 20) {
-                this.comp.lab_pass.text = "密码:长度8-20";
-                this.comp.lab_pass.color = warnColor;
+            return true;
+        }
+
+        private checkPass() {
+            this.infoPassStrong();
+            if (this.comp.text_pass.text.length < 8 || this.comp.text_pass.text.length > 32) {
+                this.comp.lab_pass.text = "不少于8个字符,建议混合大小写字母，数字，特殊字符";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
-            this.comp.lab_pass.visible = false;
+            return true;
+        }
+
+        private checkPassConf() {
             if (this.comp.text_pass_conf.text != this.comp.text_pass.text) {
                 this.comp.lab_pass_conf.text = "两次密码不一致";
-                this.comp.lab_pass_conf.color = warnColor;
                 this.comp.lab_pass_conf.visible = true;
                 return false;
             }
@@ -80,49 +94,73 @@ module view {
             return true;
         }
 
-        private confPass() {
-            let warnColor = '#c82624';
-            if (this.comp.text_pass_conf.text != this.comp.text_pass.text) {
-                this.comp.lab_pass_conf.text = "两次密码不一致";
-                this.comp.lab_pass_conf.color = warnColor;
-                this.comp.lab_pass_conf.visible = true;
+        private infoPassStrong() {
+            this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
+
+            let pass = this.comp.text_pass.text.trim();
+            this.comp.lab_pass_level.visible = true;
+            let middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])';//字母数字大小写:中
+            let strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})';//字母数字大小写特殊符号
+            if (pass.length == 0) {
+                util.getPassLevel(this.comp.box_pass_level, -1);
                 return;
             }
-            this.comp.lab_pass_conf.visible = false;
-        }
-
-        private infoPassStrong() {
-            let pass = this.comp.text_pass.text;
-            this.comp.lab_pass_level.visible = true;
-            // let week = '^[a-zA-Z]*$';//字母/数字:弱
-            // let week2 = '^[0-9]*$';//字母/数字:弱
-            let middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])';//字母数字大小写:中
-            let strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})';
-            ;//字母数字大小写特殊符号
             if (new RegExp(strong).test(pass)) {
-                this.comp.lab_pass_level.text = '密码强度：强';
+                this.comp.lab_pass_level.text = '强';
+                util.getPassLevel(this.comp.box_pass_level, 2);
+                if (pass.length > 12) {
+                    this.comp.lab_pass_level.text = '极强';
+                    util.getPassLevel(this.comp.box_pass_level, 3);
+                }
                 this.comp.lab_pass_level.color = 'green';
                 this.comp.lab_pass.visible = false;
                 return;
             }
             if (new RegExp(middle).test(pass)) {
-                this.comp.lab_pass_level.text = '密码强度：中';
-                this.comp.lab_pass_level.color = 'yellow';
+                util.getPassLevel(this.comp.box_pass_level, 1);
+                this.comp.lab_pass_level.text = '一般';
+                this.comp.lab_pass_level.color = '#5eb0c2';
                 this.comp.lab_pass.visible = true;
                 return;
             }
-            let warnColor = '#c82624';
-            this.comp.lab_pass.text = "建议使用大小写字母，数字，特殊字符混合";
-            this.comp.lab_pass.color = warnColor;
-            this.comp.lab_pass.visible = true;
-
-            this.comp.lab_pass_level.text = '密码强度：弱';
+            util.getPassLevel(this.comp.box_pass_level, 0);
+            this.comp.lab_pass_level.text = '弱';
             this.comp.lab_pass_level.color = 'red';
+
+            this.comp.lab_pass.visible = true;
         }
 
         private importWallet() {
             this.comp.visible = false;
             new view.set.WalletImport().setParetUI(this.comp);
         }
+
+        private infoYsfw() {
+            new alert.Iframe("https://zhidao.baidu.com/question/433551549918009724.html");
+
+        }
+
+        private webViewHref(): void {
+            Browser.window['conch'] && Browser.window['conch'].showAssistantTouch(false);
+            var ctx: any = Browser.window.document.createElement('canvas').getContext('2d');
+
+            function render(): void {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, Browser.window.innerWidth, Browser.window.innerHeight);
+                Laya.Browser.window.requestAnimationFrame(render);
+            };
+            Browser.window.requestAnimationFrame(render);
+            Browser.window.document.addEventListener('touchstart', function (): void {
+                if (Laya.Browser.window['conch']) {
+                    var l: number = 500;
+                    var t: number = 500;
+                    var w: Number = Browser.window.innerWidth - l * 2;
+                    var h: Number = Browser.window.innerHeight - t * 2;
+                    Laya.Browser.window['conch'].setExternalLinkEx('http://www.layabox.com', l, t, w, h, true);
+                }
+            });
+        }
+
+
     }
 }

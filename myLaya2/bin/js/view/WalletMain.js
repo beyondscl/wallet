@@ -16,7 +16,7 @@ var view;
         __extends(WalletMain, _super);
         function WalletMain() {
             var _this = _super.call(this) || this;
-            _this.data = []; //模拟列表数据
+            _this.data = [];
             _this.list = new Laya.List();
             _this.init();
             _this.initEvent();
@@ -57,8 +57,8 @@ var view;
             this.list.repeatX = 1;
             this.list.repeatY = data.length;
             this.list.x = 0;
-            this.list.bottom = 40;
-            this.list.top = 150;
+            this.list.bottom = 60;
+            this.list.top = 240;
             this.list.vScrollBarSkin = "";
             this.list.selectEnable = true;
             this.list.selectHandler = new Handler(this, this.onSelect);
@@ -70,9 +70,10 @@ var view;
         };
         WalletMain.prototype.onSelect = function (index) {
             var item = this.data[index];
-            this.comp.visible = false;
-            this.list.visible = false;
-            new view.WalletTransfer().setData(item);
+            this.stage.removeChild(this.comp);
+            var wTransfer = new view.WalletTransfer();
+            wTransfer.setData(item);
+            wTransfer.setParentUI(this.comp);
         };
         WalletMain.prototype.tabSelect = function (index) {
             if (index == 1) {
@@ -85,21 +86,24 @@ var view;
             }
             if (index == 2) {
                 this.stage.removeChild(this.comp);
-                new view.WalletReceive();
+                new view.WalletReceive(this.comp.lab_wName.text);
             }
             if (index == 3) {
+                //dialog千万不要设置left r t b..
                 var pom = new view.WalletQuick();
-                pom.width = 150;
-                pom.height = 429;
+                pom.width = Laya.stage.width / 3;
+                pom.height = 667;
                 pom.top = 0;
-                pom.left = 200;
+                pom.left = Laya.stage.width * 2 / 3; //right 不行
                 pom.setParentUI(this.comp);
-                pom.initData(['myeth']);
+                pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();
             }
             if (index == 4) {
                 this.stage.removeChild(this.comp);
-                new view.coin.AddCoins().setParentUI(this.comp);
+                var coinUI = new view.coin.AddCoins();
+                coinUI.setParentUI(this.comp);
+                coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));
             }
         };
         return WalletMain;
