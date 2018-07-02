@@ -68,6 +68,7 @@ module view {
             if (5 == index) {
                 this.comp.visible = false;
                 let backupw = new view.WalletBackUp();
+                backupw.setData(this.comp.lab_wName.text);
                 backupw.setParetUI(this.comp);
                 return;
             }

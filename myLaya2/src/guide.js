@@ -68,18 +68,16 @@ Laya.stage.alignV = "middle";
 Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 
 function beginLoad() {
-    // Laya.loader.load("res/atlas/template/Warn.atlas");
-    // Laya.loader.load("res/atlas/template/Navigator.atlas");
-    // Laya.loader.load("res/atlas/template/ToolBar.atlas");
-    // Laya.loader.load("res/atlas/template/Switcher.atlas");
-    // Laya.loader.load("res/atlas/template/List.atlas");
-    // Laya.loader.load("res/atlas/template/Search.atlas");
-    // Laya.loader.load("res/atlas/template/ScrollBar.atlas");
-    // Laya.loader.load("res/atlas/img.atlas");
-    // Laya.loader.load("res/atlas/img/main.atlas");
-    // Laya.loader.load("res/atlas/img/guide.atlas");
+    Laya.loader.load("res/atlas/template/Warn.atlas");
+    Laya.loader.load("res/atlas/template/Navigator.atlas");
+    Laya.loader.load("res/atlas/template/ToolBar.atlas");
+    Laya.loader.load("res/atlas/template/Switcher.atlas");
+    Laya.loader.load("res/atlas/template/List.atlas");
+    Laya.loader.load("res/atlas/template/Search.atlas");
+    Laya.loader.load("res/atlas/template/ScrollBar.atlas");
     var res = ["res/atlas/img/main.atlas",
         "res/atlas/img/guide.atlas",
+        "res/atlas/img/coins.atlas",
         "res/atlas/comp.atlas"];
     Laya.loader.load(res, Laya.Handler.create(null, enter));
 }
@@ -92,7 +90,7 @@ function enter() {
         return;
     }
     var wallet = util.getItem(walletNames[0]);
-    var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
+    var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins, null);
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);
 }

@@ -8,14 +8,18 @@ module mod {
         public wAddr: string;
         public wCoins: Array<string>;//['ETH','ABC'...]
         public wSkin: string = config.resource.walletImg;
+        public wZjc: string = "winga wingb wingcc wingd winge wingf wingg wingh wingi wingj wingk wingl";
 
-        constructor(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins: Array<string>) {
+        constructor(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins: Array<string>, wZjc: string) {
             this.wName = wName;
             this.wPassword = wPassword;
             this.wPrivateKey = wPrivateKey;
             this.wKeyStore = wKeyStore;
             this.wAddr = wAddr;
             this.wCoins = wCoins;
+            if (wZjc) {
+                this.wZjc = wZjc;
+            }
         }
 
         public toJson() {
@@ -25,7 +29,8 @@ module mod {
                 wPrivateKey: this.wPrivateKey,
                 wKeyStore: this.wKeyStore,
                 wAddr: this.wAddr,
-                wCoins: this.wCoins
+                wCoins: this.wCoins,
+                wZjc: this.wZjc,
             };
             return json;
         }

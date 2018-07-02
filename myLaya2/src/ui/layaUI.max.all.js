@@ -199,6 +199,81 @@ var ui;
 (function (ui) {
     var alert;
     (function (alert) {
+        var WarnUI = /** @class */ (function (_super) {
+            __extends(WarnUI, _super);
+            function WarnUI() {
+                return _super.call(this) || this;
+            }
+            WarnUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.alert.WarnUI.uiView);
+            };
+            WarnUI.uiView = {
+                "type": "Dialog",
+                "props": { "width": 690, "height": 648 },
+                "child": [{
+                        "type": "Box",
+                        "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                        "child": [{
+                                "type": "Image",
+                                "props": {
+                                    "y": 0,
+                                    "x": 0,
+                                    "top": 0,
+                                    "skin": "img/main/white.jpg",
+                                    "right": 0,
+                                    "left": 0,
+                                    "bottom": 0
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 182,
+                                    "var": "warn_title",
+                                    "text": "备份失败",
+                                    "height": 56,
+                                    "fontSize": 40,
+                                    "color": "#163853",
+                                    "centerX": 0,
+                                    "bold": true
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 254,
+                                    "var": "warn_msg",
+                                    "text": "请检查你的助记词",
+                                    "height": 56,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "centerX": 0,
+                                    "bold": false
+                                }
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "y": 458,
+                                    "x": 141,
+                                    "width": 408,
+                                    "var": "btn_know",
+                                    "stateNum": 1,
+                                    "skin": "img/main/anliu@2x.png",
+                                    "labelSize": 32,
+                                    "label": "我知道了",
+                                    "height": 80,
+                                    "centerX": 0
+                                }
+                            }]
+                    }]
+            };
+            return WarnUI;
+        }(Dialog));
+        alert.WarnUI = WarnUI;
+    })(alert = ui.alert || (ui.alert = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var alert;
+    (function (alert) {
         var WarnZjcUI = /** @class */ (function (_super) {
             __extends(WarnZjcUI, _super);
             function WarnZjcUI() {
@@ -210,7 +285,7 @@ var ui;
             };
             WarnZjcUI.uiView = {
                 "type": "Dialog",
-                "props": { "width": 345, "height": 314 },
+                "props": { "width": 690, "height": 648 },
                 "child": [{
                         "type": "Box",
                         "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
@@ -227,22 +302,14 @@ var ui;
                                 }
                             }, {
                                 "type": "Image",
-                                "props": {
-                                    "y": 22,
-                                    "x": 145,
-                                    "width": 56,
-                                    "skin": "img/main/camera@2x.png",
-                                    "height": 56,
-                                    "centerX": 0
-                                }
+                                "props": { "y": 44, "width": 112, "skin": "img/main/camera@2x.png", "height": 112, "centerX": 0 }
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 91,
-                                    "x": 132,
+                                    "y": 182,
                                     "text": "请勿截图",
-                                    "height": 28,
-                                    "fontSize": 20,
+                                    "height": 56,
+                                    "fontSize": 40,
                                     "color": "#163853",
                                     "centerX": 0,
                                     "bold": true
@@ -250,38 +317,38 @@ var ui;
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 139,
-                                    "x": 30,
+                                    "y": 278,
+                                    "x": 60,
                                     "valign": "middle",
                                     "text": "如果有人获取你的助记词将直接获取你的资产",
-                                    "height": 22,
-                                    "fontSize": 12,
+                                    "height": 44,
+                                    "fontSize": 24,
                                     "color": "#687076",
                                     "align": "left"
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 161,
-                                    "x": 28,
+                                    "y": 232,
+                                    "x": 58,
                                     "valign": "middle",
                                     "text": "请抄写下来助记词并存放在安全的地方。",
-                                    "height": 22,
-                                    "fontSize": 12,
+                                    "height": 44,
+                                    "fontSize": 24,
                                     "color": "#687076",
                                     "align": "left"
                                 }
                             }, {
                                 "type": "Button",
                                 "props": {
-                                    "y": 229,
-                                    "x": 71,
-                                    "width": 204,
+                                    "y": 458,
+                                    "width": 408,
                                     "var": "btn_know",
                                     "stateNum": 1,
                                     "skin": "img/main/anliu@2x.png",
+                                    "labelSize": 32,
                                     "label": "我知道了",
-                                    "height": 40,
+                                    "height": 80,
                                     "centerX": 0
                                 }
                             }]
@@ -291,6 +358,400 @@ var ui;
         }(Dialog));
         alert.WarnZjcUI = WarnZjcUI;
     })(alert = ui.alert || (ui.alert = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var backup;
+    (function (backup) {
+        var BackUpConfUI = /** @class */ (function (_super) {
+            __extends(BackUpConfUI, _super);
+            function BackUpConfUI() {
+                return _super.call(this) || this;
+            }
+            BackUpConfUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.backup.BackUpConfUI.uiView);
+            };
+            BackUpConfUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "height": 1334 },
+                "child": [{
+                        "type": "Image",
+                        "props": {
+                            "y": 54,
+                            "x": 20,
+                            "width": 60,
+                            "var": "btn_back",
+                            "skin": "img/main/back@2x.png",
+                            "height": 60
+                        }
+                    }, {
+                        "type": "Label",
+                        "props": {
+                            "y": 62,
+                            "valign": "middle",
+                            "text": "备份助记词",
+                            "height": 44,
+                            "fontSize": 32,
+                            "color": "#163853",
+                            "centerX": 0,
+                            "align": "center"
+                        }
+                    }, {
+                        "type": "Label",
+                        "props": {
+                            "y": 198,
+                            "x": 30,
+                            "valign": "middle",
+                            "text": "确认你的钱包助记词",
+                            "height": 56,
+                            "fontSize": 40,
+                            "color": "#163853",
+                            "bold": true,
+                            "align": "center"
+                        }
+                    }, {
+                        "type": "Label",
+                        "props": {
+                            "y": 274,
+                            "x": 30,
+                            "valign": "middle",
+                            "text": "请按顺序点击助记词，以确认你的备份助记词",
+                            "height": 44,
+                            "fontSize": 24,
+                            "color": "#687076",
+                            "align": "left"
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "y": 874,
+                            "width": 708,
+                            "var": "btn_conf",
+                            "stateNum": 1,
+                            "skin": "img/main/anliu@2x.png",
+                            "sizeGrid": "0,0,0,0",
+                            "labelSize": 32,
+                            "labelColors": "#ffffff",
+                            "label": "确定",
+                            "height": 80,
+                            "disabled": false,
+                            "centerX": 0
+                        }
+                    }, {
+                        "type": "Box",
+                        "props": { "y": 604, "x": 30, "width": 688, "var": "box_label", "height": 250 },
+                        "child": [{
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 146,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 309,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 500,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 50,
+                                    "x": 6,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 50,
+                                    "x": 161,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 50,
+                                    "x": 314,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 50,
+                                    "x": 469,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 104,
+                                    "x": 165,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 104,
+                                    "x": 13,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 104,
+                                    "x": 329,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 104,
+                                    "x": 515,
+                                    "width": 130,
+                                    "valign": "middle",
+                                    "text": "法法",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }]
+                    }, {
+                        "type": "Box",
+                        "props": { "y": 348, "width": 688, "var": "box_zjc", "height": 178, "centerX": 0 },
+                        "child": [{
+                                "type": "Rect",
+                                "props": { "y": 0, "x": 0, "width": 690, "lineWidth": 1, "height": 180, "fillColor": "#ECECEC" }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 0,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 120,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 297,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 430,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 593,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 57,
+                                    "x": 4,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 58,
+                                    "width": 136,
+                                    "valign": "middle",
+                                    "left": 118,
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 63,
+                                    "x": 284,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 62,
+                                    "x": 424,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 55,
+                                    "x": 564,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "x": 23,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "bottom": 0,
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "x": 204,
+                                    "width": 100,
+                                    "valign": "middle",
+                                    "height": 44,
+                                    "fontSize": 28,
+                                    "color": "#163853",
+                                    "bottom": 0,
+                                    "align": "left"
+                                }
+                            }]
+                    }]
+            };
+            return BackUpConfUI;
+        }(View));
+        backup.BackUpConfUI = BackUpConfUI;
+    })(backup = ui.backup || (ui.backup = {}));
 })(ui || (ui = {}));
 (function (ui) {
     var backup;
@@ -306,25 +767,25 @@ var ui;
             };
             BackUpZjcUI.uiView = {
                 "type": "View",
-                "props": { "width": 375, "height": 667 },
+                "props": { "width": 750, "height": 1334 },
                 "child": [{
                         "type": "Image",
                         "props": {
-                            "y": 27,
-                            "x": 10,
-                            "width": 30,
+                            "y": 54,
+                            "x": 20,
+                            "width": 60,
                             "var": "btn_back",
                             "skin": "img/main/back@2x.png",
-                            "height": 30
+                            "height": 60
                         }
                     }, {
                         "type": "Label",
                         "props": {
-                            "y": 31,
+                            "y": 62,
                             "valign": "middle",
                             "text": "备份助记词",
-                            "height": 22,
-                            "fontSize": 16,
+                            "height": 44,
+                            "fontSize": 32,
                             "color": "#163853",
                             "centerX": 0,
                             "align": "center"
@@ -332,12 +793,12 @@ var ui;
                     }, {
                         "type": "Label",
                         "props": {
-                            "y": 99,
-                            "x": 15,
+                            "y": 198,
+                            "x": 30,
                             "valign": "middle",
                             "text": "抄写下你的钱包助记词",
-                            "height": 28,
-                            "fontSize": 20,
+                            "height": 56,
+                            "fontSize": 40,
                             "color": "#163853",
                             "bold": true,
                             "align": "center"
@@ -345,54 +806,54 @@ var ui;
                     }, {
                         "type": "Label",
                         "props": {
-                            "y": 137,
-                            "x": 15,
+                            "y": 274,
+                            "x": 30,
                             "valign": "middle",
                             "text": "助记词用于恢复钱包和充值钱包密码，将它准确的抄写到纸上，",
-                            "height": 22,
-                            "fontSize": 12,
+                            "height": 44,
+                            "fontSize": 24,
                             "color": "#687076",
                             "align": "left"
                         }
                     }, {
                         "type": "Label",
                         "props": {
-                            "y": 159,
-                            "x": 13,
+                            "y": 318,
+                            "x": 26,
                             "valign": "middle",
                             "text": " 并存放在只有你知道的安全的地方。",
-                            "height": 22,
-                            "fontSize": 12,
+                            "height": 44,
+                            "fontSize": 24,
                             "color": "#687076",
                             "align": "left"
                         }
                     }, {
                         "type": "Button",
                         "props": {
-                            "y": 437,
-                            "width": 354,
+                            "y": 874,
+                            "width": 708,
                             "var": "btn_backup",
                             "stateNum": 1,
                             "skin": "img/main/anliu@2x.png",
                             "sizeGrid": "0,0,0,0",
-                            "labelSize": 16,
+                            "labelSize": 32,
                             "labelColors": "#ffffff",
                             "label": "下一步",
-                            "height": 40,
+                            "height": 80,
                             "centerX": 0
                         }
                     }, {
                         "type": "TextArea",
                         "props": {
-                            "y": 209,
+                            "y": 418,
                             "wordWrap": true,
-                            "width": 344,
+                            "width": 688,
                             "var": "text_zjc",
-                            "text": "wing wing wing wing wing wing wing wing wing wing wing wing",
-                            "padding": "15",
-                            "leading": 15,
-                            "height": 76,
-                            "fontSize": 14,
+                            "text": "winga wingb wingcc wingd winge wingf wingg wingh wingi wingj wingk wingl",
+                            "padding": "30",
+                            "leading": 30,
+                            "height": 152,
+                            "fontSize": 28,
                             "editable": false,
                             "color": "#163853",
                             "centerX": 0,
@@ -420,30 +881,18 @@ var ui;
             };
             AddCoinsUI.uiView = {
                 "type": "View",
-                "props": { "width": 375, "visible": true, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+                "props": { "width": 750, "visible": true, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
                 "child": [{
-                        "type": "Rect",
-                        "props": { "y": 0, "x": 0, "width": 375, "lineWidth": 1, "height": 60, "fillColor": "#c6e2ee" }
-                    }, {
-                        "type": "Button",
-                        "props": {
-                            "width": 119,
-                            "var": "btn_goback",
-                            "top": 20,
-                            "skin": "template/Navigator/btn_BackButton.png",
-                            "left": 20,
-                            "height": 30
-                        }
-                    }, {
                         "type": "Label",
                         "props": {
-                            "y": 20,
-                            "x": 110,
+                            "y": 30,
+                            "x": 10,
                             "valign": "middle",
-                            "top": 20,
                             "text": "添加新资产",
-                            "height": 30,
-                            "fontSize": 16,
+                            "strokeColor": "#f9f9f9",
+                            "skin": "template/Navigator/label.png",
+                            "height": 44,
+                            "fontSize": 32,
                             "color": "#000000",
                             "centerX": 0,
                             "align": "center"
@@ -451,13 +900,113 @@ var ui;
                     }, {
                         "type": "Button",
                         "props": {
+                            "y": 30,
+                            "x": 30,
+                            "width": 60,
+                            "var": "btn_goback",
+                            "stateNum": 1,
+                            "skin": "img/main/back@2x.png",
+                            "labelSize": 22,
+                            "labelColors": "#057AFB,#057AFB,#7EB9FB",
+                            "height": 60
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
                             "width": 30,
                             "var": "btn_query",
-                            "top": 20,
+                            "top": 30,
                             "skin": "template/Search/btn_search_icon.png",
-                            "right": 20,
+                            "right": 30,
                             "height": 30
                         }
+                    }, {
+                        "type": "List",
+                        "props": {
+                            "var": "listCoin",
+                            "vScrollBarSkin": "template/List/vscroll.png",
+                            "top": 100,
+                            "right": 0,
+                            "repeatX": 1,
+                            "name": "listCoin",
+                            "left": 0,
+                            "bottom": 0
+                        },
+                        "child": [{
+                                "type": "Box",
+                                "props": { "right": 0, "name": "render", "left": 0, "height": 160 },
+                                "child": [{
+                                        "type": "Image",
+                                        "props": {
+                                            "top": 0,
+                                            "skin": "template/List/SimpleListBoxItemBackground.png",
+                                            "right": 0,
+                                            "left": 0,
+                                            "bottom": 0
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": {
+                                            "x": 28,
+                                            "width": 78,
+                                            "var": "cImg",
+                                            "skin": "template/List/message icon_57x57.png",
+                                            "name": "cImg",
+                                            "height": 78,
+                                            "centerY": 0
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "x": 150,
+                                            "width": 300,
+                                            "var": "cVender",
+                                            "text": "cVender",
+                                            "skin": "template/List/label.png",
+                                            "name": "cVender",
+                                            "height": 50,
+                                            "fontSize": 36,
+                                            "color": "#000000",
+                                            "centerY": 0
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "x": 150,
+                                            "width": 300,
+                                            "var": "cName",
+                                            "top": 0,
+                                            "text": "cName",
+                                            "skin": "template/List/label.png",
+                                            "name": "cName",
+                                            "height": 50,
+                                            "fontSize": 36
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "x": 150,
+                                            "width": 300,
+                                            "var": "cAddr",
+                                            "text": "cAddr",
+                                            "skin": "template/List/label.png",
+                                            "name": "cAddr",
+                                            "height": 50,
+                                            "fontSize": 36,
+                                            "bottom": 0
+                                        }
+                                    }, {
+                                        "type": "CheckBox",
+                                        "props": {
+                                            "var": "cCheckbox",
+                                            "stateNum": 2,
+                                            "skin": "template/Switcher/checkbox_switch.png",
+                                            "right": 30,
+                                            "name": "cCheckbox",
+                                            "centerY": 0
+                                        }
+                                    }]
+                            }]
                     }]
             };
             return AddCoinsUI;
@@ -477,7 +1026,48 @@ var ui;
                 _super.prototype.createChildren.call(this);
                 this.createView(ui.coin.queryCoinsUI.uiView);
             };
-            queryCoinsUI.uiView = { "type": "View", "props": { "width": 300, "height": 429 } };
+            queryCoinsUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "height": 1344 },
+                "child": [{ "type": "Box", "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 } }, {
+                        "type": "Image",
+                        "props": { "width": 60, "top": 30, "skin": "img/main/search@2x.png", "left": 30, "height": 60 }
+                    }, {
+                        "type": "Label",
+                        "props": { "top": 30, "text": "取消", "right": 30, "height": 44, "fontSize": 32 }
+                    }, {
+                        "type": "TextInput",
+                        "props": {
+                            "var": "text_search",
+                            "top": 30,
+                            "right": 100,
+                            "promptColor": "#8E979F",
+                            "prompt": "搜索Token名称或合约地址",
+                            "left": 100,
+                            "height": 44
+                        }
+                    }, {
+                        "type": "Image",
+                        "props": { "top": 74, "skin": "img/main/itemSepar.png", "right": 100, "left": 100 }
+                    }, {
+                        "type": "Box",
+                        "props": { "y": 350, "width": 200, "height": 230, "centerX": 0 },
+                        "child": [{
+                                "type": "Image",
+                                "props": { "top": 0, "skin": "img/main/wjl@2x.png", "right": 0, "left": 0, "bottom": 30 }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "text": "暂无记录",
+                                    "height": 30,
+                                    "fontSize": 28,
+                                    "color": "#687076",
+                                    "centerX": 0,
+                                    "bottom": 0
+                                }
+                            }]
+                    }]
+            };
             return queryCoinsUI;
         }(View));
         coin.queryCoinsUI = queryCoinsUI;
@@ -568,7 +1158,7 @@ var ui;
                                 "width": 690,
                                 "var": "btn_import",
                                 "stateNum": 1,
-                                "skin": "img/main/anliu-@2x.png",
+                                "skin": "img/main/anliu@2x.png",
                                 "labelSize": 36,
                                 "labelColors": "#ffffff",
                                 "label": "导入钱包",
@@ -1390,58 +1980,78 @@ var ui;
             };
             WalletImportUI.uiView = {
                 "type": "View",
-                "props": { "width": 375, "top": 0, "right": 0, "left": 0, "layoutEnabled": true, "height": 667, "bottom": 0 },
+                "props": {
+                    "width": 750,
+                    "top": 0,
+                    "right": 0,
+                    "left": 0,
+                    "layoutEnabled": true,
+                    "height": 1334,
+                    "bottom": 0
+                },
                 "child": [{
                         "type": "Label",
                         "props": {
-                            "y": 20,
+                            "y": 62,
                             "x": 90,
                             "valign": "middle",
                             "text": "导入钱包",
-                            "height": 30,
-                            "fontSize": 16,
-                            "color": "#000000",
+                            "height": 44,
+                            "fontSize": 32,
+                            "color": "#163853",
                             "centerX": 0,
                             "align": "center"
                         }
                     }, {
-                        "type": "Button",
+                        "type": "Image",
                         "props": {
-                            "y": 20,
-                            "x": 20,
-                            "width": 117,
+                            "y": 64,
+                            "x": 30,
+                            "width": 60,
                             "var": "btn_back",
-                            "skin": "template/Navigator/btn_BackButton.png",
-                            "height": 30
+                            "skin": "img/main/back@2x.png",
+                            "height": 60
                         }
                     }, {
                         "type": "Image",
-                        "props": { "width": 30, "var": "btn_sao", "top": 20, "skin": "img/sao.png", "right": 20, "height": 30 }
-                    }, {
-                        "type": "Image",
-                        "props": { "top": 60, "skin": "img/itemSepar.png", "right": 0, "left": 0 }
+                        "props": {
+                            "y": 54,
+                            "width": 56,
+                            "var": "btn_sao",
+                            "skin": "img/main/sys@2x.png",
+                            "right": 30,
+                            "height": 56
+                        }
                     }, {
                         "type": "Tab",
-                        "props": { "y": 60, "x": 10, "var": "tab", "selectedIndex": 0, "right": 0, "left": 0, "height": 40 },
+                        "props": {
+                            "y": 178,
+                            "width": 750,
+                            "var": "tab",
+                            "selectedIndex": 0,
+                            "right": 0,
+                            "left": 0,
+                            "height": 100
+                        },
                         "child": [{
                                 "type": "Button",
                                 "props": {
-                                    "width": 125,
+                                    "width": 250,
                                     "top": 0,
                                     "name": "item0",
                                     "left": 0,
-                                    "labelSize": 16,
+                                    "labelSize": 28,
                                     "label": "助记词",
                                     "bottom": 0
                                 }
                             }, {
                                 "type": "Button",
                                 "props": {
-                                    "x": 125,
-                                    "width": 125,
+                                    "x": 250,
+                                    "width": 250,
                                     "top": 0,
                                     "name": "item1",
-                                    "labelSize": 16,
+                                    "labelSize": 28,
                                     "label": "官方钱包",
                                     "bottom": 0
                                 }
@@ -1449,128 +2059,163 @@ var ui;
                                 "type": "Button",
                                 "props": {
                                     "y": 10,
-                                    "width": 125,
+                                    "width": 250,
                                     "top": 0,
                                     "right": 0,
                                     "name": "item2",
-                                    "labelSize": 16,
+                                    "labelSize": 28,
                                     "label": "私钥",
                                     "bottom": 0
                                 }
                             }]
                     }, {
                         "type": "ViewStack",
-                        "props": { "var": "stack", "top": 100, "selectedIndex": 0, "right": 0, "left": 0, "bottom": 0 },
+                        "props": { "var": "stack", "top": 308, "selectedIndex": 0, "right": 0, "left": 0, "bottom": 0 },
                         "child": [{
                                 "type": "Box",
                                 "props": { "top": 0, "right": 0, "name": "item0", "left": 0, "bottom": 0 },
                                 "child": [{
                                         "type": "TextArea",
                                         "props": {
-                                            "width": 335,
+                                            "y": 0,
                                             "var": "o_text_zjc",
-                                            "top": 0,
-                                            "right": 20,
+                                            "right": 30,
+                                            "promptColor": "#687076",
                                             "prompt": "助记词，用空格分开",
                                             "padding": "10",
-                                            "left": 20,
+                                            "left": 30,
                                             "layoutEnabled": true,
-                                            "height": 120,
+                                            "height": 192,
+                                            "fontSize": 28,
                                             "borderColor": "#b5b5b5"
                                         }
                                     }, {
                                         "type": "ComboBox",
                                         "props": {
-                                            "y": 130,
+                                            "y": 230,
+                                            "width": 654,
                                             "var": "o_sel_dir",
-                                            "skin": "comp/combobox.png",
                                             "sizeGrid": "0,0,0,0",
                                             "selectedIndex": 0,
-                                            "right": 20,
-                                            "left": 20,
-                                            "labels": "m/44’/60’/0’/0/0 Jaxx Metamask(ETH), m/44’/60’/0’/0 Ledger(ETH), m/44’/60’/1’/0/0 自定义路径",
-                                            "height": 30
+                                            "left": 30,
+                                            "labels": "m/44’/60’/0’/0/0 Jaxx Metamask(ETH),m/44’/60’/0’/0 Ledger(ETH),m/44’/60’/1’/0/0 自定义路径",
+                                            "labelSize": 28,
+                                            "labelPadding": "10,0,10,0",
+                                            "labelColors": "#8E979F",
+                                            "itemSize": 28,
+                                            "itemColors": "#8E979F",
+                                            "height": 44
                                         }
                                     }, {
                                         "type": "TextInput",
                                         "props": {
-                                            "y": 195,
+                                            "y": 360,
+                                            "width": 500,
                                             "var": "o_text_pass",
                                             "type": "password",
-                                            "right": 20,
+                                            "promptColor": "#8E979F",
                                             "prompt": "密码",
                                             "maxChars": 30,
-                                            "left": 20,
-                                            "height": 30
+                                            "left": 30,
+                                            "height": 44,
+                                            "fontSize": 28
                                         }
                                     }, {
                                         "type": "Image",
-                                        "props": { "y": 225, "skin": "img/itemSepar.png", "right": 20, "left": 20 }
+                                        "props": { "y": 404, "skin": "img/main/itemSepar.png", "right": 30, "left": 30 }
                                     }, {
                                         "type": "TextInput",
                                         "props": {
-                                            "y": 230,
-                                            "x": 20,
+                                            "y": 480,
+                                            "width": 500,
                                             "var": "o_text_confpass",
                                             "type": "password",
-                                            "right": 20,
+                                            "promptColor": "#8E979F",
                                             "prompt": "确认密码",
                                             "maxChars": 30,
-                                            "left": 20,
-                                            "height": 30
+                                            "left": 30,
+                                            "height": 44,
+                                            "fontSize": 28
                                         }
                                     }, {
                                         "type": "Image",
-                                        "props": { "y": 260, "x": 10, "skin": "img/itemSepar.png", "right": 20, "left": 20 }
-                                    }, {
-                                        "type": "Label",
-                                        "props": {
-                                            "y": 280,
-                                            "x": 40,
-                                            "width": 212,
-                                            "valign": "middle",
-                                            "text": "我已经仔细阅读并同意(隐私及服务条款)",
-                                            "height": 20,
-                                            "color": "#ff0400"
-                                        }
-                                    }, {
-                                        "type": "CheckBox",
-                                        "props": {
-                                            "y": 284,
-                                            "x": 20,
-                                            "width": 16,
-                                            "var": "o_check_agree",
-                                            "skin": "comp/radio.png",
-                                            "mouseEnabled": true,
-                                            "layoutEnabled": true,
-                                            "hitTestPrior": true,
-                                            "height": 16,
-                                            "click": "updateArgee"
-                                        }
+                                        "props": { "y": 524, "skin": "img/main/itemSepar.png", "right": 30, "left": 30 }
                                     }, {
                                         "type": "Button",
                                         "props": {
-                                            "y": 315,
                                             "var": "o_btn_import",
-                                            "skin": "img/blue.png",
-                                            "right": 20,
-                                            "left": 20,
+                                            "stateNum": 1,
+                                            "skin": "img/main/anliu@2x.png",
+                                            "right": 30,
+                                            "left": 28,
+                                            "labelSize": 32,
+                                            "labelColors": "#ffffff",
                                             "label": "开始导入",
-                                            "height": 40
+                                            "height": 80,
+                                            "bottom": 220
                                         }
                                     }, {
                                         "type": "Label",
                                         "props": {
                                             "var": "hetp_zjc",
                                             "valign": "middle",
-                                            "text": "什么是助记词?",
+                                            "text": "什么是助记词？",
                                             "right": 20,
                                             "left": 20,
                                             "height": 30,
-                                            "color": "#0d7fa3",
-                                            "bottom": 20,
+                                            "fontSize": 24,
+                                            "color": "#687076",
+                                            "bottom": 148,
                                             "align": "center"
                                         }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 613,
+                                            "x": 76,
+                                            "width": 240,
+                                            "valign": "middle",
+                                            "text": "我已经仔细阅读并同意",
+                                            "padding": "0",
+                                            "name": "隐私及服务条款",
+                                            "height": 34,
+                                            "fontSize": 24,
+                                            "color": "#8E979F",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "CheckBox",
+                                        "props": {
+                                            "y": 615,
+                                            "x": 36,
+                                            "width": 24,
+                                            "var": "o_check_agree",
+                                            "skin": "comp/radio.png",
+                                            "scaleY": 2,
+                                            "scaleX": 2,
+                                            "mouseEnabled": true,
+                                            "layoutEnabled": true,
+                                            "hitTestPrior": true,
+                                            "height": 24,
+                                            "click": "updateArgee"
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 613,
+                                            "x": 318,
+                                            "width": 240,
+                                            "valign": "middle",
+                                            "text": "隐私及服务条款",
+                                            "padding": "0",
+                                            "height": 34,
+                                            "fontSize": 24,
+                                            "color": "#598ADA",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "y": 230, "width": 44, "skin": "img/main/Stroke 2@2x.png", "right": 30, "height": 44 }
                                     }]
                             }, {
                                 "type": "Box",
@@ -1578,96 +2223,105 @@ var ui;
                                 "child": [{
                                         "type": "TextArea",
                                         "props": {
-                                            "y": -120,
-                                            "x": -10,
+                                            "y": 0,
                                             "wordWrap": true,
                                             "valign": "middle",
-                                            "top": 0,
                                             "text": "直接复制粘贴以太坊官方钱包keystore文件内容至输入框，或者扫二维码录入。",
                                             "stroke": 0,
-                                            "right": 20,
+                                            "right": 30,
                                             "padding": "5",
-                                            "left": 20,
+                                            "left": 30,
                                             "leading": 5,
                                             "layoutEnabled": true,
-                                            "height": 40,
+                                            "height": 88,
+                                            "fontSize": 24,
                                             "editable": false,
                                             "disabled": true,
-                                            "color": "#8e8e8e",
+                                            "color": "#687076",
                                             "align": "left"
                                         }
                                     }, {
                                         "type": "TextArea",
                                         "props": {
+                                            "y": 120,
                                             "wordWrap": true,
-                                            "width": 334,
                                             "var": "text_keystore",
-                                            "top": 51,
-                                            "right": 20,
+                                            "right": 30,
+                                            "promptColor": "#687076",
                                             "prompt": "keystore文本内容",
                                             "padding": "10",
-                                            "left": 21,
+                                            "left": 30,
                                             "layoutEnabled": true,
-                                            "height": 114,
+                                            "height": 152,
+                                            "fontSize": 28,
                                             "borderColor": "#b5b5b5"
                                         }
                                     }, {
                                         "type": "TextInput",
                                         "props": {
-                                            "y": 185,
-                                            "x": 20,
+                                            "y": 331,
                                             "var": "keystore_pass",
                                             "type": "password",
-                                            "right": 20,
+                                            "right": 30,
+                                            "promptColor": "#8E979F",
                                             "prompt": "keystore密码",
                                             "maxChars": 30,
-                                            "left": 21,
-                                            "height": 30
+                                            "left": 30,
+                                            "height": 44,
+                                            "fontSize": 28
                                         }
                                     }, {
                                         "type": "Image",
-                                        "props": { "y": 215, "x": 20, "skin": "img/itemSepar.png", "right": 20, "left": 21 }
+                                        "props": { "y": 375, "skin": "img/main/itemSepar.png", "right": 30, "left": 30 }
                                     }, {
                                         "type": "Label",
                                         "props": {
-                                            "y": 230,
-                                            "x": 40,
-                                            "width": 212,
+                                            "y": 455,
+                                            "x": 80,
+                                            "width": 240,
                                             "valign": "middle",
-                                            "text": "我已经仔细阅读并同意(隐私及服务条款)",
-                                            "height": 20,
-                                            "color": "#ff0400"
+                                            "text": "我已经仔细阅读并同意",
+                                            "padding": "0",
+                                            "name": "隐私及服务条款",
+                                            "height": 34,
+                                            "fontSize": 24,
+                                            "color": "#8E979F",
+                                            "align": "left"
                                         }
                                     }, {
                                         "type": "CheckBox",
                                         "props": {
-                                            "y": 234,
-                                            "x": 20,
-                                            "width": 16,
+                                            "y": 457,
+                                            "x": 40,
+                                            "width": 24,
                                             "var": "ks_agree",
                                             "skin": "comp/radio.png",
+                                            "scaleY": 2,
+                                            "scaleX": 2,
                                             "mouseEnabled": true,
                                             "layoutEnabled": true,
                                             "hitTestPrior": true,
-                                            "height": 16,
+                                            "height": 24,
                                             "click": "updateArgee"
-                                        }
-                                    }, {
-                                        "type": "Button",
-                                        "props": {
-                                            "y": 265,
-                                            "x": 20,
-                                            "var": "ks_btn_import",
-                                            "skin": "img/blue.png",
-                                            "right": 20,
-                                            "left": 21,
-                                            "label": "开始导入",
-                                            "height": 40
                                         }
                                     }, {
                                         "type": "Label",
                                         "props": {
-                                            "y": 279,
+                                            "y": 455,
+                                            "x": 322,
+                                            "width": 240,
+                                            "valign": "middle",
+                                            "text": "隐私及服务条款",
+                                            "padding": "0",
+                                            "height": 34,
+                                            "fontSize": 24,
+                                            "color": "#598ADA",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 848,
                                             "x": 20,
                                             "var": "help_keystore",
                                             "valign": "middle",
@@ -1675,9 +2329,26 @@ var ui;
                                             "right": 20,
                                             "left": 20,
                                             "height": 30,
-                                            "color": "#0d7fa3",
-                                            "bottom": 20,
+                                            "fontSize": 24,
+                                            "color": "#687076",
+                                            "bottom": 148,
                                             "align": "center"
+                                        }
+                                    }, {
+                                        "type": "Button",
+                                        "props": {
+                                            "y": 10,
+                                            "x": 10,
+                                            "var": "ks_btn_import",
+                                            "stateNum": 1,
+                                            "skin": "img/main/anliu@2x.png",
+                                            "right": 30,
+                                            "left": 28,
+                                            "labelSize": 32,
+                                            "labelColors": "#ffffff",
+                                            "label": "开始导入",
+                                            "height": 80,
+                                            "bottom": 220
                                         }
                                     }]
                             }, {
@@ -1686,105 +2357,131 @@ var ui;
                                 "child": [{
                                         "type": "TextArea",
                                         "props": {
+                                            "y": 0,
                                             "wordWrap": true,
                                             "var": "text_privateKey",
-                                            "top": 0,
                                             "stroke": 0,
-                                            "right": 20,
+                                            "right": 30,
+                                            "promptColor": "#687076",
                                             "prompt": "明文私钥",
                                             "padding": "5",
-                                            "left": 20,
+                                            "left": 30,
                                             "leading": 5,
                                             "layoutEnabled": true,
-                                            "height": 80,
-                                            "color": "#8e8e8e",
+                                            "height": 192,
+                                            "fontSize": 28,
                                             "borderColor": "#b5b5b5",
                                             "align": "left"
                                         }
                                     }, {
-                                        "type": "TextInput",
-                                        "props": {
-                                            "y": 125,
-                                            "x": 20,
-                                            "var": "pk_text_pass",
-                                            "type": "password",
-                                            "right": 20,
-                                            "prompt": "keystore密码",
-                                            "maxChars": 30,
-                                            "left": 21,
-                                            "height": 30
-                                        }
-                                    }, {
-                                        "type": "Image",
-                                        "props": { "y": 155, "x": 20, "skin": "img/itemSepar.png", "right": 20, "left": 21 }
-                                    }, {
-                                        "type": "TextInput",
-                                        "props": {
-                                            "y": 165,
-                                            "x": 20,
-                                            "var": "pk_text_confPass",
-                                            "type": "password",
-                                            "right": 20,
-                                            "prompt": "keystore密码",
-                                            "maxChars": 30,
-                                            "left": 21,
-                                            "height": 30
-                                        }
-                                    }, {
-                                        "type": "Image",
-                                        "props": { "y": 195, "x": 20, "skin": "img/itemSepar.png", "right": 20, "left": 21 }
-                                    }, {
                                         "type": "Label",
                                         "props": {
-                                            "y": 205,
-                                            "x": 40,
-                                            "width": 212,
-                                            "valign": "middle",
-                                            "text": "我已经仔细阅读并同意(隐私及服务条款)",
-                                            "height": 20,
-                                            "color": "#ff0400"
-                                        }
-                                    }, {
-                                        "type": "CheckBox",
-                                        "props": {
-                                            "y": 209,
+                                            "y": 848,
                                             "x": 20,
-                                            "width": 16,
-                                            "var": "pk_agree",
-                                            "skin": "comp/radio.png",
-                                            "mouseEnabled": true,
-                                            "left": 21,
-                                            "layoutEnabled": true,
-                                            "hitTestPrior": true,
-                                            "height": 16,
-                                            "click": "updateArgee"
+                                            "var": "help_pk",
+                                            "valign": "middle",
+                                            "text": "什么是私钥？",
+                                            "right": 20,
+                                            "left": 20,
+                                            "height": 30,
+                                            "fontSize": 24,
+                                            "color": "#687076",
+                                            "bottom": 148,
+                                            "align": "center"
                                         }
                                     }, {
                                         "type": "Button",
                                         "props": {
-                                            "y": 265,
-                                            "x": 20,
+                                            "y": 726,
+                                            "x": 28,
                                             "var": "pk_btn_import",
-                                            "skin": "img/blue.png",
-                                            "right": 20,
-                                            "left": 21,
+                                            "stateNum": 1,
+                                            "skin": "img/main/anliu@2x.png",
+                                            "right": 30,
+                                            "left": 28,
+                                            "labelSize": 32,
+                                            "labelColors": "#ffffff",
                                             "label": "开始导入",
-                                            "height": 40
+                                            "height": 80,
+                                            "bottom": 220
+                                        }
+                                    }, {
+                                        "type": "TextInput",
+                                        "props": {
+                                            "y": 242,
+                                            "width": 500,
+                                            "var": "pk_text_pass",
+                                            "type": "password",
+                                            "promptColor": "#8E979F",
+                                            "prompt": "密码",
+                                            "maxChars": 30,
+                                            "left": 30,
+                                            "height": 44,
+                                            "fontSize": 28
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "y": 414, "x": 30, "skin": "img/main/itemSepar.png", "right": 30, "left": 30 }
+                                    }, {
+                                        "type": "TextInput",
+                                        "props": {
+                                            "y": 362,
+                                            "width": 500,
+                                            "var": "pk_text_confPass",
+                                            "type": "password",
+                                            "promptColor": "#8E979F",
+                                            "prompt": "确认密码",
+                                            "maxChars": 30,
+                                            "left": 30,
+                                            "height": 44,
+                                            "fontSize": 28
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "y": 406, "x": 30, "skin": "img/main/itemSepar.png", "right": 30, "left": 30 }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 487,
+                                            "x": 70,
+                                            "width": 240,
+                                            "valign": "middle",
+                                            "text": "我已经仔细阅读并同意",
+                                            "padding": "0",
+                                            "name": "隐私及服务条款",
+                                            "height": 34,
+                                            "fontSize": 24,
+                                            "color": "#8E979F",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "CheckBox",
+                                        "props": {
+                                            "y": 489,
+                                            "x": 30,
+                                            "width": 24,
+                                            "skin": "comp/radio.png",
+                                            "scaleY": 2,
+                                            "scaleX": 2,
+                                            "mouseEnabled": true,
+                                            "layoutEnabled": true,
+                                            "hitTestPrior": true,
+                                            "height": 24,
+                                            "click": "updateArgee"
                                         }
                                     }, {
                                         "type": "Label",
                                         "props": {
-                                            "y": 209,
-                                            "x": 40,
-                                            "var": "help_pk",
+                                            "y": 487,
+                                            "x": 312,
+                                            "width": 240,
                                             "valign": "middle",
-                                            "text": "什么是私钥?",
-                                            "right": 20,
-                                            "left": 20,
-                                            "height": 30,
-                                            "color": "#0d7fa3",
-                                            "bottom": 20,
-                                            "align": "center"
+                                            "text": "隐私及服务条款",
+                                            "padding": "0",
+                                            "height": 34,
+                                            "fontSize": 24,
+                                            "color": "#598ADA",
+                                            "align": "left"
                                         }
                                     }]
                             }]
@@ -2088,98 +2785,100 @@ var ui;
         };
         WalletBackUpUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "height": 667 },
+            "props": { "width": 750, "height": 1334 },
             "child": [{
-                    "type": "Image",
-                    "props": {
-                        "y": 27,
-                        "x": 10,
-                        "width": 30,
-                        "var": "btn_back",
-                        "skin": "img/main/back@2x.png",
-                        "height": 30
-                    }
-                }, {
-                    "type": "Image",
-                    "props": { "y": 133, "width": 62, "skin": "img/main/anquan@2x.png", "height": 72, "centerX": 0 }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 31,
-                        "valign": "middle",
-                        "text": "备份钱包",
-                        "height": 22,
-                        "fontSize": 16,
-                        "color": "#163853",
-                        "centerX": 0,
-                        "align": "center"
-                    }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 248,
-                        "valign": "middle",
-                        "text": "立即备份你的钱包！",
-                        "height": 28,
-                        "fontSize": 20,
-                        "color": "#163853",
-                        "centerX": 0,
-                        "bold": true,
-                        "align": "center"
-                    }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 318,
-                        "valign": "middle",
-                        "text": "备份钱包：导出「助记词」并抄写到安全的地方",
-                        "left": 15,
-                        "height": 22,
-                        "fontSize": 12,
-                        "color": "#687076",
-                        "align": "left"
-                    }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 340,
-                        "valign": "middle",
-                        "text": " 千万不要保存到网络上。然后尝试转入，转出小额资产开始使用。",
-                        "left": 13,
-                        "height": 22,
-                        "fontSize": 12,
-                        "color": "#687076",
-                        "align": "left"
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 473,
-                        "x": 10,
-                        "width": 354,
-                        "var": "btn_backup",
-                        "stateNum": 1,
-                        "skin": "img/main/anliu@2x.png",
-                        "sizeGrid": "0,0,0,0",
-                        "labelSize": 16,
-                        "labelColors": "#ffffff",
-                        "label": "备份钱包",
-                        "height": 40,
-                        "centerX": 0
-                    }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 536,
-                        "x": 10,
-                        "var": "info_backup",
-                        "text": "查看备份详细教程",
-                        "height": 17,
-                        "fontSize": 16,
-                        "color": "#687076",
-                        "centerX": 0,
-                        "align": "center"
-                    }
+                    "type": "Box",
+                    "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                    "child": [{
+                            "type": "Image",
+                            "props": {
+                                "y": 54,
+                                "x": 20,
+                                "width": 60,
+                                "var": "btn_back",
+                                "skin": "img/main/back@2x.png",
+                                "height": 60
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "y": 266, "width": 124, "skin": "img/main/anquan@2x.png", "height": 144, "centerX": 0 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 62,
+                                "valign": "middle",
+                                "text": "备份钱包",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerX": 0,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 496,
+                                "valign": "middle",
+                                "text": "立即备份你的钱包！",
+                                "height": 56,
+                                "fontSize": 40,
+                                "color": "#163853",
+                                "centerX": 0,
+                                "bold": true,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 636,
+                                "x": 30,
+                                "valign": "middle",
+                                "text": "备份钱包：导出「助记词」并抄写到安全的地方",
+                                "height": 44,
+                                "fontSize": 24,
+                                "color": "#687076",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 680,
+                                "x": 26,
+                                "valign": "middle",
+                                "text": " 千万不要保存到网络上。然后尝试转入，转出小额资产开始使用。",
+                                "height": 44,
+                                "fontSize": 24,
+                                "color": "#687076",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 946,
+                                "width": 708,
+                                "var": "btn_backup",
+                                "stateNum": 1,
+                                "skin": "img/main/anliu@2x.png",
+                                "sizeGrid": "0,0,0,0",
+                                "labelSize": 32,
+                                "labelColors": "#ffffff",
+                                "label": "备份钱包",
+                                "height": 80,
+                                "centerX": 0
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 1072,
+                                "var": "info_backup",
+                                "text": "查看备份详细教程",
+                                "height": 34,
+                                "fontSize": 32,
+                                "color": "#687076",
+                                "centerX": 0,
+                                "align": "center"
+                            }
+                        }]
                 }]
         };
         return WalletBackUpUI;
@@ -2362,7 +3061,7 @@ var ui;
                     "type": "Label",
                     "props": {
                         "y": 510,
-                        "width": 301,
+                        "width": 643,
                         "visible": false,
                         "var": "lab_pass",
                         "valign": "middle",
@@ -2387,22 +3086,6 @@ var ui;
                         "fontSize": 20,
                         "color": "#ff0400",
                         "align": "right"
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 828,
-                        "width": 708,
-                        "var": "btn_create",
-                        "stateNum": 1,
-                        "skin": "img/main/anliu@2x.png",
-                        "sizeGrid": "0,0,0,0",
-                        "labelSize": 32,
-                        "labelColors": "#ffffff",
-                        "label": "创建钱包",
-                        "height": 80,
-                        "disabled": true,
-                        "centerX": 0
                     }
                 }, {
                     "type": "Label",
@@ -2480,6 +3163,23 @@ var ui;
                         "fontSize": 24,
                         "color": "#598ADA",
                         "align": "left"
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "y": 838,
+                        "x": 10,
+                        "width": 708,
+                        "var": "btn_create",
+                        "stateNum": 1,
+                        "skin": "img/main/anliu@2x.png",
+                        "sizeGrid": "0,0,0,0",
+                        "labelSize": 32,
+                        "labelColors": "#ffffff",
+                        "label": "创建钱包",
+                        "height": 80,
+                        "disabled": true,
+                        "centerX": 0
                     }
                 }]
         };
@@ -2674,65 +3374,91 @@ var ui;
         };
         WalletMainUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
                     "type": "Rect",
-                    "props": { "y": 0, "x": 0, "width": 375, "lineWidth": 1, "height": 240, "fillColor": "#c1e2ef" }
+                    "props": { "y": 0, "x": 0, "width": 750, "lineWidth": 1, "height": 400, "fillColor": "#c1e2ef" }
                 }, {
                     "type": "Image",
-                    "props": { "y": 50, "width": 30, "skin": "img/eth.jpg", "height": 30, "centerX": 0 }
-                }, {
-                    "type": "Label",
-                    "props": { "y": 81, "var": "lab_wName", "text": "0", "height": 30, "color": "#000000", "centerX": 0 }
+                    "props": { "y": 49, "width": 60, "skin": "img/main/add.png", "height": 60, "centerX": 0 }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 100,
+                        "y": 124,
+                        "var": "lab_wName",
+                        "text": "0",
+                        "height": 44,
+                        "fontSize": 32,
+                        "color": "#000000",
+                        "centerX": 0
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 174,
                         "var": "lab_wAddr",
                         "valign": "middle",
                         "text": "AAAAAAAA......AAAAAAAA",
                         "overflow": "hidden",
-                        "height": 30,
+                        "height": 44,
+                        "fontSize": 32,
                         "color": "#000000",
                         "centerX": -5,
                         "align": "left"
                     }
                 }, {
                     "type": "Label",
-                    "props": { "y": 190, "x": 25, "valign": "middle", "text": "总资产($)", "height": 30, "color": "#000000" }
+                    "props": {
+                        "y": 347,
+                        "x": 34,
+                        "width": 565,
+                        "valign": "middle",
+                        "text": "总资产($)",
+                        "height": 44,
+                        "fontSize": 28,
+                        "color": "#000000"
+                    }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 155,
+                        "y": 306,
                         "var": "lab_total_usd",
                         "text": "≈ 0",
                         "right": 20,
-                        "left": 20,
-                        "height": 35,
+                        "left": 34,
+                        "height": 44,
                         "fontSize": 32,
                         "color": "#000000"
                     }
                 }, {
                     "type": "Image",
-                    "props": { "y": 102, "x": 260, "width": 30, "var": "btn_owner_info", "skin": "img/ewm.jpg", "height": 30 }
+                    "props": {
+                        "y": 172,
+                        "x": 581,
+                        "width": 60,
+                        "var": "btn_owner_info",
+                        "skin": "img/main/add.png",
+                        "height": 60
+                    }
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 190,
-                        "width": 40,
+                        "y": 295,
+                        "width": 60,
                         "var": "btn_addCoin",
-                        "skin": "img/add.png",
+                        "skin": "img/main/add.png",
                         "sizeGrid": "0,0,0,0",
-                        "right": 20,
-                        "height": 40
+                        "right": 30,
+                        "height": 60
                     }
                 }, {
                     "type": "Button",
                     "props": {
                         "x": 0,
-                        "width": 187,
+                        "width": 375,
                         "var": "btn_assets",
                         "selected": true,
+                        "labelSize": 32,
                         "labelAlign": "center",
                         "label": "资产",
                         "height": 60,
@@ -2744,8 +3470,9 @@ var ui;
                         "var": "btn_me",
                         "right": 0,
                         "mouseEnabled": true,
-                        "left": 187,
+                        "left": 375,
                         "layoutEnabled": true,
+                        "labelSize": 32,
                         "label": "我",
                         "height": 60,
                         "bottom": 0
@@ -2753,14 +3480,84 @@ var ui;
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 50,
-                        "width": 30,
+                        "width": 60,
                         "var": "btn_more",
-                        "top": 20,
-                        "skin": "img/more.png",
-                        "right": 20,
-                        "height": 30
+                        "top": 30,
+                        "skin": "img/main/add.png",
+                        "right": 30,
+                        "height": 60
                     }
+                }, {
+                    "type": "List",
+                    "props": {
+                        "var": "list_wallet",
+                        "top": 400,
+                        "selectEnable": true,
+                        "right": 0,
+                        "repeatX": 1,
+                        "left": 0,
+                        "bottom": 60
+                    },
+                    "child": [{
+                            "type": "Box",
+                            "props": { "right": 0, "name": "render", "left": 0, "height": 120 },
+                            "child": [{
+                                    "type": "Image",
+                                    "props": {
+                                        "top": 0,
+                                        "skin": "template/List/SimpleListBoxItemBackground.png",
+                                        "right": 0,
+                                        "left": 0,
+                                        "bottom": 0
+                                    }
+                                }, {
+                                    "type": "Image",
+                                    "props": {
+                                        "x": 28,
+                                        "width": 78,
+                                        "var": "cImg",
+                                        "skin": "template/List/message icon_57x57.png",
+                                        "name": "cImg",
+                                        "height": 78,
+                                        "centerY": 0
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "x": 114,
+                                        "width": 445,
+                                        "var": "cName",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "name": "cName",
+                                        "height": 50,
+                                        "fontSize": 36,
+                                        "centerY": 0
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "var": "cTotal",
+                                        "text": "第三方士大夫",
+                                        "right": 30,
+                                        "name": "cTotal",
+                                        "height": 44,
+                                        "fontSize": 28,
+                                        "centerY": 0
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "var": "cValue",
+                                        "text": "不晓得官方",
+                                        "right": 30,
+                                        "name": "cValue",
+                                        "height": 44,
+                                        "fontSize": 28,
+                                        "bottom": 0
+                                    }
+                                }]
+                        }]
                 }]
         };
         return WalletMainUI;
@@ -2936,26 +3733,24 @@ var ui;
         };
         WalletMeUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Rect",
-                    "props": {
-                        "y": 0,
-                        "x": 0,
-                        "width": 375,
-                        "name": "item1",
-                        "lineWidth": 1,
-                        "height": 150,
-                        "fillColor": "#8596ee"
-                    }
-                }, {
                     "type": "Label",
-                    "props": { "y": 20, "x": -6, "top": 20, "text": "我", "name": "item1", "color": "#ffffff", "centerX": 0 }
+                    "props": {
+                        "y": 20,
+                        "x": -6,
+                        "top": 20,
+                        "text": "我",
+                        "name": "item1",
+                        "fontSize": 32,
+                        "color": "#000000",
+                        "centerX": 0
+                    }
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 60,
-                        "x": 66,
+                        "y": 146,
+                        "x": 146,
                         "width": 30,
                         "var": "btn_manageWal",
                         "skin": "img/main/add.png",
@@ -2965,8 +3760,8 @@ var ui;
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 60,
-                        "x": 259,
+                        "y": 140,
+                        "x": 520,
                         "width": 30,
                         "var": "btn_dealHistory",
                         "skin": "img/main/add.png",
@@ -2975,16 +3770,17 @@ var ui;
                     }
                 }, {
                     "type": "Label",
-                    "props": { "y": 95, "x": 56, "text": "管理钱包", "name": "item1", "color": "#ffffff" }
+                    "props": { "y": 181, "x": 136, "text": "管理钱包", "name": "item1", "color": "#000000" }
                 }, {
                     "type": "Label",
-                    "props": { "y": 95, "x": 249, "text": "交易记录", "name": "item1", "color": "#ffffff" }
+                    "props": { "y": 175, "x": 510, "text": "交易记录", "name": "item1", "color": "#000000" }
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 187,
+                        "width": 375,
                         "var": "btn_assets",
                         "left": 0,
+                        "labelSize": 32,
                         "labelAlign": "center",
                         "label": "资产",
                         "height": 60,
@@ -2993,12 +3789,13 @@ var ui;
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 187,
                         "var": "btn_me",
                         "selected": true,
+                        "right": 0,
                         "mouseEnabled": true,
-                        "left": 187,
+                        "left": 375,
                         "layoutEnabled": true,
+                        "labelSize": 32,
                         "label": "我",
                         "height": 60,
                         "bottom": 0
@@ -3177,18 +3974,18 @@ var ui;
         };
         WalletQuickUI.uiView = {
             "type": "Dialog",
-            "props": { "y": 0, "x": 0, "width": 150, "height": 667 },
+            "props": { "y": 0, "x": 0, "width": 250, "height": 1334 },
             "child": [{
                     "type": "Image",
-                    "props": { "y": 0, "x": 0, "width": 150, "var": "bg", "skin": "img/main/white.jpg", "height": 667 }
+                    "props": { "var": "bg", "top": 2, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
                 }, {
                     "type": "Image",
-                    "props": { "y": 60, "x": 10, "width": 30, "skin": "img/main/add.png", "height": 30 }
+                    "props": { "y": 450, "x": 30, "width": 30, "skin": "img/main/add.png", "height": 30 }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 60,
-                        "x": 50,
+                        "y": 450,
+                        "x": 70,
                         "var": "lab_sao",
                         "valign": "middle",
                         "text": "扫一扫",
@@ -3198,12 +3995,12 @@ var ui;
                     }
                 }, {
                     "type": "Image",
-                    "props": { "y": 110, "x": 10, "width": 30, "skin": "img/main/add.png", "height": 30 }
+                    "props": { "y": 500, "x": 30, "width": 30, "skin": "img/main/add.png", "height": 30 }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 110,
-                        "x": 50,
+                        "y": 500,
+                        "x": 70,
                         "var": "lab_create",
                         "valign": "middle",
                         "text": "创建钱包",
@@ -3216,7 +4013,7 @@ var ui;
                     "type": "Image",
                     "props": {
                         "var": "img_spe",
-                        "top": 180,
+                        "top": 430,
                         "skin": "img/main/itemSepar.png",
                         "right": 0,
                         "left": 0,

@@ -39,6 +39,7 @@ var view;
             this.comp.info_backup.on(Laya.Event.CLICK, this, this.btnClick[3]);
         };
         WalletBackUp.prototype.setData = function (key) {
+            this.walletName = key;
         };
         WalletBackUp.prototype.btnClick = function (index) {
             if (1 == index) {
@@ -47,7 +48,9 @@ var view;
             }
             if (2 == index) {
                 this.comp.visible = false;
-                new view.backup.BackUpZjc().setParetUI(this.comp);
+                var backUp = new view.backup.BackUpZjc();
+                backUp.setData(service.walletServcie.getWallet(this.walletName).wZjc);
+                backUp.setParetUI(this.comp);
             }
         };
         WalletBackUp.prototype.setParetUI = function (parentUI) {

@@ -3,6 +3,7 @@ module view.backup {
     export class BackUpZjc extends ui.backup.BackUpZjcUI {
         private comp: ui.backup.BackUpZjcUI;
         private parentUI: View;
+        private wZjc: string;
 
         constructor() {
             super();
@@ -19,15 +20,23 @@ module view.backup {
 
         private initEvent() {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         }
 
         public setData(key: string) {
+            this.wZjc = key;
         }
 
         private btnClick(index: number) {
             if (1 == index) {
                 this.comp.removeSelf();
                 this.parentUI.visible = true;
+            }
+            if (2 == index) {
+                this.comp.visible = false;
+                let conf = new view.backup.BackUpConf();
+                conf.setData(this.wZjc);
+                conf.setParetUI(this.comp);
             }
         }
 

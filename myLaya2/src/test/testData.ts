@@ -6,7 +6,7 @@ class testData {
     //根据钱包名称获取钱包相关数据
     public static getWalletInfo(walletName: string): mod.walletMod {
         let wallet = JSON.parse(laya.net.LocalStorage.getItem(walletName));
-        let walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
+        let walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins, null);
         return walletMod;
     }
 
@@ -22,8 +22,8 @@ class testData {
             let data = [];
             for (let i = 0; i < walletNames.length; i++) {
                 let walletJson = util.getItem(walletNames[i]);
-                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null);
-                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null);
+                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null, null);
+                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null, null);
             }
             return data;
         }

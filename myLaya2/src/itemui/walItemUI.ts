@@ -1,8 +1,8 @@
-//钱包中币种列表
+//钱包中币种列表:过时
 class walItemUI extends Box {
     public static WID: number = util.getScreenWidth();
 
-    public static HEI: number = 80;
+    public static HEI: number = 160;
 
     private img = new Laya.Image();
     private lab_name: Label = new Label();
@@ -23,14 +23,15 @@ class walItemUI extends Box {
 
     public init(walItem: mod.walItemMod): void {
         this.img.skin = walItem.getItemImgSrc();
-        this.img.width = 60;
-        this.img.height = 60;
+        this.img.width = 80;
+        this.img.height = 80;
         this.img.centerY = 0;
-        this.img.x = 20;
+        this.img.x = 30;
 
         this.lab_name.text = walItem.itemName;
         this.lab_name.x = this.img.x + this.img.width + 20;
         this.lab_name.centerY = 0;
+        this.lab_name.fontSize = 28;
 
         this.lab_total.text = walItem.itemTotal;
         this.lab_total.height = 25;
@@ -48,6 +49,6 @@ class walItemUI extends Box {
         this.sperated.skin = config.resource.sperated;
         this.sperated.left = 0;
         this.sperated.right = 0;
-        this.sperated.y = walItemUI.HEI - 1;
+        this.sperated.y = walItemUI.HEI;
     }
 }

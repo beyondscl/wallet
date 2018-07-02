@@ -1,9 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.coin {
+    import Image = Laya.Image;
+
     export class AddCoins extends ui.coin.AddCoinsUI {
         private comp: ui.coin.AddCoinsUI;
         private parentUI: ui.WalletMainUI;
-        private listCoin = new Laya.List();
 
         constructor() {
             super();
@@ -13,7 +14,6 @@ module view.coin {
 
         private init() {
             this.comp = new ui.coin.AddCoinsUI();
-            this.comp.addChild(this.listCoin);
             this.stage.addChild(this.comp)
         }
 
@@ -45,22 +45,24 @@ module view.coin {
         }
 
         public setData(data: Array<mod.coinItemMod>) {
-            this.listCoin.x = 0;
-            this.listCoin.width = util.getScreenWidth();
-            this.listCoin.top = 60;
-            this.listCoin.bottom = 0;
-            this.listCoin.itemRender = coinItemUI;
-            this.listCoin.repeatX = 1;
-            this.listCoin.repeatY = data.length;
-            this.listCoin.vScrollBarSkin = "";
-            this.listCoin.selectEnable = false;
-            // this.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
-            this.listCoin.renderHandler = new Laya.Handler(this, this.updateItem);
-            this.listCoin.array = data;
+            this.comp.listCoin.array = data;
+            this.comp.listCoin.y = data.length;
+            this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
-        private updateItem(cell: coinItemUI, index: number): void {
-            cell.init(cell.dataSource);
+        private onListRender(cell: Box, index: number) {
+            var data: mod.coinItemMod = this.comp.listCoin.array[index];
+            let cImg = cell.getChildByName('cImg') as Image;
+            cImg.skin = data.coinImg;
+            let cName = cell.getChildByName('cName') as Label;
+            cName.text = data.coinName.toUpperCase();
+            let cVender = cell.getChildByName('cVender') as Label;
+            cVender.text = data.coinVender;
+            let cAddr = cell.getChildByName('cAddr') as Label;
+            cAddr.text = data.coinAddr;
+            let cCheckbox = cell.getChildByName('cCheckbox') as Laya.CheckBox;
+            cCheckbox.selected = data.coinSelected;
         }
 
         private onSelect(index: number): void {
@@ -69,9 +71,9 @@ module view.coin {
         //operator data
         private updateSelectItem() {
             let coins = [];
-            for (let i = 0; i < this.listCoin.array.length; i++) {
-                if (this.listCoin.cells[i].coinCheckBox.selected) {
-                    coins[coins.length] = this.listCoin.cells[i].labCoinName.text;
+            for (let i = 0; i < this.comp.listCoin.array.length; i++) {
+                if (this.comp.listCoin.cells[i].getChildByName("cCheckbox").selected) {
+                    coins[coins.length] = this.comp.listCoin.cells[i].getChildByName('cName').text;
                 }
             }
             let walletName = this.parentUI.lab_wName.text;

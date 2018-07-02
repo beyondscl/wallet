@@ -5,7 +5,7 @@ var testData = /** @class */ (function () {
     //根据钱包名称获取钱包相关数据
     testData.getWalletInfo = function (walletName) {
         var wallet = JSON.parse(laya.net.LocalStorage.getItem(walletName));
-        var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins);
+        var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins, null);
         return walletMod;
     };
     //钱包添加币种
@@ -19,8 +19,8 @@ var testData = /** @class */ (function () {
             var data = [];
             for (var i = 0; i < walletNames.length; i++) {
                 var walletJson = util.getItem(walletNames[i]);
-                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null);
-                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null);
+                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null, null);
+                data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, null, null);
             }
             return data;
         }

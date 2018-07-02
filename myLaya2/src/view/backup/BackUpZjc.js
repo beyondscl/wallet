@@ -39,13 +39,21 @@ var view;
             };
             BackUpZjc.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+                this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             };
             BackUpZjc.prototype.setData = function (key) {
+                this.wZjc = key;
             };
             BackUpZjc.prototype.btnClick = function (index) {
                 if (1 == index) {
                     this.comp.removeSelf();
                     this.parentUI.visible = true;
+                }
+                if (2 == index) {
+                    this.comp.visible = false;
+                    var conf = new view.backup.BackUpConf();
+                    conf.setData(this.wZjc);
+                    conf.setParetUI(this.comp);
                 }
             };
             BackUpZjc.prototype.setParetUI = function (parentUI) {

@@ -19,7 +19,6 @@ var __extends = (this && this.__extends) || (function () {
 /**Created by the LayaAirIDE*/
 var view;
 (function (view) {
-    var Handler = Laya.Handler;
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
 
@@ -47,13 +46,15 @@ var view;
         };
         WalletMain.prototype.setData = function () {
         };
+        //当前钱包的基本数据
         WalletMain.prototype.initQueryData = function (data) {
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
+            //模拟钱包下的币种
             for (var i = 0; i < data.wCoins.length; i++) {
                 var walItemT = new mod.walItemMod();
                 var coinName = data.wCoins[i];
-                walItemT.setItem("img/" + coinName.toLocaleLowerCase() + ".jpg", coinName.toUpperCase(), "0", "0");
+                walItemT.setItem("img/main/wallet_manage.png", coinName.toUpperCase(), "0", "0");
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
@@ -62,21 +63,21 @@ var view;
         };
         //init coin list
         WalletMain.prototype.setListUp = function (data) {
-            this.list.name = 'item0';
-            this.list.itemRender = walItemUI;
-            this.list.repeatX = 1;
-            this.list.repeatY = data.length;
-            this.list.x = 0;
-            this.list.bottom = 60;
-            this.list.top = 240;
-            this.list.vScrollBarSkin = "";
-            this.list.selectEnable = true;
-            this.list.selectHandler = new Handler(this, this.onSelect);
-            this.list.renderHandler = new Handler(this, this.updateItem);
-            this.list.array = data;
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         };
-        WalletMain.prototype.updateItem = function (cell, index) {
-            cell.init(cell.dataSource);
+        WalletMain.prototype.onListRender = function (cell, index) {
+            var data = this.comp.list_wallet.array[index];
+            var cImg = cell.getChildByName('cImg');
+            cImg.skin = data.itemImgSrc;
+            var cName = cell.getChildByName('cName');
+            cName.text = data.itemName;
+            var cTotal = cell.getChildByName('cTotal');
+            cTotal.text = data.itemTotal;
+            var cValue = cell.getChildByName('cValue');
+            cValue.text = "¥ " + data.itemMonType;
         };
         WalletMain.prototype.onSelect = function (index) {
             var item = this.data[index];
@@ -102,7 +103,7 @@ var view;
                 //dialog千万不要设置left r t b..
                 var pom = new view.WalletQuick();
                 pom.width = Laya.stage.width / 3;
-                pom.height = 667;
+                pom.height = Laya.stage.height;
                 pom.top = 0;
                 pom.left = Laya.stage.width * 2 / 3; //right 不行
                 pom.setParentUI(this.comp);

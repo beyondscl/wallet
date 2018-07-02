@@ -54,8 +54,8 @@ var view;
         WalletQuick.prototype.initData = function (walletNames) {
             this.listData = walletNames;
             this.list_wallet.x = 0;
-            this.list_wallet.top = 180;
-            this.list_wallet.bottom = 0;
+            this.list_wallet.top = 20;
+            this.list_wallet.height = 400;
             this.list_wallet.repeatX = 1;
             this.list_wallet.repeatY = walletNames.length;
             this.list_wallet.vScrollBarSkin = '';

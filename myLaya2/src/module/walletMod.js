@@ -2,14 +2,18 @@
 var mod;
 (function (mod) {
     var walletMod = /** @class */ (function () {
-        function walletMod(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins) {
+        function walletMod(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {
             this.wSkin = config.resource.walletImg;
+            this.wZjc = "winga wingb wingcc wingd winge wingf wingg wingh wingi wingj wingk wingl";
             this.wName = wName;
             this.wPassword = wPassword;
             this.wPrivateKey = wPrivateKey;
             this.wKeyStore = wKeyStore;
             this.wAddr = wAddr;
             this.wCoins = wCoins;
+            if (wZjc) {
+                this.wZjc = wZjc;
+            }
         }
 
         walletMod.prototype.toJson = function () {
@@ -19,7 +23,8 @@ var mod;
                 wPrivateKey: this.wPrivateKey,
                 wKeyStore: this.wKeyStore,
                 wAddr: this.wAddr,
-                wCoins: this.wCoins
+                wCoins: this.wCoins,
+                wZjc: this.wZjc,
             };
             return json;
         };

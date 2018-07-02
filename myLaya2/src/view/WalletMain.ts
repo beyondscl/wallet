@@ -2,6 +2,8 @@
 module view {
     import List = Laya.List;
     import Handler = Laya.Handler;
+    import Image = Laya.Image;
+
 
     export class WalletMain extends ui.WalletMainUI {
         private data: Array<mod.walItemMod> = [];
@@ -33,13 +35,15 @@ module view {
 
         }
 
+        //当前钱包的基本数据
         public initQueryData(data: mod.walletMod) {
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
+            //模拟钱包下的币种
             for (let i: number = 0; i < data.wCoins.length; i++) {
                 let walItemT = new mod.walItemMod();
                 let coinName = data.wCoins[i]
-                walItemT.setItem("img/" + coinName.toLocaleLowerCase() + ".jpg", coinName.toUpperCase(), "0", "0");
+                walItemT.setItem("img/main/wallet_manage.png", coinName.toUpperCase(), "0", "0");
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
@@ -51,22 +55,22 @@ module view {
 
         //init coin list
         private setListUp(data: Array<mod.walItemMod>): void {
-            this.list.name = 'item0';
-            this.list.itemRender = walItemUI;
-            this.list.repeatX = 1;
-            this.list.repeatY = data.length;
-            this.list.x = 0;
-            this.list.bottom = 60;
-            this.list.top = 240;
-            this.list.vScrollBarSkin = "";
-            this.list.selectEnable = true;
-            this.list.selectHandler = new Handler(this, this.onSelect);
-            this.list.renderHandler = new Handler(this, this.updateItem);
-            this.list.array = data;
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
-        private updateItem(cell: walItemUI, index: number): void {
-            cell.init(cell.dataSource);
+        private onListRender(cell: Box, index: number) {
+            var data: mod.walItemMod = this.comp.list_wallet.array[index];
+            let cImg = cell.getChildByName('cImg') as Image;
+            cImg.skin = data.itemImgSrc;
+            let cName = cell.getChildByName('cName') as Label;
+            cName.text = data.itemName;
+            let cTotal = cell.getChildByName('cTotal') as Label;
+            cTotal.text = data.itemTotal
+            let cValue = cell.getChildByName('cValue') as Label;
+            cValue.text = "¥ " + data.itemMonType;
         }
 
         private onSelect(index: number): void {
@@ -94,7 +98,7 @@ module view {
                 //dialog千万不要设置left r t b..
                 let pom = new view.WalletQuick();
                 pom.width = Laya.stage.width / 3;
-                pom.height = 667;
+                pom.height = Laya.stage.height;
                 pom.top = 0;
                 pom.left = Laya.stage.width * 2 / 3;//right 不行
 

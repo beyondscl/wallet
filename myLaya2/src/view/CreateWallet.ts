@@ -41,7 +41,6 @@ module view {
 
         private updateArgee() {
             this.comp.btn_create.disabled = !this.comp.check_argee.selected;
-            this.comp.btn_create.mouseEnabled = this.comp.check_argee.selected;
         }
 
         private createWallet() {
@@ -75,12 +74,19 @@ module view {
         }
 
         private checkPass() {
-            this.infoPassStrong();
-            if (this.comp.text_pass.text.length < 8 || this.comp.text_pass.text.length > 32) {
+
+            if (this.comp.text_pass.text.length <= 5) {
                 this.comp.lab_pass.text = "不少于8个字符,建议混合大小写字母，数字，特殊字符";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
+            if (this.comp.text_pass.text.length < 8) {
+                this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
+                this.comp.lab_pass.visible = true;
+                return false;
+            }
+            this.comp.lab_pass.visible = false;
+            this.infoPassStrong();
             return true;
         }
 
@@ -99,8 +105,8 @@ module view {
 
             let pass = this.comp.text_pass.text.trim();
             this.comp.lab_pass_level.visible = true;
-            let middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])';//字母数字大小写:中
-            let strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})';//字母数字大小写特殊符号
+            let middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])';//大小写字母数字:中
+            let strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})';//大小写字母数字特殊符号
             if (pass.length == 0) {
                 util.getPassLevel(this.comp.box_pass_level, -1);
                 return;
@@ -120,12 +126,13 @@ module view {
                 util.getPassLevel(this.comp.box_pass_level, 1);
                 this.comp.lab_pass_level.text = '一般';
                 this.comp.lab_pass_level.color = '#5eb0c2';
-                this.comp.lab_pass.visible = true;
+                this.comp.lab_pass.visible = false;
                 return;
             }
             util.getPassLevel(this.comp.box_pass_level, 0);
             this.comp.lab_pass_level.text = '弱';
             this.comp.lab_pass_level.color = 'red';
+            this.comp.lab_pass.visible = true;
 
             this.comp.lab_pass.visible = true;
         }

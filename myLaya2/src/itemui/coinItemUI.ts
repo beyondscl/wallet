@@ -1,4 +1,4 @@
-//币种列表
+//币种列表,用于添加资产:废弃
 import Box = Laya.Box;
 import Label = Laya.Label;
 

@@ -1,7 +1,7 @@
 //钱包币种列表数据模型
 module mod {
     export class walItemMod {
-        public itemImgSrc: string = "img/eth.jpg";//图片地址
+        public itemImgSrc: string = "img/main/wallet_manage.png";//图片地址
         public itemName: string = "ETH";//元素名称
         public itemTotal: string = "0.0000";//币总资产
         public itemMonType: string = "0.0000";//折算人民币|美元
@@ -16,7 +16,9 @@ module mod {
         }
 
         public getItemImgSrc(): string {
-            return "img/" + this.itemName.toLocaleLowerCase() + ".png";
+            return "img/main/" + this.itemName.toLocaleLowerCase() + ".png";//wallet_manage.png
+            // return "img/main/wallet_manage.png";
+            // return this.itemImgSrc;
         }
     }
 }

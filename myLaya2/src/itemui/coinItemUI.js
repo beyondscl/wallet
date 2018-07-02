@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-//币种列表
+//币种列表,用于添加资产:废弃
 var Box = Laya.Box;
 var Label = Laya.Label;
 var coinItemUI = /** @class */ (function (_super) {

@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -22,14 +14,12 @@ var view;
     var Browser = Laya.Browser;
     var CreateWallet = /** @class */ (function (_super) {
         __extends(CreateWallet, _super);
-
         function CreateWallet() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
-
         CreateWallet.prototype.init = function () {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.addChild(this.comp);
@@ -54,7 +44,6 @@ var view;
         };
         CreateWallet.prototype.updateArgee = function () {
             this.comp.btn_create.disabled = !this.comp.check_argee.selected;
-            this.comp.btn_create.mouseEnabled = this.comp.check_argee.selected;
         };
         CreateWallet.prototype.createWallet = function () {
             if (this.checkArgs()) {
@@ -84,12 +73,18 @@ var view;
             return true;
         };
         CreateWallet.prototype.checkPass = function () {
-            this.infoPassStrong();
-            if (this.comp.text_pass.text.length < 8 || this.comp.text_pass.text.length > 32) {
+            if (this.comp.text_pass.text.length <= 5) {
                 this.comp.lab_pass.text = "不少于8个字符,建议混合大小写字母，数字，特殊字符";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
+            if (this.comp.text_pass.text.length < 8) {
+                this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
+                this.comp.lab_pass.visible = true;
+                return false;
+            }
+            this.comp.lab_pass.visible = false;
+            this.infoPassStrong();
             return true;
         };
         CreateWallet.prototype.checkPassConf = function () {
@@ -105,8 +100,8 @@ var view;
             this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
             var pass = this.comp.text_pass.text.trim();
             this.comp.lab_pass_level.visible = true;
-            var middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])'; //字母数字大小写:中
-            var strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})'; //字母数字大小写特殊符号
+            var middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])'; //大小写字母数字:中
+            var strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})'; //大小写字母数字特殊符号
             if (pass.length == 0) {
                 util.getPassLevel(this.comp.box_pass_level, -1);
                 return;
@@ -126,12 +121,13 @@ var view;
                 util.getPassLevel(this.comp.box_pass_level, 1);
                 this.comp.lab_pass_level.text = '一般';
                 this.comp.lab_pass_level.color = '#5eb0c2';
-                this.comp.lab_pass.visible = true;
+                this.comp.lab_pass.visible = false;
                 return;
             }
             util.getPassLevel(this.comp.box_pass_level, 0);
             this.comp.lab_pass_level.text = '弱';
             this.comp.lab_pass_level.color = 'red';
+            this.comp.lab_pass.visible = true;
             this.comp.lab_pass.visible = true;
         };
         CreateWallet.prototype.importWallet = function () {
@@ -144,7 +140,6 @@ var view;
         CreateWallet.prototype.webViewHref = function () {
             Browser.window['conch'] && Browser.window['conch'].showAssistantTouch(false);
             var ctx = Browser.window.document.createElement('canvas').getContext('2d');
-
             function render() {
                 ctx.fillStyle = 'black';
                 ctx.fillRect(0, 0, Browser.window.innerWidth, Browser.window.innerHeight);

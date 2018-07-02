@@ -4,7 +4,6 @@ var service;
     var walletServcie = /** @class */ (function () {
         function walletServcie() {
         }
-
         //修改钱包名称
         walletServcie.walletUpdateName = function (oName, nName) {
             var walletJson = util.getItem(nName);
@@ -38,12 +37,12 @@ var service;
         };
         //创建钱包
         walletServcie.creatWallet = function (wName, wPass) {
-            var wallet = new mod.walletMod(wName, wPass, "privatekey", "keystore", "851a3sdf18851a3sdf18851a3sdf18851a3sdf1852", ['ETH']);
+            var wallet = new mod.walletMod(wName, wPass, "privatekey", "keystore", "851a3sdf18851a3sdf18851a3sdf18851a3sdf1852", ['ETH'], null);
             var walletJson = wallet.toJson();
             util.setItemJson(wallet.wName, walletJson);
             var appStore = util.getItem(config.prod.appKey);
             if (appStore) {
-                appStore.put(wallet.wName);
+                appStore[appStore.length] = wallet.wName;
                 util.setItemJson(config.prod.appKey, appStore);
             }
             else {
@@ -105,7 +104,7 @@ var service;
                 var data = [];
                 for (var i = 0; i < walletNames.length; i++) {
                     var walletJson = util.getItem(walletNames[i]);
-                    data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, walletJson.wCoins);
+                    data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, walletJson.wCoins, null);
                 }
                 return data;
             }
@@ -118,7 +117,7 @@ var service;
                 console.log("不存在钱包：" + wName);
                 return null;
             }
-            return new mod.walletMod(walletJson.wName, walletJson.wPassword, walletJson.wPrivateKey, walletJson.wKeyStore, walletJson.wAddr, walletJson.wCoins);
+            return new mod.walletMod(walletJson.wName, walletJson.wPassword, walletJson.wPrivateKey, walletJson.wKeyStore, walletJson.wAddr, walletJson.wCoins, null);
         };
         //检查密码是否正确
         walletServcie.checkPassword = function (pass) {

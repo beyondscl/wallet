@@ -3,6 +3,7 @@ module view {
     export class WalletBackUp extends ui.WalletBackUpUI {
         private comp: ui.WalletBackUpUI;
         private parentUI: View;
+        private walletName: string;
 
         constructor() {
             super();
@@ -22,6 +23,7 @@ module view {
         }
 
         public setData(key: string) {
+            this.walletName = key;
         }
 
         private btnClick(index: number) {
@@ -31,7 +33,9 @@ module view {
             }
             if (2 == index) {
                 this.comp.visible = false;
-                new view.backup.BackUpZjc().setParetUI(this.comp);
+                let backUp = new view.backup.BackUpZjc();
+                backUp.setData(service.walletServcie.getWallet(this.walletName).wZjc);
+                backUp.setParetUI(this.comp);
             }
         }
 

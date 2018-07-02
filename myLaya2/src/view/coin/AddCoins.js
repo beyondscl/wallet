@@ -26,7 +26,6 @@ var view;
 
             function AddCoins() {
                 var _this = _super.call(this) || this;
-                _this.listCoin = new Laya.List();
                 _this.init();
                 _this.initEvent();
                 return _this;
@@ -34,7 +33,6 @@ var view;
 
             AddCoins.prototype.init = function () {
                 this.comp = new ui.coin.AddCoinsUI();
-                this.comp.addChild(this.listCoin);
                 this.stage.addChild(this.comp);
             };
             AddCoins.prototype.initEvent = function () {
@@ -60,30 +58,32 @@ var view;
                 this.parentUI = parentUI;
             };
             AddCoins.prototype.setData = function (data) {
-                this.listCoin.x = 0;
-                this.listCoin.width = util.getScreenWidth();
-                this.listCoin.top = 60;
-                this.listCoin.bottom = 0;
-                this.listCoin.itemRender = coinItemUI;
-                this.listCoin.repeatX = 1;
-                this.listCoin.repeatY = data.length;
-                this.listCoin.vScrollBarSkin = "";
-                this.listCoin.selectEnable = false;
-                // this.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
-                this.listCoin.renderHandler = new Laya.Handler(this, this.updateItem);
-                this.listCoin.array = data;
+                this.comp.listCoin.array = data;
+                this.comp.listCoin.y = data.length;
+                this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
+                this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
             };
-            AddCoins.prototype.updateItem = function (cell, index) {
-                cell.init(cell.dataSource);
+            AddCoins.prototype.onListRender = function (cell, index) {
+                var data = this.comp.listCoin.array[index];
+                var cImg = cell.getChildByName('cImg');
+                cImg.skin = data.coinImg;
+                var cName = cell.getChildByName('cName');
+                cName.text = data.coinName.toUpperCase();
+                var cVender = cell.getChildByName('cVender');
+                cVender.text = data.coinVender;
+                var cAddr = cell.getChildByName('cAddr');
+                cAddr.text = data.coinAddr;
+                var cCheckbox = cell.getChildByName('cCheckbox');
+                cCheckbox.selected = data.coinSelected;
             };
             AddCoins.prototype.onSelect = function (index) {
             };
             //operator data
             AddCoins.prototype.updateSelectItem = function () {
                 var coins = [];
-                for (var i = 0; i < this.listCoin.array.length; i++) {
-                    if (this.listCoin.cells[i].coinCheckBox.selected) {
-                        coins[coins.length] = this.listCoin.cells[i].labCoinName.text;
+                for (var i = 0; i < this.comp.listCoin.array.length; i++) {
+                    if (this.comp.listCoin.cells[i].getChildByName("cCheckbox").selected) {
+                        coins[coins.length] = this.comp.listCoin.cells[i].getChildByName('cName').text;
                     }
                 }
                 var walletName = this.parentUI.lab_wName.text;
