@@ -7,8 +7,8 @@ module config {
         public static appAdapterType = 'SCALE_EXACTFIT';
 
 
-        public static appWidth = 375;
-        public static appHeight = 667;
+        public static appWidth = 750;
+        public static appHeight = 1334;
         public static scale = prod.appHeight / prod.appWidth;//当初设计的高与宽比
 
         constructor() {

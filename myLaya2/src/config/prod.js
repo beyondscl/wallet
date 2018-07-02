@@ -3,7 +3,6 @@ var config;
     var prod = /** @class */ (function () {
         function prod() {
         }
-
         prod.getEthBalanceUrl = function (addr) {
             return this.ethBalance + "module=account&action=balance&address=" + addr + "&apikey=" + this.apiKey;
         };
@@ -12,8 +11,8 @@ var config;
         prod.ethBalance = "https://api.etherscan.io/api?"; //获取账户eth
         prod.apiKey = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         prod.appAdapterType = 'SCALE_EXACTFIT';
-        prod.appWidth = 375;
-        prod.appHeight = 667;
+        prod.appWidth = 750;
+        prod.appHeight = 1334;
         prod.scale = prod.appHeight / prod.appWidth; //当初设计的高与宽比
         return prod;
     }());

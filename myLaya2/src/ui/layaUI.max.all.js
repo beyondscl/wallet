@@ -498,12 +498,12 @@ var ui;
             "props": {
                 "y": 0,
                 "x": 0,
-                "width": 375,
+                "width": 750,
                 "top": 0,
                 "right": 0,
                 "left": 0,
                 "layoutEnabled": true,
-                "height": 667,
+                "height": 1334,
                 "bottom": 0
             },
             "child": [{
@@ -511,24 +511,24 @@ var ui;
                     "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
                     "child": [{
                             "type": "Image",
-                            "props": { "y": 0, "x": 0, "visible": false, "top": 0, "right": 0, "left": 0, "bottom": 0 }
+                            "props": { "visible": false, "top": 0, "right": 0, "left": 0, "bottom": 0 }
                         }, {
                             "type": "Image",
                             "props": {
-                                "y": 115,
-                                "width": 113,
+                                "y": 230,
+                                "width": 226,
                                 "skin": "img/main/qianbaoicon@2x.png",
-                                "height": 113,
+                                "height": 226,
                                 "centerX": 0
                             }
                         }, {
                             "type": "Label",
                             "props": {
-                                "y": 255,
+                                "y": 510,
                                 "valign": "middle",
                                 "text": "WWEC TOKEN",
-                                "height": 28,
-                                "fontSize": 20,
+                                "height": 50,
+                                "fontSize": 40,
                                 "color": "#163853",
                                 "centerX": 0,
                                 "bold": true,
@@ -537,11 +537,11 @@ var ui;
                         }, {
                             "type": "Label",
                             "props": {
-                                "y": 292,
+                                "y": 584,
                                 "valign": "middle",
                                 "text": "您的数字钱包管家",
-                                "height": 28,
-                                "fontSize": 20,
+                                "height": 56,
+                                "fontSize": 40,
                                 "color": "#163853",
                                 "centerX": 0,
                                 "bold": true,
@@ -550,30 +550,29 @@ var ui;
                         }, {
                             "type": "Button",
                             "props": {
-                                "y": 406,
-                                "x": 108,
-                                "width": 345,
+                                "y": 812,
+                                "width": 690,
                                 "var": "btn_create",
                                 "stateNum": 1,
                                 "skin": "img/main/anliu@2x.png",
-                                "labelSize": 18,
+                                "labelSize": 36,
                                 "labelColors": "#ffffff",
                                 "label": "创建钱包",
-                                "height": 40,
+                                "height": 80,
                                 "centerX": 0
                             }
                         }, {
                             "type": "Button",
                             "props": {
-                                "y": 473,
-                                "width": 345,
+                                "y": 946,
+                                "width": 690,
                                 "var": "btn_import",
                                 "stateNum": 1,
                                 "skin": "img/main/anliu-@2x.png",
-                                "labelSize": 18,
+                                "labelSize": 36,
                                 "labelColors": "#ffffff",
                                 "label": "导入钱包",
-                                "height": 40,
+                                "height": 80,
                                 "centerX": 0
                             }
                         }]
@@ -595,7 +594,7 @@ var ui;
         };
         GuideUI.uiView = {
             "type": "View",
-            "props": { "y": 0, "x": 0, "width": 375, "height": 667 },
+            "props": { "y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
                     "type": "Box",
                     "props": { "var": "item0", "top": 0, "right": 0, "name": "item0", "left": 0, "bottom": 0 },
@@ -604,23 +603,23 @@ var ui;
                             "props": { "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0 }
                         }, {
                             "type": "Image",
-                            "props": { "width": 354, "top": 0, "skin": "img/guide/ydy_1.png", "left": 0, "height": 627 }
+                            "props": { "width": 708, "top": 0, "skin": "img/guide/ydy_1.png", "left": 0, "height": 1254 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 500, "skin": "img/guide/ydy_1_word.png", "right": 0, "left": 0, "height": 82 }
+                            "props": { "y": 1025, "skin": "img/guide/ydy_1_word.png", "right": 0, "left": 0, "height": 164 }
                         }, {
                             "type": "Box",
-                            "props": { "y": 638, "x": 0, "var": "leading", "right": 0, "left": 0, "height": 8, "bottom": 21 },
+                            "props": { "y": 10, "x": 10, "right": 0, "left": 0, "height": 16, "bottom": 42 },
                             "child": [{
                                     "type": "Image",
-                                    "props": { "x": 153, "width": 8, "skin": "img/guide/ty16_1.png", "height": 8 }
+                                    "props": { "x": 306, "width": 16, "skin": "img/guide/ty16_1.png", "height": 16 }
                                 }, {
                                     "type": "Image",
-                                    "props": { "x": 174, "width": 8, "skin": "img/guide/tu16.png", "height": 8 }
+                                    "props": { "x": 348, "width": 16, "skin": "img/guide/tu16.png", "height": 16 }
                                 }, {
                                     "type": "Image",
-                                    "props": { "x": 194, "width": 8, "skin": "img/guide/tu16.png", "height": 8 }
-                                }, { "type": "Image", "props": { "x": 215, "width": 8, "skin": "img/guide/tu16.png", "height": 8 } }]
+                                    "props": { "x": 388, "width": 16, "skin": "img/guide/tu16.png", "height": 16 }
+                                }, { "type": "Image", "props": { "x": 430, "width": 16, "skin": "img/guide/tu16.png", "height": 16 } }]
                         }]
                 }, {
                     "type": "Box",
@@ -638,23 +637,23 @@ var ui;
                             "props": { "y": 0, "x": 0, "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 0, "x": 0, "width": 355, "skin": "img/guide/ydy_2.png", "height": 657 }
+                            "props": { "y": 0, "x": 0, "width": 710, "skin": "img/guide/ydy_2.png", "height": 1314 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 500, "skin": "img/guide/ydy_2_word.png", "right": 0, "left": 0, "height": 82 }
+                            "props": { "y": 1000, "width": 749, "skin": "img/guide/ydy_2_word.png", "left": 0, "height": 164 }
                         }, {
                             "type": "Box",
-                            "props": { "y": 638, "x": 0, "right": 0, "left": 0, "height": 8, "bottom": 21 },
+                            "props": { "y": 1276, "x": 0, "right": 0, "left": 0, "height": 16, "bottom": 42 },
                             "child": [{
                                     "type": "Image",
-                                    "props": { "x": 153, "width": 8, "skin": "img/guide/tu16.png", "height": 8 }
+                                    "props": { "x": 306, "width": 16, "skin": "img/guide/tu16.png", "height": 16 }
                                 }, {
                                     "type": "Image",
-                                    "props": { "x": 174, "width": 8, "skin": "img/guide/ty16_1.png", "height": 8 }
+                                    "props": { "x": 348, "width": 16, "skin": "img/guide/ty16_1.png", "height": 16 }
                                 }, {
                                     "type": "Image",
-                                    "props": { "x": 194, "width": 8, "skin": "img/guide/tu16.png", "height": 8 }
-                                }, { "type": "Image", "props": { "x": 215, "width": 8, "skin": "img/guide/tu16.png", "height": 8 } }]
+                                    "props": { "x": 388, "width": 16, "skin": "img/guide/tu16.png", "height": 16 }
+                                }, { "type": "Image", "props": { "x": 430, "width": 16, "skin": "img/guide/tu16.png", "height": 16 } }]
                         }]
                 }, {
                     "type": "Box",
@@ -672,23 +671,23 @@ var ui;
                             "props": { "y": 0, "x": 0, "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 0, "width": 375, "skin": "img/guide/ydy_3.png", "left": 0, "height": 597 }
+                            "props": { "y": 0, "skin": "img/guide/ydy_3.png", "right": 0, "left": 0, "height": 1194 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 500, "skin": "img/guide/ydy_3_word.png", "right": 0, "left": 0, "height": 82 }
+                            "props": { "y": 1000, "skin": "img/guide/ydy_3_word.png", "right": 0, "left": 0, "height": 164 }
                         }, {
                             "type": "Box",
-                            "props": { "y": 638, "x": 0, "right": 0, "left": 0, "height": 8, "bottom": 21 },
+                            "props": { "y": 1276, "x": 0, "right": 0, "left": 0, "height": 16, "bottom": 42 },
                             "child": [{
                                     "type": "Image",
-                                    "props": { "x": 153, "width": 8, "skin": "img/guide/tu16.png", "height": 8 }
+                                    "props": { "x": 306, "width": 16, "skin": "img/guide/tu16.png", "height": 16 }
                                 }, {
                                     "type": "Image",
-                                    "props": { "x": 174, "width": 8, "skin": "img/guide/tu16.png", "height": 8 }
+                                    "props": { "x": 348, "width": 16, "skin": "img/guide/tu16.png", "height": 16 }
                                 }, {
                                     "type": "Image",
-                                    "props": { "x": 194, "width": 8, "skin": "img/guide/ty16_1.png", "height": 8 }
-                                }, { "type": "Image", "props": { "x": 215, "width": 8, "skin": "img/guide/tu16.png", "height": 8 } }]
+                                    "props": { "x": 388, "width": 16, "skin": "img/guide/ty16_1.png", "height": 16 }
+                                }, { "type": "Image", "props": { "x": 430, "width": 16, "skin": "img/guide/tu16.png", "height": 16 } }]
                         }]
                 }, {
                     "type": "Box",
@@ -706,21 +705,19 @@ var ui;
                             "props": { "y": 0, "x": 0, "top": 0, "skin": "img/guide/bg.png", "right": 0, "left": 0, "bottom": 0 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 0, "x": 0, "width": 375, "skin": "img/guide/ydy_4.png", "height": 627 }
+                            "props": { "y": 0, "x": 0, "width": 748, "skin": "img/guide/ydy_4.png", "height": 1252 }
                         }, {
                             "type": "Image",
-                            "props": { "y": 500, "skin": "img/guide/ydy_4_word.png", "right": 0, "left": 0, "height": 82 }
+                            "props": { "y": 1000, "skin": "img/guide/ydy_4_word.png", "right": 0, "left": 0, "height": 164 }
                         }, {
                             "type": "Image",
                             "props": {
-                                "y": 593,
-                                "x": 121,
-                                "width": 133,
+                                "width": 266,
                                 "var": "img_enter",
                                 "skin": "img/guide/ljjr.png",
-                                "height": 40,
+                                "height": 80,
                                 "centerX": 0,
-                                "bottom": 34
+                                "bottom": 67
                             }
                         }]
                 }]
@@ -2201,118 +2198,120 @@ var ui;
         };
         WalletCreateUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "visible": true, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "visible": true, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
                     "type": "Label",
                     "props": {
-                        "y": 93,
-                        "x": 35,
+                        "y": 186,
+                        "x": 70,
                         "valign": "middle",
                         "text": "密码用于保护私匙和交易授权，强度非常重要",
-                        "height": 17,
-                        "fontSize": 12,
+                        "height": 34,
+                        "fontSize": 24,
                         "color": "#163853",
                         "align": "left"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 117,
-                        "x": 35,
+                        "y": 234,
+                        "x": 70,
                         "valign": "middle",
                         "text": "WWECToken 不储存密码，也无法帮您找回，请务必牢记",
-                        "height": 17,
-                        "fontSize": 12,
+                        "height": 34,
+                        "fontSize": 24,
                         "color": "#163853",
                         "align": "left"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 174,
-                        "x": 15,
-                        "width": 250,
+                        "y": 348,
+                        "x": 30,
+                        "width": 500,
                         "var": "text_wall_name",
                         "promptColor": "#8e979f",
                         "prompt": "钱包名称",
                         "maxChars": 20,
                         "layoutEnabled": true,
-                        "height": 17,
-                        "fontSize": 12,
+                        "height": 34,
+                        "fontSize": 21,
                         "align": "left"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 232,
-                        "x": 15,
-                        "width": 250,
+                        "y": 464,
+                        "x": 30,
+                        "width": 500,
                         "var": "text_pass",
                         "type": "password",
                         "promptColor": "#8e979f",
                         "prompt": "密码",
                         "maxChars": 32,
                         "layoutEnabled": true,
-                        "height": 17,
-                        "fontSize": 12,
+                        "height": 34,
+                        "fontSize": 24,
                         "align": "left"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 294,
-                        "x": 15,
-                        "width": 250,
+                        "y": 588,
+                        "x": 30,
+                        "width": 500,
                         "var": "text_pass_conf",
                         "type": "password",
                         "promptColor": "#8e979f",
                         "prompt": "确认密码",
                         "maxChars": 32,
                         "layoutEnabled": true,
-                        "height": 17,
-                        "fontSize": 12,
+                        "height": 34,
+                        "fontSize": 24,
                         "align": "left"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 353,
-                        "x": 35,
-                        "width": 120,
+                        "y": 706,
+                        "x": 70,
+                        "width": 240,
                         "var": "lab_info",
                         "valign": "middle",
                         "text": "我已经仔细阅读并同意",
                         "padding": "0",
                         "name": "隐私及服务条款",
-                        "height": 17,
-                        "font": "12",
+                        "height": 34,
+                        "fontSize": 24,
                         "color": "#8E979F",
                         "align": "left"
                     }
                 }, {
                     "type": "CheckBox",
                     "props": {
-                        "y": 353,
-                        "x": 15,
-                        "width": 12,
+                        "y": 708,
+                        "x": 30,
+                        "width": 24,
                         "var": "check_argee",
                         "skin": "comp/radio.png",
+                        "scaleY": 2,
+                        "scaleX": 2,
                         "mouseEnabled": true,
                         "layoutEnabled": true,
                         "hitTestPrior": true,
-                        "height": 12,
+                        "height": 24,
                         "click": "updateArgee"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 31,
+                        "y": 62,
                         "valign": "middle",
                         "text": "创建钱包",
                         "strokeColor": "#f9f9f9",
                         "skin": "template/Navigator/label.png",
-                        "height": 22,
-                        "fontSize": 16,
+                        "height": 44,
+                        "fontSize": 32,
                         "color": "#FF163853",
                         "centerX": 0,
                         "align": "center"
@@ -2320,145 +2319,165 @@ var ui;
                 }, {
                     "type": "Button",
                     "props": {
-                        "y": 27,
-                        "x": 10,
-                        "width": 30,
+                        "y": 54,
+                        "x": 20,
+                        "width": 60,
                         "var": "btn_back",
                         "stateNum": 1,
                         "skin": "img/main/back@2x.png",
                         "labelSize": 22,
                         "labelColors": "#057AFB,#057AFB,#7EB9FB",
-                        "height": 30
+                        "height": 60
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 216,
+                        "y": 432,
                         "visible": false,
                         "var": "lab_pass_level",
                         "valign": "middle",
                         "text": "弱",
-                        "right": 53,
-                        "height": 17,
+                        "right": 106,
+                        "height": 34,
+                        "fontSize": 20,
                         "color": "#5eb0c2",
                         "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 193,
+                        "y": 386,
                         "width": 294,
                         "visible": false,
                         "var": "lab_warn_wName",
                         "valign": "middle",
                         "text": "钱包已经存在",
-                        "right": 30,
-                        "height": 17,
+                        "right": 70,
+                        "height": 34,
+                        "fontSize": 20,
                         "color": "#ff0400",
                         "align": "right"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 255,
+                        "y": 510,
                         "width": 301,
                         "visible": false,
                         "var": "lab_pass",
                         "valign": "middle",
                         "text": "简单密码",
-                        "right": 30,
-                        "height": 17,
+                        "right": 70,
+                        "height": 34,
+                        "fontSize": 20,
                         "color": "#ff0400",
                         "align": "right"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 312,
+                        "y": 624,
                         "width": 301,
                         "visible": false,
                         "var": "lab_pass_conf",
                         "valign": "middle",
                         "text": "两次密码不一致",
-                        "right": 30,
-                        "height": 17,
+                        "right": 70,
+                        "height": 34,
+                        "fontSize": 20,
                         "color": "#ff0400",
                         "align": "right"
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "y": 414,
-                        "width": 354,
+                        "y": 828,
+                        "width": 708,
                         "var": "btn_create",
                         "stateNum": 1,
                         "skin": "img/main/anliu@2x.png",
                         "sizeGrid": "0,0,0,0",
-                        "labelSize": 16,
+                        "labelSize": 32,
                         "labelColors": "#ffffff",
                         "label": "创建钱包",
-                        "height": 40,
+                        "height": 80,
                         "disabled": true,
                         "centerX": 0
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 492,
+                        "y": 984,
                         "var": "btn_import",
+                        "valign": "middle",
                         "text": "导入钱包",
-                        "height": 22,
-                        "fontSize": 16,
+                        "height": 44,
+                        "fontSize": 32,
                         "color": "#8E979F",
                         "centerX": 0,
                         "align": "center"
                     }
                 }, {
                     "type": "Image",
-                    "props": { "y": 99, "x": 15, "width": 6, "skin": "img/main/Oval@2x.png", "height": 6 }
+                    "props": { "y": 198, "x": 30, "width": 12, "skin": "img/main/Oval@2x.png", "height": 12 }
                 }, {
                     "type": "Image",
-                    "props": { "y": 123, "x": 15, "width": 6, "skin": "img/main/Oval@2x.png", "height": 6 }
+                    "props": { "y": 246, "x": 30, "width": 12, "skin": "img/main/Oval@2x.png", "height": 12 }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 235,
+                        "y": 470,
                         "var": "lab_words",
                         "valign": "middle",
                         "text": "0字符",
-                        "right": 53,
-                        "height": 17,
+                        "right": 106,
+                        "height": 34,
+                        "fontSize": 20,
                         "color": "#8e979f",
                         "align": "right"
                     }
                 }, {
                     "type": "Box",
-                    "props": { "y": 214, "x": 328, "width": 18, "var": "box_pass_level", "height": 38 },
+                    "props": { "y": 428, "x": 656, "width": 36, "var": "box_pass_level", "height": 76 },
                     "child": [{
                             "type": "Image",
-                            "props": { "width": 18, "top": 0, "skin": "img/main/fangkuai@2x.png", "name": "a", "height": 8 }
+                            "props": { "width": 36, "top": 0, "skin": "img/main/fangkuai@2x.png", "name": "a", "height": 16 }
                         }, {
                             "type": "Image",
-                            "props": { "width": 18, "top": 10, "skin": "img/main/fangkuai@2x.png", "name": "b", "height": 8 }
+                            "props": {
+                                "x": 0,
+                                "width": 36,
+                                "top": 20,
+                                "skin": "img/main/fangkuai@2x.png",
+                                "name": "b",
+                                "height": 16
+                            }
                         }, {
                             "type": "Image",
-                            "props": { "width": 18, "top": 20, "skin": "img/main/fangkuai@2x.png", "name": "c", "height": 8 }
+                            "props": {
+                                "x": 0,
+                                "width": 36,
+                                "top": 40,
+                                "skin": "img/main/fangkuai@2x.png",
+                                "name": "c",
+                                "height": 16
+                            }
                         }, {
                             "type": "Image",
-                            "props": { "width": 18, "skin": "img/main/fangkuai@2x.png", "name": "d", "height": 8, "bottom": 0 }
+                            "props": { "width": 36, "skin": "img/main/fangkuai@2x.png", "name": "d", "height": 16, "bottom": 0 }
                         }]
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 353,
-                        "x": 156,
-                        "width": 120,
+                        "y": 706,
+                        "x": 312,
+                        "width": 240,
                         "var": "href_ysfw",
                         "valign": "middle",
                         "text": "隐私及服务条款",
                         "padding": "0",
-                        "height": 17,
-                        "font": "12",
+                        "height": 34,
+                        "fontSize": 24,
                         "color": "#598ADA",
                         "align": "left"
                     }
