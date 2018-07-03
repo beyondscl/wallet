@@ -1,126 +1,108 @@
-function generate_seed()
-{
-	var new_seed = lightwallet.keystore.generateRandomSeed();
-	console.log(new_seed);
-	generate_addresses(new_seed);
+// api 请参考 https://github.com/ConsenSys/eth-lightwallet
+var web3 = new Web3();
+var global_keystore;
+
+const HOST = "http://192.168.2.106:8545";
+
+function setWeb3Provider(keystore) {
+    var web3Provider = new HookedWeb3Provider({
+        host: HOST,
+        transaction_signer: keystore
+    });
+    web3.setProvider(web3Provider);
 }
 
-var totalAddresses = 0;
 
-function generate_addresses(seed)
-{
-	if(seed == undefined)
-	{
-		seed = document.getElementById("seed").value;
-	}
-
-	if(!lightwallet.keystore.isSeedValid(seed))
-	{
-		return;
-	}
-
-	totalAddresses = prompt("How many addresses do you want to generate");
-
-	if(!Number.isInteger(parseInt(totalAddresses)))
-	{
-		return;
-	}
-
-	var password = Math.random().toString();
-
-	lightwallet.keystore.createVault({
-		password: password,
-	  	seedPhrase: seed
-	}, function (err, ks) {
-	  	ks.keyFromPassword(password, function (err, pwDerivedKey) {
-	    	if(err)
-	    	{
-	    		document.getElementById("info").innerHTML = err;
-	    	}
-	    	else
-	    	{
-	    		ks.generateNewAddress(pwDerivedKey, totalAddresses);
-	    		var addresses = ks.getAddresses();	
-	    		
-	    		var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
-	    		var html = "";
-
-	    		for(var count = 0; count < addresses.length; count++)
-	    		{
-					var address = addresses[count];
-					var private_key = ks.exportPrivateKey(address, pwDerivedKey);
-					var balance = web3.eth.getBalance("0x" + address);
-
-					html = html + "<li>";
-					html = html + "<p><b>Address: </b>0x" + address + "</p>";
-					html = html + "<p><b>Private Key: </b>0x" + private_key + "</p>";
-					html = html + "<p><b>Balance: </b>" + web3.fromWei(balance, "ether") + " ether</p>";
-		    		html = html + "</li>";
-	    		}
-
-	    		document.getElementById("list").innerHTML = html;
-	    	}
-	  	});
-	});
+// 生成12个助记词
+function genSeed(){
+    return lightwallet.keystore.generateRandomSeed();
 }
 
-function send_ether()
+/** 根据种子生成地址
+    seed: string()? , //12个助记词
+    totalAddresses: integer(), //要生成多少个地址
+    password: string() //kyestore的密码
+*/
+function generateAddresses(seed, totalAddresses, password)
 {
-	var	seed = document.getElementById("seed").value;
+    return new Promise((resolve, reject) => {
+        if(!lightwallet.keystore.isSeedValid(seed))
+        {
+            reject({"retCode":1, "error": "Please enter a valid seed"});
+        }
 
-	if(!lightwallet.keystore.isSeedValid(seed))
-	{
-		document.getElementById("info").innerHTML = "Please enter a valid seed";
-		return;
-	}
+        if(!Number.isInteger(parseInt(totalAddresses)))
+        {
+            reject({"retCode":1, "error": "Please enter valid number of addresses"});
+        }
 
-	var password = Math.random().toString();
-
-	lightwallet.keystore.createVault({
-		password: password,
-	  	seedPhrase: seed
-	}, function (err, ks) {
-	  	ks.keyFromPassword(password, function (err, pwDerivedKey) {
-	    	if(err)
-	    	{
-	    		document.getElementById("info").innerHTML = err;
-	    	}
-	    	else
-	    	{
-	    		ks.generateNewAddress(pwDerivedKey, totalAddresses);
-
-	    		ks.passwordProvider = function (callback) {
-			      	callback(null, password);
-			    };
-
-			    var provider = new HookedWeb3Provider({
-  					host: "http://localhost:8545",
-  					transaction_signer: ks
-				});
-
-			    var web3 = new Web3(provider);
-
-			    var from = document.getElementById("address1").value;
-				var to = document.getElementById("address2").value;
-			    var value = web3.toWei(document.getElementById("ether").value, "ether");
-
-			    web3.eth.sendTransaction({
-			    	from: from,
-			    	to: to,
-			    	value: value,
-			    	gas: 21000
-			    }, function(error, result){
-			    	if(error)
-			    	{	
-			    		document.getElementById("info").innerHTML = error;
-			    	}
-			    	else
-			    	{
-			    		document.getElementById("info").innerHTML = "Txn hash: " + result;
-			    	}
-			    })
-	    	}
-	  	});
-	});
+    	lightwallet.keystore.createVault({
+    		password: password,
+    	  	seedPhrase: seed
+    	}, function (err, ks) {
+    	  	ks.keyFromPassword(password, function (err, pwDerivedKey) {
+    	    	if(err)
+    	    	{
+    	    		reject({"retCode":2, "error": err});
+    	    	}
+    	    	else
+    	    	{
+    	    		ks.generateNewAddress(pwDerivedKey, totalAddresses);
+    	    		var addresses = ks.getAddresses();
+                    global_keystore = ks;
+                    setWeb3Provider(ks);
+                    resolve({"retCode":0, "addresses": addresses});
+    	    	}
+    	  	});
+    	});
+    })
 }
+
+function getKs(){
+    return global_keystore;
+}
+
+//序列化之后请用密码做对称加密,然后再存储本地
+function serialize()
+{
+    if(!isEmptyObject(global_keystore)){
+        var jsonStr =  global_keystore.serialize();
+        return jsonStr;
+    }else{
+        console.error('empty keystore');
+        return;
+    }
+}
+
+//反序列化用于设置KS对象 返回一个ks对象
+// serialized_keystore: string, //json-encoded string
+function deserialize(serialized_keystore)
+{
+    var ks = lightwallet.keystore.deserialize(serialized_keystore);
+    global_keystore = ks;
+    setWeb3Provider(global_keystore);
+    return global_keystore;
+}
+
+//host = "http://localhost:8545",
+//valueEth 单位用 ether
+function sendEther(password, fromAddr, toAddr, valueEth, gasPrice, gas)
+{
+    global_keystore.passwordProvider = function(callback){
+        callback(null, password);
+    };
+
+    value = parseFloat(valueEth)*1.0e18;
+    web3.eth.sendTransaction({from: fromAddr, to: toAddr, value: value, gasPrice: gasPrice, gas: gas}, function (err, txhash) {
+        console.log('error: ' + err)
+        console.log('txhash: ' + txhash)
+    })
+}
+
+function isEmptyObject(obj)
+{
+    for(var key in obj){
+        return false
+    };
+    return true
+};
