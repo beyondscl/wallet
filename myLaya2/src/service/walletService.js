@@ -36,21 +36,15 @@ var service;
             return null == walletJson ? false : true;
         };
         //创建钱包
-        walletServcie.creatWallet = function (wName, wPass) {
-            var wallet = new mod.walletMod(wName, wPass, "privatekey", "keystore", "851a3sdf18851a3sdf18851a3sdf18851a3sdf1852", ['ETH'], null);
-            var walletJson = wallet.toJson();
-            util.setItemJson(wallet.wName, walletJson);
-            var appStore = util.getItem(config.prod.appKey);
-            if (appStore) {
-                appStore[appStore.length] = wallet.wName;
-                util.setItemJson(config.prod.appKey, appStore);
+        walletServcie.creatWallet = function (wName, wPass, cb, comp) {
+            var walletJson = util.getItem(wName);
+            if (walletJson) { //已经验证过一次了
+                return;
             }
-            else {
-                util.setItemJson(config.prod.appKey, [wallet.wName]);
-            }
-            mod.userMod.defWallet = wallet;
-            ;
-            return wallet;
+            var mnemonicWord = Laya.Browser.window.genSeed();
+            return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(function (ret) {
+                return cb(wName, wPass, mnemonicWord, ret, comp);
+            });
         };
         //获取所有币种：用于钱包添加币种
         walletServcie.getAllCoins = function () {
@@ -122,6 +116,15 @@ var service;
         //检查密码是否正确
         walletServcie.checkPassword = function (pass) {
             return true;
+        };
+        //创建，切换钱包需要实例化全局对象用于交易
+        walletServcie.initLigthWallet = function (wName) {
+            var wallet = this.getWallet(wName);
+            Laya.Browser.window.deserialize(wallet.wKeyStore);
+        };
+        //交易
+        walletServcie.transfer = function (password, fromAddr, toAddr, value, gasPrice, gas) {
+            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas);
         };
         return walletServcie;
     }());

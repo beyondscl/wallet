@@ -31,22 +31,24 @@ module view {
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         }
 
-        public setData() {
-
-        }
-
-        //当前钱包的基本数据
-        public initQueryData(data: mod.walletMod) {
-            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_wName.text = data.wName;
-            //模拟钱包下的币种
-            for (let i: number = 0; i < data.wCoins.length; i++) {
+        public setData(coins: Array<string>) {
+            for (let i: number = 0; i < coins.length; i++) {
                 let walItemT = new mod.walItemMod();
-                let coinName = data.wCoins[i]
+                let coinName = coins[i];
                 walItemT.setItem("img/main/wallet_manage.png", coinName.toUpperCase(), "0", "0");
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
+        }
+
+        //当前钱包的基本数据
+        public initQueryData(data: mod.walletMod) {
+            mod.userMod.defWallet = data;//*
+            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
+            this.comp.lab_wName.text = data.wName;
+            //初始化全局实例，不然无法操作转账
+            service.walletServcie.initLigthWallet(data.wName);
+            this.setData(data.wCoins);
         }
 
         private queryCallBack() {
@@ -56,7 +58,7 @@ module view {
         //init coin list
         private setListUp(data: Array<mod.walItemMod>): void {
             this.comp.list_wallet.array = data;
-            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.repeatY = data.length;
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }

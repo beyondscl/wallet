@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,7 +13,6 @@ var view;
 (function (view) {
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
-
         function WalletMain() {
             var _this = _super.call(this) || this;
             _this.data = [];
@@ -30,7 +21,6 @@ var view;
             _this.initEvent();
             return _this;
         }
-
         WalletMain.prototype.init = function () {
             this.comp = new ui.WalletMainUI();
             this.comp.addChild(this.list);
@@ -44,27 +34,30 @@ var view;
             this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         };
-        WalletMain.prototype.setData = function () {
-        };
-        //当前钱包的基本数据
-        WalletMain.prototype.initQueryData = function (data) {
-            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_wName.text = data.wName;
-            //模拟钱包下的币种
-            for (var i = 0; i < data.wCoins.length; i++) {
+        WalletMain.prototype.setData = function (coins) {
+            for (var i = 0; i < coins.length; i++) {
                 var walItemT = new mod.walItemMod();
-                var coinName = data.wCoins[i];
+                var coinName = coins[i];
                 walItemT.setItem("img/main/wallet_manage.png", coinName.toUpperCase(), "0", "0");
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
+        };
+        //当前钱包的基本数据
+        WalletMain.prototype.initQueryData = function (data) {
+            mod.userMod.defWallet = data; //*
+            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
+            this.comp.lab_wName.text = data.wName;
+            //初始化全局实例，不然无法操作转账
+            service.walletServcie.initLigthWallet(data.wName);
+            this.setData(data.wCoins);
         };
         WalletMain.prototype.queryCallBack = function () {
         };
         //init coin list
         WalletMain.prototype.setListUp = function (data) {
             this.comp.list_wallet.array = data;
-            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.repeatY = data.length;
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         };

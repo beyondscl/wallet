@@ -45,10 +45,29 @@ module view {
 
         private createWallet() {
             if (this.checkArgs()) {
-                Laya.stage.removeChild(this.comp);
-                let wallet = service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text);
-                new view.WalletMain().initQueryData(wallet);
+                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, this.comp);//异步
             }
+        }
+
+        //创建[切换]钱包在内存中设置默认钱包为当前钱包
+        private creatWalletCb(wName, wPass, mnemonicWord, ret, comp: View) {
+            if (ret && ret.retCode == 0) {
+                let keystore = Laya.Browser.window.serialize();
+                let wallet = new mod.walletMod(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                let walletJson = wallet.toJson();
+                util.setItemJson(wallet.wName, walletJson);
+                let appStore = util.getItem(config.prod.appKey);
+                if (appStore) {
+                    appStore[appStore.length] = wallet.wName;
+                    util.setItemJson(config.prod.appKey, appStore);
+                } else {
+                    util.setItemJson(config.prod.appKey, [wallet.wName]);
+                }
+                comp.removeSelf();
+                new WalletMain().initQueryData(wallet);
+                return;
+            }
+            console.log("create wallet error!");
         }
 
         private checkArgs(): boolean {

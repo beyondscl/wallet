@@ -71,7 +71,7 @@ var view;
         WalletQuick.prototype.onSelectItem = function (index) {
             var item = this.listData[index];
             this.stage.removeChild(this.parentUI);
-            new view.WalletMain().initQueryData(testData.getWalletInfo(item));
+            new view.WalletMain().initQueryData(service.walletServcie.getWallet(item));
             this.close(null, true);
         };
         return WalletQuick;

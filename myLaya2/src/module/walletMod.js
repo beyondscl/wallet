@@ -4,18 +4,14 @@ var mod;
     var walletMod = /** @class */ (function () {
         function walletMod(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {
             this.wSkin = config.resource.walletImg;
-            this.wZjc = "winga wingb wingcc wingd winge wingf wingg wingh wingi wingj wingk wingl";
             this.wName = wName;
             this.wPassword = wPassword;
             this.wPrivateKey = wPrivateKey;
             this.wKeyStore = wKeyStore;
-            this.wAddr = wAddr;
+            this.wAddr = "0x" + wAddr; //注意地址
             this.wCoins = wCoins;
-            if (wZjc) {
-                this.wZjc = wZjc;
-            }
+            this.wZjc = wZjc;
         }
-
         walletMod.prototype.toJson = function () {
             var json = {
                 wName: this.wName,

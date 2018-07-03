@@ -30,7 +30,6 @@ module service {
             }
             console.log("walletUpdateName no walletName:" + oName);
             return false;
-
         }
 
         //检查是否存在该钱包
@@ -40,20 +39,17 @@ module service {
         }
 
         //创建钱包
-        public static creatWallet(wName: string, wPass: string): mod.walletMod {
-            let wallet = new mod.walletMod(wName, wPass, "privatekey", "keystore", "851a3sdf18851a3sdf18851a3sdf18851a3sdf1852", ['ETH'], null);
-            let walletJson = wallet.toJson();
-            util.setItemJson(wallet.wName, walletJson);
-            let appStore = util.getItem(config.prod.appKey);
-            if (appStore) {
-                appStore[appStore.length] = wallet.wName;
-                util.setItemJson(config.prod.appKey, appStore);
-            } else {
-                util.setItemJson(config.prod.appKey, [wallet.wName]);
+        public static creatWallet(wName: string, wPass: string, cb: any, comp: View): mod.walletMod {
+            let walletJson = util.getItem(wName);
+            if (walletJson) {//已经验证过一次了
+                return;
             }
-            mod.userMod.defWallet = wallet;
-            ;
-            return wallet;
+            let mnemonicWord = Laya.Browser.window.genSeed();
+            return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
+                ret => {
+                    return cb(wName, wPass, mnemonicWord, ret, comp)
+                }
+            );
         }
 
         //获取所有币种：用于钱包添加币种
@@ -134,6 +130,17 @@ module service {
         //检查密码是否正确
         public static checkPassword(pass: string): boolean {
             return true;
+        }
+
+        //创建，切换钱包需要实例化全局对象用于交易
+        public static initLigthWallet(wName: string) {
+            let wallet: mod.walletMod = this.getWallet(wName);
+            Laya.Browser.window.deserialize(wallet.wKeyStore);
+        }
+
+        //交易
+        public static transfer(password, fromAddr, toAddr, value, gasPrice, gas) {
+            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas);
         }
     }
 }

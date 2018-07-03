@@ -450,7 +450,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -463,7 +463,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -476,7 +476,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -489,7 +489,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -502,7 +502,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -515,7 +515,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -528,7 +528,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -541,7 +541,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -553,7 +553,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -566,7 +566,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -579,7 +579,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -592,7 +592,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }]
                     }, {
@@ -604,74 +604,74 @@ var ui;
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 0,
-                                    "x": 0,
                                     "width": 100,
                                     "valign": "middle",
+                                    "top": 5,
+                                    "left": 5,
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 0,
                                     "x": 120,
                                     "width": 100,
                                     "valign": "middle",
+                                    "top": 5,
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 0,
                                     "x": 297,
                                     "width": 100,
                                     "valign": "middle",
+                                    "top": 5,
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 0,
                                     "x": 430,
                                     "width": 100,
                                     "valign": "middle",
+                                    "top": 5,
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
-                                    "y": 0,
-                                    "x": 593,
                                     "width": 100,
                                     "valign": "middle",
+                                    "top": 5,
+                                    "right": 5,
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
                                     "y": 57,
-                                    "x": 4,
                                     "width": 100,
                                     "valign": "middle",
+                                    "left": 5,
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -683,7 +683,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -695,7 +695,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -707,7 +707,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -719,7 +719,7 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "align": "left"
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -730,8 +730,8 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "bottom": 0,
-                                    "align": "left"
+                                    "bottom": 5,
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "Label",
@@ -742,8 +742,8 @@ var ui;
                                     "height": 44,
                                     "fontSize": 28,
                                     "color": "#163853",
-                                    "bottom": 0,
-                                    "align": "left"
+                                    "bottom": 5,
+                                    "align": "center"
                                 }
                             }]
                     }]
@@ -927,6 +927,7 @@ var ui;
                             "vScrollBarSkin": "template/List/vscroll.png",
                             "top": 100,
                             "right": 0,
+                            "repeatY": 1,
                             "repeatX": 1,
                             "name": "listCoin",
                             "left": 0,
@@ -1000,7 +1001,7 @@ var ui;
                                         "props": {
                                             "var": "cCheckbox",
                                             "stateNum": 2,
-                                            "skin": "template/Switcher/checkbox_switch.png",
+                                            "skin": "img/main/checkbox_switch.png",
                                             "right": 30,
                                             "name": "cCheckbox",
                                             "centerY": 0
@@ -2190,7 +2191,7 @@ var ui;
                                             "x": 36,
                                             "width": 24,
                                             "var": "o_check_agree",
-                                            "skin": "comp/radio.png",
+                                            "skin": "img/main/radio.png",
                                             "scaleY": 2,
                                             "scaleX": 2,
                                             "mouseEnabled": true,
@@ -2295,7 +2296,7 @@ var ui;
                                             "x": 40,
                                             "width": 24,
                                             "var": "ks_agree",
-                                            "skin": "comp/radio.png",
+                                            "skin": "img/main/radio.png",
                                             "scaleY": 2,
                                             "scaleX": 2,
                                             "mouseEnabled": true,
@@ -2460,7 +2461,7 @@ var ui;
                                             "y": 489,
                                             "x": 30,
                                             "width": 24,
-                                            "skin": "comp/radio.png",
+                                            "skin": "img/main/radio.png",
                                             "scaleY": 2,
                                             "scaleX": 2,
                                             "mouseEnabled": true,
@@ -2992,7 +2993,7 @@ var ui;
                         "x": 30,
                         "width": 24,
                         "var": "check_argee",
-                        "skin": "comp/radio.png",
+                        "skin": "img/main/radio.png",
                         "scaleY": 2,
                         "scaleX": 2,
                         "mouseEnabled": true,
@@ -3413,7 +3414,7 @@ var ui;
                         "x": 34,
                         "width": 565,
                         "valign": "middle",
-                        "text": "总资产($)",
+                        "text": "总资产(¥)",
                         "height": 44,
                         "fontSize": 28,
                         "color": "#000000"
@@ -3494,6 +3495,7 @@ var ui;
                         "top": 400,
                         "selectEnable": true,
                         "right": 0,
+                        "repeatY": 1,
                         "repeatX": 1,
                         "left": 0,
                         "bottom": 60
@@ -4095,10 +4097,10 @@ var ui;
                 }, {
                     "type": "Image",
                     "props": {
-                        "width": 120,
+                        "width": 320,
                         "var": "img_wAddr",
                         "skin": "img/guid_ewm.jpg",
-                        "height": 120,
+                        "height": 320,
                         "centerY": 0,
                         "centerX": 0
                     }
@@ -4134,7 +4136,7 @@ var ui;
         };
         WalletSendUI.uiView = {
             "type": "View",
-            "props": { "y": 0, "x": 0, "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
                     "type": "Button",
                     "props": {
@@ -4149,11 +4151,11 @@ var ui;
                 }, {
                     "type": "Label",
                     "props": {
+                        "x": 375,
                         "var": "lab_coin_name",
                         "valign": "middle",
                         "top": 20,
                         "text": "ETH",
-                        "right": 149,
                         "height": 30,
                         "fontSize": 16,
                         "color": "#000000",
@@ -4162,10 +4164,11 @@ var ui;
                 }, {
                     "type": "Label",
                     "props": {
+                        "x": 325,
+                        "width": 50,
                         "valign": "middle",
                         "top": 20,
                         "text": "转账",
-                        "left": 151,
                         "height": 30,
                         "fontSize": 16,
                         "color": "#000000",
@@ -4180,19 +4183,21 @@ var ui;
                         "maxChars": 30,
                         "left": 20,
                         "layoutEnabled": true,
-                        "height": 22
+                        "height": 80,
+                        "fontSize": 28
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 100,
+                        "y": 198,
                         "type": "number",
                         "right": 20,
                         "prompt": "转账金额ETH",
                         "maxChars": 30,
                         "left": 20,
                         "layoutEnabled": true,
-                        "height": 22
+                        "height": 80,
+                        "fontSize": 28
                     }
                 }, {
                     "type": "Button",
@@ -4257,7 +4262,6 @@ var ui;
                     "type": "TextInput",
                     "props": {
                         "y": 69,
-                        "var": "text_addr_to",
                         "right": 20,
                         "prompt": "收款人账户地址",
                         "maxChars": 30,
@@ -4270,7 +4274,6 @@ var ui;
                     "type": "TextInput",
                     "props": {
                         "y": 121,
-                        "var": "text_addr_from",
                         "right": 20,
                         "prompt": "发送人账户地址",
                         "maxChars": 30,
@@ -4380,6 +4383,7 @@ var ui;
                     "type": "TextInput",
                     "props": {
                         "y": 90,
+                        "var": "text_from",
                         "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
                         "right": 20,
                         "overflow": "scroll",
@@ -4394,6 +4398,7 @@ var ui;
                     "type": "TextInput",
                     "props": {
                         "y": 141,
+                        "var": "text_to",
                         "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
                         "right": 20,
                         "prompt": "发送人账户地址",
@@ -4438,11 +4443,8 @@ var ui;
         };
         WalletTransferUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Rect",
-                    "props": { "y": 0, "x": 0, "width": 375, "lineWidth": 1, "height": 110, "fillColor": "#c6e2ee" }
-                }, {
                     "type": "Label",
                     "props": {
                         "var": "lab_coin_name",
@@ -4471,7 +4473,7 @@ var ui;
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 187,
+                        "width": 375,
                         "var": "btn_send",
                         "skin": "comp/button.png",
                         "sizeGrid": "0,0,0,0",
@@ -4488,7 +4490,7 @@ var ui;
                         "skin": "comp/button.png",
                         "sizeGrid": "0,0,0,0",
                         "right": 0,
-                        "left": 187,
+                        "left": 375,
                         "labelAlign": "center",
                         "label": "收款",
                         "height": 60,
@@ -4497,12 +4499,12 @@ var ui;
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 117,
+                        "width": 60,
                         "var": "btn_goback",
                         "top": 20,
                         "skin": "template/Navigator/btn_BackButton.png",
                         "left": 20,
-                        "height": 30
+                        "height": 60
                     }
                 }]
         };

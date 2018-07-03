@@ -96,9 +96,7 @@ module ui.alert {
 
             super.createChildren();
             this.createView(ui.alert.EnterPassUI.uiView);
-
         }
-
     }
 }
 
@@ -162,9 +160,7 @@ module ui.alert {
 
             super.createChildren();
             this.createView(ui.alert.ExportPriKeyUI.uiView);
-
         }
-
     }
 }
 
@@ -188,9 +184,7 @@ module ui.alert {
 
             super.createChildren();
             this.createView(ui.alert.IframeUI.uiView);
-
         }
-
     }
 }
 
@@ -267,9 +261,7 @@ module ui.alert {
 
             super.createChildren();
             this.createView(ui.alert.WarnUI.uiView);
-
         }
-
     }
 }
 
@@ -357,9 +349,7 @@ module ui.alert {
 
             super.createChildren();
             this.createView(ui.alert.WarnZjcUI.uiView);
-
         }
-
     }
 }
 
@@ -449,7 +439,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -462,7 +452,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -475,7 +465,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -488,7 +478,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -501,7 +491,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -514,7 +504,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -527,7 +517,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -540,7 +530,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -552,7 +542,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -565,7 +555,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -578,7 +568,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -591,7 +581,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }]
             }, {
@@ -603,74 +593,74 @@ module ui.backup {
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 0,
-                        "x": 0,
                         "width": 100,
                         "valign": "middle",
+                        "top": 5,
+                        "left": 5,
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 0,
                         "x": 120,
                         "width": 100,
                         "valign": "middle",
+                        "top": 5,
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 0,
                         "x": 297,
                         "width": 100,
                         "valign": "middle",
+                        "top": 5,
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 0,
                         "x": 430,
                         "width": 100,
                         "valign": "middle",
+                        "top": 5,
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 0,
-                        "x": 593,
                         "width": 100,
                         "valign": "middle",
+                        "top": 5,
+                        "right": 5,
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
                         "y": 57,
-                        "x": 4,
                         "width": 100,
                         "valign": "middle",
+                        "left": 5,
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -682,7 +672,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -694,7 +684,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -706,7 +696,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -718,7 +708,7 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "align": "left"
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -729,8 +719,8 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "bottom": 0,
-                        "align": "left"
+                        "bottom": 5,
+                        "align": "center"
                     }
                 }, {
                     "type": "Label",
@@ -741,8 +731,8 @@ module ui.backup {
                         "height": 44,
                         "fontSize": 28,
                         "color": "#163853",
-                        "bottom": 0,
-                        "align": "left"
+                        "bottom": 5,
+                        "align": "center"
                     }
                 }]
             }]
@@ -756,9 +746,7 @@ module ui.backup {
 
             super.createChildren();
             this.createView(ui.backup.BackUpConfUI.uiView);
-
         }
-
     }
 }
 
@@ -874,9 +862,7 @@ module ui.backup {
 
             super.createChildren();
             this.createView(ui.backup.BackUpZjcUI.uiView);
-
         }
-
     }
 }
 
@@ -939,6 +925,7 @@ module ui.coin {
                     "vScrollBarSkin": "template/List/vscroll.png",
                     "top": 100,
                     "right": 0,
+                    "repeatY": 1,
                     "repeatX": 1,
                     "name": "listCoin",
                     "left": 0,
@@ -1012,7 +999,7 @@ module ui.coin {
                         "props": {
                             "var": "cCheckbox",
                             "stateNum": 2,
-                            "skin": "template/Switcher/checkbox_switch.png",
+                            "skin": "img/main/checkbox_switch.png",
                             "right": 30,
                             "name": "cCheckbox",
                             "centerY": 0
@@ -1091,9 +1078,7 @@ module ui.coin {
 
             super.createChildren();
             this.createView(ui.coin.queryCoinsUI.uiView);
-
         }
-
     }
 }
 
@@ -1196,9 +1181,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.EnterAppUI.uiView);
-
         }
-
     }
 }
 
@@ -1349,9 +1332,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.GuideUI.uiView);
-
         }
-
     }
 }
 
@@ -1518,9 +1499,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.LoginUI.uiView);
-
         }
-
     }
 }
 
@@ -1596,9 +1575,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.MsgUI.uiView);
-
         }
-
     }
 }
 
@@ -1889,9 +1866,7 @@ module ui.set {
 
             super.createChildren();
             this.createView(ui.set.ExpKeystoreUI.uiView);
-
         }
-
     }
 }
 
@@ -2030,9 +2005,7 @@ module ui.set {
 
             super.createChildren();
             this.createView(ui.set.UpdatePassUI.uiView);
-
         }
-
     }
 }
 
@@ -2272,7 +2245,7 @@ module ui.set {
                             "x": 36,
                             "width": 24,
                             "var": "o_check_agree",
-                            "skin": "comp/radio.png",
+                            "skin": "img/main/radio.png",
                             "scaleY": 2,
                             "scaleX": 2,
                             "mouseEnabled": true,
@@ -2377,7 +2350,7 @@ module ui.set {
                             "x": 40,
                             "width": 24,
                             "var": "ks_agree",
-                            "skin": "comp/radio.png",
+                            "skin": "img/main/radio.png",
                             "scaleY": 2,
                             "scaleX": 2,
                             "mouseEnabled": true,
@@ -2542,7 +2515,7 @@ module ui.set {
                             "y": 489,
                             "x": 30,
                             "width": 24,
-                            "skin": "comp/radio.png",
+                            "skin": "img/main/radio.png",
                             "scaleY": 2,
                             "scaleX": 2,
                             "mouseEnabled": true,
@@ -2578,9 +2551,7 @@ module ui.set {
 
             super.createChildren();
             this.createView(ui.set.WalletImportUI.uiView);
-
         }
-
     }
 }
 
@@ -2826,9 +2797,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.TransDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -2879,9 +2848,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.TransHisListUI.uiView);
-
         }
-
     }
 }
 
@@ -2998,9 +2965,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletBackUpUI.uiView);
-
         }
-
     }
 }
 
@@ -3119,7 +3084,7 @@ module ui {
                     "x": 30,
                     "width": 24,
                     "var": "check_argee",
-                    "skin": "comp/radio.png",
+                    "skin": "img/main/radio.png",
                     "scaleY": 2,
                     "scaleX": 2,
                     "mouseEnabled": true,
@@ -3319,9 +3284,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletCreateUI.uiView);
-
         }
-
     }
 }
 
@@ -3509,9 +3472,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -3572,7 +3533,7 @@ module ui {
                     "x": 34,
                     "width": 565,
                     "valign": "middle",
-                    "text": "总资产($)",
+                    "text": "总资产(¥)",
                     "height": 44,
                     "fontSize": 28,
                     "color": "#000000"
@@ -3653,6 +3614,7 @@ module ui {
                     "top": 400,
                     "selectEnable": true,
                     "right": 0,
+                    "repeatY": 1,
                     "repeatX": 1,
                     "left": 0,
                     "bottom": 60
@@ -3897,9 +3859,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletManageUI.uiView);
-
         }
-
     }
 }
 
@@ -3990,9 +3950,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletMeUI.uiView);
-
         }
-
     }
 }
 
@@ -4157,9 +4115,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletMexUI.uiView);
-
         }
-
     }
 }
 
@@ -4228,9 +4184,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.WalletQuickUI.uiView);
-
         }
-
     }
 }
 
@@ -4301,10 +4255,10 @@ module ui {
             }, {
                 "type": "Image",
                 "props": {
-                    "width": 120,
+                    "width": 320,
                     "var": "img_wAddr",
                     "skin": "img/guid_ewm.jpg",
-                    "height": 120,
+                    "height": 320,
                     "centerY": 0,
                     "centerX": 0
                 }
@@ -4347,7 +4301,7 @@ module ui {
 
         public static uiView: any = {
             "type": "View",
-            "props": {"y": 0, "x": 0, "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0},
+            "props": {"y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
             "child": [{
                 "type": "Button",
                 "props": {
@@ -4362,11 +4316,11 @@ module ui {
             }, {
                 "type": "Label",
                 "props": {
+                    "x": 375,
                     "var": "lab_coin_name",
                     "valign": "middle",
                     "top": 20,
                     "text": "ETH",
-                    "right": 149,
                     "height": 30,
                     "fontSize": 16,
                     "color": "#000000",
@@ -4375,10 +4329,11 @@ module ui {
             }, {
                 "type": "Label",
                 "props": {
+                    "x": 325,
+                    "width": 50,
                     "valign": "middle",
                     "top": 20,
                     "text": "转账",
-                    "left": 151,
                     "height": 30,
                     "fontSize": 16,
                     "color": "#000000",
@@ -4393,19 +4348,21 @@ module ui {
                     "maxChars": 30,
                     "left": 20,
                     "layoutEnabled": true,
-                    "height": 22
+                    "height": 80,
+                    "fontSize": 28
                 }
             }, {
                 "type": "TextInput",
                 "props": {
-                    "y": 100,
+                    "y": 198,
                     "type": "number",
                     "right": 20,
                     "prompt": "转账金额ETH",
                     "maxChars": 30,
                     "left": 20,
                     "layoutEnabled": true,
-                    "height": 22
+                    "height": 80,
+                    "fontSize": 28
                 }
             }, {
                 "type": "Button",
@@ -4442,14 +4399,14 @@ module ui {
 module ui {
     export class WalletSendSubmitUI extends View {
         public btn_goback: Laya.Button;
-        public text_addr_to: Laya.TextInput;
-        public text_addr_from: Laya.TextInput;
         public send_amout: Laya.Label;
         public sli_gas: Laya.HSlider;
         public lab_max_gas: Laya.TextInput;
         public lab_max_gas_usd: Laya.TextInput;
         public lab_max_total: Laya.TextInput;
         public lab_max_total_usd: Laya.TextInput;
+        public text_from: Laya.TextInput;
+        public text_to: Laya.TextInput;
         public btn_submit: Laya.Button;
 
         public static uiView: any = {
@@ -4484,7 +4441,6 @@ module ui {
                 "type": "TextInput",
                 "props": {
                     "y": 69,
-                    "var": "text_addr_to",
                     "right": 20,
                     "prompt": "收款人账户地址",
                     "maxChars": 30,
@@ -4497,7 +4453,6 @@ module ui {
                 "type": "TextInput",
                 "props": {
                     "y": 121,
-                    "var": "text_addr_from",
                     "right": 20,
                     "prompt": "发送人账户地址",
                     "maxChars": 30,
@@ -4607,6 +4562,7 @@ module ui {
                 "type": "TextInput",
                 "props": {
                     "y": 90,
+                    "var": "text_from",
                     "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
                     "right": 20,
                     "overflow": "scroll",
@@ -4621,6 +4577,7 @@ module ui {
                 "type": "TextInput",
                 "props": {
                     "y": 141,
+                    "var": "text_to",
                     "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
                     "right": 20,
                     "prompt": "发送人账户地址",
@@ -4674,11 +4631,8 @@ module ui {
 
         public static uiView: any = {
             "type": "View",
-            "props": {"width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0},
+            "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
             "child": [{
-                "type": "Rect",
-                "props": {"y": 0, "x": 0, "width": 375, "lineWidth": 1, "height": 110, "fillColor": "#c6e2ee"}
-            }, {
                 "type": "Label",
                 "props": {
                     "var": "lab_coin_name",
@@ -4707,7 +4661,7 @@ module ui {
             }, {
                 "type": "Button",
                 "props": {
-                    "width": 187,
+                    "width": 375,
                     "var": "btn_send",
                     "skin": "comp/button.png",
                     "sizeGrid": "0,0,0,0",
@@ -4724,7 +4678,7 @@ module ui {
                     "skin": "comp/button.png",
                     "sizeGrid": "0,0,0,0",
                     "right": 0,
-                    "left": 187,
+                    "left": 375,
                     "labelAlign": "center",
                     "label": "收款",
                     "height": 60,
@@ -4733,12 +4687,12 @@ module ui {
             }, {
                 "type": "Button",
                 "props": {
-                    "width": 117,
+                    "width": 60,
                     "var": "btn_goback",
                     "top": 20,
                     "skin": "template/Navigator/btn_BackButton.png",
                     "left": 20,
-                    "height": 30
+                    "height": 60
                 }
             }]
         };

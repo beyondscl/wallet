@@ -47,10 +47,29 @@ var view;
         };
         CreateWallet.prototype.createWallet = function () {
             if (this.checkArgs()) {
-                Laya.stage.removeChild(this.comp);
-                var wallet = service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text);
-                new view.WalletMain().initQueryData(wallet);
+                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, this.comp); //异步
             }
+        };
+        //创建[切换]钱包在内存中设置默认钱包为当前钱包
+        CreateWallet.prototype.creatWalletCb = function (wName, wPass, mnemonicWord, ret, comp) {
+            if (ret && ret.retCode == 0) {
+                var keystore = Laya.Browser.window.serialize();
+                var wallet = new mod.walletMod(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                var walletJson = wallet.toJson();
+                util.setItemJson(wallet.wName, walletJson);
+                var appStore = util.getItem(config.prod.appKey);
+                if (appStore) {
+                    appStore[appStore.length] = wallet.wName;
+                    util.setItemJson(config.prod.appKey, appStore);
+                }
+                else {
+                    util.setItemJson(config.prod.appKey, [wallet.wName]);
+                }
+                comp.removeSelf();
+                new view.WalletMain().initQueryData(wallet);
+                return;
+            }
+            console.log("create wallet error!");
         };
         CreateWallet.prototype.checkArgs = function () {
             if (this.checkWname() && this.checkPass() && this.checkPassConf()) {

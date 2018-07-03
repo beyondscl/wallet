@@ -60,7 +60,7 @@ module view {
         private onSelectItem(index: number): void {
             let item = this.listData[index];
             this.stage.removeChild(this.parentUI);
-            new view.WalletMain().initQueryData(testData.getWalletInfo(item));
+            new view.WalletMain().initQueryData(service.walletServcie.getWallet(item));
             this.close(null, true);
         }
     }

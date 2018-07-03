@@ -39,6 +39,14 @@ module view {
                     Laya.stage.removeChild(this.comp);
                     Laya.stage.removeSelf();
                     new view.WalletTransfer();
+                    let defaultW = mod.userMod.defWallet;
+                    let fromAdd = this.comp.text_from.text;
+                    let toAddr = this.comp.text_to.text;
+                    let value = this.comp.send_amout.text;
+                    let gasT = this.comp.sli_gas.value;
+                    let gasPrice = 2100;
+                    let gas = gasT / gasPrice;
+                    service.walletServcie.transfer(defaultW.wPassword, defaultW.wAddr, toAddr, value, gasPrice, gas);
                     break;
                 default:
                     console.log("error type");

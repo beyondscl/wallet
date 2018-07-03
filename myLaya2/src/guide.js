@@ -5,7 +5,6 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
-
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -53,6 +52,7 @@ var guide = /** @class */ (function () {
     return guide;
 }());
 //程序入口
+console.log("start init stage!!!!!!!!!!!");
 Laya.init(config.prod.appWidth, config.prod.appHeight, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
@@ -64,24 +64,23 @@ Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 Laya.stage.alignH = "center";
 //设置垂直对齐
 Laya.stage.alignV = "middle";
-//激活资源版本控制
-Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
-
+//激活资源版本控制,太费时间
+// Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
+beginLoad();
 function beginLoad() {
-    Laya.loader.load("res/atlas/template/Warn.atlas");
-    Laya.loader.load("res/atlas/template/Navigator.atlas");
-    Laya.loader.load("res/atlas/template/ToolBar.atlas");
-    Laya.loader.load("res/atlas/template/Switcher.atlas");
-    Laya.loader.load("res/atlas/template/List.atlas");
-    Laya.loader.load("res/atlas/template/Search.atlas");
+    //加载完成就直接进入，后面的异步加载
+    Laya.loader.load("res/atlas/img/guide.atlas", Laya.Handler.create(null, enter));
+    // Laya.loader.load("res/atlas/template/Warn.atlas");
+    // Laya.loader.load("res/atlas/template/Navigator.atlas");
+    // Laya.loader.load("res/atlas/template/ToolBar.atlas");
+    // Laya.loader.load("res/atlas/template/Switcher.atlas");
+    // Laya.loader.load("res/atlas/template/List.atlas");
+    // Laya.loader.load("res/atlas/template/Search.atlas");
     Laya.loader.load("res/atlas/template/ScrollBar.atlas");
-    var res = ["res/atlas/img/main.atlas",
-        "res/atlas/img/guide.atlas",
-        "res/atlas/img/coins.atlas",
-        "res/atlas/comp.atlas"];
-    Laya.loader.load(res, Laya.Handler.create(null, enter));
+    // Laya.loader.load(""res/atlas/comp.atlas"]");
+    var res = ["res/atlas/img/main.atlas"];
+    Laya.loader.load(res, null);
 }
-
 function enter() {
     // laya.net.LocalStorage.clear();
     var walletNames = util.getItem(config.prod.appKey);
@@ -94,5 +93,4 @@ function enter() {
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);
 }
-
 //# sourceMappingURL=guide.js.map
