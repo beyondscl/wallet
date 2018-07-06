@@ -43,6 +43,7 @@ var view;
             };
             BackUpZjc.prototype.setData = function (key) {
                 this.wZjc = key;
+                this.comp.text_zjc.text = key;
             };
             BackUpZjc.prototype.btnClick = function (index) {
                 if (1 == index) {

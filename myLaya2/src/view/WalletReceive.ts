@@ -57,7 +57,8 @@ module view {
         }
 
         private copyBack(comp: ui.WalletReceiveUI) {
-            comp.btn_copy.label = '已复制'
+            //需要调用本地native api
+            comp.btn_copy.text = '已复制'
         }
     }
 }

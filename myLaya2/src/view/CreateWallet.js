@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -14,12 +22,14 @@ var view;
     var Browser = Laya.Browser;
     var CreateWallet = /** @class */ (function (_super) {
         __extends(CreateWallet, _super);
+
         function CreateWallet() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
+
         CreateWallet.prototype.init = function () {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.addChild(this.comp);
@@ -30,7 +40,6 @@ var view;
             this.comp.check_argee.on(Laya.Event.CLICK, this, this.updateArgee);
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
-            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.infoYsfw);
             this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
             this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
@@ -47,14 +56,18 @@ var view;
         };
         CreateWallet.prototype.createWallet = function () {
             if (this.checkArgs()) {
-                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, this.comp); //异步
+                var load = new view.alert.waiting(config.msg.WAIT_CREATE_WALLET);
+                load.popup();
+                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, [this.comp, load]); //异步
             }
         };
         //创建[切换]钱包在内存中设置默认钱包为当前钱包
-        CreateWallet.prototype.creatWalletCb = function (wName, wPass, mnemonicWord, ret, comp) {
+        //args[0]:comp args[1]:loadingui
+        CreateWallet.prototype.creatWalletCb = function (wName, wPass, mnemonicWord, ret, args) {
             if (ret && ret.retCode == 0) {
                 var keystore = Laya.Browser.window.serialize();
-                var wallet = new mod.walletMod(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                var wallet = new mod.walletMod();
+                wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
                 var walletJson = wallet.toJson();
                 util.setItemJson(wallet.wName, walletJson);
                 var appStore = util.getItem(config.prod.appKey);
@@ -65,7 +78,10 @@ var view;
                 else {
                     util.setItemJson(config.prod.appKey, [wallet.wName]);
                 }
-                comp.removeSelf();
+                var com = args[0];
+                com.removeSelf();
+                var dialog = args[1];
+                dialog.stop();
                 new view.WalletMain().initQueryData(wallet);
                 return;
             }
@@ -153,12 +169,10 @@ var view;
             this.comp.visible = false;
             new view.set.WalletImport().setParetUI(this.comp);
         };
-        CreateWallet.prototype.infoYsfw = function () {
-            new view.alert.Iframe("https://zhidao.baidu.com/question/433551549918009724.html");
-        };
         CreateWallet.prototype.webViewHref = function () {
             Browser.window['conch'] && Browser.window['conch'].showAssistantTouch(false);
             var ctx = Browser.window.document.createElement('canvas').getContext('2d');
+
             function render() {
                 ctx.fillStyle = 'black';
                 ctx.fillRect(0, 0, Browser.window.innerWidth, Browser.window.innerHeight);

@@ -18,14 +18,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var view;
 (function (view) {
-    var List = Laya.List;
     var Handler = Laya.Handler;
     var WalletTransfer = /** @class */ (function (_super) {
         __extends(WalletTransfer, _super);
 
         function WalletTransfer() {
             var _this = _super.call(this) || this;
-            _this.list = new List();
             _this.init();
             _this.initEvent();
             return _this;
@@ -33,9 +31,7 @@ var view;
 
         WalletTransfer.prototype.init = function () {
             this.comp = new ui.WalletTransferUI();
-            this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletTransfer.prototype.initEvent = function () {
@@ -66,26 +62,31 @@ var view;
         };
         //init deal history list
         WalletTransfer.prototype.setListUp = function (data) {
-            this.list.name = 'item0';
-            this.list.itemRender = dealItemUI;
-            this.list.repeatX = 1;
-            this.list.repeatY = data.length;
-            this.list.x = 0;
-            this.list.bottom = 40;
-            this.list.top = 110;
+            this.comp.list.repeatX = 1;
+            this.comp.list.repeatY = data.length;
             // 使用但隐藏滚动条
-            this.list.vScrollBarSkin = "";
-            this.list.selectEnable = true;
-            this.list.selectHandler = new Handler(this, this.onSelect, null, false);
-            this.list.renderHandler = new Handler(this, this.updateItem, null, false);
-            this.list.array = data;
+            this.comp.list.vScrollBarSkin = "";
+            this.comp.list.selectHandler = new Handler(this, this.onSelect, null, false);
+            this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
+            this.comp.list.array = data;
         };
-        WalletTransfer.prototype.updateItem = function (cell, index) {
-            cell.init(cell.dataSource);
+        WalletTransfer.prototype.onListRender = function (cell, index) {
+            var data = this.comp.list.array[index];
+            var cImg = cell.getChildByName('img');
+            cImg.skin = data.getDealImgSrc();
+            var cName = cell.getChildByName('lab_deal_name');
+            cName.text = data.getDealChName();
+            var addr = cell.getChildByName('lab_addr');
+            var trans_type1 = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To'; //from | to
+            addr.text = trans_type1 + ": " + util.getAddr(data.getDealAddr());
+            var amount = cell.getChildByName('lab_amount');
+            var trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-'; //+ | -
+            amount.text = trans_type + data.dealAmount + " " + data.dealCoinType.toUpperCase();
+            amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
         };
         WalletTransfer.prototype.onSelect = function (index) {
             this.comp.visible = false;
-            new view.TransDetail().initData(this.list.array[index], this.comp);
+            new view.TransDetail().initData(this.comp.list.array[index], this.comp);
         };
         return WalletTransfer;
     }(ui.WalletTransferUI));

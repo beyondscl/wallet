@@ -25,6 +25,7 @@ module view.backup {
 
         public setData(key: string) {
             this.wZjc = key;
+            this.comp.text_zjc.text = key;
         }
 
         private btnClick(index: number) {

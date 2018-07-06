@@ -32,23 +32,37 @@ module view {
         }
 
         public setData(coins: Array<string>) {
+            //获取数据!!
             for (let i: number = 0; i < coins.length; i++) {
-                let walItemT = new mod.walItemMod();
                 let coinName = coins[i];
-                walItemT.setItem("img/main/wallet_manage.png", coinName.toUpperCase(), "0", "0");
+                let walItemT = new mod.walItemMod();
+                walItemT.setItem("", coinName, "0", "0");
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
         }
 
-        //当前钱包的基本数据
+        //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
             mod.userMod.defWallet = data;//*
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
             //初始化全局实例，不然无法操作转账
-            service.walletServcie.initLigthWallet(data.wName);
+            service.walletServcie.initLigthWallet(data.wKeyStore);
+            //初始化币种
             this.setData(data.wCoins);
+            //初始化余额
+            service.walletServcie.getBalance(data.wAddr, this.getBalanceCb, this.comp)
+        }
+
+        private getBalanceCb(err, res, comp: view.WalletMain) {
+            if (!err) {
+                console.info("getBalanceCb res:" + res.toNumber());
+                comp.lab_total.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+            } else {
+                console.error("getBalanceCb error:" + err);
+
+            }
         }
 
         private queryCallBack() {
@@ -59,6 +73,7 @@ module view {
         private setListUp(data: Array<mod.walItemMod>): void {
             this.comp.list_wallet.array = data;
             this.comp.list_wallet.repeatY = data.length;
+            this.comp.list_wallet.vScrollBarSkin = "";
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
@@ -66,7 +81,7 @@ module view {
         private onListRender(cell: Box, index: number) {
             var data: mod.walItemMod = this.comp.list_wallet.array[index];
             let cImg = cell.getChildByName('cImg') as Image;
-            cImg.skin = data.itemImgSrc;
+            cImg.skin = data.getItemImgSrc();
             let cName = cell.getChildByName('cName') as Label;
             cName.text = data.itemName;
             let cTotal = cell.getChildByName('cTotal') as Label;
@@ -99,10 +114,10 @@ module view {
             if (index == 3) {
                 //dialog千万不要设置left r t b..
                 let pom = new view.WalletQuick();
-                pom.width = Laya.stage.width / 3;
+                pom.width = Laya.stage.width / 2;
                 pom.height = Laya.stage.height;
                 pom.top = 0;
-                pom.left = Laya.stage.width * 2 / 3;//right 不行
+                pom.left = Laya.stage.width / 2;//right 不行
 
                 pom.setParentUI(this.comp);
                 pom.initData(util.getItem(config.prod.appKey));

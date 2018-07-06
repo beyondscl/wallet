@@ -2,8 +2,12 @@
 var mod;
 (function (mod) {
     var walletMod = /** @class */ (function () {
-        function walletMod(wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {
+        function walletMod() {
             this.wSkin = config.resource.walletImg;
+        }
+
+        //初始化
+        walletMod.prototype.init = function (wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {
             this.wName = wName;
             this.wPassword = wPassword;
             this.wPrivateKey = wPrivateKey;
@@ -11,7 +15,7 @@ var mod;
             this.wAddr = "0x" + wAddr; //注意地址
             this.wCoins = wCoins;
             this.wZjc = wZjc;
-        }
+        };
         walletMod.prototype.toJson = function () {
             var json = {
                 wName: this.wName,
@@ -23,6 +27,15 @@ var mod;
                 wZjc: this.wZjc,
             };
             return json;
+        };
+        walletMod.prototype.setWallet = function (json) {
+            this.wName = json.wName;
+            this.wPassword = json.wPassword;
+            this.wPrivateKey = json.wPrivateKey;
+            this.wKeyStore = json.wKeyStore;
+            this.wAddr = json.wAddr; //注意地址
+            this.wCoins = json.wCoins;
+            this.wZjc = json.wZjc;
         };
         walletMod.prototype.getCoinSelected = function (coin) {
         };

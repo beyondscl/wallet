@@ -24,8 +24,10 @@ var view;
         var Warn = /** @class */ (function (_super) {
             __extends(Warn, _super);
 
-            function Warn() {
+            function Warn(title, subTitle) {
                 var _this = _super.call(this) || this;
+                _this.warn_title.text = title;
+                _this.warn_msg.text = subTitle;
                 _this.initEvent();
                 return _this;
             }
@@ -35,7 +37,13 @@ var view;
             Warn.prototype.initEvent = function () {
                 this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             };
-            Warn.prototype.setData = function (key) {
+            Warn.prototype.setData = function (title, subTitle) {
+                if (title) {
+                    this.warn_title.text = title;
+                }
+                if (subTitle) {
+                    this.warn_msg.text = subTitle;
+                }
             };
             Warn.prototype.btnClick = function (index) {
                 if (1 == index) {

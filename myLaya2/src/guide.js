@@ -5,6 +5,7 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -67,30 +68,44 @@ Laya.stage.alignV = "middle";
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 beginLoad();
+
 function beginLoad() {
     //加载完成就直接进入，后面的异步加载
-    Laya.loader.load("res/atlas/img/guide.atlas", Laya.Handler.create(null, enter));
+    var res = ["res/atlas/img/main.atlas",
+        "res/atlas/img/coins.atlas",
+        "res/atlas/template/ScrollBar.atlas",
+        "res/atlas/img/guide.atlas",
+        "res/atlas/comp.atlas"];
+    Laya.loader.load(res, Laya.Handler.create(null, enter));
     // Laya.loader.load("res/atlas/template/Warn.atlas");
     // Laya.loader.load("res/atlas/template/Navigator.atlas");
     // Laya.loader.load("res/atlas/template/ToolBar.atlas");
     // Laya.loader.load("res/atlas/template/Switcher.atlas");
     // Laya.loader.load("res/atlas/template/List.atlas");
     // Laya.loader.load("res/atlas/template/Search.atlas");
-    Laya.loader.load("res/atlas/template/ScrollBar.atlas");
     // Laya.loader.load(""res/atlas/comp.atlas"]");
-    var res = ["res/atlas/img/main.atlas"];
-    Laya.loader.load(res, null);
 }
+
 function enter() {
+    //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
-    var walletNames = util.getItem(config.prod.appKey);
-    if (!walletNames) {
-        new guide();
-        return;
+    var accept = util.getItem(config.prod.appAccept);
+    if (accept) {
+        var walletNames = util.getItem(config.prod.appKey);
+        if (!walletNames) {
+            new guide();
+            return;
+        }
+        var wallet = util.getItem(walletNames[0]);
+        var walletMod = new mod.walletMod();
+        walletMod.setWallet(wallet);
+        mod.userMod.defWallet = walletMod;
+        new view.WalletMain().initQueryData(walletMod);
+        console.log("end loading!");
     }
-    var wallet = util.getItem(walletNames[0]);
-    var walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins, null);
-    mod.userMod.defWallet = walletMod;
-    new view.WalletMain().initQueryData(walletMod);
+    else {
+        new view.info.Service();
+    }
 }
+
 //# sourceMappingURL=guide.js.map

@@ -23,7 +23,6 @@ module view {
             this.comp.check_argee.on(Laya.Event.CLICK, this, this.updateArgee);
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
-            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.infoYsfw);
 
             this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
@@ -45,15 +44,19 @@ module view {
 
         private createWallet() {
             if (this.checkArgs()) {
-                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, this.comp);//异步
+                let load = new view.alert.waiting(config.msg.WAIT_CREATE_WALLET);
+                load.popup();
+                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, [this.comp, load]);//异步
             }
         }
 
         //创建[切换]钱包在内存中设置默认钱包为当前钱包
-        private creatWalletCb(wName, wPass, mnemonicWord, ret, comp: View) {
+        //args[0]:comp args[1]:loadingui
+        private creatWalletCb(wName, wPass, mnemonicWord, ret, args: Array<any>) {
             if (ret && ret.retCode == 0) {
                 let keystore = Laya.Browser.window.serialize();
-                let wallet = new mod.walletMod(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                let wallet = new mod.walletMod();
+                wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
                 let walletJson = wallet.toJson();
                 util.setItemJson(wallet.wName, walletJson);
                 let appStore = util.getItem(config.prod.appKey);
@@ -63,7 +66,10 @@ module view {
                 } else {
                     util.setItemJson(config.prod.appKey, [wallet.wName]);
                 }
-                comp.removeSelf();
+                let com = args[0] as View;
+                com.removeSelf();
+                let dialog = args[1] as view.alert.waiting;
+                dialog.stop();
                 new WalletMain().initQueryData(wallet);
                 return;
             }
@@ -159,11 +165,6 @@ module view {
         private importWallet() {
             this.comp.visible = false;
             new view.set.WalletImport().setParetUI(this.comp);
-        }
-
-        private infoYsfw() {
-            new alert.Iframe("https://zhidao.baidu.com/question/433551549918009724.html");
-
         }
 
         private webViewHref(): void {

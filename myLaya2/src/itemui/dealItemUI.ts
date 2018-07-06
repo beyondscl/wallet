@@ -21,6 +21,7 @@ class dealItemUI extends Box {
     }
 
     public init(dealItem: mod.dealtemMod): void {
+
         this.img.skin = dealItem.getDealImgSrc();
         this.img.width = 30;
         this.img.height = 30;
@@ -32,6 +33,7 @@ class dealItemUI extends Box {
         this.lab_deal_name.y = 0;
         this.lab_deal_name.height = 25;
         this.lab_deal_name.valign = "middle";
+
         let trans_type1 = dealItem.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To';//from | to
         this.lab_addr.text = trans_type1 + ": " + util.getAddr(dealItem.getDealAddr());
         this.lab_addr.x = this.img.x + this.img.width + 5;

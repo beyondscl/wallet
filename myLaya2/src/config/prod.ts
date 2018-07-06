@@ -1,15 +1,22 @@
 module config {
     export class prod {
         public static appKey: string = "wwwallet";//用于存储标识用户是否已经有钱包
+        public static appAccept: string = "appAccept";//用于存储标识用户是否已经有钱包
+        public static appDealKey: string = "wwwalletDeal";//
         public static ethToUsd: string = "https://api.infura.io/v1/ticker/ethusd"; //获取eth与美元的汇率
         public static ethBalance: string = "https://api.etherscan.io/api?"; //获取账户eth
         public static apiKey: string = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         public static appAdapterType = 'SCALE_EXACTFIT';
 
+        public static apiLocalHost = "http://192.168.2.106:3005";
+        public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";
+        public static gasLimit: number = 21000;
 
         public static appWidth = 750;
         public static appHeight = 1334;
         public static scale = prod.appHeight / prod.appWidth;//当初设计的高与宽比
+
+        public static WEI_TO_ETH: number = 1000000000000000000;
 
         constructor() {
         }

@@ -77,30 +77,40 @@ beginLoad();
 
 function beginLoad() {
     //加载完成就直接进入，后面的异步加载
-    Laya.loader.load("res/atlas/img/guide.atlas", Laya.Handler.create(null, enter));
-
+    let res: Array<any> =
+        ["res/atlas/img/main.atlas",
+            "res/atlas/img/coins.atlas",
+            "res/atlas/template/ScrollBar.atlas",
+            "res/atlas/img/guide.atlas",
+            "res/atlas/comp.atlas"]
+    Laya.loader.load(res, Laya.Handler.create(null, enter));
     // Laya.loader.load("res/atlas/template/Warn.atlas");
     // Laya.loader.load("res/atlas/template/Navigator.atlas");
     // Laya.loader.load("res/atlas/template/ToolBar.atlas");
     // Laya.loader.load("res/atlas/template/Switcher.atlas");
     // Laya.loader.load("res/atlas/template/List.atlas");
     // Laya.loader.load("res/atlas/template/Search.atlas");
-    Laya.loader.load("res/atlas/template/ScrollBar.atlas");
     // Laya.loader.load(""res/atlas/comp.atlas"]");
-    let res: Array<any> =
-        ["res/atlas/img/main.atlas"]
-    Laya.loader.load(res, null);
 }
 
 function enter() {
+    //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
-    let walletNames = util.getItem(config.prod.appKey);
-    if (!walletNames) {
-        new guide();
-        return;
+    let accept = util.getItem(config.prod.appAccept);
+    if (accept) {
+        let walletNames = util.getItem(config.prod.appKey);
+        if (!walletNames) {
+            new guide();
+            return;
+        }
+        let wallet = util.getItem(walletNames[0]);
+        let walletMod = new mod.walletMod();
+        walletMod.setWallet(wallet);
+        mod.userMod.defWallet = walletMod;
+        new view.WalletMain().initQueryData(walletMod);
+        console.log("end loading!")
+    } else {
+        new view.info.Service();
     }
-    let wallet = util.getItem(walletNames[0]);
-    let walletMod = new mod.walletMod(wallet.wName, null, null, null, wallet.wAddr, wallet.wCoins, null);
-    mod.userMod.defWallet = walletMod;
-    new view.WalletMain().initQueryData(walletMod);
+
 }

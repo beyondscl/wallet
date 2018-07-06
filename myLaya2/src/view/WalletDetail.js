@@ -79,12 +79,18 @@ var view;
                 return;
             }
             if (5 == index) {
-                this.comp.visible = false;
-                var backupw = new view.WalletBackUp();
-                backupw.setData(this.comp.lab_wName.text);
-                backupw.setParetUI(this.comp);
+                var p = new view.alert.EnterPass();
+                p.setParentUI(this.comp);
+                p.setCallBack(this.enterPassCb);
+                p.popup();
                 return;
             }
+        };
+        WalletDetail.prototype.enterPassCb = function (pass, comp) {
+            comp.visible = false;
+            var backupw = new view.WalletBackUp();
+            backupw.setData(comp.lab_wName.text);
+            backupw.setParetUI(comp);
         };
         WalletDetail.prototype.setData = function (data) {
             this.data = data;

@@ -64,7 +64,7 @@ module view {
             let wAddr = cell.getChildByName('lab_wAddr') as Label;
             wAddr.text = util.getAddr(data.wAddr);
             let wTotal = cell.getChildByName('lab_wTotal') as Label;
-            wTotal.text = '0 ether';//test
+            // wTotal.text = '0 ether';//test
         }
 
         private onSelect(index: number) {

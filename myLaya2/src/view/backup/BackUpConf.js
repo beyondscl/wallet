@@ -31,7 +31,7 @@ var view;
                 _this.initEvent();
                 return _this;
             }
-
+            ;
             BackUpConf.prototype.init = function () {
                 this.comp = new ui.backup.BackUpConfUI();
                 Laya.stage.addChild(this.comp);
@@ -41,6 +41,8 @@ var view;
                 this.comp.btn_conf.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
             };
             BackUpConf.prototype.setData = function (key) {
+                this.rightKey = key.trim().split(" ");
+                ; //用于验证
                 this.key = key.trim().split(" ");
                 this.key = this.key.sort(function (a, b) {
                     return Math.random() > 0.5 ? 1 : -1;
@@ -68,12 +70,15 @@ var view;
                 }
                 if (2 == index) {
                     var lables = this.comp.box_zjc._childs;
-                    for (var i = 0; i < this.key.length; i++) {
-                        if (lables[i] && lables[i].text.trim() != this.key[i]) {
-                            new view.alert.Warn().popup();
+                    for (var i = 0; i < this.rightKey.length; i++) {
+                        if (lables[i] && lables[i].text.trim() != this.rightKey[i]) {
+                            new view.alert.Warn("备份失败", "请检查你的助记词").popup();
                             return;
                         }
                     }
+                    new view.alert.Warn("备份成功", "").popup(); //删除或,提示成功,然后颜色变灰
+                    this.comp.removeSelf();
+                    this.parentUI.visible = true;
                     return;
                 }
                 if (3 == index) {

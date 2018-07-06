@@ -4,6 +4,7 @@ module view {
 
     export class WalletSendSubmit extends ui.WalletSendSubmitUI {
         private comp: ui.WalletSendSubmitUI;
+        private parentUI: ui.WalletSendUI;
 
         constructor() {
             super();
@@ -24,8 +25,25 @@ module view {
             this.comp.sli_gas.changeHandler = new Handler(this, this.sliChange);
         }
 
-        public setData(data: any) {
+        public setData(data: ui.WalletSendUI) {
+            this.comp.text_from.text = mod.userMod.defWallet.wAddr;
+            this.comp.text_to.text = data.text_addr.text;
+            this.comp.send_amout.text = data.text_amount.text;
+            this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
+            //初始化gasprice
+            new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
+                if (ret && ret.retCode == 0) {
+                    let comp = args[0] as view.WalletSendSubmit;
+                    comp.sli_gas.value = ret.gasPrice / 1e9;// gwei
+                    comp.sli_gas.min = comp.sli_gas.value;
+                    comp.sli_gas.max = comp.sli_gas.value * 10
+                }
+            }, [this.comp]);
+        }
 
+        public setParenUI(parent: ui.WalletSendUI) {
+            this.parentUI = parent;
+            this.setData(parent);
         }
 
         private goBack() {
@@ -36,17 +54,11 @@ module view {
         private btnClick(type: number) {
             switch (type) {
                 case (1):
-                    Laya.stage.removeChild(this.comp);
-                    Laya.stage.removeSelf();
-                    new view.WalletTransfer();
-                    let defaultW = mod.userMod.defWallet;
-                    let fromAdd = this.comp.text_from.text;
-                    let toAddr = this.comp.text_to.text;
-                    let value = this.comp.send_amout.text;
-                    let gasT = this.comp.sli_gas.value;
-                    let gasPrice = 2100;
-                    let gas = gasT / gasPrice;
-                    service.walletServcie.transfer(defaultW.wPassword, defaultW.wAddr, toAddr, value, gasPrice, gas);
+                    //需要重新输入密码
+                    let enterpass = new view.alert.EnterPass();
+                    enterpass.setParentUI(this.comp);
+                    enterpass.setCallBack(this.enterPassCb);
+                    enterpass.popup();
                     break;
                 default:
                     console.log("error type");
@@ -54,12 +66,65 @@ module view {
             }
         }
 
+        private enterPassCb(pass: string, comp: ui.WalletSendSubmitUI) {
+            let defaultW = mod.userMod.defWallet;
+            let fromAdd = comp.text_from.text;
+            let toAddr = comp.text_to.text;
+            let value = comp.send_amout.text;
+            let gasPrice = comp.sli_gas.value;
+
+            let pom = new alert.waiting("正在处理交易，请稍后");
+            pom.popup();
+            service.walletServcie.transfer(pass, fromAdd, toAddr, Number(value), gasPrice * 1e9, config.prod.gasLimit, function (ret, args: Array<any>) {
+                let pom = args[1] as view.alert.waiting;
+                pom.stop();
+                if (ret && ret.retCode == 0) {
+                    new alert.Warn("交易已发送请等待确认", "").popup();
+                    let comp = args[0] as view.WalletSendSubmit;
+                    let comParent = args[2] as View;
+                    // comp.removeSelf();
+                    // comParent.visible = true;//
+                    //记录交易!!!
+                    // constructor(dealType, dealFromAddr, dealToAddr, dealAmount, dealCoinType, dealTransId, dealGas, dealTime, dealConfirm, dealNonce) {
+                    let deal = new mod.dealtemMod(config.msg.deal_transfer_out,
+                        comp.text_from.text,
+                        comp.text_to.text,
+                        comp.send_amout.text,
+                        comp.coin_type.text,
+                        ret.txhash,//可以根据这个去查询更新
+                        gasPrice * 1e9 * config.prod.gasLimit,
+                        util.getFormatTime(),
+                        "",
+                        "");
+                    service.walletServcie.addDealItem(deal);
+                } else {
+                    new alert.Warn("交易失败,请调大矿工费用", "").popup();
+                }
+            }, [comp, pom, this.parentUI]);//this.parentUI 没有传过去
+        }
+
+        private transferCb(ret, args: Array<any>) {
+            let pom = args[1] as view.alert.waiting;
+            pom.stop();
+            if (ret && ret.retCode == 0) {
+                let comp = args[0] as View;
+                let comParent = args[2] as View;
+                comp.removeSelf();
+                comParent.visible = true;
+                //记录交易!!!
+            } else {
+                new alert.Warn("交易失败", "").popup();
+            }
+
+        }
+
         private sliChange(value: number) {
-            //gasLimit=21000
-            let lab_max_gas = value / Math.pow(10, 9);
-            let lab_max_gas_usd = Number(lab_max_gas * 516).toFixed(2);
-            let lab_max_total = Number(this.comp.send_amout.text + lab_max_gas);
-            var lab_max_total_usd = Number(lab_max_total * 516).toFixed(2);
+            let lab_max_gas = value * 1e9 / 1e18 * config.prod.gasLimit;//矿工费用eth
+            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd).toFixed(6);//矿工费用 usd
+
+            let lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
+            var lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd).toFixed(6);//总量usd
+
             this.comp.lab_max_gas.text = lab_max_gas + " ETH";
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " USD";
             this.comp.lab_max_total.text = lab_max_total + " ETH";

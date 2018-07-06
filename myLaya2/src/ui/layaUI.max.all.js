@@ -25,33 +25,52 @@ var ui;
             };
             EnterPassUI.uiView = {
                 "type": "Dialog",
-                "props": { "width": 200, "layoutEnabled": true, "height": 120 },
+                "props": { "width": 690, "layoutEnabled": true, "height": 500 },
                 "child": [{
                         "type": "Box",
                         "props": { "top": 0, "right": 0, "left": 0, "layoutEnabled": true, "bottom": 0 },
                         "child": [{
                                 "type": "Image",
                                 "props": {
-                                    "top": -1,
-                                    "skin": "template/Warn/alert_dialog.png",
+                                    "width": 690,
+                                    "top": 0,
+                                    "skin": "img/main/white_radius.png",
                                     "right": 0,
                                     "left": 0,
                                     "layoutEnabled": true,
+                                    "height": 628,
                                     "bottom": 0
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "valign": "middle",
+                                    "top": 50,
+                                    "text": "请输入钱包密码",
+                                    "right": 0,
+                                    "left": 0,
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "align": "center"
                                 }
                             }, {
                                 "type": "TextInput",
                                 "props": {
-                                    "y": 40,
+                                    "width": 560,
                                     "var": "text_pass",
                                     "type": "password",
-                                    "right": 5,
+                                    "promptColor": "#B0BBC4",
                                     "prompt": "请输入密码",
-                                    "left": 5,
                                     "layoutEnabled": true,
-                                    "height": 30,
+                                    "height": 88,
+                                    "fontSize": 32,
+                                    "color": "#B0BBC4",
+                                    "centerY": 0,
+                                    "centerX": 0,
                                     "borderColor": "#c0c0c0",
-                                    "bgColor": "#ffffff"
+                                    "bgColor": "#ffffff",
+                                    "align": "left"
                                 }
                             }, {
                                 "type": "Button",
@@ -59,6 +78,7 @@ var ui;
                                     "y": 85,
                                     "x": 0,
                                     "width": 100,
+                                    "visible": false,
                                     "var": "btn_cancel",
                                     "stateNum": 2,
                                     "skin": "template/Warn/btn_alert dialogLeftButton.png",
@@ -73,32 +93,62 @@ var ui;
                             }, {
                                 "type": "Button",
                                 "props": {
-                                    "y": 85,
-                                    "x": 100,
-                                    "width": 100,
                                     "var": "btn_submit",
                                     "stateNum": 2,
-                                    "skin": "template/Warn/btn_alert dialogRightButton.png",
+                                    "skin": "img/main/img_blue2.png",
                                     "right": 0,
+                                    "left": 0,
                                     "layoutEnabled": true,
-                                    "labelSize": 16,
-                                    "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
+                                    "labelSize": 32,
+                                    "labelColors": "#ffffff",
                                     "label": "确定",
-                                    "height": 35,
+                                    "height": 88,
                                     "bottom": 0
                                 }
                             }, {
                                 "type": "Label",
                                 "props": {
+                                    "visible": false,
+                                    "var": "addr",
                                     "valign": "middle",
-                                    "top": 0,
-                                    "text": "请输入密码",
+                                    "top": 120,
+                                    "text": "To:0x5da6284904kskgkfe42lkdkl2940020r jfkell",
                                     "right": 0,
                                     "left": 0,
-                                    "height": 30,
-                                    "font": "SimHei",
-                                    "color": "#000000",
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#163853",
                                     "align": "center"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "visible": false,
+                                    "var": "amount",
+                                    "valign": "middle",
+                                    "top": 252,
+                                    "text": "0.0098 ETH",
+                                    "right": 0,
+                                    "left": 1,
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#598ADA",
+                                    "align": "center"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 300,
+                                    "width": 560,
+                                    "visible": false,
+                                    "var": "warn",
+                                    "valign": "middle",
+                                    "text": "密码不正确，请重新输入",
+                                    "height": 40,
+                                    "fontSize": 20,
+                                    "color": "#ff0400",
+                                    "centerX": 0,
+                                    "align": "right"
                                 }
                             }]
                     }]
@@ -194,6 +244,72 @@ var ui;
             return IframeUI;
         }(Dialog));
         alert.IframeUI = IframeUI;
+    })(alert = ui.alert || (ui.alert = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var alert;
+    (function (alert) {
+        var waitingUI = /** @class */ (function (_super) {
+            __extends(waitingUI, _super);
+            function waitingUI() {
+                return _super.call(this) || this;
+            }
+            waitingUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.alert.waitingUI.uiView);
+            };
+            waitingUI.uiView = {
+                "type": "Dialog",
+                "props": { "width": 750, "height": 1334 },
+                "child": [{
+                        "type": "Box",
+                        "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                        "child": [{
+                                "type": "Image",
+                                "props": {
+                                    "width": 692,
+                                    "skin": "img/main/white_radius.png",
+                                    "height": 628,
+                                    "centerY": 0,
+                                    "centerX": 0,
+                                    "alpha": 0.6
+                                }
+                            }, {
+                                "type": "Image",
+                                "props": {
+                                    "y": 667,
+                                    "x": 375,
+                                    "width": 192,
+                                    "var": "img_wait",
+                                    "skin": "img/main/jiazai@3x.png",
+                                    "height": 192,
+                                    "centerY": 0,
+                                    "centerX": 0,
+                                    "anchorY": 0.5,
+                                    "anchorX": 0.5,
+                                    "alpha": 1
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 788,
+                                    "var": "wait_msg",
+                                    "valign": "middle",
+                                    "text": "正在加载",
+                                    "right": 0,
+                                    "left": 0,
+                                    "height": 50,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "alpha": 1,
+                                    "align": "center"
+                                }
+                            }]
+                    }]
+            };
+            return waitingUI;
+        }(Dialog));
+        alert.waitingUI = waitingUI;
     })(alert = ui.alert || (ui.alert = {}));
 })(ui || (ui = {}));
 (function (ui) {
@@ -913,21 +1029,20 @@ var ui;
                     }, {
                         "type": "Button",
                         "props": {
-                            "width": 30,
+                            "width": 60,
                             "var": "btn_query",
                             "top": 30,
-                            "skin": "template/Search/btn_search_icon.png",
+                            "skin": "img/main/btn_search_icon.png",
+                            "sizeGrid": "0,0,0,0",
                             "right": 30,
-                            "height": 30
+                            "height": 60
                         }
                     }, {
                         "type": "List",
                         "props": {
                             "var": "listCoin",
-                            "vScrollBarSkin": "template/List/vscroll.png",
                             "top": 100,
                             "right": 0,
-                            "repeatY": 1,
                             "repeatX": 1,
                             "name": "listCoin",
                             "left": 0,
@@ -948,7 +1063,7 @@ var ui;
                                     }, {
                                         "type": "Image",
                                         "props": {
-                                            "x": 28,
+                                            "x": 30,
                                             "width": 78,
                                             "var": "cImg",
                                             "skin": "template/List/message icon_57x57.png",
@@ -959,42 +1074,50 @@ var ui;
                                     }, {
                                         "type": "Label",
                                         "props": {
+                                            "y": 88,
                                             "x": 150,
-                                            "width": 300,
+                                            "width": 400,
                                             "var": "cVender",
+                                            "valign": "middle",
                                             "text": "cVender",
                                             "skin": "template/List/label.png",
                                             "name": "cVender",
-                                            "height": 50,
-                                            "fontSize": 36,
-                                            "color": "#000000",
-                                            "centerY": 0
+                                            "height": 32,
+                                            "fontSize": 24,
+                                            "color": "#8E979F",
+                                            "align": "left"
                                         }
                                     }, {
                                         "type": "Label",
                                         "props": {
+                                            "y": 40,
                                             "x": 150,
-                                            "width": 300,
+                                            "width": 400,
                                             "var": "cName",
-                                            "top": 0,
+                                            "valign": "middle",
                                             "text": "cName",
                                             "skin": "template/List/label.png",
                                             "name": "cName",
-                                            "height": 50,
-                                            "fontSize": 36
+                                            "height": 40,
+                                            "fontSize": 32,
+                                            "color": "#100E28",
+                                            "align": "left"
                                         }
                                     }, {
                                         "type": "Label",
                                         "props": {
+                                            "y": 128,
                                             "x": 150,
-                                            "width": 300,
+                                            "width": 400,
                                             "var": "cAddr",
+                                            "valign": "middle",
                                             "text": "cAddr",
                                             "skin": "template/List/label.png",
                                             "name": "cAddr",
-                                            "height": 50,
-                                            "fontSize": 36,
-                                            "bottom": 0
+                                            "height": 32,
+                                            "fontSize": 24,
+                                            "color": "#8E979F",
+                                            "align": "left"
                                         }
                                     }, {
                                         "type": "CheckBox",
@@ -1316,6 +1439,584 @@ var ui;
         return GuideUI;
     }(View));
     ui.GuideUI = GuideUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var info;
+    (function (info) {
+        var aboutUI = /** @class */ (function (_super) {
+            __extends(aboutUI, _super);
+            function aboutUI() {
+                return _super.call(this) || this;
+            }
+            aboutUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.info.aboutUI.uiView);
+            };
+            aboutUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "height": 1334 },
+                "child": [{
+                        "type": "Box",
+                        "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                        "child": [{
+                                "type": "Image",
+                                "props": { "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
+                            }, {
+                                "type": "Image",
+                                "props": {
+                                    "y": 40,
+                                    "x": 30,
+                                    "width": 60,
+                                    "var": "btn_back",
+                                    "skin": "img/main/back@2x.png",
+                                    "height": 60
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 48,
+                                    "x": 300,
+                                    "valign": "middle",
+                                    "text": "关于我们",
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "centerX": 0,
+                                    "bold": true,
+                                    "align": "center"
+                                }
+                            }, {
+                                "type": "Image",
+                                "props": { "y": 186, "width": 96, "skin": "img/main/qianbaoicon@2x.png", "height": 96, "centerX": 0 }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 317,
+                                    "text": "当前版本：1.0",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#8E979F",
+                                    "centerX": 0
+                                }
+                            }, {
+                                "type": "TextArea",
+                                "props": {
+                                    "y": 374,
+                                    "width": 654,
+                                    "valign": "middle",
+                                    "text": "WWEC Wallet 是一款移动轻钱包App, 它旨在为普通用户提供 一款安全放心，简单好用，功能强大的数字资产钱包应用。",
+                                    "leading": 8,
+                                    "height": 68,
+                                    "fontSize": 24,
+                                    "editable": false,
+                                    "color": "#8E979F",
+                                    "centerX": 0,
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "Box",
+                                "props": { "y": 526, "x": 56, "var": "btn_team", "right": 56, "left": 56, "height": 40 },
+                                "child": [{
+                                        "type": "Label",
+                                        "props": {
+                                            "valign": "middle",
+                                            "text": "团队介绍",
+                                            "fontSize": 28,
+                                            "color": "#163853",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 0, "height": 32, "centerY": 0 }
+                                    }]
+                            }, {
+                                "type": "Box",
+                                "props": { "y": 646, "x": 56, "right": 56, "left": 56, "height": 40 },
+                                "child": [{
+                                        "type": "Label",
+                                        "props": {
+                                            "valign": "middle",
+                                            "text": "隐私条款",
+                                            "fontSize": 28,
+                                            "color": "#163853",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 0, "height": 32, "centerY": 0 }
+                                    }]
+                            }, {
+                                "type": "Box",
+                                "props": { "y": 766, "x": 56, "right": 56, "left": 56, "height": 40 },
+                                "child": [{
+                                        "type": "Label",
+                                        "props": {
+                                            "valign": "middle",
+                                            "text": "版本日志",
+                                            "fontSize": 28,
+                                            "color": "#163853",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 0, "height": 32, "centerY": 0 }
+                                    }]
+                            }, {
+                                "type": "Box",
+                                "props": { "y": 888, "x": 56, "right": 56, "left": 56, "height": 40 },
+                                "child": [{
+                                        "type": "Label",
+                                        "props": {
+                                            "valign": "middle",
+                                            "text": "产品向导",
+                                            "fontSize": 28,
+                                            "color": "#163853",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 0, "height": 32, "centerY": 0 }
+                                    }]
+                            }, {
+                                "type": "Box",
+                                "props": { "y": 1008, "x": 56, "right": 56, "left": 56, "height": 40 },
+                                "child": [{
+                                        "type": "Label",
+                                        "props": {
+                                            "valign": "middle",
+                                            "text": "检测新版",
+                                            "fontSize": 28,
+                                            "color": "#163853",
+                                            "align": "left"
+                                        }
+                                    }, {
+                                        "type": "Image",
+                                        "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 0, "height": 32, "centerY": 0 }
+                                    }]
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "text": "Copyright @ 2018 ConsenLabs",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#8E979F",
+                                    "centerX": 0,
+                                    "bottom": 88
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "x": 10,
+                                    "text": "All right reserved",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#8E979F",
+                                    "centerX": 0,
+                                    "bottom": 54
+                                }
+                            }]
+                    }]
+            };
+            return aboutUI;
+        }(View));
+        info.aboutUI = aboutUI;
+    })(info = ui.info || (ui.info = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var info;
+    (function (info) {
+        var aboutTeamUI = /** @class */ (function (_super) {
+            __extends(aboutTeamUI, _super);
+            function aboutTeamUI() {
+                return _super.call(this) || this;
+            }
+            aboutTeamUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.info.aboutTeamUI.uiView);
+            };
+            aboutTeamUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "height": 1334 },
+                "child": [{
+                        "type": "Box",
+                        "props": { "y": 10, "x": 10, "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                        "child": [{
+                                "type": "Image",
+                                "props": { "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
+                            }, {
+                                "type": "Image",
+                                "props": {
+                                    "y": 40,
+                                    "x": 30,
+                                    "width": 60,
+                                    "var": "btn_back",
+                                    "skin": "img/main/back@2x.png",
+                                    "height": 60
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 48,
+                                    "x": 300,
+                                    "valign": "middle",
+                                    "text": "团队介绍",
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "centerX": 0,
+                                    "bold": true,
+                                    "align": "center"
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 186,
+                                    "valign": "middle",
+                                    "text": "WWEC Foundation（新加坡）",
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "centerX": -14,
+                                    "bold": true,
+                                    "align": "center"
+                                }
+                            }, {
+                                "type": "TextArea",
+                                "props": {
+                                    "y": 300,
+                                    "width": 590,
+                                    "text": "我们专注于区块链电商公链及应用，打造最具影响力的世界数字资产。",
+                                    "leading": 10,
+                                    "height": 100,
+                                    "fontSize": 28,
+                                    "color": "#8E979F",
+                                    "centerX": 0
+                                }
+                            }, {
+                                "type": "TextArea",
+                                "props": {
+                                    "y": 400,
+                                    "width": 590,
+                                    "text": "我们有梦想、有格局、有思维、有资源，共创财富共同体、生命共同体！ ",
+                                    "leading": 10,
+                                    "height": 100,
+                                    "fontSize": 28,
+                                    "color": "#8E979F",
+                                    "centerX": 0
+                                }
+                            }, {
+                                "type": "TextArea",
+                                "props": {
+                                    "y": 500,
+                                    "width": 590,
+                                    "text": "我们遵守公约、传播共识！我们共创辉煌、共享荣耀！",
+                                    "leading": 10,
+                                    "height": 100,
+                                    "fontSize": 28,
+                                    "color": "#8E979F",
+                                    "centerX": 0
+                                }
+                            }]
+                    }]
+            };
+            return aboutTeamUI;
+        }(View));
+        info.aboutTeamUI = aboutTeamUI;
+    })(info = ui.info || (ui.info = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var info;
+    (function (info) {
+        var CandyUI = /** @class */ (function (_super) {
+            __extends(CandyUI, _super);
+            function CandyUI() {
+                return _super.call(this) || this;
+            }
+            CandyUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.info.CandyUI.uiView);
+            };
+            CandyUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "height": 1334 },
+                "child": [{
+                        "type": "Box",
+                        "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                        "child": [{
+                                "type": "Image",
+                                "props": {
+                                    "y": 40,
+                                    "x": 30,
+                                    "width": 60,
+                                    "var": "btn_back",
+                                    "skin": "img/main/back@2x.png",
+                                    "height": 60
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "y": 45,
+                                    "width": 213,
+                                    "valign": "middle",
+                                    "text": "领取糖果",
+                                    "height": 44,
+                                    "fontSize": 32,
+                                    "color": "#163853",
+                                    "centerX": 0,
+                                    "bold": true,
+                                    "align": "center"
+                                }
+                            }, {
+                                "type": "TextInput",
+                                "props": {
+                                    "y": 194,
+                                    "x": 30,
+                                    "width": 300,
+                                    "type": "number",
+                                    "promptColor": "#163853",
+                                    "prompt": "请输入手机号",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#163853"
+                                },
+                                "child": [{
+                                        "type": "Image",
+                                        "props": { "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "bottom": 0 }
+                                    }]
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "y": 198,
+                                    "width": 165,
+                                    "skin": "img/main/img_blue2.png",
+                                    "right": 48,
+                                    "labelSize": 24,
+                                    "labelColors": "#FFFFFF",
+                                    "label": "获取验证码",
+                                    "height": 34
+                                }
+                            }, {
+                                "type": "TextInput",
+                                "props": {
+                                    "y": 244,
+                                    "x": 30,
+                                    "width": 300,
+                                    "type": "number",
+                                    "promptColor": "#163853",
+                                    "prompt": "验证码",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#163853"
+                                },
+                                "child": [{
+                                        "type": "Image",
+                                        "props": { "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "bottom": 0 }
+                                    }]
+                            }, {
+                                "type": "List",
+                                "props": {
+                                    "width": 750,
+                                    "var": "list_wallet",
+                                    "top": 300,
+                                    "selectEnable": true,
+                                    "right": 0,
+                                    "repeatX": 1,
+                                    "left": 0,
+                                    "bottom": 400
+                                },
+                                "child": [{
+                                        "type": "Box",
+                                        "props": { "right": 0, "renderType": "render", "name": "render", "left": 0, "height": 120 },
+                                        "child": [{
+                                                "type": "Image",
+                                                "props": {
+                                                    "width": 750,
+                                                    "top": 0,
+                                                    "skin": "img/main/white.jpg",
+                                                    "right": 0,
+                                                    "left": 0,
+                                                    "height": 60,
+                                                    "bottom": 0
+                                                }
+                                            }, {
+                                                "type": "Image",
+                                                "props": {
+                                                    "x": 60,
+                                                    "width": 58,
+                                                    "skin": "img/main/wo de-@2x.png",
+                                                    "name": "img_wallet",
+                                                    "height": 58,
+                                                    "centerY": 0
+                                                }
+                                            }, {
+                                                "type": "Label",
+                                                "props": {
+                                                    "y": 26,
+                                                    "x": 154,
+                                                    "width": 170,
+                                                    "valign": "middle",
+                                                    "text": "ETH",
+                                                    "skin": "template/List/label.png",
+                                                    "name": "lab_wName",
+                                                    "height": 34,
+                                                    "fontSize": 24,
+                                                    "color": "#163853",
+                                                    "align": "left"
+                                                }
+                                            }, {
+                                                "type": "Label",
+                                                "props": {
+                                                    "y": 60,
+                                                    "x": 154,
+                                                    "width": 400,
+                                                    "valign": "middle",
+                                                    "text": "035dx5dx...",
+                                                    "skin": "template/List/label.png",
+                                                    "name": "lab_wAddr",
+                                                    "height": 28,
+                                                    "fontSize": 20,
+                                                    "color": "#8E979F",
+                                                    "align": "left"
+                                                }
+                                            }, {
+                                                "type": "Radio",
+                                                "props": {
+                                                    "width": 30,
+                                                    "var": "radio",
+                                                    "skin": "img/main/radio2.png",
+                                                    "right": 50,
+                                                    "name": "radio",
+                                                    "height": 30,
+                                                    "centerY": 0
+                                                }
+                                            }]
+                                    }]
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "width": 690,
+                                    "stateNum": 1,
+                                    "skin": "img/main/anliu@2x.png",
+                                    "labelSize": 32,
+                                    "labelColors": "#ffffff",
+                                    "label": "领取糖果",
+                                    "height": 88,
+                                    "centerX": 0,
+                                    "bottom": 200
+                                }
+                            }, {
+                                "type": "Label",
+                                "props": {
+                                    "text": "一个手机号及钱包地址只能领取1次糖果",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#8E979F",
+                                    "centerX": 0,
+                                    "bottom": 116
+                                }
+                            }]
+                    }]
+            };
+            return CandyUI;
+        }(View));
+        info.CandyUI = CandyUI;
+    })(info = ui.info || (ui.info = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var info;
+    (function (info) {
+        var ServiceUI = /** @class */ (function (_super) {
+            __extends(ServiceUI, _super);
+            function ServiceUI() {
+                return _super.call(this) || this;
+            }
+            ServiceUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.info.ServiceUI.uiView);
+            };
+            ServiceUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
+                "child": [{
+                        "type": "Image",
+                        "props": { "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
+                    }, {
+                        "type": "Box",
+                        "props": { "top": 0, "right": 0, "left": 0, "bottom": 130 },
+                        "child": [{
+                                "type": "TextArea",
+                                "props": {
+                                    "var": "text",
+                                    "vScrollBarSkin": "comp/vscroll.png",
+                                    "top": 0,
+                                    "text": "                                                  万微钱包服务协议",
+                                    "right": 0,
+                                    "padding": "20,20,20,20",
+                                    "left": 0,
+                                    "leading": 20,
+                                    "fontSize": 20,
+                                    "editable": false,
+                                    "color": "#000000",
+                                    "bottom": 0
+                                }
+                            }]
+                    }, {
+                        "type": "Box",
+                        "props": { "right": 0, "left": 0, "height": 130, "bottom": 0 },
+                        "child": [{
+                                "type": "Label",
+                                "props": {
+                                    "y": 0,
+                                    "x": 70,
+                                    "width": 633,
+                                    "valign": "middle",
+                                    "text": "我已经仔细阅读并同意隐私及服务条款",
+                                    "padding": "0",
+                                    "name": "隐私及服务条款",
+                                    "height": 34,
+                                    "fontSize": 24,
+                                    "color": "#8E979F",
+                                    "align": "left"
+                                }
+                            }, {
+                                "type": "CheckBox",
+                                "props": {
+                                    "y": 0,
+                                    "x": 30,
+                                    "width": 24,
+                                    "var": "agree",
+                                    "skin": "img/main/radio.png",
+                                    "scaleY": 2,
+                                    "scaleX": 2,
+                                    "mouseEnabled": true,
+                                    "layoutEnabled": true,
+                                    "hitTestPrior": true,
+                                    "height": 24,
+                                    "click": "updateArgee"
+                                }
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "var": "btn_accept",
+                                    "stateNum": 1,
+                                    "skin": "img/main/img_blue2.png",
+                                    "sizeGrid": "0,0,0,0",
+                                    "right": 0,
+                                    "left": 0,
+                                    "labelSize": 32,
+                                    "labelColors": "#ffffff",
+                                    "label": "下一步",
+                                    "height": 80,
+                                    "disabled": true,
+                                    "bottom": 0
+                                }
+                            }]
+                    }]
+            };
+            return ServiceUI;
+        }(View));
+        info.ServiceUI = ServiceUI;
+    })(info = ui.info || (ui.info = {}));
 })(ui || (ui = {}));
 (function (ui) {
     var LoginUI = /** @class */ (function (_super) {
@@ -2054,6 +2755,7 @@ var ui;
                                     "name": "item1",
                                     "labelSize": 28,
                                     "label": "官方钱包",
+                                    "disabled": true,
                                     "bottom": 0
                                 }
                             }, {
@@ -2066,6 +2768,7 @@ var ui;
                                     "name": "item2",
                                     "labelSize": 28,
                                     "label": "私钥",
+                                    "disabled": true,
                                     "bottom": 0
                                 }
                             }]
@@ -2093,7 +2796,7 @@ var ui;
                                     }, {
                                         "type": "ComboBox",
                                         "props": {
-                                            "y": 230,
+                                            "y": 269,
                                             "width": 654,
                                             "var": "o_sel_dir",
                                             "sizeGrid": "0,0,0,0",
@@ -2216,7 +2919,53 @@ var ui;
                                         }
                                     }, {
                                         "type": "Image",
-                                        "props": { "y": 230, "width": 44, "skin": "img/main/Stroke 2@2x.png", "right": 30, "height": 44 }
+                                        "props": { "y": 269, "width": 44, "skin": "img/main/Stroke 2@2x.png", "right": 30, "height": 44 }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 208,
+                                            "width": 690,
+                                            "visible": false,
+                                            "var": "warn_zjc",
+                                            "text": "请输入正确的助记词",
+                                            "right": 30,
+                                            "left": 30,
+                                            "height": 30,
+                                            "fontSize": 20,
+                                            "color": "#ff0400",
+                                            "align": "right"
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 405,
+                                            "width": 690,
+                                            "visible": false,
+                                            "var": "warn_pass",
+                                            "text": "密码不少于8位",
+                                            "right": 30,
+                                            "left": 37,
+                                            "height": 30,
+                                            "fontSize": 20,
+                                            "color": "#ff0400",
+                                            "align": "right"
+                                        }
+                                    }, {
+                                        "type": "Label",
+                                        "props": {
+                                            "y": 525,
+                                            "x": 10,
+                                            "width": 690,
+                                            "visible": false,
+                                            "var": "warn_passconf",
+                                            "text": "2次输入的密码不一致",
+                                            "right": 30,
+                                            "left": 31,
+                                            "height": 30,
+                                            "fontSize": 20,
+                                            "color": "#ff0400",
+                                            "align": "right"
+                                        }
                                     }]
                             }, {
                                 "type": "Box",
@@ -2494,6 +3243,81 @@ var ui;
     })(set = ui.set || (ui.set = {}));
 })(ui || (ui = {}));
 (function (ui) {
+    var temple;
+    (function (temple) {
+        var testUI = /** @class */ (function (_super) {
+            __extends(testUI, _super);
+            function testUI() {
+                return _super.call(this) || this;
+            }
+            testUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.createView(ui.temple.testUI.uiView);
+            };
+            testUI.uiView = {
+                "type": "View",
+                "props": { "width": 750, "height": 1334 },
+                "child": [{
+                        "type": "Image",
+                        "props": { "y": 770, "x": 27, "skin": "template/Tab/tab bar_no button.png" }
+                    }, {
+                        "type": "Tab",
+                        "props": { "y": 770, "x": 78, "stateNum": 0, "selectedIndex": 1 },
+                        "child": [{
+                                "type": "Button",
+                                "props": {
+                                    "stateNum": 2,
+                                    "skin": "template/Tab/btn_Icon1.png",
+                                    "name": "item0",
+                                    "labelPadding": "30",
+                                    "labelColors": "#929292,#0079ff",
+                                    "label": "Favorites"
+                                }
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "y": 0,
+                                    "x": 154,
+                                    "stateNum": 2,
+                                    "skin": "template/Tab/btn_Icon2.png",
+                                    "name": "item1",
+                                    "labelPadding": "30",
+                                    "labelColors": "#929292,#0079ff",
+                                    "label": "Recents"
+                                }
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "y": 0,
+                                    "x": 314,
+                                    "stateNum": 2,
+                                    "skin": "template/Tab/btn_Icon3.png",
+                                    "name": "item2",
+                                    "labelPadding": "30",
+                                    "labelColors": "#929292,#0079ff",
+                                    "label": "Contacts"
+                                }
+                            }, {
+                                "type": "Button",
+                                "props": {
+                                    "y": 0,
+                                    "x": 473,
+                                    "stateNum": 2,
+                                    "skin": "template/Tab/btn_Icon4.png",
+                                    "name": "item3",
+                                    "labelPadding": "30",
+                                    "labelColors": "#929292,#0079ff",
+                                    "label": "Keypad"
+                                }
+                            }]
+                    }]
+            };
+            return testUI;
+        }(View));
+        temple.testUI = testUI;
+    })(temple = ui.temple || (ui.temple = {}));
+})(ui || (ui = {}));
+(function (ui) {
     var TransDetailUI = /** @class */ (function (_super) {
         __extends(TransDetailUI, _super);
         function TransDetailUI() {
@@ -2738,36 +3562,127 @@ var ui;
         };
         TransHisListUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Rect",
-                    "props": { "y": 0, "x": 0, "width": 375, "lineWidth": 1, "height": 60, "fillColor": "#c6e2ee" }
-                }, {
                     "type": "Label",
                     "props": {
-                        "y": 10,
+                        "y": 30,
                         "x": 108,
                         "valign": "middle",
-                        "top": 20,
                         "text": "交易",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
+                        "height": 60,
+                        "fontSize": 32,
+                        "color": "#163853",
                         "centerX": 0,
                         "align": "center"
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "y": 10,
-                        "x": 10,
-                        "width": 117,
+                        "y": 30,
+                        "x": 30,
+                        "width": 60,
                         "var": "btn_goback",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "left": 20,
-                        "height": 30
+                        "stateNum": 1,
+                        "skin": "img/main/back@2x.png",
+                        "height": 60
                     }
+                }, {
+                    "type": "List",
+                    "props": {
+                        "x": 0,
+                        "var": "list",
+                        "top": 100,
+                        "selectEnable": false,
+                        "right": 0,
+                        "repeatX": 1,
+                        "left": 0,
+                        "bottom": 0
+                    },
+                    "child": [{
+                            "type": "Box",
+                            "props": { "right": 0, "name": "render", "left": 0, "height": 120 },
+                            "child": [{
+                                    "type": "Image",
+                                    "props": {
+                                        "y": 0,
+                                        "x": 0,
+                                        "top": 0,
+                                        "skin": "template/List/SimpleListBoxItemBackground.png",
+                                        "right": 0,
+                                        "left": 0,
+                                        "bottom": 0
+                                    }
+                                }, {
+                                    "type": "Image",
+                                    "props": {
+                                        "y": 32,
+                                        "x": 30,
+                                        "width": 56,
+                                        "skin": "img/main/transfer_in.png",
+                                        "name": "img",
+                                        "height": 56,
+                                        "centerY": 0
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 0,
+                                        "x": 100,
+                                        "width": 400,
+                                        "valign": "bottom",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "name": "lab_deal_name",
+                                        "height": 60,
+                                        "fontSize": 24,
+                                        "color": "#163853",
+                                        "align": "left"
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 60,
+                                        "x": 100,
+                                        "width": 400,
+                                        "valign": "middle",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "name": "lab_addr",
+                                        "height": 60,
+                                        "fontSize": 20,
+                                        "color": "#8E979F",
+                                        "align": "left"
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 35,
+                                        "x": 520,
+                                        "width": 200,
+                                        "valign": "middle",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "right": 30,
+                                        "name": "lab_amount",
+                                        "height": 50,
+                                        "fontSize": 28,
+                                        "color": "#FF516F",
+                                        "centerY": 0,
+                                        "align": "right"
+                                    }
+                                }, {
+                                    "type": "Image",
+                                    "props": {
+                                        "y": 119,
+                                        "x": 0,
+                                        "skin": "img/main/itemSepar.png",
+                                        "right": 0,
+                                        "left": 0,
+                                        "bottom": 0
+                                    }
+                                }]
+                        }]
                 }]
         };
         return TransHisListUI;
@@ -3200,162 +4115,197 @@ var ui;
         };
         WalletDetailUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
                     "type": "Rect",
-                    "props": { "y": 0, "x": 0, "width": 300, "lineWidth": 1, "height": 60 }
+                    "props": { "y": 0, "x": 0, "width": 750, "height": 216, "fillColor": "#598ADA" }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "y": 40,
+                        "x": 30,
+                        "width": 60,
+                        "var": "btn_back",
+                        "stateNum": 1,
+                        "skin": "img/main/back@2x.png",
+                        "labelSize": 22,
+                        "labelColors": "#057AFB,#057AFB,#7EB9FB",
+                        "height": 60
+                    }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 10,
-                        "x": 108,
+                        "y": 40,
+                        "x": 353,
                         "var": "lab_wName",
                         "valign": "middle",
-                        "top": 20,
                         "text": "myeth",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
+                        "height": 44,
+                        "fontSize": 32,
+                        "color": "#ffffff",
                         "centerX": 0,
                         "align": "center"
                     }
                 }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 20,
-                        "x": 20,
-                        "width": 117,
-                        "var": "btn_back",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "height": 30
-                    }
-                }, {
                     "type": "Label",
                     "props": {
-                        "y": 20,
                         "var": "btn_save",
                         "valign": "middle",
-                        "top": 20,
+                        "top": 40,
                         "text": "保存",
-                        "right": 20,
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#218d92",
+                        "right": 30,
+                        "height": 40,
+                        "fontSize": 28,
+                        "color": "#ffffff",
                         "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
+                        "y": 282,
                         "width": 67,
                         "var": "lab_total",
                         "valign": "middle",
-                        "top": 97,
-                        "text": "0.00 $USDT",
-                        "height": 19,
-                        "fontSize": 12,
-                        "color": "#000000",
+                        "text": "0 ¥",
+                        "height": 40,
+                        "fontSize": 28,
+                        "color": "#163853",
                         "centerX": 0,
                         "align": "center"
                     }
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 65,
-                        "width": 30,
+                        "y": 172,
+                        "width": 88,
                         "var": "img_wImg",
-                        "skin": "img/main/add.png",
-                        "height": 30,
+                        "skin": "img/main/wd@2x.png",
+                        "height": 88,
                         "centerX": 0
                     }
                 }, {
                     "type": "Label",
                     "props": {
+                        "y": 332,
                         "var": "lab_wAddr",
                         "valign": "middle",
-                        "top": 115,
                         "text": "52s5c2d6...3625x15d",
-                        "height": 20,
-                        "fontSize": 12,
-                        "color": "#000000",
-                        "centerX": 0,
+                        "right": 0,
+                        "left": 0,
+                        "height": 40,
+                        "fontSize": 28,
+                        "color": "#8E979F",
                         "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
+                        "y": 516,
+                        "x": 30,
                         "valign": "middle",
-                        "top": 138,
                         "text": "钱包名称",
-                        "left": 20,
-                        "height": 20,
-                        "fontSize": 12,
-                        "color": "#000000",
+                        "height": 40,
+                        "fontSize": 28,
+                        "color": "#163853",
                         "align": "center"
                     }
                 }, {
                     "type": "TextInput",
-                    "props": { "y": 161, "var": "text_wName", "text": "myeth", "left": 20 }
+                    "props": {
+                        "y": 556,
+                        "width": 478,
+                        "var": "text_wName",
+                        "text": "myeth",
+                        "left": 30,
+                        "height": 40,
+                        "fontSize": 28,
+                        "color": "#163853"
+                    },
+                    "child": [{
+                            "type": "Image",
+                            "props": { "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "bottom": 0 }
+                        }]
                 }, {
                     "type": "Box",
-                    "props": { "y": 186, "var": "box_reverpass", "right": 0, "left": 0, "height": 50 },
+                    "props": { "y": 644, "var": "box_reverpass", "right": 0, "left": 0, "height": 50, "disabled": true },
                     "child": [{
                             "type": "Label",
                             "props": {
-                                "width": 107,
+                                "width": 191,
                                 "valign": "middle",
                                 "text": "修改密码",
-                                "left": 20,
-                                "height": 22,
+                                "left": 30,
+                                "height": 40,
+                                "fontSize": 28,
+                                "color": "#163853",
                                 "centerY": 0,
                                 "align": "left"
                             }
-                        }, { "type": "Image", "props": { "skin": "template/List/arrow.png", "right": 20, "centerY": 0 } }]
+                        }, { "type": "Image", "props": { "skin": "img/main/next@2x.png", "right": 20, "centerY": 0 } }]
                 }, {
                     "type": "Box",
-                    "props": { "y": 250, "var": "box_expSeckey", "right": 0, "left": 0, "height": 50 },
+                    "props": { "y": 764, "var": "box_expSeckey", "right": 0, "left": 0, "height": 50, "disabled": true },
                     "child": [{
                             "type": "Label",
                             "props": {
-                                "width": 107,
+                                "width": 233,
                                 "valign": "middle",
                                 "text": "导出私钥",
-                                "left": 20,
-                                "height": 22,
+                                "left": 30,
+                                "height": 40,
+                                "fontSize": 28,
+                                "color": "#163853",
                                 "centerY": 0,
                                 "align": "left"
                             }
-                        }, { "type": "Image", "props": { "skin": "template/List/arrow.png", "right": 20, "centerY": 0 } }]
+                        }, { "type": "Image", "props": { "skin": "img/main/next@2x.png", "right": 20, "centerY": 0 } }]
                 }, {
                     "type": "Box",
-                    "props": { "y": 300, "x": 0, "var": "box_expKeystore", "right": 0, "left": 0, "height": 50 },
+                    "props": { "y": 884, "var": "box_expKeystore", "right": 0, "left": 0, "height": 50, "disabled": true },
                     "child": [{
                             "type": "Label",
                             "props": {
-                                "width": 107,
+                                "width": 203,
                                 "valign": "middle",
                                 "text": "导出Keystore",
-                                "left": 20,
-                                "height": 22,
+                                "left": 30,
+                                "height": 44,
+                                "fontSize": 28,
+                                "color": "#163853",
                                 "centerY": 0,
                                 "align": "left"
                             }
-                        }, { "type": "Image", "props": { "skin": "template/List/arrow.png", "right": 20, "centerY": 0 } }]
+                        }, { "type": "Image", "props": { "skin": "img/main/next@2x.png", "right": 20, "centerY": 0 } }]
                 }, {
                     "type": "Button",
                     "props": {
-                        "y": 483,
-                        "x": 20,
-                        "width": 354,
                         "var": "btn_backup",
                         "stateNum": 1,
                         "skin": "img/main/anliu@2x.png",
                         "sizeGrid": "0,0,0,0",
-                        "labelSize": 16,
+                        "right": 30,
+                        "left": 30,
+                        "labelSize": 32,
                         "labelColors": "#ffffff",
-                        "label": "备份钱包",
-                        "height": 40,
-                        "centerX": 0
+                        "label": "备份助记词",
+                        "height": 80,
+                        "bottom": 172
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "var": "btn_delete",
+                        "stateNum": 1,
+                        "skin": "img/main/anliu-@2x.png",
+                        "sizeGrid": "0,0,0,0",
+                        "right": 30,
+                        "left": 30,
+                        "labelSize": 32,
+                        "labelColors": "#ffffff",
+                        "label": "删除钱包",
+                        "height": 80,
+                        "disabled": true,
+                        "bottom": 60
                     }
                 }]
         };
@@ -3377,128 +4327,106 @@ var ui;
             "type": "View",
             "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Rect",
-                    "props": { "y": 0, "x": 0, "width": 750, "lineWidth": 1, "height": 400, "fillColor": "#c1e2ef" }
+                    "type": "Image",
+                    "props": { "top": 0, "skin": "img/main/e@2x.png", "right": 0, "left": 0, "height": 544 }
                 }, {
                     "type": "Image",
-                    "props": { "y": 49, "width": 60, "skin": "img/main/add.png", "height": 60, "centerX": 0 }
+                    "props": { "y": 80, "width": 120, "skin": "img/main/touxiang@2x.png", "height": 120, "centerX": 0 }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 124,
+                        "y": 225,
                         "var": "lab_wName",
-                        "text": "0",
-                        "height": 44,
+                        "text": "我的钱包名称",
+                        "height": 40,
                         "fontSize": 32,
-                        "color": "#000000",
+                        "color": "#ffffff",
                         "centerX": 0
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 174,
+                        "y": 288,
+                        "width": 368,
                         "var": "lab_wAddr",
                         "valign": "middle",
                         "text": "AAAAAAAA......AAAAAAAA",
                         "overflow": "hidden",
                         "height": 44,
-                        "fontSize": 32,
-                        "color": "#000000",
-                        "centerX": -5,
-                        "align": "left"
+                        "fontSize": 24,
+                        "color": "#ffffff",
+                        "centerX": -45,
+                        "align": "right"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 347,
-                        "x": 34,
+                        "y": 480,
+                        "x": 30,
                         "width": 565,
                         "valign": "middle",
                         "text": "总资产(¥)",
                         "height": 44,
-                        "fontSize": 28,
+                        "fontSize": 24,
                         "color": "#000000"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 306,
-                        "var": "lab_total_usd",
+                        "y": 400,
+                        "width": 594,
+                        "var": "lab_total",
+                        "valign": "middle",
                         "text": "≈ 0",
-                        "right": 20,
-                        "left": 34,
-                        "height": 44,
-                        "fontSize": 32,
-                        "color": "#000000"
+                        "left": 30,
+                        "height": 80,
+                        "fontSize": 56,
+                        "color": "#000000",
+                        "align": "left"
                     }
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 172,
-                        "x": 581,
+                        "y": 283,
+                        "x": 517,
                         "width": 60,
                         "var": "btn_owner_info",
-                        "skin": "img/main/add.png",
+                        "skin": "img/main/erweima@2x.png",
                         "height": 60
                     }
                 }, {
                     "type": "Image",
                     "props": {
-                        "y": 295,
-                        "width": 60,
+                        "y": 429,
+                        "width": 88,
                         "var": "btn_addCoin",
-                        "skin": "img/main/add.png",
+                        "skin": "img/main/tj@2x.png",
                         "sizeGrid": "0,0,0,0",
                         "right": 30,
-                        "height": 60
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "x": 0,
-                        "width": 375,
-                        "var": "btn_assets",
-                        "selected": true,
-                        "labelSize": 32,
-                        "labelAlign": "center",
-                        "label": "资产",
-                        "height": 60,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "var": "btn_me",
-                        "right": 0,
-                        "mouseEnabled": true,
-                        "left": 375,
-                        "layoutEnabled": true,
-                        "labelSize": 32,
-                        "label": "我",
-                        "height": 60,
-                        "bottom": 0
+                        "height": 88
                     }
                 }, {
                     "type": "Image",
                     "props": {
                         "width": 60,
                         "var": "btn_more",
-                        "top": 30,
-                        "skin": "img/main/add.png",
+                        "top": 60,
+                        "skin": "img/main/mr@2x.png",
                         "right": 30,
                         "height": 60
                     }
                 }, {
                     "type": "List",
                     "props": {
+                        "width": 750,
                         "var": "list_wallet",
-                        "top": 400,
+                        "top": 544,
                         "selectEnable": true,
                         "right": 0,
-                        "repeatY": 1,
                         "repeatX": 1,
                         "left": 0,
-                        "bottom": 60
+                        "height": 844,
+                        "bottom": 96
                     },
                     "child": [{
                             "type": "Box",
@@ -3516,50 +4444,94 @@ var ui;
                                     "type": "Image",
                                     "props": {
                                         "x": 28,
-                                        "width": 78,
+                                        "width": 80,
                                         "var": "cImg",
-                                        "skin": "template/List/message icon_57x57.png",
+                                        "skin": "img/main/qb@2x.png",
                                         "name": "cImg",
-                                        "height": 78,
+                                        "height": 80,
                                         "centerY": 0
                                     }
                                 }, {
                                     "type": "Label",
                                     "props": {
                                         "x": 114,
-                                        "width": 445,
+                                        "width": 300,
                                         "var": "cName",
                                         "text": "label",
                                         "skin": "template/List/label.png",
                                         "name": "cName",
-                                        "height": 50,
-                                        "fontSize": 36,
+                                        "height": 48,
+                                        "fontSize": 40,
+                                        "color": "#100E28",
                                         "centerY": 0
                                     }
                                 }, {
                                     "type": "Label",
                                     "props": {
                                         "var": "cTotal",
+                                        "valign": "middle",
                                         "text": "第三方士大夫",
                                         "right": 30,
                                         "name": "cTotal",
-                                        "height": 44,
-                                        "fontSize": 28,
-                                        "centerY": 0
+                                        "height": 40,
+                                        "fontSize": 32,
+                                        "color": "#100E28",
+                                        "centerY": -13,
+                                        "align": "right"
                                     }
                                 }, {
                                     "type": "Label",
                                     "props": {
                                         "var": "cValue",
+                                        "valign": "middle",
                                         "text": "不晓得官方",
                                         "right": 30,
                                         "name": "cValue",
                                         "height": 44,
-                                        "fontSize": 28,
-                                        "bottom": 0
+                                        "fontSize": 24,
+                                        "color": "#8E979F",
+                                        "bottom": 5,
+                                        "align": "right"
                                     }
+                                }, {
+                                    "type": "Image",
+                                    "props": { "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "height": 1, "bottom": 0 }
                                 }]
                         }]
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "x": 155,
+                        "width": 72,
+                        "var": "btn_assets",
+                        "stateNum": 1,
+                        "skin": "img/main/zichan@2x.png",
+                        "sizeGrid": "0,0,-80,0",
+                        "name": "item1",
+                        "labelSize": 20,
+                        "labelPadding": "30",
+                        "labelColors": "#598ADA",
+                        "label": "资产",
+                        "height": 88,
+                        "bottom": 8
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "x": 473,
+                        "width": 72,
+                        "var": "btn_me",
+                        "stateNum": 1,
+                        "skin": "img/main/wode@2x.png",
+                        "sizeGrid": "0,0,-80,0",
+                        "name": "item2",
+                        "labelSize": 20,
+                        "labelPadding": "30",
+                        "labelColors": "#B0BBC4",
+                        "label": "我的",
+                        "height": 88,
+                        "bottom": 8
+                    }
                 }]
         };
         return WalletMainUI;
@@ -3578,144 +4550,149 @@ var ui;
         };
         WalletManageUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Label",
-                    "props": {
-                        "y": 10,
-                        "x": 124,
-                        "valign": "middle",
-                        "top": 20,
-                        "text": "管理钱包",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
-                        "centerX": 0,
-                        "align": "center"
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 10,
-                        "x": 10,
-                        "width": 117,
-                        "var": "btn_goback",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "left": 20,
-                        "height": 30
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 389,
-                        "x": 0,
-                        "width": 187,
-                        "var": "btn_create",
-                        "labelAlign": "center",
-                        "label": "创建钱包",
-                        "height": 60,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 389,
-                        "x": 187,
-                        "width": 187,
-                        "var": "btn_import",
-                        "mouseEnabled": true,
-                        "layoutEnabled": true,
-                        "label": "导入钱包",
-                        "height": 60,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "List",
-                    "props": {
-                        "var": "list_wallet",
-                        "top": 60,
-                        "selectEnable": true,
-                        "right": 0,
-                        "repeatX": 1,
-                        "left": 0,
-                        "bottom": 40
-                    },
+                    "type": "Box",
+                    "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
                     "child": [{
-                            "type": "Box",
-                            "props": { "right": 0, "renderType": "render", "name": "render", "left": 0, "height": 80 },
+                            "type": "Image",
+                            "props": {
+                                "y": 64,
+                                "x": 30,
+                                "width": 60,
+                                "var": "btn_goback",
+                                "skin": "img/main/back@2x.png",
+                                "height": 60
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 72,
+                                "x": 311,
+                                "valign": "middle",
+                                "text": "管理钱包",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerX": 0,
+                                "bold": true,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "List",
+                            "props": {
+                                "x": 0,
+                                "var": "list_wallet",
+                                "top": 156,
+                                "selectEnable": true,
+                                "right": 0,
+                                "repeatX": 1,
+                                "left": 0,
+                                "bottom": 88
+                            },
                             "child": [{
-                                    "type": "Image",
-                                    "props": {
-                                        "y": 0,
-                                        "x": 0,
-                                        "width": 300,
-                                        "skin": "template/List/SimpleListBoxItemBackground.png",
-                                        "height": 80
-                                    }
-                                }, {
-                                    "type": "Image",
-                                    "props": {
-                                        "y": 20,
-                                        "x": 20,
-                                        "width": 30,
-                                        "var": "img_wallet",
-                                        "skin": "template/List/message icon_57x57.png",
-                                        "name": "img_wallet",
-                                        "height": 30
-                                    }
-                                }, {
-                                    "type": "Label",
-                                    "props": {
-                                        "y": 9,
-                                        "x": 60,
-                                        "width": 170,
-                                        "var": "lab_wName",
-                                        "valign": "middle",
-                                        "text": "ETH",
-                                        "skin": "template/List/label.png",
-                                        "name": "lab_wName",
-                                        "height": 20,
-                                        "fontSize": 16,
-                                        "color": "#000000",
-                                        "align": "left"
-                                    }
-                                }, {
-                                    "type": "Label",
-                                    "props": {
-                                        "y": 31,
-                                        "x": 60,
-                                        "width": 190,
-                                        "var": "lab_wAddr",
-                                        "valign": "middle",
-                                        "text": "035dx5dx...",
-                                        "skin": "template/List/label.png",
-                                        "name": "lab_wAddr",
-                                        "height": 20,
-                                        "fontSize": 12,
-                                        "color": "#aaaaaa",
-                                        "align": "left"
-                                    }
-                                }, {
-                                    "type": "Image",
-                                    "props": { "top": 10, "skin": "template/List/arrow.png", "right": 20 }
-                                }, {
-                                    "type": "Label",
-                                    "props": {
-                                        "width": 200,
-                                        "var": "lab_wTotal",
-                                        "valign": "middle",
-                                        "text": "0 ether",
-                                        "skin": "template/List/label.png",
-                                        "right": 20,
-                                        "name": "lab_wTotal",
-                                        "height": 20,
-                                        "fontSize": 16,
-                                        "color": "#aaaaaa",
-                                        "bottom": 10,
-                                        "align": "right"
-                                    }
+                                    "type": "Box",
+                                    "props": { "right": 0, "renderType": "render", "name": "render", "left": 0, "height": 280 },
+                                    "child": [{
+                                            "type": "Image",
+                                            "props": { "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
+                                        }, {
+                                            "type": "Image",
+                                            "props": {
+                                                "y": 44,
+                                                "x": 60,
+                                                "width": 58,
+                                                "var": "img_wallet",
+                                                "skin": "img/main/wo de-@2x.png",
+                                                "name": "img_wallet",
+                                                "height": 58
+                                            }
+                                        }, {
+                                            "type": "Label",
+                                            "props": {
+                                                "y": 58,
+                                                "x": 154,
+                                                "width": 170,
+                                                "var": "lab_wName",
+                                                "valign": "middle",
+                                                "text": "ETH",
+                                                "skin": "template/List/label.png",
+                                                "name": "lab_wName",
+                                                "height": 34,
+                                                "fontSize": 24,
+                                                "color": "#163853",
+                                                "align": "left"
+                                            }
+                                        }, {
+                                            "type": "Label",
+                                            "props": {
+                                                "y": 96,
+                                                "x": 154,
+                                                "width": 560,
+                                                "var": "lab_wAddr",
+                                                "valign": "middle",
+                                                "text": "035dx5dx...",
+                                                "skin": "template/List/label.png",
+                                                "name": "lab_wAddr",
+                                                "height": 28,
+                                                "fontSize": 20,
+                                                "color": "#8E979F",
+                                                "align": "left"
+                                            }
+                                        }, {
+                                            "type": "Image",
+                                            "props": { "y": 60, "width": 32, "skin": "img/main/next@2x.png", "right": 20, "height": 32 }
+                                        }, {
+                                            "type": "Label",
+                                            "props": {
+                                                "width": 609,
+                                                "var": "lab_wTotal",
+                                                "valign": "middle",
+                                                "text": "0 ¥",
+                                                "skin": "template/List/label.png",
+                                                "right": 80,
+                                                "name": "lab_wTotal",
+                                                "height": 55,
+                                                "fontSize": 28,
+                                                "color": "#163853",
+                                                "bottom": 50,
+                                                "align": "right"
+                                            }
+                                        }]
                                 }]
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 1274,
+                                "x": 0,
+                                "width": 375,
+                                "var": "btn_create",
+                                "stateNum": 1,
+                                "skin": "img/main/img_blue1.png",
+                                "labelSize": 32,
+                                "labelColors": "#ffffff",
+                                "labelAlign": "center",
+                                "label": "创建钱包",
+                                "height": 88,
+                                "bottom": 0
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 1274,
+                                "x": 375,
+                                "width": 375,
+                                "var": "btn_import",
+                                "stateNum": 1,
+                                "skin": "img/main/img_blue2.png",
+                                "mouseEnabled": true,
+                                "layoutEnabled": true,
+                                "labelSize": 32,
+                                "labelColors": "#ffffff",
+                                "label": "导入钱包",
+                                "height": 88,
+                                "bottom": 0
+                            }
                         }]
                 }]
         };
@@ -3737,232 +4714,193 @@ var ui;
             "type": "View",
             "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Label",
-                    "props": {
-                        "y": 20,
-                        "x": -6,
-                        "top": 20,
-                        "text": "我",
-                        "name": "item1",
-                        "fontSize": 32,
-                        "color": "#000000",
-                        "centerX": 0
-                    }
+                    "type": "Box",
+                    "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                    "child": [{
+                            "type": "Image",
+                            "props": { "width": 68, "top": 30, "skin": "img/main/sz@2x.png", "right": 30, "height": 68 }
+                        }, {
+                            "type": "Image",
+                            "props": { "y": 172, "x": 60, "width": 58, "skin": "img/main/wd@2x.png", "height": 58 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 172,
+                                "x": 146,
+                                "valign": "middle",
+                                "text": "欢迎来到WWEC Wallet",
+                                "height": 56,
+                                "fontSize": 40,
+                                "color": "#163853",
+                                "bold": true,
+                                "align": "left"
+                            }
+                        }]
                 }, {
-                    "type": "Image",
-                    "props": {
-                        "y": 146,
-                        "x": 146,
-                        "width": 30,
-                        "var": "btn_manageWal",
-                        "skin": "img/main/add.png",
-                        "name": "item1",
-                        "height": 30
-                    }
+                    "type": "Box",
+                    "props": { "y": 340, "width": 750, "var": "btn_manageWal", "right": 0, "left": 0, "height": 60 },
+                    "child": [{ "type": "Image", "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 } }, {
+                            "type": "Image",
+                            "props": { "x": 54, "width": 56, "skin": "img/main/glqb@2x.png", "height": 56, "centerY": 0 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "x": 138,
+                                "width": 445,
+                                "valign": "middle",
+                                "text": "管理钱包",
+                                "skin": "template/List/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerY": 0,
+                                "bold": true,
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 42, "height": 32, "centerY": 0 }
+                        }]
                 }, {
-                    "type": "Image",
-                    "props": {
-                        "y": 140,
-                        "x": 520,
-                        "width": 30,
-                        "var": "btn_dealHistory",
-                        "skin": "img/main/add.png",
-                        "name": "item1",
-                        "height": 30
-                    }
+                    "type": "Box",
+                    "props": { "y": 430, "var": "btn_dealHistory", "right": 0, "left": 0, "height": 60 },
+                    "child": [{ "type": "Image", "props": { "top": 0, "right": 0, "left": 0, "bottom": -1 } }, {
+                            "type": "Image",
+                            "props": { "x": 54, "width": 56, "skin": "img/main/jyjl@2x.png", "height": 56, "centerY": 0 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "x": 138,
+                                "width": 445,
+                                "valign": "middle",
+                                "text": "交易记录",
+                                "skin": "template/List/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerY": 0,
+                                "bold": true,
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 42, "height": 32, "centerY": 0 }
+                        }]
                 }, {
-                    "type": "Label",
-                    "props": { "y": 181, "x": 136, "text": "管理钱包", "name": "item1", "color": "#000000" }
+                    "type": "Box",
+                    "props": { "y": 520, "x": 20, "var": "btn_lqtg", "right": 0, "left": 0, "height": 60 },
+                    "child": [{ "type": "Image", "props": { "top": 0, "right": 0, "left": 0, "bottom": -1 } }, {
+                            "type": "Image",
+                            "props": { "x": 54, "width": 56, "skin": "img/main/tglq@2x.png", "height": 56, "centerY": 0 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "x": 138,
+                                "width": 445,
+                                "valign": "middle",
+                                "text": "糖果领取",
+                                "skin": "template/List/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerY": 0,
+                                "bold": true,
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 42, "height": 32, "centerY": 0 }
+                        }]
                 }, {
-                    "type": "Label",
-                    "props": { "y": 175, "x": 510, "text": "交易记录", "name": "item1", "color": "#000000" }
+                    "type": "Box",
+                    "props": { "y": 610, "x": 30, "var": "btn_helpus", "right": 0, "left": 0, "height": 60 },
+                    "child": [{ "type": "Image", "props": { "top": 0, "right": 0, "left": 0, "bottom": -1 } }, {
+                            "type": "Image",
+                            "props": { "x": 54, "width": 56, "skin": "img/main/bzwm@2x.png", "height": 56, "centerY": 0 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "x": 138,
+                                "width": 445,
+                                "valign": "middle",
+                                "text": "帮助我们",
+                                "skin": "template/List/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerY": 0,
+                                "bold": true,
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 42, "height": 32, "centerY": 0 }
+                        }]
+                }, {
+                    "type": "Box",
+                    "props": { "y": 700, "x": 40, "var": "btn_about", "right": 0, "left": 0, "height": 60 },
+                    "child": [{ "type": "Image", "props": { "top": 0, "right": 0, "left": 0, "bottom": -1 } }, {
+                            "type": "Image",
+                            "props": { "x": 54, "width": 56, "skin": "img/main/gywm@2x.png", "height": 56, "centerY": 0 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "x": 138,
+                                "width": 445,
+                                "valign": "middle",
+                                "text": "关于我们",
+                                "skin": "template/List/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerY": 0,
+                                "bold": true,
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "width": 32, "skin": "img/main/next@2x.png", "right": 42, "height": 32, "centerY": 0 }
+                        }]
                 }, {
                     "type": "Button",
                     "props": {
-                        "width": 375,
+                        "y": 1238,
+                        "x": 155,
+                        "width": 72,
                         "var": "btn_assets",
-                        "left": 0,
-                        "labelSize": 32,
-                        "labelAlign": "center",
+                        "stateNum": 1,
+                        "skin": "img/main/zichan-@2x.png",
+                        "sizeGrid": "0,0,-80,0",
+                        "labelSize": 20,
+                        "labelPadding": "35",
+                        "labelColors": "#B0BBC4",
                         "label": "资产",
-                        "height": 60,
-                        "bottom": 0
+                        "height": 88,
+                        "bottom": 8
                     }
                 }, {
                     "type": "Button",
                     "props": {
+                        "y": 1238,
+                        "x": 473,
+                        "width": 72,
                         "var": "btn_me",
-                        "selected": true,
-                        "right": 0,
-                        "mouseEnabled": true,
-                        "left": 375,
-                        "layoutEnabled": true,
-                        "labelSize": 32,
-                        "label": "我",
-                        "height": 60,
-                        "bottom": 0
+                        "stateNum": 1,
+                        "skin": "img/main/wo. de-@2x.png",
+                        "sizeGrid": "0,0,-80,0",
+                        "name": "item2",
+                        "labelSize": 20,
+                        "labelPadding": "35",
+                        "labelColors": "#598ADA",
+                        "label": "我的",
+                        "height": 88,
+                        "bottom": 8
                     }
                 }]
         };
         return WalletMeUI;
     }(View));
     ui.WalletMeUI = WalletMeUI;
-})(ui || (ui = {}));
-(function (ui) {
-    var WalletMexUI = /** @class */ (function (_super) {
-        __extends(WalletMexUI, _super);
-        function WalletMexUI() {
-            return _super.call(this) || this;
-        }
-        WalletMexUI.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this);
-            this.createView(ui.WalletMexUI.uiView);
-        };
-        WalletMexUI.uiView = {
-            "type": "View",
-            "props": { "width": 300, "top": 0, "right": 0, "left": 0, "height": 429, "bottom": 0 },
-            "child": [{
-                    "type": "ViewStack",
-                    "props": { "y": 0, "x": 0, "var": "viewStack", "selectedIndex": 2 },
-                    "child": [{
-                            "type": "Rect",
-                            "props": {
-                                "y": 0,
-                                "x": 0,
-                                "width": 300,
-                                "name": "item0",
-                                "lineWidth": 1,
-                                "height": 150,
-                                "fillColor": "#c1e2ef"
-                            }
-                        }, {
-                            "type": "Image",
-                            "props": {
-                                "y": 21,
-                                "x": 139,
-                                "width": 22,
-                                "skin": "img/eth.jpg",
-                                "name": "item0",
-                                "height": 22,
-                                "centerX": 0
-                            }
-                        }, {
-                            "type": "Label",
-                            "props": {
-                                "y": 51,
-                                "x": 109,
-                                "var": "wallet_name",
-                                "text": "myWalletName",
-                                "name": "item0",
-                                "color": "#000000",
-                                "centerX": 0
-                            }
-                        }, {
-                            "type": "Label",
-                            "props": {
-                                "y": 70,
-                                "x": 82,
-                                "width": 134,
-                                "var": "wallet_addr",
-                                "text": "0x9c4cce43B94A684D119d6d2E8a047B2De702203a",
-                                "overflow": "hidden",
-                                "name": "item0",
-                                "height": 12,
-                                "color": "#000000",
-                                "centerX": -1
-                            }
-                        }, {
-                            "type": "Label",
-                            "props": { "y": 126, "x": 25, "text": "总资产(¥)", "name": "item0", "color": "#000000" }
-                        }, {
-                            "type": "Label",
-                            "props": { "y": 90, "x": 25, "text": "≈ 0", "name": "item0", "fontSize": 22, "color": "#000000" }
-                        }, {
-                            "type": "Image",
-                            "props": { "y": 70, "x": 220, "width": 10, "skin": "img/ewm.jpg", "name": "item0", "height": 10 }
-                        }, {
-                            "type": "Image",
-                            "props": {
-                                "y": 125,
-                                "x": 253,
-                                "width": 22,
-                                "skin": "img/add.png",
-                                "sizeGrid": "0,0,0,0",
-                                "right": 25,
-                                "name": "item0",
-                                "height": 22
-                            }
-                        }, {
-                            "type": "List",
-                            "props": { "y": 0, "x": 0, "width": 0, "var": "list_coin", "name": "item0", "height": 0 }
-                        }, {
-                            "type": "Rect",
-                            "props": {
-                                "y": 0,
-                                "x": 0,
-                                "width": 300,
-                                "name": "item1",
-                                "lineWidth": 1,
-                                "height": 150,
-                                "fillColor": "#57a7c6"
-                            }
-                        }, {
-                            "type": "Label",
-                            "props": { "top": 20, "text": "我", "name": "item1", "color": "#ffffff", "centerX": 0 }
-                        }, {
-                            "type": "Image",
-                            "props": { "y": 60, "x": 66, "skin": "img/wallet_manage.png", "name": "item1" }
-                        }, {
-                            "type": "Image",
-                            "props": { "y": 60, "x": 202, "skin": "img/deal_history.png", "name": "item1" }
-                        }, {
-                            "type": "Label",
-                            "props": { "y": 95, "x": 56, "text": "管理钱包", "name": "item1", "color": "#ffffff" }
-                        }, { "type": "Label", "props": { "y": 95, "x": 192, "text": "交易记录", "name": "item1", "color": "#ffffff" } }]
-                }, {
-                    "type": "Tab",
-                    "props": { "y": 389, "x": 0, "var": "btn_tab", "selectedIndex": 0 },
-                    "child": [{
-                            "type": "Button",
-                            "props": {
-                                "width": 150,
-                                "var": "btn_assets",
-                                "selected": true,
-                                "left": 0,
-                                "labelAlign": "center",
-                                "label": "资产",
-                                "height": 40,
-                                "bottom": 0
-                            }
-                        }, {
-                            "type": "Button",
-                            "props": {
-                                "x": 150,
-                                "width": 150,
-                                "var": "btn_me",
-                                "mouseEnabled": true,
-                                "left": 150,
-                                "layoutEnabled": true,
-                                "label": "我",
-                                "height": 40,
-                                "bottom": 0
-                            }
-                        }]
-                }, {
-                    "type": "CheckBox",
-                    "props": {
-                        "stateNum": 2,
-                        "skin": "template/Switcher/checkbox_switch.png",
-                        "scaleY": 0.4,
-                        "scaleX": 0.4,
-                        "right": 20,
-                        "centerY": 0
-                    }
-                }]
-        };
-        return WalletMexUI;
-    }(View));
-    ui.WalletMexUI = WalletMexUI;
 })(ui || (ui = {}));
 (function (ui) {
     var WalletQuickUI = /** @class */ (function (_super) {
@@ -3976,51 +4914,104 @@ var ui;
         };
         WalletQuickUI.uiView = {
             "type": "Dialog",
-            "props": { "y": 0, "x": 0, "width": 250, "height": 1334 },
+            "props": { "y": 0, "x": 0, "width": 375, "height": 1334 },
             "child": [{
                     "type": "Image",
-                    "props": { "var": "bg", "top": 2, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
+                    "props": { "var": "bg", "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
                 }, {
-                    "type": "Image",
-                    "props": { "y": 450, "x": 30, "width": 30, "skin": "img/main/add.png", "height": 30 }
-                }, {
-                    "type": "Label",
+                    "type": "List",
                     "props": {
-                        "y": 450,
-                        "x": 70,
-                        "var": "lab_sao",
-                        "valign": "middle",
-                        "text": "扫一扫",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000"
-                    }
-                }, {
-                    "type": "Image",
-                    "props": { "y": 500, "x": 30, "width": 30, "skin": "img/main/add.png", "height": 30 }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 500,
-                        "x": 70,
-                        "var": "lab_create",
-                        "valign": "middle",
-                        "text": "创建钱包",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
-                        "align": "left"
-                    }
-                }, {
-                    "type": "Image",
-                    "props": {
-                        "var": "img_spe",
-                        "top": 430,
-                        "skin": "img/main/itemSepar.png",
+                        "var": "list_wallet",
+                        "top": 200,
+                        "selectEnable": true,
                         "right": 0,
+                        "repeatX": 1,
+                        "mouseThrough": true,
                         "left": 0,
-                        "height": 2
-                    }
+                        "height": 320
+                    },
+                    "child": [{
+                            "type": "Box",
+                            "props": { "right": 0, "name": "render", "left": 0, "height": 80 },
+                            "child": [{
+                                    "type": "Image",
+                                    "props": { "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": -1 }
+                                }, {
+                                    "type": "Image",
+                                    "props": {
+                                        "x": 30,
+                                        "width": 56,
+                                        "var": "img_wallet",
+                                        "skin": "img/main/wode@2x.png",
+                                        "name": "img_wallet",
+                                        "height": 56,
+                                        "centerY": 0
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 19,
+                                        "x": 100,
+                                        "width": 215,
+                                        "var": "lab_wName",
+                                        "valign": "middle",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "name": "lab_wName",
+                                        "height": 50,
+                                        "fontSize": 28,
+                                        "color": "#687076",
+                                        "align": "left"
+                                    }
+                                }]
+                        }]
+                }, {
+                    "type": "Box",
+                    "props": { "x": 0, "var": "box_btns", "top": 520, "right": 0, "left": 0, "bottom": 0 },
+                    "child": [{
+                            "type": "Image",
+                            "props": {
+                                "y": 0,
+                                "x": 0,
+                                "var": "img_spe",
+                                "skin": "img/main/itemSepar.png",
+                                "right": 0,
+                                "left": 0,
+                                "height": 2
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "y": 20, "x": 30, "width": 56, "skin": "img/main/sys@2x.png", "left": 30, "height": 56 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 20,
+                                "x": 100,
+                                "var": "lab_sao",
+                                "valign": "middle",
+                                "text": "扫一扫",
+                                "height": 56,
+                                "fontSize": 28,
+                                "color": "#687076",
+                                "align": "left"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "y": 90, "x": 30, "width": 56, "skin": "img/main/qb@2x.png", "left": 30, "height": 56 }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 90,
+                                "x": 100,
+                                "var": "lab_create",
+                                "valign": "middle",
+                                "text": "创建钱包",
+                                "height": 56,
+                                "fontSize": 28,
+                                "color": "#687076",
+                                "align": "left"
+                            }
+                        }]
                 }]
         };
         return WalletQuickUI;
@@ -4039,85 +5030,126 @@ var ui;
         };
         WalletReceiveUI.uiView = {
             "type": "View",
-            "props": { "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Button",
-                    "props": {
-                        "y": 20,
-                        "x": 10,
-                        "width": 117,
-                        "var": "btn_goback",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "left": 20,
-                        "height": 30
-                    }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 20,
-                        "x": 20,
-                        "valign": "middle",
-                        "top": 20,
-                        "text": "收款",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
-                        "centerX": 0,
-                        "align": "center"
-                    }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 80,
-                        "x": 10,
-                        "right": 20,
-                        "prompt": "收款人账户地址",
-                        "maxChars": 30,
-                        "left": 20,
-                        "layoutEnabled": true,
-                        "height": 22,
-                        "editable": false
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 389,
-                        "x": 10,
-                        "var": "btn_copy",
-                        "skin": "comp/button.png",
-                        "sizeGrid": "0,0,0,0",
-                        "right": 0,
-                        "left": 0,
-                        "labelAlign": "center",
-                        "label": "复制收款地址",
-                        "height": 60,
-                        "bottom": 0
-                    }
-                }, {
-                    "type": "Image",
-                    "props": {
-                        "width": 320,
-                        "var": "img_wAddr",
-                        "skin": "img/guid_ewm.jpg",
-                        "height": 320,
-                        "centerY": 0,
-                        "centerX": 0
-                    }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 102,
-                        "wordWrap": true,
-                        "var": "lab_wAddr",
-                        "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
-                        "right": 20,
-                        "overflow": "visible",
-                        "left": 20,
-                        "layoutEnabled": true,
-                        "height": 36,
-                        "editable": false
-                    }
+                    "type": "Box",
+                    "props": { "top": 0, "right": 0, "left": 0, "bottom": 0 },
+                    "child": [{
+                            "type": "Rect",
+                            "props": { "width": 750, "lineWidth": 1, "height": 224, "fillColor": "#598ADA" }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 40,
+                                "x": 40,
+                                "width": 60,
+                                "var": "btn_goback",
+                                "stateNum": 1,
+                                "skin": "img/main/xx@2x.png",
+                                "labelSize": 22,
+                                "labelColors": "#057AFB,#057AFB,#7EB9FB",
+                                "height": 60
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 48,
+                                "x": 343,
+                                "valign": "middle",
+                                "text": "收款",
+                                "strokeColor": "#f9f9f9",
+                                "skin": "template/Navigator/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#ffffff",
+                                "centerX": 0,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": { "y": 180, "x": 331, "width": 88, "skin": "img/main/wd@2x.png", "height": 88, "centerX": 0 }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 40,
+                                "width": 120,
+                                "var": "btn_share",
+                                "stateNum": 1,
+                                "skin": "img/main/fenxiang@2x.png",
+                                "sizeGrid": "0,-120,0,0",
+                                "right": 40,
+                                "labelSize": 24,
+                                "labelPadding": "0,0,0,30",
+                                "labelColors": "#ffffff",
+                                "label": "分享",
+                                "height": 60
+                            }
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 337,
+                                "x": 0,
+                                "wordWrap": true,
+                                "var": "lab_wAddr",
+                                "valign": "middle",
+                                "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
+                                "right": 0,
+                                "overflow": "scroll",
+                                "left": 0,
+                                "layoutEnabled": true,
+                                "height": 40,
+                                "fontSize": 24,
+                                "editable": false,
+                                "color": "#8E979F",
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Image",
+                            "props": {
+                                "width": 320,
+                                "var": "img_wAddr",
+                                "skin": "img/main/xx@2x.png",
+                                "height": 320,
+                                "centerY": 0,
+                                "centerX": 0
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 1000,
+                                "var": "btn_copy",
+                                "valign": "middle",
+                                "text": "复制地址",
+                                "right": 0,
+                                "left": 0,
+                                "height": 80,
+                                "fontSize": 32,
+                                "color": "#8E979F",
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "TextInput",
+                            "props": {
+                                "y": 430,
+                                "wordWrap": true,
+                                "var": "text_amount",
+                                "valign": "middle",
+                                "type": "number",
+                                "text": "0",
+                                "right": 100,
+                                "overflow": "scroll",
+                                "left": 100,
+                                "layoutEnabled": true,
+                                "height": 40,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "align": "left"
+                            },
+                            "child": [{
+                                    "type": "Image",
+                                    "props": { "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "bottom": 0 }
+                                }]
+                        }]
                 }]
         };
         return WalletReceiveUI;
@@ -4138,50 +5170,43 @@ var ui;
             "type": "View",
             "props": { "y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Button",
-                    "props": {
-                        "y": 10,
-                        "width": 117,
-                        "var": "btn_goback",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "left": 20,
-                        "height": 30
-                    }
-                }, {
                     "type": "Label",
                     "props": {
-                        "x": 375,
+                        "y": 30,
+                        "x": 355,
+                        "width": 87,
                         "var": "lab_coin_name",
                         "valign": "middle",
-                        "top": 20,
+                        "top": 66,
                         "text": "ETH",
-                        "height": 30,
-                        "fontSize": 16,
+                        "height": 60,
+                        "fontSize": 32,
                         "color": "#000000",
                         "align": "center"
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "x": 325,
-                        "width": 50,
+                        "y": 30,
+                        "x": 283,
+                        "width": 70,
                         "valign": "middle",
-                        "top": 20,
+                        "top": 66,
                         "text": "转账",
-                        "height": 30,
-                        "fontSize": 16,
+                        "height": 60,
+                        "fontSize": 32,
                         "color": "#000000",
                         "align": "center"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 70,
-                        "right": 20,
+                        "y": 220,
+                        "var": "text_addr",
+                        "right": 30,
                         "prompt": "收款人账户地址",
-                        "maxChars": 30,
-                        "left": 20,
+                        "maxChars": 42,
+                        "left": 30,
                         "layoutEnabled": true,
                         "height": 80,
                         "fontSize": 28
@@ -4189,12 +5214,13 @@ var ui;
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 198,
+                        "y": 360,
+                        "var": "text_amount",
                         "type": "number",
-                        "right": 20,
-                        "prompt": "转账金额ETH",
+                        "right": 30,
+                        "prompt": "转账金额",
                         "maxChars": 30,
-                        "left": 20,
+                        "left": 30,
                         "layoutEnabled": true,
                         "height": 80,
                         "fontSize": 28
@@ -4205,14 +5231,68 @@ var ui;
                         "y": 379,
                         "x": 0,
                         "var": "btn_next",
-                        "skin": "comp/button.png",
+                        "stateNum": 1,
+                        "skin": "img/main/bfqb@2x.png",
                         "sizeGrid": "0,0,0,0",
                         "right": 0,
                         "left": 0,
+                        "labelSize": 28,
+                        "labelColors": "#ffffff",
                         "labelAlign": "center",
                         "label": "下一步",
-                        "height": 60,
+                        "height": 88,
                         "bottom": 0
+                    }
+                }, {
+                    "type": "Image",
+                    "props": {
+                        "width": 60,
+                        "var": "sys",
+                        "top": 30,
+                        "skin": "img/main/sys@2x.png",
+                        "right": 30,
+                        "height": 60
+                    }
+                }, {
+                    "type": "Button",
+                    "props": {
+                        "y": 30,
+                        "x": 30,
+                        "width": 60,
+                        "var": "btn_goback",
+                        "stateNum": 1,
+                        "skin": "img/main/back@2x.png",
+                        "labelSize": 22,
+                        "labelColors": "#057AFB,#057AFB,#7EB9FB",
+                        "height": 60
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 310,
+                        "width": 491,
+                        "visible": false,
+                        "var": "warn_Addr",
+                        "text": "地址不正确",
+                        "right": 30,
+                        "height": 35,
+                        "fontSize": 18,
+                        "color": "#ff0400",
+                        "align": "right"
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 450,
+                        "width": 440,
+                        "visible": false,
+                        "var": "warn_amount",
+                        "text": "请输入正确的金额",
+                        "right": 30,
+                        "height": 40,
+                        "fontSize": 18,
+                        "color": "#ff0400",
+                        "align": "right"
                     }
                 }]
         };
@@ -4232,198 +5312,253 @@ var ui;
         };
         WalletSendSubmitUI.uiView = {
             "type": "View",
-            "props": { "y": 0, "x": 0, "width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0 },
+            "props": { "y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
                     "type": "Button",
                     "props": {
-                        "y": 10,
-                        "width": 117,
+                        "y": 40,
+                        "x": 30,
+                        "width": 60,
                         "var": "btn_goback",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "left": 20,
-                        "height": 30
+                        "stateNum": 1,
+                        "skin": "img/main/xx@2x.png",
+                        "labelSize": 22,
+                        "labelColors": "#057AFB,#057AFB,#7EB9FB",
+                        "height": 60
                     }
                 }, {
                     "type": "Label",
                     "props": {
-                        "y": 10,
-                        "x": 10,
+                        "y": 48,
+                        "x": 300,
+                        "width": 80,
+                        "var": "coin_type",
                         "valign": "middle",
-                        "top": 20,
-                        "text": "ETH 转账",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
-                        "centerX": 0,
+                        "text": "ETH",
+                        "strokeColor": "#f9f9f9",
+                        "skin": "template/Navigator/label.png",
+                        "height": 44,
+                        "fontSize": 32,
+                        "color": "#163853",
                         "align": "center"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 69,
+                        "y": 131,
+                        "text": "收款人账户地址",
                         "right": 20,
-                        "prompt": "收款人账户地址",
                         "maxChars": 30,
-                        "left": 20,
+                        "left": 30,
                         "layoutEnabled": true,
-                        "height": 22,
-                        "editable": false
+                        "height": 40,
+                        "fontSize": 24,
+                        "editable": false,
+                        "color": "#8E979F"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 121,
+                        "y": 270,
                         "right": 20,
                         "prompt": "发送人账户地址",
                         "maxChars": 30,
-                        "left": 20,
+                        "left": 30,
                         "layoutEnabled": true,
-                        "height": 22,
-                        "editable": false
+                        "height": 40,
+                        "fontSize": 28,
+                        "editable": false,
+                        "color": "#8E979F"
                     }
                 }, {
                     "type": "Label",
-                    "props": { "y": 182, "x": 24, "text": "转账金额( ETH) :", "color": "#868686" }
-                }, {
-                    "type": "Label",
                     "props": {
-                        "y": 182,
-                        "x": 117,
-                        "width": 121,
-                        "var": "send_amout",
+                        "y": 410,
                         "valign": "middle",
-                        "text": "0",
-                        "height": 12,
-                        "color": "#868686"
-                    }
-                }, {
-                    "type": "HSlider",
-                    "props": {
-                        "y": 229,
-                        "var": "sli_gas",
-                        "value": 2100,
-                        "skin": "template/ScrollBar/BackProgressBar.png",
-                        "sizeGrid": "0,15,0,15",
-                        "right": 20,
-                        "min": 2100,
-                        "max": 210000,
-                        "left": 23,
-                        "height": 45
-                    }
-                }, {
-                    "type": "Label",
-                    "props": { "y": 214, "text": "矿工费用(GWEI)", "left": 24, "color": "#868686" }
-                }, { "type": "Label", "props": { "y": 275, "text": "慢", "left": 25, "color": "#868686" } }, {
-                    "type": "Label",
-                    "props": { "y": 275, "text": "快", "right": 20, "color": "#868686" }
-                }, {
-                    "type": "Label",
-                    "props": { "y": 307, "text": "最大交易手续费", "left": 25, "height": 16, "color": "#868686" }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 307,
-                        "width": 154,
-                        "var": "lab_max_gas",
-                        "valign": "top",
-                        "text": "0.000021 ETH",
-                        "right": 25,
-                        "height": 16,
-                        "editable": false,
+                        "text": "转账金额( ETH) :",
+                        "left": 30,
+                        "height": 40,
+                        "fontSize": 28,
                         "color": "#868686",
-                        "align": "right"
-                    }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 322,
-                        "width": 248,
-                        "var": "lab_max_gas_usd",
-                        "valign": "top",
-                        "text": "0.01 USD",
-                        "right": 25,
-                        "height": 16,
-                        "editable": false,
-                        "color": "#868686",
-                        "align": "right"
-                    }
-                }, {
-                    "type": "Label",
-                    "props": { "y": 357, "text": "总费用", "left": 25, "height": 16, "color": "#868686" }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 357,
-                        "width": 194,
-                        "var": "lab_max_total",
-                        "valign": "top",
-                        "text": "1.000021 ETH",
-                        "right": 25,
-                        "height": 16,
-                        "editable": false,
-                        "color": "#868686",
-                        "align": "right"
-                    }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 372,
-                        "width": 245,
-                        "var": "lab_max_total_usd",
-                        "valign": "top",
-                        "text": "516.10 USD",
-                        "right": 25,
-                        "height": 16,
-                        "editable": false,
-                        "color": "#868686",
-                        "align": "right"
-                    }
-                }, {
-                    "type": "TextInput",
-                    "props": {
-                        "y": 90,
-                        "var": "text_from",
-                        "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
-                        "right": 20,
-                        "overflow": "scroll",
-                        "maxChars": 30,
-                        "left": 20,
-                        "layoutEnabled": true,
-                        "height": 22,
-                        "editable": false,
                         "align": "left"
                     }
                 }, {
                     "type": "TextInput",
                     "props": {
-                        "y": 141,
+                        "y": 180,
                         "var": "text_to",
+                        "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
+                        "right": 20,
+                        "maxChars": 42,
+                        "left": 30,
+                        "layoutEnabled": true,
+                        "height": 40,
+                        "fontSize": 28,
+                        "editable": false,
+                        "color": "#8E979F",
+                        "align": "left"
+                    },
+                    "child": [{
+                            "type": "Image",
+                            "props": { "visible": false, "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "bottom": 0 }
+                        }]
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 320,
+                        "var": "text_from",
                         "text": "0x098373B3863c1ca7862b4786c13611a71e2BB682",
                         "right": 20,
                         "prompt": "发送人账户地址",
                         "overflow": "scroll",
-                        "maxChars": 30,
-                        "left": 20,
+                        "maxChars": 42,
+                        "left": 30,
                         "layoutEnabled": true,
-                        "height": 22,
+                        "height": 40,
+                        "fontSize": 29,
                         "editable": false,
+                        "color": "#8E979F",
                         "align": "left"
                     }
                 }, {
                     "type": "Button",
                     "props": {
-                        "y": 379,
-                        "x": 0,
                         "var": "btn_submit",
-                        "skin": "comp/button.png",
+                        "stateNum": 1,
+                        "skin": "img/main/bfqb@2x.png",
                         "sizeGrid": "0,0,0,0",
                         "right": 0,
                         "left": 0,
+                        "labelSize": 32,
+                        "labelColors": "#ffffff",
                         "labelAlign": "center",
                         "label": "提交",
-                        "height": 60,
+                        "height": 88,
                         "bottom": 0
+                    }
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 410,
+                        "x": 251,
+                        "width": 458,
+                        "var": "send_amout",
+                        "valign": "middle",
+                        "type": "number",
+                        "text": "0",
+                        "maxChars": 30,
+                        "height": 40,
+                        "fontSize": 32,
+                        "editable": false,
+                        "color": "#8E979F",
+                        "align": "left"
+                    },
+                    "child": [{
+                            "type": "Image",
+                            "props": { "visible": false, "skin": "img/main/itemSepar.png", "right": 0, "left": 0, "bottom": 0 }
+                        }]
+                }, {
+                    "type": "HSlider",
+                    "props": {
+                        "y": 550,
+                        "var": "sli_gas",
+                        "value": 60,
+                        "skin": "template/ScrollBar/BackProgressBar.png",
+                        "sizeGrid": "0,15,0,15",
+                        "right": 30,
+                        "min": 10,
+                        "max": 200,
+                        "left": 30,
+                        "height": 50
+                    }
+                }, {
+                    "type": "Label",
+                    "props": { "y": 500, "text": "矿工费用(GWEI)", "left": 30, "height": 40, "fontSize": 28, "color": "#868686" }
+                }, {
+                    "type": "Label",
+                    "props": { "y": 610, "text": "慢", "left": 30, "height": 30, "fontSize": 20, "color": "#868686" }
+                }, {
+                    "type": "Label",
+                    "props": { "y": 610, "text": "快", "right": 30, "height": 30, "fontSize": 20, "color": "#868686" }
+                }, {
+                    "type": "Label",
+                    "props": { "y": 680, "text": "最大交易手续费", "left": 30, "height": 30, "fontSize": 20, "color": "#8E979F" }
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 680,
+                        "width": 154,
+                        "var": "lab_max_gas",
+                        "valign": "top",
+                        "text": "0.000021 ETH",
+                        "right": 30,
+                        "height": 30,
+                        "fontSize": 20,
+                        "editable": false,
+                        "color": "#8E979F",
+                        "align": "right"
+                    }
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 710,
+                        "width": 248,
+                        "var": "lab_max_gas_usd",
+                        "valign": "middle",
+                        "text": "0.01 USD",
+                        "right": 30,
+                        "height": 30,
+                        "fontSize": 20,
+                        "editable": false,
+                        "color": "#8E979F",
+                        "align": "right"
+                    }
+                }, {
+                    "type": "Label",
+                    "props": { "y": 780, "text": "总费用", "left": 30, "height": 30, "fontSize": 20, "color": "#8E979F" }
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 780,
+                        "width": 194,
+                        "var": "lab_max_total",
+                        "valign": "top",
+                        "text": "1.000021 ETH",
+                        "right": 30,
+                        "height": 30,
+                        "fontSize": 20,
+                        "editable": false,
+                        "color": "#8E979F",
+                        "align": "right"
+                    }
+                }, {
+                    "type": "TextInput",
+                    "props": {
+                        "y": 810,
+                        "width": 245,
+                        "var": "lab_max_total_usd",
+                        "valign": "middle",
+                        "text": "516.10 USD",
+                        "right": 30,
+                        "height": 30,
+                        "fontSize": 20,
+                        "editable": false,
+                        "color": "#8E979F",
+                        "align": "right"
+                    }
+                }, {
+                    "type": "Label",
+                    "props": {
+                        "y": 48,
+                        "x": 382,
+                        "valign": "middle",
+                        "text": "转账",
+                        "strokeColor": "#f9f9f9",
+                        "skin": "template/Navigator/label.png",
+                        "height": 44,
+                        "fontSize": 32,
+                        "color": "#163853",
+                        "align": "center"
                     }
                 }]
         };
@@ -4445,66 +5580,191 @@ var ui;
             "type": "View",
             "props": { "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0 },
             "child": [{
-                    "type": "Label",
-                    "props": {
-                        "var": "lab_coin_name",
-                        "valign": "middle",
-                        "top": 20,
-                        "text": "ETH",
-                        "height": 30,
-                        "fontSize": 16,
-                        "color": "#000000",
-                        "centerX": 0,
-                        "align": "center"
-                    }
+                    "type": "Box",
+                    "props": { "top": 0, "right": 0, "left": 0, "height": 224 },
+                    "child": [{
+                            "type": "Rect",
+                            "props": { "y": 0, "x": 0, "width": 0, "height": 0, "fillColor": "#598ADA" }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 140,
+                                "x": 330,
+                                "valign": "middle",
+                                "text": "总资产(¥)",
+                                "fontSize": 22,
+                                "color": "#8E979F",
+                                "centerX": 1,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 100,
+                                "x": 358,
+                                "var": "lab_coin_total",
+                                "valign": "middle",
+                                "text": "≈ 0",
+                                "height": 30,
+                                "fontSize": 24,
+                                "color": "#598ADA",
+                                "centerX": 0,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Label",
+                            "props": {
+                                "y": 38,
+                                "x": 343,
+                                "var": "lab_coin_name",
+                                "valign": "middle",
+                                "text": "ETH",
+                                "strokeColor": "#f9f9f9",
+                                "skin": "template/Navigator/label.png",
+                                "height": 44,
+                                "fontSize": 32,
+                                "color": "#163853",
+                                "centerX": 0,
+                                "align": "center"
+                            }
+                        }, {
+                            "type": "Button",
+                            "props": {
+                                "y": 30,
+                                "x": 30,
+                                "width": 60,
+                                "var": "btn_goback",
+                                "stateNum": 1,
+                                "skin": "img/main/back@2x.png",
+                                "labelSize": 22,
+                                "labelColors": "#057AFB,#057AFB,#7EB9FB",
+                                "height": 60
+                            }
+                        }]
                 }, {
-                    "type": "Label",
-                    "props": { "y": 78, "text": "总资产($)", "fontSize": 12, "color": "#000000", "centerX": 0 }
-                }, {
-                    "type": "Label",
-                    "props": {
-                        "y": 50,
-                        "var": "lab_coin_total",
-                        "text": "≈ 0",
-                        "fontSize": 22,
-                        "color": "#000000",
-                        "centerX": 0
-                    }
+                    "type": "List",
+                    "props": { "var": "list", "top": 224, "selectEnable": false, "right": 0, "left": 0, "bottom": 88 },
+                    "child": [{
+                            "type": "Box",
+                            "props": { "right": 0, "name": "render", "left": 0, "height": 120 },
+                            "child": [{
+                                    "type": "Image",
+                                    "props": {
+                                        "y": 0,
+                                        "x": 0,
+                                        "top": 0,
+                                        "skin": "template/List/SimpleListBoxItemBackground.png",
+                                        "right": 0,
+                                        "left": 0,
+                                        "bottom": 0
+                                    }
+                                }, {
+                                    "type": "Image",
+                                    "props": {
+                                        "y": 32,
+                                        "x": 30,
+                                        "width": 56,
+                                        "var": "img",
+                                        "skin": "img/main/transfer_in.png",
+                                        "name": "img",
+                                        "height": 56,
+                                        "centerY": 0
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 0,
+                                        "x": 100,
+                                        "width": 400,
+                                        "var": "lab_deal_name",
+                                        "valign": "bottom",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "name": "lab_deal_name",
+                                        "height": 60,
+                                        "fontSize": 24,
+                                        "color": "#163853",
+                                        "align": "left"
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 60,
+                                        "x": 100,
+                                        "width": 400,
+                                        "var": "lab_addr",
+                                        "valign": "middle",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "name": "lab_addr",
+                                        "height": 60,
+                                        "fontSize": 20,
+                                        "color": "#8E979F",
+                                        "align": "left"
+                                    }
+                                }, {
+                                    "type": "Label",
+                                    "props": {
+                                        "y": 35,
+                                        "x": 520,
+                                        "width": 200,
+                                        "var": "lab_amount",
+                                        "valign": "middle",
+                                        "text": "label",
+                                        "skin": "template/List/label.png",
+                                        "right": 30,
+                                        "name": "lab_amount",
+                                        "height": 50,
+                                        "fontSize": 28,
+                                        "color": "#FF516F",
+                                        "centerY": 0,
+                                        "align": "right"
+                                    }
+                                }, {
+                                    "type": "Image",
+                                    "props": {
+                                        "y": 119,
+                                        "x": 0,
+                                        "skin": "img/main/itemSepar.png",
+                                        "right": 0,
+                                        "left": 0,
+                                        "bottom": 0
+                                    }
+                                }]
+                        }]
                 }, {
                     "type": "Button",
                     "props": {
+                        "y": 1246,
+                        "x": 0,
                         "width": 375,
                         "var": "btn_send",
-                        "skin": "comp/button.png",
-                        "sizeGrid": "0,0,0,0",
+                        "stateNum": 3,
+                        "skin": "img/main/img_blue1.png",
                         "left": 0,
+                        "labelSize": 32,
+                        "labelColors": "#ffffff",
                         "labelAlign": "center",
                         "label": "转账",
-                        "height": 60,
+                        "height": 88,
                         "bottom": 0
                     }
                 }, {
                     "type": "Button",
                     "props": {
+                        "y": 1246,
+                        "x": 374,
                         "var": "btn_receive",
-                        "skin": "comp/button.png",
-                        "sizeGrid": "0,0,0,0",
+                        "stateNum": 1,
+                        "skin": "img/main/img_blue2.png",
                         "right": 0,
-                        "left": 375,
+                        "left": 374,
+                        "labelSize": 32,
+                        "labelColors": "#ffffff",
                         "labelAlign": "center",
                         "label": "收款",
-                        "height": 60,
+                        "height": 88,
                         "bottom": 0
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "width": 60,
-                        "var": "btn_goback",
-                        "top": 20,
-                        "skin": "template/Navigator/btn_BackButton.png",
-                        "left": 20,
-                        "height": 60
                     }
                 }]
         };

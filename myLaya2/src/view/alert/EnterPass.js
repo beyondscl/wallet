@@ -44,7 +44,15 @@ var view;
                     this.close();
                 }
                 if (2 == index) {
+                    //统一验证密码,至于是否加密暂定,是否添加验证次数
+                    if (!mod.userMod.defWallet.wPassword) {
+                        console.error("mod.userMod.defWallet.wPassword is null");
+                    }
                     var pass = this.text_pass.text;
+                    if (pass != mod.userMod.defWallet.wPassword) {
+                        this.warn.visible = true;
+                        return;
+                    }
                     this.callBack(pass, this.parentUI);
                     this.close();
                 }

@@ -3,7 +3,6 @@ var config;
     var init = /** @class */ (function () {
         function init() {
         }
-
         //load data from owner db
         //load data from public network
         init.prototype.initData = function (addr) {

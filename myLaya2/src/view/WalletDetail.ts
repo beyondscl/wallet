@@ -25,7 +25,6 @@ module view {
             this.comp.box_expSeckey.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
-
         }
 
         private goBack() {
@@ -66,12 +65,19 @@ module view {
                 return;
             }
             if (5 == index) {
-                this.comp.visible = false;
-                let backupw = new view.WalletBackUp();
-                backupw.setData(this.comp.lab_wName.text);
-                backupw.setParetUI(this.comp);
+                let p = new alert.EnterPass()
+                p.setParentUI(this.comp);
+                p.setCallBack(this.enterPassCb);
+                p.popup()
                 return;
             }
+        }
+
+        private enterPassCb(pass, comp: ui.WalletDetailUI) {
+            comp.visible = false;
+            let backupw = new view.WalletBackUp();
+            backupw.setData(comp.lab_wName.text);
+            backupw.setParetUI(comp);
         }
 
         public setData(data: mod.walletMod) {

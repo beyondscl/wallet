@@ -5,6 +5,7 @@ module service {
         }
 
         //修改钱包名称
+        //oName 旧钱包名称，nName新名词
         public static walletUpdateName(oName: string, nName: string): boolean {
             let walletJson = util.getItem(nName);
             if (walletJson) {//已经存在该钱包
@@ -19,13 +20,18 @@ module service {
                 let walletNames = util.getItem(config.prod.appKey);//更新钱包列表
                 if (walletNames) {
                     for (let i = 0; i < walletNames.length; i++) {
-                        if (walletNames[i] == oName) {
+                        if (walletNames[i].trim() == oName.trim()) {
                             walletNames[i] = nName;
                             util.setItemJson(config.prod.appKey, walletNames);
                             break;
                         }
                     }
                 }
+                //更新钱包具体数据
+                let wallet = this.getWallet(oName);
+                wallet.wName = nName;
+                util.setItemJson(nName, wallet);
+                util.delItem(oName);
                 return true;
             }
             console.log("walletUpdateName no walletName:" + oName);
@@ -39,30 +45,103 @@ module service {
         }
 
         //创建钱包
-        public static creatWallet(wName: string, wPass: string, cb: any, comp: View): mod.walletMod {
-            let walletJson = util.getItem(wName);
-            if (walletJson) {//已经验证过一次了
-                return;
-            }
-            let mnemonicWord = Laya.Browser.window.genSeed();
-            return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
-                ret => {
-                    return cb(wName, wPass, mnemonicWord, ret, comp)
+        public static creatWallet(wName: string, wPass: string, cb: any, args: Array<any>): mod.walletMod {
+            try {
+                let walletJson = util.getItem(wName);
+                if (walletJson) {//已经验证过一次了
+                    return;
                 }
-            );
+                let mnemonicWord = Laya.Browser.window.genSeed();
+                return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
+                    ret => {
+                        return cb(wName, wPass, mnemonicWord, ret, args)
+                    }
+                );
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        //import钱包
+        public static importWallet(mnemonicWord: string, wName: string, wPass: string, cb: any, args: Array<any>): mod.walletMod {
+            try {
+                let walletJson = util.getItem(wName);
+                if (walletJson) {//已经验证过一次了
+                    return;
+                }
+                return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
+                    ret => {
+                        return cb(wName, wPass, mnemonicWord, ret, args)
+                    }
+                );
+            } catch (error) {
+                console.log(error)
+            }
         }
 
         //获取所有币种：用于钱包添加币种
         public static getAllCoins(): Array<mod.coinItemMod> {
-            return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", false),
-                new mod.coinItemMod("template/List/message icon_57x57.png", "BTC", "vender", "95x...5s1s4", false)];
+            //初始化数据，可以改为json配置文件
+            let coins = [
+                {
+                    "name": "ETH",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+                {
+                    "name": "WWEC",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+                {
+                    "name": "BCH",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+                {
+                    "name": "BTH",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+                {
+                    "name": "LTC",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+                {
+                    "name": "MKR",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+                {
+                    "name": "REP",
+                    "vender": "cdcqwl",
+                    "addr": "0x000000000000000000000000000000000000000000",
+                },
+            ];
+            let ret = [];
+            for (let i = 0; i < coins.length; i++) {
+                ret[ret.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false);
+            }
+            return ret;
         }
 
         //获取所有币种：用于钱包添加币种,传入钱包名称，用于初始化
         public static getAllCoinsByWal(wName: string): Array<mod.coinItemMod> {
-
-            return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", this.getSelected(wName, 'ETH')),
-                new mod.coinItemMod("template/List/message icon_57x57.png", "BTC", "vender", "95x...5s1s4", this.getSelected(wName, 'BTC'))]
+            let wallet: mod.walletMod = this.getWallet(wName);
+            let selectedCoins = wallet.wCoins;
+            let allCoins = this.getAllCoins();
+            for (let i = 0; i < allCoins.length; i++) {
+                let c: mod.coinItemMod = allCoins[i];
+                for (let j = 0; j < selectedCoins.length; j++) {
+                    if (c.coinName == selectedCoins[j]) {
+                        c.coinSelected = true;
+                    }
+                }
+            }
+            return allCoins;
+            // return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", this.getSelected(wName, 'ETH')),
+            // new mod.coinItemMod("template/List/message icon_57x57.png", "BTC", "vender", "95x...5s1s4", this.getSelected(wName, 'BTC'))]
         }
 
         private static getSelected(wName, cName) {
@@ -78,28 +157,34 @@ module service {
         }
 
         //获取币种交易列表
-        public static getDealListByWName(wName: string): Array<mod.dealtemMod> {
-            //测试数据
+        public static getDealListByWName(coinName: string): Array<mod.dealtemMod> {
             let datas: Array<mod.dealtemMod> = [];
-            for (let i = 0; i < 3; i++) {
-                let t = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                datas[datas.length] = t;
+            let deals = util.getItem(config.prod.appDealKey);
+            if (deals) {
+                for (let j = 0; j < deals.length; j++) {
+                    let d = deals[j];
+                    if (d.dealCoinType == coinName) {
+                        let t = new mod.dealtemMod("", "", "", "", "", "", "", "", "", "");
+                        t.setJson(d);
+                        datas[datas.length] = t;
+                    }
+                }
             }
-            let t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-            datas[datas.length] = t;
             return datas;
         }
 
         //获取所有交易列表
         public static getDealList(): Array<mod.dealtemMod> {
-            //测试数据
             let datas: Array<mod.dealtemMod> = [];
-            for (let i = 0; i < 3; i++) {
-                let t = new mod.dealtemMod('send', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', i + 1, 'ETH', null, null, null, null, null);
-                datas[datas.length] = t;
+            let deals = util.getItem(config.prod.appDealKey);
+            if (deals) {
+                for (let j = 0; j < deals.length; j++) {
+                    let d = deals[j];
+                    let t = new mod.dealtemMod("", "", "", "", "", "", "", "", "", "");
+                    t.setJson(d);
+                    datas[datas.length] = t;
+                }
             }
-            let t = new mod.dealtemMod('RECEIVE', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', '0x911E1C126c3FddC74fd83A90283F1d50732b2a72', 9, 'ETH', null, null, null, null, null);
-            datas[datas.length] = t;
             return datas;
         }
 
@@ -110,7 +195,9 @@ module service {
                 let data = [];
                 for (let i = 0; i < walletNames.length; i++) {
                     let walletJson = util.getItem(walletNames[i]);
-                    data[data.length] = new mod.walletMod(walletJson.wName, null, null, null, walletJson.wAddr, walletJson.wCoins, null);
+                    let wal = new mod.walletMod();
+                    wal.setWallet(walletJson);
+                    data[data.length] = wal;
                 }
                 return data;
             }
@@ -124,7 +211,9 @@ module service {
                 console.log("不存在钱包：" + wName);
                 return null;
             }
-            return new mod.walletMod(walletJson.wName, walletJson.wPassword, walletJson.wPrivateKey, walletJson.wKeyStore, walletJson.wAddr, walletJson.wCoins, null);
+            let t = new mod.walletMod()
+            t.setWallet(walletJson);
+            return t;
         }
 
         //检查密码是否正确
@@ -133,14 +222,36 @@ module service {
         }
 
         //创建，切换钱包需要实例化全局对象用于交易
-        public static initLigthWallet(wName: string) {
-            let wallet: mod.walletMod = this.getWallet(wName);
-            Laya.Browser.window.deserialize(wallet.wKeyStore);
+        public static initLigthWallet(wKeyStore: string) {
+            Laya.Browser.window.deserialize(wKeyStore);
         }
 
         //交易
-        public static transfer(password, fromAddr, toAddr, value, gasPrice, gas) {
-            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas);
+        public static transfer(password, fromAddr, toAddr, value, gasPrice, gas, callback, args) {
+            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
+                ret => {
+                    callback(ret, args)
+                }
+            ).catch(function (e) {
+                callback(e, args)
+            })
+        }
+
+        //获取余额
+        public static getBalance(addr, callback, arg) {
+            Laya.Browser.window.getBalance(addr, callback, arg);
+        }
+
+        //记录交易
+        //key{
+        public static addDealItem(data: mod.dealtemMod): void {
+            let deals = util.getItem(config.prod.appDealKey);
+            if (deals) {
+                deals[deals.length] = data.toJson();
+                util.setItemJson(config.prod.appDealKey, deals);
+            } else {//新建
+                util.setItemJson(config.prod.appDealKey, [data.toJson()]);
+            }
         }
     }
 }

@@ -5,7 +5,6 @@ module view {
     export class WalletTransfer extends ui.WalletTransferUI {
         private comp: ui.WalletTransferUI;
         private parentUI: ui.WalletMainUI;
-        private list: List = new List();
 
         constructor() {
             super();
@@ -15,9 +14,7 @@ module view {
 
         private init() {
             this.comp = new ui.WalletTransferUI();
-            this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
@@ -53,28 +50,37 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
-            this.list.name = 'item0';
-            this.list.itemRender = dealItemUI;
-            this.list.repeatX = 1;
-            this.list.repeatY = data.length;
-            this.list.x = 0;
-            this.list.bottom = 40;
-            this.list.top = 110;
+            this.comp.list.repeatX = 1;
+            this.comp.list.repeatY = data.length;
             // 使用但隐藏滚动条
-            this.list.vScrollBarSkin = "";
-            this.list.selectEnable = true;
-            this.list.selectHandler = new Handler(this, this.onSelect, null, false);
-            this.list.renderHandler = new Handler(this, this.updateItem, null, false);
-            this.list.array = data;
+            this.comp.list.vScrollBarSkin = "";
+            this.comp.list.selectHandler = new Handler(this, this.onSelect, null, false);
+            this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
+            this.comp.list.array = data;
         }
 
-        private updateItem(cell: dealItemUI, index: number): void {
-            cell.init(cell.dataSource);
+        private onListRender(cell: Box, index: number) {
+            var data: mod.dealtemMod = this.comp.list.array[index];
+
+            let cImg = cell.getChildByName('img') as Laya.Image;
+            cImg.skin = data.getDealImgSrc();
+
+            let cName = cell.getChildByName('lab_deal_name') as Label;
+            cName.text = data.getDealChName();
+
+            let addr = cell.getChildByName('lab_addr') as Label;
+            let trans_type1 = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To';//from | to
+            addr.text = trans_type1 + ": " + util.getAddr(data.getDealAddr());
+
+            let amount = cell.getChildByName('lab_amount') as Label;
+            let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//+ | -
+            amount.text = trans_type + data.dealAmount + " " + data.dealCoinType.toUpperCase();
+            amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
         }
 
         private onSelect(index: number): void {
             this.comp.visible = false;
-            new view.TransDetail().initData(this.list.array[index], this.comp);
+            new view.TransDetail().initData(this.comp.list.array[index], this.comp);
         }
     }
 }

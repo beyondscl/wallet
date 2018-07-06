@@ -75,7 +75,7 @@ var view;
             var wAddr = cell.getChildByName('lab_wAddr');
             wAddr.text = util.getAddr(data.wAddr);
             var wTotal = cell.getChildByName('lab_wTotal');
-            wTotal.text = '0 ether'; //test
+            // wTotal.text = '0 ether';//test
         };
         WalletManage.prototype.onSelect = function (index) {
             this.comp.visible = false;

@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -13,6 +21,7 @@ var view;
 (function (view) {
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
+
         function WalletMain() {
             var _this = _super.call(this) || this;
             _this.data = [];
@@ -21,6 +30,7 @@ var view;
             _this.initEvent();
             return _this;
         }
+
         WalletMain.prototype.init = function () {
             this.comp = new ui.WalletMainUI();
             this.comp.addChild(this.list);
@@ -35,22 +45,35 @@ var view;
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         };
         WalletMain.prototype.setData = function (coins) {
+            //获取数据!!
             for (var i = 0; i < coins.length; i++) {
-                var walItemT = new mod.walItemMod();
                 var coinName = coins[i];
-                walItemT.setItem("img/main/wallet_manage.png", coinName.toUpperCase(), "0", "0");
+                var walItemT = new mod.walItemMod();
+                walItemT.setItem("", coinName, "0", "0");
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
         };
-        //当前钱包的基本数据
+        //初始化当前钱包数据
         WalletMain.prototype.initQueryData = function (data) {
             mod.userMod.defWallet = data; //*
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
             //初始化全局实例，不然无法操作转账
-            service.walletServcie.initLigthWallet(data.wName);
+            service.walletServcie.initLigthWallet(data.wKeyStore);
+            //初始化币种
             this.setData(data.wCoins);
+            //初始化余额
+            service.walletServcie.getBalance(data.wAddr, this.getBalanceCb, this.comp);
+        };
+        WalletMain.prototype.getBalanceCb = function (err, res, comp) {
+            if (!err) {
+                console.info("getBalanceCb res:" + res.toNumber());
+                comp.lab_total.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+            }
+            else {
+                console.error("getBalanceCb error:" + err);
+            }
         };
         WalletMain.prototype.queryCallBack = function () {
         };
@@ -58,13 +81,14 @@ var view;
         WalletMain.prototype.setListUp = function (data) {
             this.comp.list_wallet.array = data;
             this.comp.list_wallet.repeatY = data.length;
+            this.comp.list_wallet.vScrollBarSkin = "";
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         };
         WalletMain.prototype.onListRender = function (cell, index) {
             var data = this.comp.list_wallet.array[index];
             var cImg = cell.getChildByName('cImg');
-            cImg.skin = data.itemImgSrc;
+            cImg.skin = data.getItemImgSrc();
             var cName = cell.getChildByName('cName');
             cName.text = data.itemName;
             var cTotal = cell.getChildByName('cTotal');
@@ -95,10 +119,10 @@ var view;
             if (index == 3) {
                 //dialog千万不要设置left r t b..
                 var pom = new view.WalletQuick();
-                pom.width = Laya.stage.width / 3;
+                pom.width = Laya.stage.width / 2;
                 pom.height = Laya.stage.height;
                 pom.top = 0;
-                pom.left = Laya.stage.width * 2 / 3; //right 不行
+                pom.left = Laya.stage.width / 2; //right 不行
                 pom.setParentUI(this.comp);
                 pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();

@@ -7,6 +7,11 @@ class util {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     }
 
+    //删除
+    public static delItem(itemName) {
+        let data = laya.net.LocalStorage.removeItem(itemName);
+    }
+
     //获取storage，返回json
     public static getItem(itemName) {
         let data = laya.net.LocalStorage.getItem(itemName);
@@ -50,26 +55,33 @@ class util {
 
     //复制功能
     public static getCopyValue(value: string, callBack: any, data: any) {
-        try {
-            console.log("getCopyValue    value:" + value);
-            let btn = Laya.Browser.document.createElement('button');
-            var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
-                text: function () {
-                    return value;
-                }
-            });
-            btn.click();
-            clipboard.on('success', function (e) {
-                console.log("success", e);
-            });
-            clipboard.on('error', function (e) {
-                console.log("error" + e);
-            });
-            callBack(data);
-            btn.remove();
-        } catch (error) {
-            console.log("getCopyValue    error:" + error);
-        }
+        // 只能使用native 方法
+        // try {
+        //     console.log("getCopyValue    value:" + value);
+        //     let btn = Laya.Browser.document.createElement('button');
+        //     var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
+        //         text: function () {
+        //             return value;
+        //         }
+        //     });
+        //     btn.click();
+        //     clipboard.on('success', function (e) {
+        //         console.log("success", e);
+        //     });
+        //     clipboard.on('error', function (e) {
+        //         console.log("error" + e);
+        //     });
+        //     callBack(data);
+        //     btn.remove();
+        // } catch (error) {
+        //     console.log("getCopyValue    error:" + error);
+        // }
+        callBack(data);
+        let json = {
+            "type": 1,
+            "data": value
+        };
+        Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
     }
 
     //设置屏幕
@@ -98,5 +110,45 @@ class util {
                 t.skin = config.resource.passLevelW;
             }
         }
+    }
+
+    //验证字符串是否是数字
+    public static isNumber(theObj) {
+        var reg = /^[0-9]+.?[0-9]*$/;
+        if (reg.test(theObj)) {
+            return true;
+        }
+        return false;
+    }
+
+    //随机字符
+    public static randomString(len): string {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+        /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (let i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+
+    //
+    public static getFormatTime(): string {
+        var date = new Date();
+        var year = date.getFullYear(),
+            month = date.getMonth() + 1,//月份是从0开始的
+            day = date.getDate(),
+            hour = date.getHours(),
+            min = date.getMinutes(),
+            sec = date.getSeconds();
+        var newTime = year + '-' +
+            month + '-' +
+            day + ' ' +
+            hour + ':' +
+            min + ':' +
+            sec;
+        return newTime;
     }
 }

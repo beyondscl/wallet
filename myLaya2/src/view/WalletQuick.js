@@ -19,21 +19,17 @@ var __extends = (this && this.__extends) || (function () {
 /**Created by the LayaAirIDE*/
 var view;
 (function (view) {
-    var Handler = Laya.Handler;
     var WalletQuick = /** @class */ (function (_super) {
         __extends(WalletQuick, _super);
 
         function WalletQuick() {
             var _this = _super.call(this) || this;
-            //最好不要再界面创建list，可能导致第一个item无法获取点击事件
-            _this.list_wallet = new Laya.List();
             _this.init();
             _this.initEvent();
             return _this;
         }
 
         WalletQuick.prototype.init = function () {
-            this.addChild(this.list_wallet);
         };
         WalletQuick.prototype.initEvent = function () {
             this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1]);
@@ -52,24 +48,29 @@ var view;
             this.parentUI = parentUI;
         };
         WalletQuick.prototype.initData = function (walletNames) {
-            this.listData = walletNames;
-            this.list_wallet.x = 0;
-            this.list_wallet.top = 20;
-            this.list_wallet.height = 400;
-            this.list_wallet.repeatX = 1;
-            this.list_wallet.repeatY = walletNames.length;
-            this.list_wallet.vScrollBarSkin = '';
-            this.list_wallet.selectEnable = true;
-            this.list_wallet.selectHandler = new Handler(this, this.onSelectItem);
-            this.list_wallet.renderHandler = new Handler(this, this.updateItem);
-            this.list_wallet.itemRender = walltNameUI;
+            var lines = walletNames.length;
+            var height = lines * 80;
+            height = height > 600 ? 600 : height;
+            // this.list_wallet.height = height;
             this.list_wallet.array = walletNames;
+            this.list_wallet.repeatY = walletNames.length;
+            this.list_wallet.repeatX = 1;
+            this.list_wallet.vScrollBarSkin = "";
+            this.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            // this.box_btns.top = this.list_wallet.y + this.list_wallet.height+100;
         };
-        WalletQuick.prototype.updateItem = function (cell, index) {
-            cell.init(cell.dataSource);
+        WalletQuick.prototype.onListRender = function (cell, index) {
+            var data = this.list_wallet.array[index];
+            var cImg = cell.getChildByName('img_wallet');
+            var wallet = service.walletServcie.getWallet(data);
+            cImg.skin = wallet.wSkin;
+            var cName = cell.getChildByName('lab_wName');
+            cName.text = data.replace(/([^]{8})([^]+)/, "$1...");
+            ;
         };
-        WalletQuick.prototype.onSelectItem = function (index) {
-            var item = this.listData[index];
+        WalletQuick.prototype.onSelect = function (index) {
+            var item = this.list_wallet.array[index];
             this.stage.removeChild(this.parentUI);
             new view.WalletMain().initQueryData(service.walletServcie.getWallet(item));
             this.close(null, true);

@@ -36,14 +36,35 @@ module view {
         private btnClick(type: number) {
             switch (type) {
                 case (1):
-                    Laya.stage.removeChild(this.comp);
-                    Laya.stage.removeSelf();
-                    new view.WalletSendSubmit();
+                    if (this.checkArg()) {
+                        this.comp.visible = false;
+                        let sub = new view.WalletSendSubmit();
+                        sub.setParenUI(this.comp);
+                    }
+
                     break;
                 default:
                     console.log("error type");
                     break;
             }
+        }
+
+        private checkArg() {
+            let addr = this.comp.text_addr.text;
+            if (!addr || addr.length != 42) {
+                this.comp.warn_Addr.visible = true
+                return false;
+            } else {
+                this.comp.warn_Addr.visible = false;
+            }
+            let amount = this.comp.text_amount.text;
+            if (!util.isNumber(amount)) {
+                this.comp.warn_amount.visible = true
+                return false;
+            } else {
+                this.comp.warn_amount.visible = false;
+            }
+            return true;
         }
     }
 }

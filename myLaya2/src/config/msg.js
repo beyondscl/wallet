@@ -18,6 +18,7 @@ var config;
         msg.deal_cn_in = "已接收";
         msg.SUCCESS = 'SUCCESS';
         msg.ERROR = "ERROR";
+        msg.WAIT_CREATE_WALLET = "正在创建钱包,请稍后...";
         return msg;
     }());
     config.msg = msg;

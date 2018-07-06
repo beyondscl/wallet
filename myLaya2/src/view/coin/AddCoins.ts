@@ -30,7 +30,8 @@ module view.coin {
                     new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));
                     break;
                 case 1:
-
+                    // this.comp.visible = false;
+                    // new view.coin.queryCoins();
                     break;
                 case 2:
 
@@ -47,6 +48,8 @@ module view.coin {
         public setData(data: Array<mod.coinItemMod>) {
             this.comp.listCoin.array = data;
             this.comp.listCoin.y = data.length;
+            this.comp.listCoin.repeatY = data.length;
+            this.comp.listCoin.vScrollBarSkin = "";
             this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
         }
@@ -60,7 +63,7 @@ module view.coin {
             let cVender = cell.getChildByName('cVender') as Label;
             cVender.text = data.coinVender;
             let cAddr = cell.getChildByName('cAddr') as Label;
-            cAddr.text = data.coinAddr;
+            cAddr.text = util.getAddr(data.coinAddr);
             let cCheckbox = cell.getChildByName('cCheckbox') as Laya.CheckBox;
             cCheckbox.selected = data.coinSelected;
         }

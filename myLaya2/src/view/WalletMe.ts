@@ -24,6 +24,8 @@ module view {
             this.comp.btn_me.on(Laya.Event.CLICK, this, this.tabSelect, [1]);
             this.comp.btn_dealHistory.on(Laya.Event.CLICK, this, this.tabSelect, [2]);
             this.comp.btn_manageWal.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
+            this.comp.btn_about.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
+            this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
         }
 
         private initQueryData() {
@@ -52,6 +54,16 @@ module view {
                 let wm = new view.WalletManage()
                 wm.setParentUI(this.comp);
                 wm.setData(service.walletServcie.getWallets());
+            }
+            if (index == 4) {
+                this.comp.visible = false;
+                new view.info.about().setParetUI(this.comp);
+            }
+            if (index == 5) {
+                this.comp.visible = false;
+                let candy = new view.info.Candy();
+                candy.setParetUI(this.comp);
+                candy.setData(service.walletServcie.getWallets());
             }
         }
     }

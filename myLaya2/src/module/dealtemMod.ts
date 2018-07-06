@@ -26,6 +26,36 @@ module mod {
             this.dealNonce = dealNonce;
         }
 
+        public toJson() {
+            let json = {
+                "dealType": this.dealType,
+                "dealFromAddr": this.dealFromAddr,
+                "dealToAddr": this.dealToAddr,
+                "dealAmount": this.dealAmount,
+                "dealCoinType": this.dealCoinType,
+                "dealTransId": this.dealTransId,
+                "dealGas": this.dealGas,
+                "dealTime": this.dealTime,
+                "dealConfirm": this.dealConfirm,
+                "dealNonce": this.dealNonce
+
+            }
+            return json;
+        }
+
+        public setJson(json) {
+            this.dealType = json.dealType;
+            this.dealFromAddr = json.dealFromAddr;
+            this.dealToAddr = json.dealToAddr;
+            this.dealAmount = json.dealAmount;
+            this.dealCoinType = json.dealCoinType;
+            this.dealTransId = json.dealTransId;
+            this.dealGas = json.dealGas;
+            this.dealTime = json.dealTime;
+            this.dealConfirm = json.dealConfirm;
+            this.dealNonce = json.dealNonce;
+        }
+
         public getDealImgSrc(): string {
             return this.dealType == config.msg.deal_transfer_in ? config.resource.dealFromSrc : config.resource.dealToSrc;
         }
