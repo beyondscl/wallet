@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view {
-    import Handler = Laya.Handler;
+
 
     export class WalletQuick extends ui.WalletQuickUI {
         //最好不要再界面创建list，可能导致第一个item无法获取点击事件
@@ -11,24 +11,6 @@ module view {
             super();
             this.init();
             this.initEvent();
-        }
-
-        private init() {
-        }
-
-        private initEvent() {
-            this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1])
-            this.lab_create.on(Laya.Event.CLICK, this, this.btnClick, [2])
-        }
-
-        private btnClick(index: number) {
-            if (index == 1) {
-            }
-            if (index == 2) {
-                this.close();
-                this.parentUI.visible = false;
-                new CreateWallet().setParentUI(this.parentUI);
-            }
         }
 
         public setParentUI(parentUI: ui.WalletMainUI) {
@@ -49,6 +31,24 @@ module view {
             this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
             // this.box_btns.top = this.list_wallet.y + this.list_wallet.height+100;
 
+        }
+
+        private init() {
+        }
+
+        private initEvent() {
+            this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1])
+            this.lab_create.on(Laya.Event.CLICK, this, this.btnClick, [2])
+        }
+
+        private btnClick(index: number) {
+            if (index == 1) {
+            }
+            if (index == 2) {
+                this.close();
+                this.parentUI.visible = false;
+                new CreateWallet().setParentUI(this.parentUI);
+            }
         }
 
         private onListRender(cell: Box, index: number) {

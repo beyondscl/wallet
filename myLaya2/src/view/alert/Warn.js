@@ -32,11 +32,6 @@ var view;
                 return _this;
             }
 
-            Warn.prototype.init = function () {
-            };
-            Warn.prototype.initEvent = function () {
-                this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            };
             Warn.prototype.setData = function (title, subTitle) {
                 if (title) {
                     this.warn_title.text = title;
@@ -45,13 +40,18 @@ var view;
                     this.warn_msg.text = subTitle;
                 }
             };
+            Warn.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
+            Warn.prototype.init = function () {
+            };
+            Warn.prototype.initEvent = function () {
+                this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            };
             Warn.prototype.btnClick = function (index) {
                 if (1 == index) {
                     this.close();
                 }
-            };
-            Warn.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             return Warn;
         }(ui.alert.WarnUI));

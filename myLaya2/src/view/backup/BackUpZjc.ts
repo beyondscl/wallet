@@ -11,6 +11,15 @@ module view.backup {
             this.initEvent();
         }
 
+        public setData(key: string) {
+            this.wZjc = key;
+            this.comp.text_zjc.text = key;
+        }
+
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.backup.BackUpZjcUI();
             Laya.stage.addChild(this.comp);
@@ -21,11 +30,6 @@ module view.backup {
         private initEvent() {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-        }
-
-        public setData(key: string) {
-            this.wZjc = key;
-            this.comp.text_zjc.text = key;
         }
 
         private btnClick(index: number) {
@@ -39,10 +43,6 @@ module view.backup {
                 conf.setData(this.wZjc);
                 conf.setParetUI(this.comp);
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
     }
 }

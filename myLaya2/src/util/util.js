@@ -73,7 +73,12 @@ var util = /** @class */ (function () {
             "type": 1,
             "data": value
         };
-        Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+        try {
+            Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+        }
+        catch (error) {
+            console.log("复制只支持app");
+        }
     };
     //设置屏幕
     util.setScreen = function (comp) {

@@ -75,24 +75,6 @@ var ui;
                             }, {
                                 "type": "Button",
                                 "props": {
-                                    "y": 85,
-                                    "x": 0,
-                                    "width": 100,
-                                    "visible": false,
-                                    "var": "btn_cancel",
-                                    "stateNum": 2,
-                                    "skin": "template/Warn/btn_alert dialogLeftButton.png",
-                                    "left": 0,
-                                    "layoutEnabled": true,
-                                    "labelSize": 16,
-                                    "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
-                                    "label": "取消",
-                                    "height": 35,
-                                    "bottom": 0
-                                }
-                            }, {
-                                "type": "Button",
-                                "props": {
                                     "var": "btn_submit",
                                     "stateNum": 2,
                                     "skin": "img/main/img_blue2.png",
@@ -1531,7 +1513,7 @@ var ui;
                                     }]
                             }, {
                                 "type": "Box",
-                                "props": { "y": 646, "x": 56, "right": 56, "left": 56, "height": 40 },
+                                "props": { "y": 646, "x": 56, "var": "btn_service", "right": 56, "left": 56, "height": 40 },
                                 "child": [{
                                         "type": "Label",
                                         "props": {
@@ -1931,6 +1913,7 @@ var ui;
                 return _super.call(this) || this;
             }
             ServiceUI.prototype.createChildren = function () {
+                View.regComponent("Text", laya.display.Text);
                 _super.prototype.createChildren.call(this);
                 this.createView(ui.info.ServiceUI.uiView);
             };
@@ -1941,28 +1924,41 @@ var ui;
                         "type": "Image",
                         "props": { "top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0 }
                     }, {
+                        "type": "Image",
+                        "props": {
+                            "y": 0,
+                            "x": 700,
+                            "width": 50,
+                            "visible": false,
+                            "var": "btn_close",
+                            "top": 0,
+                            "skin": "img/main/xx@2x.png",
+                            "right": 0,
+                            "height": 50
+                        }
+                    }, {
                         "type": "Box",
-                        "props": { "top": 0, "right": 0, "left": 0, "bottom": 130 },
+                        "props": { "var": "box_info", "top": 50, "right": 0, "left": 0, "bottom": 130 },
                         "child": [{
-                                "type": "TextArea",
+                                "type": "Text",
                                 "props": {
+                                    "y": 0,
+                                    "x": 0,
+                                    "wordWrap": true,
+                                    "width": 750,
                                     "var": "text",
-                                    "vScrollBarSkin": "comp/vscroll.png",
-                                    "top": 0,
-                                    "text": "                                                  万微钱包服务协议",
-                                    "right": 0,
-                                    "padding": "20,20,20,20",
-                                    "left": 0,
-                                    "leading": 20,
-                                    "fontSize": 20,
-                                    "editable": false,
-                                    "color": "#000000",
-                                    "bottom": 0
+                                    "text": "阿斯顿发生大四顿饭",
+                                    "strokeColor": "#000000",
+                                    "overflow": "scroll",
+                                    "leading": 10,
+                                    "height": 1150,
+                                    "fontSize": 24,
+                                    "color": "#000000"
                                 }
                             }]
                     }, {
                         "type": "Box",
-                        "props": { "right": 0, "left": 0, "height": 130, "bottom": 0 },
+                        "props": { "var": "box_btn", "right": 0, "left": 0, "height": 130, "bottom": 0 },
                         "child": [{
                                 "type": "Label",
                                 "props": {
@@ -2802,7 +2798,7 @@ var ui;
                                             "sizeGrid": "0,0,0,0",
                                             "selectedIndex": 0,
                                             "left": 30,
-                                            "labels": "m/44’/60’/0’/0/0 Jaxx Metamask(ETH),m/44’/60’/0’/0 Ledger(ETH),m/44’/60’/1’/0/0 自定义路径",
+                                            "labels": "m/0'/0'/0',m/44’/60’/0’/0/0 Jaxx Metamask(ETH),m/44’/60’/0’/0 Ledger(ETH),m/44’/60’/1’/0/0 自定义路径",
                                             "labelSize": 28,
                                             "labelPadding": "10,0,10,0",
                                             "labelColors": "#8E979F",
@@ -2856,6 +2852,7 @@ var ui;
                                             "labelColors": "#ffffff",
                                             "label": "开始导入",
                                             "height": 80,
+                                            "disabled": true,
                                             "bottom": 220
                                         }
                                     }, {
@@ -2912,6 +2909,7 @@ var ui;
                                             "valign": "middle",
                                             "text": "隐私及服务条款",
                                             "padding": "0",
+                                            "name": "lab_service",
                                             "height": 34,
                                             "fontSize": 24,
                                             "color": "#598ADA",
@@ -3032,7 +3030,7 @@ var ui;
                                             "valign": "middle",
                                             "text": "我已经仔细阅读并同意",
                                             "padding": "0",
-                                            "name": "隐私及服务条款",
+                                            "name": "lab_service",
                                             "height": 34,
                                             "fontSize": 24,
                                             "color": "#8E979F",
@@ -3198,7 +3196,7 @@ var ui;
                                             "valign": "middle",
                                             "text": "我已经仔细阅读并同意",
                                             "padding": "0",
-                                            "name": "隐私及服务条款",
+                                            "name": "lab_service",
                                             "height": 34,
                                             "fontSize": 24,
                                             "color": "#8E979F",
@@ -4355,7 +4353,7 @@ var ui;
                         "height": 44,
                         "fontSize": 24,
                         "color": "#ffffff",
-                        "centerX": -45,
+                        "centerX": -61,
                         "align": "right"
                     }
                 }, {
@@ -4388,7 +4386,7 @@ var ui;
                     "type": "Image",
                     "props": {
                         "y": 283,
-                        "x": 517,
+                        "x": 501,
                         "width": 60,
                         "var": "btn_owner_info",
                         "skin": "img/main/erweima@2x.png",
@@ -4474,7 +4472,7 @@ var ui;
                                         "right": 30,
                                         "name": "cTotal",
                                         "height": 40,
-                                        "fontSize": 32,
+                                        "fontSize": 40,
                                         "color": "#100E28",
                                         "centerY": -13,
                                         "align": "right"

@@ -32,6 +32,10 @@ var view;
                 return _this;
             }
 
+            ExportPriKey.prototype.setData = function (key) {
+                this.text_pKey.text = key;
+                this.text_pKey.text = "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b"; //test
+            };
             ExportPriKey.prototype.initEvent = function () {
                 this.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             };
@@ -42,10 +46,6 @@ var view;
             };
             ExportPriKey.prototype.copyBack = function (comp) {
                 comp.btn_copy.label = '已复制';
-            };
-            ExportPriKey.prototype.setData = function (key) {
-                this.text_pKey.text = key;
-                this.text_pKey.text = "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b"; //test
             };
             return ExportPriKey;
         }(ui.alert.ExportPriKeyUI));

@@ -10,13 +10,6 @@ module view.alert {
             this.initEvent();
         }
 
-        private init() {
-        }
-
-        private initEvent() {
-            this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        }
-
         public setData(title: string, subTitle: string) {
             if (title) {
                 this.warn_title.text = title;
@@ -26,14 +19,21 @@ module view.alert {
             }
         }
 
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
+        private init() {
+        }
+
+        private initEvent() {
+            this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+        }
+
         private btnClick(index: number) {
             if (1 == index) {
                 this.close();
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
     }
 }

@@ -10,6 +10,10 @@ module view.set {
             this.initEvent();
         }
 
+        public setParentUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.set.UpdatePassUI();
             Laya.stage.bgColor = 'white';
@@ -20,10 +24,6 @@ module view.set {
 
         private initEvent() {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        }
-
-        public setParentUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
 
         private btnClick(index: number) {

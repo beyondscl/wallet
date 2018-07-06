@@ -10,15 +10,6 @@ module view.info {
             this.initEvent();
         }
 
-        private init() {
-            this.comp = new ui.info.CandyUI();
-            Laya.stage.addChild(this.comp);
-        }
-
-        private initEvent() {
-            this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        }
-
         public setData(data: Array<mod.walletMod>) {
             this.comp.list_wallet.array = data;
             this.comp.list_wallet.x = 1;
@@ -26,6 +17,19 @@ module view.info {
             this.comp.list_wallet.vScrollBarSkin = "";
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+        }
+
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
+        private init() {
+            this.comp = new ui.info.CandyUI();
+            Laya.stage.addChild(this.comp);
+        }
+
+        private initEvent() {
+            this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
         }
 
         private onListRender(cell: Box, index: number) {
@@ -44,10 +48,6 @@ module view.info {
                 this.comp.removeSelf();
                 this.parentUI.visible = true;
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
 
         private onSelect(index: number) {

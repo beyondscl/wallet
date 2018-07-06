@@ -32,14 +32,6 @@ var view;
                 return _this;
             }
             ;
-            BackUpConf.prototype.init = function () {
-                this.comp = new ui.backup.BackUpConfUI();
-                Laya.stage.addChild(this.comp);
-            };
-            BackUpConf.prototype.initEvent = function () {
-                this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1, null]);
-                this.comp.btn_conf.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
-            };
             BackUpConf.prototype.setData = function (key) {
                 this.rightKey = key.trim().split(" ");
                 ; //用于验证
@@ -61,6 +53,17 @@ var view;
                     label.on(Laya.Event.CLICK, this, this.btnClick, [4, labels2[i]]);
                     label.text = '';
                 }
+            };
+            BackUpConf.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
+            BackUpConf.prototype.init = function () {
+                this.comp = new ui.backup.BackUpConfUI();
+                Laya.stage.addChild(this.comp);
+            };
+            BackUpConf.prototype.initEvent = function () {
+                this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1, null]);
+                this.comp.btn_conf.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
             };
             BackUpConf.prototype.btnClick = function (index, v) {
                 if (1 == index) {
@@ -126,9 +129,6 @@ var view;
                         t.bgColor = this.clickedKey[i] ? 'white' : null;
                     }
                 }
-            };
-            BackUpConf.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             return BackUpConf;
         }(ui.backup.BackUpConfUI));

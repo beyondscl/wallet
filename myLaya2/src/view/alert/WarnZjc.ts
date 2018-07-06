@@ -10,6 +10,13 @@ module view.alert {
             this.initEvent();
         }
 
+        public setData(key: string) {
+        }
+
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
         }
 
@@ -17,17 +24,10 @@ module view.alert {
             this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
         }
 
-        public setData(key: string) {
-        }
-
         private btnClick(index: number) {
             if (1 == index) {
                 this.close();
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
     }
 }

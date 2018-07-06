@@ -4,7 +4,6 @@ var service;
     var walletServcie = /** @class */ (function () {
         function walletServcie() {
         }
-
         //修改钱包名称
         //oName 旧钱包名称，nName新名词
         walletServcie.walletUpdateName = function (oName, nName) {
@@ -87,31 +86,6 @@ var service;
                     "vender": "cdcqwl",
                     "addr": "0x000000000000000000000000000000000000000000",
                 },
-                {
-                    "name": "BCH",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "BTH",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "LTC",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "MKR",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "REP",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
             ];
             var ret = [];
             for (var i = 0; i < coins.length; i++) {
@@ -135,17 +109,6 @@ var service;
             return allCoins;
             // return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", this.getSelected(wName, 'ETH')),
             // new mod.coinItemMod("template/List/message icon_57x57.png", "BTC", "vender", "95x...5s1s4", this.getSelected(wName, 'BTC'))]
-        };
-        walletServcie.getSelected = function (wName, cName) {
-            var wallet = util.getItem(wName);
-            if (wallet) {
-                for (var i = 0; i < wallet.wCoins.length; i++) {
-                    if (wallet.wCoins[i] == cName) {
-                        return true;
-                    }
-                }
-            }
-            return false;
         };
         //获取币种交易列表
         walletServcie.getDealListByWName = function (coinName) {
@@ -223,7 +186,6 @@ var service;
         walletServcie.getBalance = function (addr, callback, arg) {
             Laya.Browser.window.getBalance(addr, callback, arg);
         };
-        //记录交易
         //key{
         walletServcie.addDealItem = function (data) {
             var deals = util.getItem(config.prod.appDealKey);
@@ -234,6 +196,25 @@ var service;
             else { //新建
                 util.setItemJson(config.prod.appDealKey, [data.toJson()]);
             }
+        };
+        //记录交易
+        //导入钱包校验助记词
+        walletServcie.vilMemoryWork = function (words) {
+            if (words && Laya.Browser.window.lightwallet.keystore.isSeedValid(words)) {
+                return true;
+            }
+            return false;
+        };
+        walletServcie.getSelected = function (wName, cName) {
+            var wallet = util.getItem(wName);
+            if (wallet) {
+                for (var i = 0; i < wallet.wCoins.length; i++) {
+                    if (wallet.wCoins[i] == cName) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         };
         return walletServcie;
     }());

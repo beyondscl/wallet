@@ -1,7 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view {
     import List = Laya.List;
-    import Handler = Laya.Handler;
     import Image = Laya.Image;
 
 
@@ -14,21 +13,6 @@ module view {
             super();
             this.init();
             this.initEvent();
-        }
-
-        private init() {
-            this.comp = new ui.WalletMainUI();
-            this.comp.addChild(this.list);
-            Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-        }
-
-        private initEvent() {
-            this.comp.btn_assets.on(Laya.Event.CLICK, this, this.tabSelect, [0]);
-            this.comp.btn_me.on(Laya.Event.CLICK, this, this.tabSelect, [1]);
-            this.comp.btn_owner_info.on(Laya.Event.CLICK, this, this.tabSelect, [2]);
-            this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
-            this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         }
 
         public setData(coins: Array<string>) {
@@ -44,6 +28,7 @@ module view {
 
         //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
+            //修改当前内存主要钱包
             mod.userMod.defWallet = data;//*
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
@@ -53,6 +38,21 @@ module view {
             this.setData(data.wCoins);
             //初始化余额
             service.walletServcie.getBalance(data.wAddr, this.getBalanceCb, this.comp)
+        }
+
+        private init() {
+            this.comp = new ui.WalletMainUI();
+            this.comp.addChild(this.list);
+            Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+        }
+
+        private initEvent() {
+            this.comp.btn_assets.on(Laya.Event.CLICK, this, this.tabSelect, [0]);
+            this.comp.btn_me.on(Laya.Event.CLICK, this, this.tabSelect, [1]);
+            this.comp.btn_owner_info.on(Laya.Event.CLICK, this, this.tabSelect, [2]);
+            this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
+            this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         }
 
         private getBalanceCb(err, res, comp: view.WalletMain) {

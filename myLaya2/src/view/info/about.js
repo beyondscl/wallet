@@ -31,6 +31,11 @@ var view;
                 return _this;
             }
 
+            about.prototype.setData = function (key) {
+            };
+            about.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             about.prototype.init = function () {
                 this.comp = new ui.info.aboutUI();
                 Laya.stage.addChild(this.comp);
@@ -38,21 +43,26 @@ var view;
             about.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
                 this.comp.btn_team.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-            };
-            about.prototype.setData = function (key) {
+                this.comp.btn_service.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             };
             about.prototype.btnClick = function (index) {
                 if (1 == index) {
                     this.comp.removeSelf();
                     this.parentUI.visible = true;
+                    return;
                 }
                 if (2 == index) {
                     this.comp.visible = false;
-                    new view.info.aboutTeam().setParetUI(this.comp);
+                    var s = new view.info.aboutTeam().setParetUI(this.comp);
+                    return;
                 }
-            };
-            about.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
+                if (3 == index) {
+                    this.comp.visible = false;
+                    var s = new view.info.Service();
+                    s.setParetUI(this.comp);
+                    s.setData("1");
+                    return;
+                }
             };
             return about;
         }(ui.info.aboutUI));

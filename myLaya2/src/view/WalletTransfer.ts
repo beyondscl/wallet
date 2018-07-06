@@ -1,5 +1,4 @@
 module view {
-    import List = Laya.List;
     import Handler = Laya.Handler;
 
     export class WalletTransfer extends ui.WalletTransferUI {
@@ -10,6 +9,16 @@ module view {
             super();
             this.init();
             this.initEvent();
+        }
+
+        public setParentUI(parentUI: ui.WalletMainUI) {
+            this.parentUI = parentUI;
+        }
+
+        public setData(data: mod.walItemMod) {
+            this.comp.lab_coin_name.text = data.itemName;
+            this.comp.lab_coin_total.text = data.itemMonType;
+            this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         }
 
         private init() {
@@ -24,19 +33,9 @@ module view {
             this.comp.btn_receive.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         }
 
-        public setParentUI(parentUI: ui.WalletMainUI) {
-            this.parentUI = parentUI;
-        }
-
         private goBack() {
             Laya.stage.removeChild(this.comp);
             new view.WalletMain().initQueryData(mod.userMod.defWallet);
-        }
-
-        public setData(data: mod.walItemMod) {
-            this.comp.lab_coin_name.text = data.itemName;
-            this.comp.lab_coin_total.text = data.itemMonType;
-            this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         }
 
         private btnClick(type: number) {

@@ -30,6 +30,9 @@ var view;
             return _this;
         }
 
+        CreateWallet.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
         CreateWallet.prototype.init = function () {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.addChild(this.comp);
@@ -43,9 +46,16 @@ var view;
             this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
             this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
+            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.btn_click, [1]); //服务隐私条款
         };
-        CreateWallet.prototype.setParentUI = function (parentUI) {
-            this.parentUI = parentUI;
+        CreateWallet.prototype.btn_click = function (index) {
+            if (1 == index) {
+                this.comp.visible = false;
+                var s = new view.info.Service();
+                s.setParetUI(this.comp);
+                s.setData("1");
+                return;
+            }
         };
         CreateWallet.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);

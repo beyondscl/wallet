@@ -92,32 +92,34 @@ module service {
                     "name": "WWEC",
                     "vender": "cdcqwl",
                     "addr": "0x000000000000000000000000000000000000000000",
+                    //abi
+                    //data
                 },
-                {
-                    "name": "BCH",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "BTH",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "LTC",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "MKR",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
-                {
-                    "name": "REP",
-                    "vender": "cdcqwl",
-                    "addr": "0x000000000000000000000000000000000000000000",
-                },
+                // {
+                //     "name": "BCH",
+                //     "vender": "cdcqwl",
+                //     "addr": "0x000000000000000000000000000000000000000000",
+                // },
+                // {
+                //     "name": "BTH",
+                //     "vender": "cdcqwl",
+                //     "addr": "0x000000000000000000000000000000000000000000",
+                // },
+                // {
+                //     "name": "LTC",
+                //     "vender": "cdcqwl",
+                //     "addr": "0x000000000000000000000000000000000000000000",
+                // },
+                // {
+                //     "name": "MKR",
+                //     "vender": "cdcqwl",
+                //     "addr": "0x000000000000000000000000000000000000000000",
+                // },
+                // {
+                //     "name": "REP",
+                //     "vender": "cdcqwl",
+                //     "addr": "0x000000000000000000000000000000000000000000",
+                // },
             ];
             let ret = [];
             for (let i = 0; i < coins.length; i++) {
@@ -142,18 +144,6 @@ module service {
             return allCoins;
             // return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", this.getSelected(wName, 'ETH')),
             // new mod.coinItemMod("template/List/message icon_57x57.png", "BTC", "vender", "95x...5s1s4", this.getSelected(wName, 'BTC'))]
-        }
-
-        private static getSelected(wName, cName) {
-            let wallet = util.getItem(wName);
-            if (wallet) {
-                for (let i = 0; i < wallet.wCoins.length; i++) {
-                    if (wallet.wCoins[i] == cName) {
-                        return true;
-                    }
-                }
-            }
-            return false;
         }
 
         //获取币种交易列表
@@ -242,7 +232,6 @@ module service {
             Laya.Browser.window.getBalance(addr, callback, arg);
         }
 
-        //记录交易
         //key{
         public static addDealItem(data: mod.dealtemMod): void {
             let deals = util.getItem(config.prod.appDealKey);
@@ -252,6 +241,28 @@ module service {
             } else {//新建
                 util.setItemJson(config.prod.appDealKey, [data.toJson()]);
             }
+        }
+
+        //记录交易
+
+        //导入钱包校验助记词
+        public static vilMemoryWork(words: string) {
+            if (words && Laya.Browser.window.lightwallet.keystore.isSeedValid(words)) {
+                return true;
+            }
+            return false;
+        }
+
+        private static getSelected(wName, cName) {
+            let wallet = util.getItem(wName);
+            if (wallet) {
+                for (let i = 0; i < wallet.wCoins.length; i++) {
+                    if (wallet.wCoins[i] == cName) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

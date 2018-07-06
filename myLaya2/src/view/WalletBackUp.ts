@@ -11,6 +11,14 @@ module view {
             this.initEvent();
         }
 
+        public setData(key: string) {
+            this.walletName = key;
+        }
+
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.WalletBackUpUI();
             Laya.stage.addChild(this.comp);
@@ -20,10 +28,6 @@ module view {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.info_backup.on(Laya.Event.CLICK, this, this.btnClick[3]);
-        }
-
-        public setData(key: string) {
-            this.walletName = key;
         }
 
         private btnClick(index: number) {
@@ -37,10 +41,6 @@ module view {
                 backUp.setData(service.walletServcie.getWallet(this.walletName).wZjc);
                 backUp.setParetUI(this.comp);
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
     }
 }

@@ -14,16 +14,6 @@ module view.backup {
             this.initEvent();
         }
 
-        private init() {
-            this.comp = new ui.backup.BackUpConfUI();
-            Laya.stage.addChild(this.comp);
-        }
-
-        private initEvent() {
-            this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1, null]);
-            this.comp.btn_conf.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
-        }
-
         public setData(key: string) {
             this.rightKey = key.trim().split(" ");
             ;//用于验证
@@ -46,6 +36,20 @@ module view.backup {
                 label.text = '';
             }
 
+        }
+
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
+        private init() {
+            this.comp = new ui.backup.BackUpConfUI();
+            Laya.stage.addChild(this.comp);
+        }
+
+        private initEvent() {
+            this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1, null]);
+            this.comp.btn_conf.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
         }
 
         private btnClick(index: number, v: Label) {
@@ -111,10 +115,6 @@ module view.backup {
                     t.bgColor = this.clickedKey[i] ? 'white' : null;
                 }
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
     }
 }

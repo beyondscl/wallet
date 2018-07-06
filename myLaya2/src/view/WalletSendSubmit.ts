@@ -12,19 +12,6 @@ module view {
             this.initEvent();
         }
 
-        private init() {
-            this.comp = new ui.WalletSendSubmitUI();
-            Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
-        }
-
-        private initEvent() {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
-            this.comp.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            this.comp.sli_gas.changeHandler = new Handler(this, this.sliChange);
-        }
-
         public setData(data: ui.WalletSendUI) {
             this.comp.text_from.text = mod.userMod.defWallet.wAddr;
             this.comp.text_to.text = data.text_addr.text;
@@ -44,6 +31,19 @@ module view {
         public setParenUI(parent: ui.WalletSendUI) {
             this.parentUI = parent;
             this.setData(parent);
+        }
+
+        private init() {
+            this.comp = new ui.WalletSendSubmitUI();
+            Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
+        }
+
+        private initEvent() {
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.sli_gas.changeHandler = new Handler(this, this.sliChange);
         }
 
         private goBack() {

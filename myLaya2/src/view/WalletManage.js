@@ -29,6 +29,17 @@ var view;
             return _this;
         }
 
+        WalletManage.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
+        WalletManage.prototype.setData = function (data) {
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.x = 1;
+            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.vScrollBarSkin = "";
+            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+        };
         WalletManage.prototype.init = function () {
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
@@ -54,17 +65,6 @@ var view;
                 this.comp.visible = false;
                 new view.set.WalletImport().setParetUI(this.comp);
             }
-        };
-        WalletManage.prototype.setParentUI = function (parentUI) {
-            this.parentUI = parentUI;
-        };
-        WalletManage.prototype.setData = function (data) {
-            this.comp.list_wallet.array = data;
-            this.comp.list_wallet.x = 1;
-            this.comp.list_wallet.y = data.length;
-            this.comp.list_wallet.vScrollBarSkin = "";
-            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         };
         WalletManage.prototype.onListRender = function (cell, index) {
             var data = this.comp.list_wallet.array[index];

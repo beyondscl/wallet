@@ -30,6 +30,10 @@ var view;
             return _this;
         }
 
+        TransHisList.prototype.setData = function (data, parent) {
+            this.parentUI = parent;
+            this.setListUp(data);
+        };
         TransHisList.prototype.init = function () {
             this.comp = new ui.TransHisListUI();
             Laya.stage.addChild(this.comp);
@@ -40,10 +44,6 @@ var view;
         TransHisList.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
             this.parentUI.visible = true;
-        };
-        TransHisList.prototype.setData = function (data, parent) {
-            this.parentUI = parent;
-            this.setListUp(data);
         };
         //init deal history list
         TransHisList.prototype.setListUp = function (data) {

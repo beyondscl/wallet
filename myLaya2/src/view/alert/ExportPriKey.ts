@@ -8,6 +8,11 @@ module view.alert {
             this.initEvent();
         }
 
+        public setData(key: string) {
+            this.text_pKey.text = key;
+            this.text_pKey.text = "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b";//test
+        }
+
         private initEvent() {
             this.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [1]);
         }
@@ -20,11 +25,6 @@ module view.alert {
 
         private copyBack(comp: ui.alert.ExportPriKeyUI) {
             comp.btn_copy.label = '已复制'
-        }
-
-        public setData(key: string) {
-            this.text_pKey.text = key;
-            this.text_pKey.text = "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b";//test
         }
     }
 }

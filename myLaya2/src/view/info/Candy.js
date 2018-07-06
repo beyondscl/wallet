@@ -31,13 +31,6 @@ var view;
                 return _this;
             }
 
-            Candy.prototype.init = function () {
-                this.comp = new ui.info.CandyUI();
-                Laya.stage.addChild(this.comp);
-            };
-            Candy.prototype.initEvent = function () {
-                this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            };
             Candy.prototype.setData = function (data) {
                 this.comp.list_wallet.array = data;
                 this.comp.list_wallet.x = 1;
@@ -45,6 +38,16 @@ var view;
                 this.comp.list_wallet.vScrollBarSkin = "";
                 this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
                 this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            };
+            Candy.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
+            Candy.prototype.init = function () {
+                this.comp = new ui.info.CandyUI();
+                Laya.stage.addChild(this.comp);
+            };
+            Candy.prototype.initEvent = function () {
+                this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             };
             Candy.prototype.onListRender = function (cell, index) {
                 var data = this.comp.list_wallet.array[index];
@@ -61,9 +64,6 @@ var view;
                     this.comp.removeSelf();
                     this.parentUI.visible = true;
                 }
-            };
-            Candy.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             Candy.prototype.onSelect = function (index) {
                 var childs = this.comp.list_wallet.cells;

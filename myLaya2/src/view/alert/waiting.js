@@ -31,17 +31,17 @@ var view;
                 return _this;
             }
 
-            waiting.prototype.init = function () {
-                Laya.timer.loop(100, this, this.start);
-            };
-            waiting.prototype.start = function () {
-                this.img_wait.rotation = this.img_wait.rotation + 30;
-            };
             waiting.prototype.stop = function () {
                 this.close();
                 Laya.timer.clear(this, this.stopCb);
             };
             waiting.prototype.stopCb = function () {
+            };
+            waiting.prototype.init = function () {
+                Laya.timer.loop(100, this, this.start);
+            };
+            waiting.prototype.start = function () {
+                this.img_wait.rotation = this.img_wait.rotation + 30;
             };
             return waiting;
         }(ui.alert.waitingUI));

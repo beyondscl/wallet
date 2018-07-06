@@ -10,6 +10,14 @@ module view.set {
             this.initEvent();
         }
 
+        public setData(key: string) {
+            this.comp.text_keystore.text = key;
+        }
+
+        public setParetUI(parentUI: ui.WalletDetailUI) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.set.ExpKeystoreUI();
             Laya.stage.addChild(this.comp);
@@ -43,10 +51,6 @@ module view.set {
             }
         }
 
-        public setData(key: string) {
-            this.comp.text_keystore.text = key;
-        }
-
         private btnClick(index: number) {
             if (1 == index) {
                 this.stage.removeChild(this.comp);
@@ -63,10 +67,6 @@ module view.set {
 
         private copyBack(comp: ui.set.ExpKeystoreUI) {
             comp.btn_copy.label = '已复制'
-        }
-
-        public setParetUI(parentUI: ui.WalletDetailUI) {
-            this.parentUI = parentUI;
         }
     }
 }

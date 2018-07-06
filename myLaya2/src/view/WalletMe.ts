@@ -1,7 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view {
-    import List = Laya.List;
-    import Handler = Laya.Handler;
+
 
     export class WalletMe extends ui.WalletMeUI {
         private comp: ui.WalletMeUI;

@@ -8,20 +8,20 @@ module view.alert {
 
         }
 
-        private init() {
-            Laya.timer.loop(100, this, this.start);
-        }
-
-        private start() {
-            this.img_wait.rotation = this.img_wait.rotation + 30;
-        }
-
         public stop() {
             this.close();
             Laya.timer.clear(this, this.stopCb);
         }
 
         public stopCb() {
+        }
+
+        private init() {
+            Laya.timer.loop(100, this, this.start);
+        }
+
+        private start() {
+            this.img_wait.rotation = this.img_wait.rotation + 30;
         }
     }
 }

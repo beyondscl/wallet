@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -14,23 +22,14 @@ var view;
     var Handler = Laya.Handler;
     var WalletSendSubmit = /** @class */ (function (_super) {
         __extends(WalletSendSubmit, _super);
+
         function WalletSendSubmit() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
-        WalletSendSubmit.prototype.init = function () {
-            this.comp = new ui.WalletSendSubmitUI();
-            Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
-        };
-        WalletSendSubmit.prototype.initEvent = function () {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
-            this.comp.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            this.comp.sli_gas.changeHandler = new Handler(this, this.sliChange);
-        };
+
         WalletSendSubmit.prototype.setData = function (data) {
             this.comp.text_from.text = mod.userMod.defWallet.wAddr;
             this.comp.text_to.text = data.text_addr.text;
@@ -49,6 +48,17 @@ var view;
         WalletSendSubmit.prototype.setParenUI = function (parent) {
             this.parentUI = parent;
             this.setData(parent);
+        };
+        WalletSendSubmit.prototype.init = function () {
+            this.comp = new ui.WalletSendSubmitUI();
+            Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
+        };
+        WalletSendSubmit.prototype.initEvent = function () {
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.sli_gas.changeHandler = new Handler(this, this.sliChange);
         };
         WalletSendSubmit.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
@@ -88,7 +98,7 @@ var view;
                     //记录交易!!!
                     // constructor(dealType, dealFromAddr, dealToAddr, dealAmount, dealCoinType, dealTransId, dealGas, dealTime, dealConfirm, dealNonce) {
                     var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_1.text_from.text, comp_1.text_to.text, comp_1.send_amout.text, comp_1.coin_type.text, ret.txhash, //可以根据这个去查询更新
-                    gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
+                        gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                     service.walletServcie.addDealItem(deal);
                 }
                 else {

@@ -11,6 +11,24 @@ module view {
             this.initEvent();
         }
 
+        public deleteCb(pass, comp: ui.WalletDetailUI) {
+            //比较复杂
+            // service.walletServcie.deleteWallet(comp.lab_wAddr.text);
+        }
+
+        public setData(data: mod.walletMod) {
+            this.data = data;
+            this.comp.lab_wName.text = data.wName;
+            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
+            this.comp.lab_total.text = '0.00 ¥';
+            this.comp.img_wImg.skin = config.resource.walletImg;
+            this.comp.text_wName.text = data.wName;
+        }
+
+        public setParetUI(parentUI: ui.WalletManageUI) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.WalletDetailUI();
             Laya.stage.addChild(this.comp);
@@ -25,6 +43,8 @@ module view {
             this.comp.box_expSeckey.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
+            this.comp.btn_delete.on(Laya.Event.CLICK, this, this.btnClick, [6]);
+
         }
 
         private goBack() {
@@ -71,6 +91,13 @@ module view {
                 p.popup()
                 return;
             }
+            if (6 == index) {
+                let p = new alert.EnterPass()
+                p.setParentUI(this.comp);
+                p.setCallBack(this.deleteCb);
+                p.popup()
+                return;
+            }
         }
 
         private enterPassCb(pass, comp: ui.WalletDetailUI) {
@@ -78,19 +105,6 @@ module view {
             let backupw = new view.WalletBackUp();
             backupw.setData(comp.lab_wName.text);
             backupw.setParetUI(comp);
-        }
-
-        public setData(data: mod.walletMod) {
-            this.data = data;
-            this.comp.lab_wName.text = data.wName;
-            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_total.text = '0.00 $USDT';
-            this.comp.img_wImg.skin = config.resource.walletImg;
-            this.comp.text_wName.text = data.wName;
-        }
-
-        public setParetUI(parentUI: ui.WalletManageUI) {
-            this.parentUI = parentUI;
         }
 
         //这里的comp需要重新传值回来

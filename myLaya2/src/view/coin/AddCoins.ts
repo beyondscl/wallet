@@ -12,6 +12,19 @@ module view.coin {
             this.initEvent();
         }
 
+        public setParentUI(parentUI: ui.WalletMainUI) {
+            this.parentUI = parentUI;
+        }
+
+        public setData(data: Array<mod.coinItemMod>) {
+            this.comp.listCoin.array = data;
+            this.comp.listCoin.y = data.length;
+            this.comp.listCoin.repeatY = data.length;
+            this.comp.listCoin.vScrollBarSkin = "";
+            this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
+        }
+
         private init() {
             this.comp = new ui.coin.AddCoinsUI();
             this.stage.addChild(this.comp)
@@ -39,19 +52,6 @@ module view.coin {
                 default:
                     break;
             }
-        }
-
-        public setParentUI(parentUI: ui.WalletMainUI) {
-            this.parentUI = parentUI;
-        }
-
-        public setData(data: Array<mod.coinItemMod>) {
-            this.comp.listCoin.array = data;
-            this.comp.listCoin.y = data.length;
-            this.comp.listCoin.repeatY = data.length;
-            this.comp.listCoin.vScrollBarSkin = "";
-            this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
         private onListRender(cell: Box, index: number) {

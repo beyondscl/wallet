@@ -29,21 +29,6 @@ var view;
             return _this;
         }
 
-        WalletQuick.prototype.init = function () {
-        };
-        WalletQuick.prototype.initEvent = function () {
-            this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            this.lab_create.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-        };
-        WalletQuick.prototype.btnClick = function (index) {
-            if (index == 1) {
-            }
-            if (index == 2) {
-                this.close();
-                this.parentUI.visible = false;
-                new view.CreateWallet().setParentUI(this.parentUI);
-            }
-        };
         WalletQuick.prototype.setParentUI = function (parentUI) {
             this.parentUI = parentUI;
         };
@@ -59,6 +44,21 @@ var view;
             this.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
             // this.box_btns.top = this.list_wallet.y + this.list_wallet.height+100;
+        };
+        WalletQuick.prototype.init = function () {
+        };
+        WalletQuick.prototype.initEvent = function () {
+            this.lab_sao.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.lab_create.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+        };
+        WalletQuick.prototype.btnClick = function (index) {
+            if (index == 1) {
+            }
+            if (index == 2) {
+                this.close();
+                this.parentUI.visible = false;
+                new view.CreateWallet().setParentUI(this.parentUI);
+            }
         };
         WalletQuick.prototype.onListRender = function (cell, index) {
             var data = this.list_wallet.array[index];

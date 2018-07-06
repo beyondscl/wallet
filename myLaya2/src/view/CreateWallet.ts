@@ -12,6 +12,10 @@ module view {
             this.initEvent();
         }
 
+        public setParentUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.addChild(this.comp);
@@ -27,10 +31,18 @@ module view {
             this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
             this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
+
+            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.btn_click, [1]);//服务隐私条款
         }
 
-        public setParentUI(parentUI: any) {
-            this.parentUI = parentUI;
+        private btn_click(index: number) {
+            if (1 == index) {
+                this.comp.visible = false;
+                let s = new view.info.Service();
+                s.setParetUI(this.comp);
+                s.setData("1");
+                return;
+            }
         }
 
         private goBack() {

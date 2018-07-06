@@ -1,7 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view {
-    import List = Laya.List;
-    import Handler = Laya.Handler;
+
 
     export class TransDetail extends ui.TransDetailUI {
         private comp: ui.TransDetailUI;
@@ -11,18 +10,6 @@ module view {
             super();
             this.init();
             this.initEvent();
-        }
-
-        private init() {
-            this.comp = new ui.TransDetailUI();
-            Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
-        }
-
-        private initEvent() {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
-            this.comp.btn_moreinfo.on(Laya.Event.CLICK, this, this.moreinfo);
         }
 
         /**
@@ -42,6 +29,18 @@ module view {
             this.comp.lab_confirm.text = data.dealConfirm + '';
             this.comp.lab_time.text = data.dealTime;
             this.comp.lab_nonce.text = data.dealNonce + '';
+        }
+
+        private init() {
+            this.comp = new ui.TransDetailUI();
+            Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
+        }
+
+        private initEvent() {
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_moreinfo.on(Laya.Event.CLICK, this, this.moreinfo);
         }
 
         private goBack() {

@@ -3,13 +3,6 @@ import Dialog=laya.ui.Dialog;
 
 module ui.alert {
     export class EnterPassUI extends Dialog {
-        public text_pass: Laya.TextInput;
-        public btn_cancel: Laya.Button;
-        public btn_submit: Laya.Button;
-        public addr: Laya.Label;
-        public amount: Laya.Label;
-        public warn: Laya.Label;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {"width": 690, "layoutEnabled": true, "height": 500},
@@ -58,24 +51,6 @@ module ui.alert {
                         "borderColor": "#c0c0c0",
                         "bgColor": "#ffffff",
                         "align": "left"
-                    }
-                }, {
-                    "type": "Button",
-                    "props": {
-                        "y": 85,
-                        "x": 0,
-                        "width": 100,
-                        "visible": false,
-                        "var": "btn_cancel",
-                        "stateNum": 2,
-                        "skin": "template/Warn/btn_alert dialogLeftButton.png",
-                        "left": 0,
-                        "layoutEnabled": true,
-                        "labelSize": 16,
-                        "labelColors": "#3476CA,#E2E6E5,#E2E6E5",
-                        "label": "取消",
-                        "height": 35,
-                        "bottom": 0
                     }
                 }, {
                     "type": "Button",
@@ -140,6 +115,11 @@ module ui.alert {
                 }]
             }]
         };
+        public text_pass: Laya.TextInput;
+        public btn_submit: Laya.Button;
+        public addr: Laya.Label;
+        public amount: Laya.Label;
+        public warn: Laya.Label;
 
         constructor() {
             super()
@@ -157,9 +137,6 @@ module ui.alert {
 
 module ui.alert {
     export class ExportPriKeyUI extends Dialog {
-        public text_pKey: Laya.TextArea;
-        public btn_copy: Laya.Button;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {"y": 0, "x": 0, "width": 200, "height": 120},
@@ -206,6 +183,8 @@ module ui.alert {
                 }]
             }]
         };
+        public text_pKey: Laya.TextArea;
+        public btn_copy: Laya.Button;
 
         constructor() {
             super()
@@ -249,9 +228,6 @@ module ui.alert {
 
 module ui.alert {
     export class waitingUI extends Dialog {
-        public img_wait: Laya.Image;
-        public wait_msg: Laya.Label;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {"width": 750, "height": 1334},
@@ -301,6 +277,8 @@ module ui.alert {
                 }]
             }]
         };
+        public img_wait: Laya.Image;
+        public wait_msg: Laya.Label;
 
         constructor() {
             super()
@@ -318,10 +296,6 @@ module ui.alert {
 
 module ui.alert {
     export class WarnUI extends Dialog {
-        public warn_title: Laya.Label;
-        public warn_msg: Laya.Label;
-        public btn_know: Laya.Button;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {"width": 690, "height": 648},
@@ -380,6 +354,9 @@ module ui.alert {
                 }]
             }]
         };
+        public warn_title: Laya.Label;
+        public warn_msg: Laya.Label;
+        public btn_know: Laya.Button;
 
         constructor() {
             super()
@@ -397,8 +374,6 @@ module ui.alert {
 
 module ui.alert {
     export class WarnZjcUI extends Dialog {
-        public btn_know: Laya.Button;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {"width": 690, "height": 648},
@@ -470,6 +445,7 @@ module ui.alert {
                 }]
             }]
         };
+        public btn_know: Laya.Button;
 
         constructor() {
             super()
@@ -487,11 +463,6 @@ module ui.alert {
 
 module ui.backup {
     export class BackUpConfUI extends View {
-        public btn_back: Laya.Image;
-        public btn_conf: Laya.Button;
-        public box_label: Laya.Box;
-        public box_zjc: Laya.Box;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1334},
@@ -869,6 +840,10 @@ module ui.backup {
                 }]
             }]
         };
+        public btn_back: Laya.Image;
+        public btn_conf: Laya.Button;
+        public box_label: Laya.Box;
+        public box_zjc: Laya.Box;
 
         constructor() {
             super()
@@ -886,10 +861,6 @@ module ui.backup {
 
 module ui.backup {
     export class BackUpZjcUI extends View {
-        public btn_back: Laya.Image;
-        public btn_backup: Laya.Button;
-        public text_zjc: Laya.TextArea;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1334},
@@ -987,6 +958,9 @@ module ui.backup {
                 }
             }]
         };
+        public btn_back: Laya.Image;
+        public btn_backup: Laya.Button;
+        public text_zjc: Laya.TextArea;
 
         constructor() {
             super()
@@ -1004,15 +978,6 @@ module ui.backup {
 
 module ui.coin {
     export class AddCoinsUI extends View {
-        public btn_goback: Laya.Button;
-        public btn_query: Laya.Button;
-        public listCoin: Laya.List;
-        public cImg: Laya.Image;
-        public cVender: Laya.Label;
-        public cName: Laya.Label;
-        public cAddr: Laya.Label;
-        public cCheckbox: Laya.CheckBox;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "visible": true, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -1151,6 +1116,14 @@ module ui.coin {
                 }]
             }]
         };
+        public btn_goback: Laya.Button;
+        public btn_query: Laya.Button;
+        public listCoin: Laya.List;
+        public cImg: Laya.Image;
+        public cVender: Laya.Label;
+        public cName: Laya.Label;
+        public cAddr: Laya.Label;
+        public cCheckbox: Laya.CheckBox;
 
         constructor() {
             super()
@@ -1168,8 +1141,6 @@ module ui.coin {
 
 module ui.coin {
     export class queryCoinsUI extends View {
-        public text_search: Laya.TextInput;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1344},
@@ -1212,6 +1183,7 @@ module ui.coin {
                 }]
             }]
         };
+        public text_search: Laya.TextInput;
 
         constructor() {
             super()
@@ -1229,9 +1201,6 @@ module ui.coin {
 
 module ui {
     export class EnterAppUI extends View {
-        public btn_create: Laya.Button;
-        public btn_import: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {
@@ -1317,6 +1286,8 @@ module ui {
                 }]
             }]
         };
+        public btn_create: Laya.Button;
+        public btn_import: Laya.Button;
 
         constructor() {
             super()
@@ -1334,12 +1305,6 @@ module ui {
 
 module ui {
     export class GuideUI extends View {
-        public item0: Laya.Box;
-        public item1: Laya.Box;
-        public item2: Laya.Box;
-        public item3: Laya.Box;
-        public img_enter: Laya.Image;
-
         public static uiView: any = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -1470,6 +1435,11 @@ module ui {
                 }]
             }]
         };
+        public item0: Laya.Box;
+        public item1: Laya.Box;
+        public item2: Laya.Box;
+        public item3: Laya.Box;
+        public img_enter: Laya.Image;
 
         constructor() {
             super()
@@ -1487,9 +1457,6 @@ module ui {
 
 module ui.info {
     export class aboutUI extends View {
-        public btn_back: Laya.Image;
-        public btn_team: Laya.Box;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1334},
@@ -1569,7 +1536,7 @@ module ui.info {
                     }]
                 }, {
                     "type": "Box",
-                    "props": {"y": 646, "x": 56, "right": 56, "left": 56, "height": 40},
+                    "props": {"y": 646, "x": 56, "var": "btn_service", "right": 56, "left": 56, "height": 40},
                     "child": [{
                         "type": "Label",
                         "props": {
@@ -1655,6 +1622,9 @@ module ui.info {
                 }]
             }]
         };
+        public btn_back: Laya.Image;
+        public btn_team: Laya.Box;
+        public btn_service: Laya.Box;
 
         constructor() {
             super()
@@ -1672,8 +1642,6 @@ module ui.info {
 
 module ui.info {
     export class aboutTeamUI extends View {
-        public btn_back: Laya.Image;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1334},
@@ -1759,6 +1727,7 @@ module ui.info {
                 }]
             }]
         };
+        public btn_back: Laya.Image;
 
         constructor() {
             super()
@@ -1776,10 +1745,6 @@ module ui.info {
 
 module ui.info {
     export class CandyUI extends View {
-        public btn_back: Laya.Image;
-        public list_wallet: Laya.List;
-        public radio: Laya.Radio;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1334},
@@ -1961,6 +1926,9 @@ module ui.info {
                 }]
             }]
         };
+        public btn_back: Laya.Image;
+        public list_wallet: Laya.List;
+        public radio: Laya.Radio;
 
         constructor() {
             super()
@@ -1978,10 +1946,6 @@ module ui.info {
 
 module ui.info {
     export class ServiceUI extends View {
-        public text: Laya.TextArea;
-        public agree: Laya.CheckBox;
-        public btn_accept: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -1989,28 +1953,41 @@ module ui.info {
                 "type": "Image",
                 "props": {"top": 0, "skin": "img/main/white.jpg", "right": 0, "left": 0, "bottom": 0}
             }, {
+                "type": "Image",
+                "props": {
+                    "y": 0,
+                    "x": 700,
+                    "width": 50,
+                    "visible": false,
+                    "var": "btn_close",
+                    "top": 0,
+                    "skin": "img/main/xx@2x.png",
+                    "right": 0,
+                    "height": 50
+                }
+            }, {
                 "type": "Box",
-                "props": {"top": 0, "right": 0, "left": 0, "bottom": 130},
+                "props": {"var": "box_info", "top": 50, "right": 0, "left": 0, "bottom": 130},
                 "child": [{
-                    "type": "TextArea",
+                    "type": "Text",
                     "props": {
+                        "y": 0,
+                        "x": 0,
+                        "wordWrap": true,
+                        "width": 750,
                         "var": "text",
-                        "vScrollBarSkin": "comp/vscroll.png",
-                        "top": 0,
-                        "text": "                                                  万微钱包服务协议",
-                        "right": 0,
-                        "padding": "20,20,20,20",
-                        "left": 0,
-                        "leading": 20,
-                        "fontSize": 20,
-                        "editable": false,
-                        "color": "#000000",
-                        "bottom": 0
+                        "text": "阿斯顿发生大四顿饭",
+                        "strokeColor": "#000000",
+                        "overflow": "scroll",
+                        "leading": 10,
+                        "height": 1150,
+                        "fontSize": 24,
+                        "color": "#000000"
                     }
                 }]
             }, {
                 "type": "Box",
-                "props": {"right": 0, "left": 0, "height": 130, "bottom": 0},
+                "props": {"var": "box_btn", "right": 0, "left": 0, "height": 130, "bottom": 0},
                 "child": [{
                     "type": "Label",
                     "props": {
@@ -2061,12 +2038,19 @@ module ui.info {
                 }]
             }]
         };
+        public btn_close: Laya.Image;
+        public box_info: Laya.Box;
+        public text: laya.display.Text;
+        public box_btn: Laya.Box;
+        public agree: Laya.CheckBox;
+        public btn_accept: Laya.Button;
 
         constructor() {
             super()
         }
 
         createChildren(): void {
+            View.regComponent("Text", laya.display.Text);
 
             super.createChildren();
             this.createView(ui.info.ServiceUI.uiView);
@@ -2078,13 +2062,6 @@ module ui.info {
 
 module ui {
     export class LoginUI extends View {
-        public lab_title: Laya.Label;
-        public lab_quit: Laya.Label;
-        public lab_contury: Laya.Label;
-        public lab_sele_contury: Laya.Label;
-        public text_phoneNum: Laya.TextInput;
-        public text_password: Laya.TextInput;
-
         public static uiView: any = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 600, "height": 800},
@@ -2230,6 +2207,12 @@ module ui {
                 }
             }]
         };
+        public lab_title: Laya.Label;
+        public lab_quit: Laya.Label;
+        public lab_contury: Laya.Label;
+        public lab_sele_contury: Laya.Label;
+        public text_phoneNum: Laya.TextInput;
+        public text_password: Laya.TextInput;
 
         constructor() {
             super()
@@ -2247,9 +2230,6 @@ module ui {
 
 module ui {
     export class MsgUI extends Dialog {
-        public lab_title: Laya.Label;
-        public lab_msg: laya.display.Text;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {
@@ -2307,6 +2287,8 @@ module ui {
                 }
             }, {"type": "Label", "props": {"text": "label"}}]
         };
+        public lab_title: Laya.Label;
+        public lab_msg: laya.display.Text;
 
         constructor() {
             super()
@@ -2325,14 +2307,6 @@ module ui {
 
 module ui.set {
     export class ExpKeystoreUI extends View {
-        public btn_back: Laya.Button;
-        public btn_tab: Laya.Tab;
-        public viewStack: Laya.ViewStack;
-        public text_keystore: Laya.TextArea;
-        public btn_copy: Laya.Button;
-        public item1: Laya.Box;
-        public img_keystore: Laya.Image;
-
         public static uiView: any = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 375, "layoutEnabled": true, "height": 667},
@@ -2601,6 +2575,13 @@ module ui.set {
                 }]
             }]
         };
+        public btn_back: Laya.Button;
+        public btn_tab: Laya.Tab;
+        public viewStack: Laya.ViewStack;
+        public text_keystore: Laya.TextArea;
+        public btn_copy: Laya.Button;
+        public item1: Laya.Box;
+        public img_keystore: Laya.Image;
 
         constructor() {
             super()
@@ -2618,13 +2599,6 @@ module ui.set {
 
 module ui.set {
     export class UpdatePassUI extends View {
-        public btn_back: Laya.Button;
-        public lab_save: Laya.Label;
-        public lab_oldPass: Laya.TextInput;
-        public lab_newPass: Laya.TextInput;
-        public lab_confPass: Laya.TextInput;
-        public lab_import: Laya.Label;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 375, "height": 667},
@@ -2742,6 +2716,12 @@ module ui.set {
                 }
             }]
         };
+        public btn_back: Laya.Button;
+        public lab_save: Laya.Label;
+        public lab_oldPass: Laya.TextInput;
+        public lab_newPass: Laya.TextInput;
+        public lab_confPass: Laya.TextInput;
+        public lab_import: Laya.Label;
 
         constructor() {
             super()
@@ -2759,31 +2739,6 @@ module ui.set {
 
 module ui.set {
     export class WalletImportUI extends View {
-        public btn_back: Laya.Image;
-        public btn_sao: Laya.Image;
-        public tab: Laya.Tab;
-        public stack: Laya.ViewStack;
-        public o_text_zjc: Laya.TextArea;
-        public o_sel_dir: Laya.ComboBox;
-        public o_text_pass: Laya.TextInput;
-        public o_text_confpass: Laya.TextInput;
-        public o_btn_import: Laya.Button;
-        public hetp_zjc: Laya.Label;
-        public o_check_agree: Laya.CheckBox;
-        public warn_zjc: Laya.Label;
-        public warn_pass: Laya.Label;
-        public warn_passconf: Laya.Label;
-        public text_keystore: Laya.TextArea;
-        public keystore_pass: Laya.TextInput;
-        public ks_agree: Laya.CheckBox;
-        public help_keystore: Laya.Label;
-        public ks_btn_import: Laya.Button;
-        public text_privateKey: Laya.TextArea;
-        public help_pk: Laya.Label;
-        public pk_btn_import: Laya.Button;
-        public pk_text_pass: Laya.TextInput;
-        public pk_text_confPass: Laya.TextInput;
-
         public static uiView: any = {
             "type": "View",
             "props": {
@@ -2906,7 +2861,7 @@ module ui.set {
                             "sizeGrid": "0,0,0,0",
                             "selectedIndex": 0,
                             "left": 30,
-                            "labels": "m/44’/60’/0’/0/0 Jaxx Metamask(ETH),m/44’/60’/0’/0 Ledger(ETH),m/44’/60’/1’/0/0 自定义路径",
+                            "labels": "m/0'/0'/0',m/44’/60’/0’/0/0 Jaxx Metamask(ETH),m/44’/60’/0’/0 Ledger(ETH),m/44’/60’/1’/0/0 自定义路径",
                             "labelSize": 28,
                             "labelPadding": "10,0,10,0",
                             "labelColors": "#8E979F",
@@ -2960,6 +2915,7 @@ module ui.set {
                             "labelColors": "#ffffff",
                             "label": "开始导入",
                             "height": 80,
+                            "disabled": true,
                             "bottom": 220
                         }
                     }, {
@@ -3016,6 +2972,7 @@ module ui.set {
                             "valign": "middle",
                             "text": "隐私及服务条款",
                             "padding": "0",
+                            "name": "lab_service",
                             "height": 34,
                             "fontSize": 24,
                             "color": "#598ADA",
@@ -3136,7 +3093,7 @@ module ui.set {
                             "valign": "middle",
                             "text": "我已经仔细阅读并同意",
                             "padding": "0",
-                            "name": "隐私及服务条款",
+                            "name": "lab_service",
                             "height": 34,
                             "fontSize": 24,
                             "color": "#8E979F",
@@ -3302,7 +3259,7 @@ module ui.set {
                             "valign": "middle",
                             "text": "我已经仔细阅读并同意",
                             "padding": "0",
-                            "name": "隐私及服务条款",
+                            "name": "lab_service",
                             "height": 34,
                             "fontSize": 24,
                             "color": "#8E979F",
@@ -3341,6 +3298,30 @@ module ui.set {
                 }]
             }]
         };
+        public btn_back: Laya.Image;
+        public btn_sao: Laya.Image;
+        public tab: Laya.Tab;
+        public stack: Laya.ViewStack;
+        public o_text_zjc: Laya.TextArea;
+        public o_sel_dir: Laya.ComboBox;
+        public o_text_pass: Laya.TextInput;
+        public o_text_confpass: Laya.TextInput;
+        public o_btn_import: Laya.Button;
+        public hetp_zjc: Laya.Label;
+        public o_check_agree: Laya.CheckBox;
+        public warn_zjc: Laya.Label;
+        public warn_pass: Laya.Label;
+        public warn_passconf: Laya.Label;
+        public text_keystore: Laya.TextArea;
+        public keystore_pass: Laya.TextInput;
+        public ks_agree: Laya.CheckBox;
+        public help_keystore: Laya.Label;
+        public ks_btn_import: Laya.Button;
+        public text_privateKey: Laya.TextArea;
+        public help_pk: Laya.Label;
+        public pk_btn_import: Laya.Button;
+        public pk_text_pass: Laya.TextInput;
+        public pk_text_confPass: Laya.TextInput;
 
         constructor() {
             super()
@@ -3434,18 +3415,6 @@ module ui.temple {
 
 module ui {
     export class TransDetailUI extends View {
-        public lab_coin_name: Laya.Label;
-        public btn_goback: Laya.Button;
-        public lab_amount: Laya.Label;
-        public lab_type: Laya.Label;
-        public lab_addr: Laya.Label;
-        public lab_transId: Laya.Label;
-        public lab_gas: Laya.Label;
-        public lab_confirm: Laya.Label;
-        public lab_time: Laya.Label;
-        public lab_nonce: Laya.Label;
-        public btn_moreinfo: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 375, "top": 0, "right": 0, "left": 0, "height": 667, "bottom": 0},
@@ -3665,6 +3634,17 @@ module ui {
                 }
             }]
         };
+        public lab_coin_name: Laya.Label;
+        public btn_goback: Laya.Button;
+        public lab_amount: Laya.Label;
+        public lab_type: Laya.Label;
+        public lab_addr: Laya.Label;
+        public lab_transId: Laya.Label;
+        public lab_gas: Laya.Label;
+        public lab_confirm: Laya.Label;
+        public lab_time: Laya.Label;
+        public lab_nonce: Laya.Label;
+        public btn_moreinfo: Laya.Button;
 
         constructor() {
             super()
@@ -3682,9 +3662,6 @@ module ui {
 
 module ui {
     export class TransHisListUI extends View {
-        public btn_goback: Laya.Button;
-        public list: Laya.List;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -3810,6 +3787,8 @@ module ui {
                 }]
             }]
         };
+        public btn_goback: Laya.Button;
+        public list: Laya.List;
 
         constructor() {
             super()
@@ -3827,10 +3806,6 @@ module ui {
 
 module ui {
     export class WalletBackUpUI extends View {
-        public btn_back: Laya.Image;
-        public btn_backup: Laya.Button;
-        public info_backup: Laya.Label;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "height": 1334},
@@ -3929,6 +3904,9 @@ module ui {
                 }]
             }]
         };
+        public btn_back: Laya.Image;
+        public btn_backup: Laya.Button;
+        public info_backup: Laya.Label;
 
         constructor() {
             super()
@@ -3946,22 +3924,6 @@ module ui {
 
 module ui {
     export class WalletCreateUI extends View {
-        public text_wall_name: Laya.TextInput;
-        public text_pass: Laya.TextInput;
-        public text_pass_conf: Laya.TextInput;
-        public lab_info: Laya.Label;
-        public check_argee: Laya.CheckBox;
-        public btn_back: Laya.Button;
-        public lab_pass_level: Laya.Label;
-        public lab_warn_wName: Laya.Label;
-        public lab_pass: Laya.Label;
-        public lab_pass_conf: Laya.Label;
-        public btn_import: Laya.Label;
-        public lab_words: Laya.Label;
-        public box_pass_level: Laya.Box;
-        public href_ysfw: Laya.Label;
-        public btn_create: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "visible": true, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -4250,6 +4212,21 @@ module ui {
                 }
             }]
         };
+        public text_wall_name: Laya.TextInput;
+        public text_pass: Laya.TextInput;
+        public text_pass_conf: Laya.TextInput;
+        public lab_info: Laya.Label;
+        public check_argee: Laya.CheckBox;
+        public btn_back: Laya.Button;
+        public lab_pass_level: Laya.Label;
+        public lab_warn_wName: Laya.Label;
+        public lab_pass: Laya.Label;
+        public lab_pass_conf: Laya.Label;
+        public btn_import: Laya.Label;
+        public lab_words: Laya.Label;
+        public box_pass_level: Laya.Box;
+        public href_ysfw: Laya.Label;
+        public btn_create: Laya.Button;
 
         constructor() {
             super()
@@ -4267,19 +4244,6 @@ module ui {
 
 module ui {
     export class WalletDetailUI extends View {
-        public btn_back: Laya.Button;
-        public lab_wName: Laya.Label;
-        public btn_save: Laya.Label;
-        public lab_total: Laya.Label;
-        public img_wImg: Laya.Image;
-        public lab_wAddr: Laya.Label;
-        public text_wName: Laya.TextInput;
-        public box_reverpass: Laya.Box;
-        public box_expSeckey: Laya.Box;
-        public box_expKeystore: Laya.Box;
-        public btn_backup: Laya.Button;
-        public btn_delete: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -4476,6 +4440,18 @@ module ui {
                 }
             }]
         };
+        public btn_back: Laya.Button;
+        public lab_wName: Laya.Label;
+        public btn_save: Laya.Label;
+        public lab_total: Laya.Label;
+        public img_wImg: Laya.Image;
+        public lab_wAddr: Laya.Label;
+        public text_wName: Laya.TextInput;
+        public box_reverpass: Laya.Box;
+        public box_expSeckey: Laya.Box;
+        public box_expKeystore: Laya.Box;
+        public btn_backup: Laya.Button;
+        public btn_delete: Laya.Button;
 
         constructor() {
             super()
@@ -4493,20 +4469,6 @@ module ui {
 
 module ui {
     export class WalletMainUI extends View {
-        public lab_wName: Laya.Label;
-        public lab_wAddr: Laya.Label;
-        public lab_total: Laya.Label;
-        public btn_owner_info: Laya.Image;
-        public btn_addCoin: Laya.Image;
-        public btn_more: Laya.Image;
-        public list_wallet: Laya.List;
-        public cImg: Laya.Image;
-        public cName: Laya.Label;
-        public cTotal: Laya.Label;
-        public cValue: Laya.Label;
-        public btn_assets: Laya.Button;
-        public btn_me: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -4539,7 +4501,7 @@ module ui {
                     "height": 44,
                     "fontSize": 24,
                     "color": "#ffffff",
-                    "centerX": -45,
+                    "centerX": -61,
                     "align": "right"
                 }
             }, {
@@ -4572,7 +4534,7 @@ module ui {
                 "type": "Image",
                 "props": {
                     "y": 283,
-                    "x": 517,
+                    "x": 501,
                     "width": 60,
                     "var": "btn_owner_info",
                     "skin": "img/main/erweima@2x.png",
@@ -4658,7 +4620,7 @@ module ui {
                             "right": 30,
                             "name": "cTotal",
                             "height": 40,
-                            "fontSize": 32,
+                            "fontSize": 40,
                             "color": "#100E28",
                             "centerY": -13,
                             "align": "right"
@@ -4718,6 +4680,19 @@ module ui {
                 }
             }]
         };
+        public lab_wName: Laya.Label;
+        public lab_wAddr: Laya.Label;
+        public lab_total: Laya.Label;
+        public btn_owner_info: Laya.Image;
+        public btn_addCoin: Laya.Image;
+        public btn_more: Laya.Image;
+        public list_wallet: Laya.List;
+        public cImg: Laya.Image;
+        public cName: Laya.Label;
+        public cTotal: Laya.Label;
+        public cValue: Laya.Label;
+        public btn_assets: Laya.Button;
+        public btn_me: Laya.Button;
 
         constructor() {
             super()
@@ -4735,15 +4710,6 @@ module ui {
 
 module ui {
     export class WalletManageUI extends View {
-        public btn_goback: Laya.Image;
-        public list_wallet: Laya.List;
-        public img_wallet: Laya.Image;
-        public lab_wName: Laya.Label;
-        public lab_wAddr: Laya.Label;
-        public lab_wTotal: Laya.Label;
-        public btn_create: Laya.Button;
-        public btn_import: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -4892,6 +4858,14 @@ module ui {
                 }]
             }]
         };
+        public btn_goback: Laya.Image;
+        public list_wallet: Laya.List;
+        public img_wallet: Laya.Image;
+        public lab_wName: Laya.Label;
+        public lab_wAddr: Laya.Label;
+        public lab_wTotal: Laya.Label;
+        public btn_create: Laya.Button;
+        public btn_import: Laya.Button;
 
         constructor() {
             super()
@@ -4909,14 +4883,6 @@ module ui {
 
 module ui {
     export class WalletMeUI extends View {
-        public btn_manageWal: Laya.Box;
-        public btn_dealHistory: Laya.Box;
-        public btn_lqtg: Laya.Box;
-        public btn_helpus: Laya.Box;
-        public btn_about: Laya.Box;
-        public btn_assets: Laya.Button;
-        public btn_me: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -5105,6 +5071,13 @@ module ui {
                 }
             }]
         };
+        public btn_manageWal: Laya.Box;
+        public btn_dealHistory: Laya.Box;
+        public btn_lqtg: Laya.Box;
+        public btn_helpus: Laya.Box;
+        public btn_about: Laya.Box;
+        public btn_assets: Laya.Button;
+        public btn_me: Laya.Button;
 
         constructor() {
             super()
@@ -5122,15 +5095,6 @@ module ui {
 
 module ui {
     export class WalletQuickUI extends Dialog {
-        public bg: Laya.Image;
-        public list_wallet: Laya.List;
-        public img_wallet: Laya.Image;
-        public lab_wName: Laya.Label;
-        public box_btns: Laya.Box;
-        public img_spe: Laya.Image;
-        public lab_sao: Laya.Label;
-        public lab_create: Laya.Label;
-
         public static uiView: any = {
             "type": "Dialog",
             "props": {"y": 0, "x": 0, "width": 375, "height": 1334},
@@ -5233,6 +5197,14 @@ module ui {
                 }]
             }]
         };
+        public bg: Laya.Image;
+        public list_wallet: Laya.List;
+        public img_wallet: Laya.Image;
+        public lab_wName: Laya.Label;
+        public box_btns: Laya.Box;
+        public img_spe: Laya.Image;
+        public lab_sao: Laya.Label;
+        public lab_create: Laya.Label;
 
         constructor() {
             super()
@@ -5250,13 +5222,6 @@ module ui {
 
 module ui {
     export class WalletReceiveUI extends View {
-        public btn_goback: Laya.Button;
-        public btn_share: Laya.Button;
-        public lab_wAddr: Laya.TextInput;
-        public img_wAddr: Laya.Image;
-        public btn_copy: Laya.Label;
-        public text_amount: Laya.TextInput;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -5381,6 +5346,12 @@ module ui {
                 }]
             }]
         };
+        public btn_goback: Laya.Button;
+        public btn_share: Laya.Button;
+        public lab_wAddr: Laya.TextInput;
+        public img_wAddr: Laya.Image;
+        public btn_copy: Laya.Label;
+        public text_amount: Laya.TextInput;
 
         constructor() {
             super()
@@ -5398,15 +5369,6 @@ module ui {
 
 module ui {
     export class WalletSendUI extends View {
-        public lab_coin_name: Laya.Label;
-        public text_addr: Laya.TextInput;
-        public text_amount: Laya.TextInput;
-        public btn_next: Laya.Button;
-        public sys: Laya.Image;
-        public btn_goback: Laya.Button;
-        public warn_Addr: Laya.Label;
-        public warn_amount: Laya.Label;
-
         public static uiView: any = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -5537,6 +5499,14 @@ module ui {
                 }
             }]
         };
+        public lab_coin_name: Laya.Label;
+        public text_addr: Laya.TextInput;
+        public text_amount: Laya.TextInput;
+        public btn_next: Laya.Button;
+        public sys: Laya.Image;
+        public btn_goback: Laya.Button;
+        public warn_Addr: Laya.Label;
+        public warn_amount: Laya.Label;
 
         constructor() {
             super()
@@ -5554,18 +5524,6 @@ module ui {
 
 module ui {
     export class WalletSendSubmitUI extends View {
-        public btn_goback: Laya.Button;
-        public coin_type: Laya.Label;
-        public text_to: Laya.TextInput;
-        public text_from: Laya.TextInput;
-        public btn_submit: Laya.Button;
-        public send_amout: Laya.TextInput;
-        public sli_gas: Laya.HSlider;
-        public lab_max_gas: Laya.TextInput;
-        public lab_max_gas_usd: Laya.TextInput;
-        public lab_max_total: Laya.TextInput;
-        public lab_max_total_usd: Laya.TextInput;
-
         public static uiView: any = {
             "type": "View",
             "props": {"y": 0, "x": 0, "width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -5818,6 +5776,17 @@ module ui {
                 }
             }]
         };
+        public btn_goback: Laya.Button;
+        public coin_type: Laya.Label;
+        public text_to: Laya.TextInput;
+        public text_from: Laya.TextInput;
+        public btn_submit: Laya.Button;
+        public send_amout: Laya.TextInput;
+        public sli_gas: Laya.HSlider;
+        public lab_max_gas: Laya.TextInput;
+        public lab_max_gas_usd: Laya.TextInput;
+        public lab_max_total: Laya.TextInput;
+        public lab_max_total_usd: Laya.TextInput;
 
         constructor() {
             super()
@@ -5835,17 +5804,6 @@ module ui {
 
 module ui {
     export class WalletTransferUI extends View {
-        public lab_coin_total: Laya.Label;
-        public lab_coin_name: Laya.Label;
-        public btn_goback: Laya.Button;
-        public list: Laya.List;
-        public img: Laya.Image;
-        public lab_deal_name: Laya.Label;
-        public lab_addr: Laya.Label;
-        public lab_amount: Laya.Label;
-        public btn_send: Laya.Button;
-        public btn_receive: Laya.Button;
-
         public static uiView: any = {
             "type": "View",
             "props": {"width": 750, "top": 0, "right": 0, "left": 0, "height": 1334, "bottom": 0},
@@ -6038,6 +5996,16 @@ module ui {
                 }
             }]
         };
+        public lab_coin_total: Laya.Label;
+        public lab_coin_name: Laya.Label;
+        public btn_goback: Laya.Button;
+        public list: Laya.List;
+        public img: Laya.Image;
+        public lab_deal_name: Laya.Label;
+        public lab_addr: Laya.Label;
+        public lab_amount: Laya.Label;
+        public btn_send: Laya.Button;
+        public btn_receive: Laya.Button;
 
         constructor() {
             super()

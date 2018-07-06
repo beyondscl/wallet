@@ -13,6 +13,19 @@ module view {
             this.initEvent();
         }
 
+        public setParentUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
+        public setData(data: Array<mod.walletMod>) {
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.x = 1;
+            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.vScrollBarSkin = "";
+            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+        }
+
         private init() {
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
@@ -40,19 +53,6 @@ module view {
                 this.comp.visible = false;
                 new view.set.WalletImport().setParetUI(this.comp);
             }
-        }
-
-        public setParentUI(parentUI: any) {
-            this.parentUI = parentUI;
-        }
-
-        public setData(data: Array<mod.walletMod>) {
-            this.comp.list_wallet.array = data;
-            this.comp.list_wallet.x = 1;
-            this.comp.list_wallet.y = data.length;
-            this.comp.list_wallet.vScrollBarSkin = "";
-            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
         private onListRender(cell: Box, index: number) {

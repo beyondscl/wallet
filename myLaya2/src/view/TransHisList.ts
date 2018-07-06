@@ -1,6 +1,5 @@
 /**Created by the LayaAirIDE*/
 module view {
-    import List = Laya.List;
     import Handler = Laya.Handler;
 
     export class TransHisList extends ui.TransHisListUI {
@@ -11,6 +10,11 @@ module view {
             super();
             this.init();
             this.initEvent();
+        }
+
+        public setData(data: Array<mod.dealtemMod>, parent: any) {
+            this.parentUI = parent;
+            this.setListUp(data);
         }
 
         private init() {
@@ -25,11 +29,6 @@ module view {
         private goBack() {
             Laya.stage.removeChild(this.comp);
             this.parentUI.visible = true;
-        }
-
-        public setData(data: Array<mod.dealtemMod>, parent: any) {
-            this.parentUI = parent;
-            this.setListUp(data);
         }
 
         //init deal history list

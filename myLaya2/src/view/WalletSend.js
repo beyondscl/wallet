@@ -29,6 +29,9 @@ var view;
             return _this;
         }
 
+        WalletSend.prototype.setData = function (data) {
+            this.comp.lab_coin_name.text = data.toUpperCase();
+        };
         WalletSend.prototype.init = function () {
             this.comp = new ui.WalletSendUI();
             Laya.stage.addChild(this.comp);
@@ -38,9 +41,6 @@ var view;
         WalletSend.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_next.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        };
-        WalletSend.prototype.setData = function (data) {
-            this.comp.lab_coin_name.text = data.toUpperCase();
         };
         WalletSend.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);

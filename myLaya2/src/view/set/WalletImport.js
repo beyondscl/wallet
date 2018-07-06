@@ -31,6 +31,11 @@ var view;
                 return _this;
             }
 
+            WalletImport.prototype.setData = function (key) {
+            };
+            WalletImport.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             WalletImport.prototype.init = function () {
                 this.comp = new ui.set.WalletImportUI();
                 Laya.stage.addChild(this.comp);
@@ -41,11 +46,11 @@ var view;
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
                 this.comp.btn_sao.on(Laya.Event.CLICK, this, this.btnClick, [2]);
                 this.comp.o_btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
+                this.comp.o_check_agree.on(Laya.Event.CLICK, this, this.btnClick, [4]);
+                this.comp.getChildByName("lab_service").on(Laya.Event.CLICK, this, this.btnClick, [5]);
             };
             WalletImport.prototype.onSelect = function (index) {
                 this.comp.stack.selectedIndex = index;
-            };
-            WalletImport.prototype.setData = function (key) {
             };
             WalletImport.prototype.btnClick = function (index) {
                 if (1 == index) {
@@ -60,9 +65,19 @@ var view;
                         this.importWallet();
                     }
                 }
+                if (4 == index) {
+                    this.comp.o_btn_import.disabled = !this.comp.o_check_agree.selected;
+                }
+                if (5 == index) {
+                    this.comp.visible = false;
+                    var s = new view.info.Service();
+                    s.setParetUI(this.comp);
+                    s.setData("1");
+                    return;
+                }
             };
             WalletImport.prototype.importWallet = function () {
-                var load = new view.alert.waiting(config.msg.WAIT_CREATE_WALLET);
+                var load = new view.alert.waiting(config.msg.WAIT_IMPORT_WALLET);
                 load.popup();
                 var walletName = 'import_' + util.randomString(6);
                 var zjc = this.comp.o_text_zjc.text;
@@ -70,7 +85,7 @@ var view;
                 service.walletServcie.importWallet(zjc, walletName, pass, this.creatWalletCb, [this.comp, load]); //异步
             };
             WalletImport.prototype.checkArgs = function (zjc, pass, passConf) {
-                if (!zjc || zjc.split(" ").length != 12) {
+                if (!zjc || zjc.split(" ").length != 12 || !service.walletServcie.vilMemoryWork(zjc)) {
                     this.comp.warn_zjc.visible = true;
                     return false;
                 }
@@ -87,13 +102,25 @@ var view;
                 this.comp.warn_passconf.visible = false;
                 return true;
             };
-            //创建[切换]钱包在内存中设置默认钱包为当前钱包
             //args[0]:comp args[1]:loadingui
             WalletImport.prototype.creatWalletCb = function (wName, wPass, mnemonicWord, ret, args) {
+                var dialog = args[1];
+                dialog.stop();
                 if (ret && ret.retCode == 0) {
                     var keystore = Laya.Browser.window.serialize();
                     var wallet = new mod.walletMod();
                     wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                    var allWallets = service.walletServcie.getWallets();
+                    if (allWallets) { //判断是否存在
+                        for (var i = 0; i < allWallets.length; i++) {
+                            var w = allWallets[i];
+                            if (w.wAddr && w.wAddr == wallet.wAddr) { //一定要在初始化数据mod后再判断 0x
+                                new view.alert.Warn("导入钱包失败", "钱包 " + w.wName + " 已经存在").popup();
+                                return;
+                            }
+                        }
+                    }
+                    //记录数据
                     var walletJson = wallet.toJson();
                     util.setItemJson(wallet.wName, walletJson);
                     var appStore = util.getItem(config.prod.appKey);
@@ -106,20 +133,13 @@ var view;
                     }
                     var com = args[0];
                     com.removeSelf(); //删除之前父类的comp
-                    var dialog = args[1];
-                    dialog.stop();
                     new view.WalletMain().initQueryData(wallet);
                     return;
                 }
                 else {
-                    var dialog = args[1];
-                    dialog.stop();
                     new view.alert.Warn("导入钱包失败", "").popup();
                     console.log("create wallet error!");
                 }
-            };
-            WalletImport.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             return WalletImport;
         }(ui.set.WalletImportUI));

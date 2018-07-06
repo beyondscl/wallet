@@ -9,6 +9,10 @@ module view {
             this.initEvent();
         }
 
+        public setData(data: any) {
+
+        }
+
         private init(wName: string) {
             this.comp = new ui.WalletReceiveUI();
             Laya.stage.addChild(this.comp);
@@ -34,10 +38,6 @@ module view {
         private initEvent() {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        }
-
-        public setData(data: any) {
-
         }
 
         private goBack() {

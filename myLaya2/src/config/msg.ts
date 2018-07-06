@@ -19,6 +19,7 @@ module config {
         public static ERROR = "ERROR";
 
         public static WAIT_CREATE_WALLET: string = "正在创建钱包,请稍后...";
+        public static WAIT_IMPORT_WALLET: string = "正在导入钱包,请稍后...";
 
     }
 }

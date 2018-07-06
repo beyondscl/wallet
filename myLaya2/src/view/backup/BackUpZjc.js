@@ -31,6 +31,13 @@ var view;
                 return _this;
             }
 
+            BackUpZjc.prototype.setData = function (key) {
+                this.wZjc = key;
+                this.comp.text_zjc.text = key;
+            };
+            BackUpZjc.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             BackUpZjc.prototype.init = function () {
                 this.comp = new ui.backup.BackUpZjcUI();
                 Laya.stage.addChild(this.comp);
@@ -40,10 +47,6 @@ var view;
             BackUpZjc.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
                 this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-            };
-            BackUpZjc.prototype.setData = function (key) {
-                this.wZjc = key;
-                this.comp.text_zjc.text = key;
             };
             BackUpZjc.prototype.btnClick = function (index) {
                 if (1 == index) {
@@ -56,9 +59,6 @@ var view;
                     conf.setData(this.wZjc);
                     conf.setParetUI(this.comp);
                 }
-            };
-            BackUpZjc.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             return BackUpZjc;
         }(ui.backup.BackUpZjcUI));

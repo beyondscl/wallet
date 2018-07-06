@@ -10,6 +10,13 @@ module view.info {
             this.initEvent();
         }
 
+        public setData(key: string) {
+        }
+
+        public setParetUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
         private init() {
             this.comp = new ui.info.aboutTeamUI();
             Laya.stage.addChild(this.comp);
@@ -17,9 +24,7 @@ module view.info {
 
         private initEvent() {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        }
 
-        public setData(key: string) {
         }
 
         private btnClick(index: number) {
@@ -27,10 +32,6 @@ module view.info {
                 this.comp.removeSelf();
                 this.parentUI.visible = true;
             }
-        }
-
-        public setParetUI(parentUI: any) {
-            this.parentUI = parentUI;
         }
     }
 }

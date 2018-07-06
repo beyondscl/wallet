@@ -31,6 +31,17 @@ var view;
                 return _this;
             }
 
+            AddCoins.prototype.setParentUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
+            AddCoins.prototype.setData = function (data) {
+                this.comp.listCoin.array = data;
+                this.comp.listCoin.y = data.length;
+                this.comp.listCoin.repeatY = data.length;
+                this.comp.listCoin.vScrollBarSkin = "";
+                this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
+                this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
+            };
             AddCoins.prototype.init = function () {
                 this.comp = new ui.coin.AddCoinsUI();
                 this.stage.addChild(this.comp);
@@ -55,17 +66,6 @@ var view;
                     default:
                         break;
                 }
-            };
-            AddCoins.prototype.setParentUI = function (parentUI) {
-                this.parentUI = parentUI;
-            };
-            AddCoins.prototype.setData = function (data) {
-                this.comp.listCoin.array = data;
-                this.comp.listCoin.y = data.length;
-                this.comp.listCoin.repeatY = data.length;
-                this.comp.listCoin.vScrollBarSkin = "";
-                this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
-                this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
             };
             AddCoins.prototype.onListRender = function (cell, index) {
                 var data = this.comp.listCoin.array[index];

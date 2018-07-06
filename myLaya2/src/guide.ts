@@ -1,9 +1,12 @@
 import EnterApp = view.EnterApp;
+import ProgressBar = Laya.ProgressBar;
 
 class guide {
+
     private guideUI: ui.GuideUI;
     private index: number = 0;
     private mouseStart = 0;
+    private progressBar: ProgressBar;
 
     constructor() {
         this.init();
@@ -73,6 +76,13 @@ Laya.stage.alignH = "center";
 Laya.stage.alignV = "middle";
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
+// loadProcess();
+// function loadProcess() {
+//     Laya.loader.load(["load/progressBar$bar.png"], null);
+// }
+
+// function onLoadComplete() {
+// }
 beginLoad();
 
 function beginLoad() {
@@ -80,10 +90,9 @@ function beginLoad() {
     let res: Array<any> =
         ["res/atlas/img/main.atlas",
             "res/atlas/img/coins.atlas",
-            "res/atlas/template/ScrollBar.atlas",
-            "res/atlas/img/guide.atlas",
-            "res/atlas/comp.atlas"]
-    Laya.loader.load(res, Laya.Handler.create(null, enter));
+            "res/atlas/img/guide.atlas"]
+    Laya.loader.load(res, null, Laya.Handler.create(this, onChange, null, false));
+    // "res/atlas/template/ScrollBar.atlas",
     // Laya.loader.load("res/atlas/template/Warn.atlas");
     // Laya.loader.load("res/atlas/template/Navigator.atlas");
     // Laya.loader.load("res/atlas/template/ToolBar.atlas");
@@ -93,9 +102,16 @@ function beginLoad() {
     // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
 
+function onChange(process: number) {
+    console.log("进度：" + Math.floor(process * 100) + "%");
+    if (process == 1) {
+        Laya.timer.once(1, this, enter);
+    }
+}
+
 function enter() {
     //有些测试遗留数据会出错
-    // laya.net.LocalStorage.clear();
+    laya.net.LocalStorage.clear();
     let accept = util.getItem(config.prod.appAccept);
     if (accept) {
         let walletNames = util.getItem(config.prod.appKey);
@@ -112,5 +128,4 @@ function enter() {
     } else {
         new view.info.Service();
     }
-
 }

@@ -9,13 +9,20 @@ module view.alert {
             this.initEvent();
         }
 
+        public setParentUI(parentUI: any) {
+            this.parentUI = parentUI;
+        }
+
+        public setCallBack(func: any) {
+            this.callBack = func;
+        }
+
         private init() {
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
-            this.btn_cancel.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         }
 
@@ -36,14 +43,6 @@ module view.alert {
                 this.callBack(pass, this.parentUI);
                 this.close()
             }
-        }
-
-        public setParentUI(parentUI: any) {
-            this.parentUI = parentUI;
-        }
-
-        public setCallBack(func: any) {
-            this.callBack = func;
         }
     }
 }

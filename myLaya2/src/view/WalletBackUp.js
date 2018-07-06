@@ -29,6 +29,12 @@ var view;
             return _this;
         }
 
+        WalletBackUp.prototype.setData = function (key) {
+            this.walletName = key;
+        };
+        WalletBackUp.prototype.setParetUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
         WalletBackUp.prototype.init = function () {
             this.comp = new ui.WalletBackUpUI();
             Laya.stage.addChild(this.comp);
@@ -37,9 +43,6 @@ var view;
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.info_backup.on(Laya.Event.CLICK, this, this.btnClick[3]);
-        };
-        WalletBackUp.prototype.setData = function (key) {
-            this.walletName = key;
         };
         WalletBackUp.prototype.btnClick = function (index) {
             if (1 == index) {
@@ -52,9 +55,6 @@ var view;
                 backUp.setData(service.walletServcie.getWallet(this.walletName).wZjc);
                 backUp.setParetUI(this.comp);
             }
-        };
-        WalletBackUp.prototype.setParetUI = function (parentUI) {
-            this.parentUI = parentUI;
         };
         return WalletBackUp;
     }(ui.WalletBackUpUI));
