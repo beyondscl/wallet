@@ -4,12 +4,13 @@ module view.alert {
         private parentUI: View;
         private wName: string;
 
+        private callback;
+        private args;
+
         constructor(title: string, subTitle: string) {
             super();
-            if (title)
-                this.title.text = title;
-            if (subTitle)
-                this.sub_title.text = subTitle;
+            this.title.text = title;
+            this.sub_title.text = subTitle;
             this.initEvent();
         }
 
@@ -21,6 +22,11 @@ module view.alert {
             this.parentUI = parentUI;
         }
 
+        public setCallback(call, args) {
+            this.callback = call;
+            this.args = args;
+        }
+
         private init() {
         }
 
@@ -30,17 +36,26 @@ module view.alert {
         }
 
         private btnClick(index: number) {
+            this.close();
             if (1 == index) {
-                this.close();
-            }
-            if (2 == index) {//删除助记词
-                if (mod.userMod.defWallet.wName == this.wName) {
-                    mod.userMod.defWallet.wZjc = '';
+                if (this.callback) {
+                    this.callback(1, this.args);
+                } else {
                 }
-                let wallet: mod.walletMod = service.walletServcie.getWallet(this.wName);
-                wallet.wZjc = '';
-                util.setItemJson(this.wName, wallet.toJson());
-                this.close();
+
+            }
+            if (2 == index) {
+                if (this.callback) {
+                    this.callback(2, this.args);
+                } else {//删除助记词
+                    if (mod.userMod.defWallet.wName == this.wName) {
+                        mod.userMod.defWallet.wZjc = '';
+                    }
+                    let wallet: mod.walletMod = service.walletServcie.getWallet(this.wName);
+                    wallet.wZjc = '';
+                    util.setItemJson(this.wName, wallet.toJson());
+                    util.compShow([1]);
+                }
             }
         }
     }

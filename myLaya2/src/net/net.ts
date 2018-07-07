@@ -5,7 +5,7 @@ module net {
         private xhr: Laya.HttpRequest;
         private method: string = 'get';
         private resp: string = 'json';
-        private headers: Array<string> = ['Access-Control-Allow-Origin-*'];
+        private headers: Array<string> = ['Access-Control-Allow-Origin', '*'];
         private callBackArgs: Array<any>;
         private post = "POST";
 
@@ -30,7 +30,7 @@ module net {
         public sendPost(url: string, data: any, callback: any, args: Array<any>) {
             if (callback) this.callback = callback;
             if (args) this.callBackArgs = args;
-            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded']);
+            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded', "Access-Control-Allow-Origin", "*"]);
         }
 
         public sendSimpleReq(url: string, callback: any, args: Array<any>) {

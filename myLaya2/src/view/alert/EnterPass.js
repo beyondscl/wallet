@@ -37,6 +37,10 @@ var view;
             EnterPass.prototype.setCallBack = function (func) {
                 this.callBack = func;
             };
+            //必须设置
+            EnterPass.prototype.setWalName = function (wName) {
+                this.wName = wName;
+            };
             EnterPass.prototype.init = function () {
                 Laya.stage.bgColor = 'white';
                 Laya.stage.scaleMode = config.prod.appAdapterType;
@@ -50,11 +54,18 @@ var view;
                 }
                 if (2 == index) {
                     //统一验证密码,至于是否加密暂定,是否添加验证次数
-                    if (!mod.userMod.defWallet.wPassword) {
+                    var wallet = void 0;
+                    if (this.wName) {
+                        wallet = service.walletServcie.getWallet(this.wName);
+                    }
+                    else {
+                        wallet = mod.userMod.defWallet;
+                    }
+                    if (!wallet.wPassword) {
                         console.error("mod.userMod.defWallet.wPassword is null");
                     }
                     var pass = this.text_pass.text;
-                    if (pass != mod.userMod.defWallet.wPassword) {
+                    if (pass != wallet.wPassword) {
                         this.warn.visible = true;
                         return;
                     }

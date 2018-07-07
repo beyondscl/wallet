@@ -26,10 +26,8 @@ var view;
 
             function confirm(title, subTitle) {
                 var _this = _super.call(this) || this;
-                if (title)
-                    _this.title.text = title;
-                if (subTitle)
-                    _this.sub_title.text = subTitle;
+                _this.title.text = title;
+                _this.sub_title.text = subTitle;
                 _this.initEvent();
                 return _this;
             }
@@ -40,6 +38,10 @@ var view;
             confirm.prototype.setParetUI = function (parentUI) {
                 this.parentUI = parentUI;
             };
+            confirm.prototype.setCallback = function (call, args) {
+                this.callback = call;
+                this.args = args;
+            };
             confirm.prototype.init = function () {
             };
             confirm.prototype.initEvent = function () {
@@ -47,17 +49,27 @@ var view;
                 this.btn_sub.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
             };
             confirm.prototype.btnClick = function (index) {
+                this.close();
                 if (1 == index) {
-                    this.close();
-                }
-                if (2 == index) { //删除助记词
-                    if (mod.userMod.defWallet.wName == this.wName) {
-                        mod.userMod.defWallet.wZjc = '';
+                    if (this.callback) {
+                        this.callback(1, this.args);
                     }
-                    var wallet = service.walletServcie.getWallet(this.wName);
-                    wallet.wZjc = '';
-                    util.setItemJson(this.wName, wallet.toJson());
-                    this.close();
+                    else {
+                    }
+                }
+                if (2 == index) {
+                    if (this.callback) {
+                        this.callback(2, this.args);
+                    }
+                    else { //删除助记词
+                        if (mod.userMod.defWallet.wName == this.wName) {
+                            mod.userMod.defWallet.wZjc = '';
+                        }
+                        var wallet = service.walletServcie.getWallet(this.wName);
+                        wallet.wZjc = '';
+                        util.setItemJson(this.wName, wallet.toJson());
+                        util.compShow([1]);
+                    }
                 }
             };
             return confirm;

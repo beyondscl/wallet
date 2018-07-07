@@ -1,4 +1,7 @@
 class util {
+    //提供一个数组存储comp删除，第一个显示，其余的删除。
+    private static _compStack = [];
+
     constructor() {
 
     }
@@ -21,12 +24,13 @@ class util {
         return null;
     }
 
+    //设置storage，输入json
+
     //设置storage，输入jsonString
     public static setItemNoJson(itemName, data) {
         laya.net.LocalStorage.setItem(itemName, data);
     }
 
-    //设置storage，输入json
     //['abc']需要调用下面这个方法
     public static setItemJson(itemName, data) {
         data = JSON.stringify(data);
@@ -95,6 +99,8 @@ class util {
         comp.scaleY = config.prod.scale * screenW / config.prod.appWidth;
     }
 
+    //ui util
+
     public static getScreenWidth() {
         if (Laya.stage) {
             return Laya.stage.width
@@ -102,7 +108,6 @@ class util {
         return config.prod.appWidth;
     }
 
-    //ui util
     //密码等级0-3 : 弱-强
     public static getPassLevel(view: Laya.Box, level: number) {
         for (let i = view._childs.length - 1; i >= 0; i--) {
@@ -156,11 +161,56 @@ class util {
         return newTime;
     }
 
+    //---------------------------------------------
+
     //验证手机号码
     public static vilPhoneNumber(phone: string): boolean {
         var reg = /^[1][3,4,5,7,8][0-9]{9}$/;//简单验证，可以更新
         if (reg.test(phone)) {
             return true;
+        }
+        return false;
+    }
+
+    public static putCompStack(comp: View) {
+        this._compStack[this._compStack.length] = comp;
+    }
+
+    //请和上面的配置使用，谨慎使用
+    //args[type] type1 =1 
+    public static compShow(args) {
+        for (let i = 1; i < this._compStack.length; i++) {
+            if (this._compStack[i]) {
+                let comp: View = this._compStack[i];
+                comp.removeSelf();
+            }
+
+        }
+        if (this._compStack[0]) {
+            let comp: View = this._compStack[0];
+            let type = args[0];
+            if (type && 1 == type) {//1:备份助记词
+                let comp: view.WalletDetail = this._compStack[0];
+                comp.visible = true;
+                comp.btn_backup.visible = false;
+            } else {
+                let comp: View = this._compStack[0];
+                comp.visible = true;
+            }
+        }
+        this._compStack = [];
+    }
+
+    public static compClear() {
+        this._compStack = [];
+    }
+
+    //判断一个数组中是否包含一个
+    public static isContain(array: Array<any>, item): boolean {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == item) {
+                return true;
+            }
         }
         return false;
     }

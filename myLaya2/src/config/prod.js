@@ -17,12 +17,14 @@ var config;
         prod.apiLocalHost = "http://192.168.2.106:3005";
         prod.getGasPrice = prod.apiLocalHost + "/api/gasPrice"; //
         prod.gasLimit = 21000;
+        prod.tokenGasLimit = 80000;
         prod.getCode = prod.apiLocalHost + "/candy/sendSms"; //获取短信验证码
         prod.getCandy = prod.apiLocalHost + "/candy/sendCandy"; //获取糖果
         prod.appWidth = 750;
         prod.appHeight = 1334;
         prod.scale = prod.appHeight / prod.appWidth; //当初设计的高与宽比
-        prod.WEI_TO_ETH = 1000000000000000000;
+        prod.WEI_TO_ETH = 1e18;
+        prod.expCoins = ["WWEC"]; //价格显示-,不计算总价
         return prod;
     }());
     config.prod = prod;

@@ -25,14 +25,13 @@ var view;
         function WalletMain() {
             var _this = _super.call(this) || this;
             _this.data = [];
-            _this.list = new Laya.List();
             _this.init();
             _this.initEvent();
             return _this;
         }
 
         WalletMain.prototype.setData = function (coins) {
-            //获取数据!!
+            //获取数据!!,可以优化
             for (var i = 0; i < coins.length; i++) {
                 var coinName = coins[i];
                 var walItemT = new mod.walItemMod();
@@ -51,12 +50,18 @@ var view;
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
-            //初始化余额
-            service.walletServcie.getBalance(data.wAddr, this.getBalanceCb, this.comp);
+        };
+        WalletMain.prototype.initBalance = function (cName) {
+            var coinMod = service.walletServcie.getCoinInfo(cName);
+            if (coinMod.abi) { //查询token
+                service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod]);
+            }
+            else { //eth
+                service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod]);
+            }
         };
         WalletMain.prototype.init = function () {
             this.comp = new ui.WalletMainUI();
-            this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
         };
@@ -67,10 +72,35 @@ var view;
             this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         };
-        WalletMain.prototype.getBalanceCb = function (err, res, comp) {
+        WalletMain.prototype.getBalanceCb = function (err, res, args) {
             if (!err) {
                 console.info("getBalanceCb res:" + res.toNumber());
-                comp.lab_total.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                var comp = args[0];
+                var coinMod = args[1];
+                var cells = comp.list_wallet.cells;
+                for (var i = 0; i < cells.length; i++) {
+                    if (!cells[i]._dataSource) {
+                        continue;
+                    }
+                    var cell = cells[i];
+                    var cName = cell.getChildByName('cName');
+                    var cTotal = cell.getChildByName('cTotal');
+                    var cValue = cell.getChildByName('cValue');
+                    if (cName.text == coinMod.coinName) {
+                        if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
+                            cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                            cValue.text = "≈¥ -";
+                            break;
+                        }
+                        else {
+                            cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                            var tempRmb = (res.toNumber() / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(0);
+                            cValue.text = "≈¥" + tempRmb;
+                            comp.lab_total.text = (Number(comp.lab_total.text) + Number(tempRmb)).toFixed(0); //总资产
+                            break;
+                        }
+                    }
+                }
             }
             else {
                 console.error("getBalanceCb error:" + err);
@@ -86,6 +116,7 @@ var view;
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         };
+        //为什么会执行多次？？
         WalletMain.prototype.onListRender = function (cell, index) {
             var data = this.comp.list_wallet.array[index];
             var cImg = cell.getChildByName('cImg');
@@ -96,12 +127,13 @@ var view;
             cTotal.text = data.itemTotal;
             var cValue = cell.getChildByName('cValue');
             cValue.text = "¥ " + data.itemMonType;
+            this.initBalance(cName.text);
         };
         WalletMain.prototype.onSelect = function (index) {
             var item = this.data[index];
             this.stage.removeChild(this.comp);
             var wTransfer = new view.WalletTransfer();
-            wTransfer.setData(item);
+            wTransfer.setData(item, this.comp.list_wallet.cells[index]);
             wTransfer.setParentUI(this.comp);
         };
         WalletMain.prototype.tabSelect = function (index) {

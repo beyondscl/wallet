@@ -24,6 +24,7 @@ var view;
 
         function WalletTransfer() {
             var _this = _super.call(this) || this;
+            _this.total = 0;
             _this.init();
             _this.initEvent();
             return _this;
@@ -32,9 +33,12 @@ var view;
         WalletTransfer.prototype.setParentUI = function (parentUI) {
             this.parentUI = parentUI;
         };
-        WalletTransfer.prototype.setData = function (data) {
+        WalletTransfer.prototype.setData = function (data, cell) {
             this.comp.lab_coin_name.text = data.itemName;
-            this.comp.lab_coin_total.text = data.itemMonType;
+            var cValue = cell.getChildByName('cValue');
+            var cTotal = cell.getChildByName('cTotal');
+            this.total = Number(cTotal.text);
+            this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
             this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         };
         WalletTransfer.prototype.init = function () {
@@ -54,7 +58,7 @@ var view;
         WalletTransfer.prototype.btnClick = function (type) {
             Laya.stage.removeChild(this.comp);
             if (type == 1) {
-                new view.WalletSend().setData(this.comp.lab_coin_name.text);
+                new view.WalletSend().setData(this.comp.lab_coin_name.text, this.total);
             }
             else if (type == 2) {
                 new view.WalletReceive(this.parentUI.lab_wName.text);

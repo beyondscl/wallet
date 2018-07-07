@@ -38,12 +38,14 @@ module view.backup {
             if (1 == index) {
                 this.comp.removeSelf();
                 this.parentUI.visible = true;
+                util.compShow([]);
             }
             if (2 == index) {
                 this.comp.visible = false;
                 let conf = new view.backup.BackUpConf();
                 conf.setData(this.wZjc, this.wName);
                 conf.setParetUI(this.comp);
+                util.putCompStack(this.comp);
             }
         }
     }

@@ -31,11 +31,11 @@ var view;
                 _this.initEvent();
                 return _this;
             }
-            ;
+
             BackUpConf.prototype.setData = function (key, wName) {
                 this.walletName = wName;
                 this.rightKey = key.trim().split(" ");
-                ; //用于验证
+                //用于验证
                 this.key = key.trim().split(" ");
                 this.key = this.key.sort(function (a, b) {
                     return Math.random() > 0.5 ? 1 : -1;
@@ -69,7 +69,7 @@ var view;
             BackUpConf.prototype.btnClick = function (index, v) {
                 if (1 == index) {
                     this.comp.removeSelf();
-                    this.parentUI.visible = true;
+                    util.compShow([]);
                     return;
                 }
                 if (2 == index) {
@@ -80,10 +80,12 @@ var view;
                             return;
                         }
                     }
-                    var conf = new view.alert.confirm("", "");
+                    var conf = new view.alert.confirm("备份成功", "你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？");
                     conf.setData(this.walletName);
-                    this.comp.removeSelf();
-                    this.parentUI.visible = true;
+                    conf.popup();
+                    // this.comp.removeSelf();//不删除
+                    this.parentUI.visible = false;
+                    util.putCompStack(this.comp);
                     return;
                 }
                 if (3 == index) {

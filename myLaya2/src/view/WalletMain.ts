@@ -1,13 +1,11 @@
 /**Created by the LayaAirIDE*/
 module view {
-    import List = Laya.List;
     import Image = Laya.Image;
 
 
     export class WalletMain extends ui.WalletMainUI {
         private data: Array<mod.walItemMod> = [];
         private comp: ui.WalletMainUI;
-        private list: List = new Laya.List();
 
         constructor() {
             super();
@@ -16,7 +14,7 @@ module view {
         }
 
         public setData(coins: Array<string>) {
-            //获取数据!!
+            //获取数据!!,可以优化
             for (let i: number = 0; i < coins.length; i++) {
                 let coinName = coins[i];
                 let walItemT = new mod.walItemMod();
@@ -36,13 +34,19 @@ module view {
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
-            //初始化余额
-            service.walletServcie.getBalance(data.wAddr, this.getBalanceCb, this.comp)
+        }
+
+        private initBalance(cName: string) {
+            let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
+            if (coinMod.abi) {//查询token
+                service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
+            } else {//eth
+                service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
+            }
         }
 
         private init() {
             this.comp = new ui.WalletMainUI();
-            this.comp.addChild(this.list);
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
         }
@@ -55,13 +59,38 @@ module view {
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         }
 
-        private getBalanceCb(err, res, comp: view.WalletMain) {
+        private getBalanceCb(err, res, args: Array<any>) {
             if (!err) {
                 console.info("getBalanceCb res:" + res.toNumber());
-                comp.lab_total.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                let comp = args[0] as view.WalletMain;
+                let coinMod = args[1] as mod.coinItemMod;
+                let cells = comp.list_wallet.cells;
+                for (let i = 0; i < cells.length; i++) {
+                    if (!cells[i]._dataSource) {
+                        continue;
+                    }
+                    let cell = cells[i];
+                    let cName = cell.getChildByName('cName') as Label;
+                    let cTotal = cell.getChildByName('cTotal') as Label;
+                    let cValue = cell.getChildByName('cValue') as Label;
+                    if (cName.text == coinMod.coinName) {
+                        if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
+                            cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                            cValue.text = "≈¥ -";
+                            break;
+                        } else {
+                            cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                            let tempRmb = (res.toNumber() / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(0);
+                            cValue.text = "≈¥" + tempRmb
+
+                            comp.lab_total.text = (Number(comp.lab_total.text) + Number(tempRmb)).toFixed(0);//总资产
+                            break;
+                        }
+
+                    }
+                }
             } else {
                 console.error("getBalanceCb error:" + err);
-
             }
         }
 
@@ -78,6 +107,7 @@ module view {
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
+        //为什么会执行多次？？
         private onListRender(cell: Box, index: number) {
             var data: mod.walItemMod = this.comp.list_wallet.array[index];
             let cImg = cell.getChildByName('cImg') as Image;
@@ -88,13 +118,14 @@ module view {
             cTotal.text = data.itemTotal
             let cValue = cell.getChildByName('cValue') as Label;
             cValue.text = "¥ " + data.itemMonType;
+            this.initBalance(cName.text);
         }
 
         private onSelect(index: number): void {
             let item = this.data[index];
             this.stage.removeChild(this.comp);
             let wTransfer = new view.WalletTransfer();
-            wTransfer.setData(item);
+            wTransfer.setData(item, this.comp.list_wallet.cells[index]);
             wTransfer.setParentUI(this.comp);
         }
 

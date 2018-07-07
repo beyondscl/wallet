@@ -24,13 +24,15 @@ var view;
 
         function WalletSend() {
             var _this = _super.call(this) || this;
+            _this.total = 0;
             _this.init();
             _this.initEvent();
             return _this;
         }
 
-        WalletSend.prototype.setData = function (data) {
+        WalletSend.prototype.setData = function (data, amount) {
             this.comp.lab_coin_name.text = data.toUpperCase();
+            this.total = amount;
         };
         WalletSend.prototype.init = function () {
             this.comp = new ui.WalletSendUI();
@@ -74,9 +76,12 @@ var view;
                 this.comp.warn_amount.visible = true;
                 return false;
             }
-            else {
-                this.comp.warn_amount.visible = false;
+            if (Number(amount) > this.total) {
+                this.comp.warn_amount.text = "超出钱包余额:" + this.total;
+                this.comp.warn_amount.visible = true;
+                return false;
             }
+            this.comp.warn_amount.visible = false;
             return true;
         };
         return WalletSend;

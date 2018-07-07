@@ -6,6 +6,7 @@ module mod {
         public static ethAddress: string = "0x911E1C126c3FddC74fd83A90283F1d50732b2a72";
         public static defWalletName: string = "钱包";
         public static defWallet: mod.walletMod;
+        public static usdToRmb = 6.5;
 
         constructor() {
 

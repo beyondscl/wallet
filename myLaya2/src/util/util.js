@@ -17,11 +17,11 @@ var util = /** @class */ (function () {
         }
         return null;
     };
+    //设置storage，输入json
     //设置storage，输入jsonString
     util.setItemNoJson = function (itemName, data) {
         laya.net.LocalStorage.setItem(itemName, data);
     };
-    //设置storage，输入json
     //['abc']需要调用下面这个方法
     util.setItemJson = function (itemName, data) {
         data = JSON.stringify(data);
@@ -86,13 +86,13 @@ var util = /** @class */ (function () {
         comp.scaleX = screenW / config.prod.appWidth;
         comp.scaleY = config.prod.scale * screenW / config.prod.appWidth;
     };
+    //ui util
     util.getScreenWidth = function () {
         if (Laya.stage) {
             return Laya.stage.width;
         }
         return config.prod.appWidth;
     };
-    //ui util
     //密码等级0-3 : 弱-强
     util.getPassLevel = function (view, level) {
         for (var i = view._childs.length - 1; i >= 0; i--) {
@@ -139,6 +139,7 @@ var util = /** @class */ (function () {
             sec;
         return newTime;
     };
+    //---------------------------------------------
     //验证手机号码
     util.vilPhoneNumber = function (phone) {
         var reg = /^[1][3,4,5,7,8][0-9]{9}$/; //简单验证，可以更新
@@ -147,6 +148,47 @@ var util = /** @class */ (function () {
         }
         return false;
     };
+    util.putCompStack = function (comp) {
+        this._compStack[this._compStack.length] = comp;
+    };
+    //请和上面的配置使用，谨慎使用
+    //args[type] type1 =1 
+    util.compShow = function (args) {
+        for (var i = 1; i < this._compStack.length; i++) {
+            if (this._compStack[i]) {
+                var comp = this._compStack[i];
+                comp.removeSelf();
+            }
+        }
+        if (this._compStack[0]) {
+            var comp = this._compStack[0];
+            var type = args[0];
+            if (type && 1 == type) { //1:备份助记词
+                var comp_1 = this._compStack[0];
+                comp_1.visible = true;
+                comp_1.btn_backup.visible = false;
+            }
+            else {
+                var comp_2 = this._compStack[0];
+                comp_2.visible = true;
+            }
+        }
+        this._compStack = [];
+    };
+    util.compClear = function () {
+        this._compStack = [];
+    };
+    //判断一个数组中是否包含一个
+    util.isContain = function (array, item) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] == item) {
+                return true;
+            }
+        }
+        return false;
+    };
+    //提供一个数组存储comp删除，第一个显示，其余的删除。
+    util._compStack = [];
     return util;
 }());
 //# sourceMappingURL=util.js.map

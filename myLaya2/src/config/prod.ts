@@ -8,9 +8,13 @@ module config {
         public static apiKey: string = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         public static appAdapterType = 'SCALE_EXACTFIT';
 
-        public static apiLocalHost = "http://192.168.2.106:3005";
+        // public static apiLocalHost = "http://192.168.2.106:3005";//dev
+        public static apiLocalHost = "http://wallet.wwec.top";//prod
+
+
         public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";//
         public static gasLimit: number = 21000;
+        public static tokenGasLimit: number = 80000;
         public static getCode: string = prod.apiLocalHost + "/candy/sendSms";//获取短信验证码
         public static getCandy: string = prod.apiLocalHost + "/candy/sendCandy";//获取糖果
 
@@ -19,7 +23,9 @@ module config {
         public static appHeight = 1334;
         public static scale = prod.appHeight / prod.appWidth;//当初设计的高与宽比
 
-        public static WEI_TO_ETH: number = 1000000000000000000;
+        public static WEI_TO_ETH: number = 1e18;
+
+        public static expCoins: Array<string> = ["WWEC"];//价格显示-,不计算总价
 
         constructor() {
         }

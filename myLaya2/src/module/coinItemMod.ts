@@ -6,13 +6,15 @@ module mod {
         public coinAddr: string;
         public coinImg: string;
         public coinSelected: boolean = false;
+        public abi: string;
 
-        constructor(coinImg, coinName, coinVender, coinAddr, coinSelected) {
+        constructor(coinImg, coinName, coinVender, coinAddr, coinSelected, abi) {
             this.coinAddr = coinAddr;
             this.coinVender = coinVender;
             this.coinName = coinName;
             this.coinImg = coinImg;
             this.coinSelected = coinSelected;
+            this.abi = abi;
         }
     }
 }

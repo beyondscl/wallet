@@ -47,13 +47,14 @@ var view;
         WalletBackUp.prototype.btnClick = function (index) {
             if (1 == index) {
                 this.comp.removeSelf();
-                this.parentUI.visible = true;
+                util.compShow([]);
             }
             if (2 == index) {
                 this.comp.visible = false;
                 var backUp = new view.backup.BackUpZjc();
                 backUp.setData(this.walletName);
                 backUp.setParetUI(this.comp);
+                util.putCompStack(this.comp);
             }
         };
         return WalletBackUp;

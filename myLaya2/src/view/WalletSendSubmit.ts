@@ -18,6 +18,10 @@ module view {
             this.comp.send_amout.text = data.text_amount.text;
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
             //初始化gasprice
+            //默认70
+            this.comp.sli_gas.value = 70// gwei
+            this.comp.sli_gas.min = 70;
+            this.comp.sli_gas.max = 700;
             new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
                 if (ret && ret.retCode == 0) {
                     let comp = args[0] as view.WalletSendSubmit;
@@ -75,6 +79,41 @@ module view {
 
             let pom = new alert.waiting("正在处理交易，请稍后");
             pom.popup();
+            let coins: Array<mod.coinItemMod> = service.walletServcie.getAllCoins();
+            for (let i = 0; i < coins.length; i++) {
+                let _coin = coins[i];
+                if (comp.coin_type.text == _coin.coinName) {
+                    if (_coin.abi) {//存在abi就转token
+                        //收款人地址，钱
+                        let sendArgs = [toAddr, Number(value) * 1e18];
+                        service.walletServcie.sendToken(pass, fromAdd, _coin.coinAddr, _coin.abi, null, sendArgs, 0, gasPrice * 1e9, config.prod.tokenGasLimit, function (ret, args) {
+                            let pom = args[1] as view.alert.waiting;
+                            pom.stop();
+                            if (ret && ret.retCode == 0) {
+                                new alert.Warn("交易已发送请等待确认", "").popup();
+                                let comp = args[0] as view.WalletSendSubmit;
+                                let comParent = args[2] as View;
+                                let deal = new mod.dealtemMod(config.msg.deal_transfer_out,
+                                    comp.text_from.text,
+                                    comp.text_to.text,
+                                    comp.send_amout.text,
+                                    comp.coin_type.text,
+                                    ret.txhash,//可以根据这个去查询更新
+                                    gasPrice * 1e9 * config.prod.gasLimit,
+                                    util.getFormatTime(),
+                                    "",
+                                    "");
+                                service.walletServcie.addDealItem(deal);
+                            } else {
+                                console.log(ret);
+                                new alert.Warn("交易失败", "").popup();
+                            }
+                        }, [comp, pom, this.parentUI]);
+                        return;
+                    }
+                }
+            }
+            //默认转账eth
             service.walletServcie.transfer(pass, fromAdd, toAddr, Number(value), gasPrice * 1e9, config.prod.gasLimit, function (ret, args: Array<any>) {
                 let pom = args[1] as view.alert.waiting;
                 pom.stop();
@@ -85,7 +124,6 @@ module view {
                     // comp.removeSelf();
                     // comParent.visible = true;//
                     //记录交易!!!
-                    // constructor(dealType, dealFromAddr, dealToAddr, dealAmount, dealCoinType, dealTransId, dealGas, dealTime, dealConfirm, dealNonce) {
                     let deal = new mod.dealtemMod(config.msg.deal_transfer_out,
                         comp.text_from.text,
                         comp.text_to.text,
@@ -98,7 +136,8 @@ module view {
                         "");
                     service.walletServcie.addDealItem(deal);
                 } else {
-                    new alert.Warn("交易失败,请调大矿工费用", "").popup();
+                    console.log(ret);
+                    new alert.Warn("交易失败", "").popup();
                 }
             }, [comp, pom, this.parentUI]);//this.parentUI 没有传过去
         }
@@ -120,15 +159,15 @@ module view {
 
         private sliChange(value: number) {
             let lab_max_gas = value * 1e9 / 1e18 * config.prod.gasLimit;//矿工费用eth
-            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd).toFixed(6);//矿工费用 usd
+            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd).toFixed(2);//矿工费用 usd
 
             let lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
-            var lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd).toFixed(6);//总量usd
+            var lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd).toFixed(2);//总量usd
 
-            this.comp.lab_max_gas.text = lab_max_gas + " ETH";
-            this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " USD";
-            this.comp.lab_max_total.text = lab_max_total + " ETH";
-            this.comp.lab_max_total_usd.text = lab_max_total_usd + " USD";
+            this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type;
+            this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
+            this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type;
+            this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
         }
     }
 }

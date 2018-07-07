@@ -47,7 +47,7 @@ var view;
                 this.comp.btn_sao.on(Laya.Event.CLICK, this, this.btnClick, [2]);
                 this.comp.o_btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
                 this.comp.o_check_agree.on(Laya.Event.CLICK, this, this.btnClick, [4]);
-                this.comp.getChildByName("lab_service").on(Laya.Event.CLICK, this, this.btnClick, [5]);
+                this.comp.lab_service.on(Laya.Event.CLICK, this, this.btnClick, [5]); //需要去重复
             };
             WalletImport.prototype.onSelect = function (index) {
                 this.comp.stack.selectedIndex = index;
@@ -85,8 +85,14 @@ var view;
                 service.walletServcie.importWallet(zjc, walletName, pass, this.creatWalletCb, [this.comp, load]); //异步
             };
             WalletImport.prototype.checkArgs = function (zjc, pass, passConf) {
-                if (!zjc || zjc.split(" ").length != 12 || !service.walletServcie.vilMemoryWork(zjc)) {
+                if (!zjc || zjc.trim().split(" ").length != 12) {
                     this.comp.warn_zjc.visible = true;
+                    this.comp.warn_zjc.text = "请输入12个助记词用空格分开";
+                    return false;
+                }
+                if (!service.walletServcie.vilMemoryWork(zjc)) {
+                    this.comp.warn_zjc.visible = true;
+                    this.comp.warn_zjc.text = "您输入助记词不正确";
                     return false;
                 }
                 this.comp.warn_zjc.visible = false;
@@ -110,16 +116,31 @@ var view;
                     var keystore = Laya.Browser.window.serialize();
                     var wallet = new mod.walletMod();
                     wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
-                    // let allWallets = service.walletServcie.getWallets();
-                    // if (allWallets) {//判断是否存在
-                    //     for (let i = 0; i < allWallets.length; i++) {
-                    //         let w = allWallets[i] as mod.walletMod;
-                    //         if (w.wAddr && w.wAddr == wallet.wAddr) {//一定要在初始化数据mod后再判断 0x
-                    //             new view.alert.Warn("导入钱包失败", "钱包 " + w.wName + " 已经存在").popup();
-                    //             return;
-                    //         }
-                    //     }
-                    // }
+                    var allWallets = service.walletServcie.getWallets();
+                    if (allWallets) { //判断是否存在
+                        for (var i = 0; i < allWallets.length; i++) {
+                            var w = allWallets[i];
+                            if (w.wAddr && w.wAddr == wallet.wAddr) { //一定要在初始化数据mod后再判断 0x
+                                // new view.alert.Warn("导入钱包失败", "钱包 " + w.wName + " 已经存在").popup();
+                                var info_1 = new view.alert.confirm("钱包已存在是否重置密码?", "");
+                                w.wPassword = wPass;
+                                info_1.setData(w.wName);
+                                info_1.setCallback(function confirmCb(ret, args) {
+                                    if (ret == 2) { //已经覆盖密码
+                                        var wallet_1 = args[0]; //密码已经被更新
+                                        var walletJson_1 = wallet_1.toJson();
+                                        util.setItemJson(wallet_1.wName, walletJson_1);
+                                        var com_1 = args[1];
+                                        com_1.removeSelf();
+                                        new view.WalletMain().initQueryData(wallet_1);
+                                        return;
+                                    }
+                                }, [w, args[0]]);
+                                info_1.popup();
+                                return;
+                            }
+                        }
+                    }
                     //记录数据
                     var walletJson = wallet.toJson();
                     util.setItemJson(wallet.wName, walletJson);

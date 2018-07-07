@@ -60,13 +60,13 @@ var ui;
                             "fontSize": 40,
                             "color": "#163853",
                             "centerX": 0,
-                            "bold": true
+                            "bold": true,
+                            "align": "center"
                         }
                     }, {
                         "type": "Label",
                         "props": {
                             "y": 254,
-                            "width": 0,
                             "var": "sub_title",
                             "text": "是否删除助记词",
                             "height": 56,
@@ -527,9 +527,9 @@ var ui;
                         "type": "Label",
                         "props": {
                             "y": 278,
-                            "x": 60,
+                            "x": 47,
                             "valign": "middle",
-                            "text": "如果有人获取你的助记词将直接获取你的资产",
+                            "text": "下来助记词并存放在安全的地方。",
                             "height": 44,
                             "fontSize": 24,
                             "color": "#687076",
@@ -539,9 +539,10 @@ var ui;
                         "type": "Label",
                         "props": {
                             "y": 232,
-                            "x": 58,
                             "valign": "middle",
-                            "text": "请抄写下来助记词并存放在安全的地方。",
+                            "text": "如果有人获取你的助记词将直接获取你的资产！请抄写",
+                            "right": 50,
+                            "left": 50,
                             "height": 44,
                             "fontSize": 24,
                             "color": "#687076",
@@ -3105,7 +3106,6 @@ var ui;
                                 "valign": "middle",
                                 "text": "我已经仔细阅读并同意",
                                 "padding": "0",
-                                "name": "隐私及服务条款",
                                 "height": 34,
                                 "fontSize": 24,
                                 "color": "#8E979F",
@@ -3133,6 +3133,7 @@ var ui;
                                 "y": 613,
                                 "x": 318,
                                 "width": 240,
+                                "var": "lab_service",
                                 "valign": "middle",
                                 "text": "隐私及服务条款",
                                 "padding": "0",
@@ -3294,6 +3295,7 @@ var ui;
                                 "valign": "middle",
                                 "text": "隐私及服务条款",
                                 "padding": "0",
+                                "name": "lab_service",
                                 "height": 34,
                                 "fontSize": 24,
                                 "color": "#598ADA",
@@ -4618,12 +4620,12 @@ var ui;
             }, {
                 "type": "Label",
                 "props": {
-                    "y": 400,
-                    "width": 594,
+                    "y": 398,
+                    "width": 518,
                     "var": "lab_total",
                     "valign": "middle",
-                    "text": "≈ 0",
-                    "left": 30,
+                    "text": "0",
+                    "left": 75,
                     "height": 80,
                     "fontSize": 56,
                     "color": "#000000",
@@ -4776,6 +4778,19 @@ var ui;
                     "label": "我的",
                     "height": 88,
                     "bottom": 8
+                }
+            }, {
+                "type": "Label",
+                "props": {
+                    "y": 398,
+                    "width": 40,
+                    "valign": "middle",
+                    "text": "≈",
+                    "left": 30,
+                    "height": 80,
+                    "fontSize": 56,
+                    "color": "#000000",
+                    "align": "left"
                 }
             }]
         };
@@ -5037,7 +5052,7 @@ var ui;
                 }]
             }, {
                 "type": "Box",
-                "props": {"y": 520, "x": 20, "var": "btn_lqtg", "right": 0, "left": 0, "height": 60},
+                "props": {"y": 520, "x": 20, "var": "btn_lqtg", "right": 0, "left": 0, "height": 60, "disabled": true},
                 "child": [{"type": "Image", "props": {"top": 0, "right": 0, "left": 0, "bottom": -1}}, {
                     "type": "Image",
                     "props": {"x": 54, "width": 56, "skin": "img/main/tglq@2x.png", "height": 56, "centerY": 0}
@@ -5587,8 +5602,8 @@ var ui;
                 "type": "Label",
                 "props": {
                     "y": 48,
-                    "x": 300,
-                    "width": 80,
+                    "x": 162,
+                    "width": 204,
                     "var": "coin_type",
                     "valign": "middle",
                     "text": "ETH",
@@ -5597,7 +5612,7 @@ var ui;
                     "height": 44,
                     "fontSize": 32,
                     "color": "#163853",
-                    "align": "center"
+                    "align": "right"
                 }
             }, {
                 "type": "TextInput",
@@ -5632,7 +5647,7 @@ var ui;
                 "props": {
                     "y": 410,
                     "valign": "middle",
-                    "text": "转账金额( ETH) :",
+                    "text": "转账金额 :",
                     "left": 30,
                     "height": 40,
                     "fontSize": 28,
@@ -5697,8 +5712,8 @@ var ui;
                 "type": "TextInput",
                 "props": {
                     "y": 410,
-                    "x": 251,
-                    "width": 458,
+                    "x": 177,
+                    "width": 532,
                     "var": "send_amout",
                     "valign": "middle",
                     "type": "number",
@@ -5720,7 +5735,7 @@ var ui;
                     "y": 550,
                     "var": "sli_gas",
                     "value": 60,
-                    "skin": "template/ScrollBar/BackProgressBar.png",
+                    "skin": "img/main/BackProgressBar.png",
                     "sizeGrid": "0,15,0,15",
                     "right": 30,
                     "min": 10,
@@ -5807,7 +5822,7 @@ var ui;
                 "type": "Label",
                 "props": {
                     "y": 48,
-                    "x": 382,
+                    "x": 393,
                     "valign": "middle",
                     "text": "转账",
                     "strokeColor": "#f9f9f9",
@@ -5815,7 +5830,7 @@ var ui;
                     "height": 44,
                     "fontSize": 32,
                     "color": "#163853",
-                    "align": "center"
+                    "align": "left"
                 }
             }]
         };

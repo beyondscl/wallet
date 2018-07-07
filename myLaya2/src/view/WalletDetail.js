@@ -41,8 +41,7 @@ var view;
             this.comp.img_wImg.skin = config.resource.walletImg;
             this.comp.text_wName.text = data.wName;
             if (!data.wZjc) {
-                this.comp.btn_backup.disabled = true;
-                this.comp.btn_backup.label = '已备份';
+                this.comp.btn_backup.visible = false;
             }
         };
         WalletDetail.prototype.setParetUI = function (parentUI) {
@@ -102,6 +101,7 @@ var view;
                 var p = new view.alert.EnterPass();
                 p.setParentUI(this.comp);
                 p.setCallBack(this.enterPassCb);
+                p.setWalName(this.comp.lab_wName.text);
                 p.popup();
                 return;
             }
@@ -114,10 +114,12 @@ var view;
             }
         };
         WalletDetail.prototype.enterPassCb = function (pass, comp) {
-            comp.visible = false; //是否是删除？
+            comp.visible = false;
             var backupw = new view.WalletBackUp();
             backupw.setData(comp.lab_wName.text);
             backupw.setParetUI(comp);
+            util.compClear();
+            util.putCompStack(comp);
         };
         //这里的comp需要重新传值回来
         WalletDetail.prototype.exportPriKeyCb = function (pass, comp) {

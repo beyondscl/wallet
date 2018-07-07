@@ -4,6 +4,7 @@ module view {
 
     export class WalletSend extends ui.WalletSendUI {
         private comp: ui.WalletSendUI;
+        private total = 0;
 
         constructor() {
             super();
@@ -11,8 +12,9 @@ module view {
             this.initEvent();
         }
 
-        public setData(data: string) {
+        public setData(data: string, amount: number) {
             this.comp.lab_coin_name.text = data.toUpperCase();
+            this.total = amount;
         }
 
         private init() {
@@ -60,9 +62,13 @@ module view {
             if (!util.isNumber(amount)) {
                 this.comp.warn_amount.visible = true
                 return false;
-            } else {
-                this.comp.warn_amount.visible = false;
             }
+            if (Number(amount) > this.total) {
+                this.comp.warn_amount.text = "超出钱包余额:" + this.total;
+                this.comp.warn_amount.visible = true;
+                return false;
+            }
+            this.comp.warn_amount.visible = false;
             return true;
         }
     }

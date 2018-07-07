@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -13,11 +21,12 @@ var net;
 (function (net) {
     var HttpRequest = /** @class */ (function (_super) {
         __extends(HttpRequest, _super);
+
         function HttpRequest() {
             var _this = _super.call(this) || this;
             _this.method = 'get';
             _this.resp = 'json';
-            _this.headers = ['Access-Control-Allow-Origin-*'];
+            _this.headers = ['Access-Control-Allow-Origin', '*'];
             _this.post = "POST";
             _this.xhr = new Laya.HttpRequest();
             _this.xhr.http.headers = _this.headers;
@@ -27,8 +36,11 @@ var net;
             _this.xhr.on(Laya.Event.PROGRESS, _this, _this.processHandler);
             return _this;
         }
+
         HttpRequest.prototype.sendReq = function (url, data, method, resp, headers, callback) {
-            if (headers === void 0) { headers = null; }
+            if (headers === void 0) {
+                headers = null;
+            }
             if (method)
                 this.method = method;
             if (resp)
@@ -44,7 +56,7 @@ var net;
                 this.callback = callback;
             if (args)
                 this.callBackArgs = args;
-            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded']);
+            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded', "Access-Control-Allow-Origin", "*"]);
         };
         HttpRequest.prototype.sendSimpleReq = function (url, callback, args) {
             if (args)

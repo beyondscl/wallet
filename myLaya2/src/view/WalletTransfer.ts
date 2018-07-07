@@ -4,6 +4,7 @@ module view {
     export class WalletTransfer extends ui.WalletTransferUI {
         private comp: ui.WalletTransferUI;
         private parentUI: ui.WalletMainUI;
+        private total: number = 0;
 
         constructor() {
             super();
@@ -15,10 +16,14 @@ module view {
             this.parentUI = parentUI;
         }
 
-        public setData(data: mod.walItemMod) {
+        public setData(data: mod.walItemMod, cell: Box) {
             this.comp.lab_coin_name.text = data.itemName;
-            this.comp.lab_coin_total.text = data.itemMonType;
+            let cValue = cell.getChildByName('cValue') as Label;
+            let cTotal = cell.getChildByName('cTotal') as Label;
+            this.total = Number(cTotal.text);
+            this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
             this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
+
         }
 
         private init() {
@@ -41,7 +46,7 @@ module view {
         private btnClick(type: number) {
             Laya.stage.removeChild(this.comp);
             if (type == 1) {
-                new view.WalletSend().setData(this.comp.lab_coin_name.text);
+                new view.WalletSend().setData(this.comp.lab_coin_name.text, this.total);
             } else if (type == 2) {
                 new view.WalletReceive(this.parentUI.lab_wName.text);
             }

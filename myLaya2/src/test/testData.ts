@@ -13,7 +13,7 @@ class testData {
 
     //钱包添加币种
     public static getCoins(): any {
-        return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", false)];
+        return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", false, '')];
     }
 
     //管理钱包：获取所有钱包
