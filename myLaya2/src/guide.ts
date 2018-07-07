@@ -1,12 +1,10 @@
 import EnterApp = view.EnterApp;
-import ProgressBar = Laya.ProgressBar;
 
 class guide {
 
     private guideUI: ui.GuideUI;
     private index: number = 0;
     private mouseStart = 0;
-    private progressBar: ProgressBar;
 
     constructor() {
         this.init();
@@ -79,12 +77,23 @@ Laya.stage.alignV = "middle";
 loadProcess();
 let progressBar;
 let tip;
+let loadBg;
 
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
 }
 
 function beginLoad() {
+    Laya.stage.bgColor = 'white';
+
+    loadBg = new Laya.Image().loadImage("load/start.png");
+    loadBg.left = 0;
+    loadBg.right = 0;
+    loadBg.top = 0;
+    loadBg.bottom = 0;
+    Laya.stage.addChild(loadBg);
+
+
     tip = new Laya.Label();
     tip.bottom = 90;
     tip.left = 0;
@@ -93,7 +102,7 @@ function beginLoad() {
     tip.height = 50;
     tip.fontSize = 32;
     tip.text = "正在检查更新:0%";
-    tip.color = '#ffffff';
+    tip.color = '#163853';
     Laya.stage.addChild(tip);
 
     progressBar = new Laya.ProgressBar("load/progress.png")
@@ -125,8 +134,12 @@ function onProcess(p: number) {
 }
 
 function onChange(process: number) {
-    tip.text = "正在检查更新:"+ (process * 100).toFixed(0) + "%";
+    tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
     if (process == 1) {
+        loadBg.visible = false;
+        tip.visible = false;
+        progressBar.visible = false;
+        Laya.stage.removeChild(loadBg);
         Laya.stage.removeChild(tip);
         Laya.stage.removeChild(progressBar);
         Laya.timer.once(1, this, enter);
@@ -135,7 +148,7 @@ function onChange(process: number) {
 
 function enter() {
     //有些测试遗留数据会出错
-    laya.net.LocalStorage.clear();
+    // laya.net.LocalStorage.clear();
     let accept = util.getItem(config.prod.appAccept);
     if (accept) {
         let walletNames = util.getItem(config.prod.appKey);

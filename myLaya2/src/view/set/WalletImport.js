@@ -110,16 +110,16 @@ var view;
                     var keystore = Laya.Browser.window.serialize();
                     var wallet = new mod.walletMod();
                     wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
-                    var allWallets = service.walletServcie.getWallets();
-                    if (allWallets) { //判断是否存在
-                        for (var i = 0; i < allWallets.length; i++) {
-                            var w = allWallets[i];
-                            if (w.wAddr && w.wAddr == wallet.wAddr) { //一定要在初始化数据mod后再判断 0x
-                                new view.alert.Warn("导入钱包失败", "钱包 " + w.wName + " 已经存在").popup();
-                                return;
-                            }
-                        }
-                    }
+                    // let allWallets = service.walletServcie.getWallets();
+                    // if (allWallets) {//判断是否存在
+                    //     for (let i = 0; i < allWallets.length; i++) {
+                    //         let w = allWallets[i] as mod.walletMod;
+                    //         if (w.wAddr && w.wAddr == wallet.wAddr) {//一定要在初始化数据mod后再判断 0x
+                    //             new view.alert.Warn("导入钱包失败", "钱包 " + w.wName + " 已经存在").popup();
+                    //             return;
+                    //         }
+                    //     }
+                    // }
                     //记录数据
                     var walletJson = wallet.toJson();
                     util.setItemJson(wallet.wName, walletJson);

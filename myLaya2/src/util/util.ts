@@ -138,7 +138,7 @@ class util {
         return pwd;
     }
 
-    //
+    //获取日志yyyy-M-d hh:mi:ss
     public static getFormatTime(): string {
         var date = new Date();
         var year = date.getFullYear(),
@@ -154,5 +154,14 @@ class util {
             min + ':' +
             sec;
         return newTime;
+    }
+
+    //验证手机号码
+    public static vilPhoneNumber(phone: string): boolean {
+        var reg = /^[1][3,4,5,7,8][0-9]{9}$/;//简单验证，可以更新
+        if (reg.test(phone)) {
+            return true;
+        }
+        return false;
     }
 }

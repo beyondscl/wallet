@@ -4,6 +4,7 @@ module view.backup {
         private comp: ui.backup.BackUpZjcUI;
         private parentUI: View;
         private wZjc: string;
+        private wName: string;
 
         constructor() {
             super();
@@ -11,9 +12,10 @@ module view.backup {
             this.initEvent();
         }
 
-        public setData(key: string) {
-            this.wZjc = key;
-            this.comp.text_zjc.text = key;
+        public setData(wName: string) {
+            this.wName = wName;
+            this.wZjc = service.walletServcie.getWallet(wName).wZjc;
+            this.comp.text_zjc.text = this.wZjc;
         }
 
         public setParetUI(parentUI: any) {
@@ -40,7 +42,7 @@ module view.backup {
             if (2 == index) {
                 this.comp.visible = false;
                 let conf = new view.backup.BackUpConf();
-                conf.setData(this.wZjc);
+                conf.setData(this.wZjc, this.wName);
                 conf.setParetUI(this.comp);
             }
         }

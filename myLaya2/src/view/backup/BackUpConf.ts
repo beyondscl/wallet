@@ -7,6 +7,7 @@ module view.backup {
     ;
         private key: Array<string>;
         private clickedKey: Array<string> = [];
+        private walletName: string;
 
         constructor() {
             super();
@@ -14,7 +15,9 @@ module view.backup {
             this.initEvent();
         }
 
-        public setData(key: string) {
+        public setData(key: string, wName: string) {
+            this.walletName = wName;
+
             this.rightKey = key.trim().split(" ");
             ;//用于验证
             this.key = key.trim().split(" ");
@@ -66,7 +69,8 @@ module view.backup {
                         return;
                     }
                 }
-                new view.alert.Warn("备份成功", "").popup();//删除或,提示成功,然后颜色变灰
+                let conf = new view.alert.confirm("", "");
+                conf.setData(this.walletName);
                 this.comp.removeSelf();
                 this.parentUI.visible = true;
                 return;

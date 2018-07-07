@@ -1,12 +1,10 @@
 var EnterApp = view.EnterApp;
-var ProgressBar = Laya.ProgressBar;
 var guide = /** @class */ (function () {
     function guide() {
         this.index = 0;
         this.mouseStart = 0;
         this.init();
     }
-
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -70,18 +68,35 @@ Laya.stage.alignV = "middle";
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();
 var progressBar;
-
+var tip;
+var loadBg;
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
 }
-
 function beginLoad() {
+    Laya.stage.bgColor = 'white';
+    loadBg = new Laya.Image().loadImage("load/start.png");
+    loadBg.left = 0;
+    loadBg.right = 0;
+    loadBg.top = 0;
+    loadBg.bottom = 0;
+    Laya.stage.addChild(loadBg);
+    tip = new Laya.Label();
+    tip.bottom = 90;
+    tip.left = 0;
+    tip.right = 0;
+    tip.centerX = 0;
+    tip.height = 50;
+    tip.fontSize = 32;
+    tip.text = "正在检查更新:0%";
+    tip.color = '#163853';
+    Laya.stage.addChild(tip);
     progressBar = new Laya.ProgressBar("load/progress.png");
-    progressBar.width = 400;
-    progressBar.x = (Laya.stage.width - progressBar.width) / 2;
-    progressBar.y = Laya.stage.height / 2;
+    progressBar.width = 500;
+    progressBar.height = 40;
+    progressBar.centerX = 0;
+    progressBar.bottom = 140;
     progressBar.sizeGrid = "5,5,5,5";
-    Laya.stage.addChild(progressBar);
     var res = ["res/atlas/img/main.atlas",
         "res/atlas/img/coins.atlas",
         "res/atlas/img/guide.atlas"];
@@ -97,21 +112,24 @@ function beginLoad() {
     // Laya.loader.load("res/atlas/template/Search.atlas");
     // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
-
 function onProcess(p) {
     progressBar.value = p;
 }
-
 function onChange(process) {
-    console.log("进度：" + Math.floor(process * 100) + "%");
+    tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
     if (process == 1) {
+        loadBg.visible = false;
+        tip.visible = false;
+        progressBar.visible = false;
+        Laya.stage.removeChild(loadBg);
+        Laya.stage.removeChild(tip);
+        Laya.stage.removeChild(progressBar);
         Laya.timer.once(1, this, enter);
     }
 }
-
 function enter() {
     //有些测试遗留数据会出错
-    laya.net.LocalStorage.clear();
+    // laya.net.LocalStorage.clear();
     var accept = util.getItem(config.prod.appAccept);
     if (accept) {
         var walletNames = util.getItem(config.prod.appKey);
@@ -130,5 +148,4 @@ function enter() {
         new view.info.Service();
     }
 }
-
 //# sourceMappingURL=guide.js.map

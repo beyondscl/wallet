@@ -9,8 +9,11 @@ module config {
         public static appAdapterType = 'SCALE_EXACTFIT';
 
         public static apiLocalHost = "http://192.168.2.106:3005";
-        public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";
+        public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";//
         public static gasLimit: number = 21000;
+        public static getCode: string = prod.apiLocalHost + "/candy/sendSms";//获取短信验证码
+        public static getCandy: string = prod.apiLocalHost + "/candy/sendCandy";//获取糖果
+
 
         public static appWidth = 750;
         public static appHeight = 1334;

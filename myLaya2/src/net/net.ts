@@ -26,6 +26,12 @@ module net {
             this.xhr.send(url, data, this.method, this.resp, this.headers);
         }
 
+        public sendPost(url: string, data: any, callback: any, args: Array<any>) {
+            if (callback) this.callback = callback;
+            if (args) this.callBackArgs = args;
+            this.xhr.send(url, data, this.method, this.resp, this.headers);
+        }
+
         public sendSimpleReq(url: string, callback: any, args: Array<any>) {
             if (args) this.callBackArgs = args;
             if (callback) this.callback = callback;

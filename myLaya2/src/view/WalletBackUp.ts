@@ -38,7 +38,7 @@ module view {
             if (2 == index) {
                 this.comp.visible = false;
                 let backUp = new view.backup.BackUpZjc();
-                backUp.setData(service.walletServcie.getWallet(this.walletName).wZjc);
+                backUp.setData(this.walletName);
                 backUp.setParetUI(this.comp);
             }
         }

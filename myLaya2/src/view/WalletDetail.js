@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,14 +13,12 @@ var view;
 (function (view) {
     var WalletDetail = /** @class */ (function (_super) {
         __extends(WalletDetail, _super);
-
         function WalletDetail() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
-
         WalletDetail.prototype.deleteCb = function (pass, comp) {
             //比较复杂
             // service.walletServcie.deleteWallet(comp.lab_wAddr.text);
@@ -40,6 +30,10 @@ var view;
             this.comp.lab_total.text = '0.00 ¥';
             this.comp.img_wImg.skin = config.resource.walletImg;
             this.comp.text_wName.text = data.wName;
+            if (!data.wZjc) {
+                this.comp.btn_backup.disabled = true;
+                this.comp.btn_backup.label = '已备份';
+            }
         };
         WalletDetail.prototype.setParetUI = function (parentUI) {
             this.parentUI = parentUI;
@@ -56,8 +50,8 @@ var view;
             this.comp.box_reverpass.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.box_expSeckey.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
-            this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
             this.comp.btn_delete.on(Laya.Event.CLICK, this, this.btnClick, [6]);
+            this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
         };
         WalletDetail.prototype.goBack = function () {
             this.stage.removeChild(this.comp);
@@ -110,7 +104,7 @@ var view;
             }
         };
         WalletDetail.prototype.enterPassCb = function (pass, comp) {
-            comp.visible = false;
+            comp.visible = false; //是否是删除？
             var backupw = new view.WalletBackUp();
             backupw.setData(comp.lab_wName.text);
             backupw.setParetUI(comp);

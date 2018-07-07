@@ -23,6 +23,10 @@ module view {
             this.comp.lab_total.text = '0.00 ¥';
             this.comp.img_wImg.skin = config.resource.walletImg;
             this.comp.text_wName.text = data.wName;
+            if (!data.wZjc) {
+                this.comp.btn_backup.disabled = true;
+                this.comp.btn_backup.label = '已备份';
+            }
         }
 
         public setParetUI(parentUI: ui.WalletManageUI) {
@@ -42,8 +46,9 @@ module view {
             this.comp.box_reverpass.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.box_expSeckey.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
-            this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
             this.comp.btn_delete.on(Laya.Event.CLICK, this, this.btnClick, [6]);
+            this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
+
 
         }
 
@@ -101,7 +106,7 @@ module view {
         }
 
         private enterPassCb(pass, comp: ui.WalletDetailUI) {
-            comp.visible = false;
+            comp.visible = false;//是否是删除？
             let backupw = new view.WalletBackUp();
             backupw.setData(comp.lab_wName.text);
             backupw.setParetUI(comp);
