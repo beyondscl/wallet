@@ -6,6 +6,7 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -67,19 +68,26 @@ Laya.stage.alignH = "center";
 Laya.stage.alignV = "middle";
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
-// loadProcess();
-// function loadProcess() {
-//     Laya.loader.load(["load/progressBar$bar.png"], null);
-// }
-// function onLoadComplete() {
-// }
-beginLoad();
+loadProcess();
+var progressBar;
+
+function loadProcess() {
+    Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
+}
+
 function beginLoad() {
-    //加载完成就直接进入，后面的异步加载
+    progressBar = new Laya.ProgressBar("load/progress.png");
+    progressBar.width = 400;
+    progressBar.x = (Laya.stage.width - progressBar.width) / 2;
+    progressBar.y = Laya.stage.height / 2;
+    progressBar.sizeGrid = "5,5,5,5";
+    Laya.stage.addChild(progressBar);
     var res = ["res/atlas/img/main.atlas",
         "res/atlas/img/coins.atlas",
         "res/atlas/img/guide.atlas"];
-    Laya.loader.load(res, null, Laya.Handler.create(this, onChange, null, false));
+    Laya.loader.load(res, null, Laya.Handler.create(this, onProcess, null, false));
+    progressBar.changeHandler = new Laya.Handler(this, onChange);
+    Laya.stage.addChild(progressBar);
     // "res/atlas/template/ScrollBar.atlas",
     // Laya.loader.load("res/atlas/template/Warn.atlas");
     // Laya.loader.load("res/atlas/template/Navigator.atlas");
@@ -89,12 +97,18 @@ function beginLoad() {
     // Laya.loader.load("res/atlas/template/Search.atlas");
     // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
+
+function onProcess(p) {
+    progressBar.value = p;
+}
+
 function onChange(process) {
     console.log("进度：" + Math.floor(process * 100) + "%");
     if (process == 1) {
         Laya.timer.once(1, this, enter);
     }
 }
+
 function enter() {
     //有些测试遗留数据会出错
     laya.net.LocalStorage.clear();
@@ -116,4 +130,5 @@ function enter() {
         new view.info.Service();
     }
 }
+
 //# sourceMappingURL=guide.js.map

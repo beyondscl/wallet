@@ -76,22 +76,40 @@ Laya.stage.alignH = "center";
 Laya.stage.alignV = "middle";
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
-// loadProcess();
-// function loadProcess() {
-//     Laya.loader.load(["load/progressBar$bar.png"], null);
-// }
+loadProcess();
+let progressBar;
+let tip;
 
-// function onLoadComplete() {
-// }
-beginLoad();
+function loadProcess() {
+    Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
+}
 
 function beginLoad() {
-    //加载完成就直接进入，后面的异步加载
+    tip = new Laya.Label();
+    tip.bottom = 90;
+    tip.left = 0;
+    tip.right = 0;
+    tip.centerX = 0;
+    tip.height = 50;
+    tip.fontSize = 32;
+    tip.text = "正在检查更新:0%";
+    tip.color = '#ffffff';
+    Laya.stage.addChild(tip);
+
+    progressBar = new Laya.ProgressBar("load/progress.png")
+    progressBar.width = 500;
+    progressBar.height = 40;
+    progressBar.centerX = 0;
+    progressBar.bottom = 140;
+    progressBar.sizeGrid = "5,5,5,5";
+
     let res: Array<any> =
         ["res/atlas/img/main.atlas",
             "res/atlas/img/coins.atlas",
             "res/atlas/img/guide.atlas"]
-    Laya.loader.load(res, null, Laya.Handler.create(this, onChange, null, false));
+    Laya.loader.load(res, null, Laya.Handler.create(this, onProcess, null, false));
+    progressBar.changeHandler = new Laya.Handler(this, onChange);
+    Laya.stage.addChild(progressBar);
     // "res/atlas/template/ScrollBar.atlas",
     // Laya.loader.load("res/atlas/template/Warn.atlas");
     // Laya.loader.load("res/atlas/template/Navigator.atlas");
@@ -102,9 +120,15 @@ function beginLoad() {
     // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
 
+function onProcess(p: number) {
+    progressBar.value = p;
+}
+
 function onChange(process: number) {
-    console.log("进度：" + Math.floor(process * 100) + "%");
+    tip.text = "正在检查更新:"+ (process * 100).toFixed(0) + "%";
     if (process == 1) {
+        Laya.stage.removeChild(tip);
+        Laya.stage.removeChild(progressBar);
         Laya.timer.once(1, this, enter);
     }
 }
