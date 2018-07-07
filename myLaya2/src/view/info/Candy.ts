@@ -58,41 +58,31 @@ module view.info {
                     let wName = this.getSelectedItem();
                     let wallet: mod.walletMod = service.walletServcie.getWallet(wName);
                     let wAddr = wallet.wAddr;
-                    new net.HttpRequest().sendPost(config.prod.getCandy, {
-                        "phoneNumber": phone,
-                        "address": wAddr,
-                        "vcode": code
-                    }, this.callBack, [2]);
+                    new net.HttpRequest().sendPost(config.prod.getCandy, "phoneNumber=" + phone + "&address=" + wAddr + "&vcode=" + code, this.callBack, [2]);
                 }
                 return;
             }
             if (3 == index) { //get code
                 if (util.vilPhoneNumber(this.comp.text_phone.text)) {
                     this.comp.warn_phone.visible = false;
-                    this.comp.text_phone.disabled = true;//直到回调才能重新选择。我不做时间判定。
                     let phone = this.comp.text_phone.text;
-                    new net.HttpRequest().sendPost(config.prod.getCode, {"phoneNumber": phone}, this.callBack, [1]);
+                    new net.HttpRequest().sendPost(config.prod.getCode, 'phoneNumber=' + phone, this.callBack, [1]);
                 } else {
                     this.comp.warn_phone.visible = true;
                 }
                 return;
+                // "a=b,b=c"
             }
         }
 
         private callBack(ret, args) {
             let type: number = args[0];
-            if (ret && ret.code == 0) {
-                new view.alert.Warn(ret.retMsg.msg, "").popup();
-                if (type == 1) {
-                    this.comp.text_phone.disabled = false;
-                }
-                if (type == 2) {
-
-                }
+            if (ret && ret.retCode == 0) {
+                let msg = ret.retMsg.msg;
+                new view.alert.Warn(msg, "").popup();
             } else {
-                new view.alert.Warn(ret.retMsg.msg, "").popup();
+                new view.alert.Warn(ret.reason, "").popup();
             }
-
         }
 
         private onSelect(index: number) {

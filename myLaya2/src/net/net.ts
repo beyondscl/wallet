@@ -7,6 +7,7 @@ module net {
         private resp: string = 'json';
         private headers: Array<string> = ['Access-Control-Allow-Origin-*'];
         private callBackArgs: Array<any>;
+        private post = "POST";
 
         constructor() {
             super();
@@ -29,7 +30,7 @@ module net {
         public sendPost(url: string, data: any, callback: any, args: Array<any>) {
             if (callback) this.callback = callback;
             if (args) this.callBackArgs = args;
-            this.xhr.send(url, data, this.method, this.resp, this.headers);
+            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded']);
         }
 
         public sendSimpleReq(url: string, callback: any, args: Array<any>) {

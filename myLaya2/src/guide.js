@@ -5,6 +5,7 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -70,9 +71,11 @@ loadProcess();
 var progressBar;
 var tip;
 var loadBg;
+
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
 }
+
 function beginLoad() {
     Laya.stage.bgColor = 'white';
     loadBg = new Laya.Image().loadImage("load/start.png");
@@ -112,9 +115,11 @@ function beginLoad() {
     // Laya.loader.load("res/atlas/template/Search.atlas");
     // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
+
 function onProcess(p) {
     progressBar.value = p;
 }
+
 function onChange(process) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
     if (process == 1) {
@@ -127,6 +132,7 @@ function onChange(process) {
         Laya.timer.once(1, this, enter);
     }
 }
+
 function enter() {
     //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
@@ -148,4 +154,5 @@ function enter() {
         new view.info.Service();
     }
 }
+
 //# sourceMappingURL=guide.js.map

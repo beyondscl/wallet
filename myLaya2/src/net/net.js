@@ -18,6 +18,7 @@ var net;
             _this.method = 'get';
             _this.resp = 'json';
             _this.headers = ['Access-Control-Allow-Origin-*'];
+            _this.post = "POST";
             _this.xhr = new Laya.HttpRequest();
             _this.xhr.http.headers = _this.headers;
             _this.xhr.http.timeout = 10000;
@@ -43,7 +44,7 @@ var net;
                 this.callback = callback;
             if (args)
                 this.callBackArgs = args;
-            this.xhr.send(url, data, this.method, this.resp, this.headers);
+            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded']);
         };
         HttpRequest.prototype.sendSimpleReq = function (url, callback, args) {
             if (args)
