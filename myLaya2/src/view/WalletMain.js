@@ -67,9 +67,10 @@ var view;
             this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         };
-        WalletMain.prototype.getBalanceCb = function (err, res, args) {
-            if (!err) {
-                console.info("getBalanceCb res:" + res.toNumber());
+        WalletMain.prototype.getBalanceCb = function (res, args) {
+            if (res && res.retCode == 0) {
+                console.info("getBalanceCb res:" + res);
+                res = res.ret;
                 var comp = args[0];
                 var coinMod = args[1];
                 var cells = comp.list_wallet.cells;
@@ -98,7 +99,7 @@ var view;
                 }
             }
             else {
-                console.error("getBalanceCb error:" + err);
+                console.error("getBalanceCb error:", res);
             }
         };
         WalletMain.prototype.queryCallBack = function () {

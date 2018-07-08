@@ -7,6 +7,7 @@ module mod {
         public static defWalletName: string = "钱包";
         public static defWallet: mod.walletMod;
         public static usdToRmb = 6.5;
+        public static gasPrice = 0;
 
         constructor() {
 

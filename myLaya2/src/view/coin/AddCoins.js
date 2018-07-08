@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -23,14 +15,12 @@ var view;
     (function (coin) {
         var AddCoins = /** @class */ (function (_super) {
             __extends(AddCoins, _super);
-
             function AddCoins() {
                 var _this = _super.call(this) || this;
                 _this.init();
                 _this.initEvent();
                 return _this;
             }
-
             AddCoins.prototype.setParentUI = function (parentUI) {
                 this.parentUI = parentUI;
             };
@@ -55,7 +45,8 @@ var view;
                     case 0:
                         this.updateSelectItem();
                         this.stage.removeChild(this.comp);
-                        this.parentUI.visible = true;
+                        this.parentUI.removeSelf();
+                        new view.WalletMain().initQueryData(mod.userMod.defWallet);
                         break;
                     case 1:
                         // this.comp.visible = false;
@@ -94,6 +85,7 @@ var view;
                 var wallet = util.getItem(walletName);
                 if (wallet) {
                     wallet.wCoins = coins;
+                    mod.userMod.defWallet.wCoins = coins; //必定是当前钱包
                     util.setItemNoJson(walletName, JSON.stringify(wallet));
                 }
             };

@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -22,14 +14,12 @@ var view;
     var Handler = Laya.Handler;
     var WalletSendSubmit = /** @class */ (function (_super) {
         __extends(WalletSendSubmit, _super);
-
         function WalletSendSubmit() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
-
         WalletSendSubmit.prototype.setData = function (data) {
             this.comp.text_from.text = mod.userMod.defWallet.wAddr;
             this.comp.text_to.text = data.text_addr.text;
@@ -37,15 +27,17 @@ var view;
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
             //初始化gasprice
             //默认70
-            this.comp.sli_gas.value = 20; // gwei
-            this.comp.sli_gas.min = 20;
-            this.comp.sli_gas.max = 70;
+            var gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice : 20;
+            this.comp.sli_gas.value = gasPrice; // gwei
+            this.comp.sli_gas.min = gasPrice;
+            this.comp.sli_gas.max = gasPrice + 130;
             new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
                 if (ret && ret.retCode == 0) {
+                    mod.userMod.gasPrice = ret.gasPrice / 1e9;
                     var comp = args[0];
-                    comp.sli_gas.value = ret.gasPrice / 1e9; // gwei
-                    comp.sli_gas.min = comp.sli_gas.value;
-                    comp.sli_gas.max = comp.sli_gas.value * 3;
+                    comp.sli_gas.value = mod.userMod.gasPrice; // gwei
+                    comp.sli_gas.min = mod.userMod.gasPrice;
+                    comp.sli_gas.max = mod.userMod.gasPrice + 50;
                 }
             }, [this.comp]);
         };
@@ -105,7 +97,7 @@ var view;
                                 var comp_1 = args[0];
                                 var comParent = args[2];
                                 var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_1.text_from.text, comp_1.text_to.text, comp_1.send_amout.text, comp_1.coin_type.text, ret.txhash, //可以根据这个去查询更新
-                                    gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
+                                gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                                 service.walletServcie.addDealItem(deal);
                             }
                             else {
@@ -129,7 +121,7 @@ var view;
                     // comParent.visible = true;//
                     //记录交易!!!
                     var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_2.text_from.text, comp_2.text_to.text, comp_2.send_amout.text, comp_2.coin_type.text, ret.txhash, //可以根据这个去查询更新
-                        gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
+                    gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                     service.walletServcie.addDealItem(deal);
                 }
                 else {
