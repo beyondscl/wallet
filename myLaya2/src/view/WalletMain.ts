@@ -65,9 +65,11 @@ module view {
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         }
 
-        private getBalanceCb(err, res, args: Array<any>) {
-            if (!err) {
-                console.info("getBalanceCb res:" + res.toNumber());
+        private getBalanceCb(res, args: Array<any>) {
+            if (res&&res.retCode==0) {
+                console.info("getBalanceCb res:" + res);
+                res = res.ret;
+                
                 let comp = args[0] as view.WalletMain;
                 let coinMod = args[1] as mod.coinItemMod;
                 let cells = comp.list_wallet.cells;
@@ -96,7 +98,7 @@ module view {
                     }
                 }
             } else {
-                console.error("getBalanceCb error:" + err);
+                console.error("getBalanceCb error:" ,res);
             }
         }
 
