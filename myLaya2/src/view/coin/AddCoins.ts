@@ -84,6 +84,7 @@ module view.coin {
             let wallet = util.getItem(walletName);
             if (wallet) {
                 wallet.wCoins = coins;
+                mod.userMod.defWallet.wCoins = coins;//必定是当前钱包
                 util.setItemNoJson(walletName, JSON.stringify(wallet));
             }
         }
