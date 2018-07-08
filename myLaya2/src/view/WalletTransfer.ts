@@ -40,7 +40,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            this.parentUI.visible = true;
         }
 
         private btnClick(type: number) {

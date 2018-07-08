@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,15 +13,16 @@ var view;
 (function (view) {
     var WalletReceive = /** @class */ (function (_super) {
         __extends(WalletReceive, _super);
-
         function WalletReceive(wName) {
             var _this = _super.call(this) || this;
             _this.init(wName);
             _this.initEvent();
             return _this;
         }
-
         WalletReceive.prototype.setData = function (data) {
+        };
+        WalletReceive.prototype.setParentUI = function (main) {
+            this.paretnUI = main;
         };
         WalletReceive.prototype.init = function (wName) {
             this.comp = new ui.WalletReceiveUI();
@@ -57,7 +50,12 @@ var view;
         };
         WalletReceive.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            if (this.paretnUI) {
+                this.paretnUI.visible = true;
+            }
+            else {
+                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            }
         };
         WalletReceive.prototype.btnClick = function (type) {
             switch (type) {

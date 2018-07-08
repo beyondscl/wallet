@@ -58,14 +58,15 @@ module view {
             cImg.skin = wallet.wSkin;
             let cName = cell.getChildByName('lab_wName') as Label;
             cName.text = data.replace(/([^]{8})([^]+)/, "$1...");
-            ;
+
         }
 
         private onSelect(index: number): void {
             let item = this.list_wallet.array[index];
             this.stage.removeChild(this.parentUI);
             new view.WalletMain().initQueryData(service.walletServcie.getWallet(item));
-            this.close(null, true);
+            this.close();
+
         }
     }
 }

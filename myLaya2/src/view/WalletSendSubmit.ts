@@ -19,15 +19,15 @@ module view {
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
             //初始化gasprice
             //默认70
-            this.comp.sli_gas.value = 70// gwei
-            this.comp.sli_gas.min = 70;
-            this.comp.sli_gas.max = 700;
+            this.comp.sli_gas.value = 20// gwei
+            this.comp.sli_gas.min = 20;
+            this.comp.sli_gas.max = 70;
             new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
                 if (ret && ret.retCode == 0) {
                     let comp = args[0] as view.WalletSendSubmit;
                     comp.sli_gas.value = ret.gasPrice / 1e9;// gwei
                     comp.sli_gas.min = comp.sli_gas.value;
-                    comp.sli_gas.max = comp.sli_gas.value * 10
+                    comp.sli_gas.max = comp.sli_gas.value * 3
                 }
             }, [this.comp]);
         }
@@ -164,9 +164,9 @@ module view {
             let lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
             var lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd).toFixed(2);//总量usd
 
-            this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type;
+            this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type.text;
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
-            this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type;
+            this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type.text;
             this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
         }
     }

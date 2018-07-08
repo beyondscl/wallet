@@ -53,7 +53,7 @@ var view;
         };
         WalletTransfer.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            this.parentUI.visible = true;
         };
         WalletTransfer.prototype.btnClick = function (type) {
             Laya.stage.removeChild(this.comp);

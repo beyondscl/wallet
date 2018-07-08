@@ -55,7 +55,7 @@ var view;
                     case 0:
                         this.updateSelectItem();
                         this.stage.removeChild(this.comp);
-                        new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));
+                        this.parentUI.visible = true;
                         break;
                     case 1:
                         // this.comp.visible = false;

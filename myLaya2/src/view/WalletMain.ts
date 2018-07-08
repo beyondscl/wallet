@@ -7,6 +7,9 @@ module view {
         private data: Array<mod.walItemMod> = [];
         private comp: ui.WalletMainUI;
 
+        private noRender: number = 1;//如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
+        private hasRended: Array<string> = [];
+
         constructor() {
             super();
             this.init();
@@ -26,6 +29,8 @@ module view {
 
         //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
+            // let wait = new view.alert.waiting("正在加载数据，请稍后");
+            // wait.popup(true,true);
             //修改当前内存主要钱包
             mod.userMod.defWallet = data;//*
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
@@ -34,6 +39,7 @@ module view {
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
+            // wait.stop();
         }
 
         private initBalance(cName: string) {
@@ -110,6 +116,11 @@ module view {
         //为什么会执行多次？？
         private onListRender(cell: Box, index: number) {
             var data: mod.walItemMod = this.comp.list_wallet.array[index];
+            for (let m = 0; m < this.hasRended.length; m++) {
+                if (this.hasRended[m] == data.itemName) {
+                    return;
+                }
+            }
             let cImg = cell.getChildByName('cImg') as Image;
             cImg.skin = data.getItemImgSrc();
             let cName = cell.getChildByName('cName') as Label;
@@ -118,12 +129,17 @@ module view {
             cTotal.text = data.itemTotal
             let cValue = cell.getChildByName('cValue') as Label;
             cValue.text = "¥ " + data.itemMonType;
-            this.initBalance(cName.text);
+            if (this.noRender == 1) {
+                this.hasRended.push(data.itemName);
+                this.initBalance(cName.text);
+            }
         }
 
         private onSelect(index: number): void {
+            this.noRender = 0;
             let item = this.data[index];
-            this.stage.removeChild(this.comp);
+            // this.stage.removeChild(this.comp);
+            this.comp.visible = false;
             let wTransfer = new view.WalletTransfer();
             wTransfer.setData(item, this.comp.list_wallet.cells[index]);
             wTransfer.setParentUI(this.comp);
@@ -131,16 +147,17 @@ module view {
 
         private tabSelect(index: number): void {
             if (index == 1) {
-                this.stage.removeChild(this.comp);
-                new view.WalletMe();
+                // this.stage.removeChild(this.comp);
+                this.comp.visible = false;
+                new view.WalletMe().setParentUI(this.comp);
             }
-            if (index == 0) {
+            if (index == 0) {//只有点击切换钱包才会刷新
                 this.stage.removeChild(this.comp);
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
-                this.stage.removeChild(this.comp);
-                new view.WalletReceive(this.comp.lab_wName.text);
+                this.comp.visible = false;
+                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this.comp);
             }
             if (index == 3) {
                 //dialog千万不要设置left r t b..
@@ -155,7 +172,7 @@ module view {
                 pom.popup();
             }
             if (index == 4) {
-                this.stage.removeChild(this.comp);
+                this.comp.visible = false;
                 let coinUI = new view.coin.AddCoins();
                 coinUI.setParentUI(this.comp);
                 coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));

@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,14 +13,12 @@ var view;
 (function (view) {
     var WalletQuick = /** @class */ (function (_super) {
         __extends(WalletQuick, _super);
-
         function WalletQuick() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
-
         WalletQuick.prototype.setParentUI = function (parentUI) {
             this.parentUI = parentUI;
         };
@@ -67,13 +57,12 @@ var view;
             cImg.skin = wallet.wSkin;
             var cName = cell.getChildByName('lab_wName');
             cName.text = data.replace(/([^]{8})([^]+)/, "$1...");
-            ;
         };
         WalletQuick.prototype.onSelect = function (index) {
             var item = this.list_wallet.array[index];
             this.stage.removeChild(this.parentUI);
             new view.WalletMain().initQueryData(service.walletServcie.getWallet(item));
-            this.close(null, true);
+            this.close();
         };
         return WalletQuick;
     }(ui.WalletQuickUI));

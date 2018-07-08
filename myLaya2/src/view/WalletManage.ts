@@ -42,8 +42,11 @@ module view {
         private btnClick(index: number) {
             if (1 == index) {
                 Laya.stage.removeChild(this.comp);
-                Laya.stage.removeChild(this.parentUI);
-                new view.WalletMe();
+                if (this.parentUI) {//这里还有一点点bug
+                    this.parentUI.visible = true;
+                } else {
+                    new view.WalletMe();
+                }
             }
             if (2 == index) {
                 this.comp.visible = false;
@@ -64,8 +67,25 @@ module view {
             let wAddr = cell.getChildByName('lab_wAddr') as Label;
             wAddr.text = util.getAddr(data.wAddr);
             let wTotal = cell.getChildByName('lab_wTotal') as Label;
+
             // wTotal.text = '0 ether';//test
+
         }
+
+        private initWalletTotal(wName: string) {
+            let coins = service.walletServcie.getWallet(wName).wCoins;
+
+
+        }
+
+        // private initBalance(cName: string) {
+        //     let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
+        //     if (coinMod.abi) {//查询token
+        //         service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
+        //     } else {//eth
+        //         service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
+        //     }
+        // }
 
         private onSelect(index: number) {
             this.comp.visible = false;

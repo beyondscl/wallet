@@ -54,8 +54,12 @@ var view;
         WalletManage.prototype.btnClick = function (index) {
             if (1 == index) {
                 Laya.stage.removeChild(this.comp);
-                Laya.stage.removeChild(this.parentUI);
-                new view.WalletMe();
+                if (this.parentUI) { //这里还有一点点bug
+                    this.parentUI.visible = true;
+                }
+                else {
+                    new view.WalletMe();
+                }
             }
             if (2 == index) {
                 this.comp.visible = false;
@@ -77,6 +81,17 @@ var view;
             var wTotal = cell.getChildByName('lab_wTotal');
             // wTotal.text = '0 ether';//test
         };
+        WalletManage.prototype.initWalletTotal = function (wName) {
+            var coins = service.walletServcie.getWallet(wName).wCoins;
+        };
+        // private initBalance(cName: string) {
+        //     let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
+        //     if (coinMod.abi) {//查询token
+        //         service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
+        //     } else {//eth
+        //         service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
+        //     }
+        // }
         WalletManage.prototype.onSelect = function (index) {
             this.comp.visible = false;
             var wd = new view.WalletDetail();

@@ -148,7 +148,7 @@ function onChange(process: number) {
 
 function enter() {
     //有些测试遗留数据会出错
-    laya.net.LocalStorage.clear();
+    // laya.net.LocalStorage.clear();
     let accept = util.getItem(config.prod.appAccept);
     if (accept) {
         let walletNames = util.getItem(config.prod.appKey);

@@ -2,6 +2,7 @@
 module view {
     export class WalletReceive extends ui.WalletReceiveUI {
         private comp: ui.WalletReceiveUI;
+        private paretnUI: ui.WalletMainUI;
 
         constructor(wName: string) {
             super();
@@ -11,6 +12,10 @@ module view {
 
         public setData(data: any) {
 
+        }
+
+        public setParentUI(main: ui.WalletMainUI) {
+            this.paretnUI = main;
         }
 
         private init(wName: string) {
@@ -42,7 +47,11 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            if (this.paretnUI) {
+                this.paretnUI.visible = true;
+            } else {
+                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            }
         }
 
         private btnClick(type: number) {

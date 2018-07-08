@@ -29,6 +29,9 @@ var view;
             return _this;
         }
 
+        WalletMe.prototype.setParentUI = function (main) {
+            this.parenUI = main;
+        };
         WalletMe.prototype.init = function () {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
@@ -51,9 +54,14 @@ var view;
             if (index == 1) {
                 // new view.WalletMe();
             }
-            if (index == 0) {
+            if (index == 0) { //稍微优化了一下。
                 this.stage.removeChild(this.comp);
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                if (this.parenUI) {
+                    this.parenUI.visible = true;
+                }
+                else {
+                    new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                }
             }
             if (index == 2) {
                 this.comp.visible = false;

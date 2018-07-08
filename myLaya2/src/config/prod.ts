@@ -9,7 +9,7 @@ module config {
         public static appAdapterType = 'SCALE_EXACTFIT';
 
         // public static apiLocalHost = "http://192.168.2.106:3005";//dev
-        public static apiLocalHost = "http://wallet.wwec.top";//prod
+        public static apiLocalHost = "https://wallet.wwec.top";//prod
 
 
         public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";//

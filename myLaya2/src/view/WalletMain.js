@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,15 +13,15 @@ var view;
 (function (view) {
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
-
         function WalletMain() {
             var _this = _super.call(this) || this;
             _this.data = [];
+            _this.noRender = 1; //如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
+            _this.hasRended = [];
             _this.init();
             _this.initEvent();
             return _this;
         }
-
         WalletMain.prototype.setData = function (coins) {
             //获取数据!!,可以优化
             for (var i = 0; i < coins.length; i++) {
@@ -42,6 +34,8 @@ var view;
         };
         //初始化当前钱包数据
         WalletMain.prototype.initQueryData = function (data) {
+            // let wait = new view.alert.waiting("正在加载数据，请稍后");
+            // wait.popup(true,true);
             //修改当前内存主要钱包
             mod.userMod.defWallet = data; //*
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
@@ -50,6 +44,7 @@ var view;
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
+            // wait.stop();
         };
         WalletMain.prototype.initBalance = function (cName) {
             var coinMod = service.walletServcie.getCoinInfo(cName);
@@ -119,6 +114,11 @@ var view;
         //为什么会执行多次？？
         WalletMain.prototype.onListRender = function (cell, index) {
             var data = this.comp.list_wallet.array[index];
+            for (var m = 0; m < this.hasRended.length; m++) {
+                if (this.hasRended[m] == data.itemName) {
+                    return;
+                }
+            }
             var cImg = cell.getChildByName('cImg');
             cImg.skin = data.getItemImgSrc();
             var cName = cell.getChildByName('cName');
@@ -127,27 +127,33 @@ var view;
             cTotal.text = data.itemTotal;
             var cValue = cell.getChildByName('cValue');
             cValue.text = "¥ " + data.itemMonType;
-            this.initBalance(cName.text);
+            if (this.noRender == 1) {
+                this.hasRended.push(data.itemName);
+                this.initBalance(cName.text);
+            }
         };
         WalletMain.prototype.onSelect = function (index) {
+            this.noRender = 0;
             var item = this.data[index];
-            this.stage.removeChild(this.comp);
+            // this.stage.removeChild(this.comp);
+            this.comp.visible = false;
             var wTransfer = new view.WalletTransfer();
             wTransfer.setData(item, this.comp.list_wallet.cells[index]);
             wTransfer.setParentUI(this.comp);
         };
         WalletMain.prototype.tabSelect = function (index) {
             if (index == 1) {
-                this.stage.removeChild(this.comp);
-                new view.WalletMe();
+                // this.stage.removeChild(this.comp);
+                this.comp.visible = false;
+                new view.WalletMe().setParentUI(this.comp);
             }
-            if (index == 0) {
+            if (index == 0) { //只有点击切换钱包才会刷新
                 this.stage.removeChild(this.comp);
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
-                this.stage.removeChild(this.comp);
-                new view.WalletReceive(this.comp.lab_wName.text);
+                this.comp.visible = false;
+                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this.comp);
             }
             if (index == 3) {
                 //dialog千万不要设置left r t b..
@@ -161,7 +167,7 @@ var view;
                 pom.popup();
             }
             if (index == 4) {
-                this.stage.removeChild(this.comp);
+                this.comp.visible = false;
                 var coinUI = new view.coin.AddCoins();
                 coinUI.setParentUI(this.comp);
                 coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));

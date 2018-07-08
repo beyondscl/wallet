@@ -4,11 +4,16 @@ module view {
 
     export class WalletMe extends ui.WalletMeUI {
         private comp: ui.WalletMeUI;
+        private parenUI: ui.WalletMainUI
 
         constructor() {
             super();
             this.init();
             this.initEvent();
+        }
+
+        public setParentUI(main: ui.WalletMainUI) {
+            this.parenUI = main;
         }
 
         private init() {
@@ -39,9 +44,13 @@ module view {
             if (index == 1) {
                 // new view.WalletMe();
             }
-            if (index == 0) {
+            if (index == 0) {//稍微优化了一下。
                 this.stage.removeChild(this.comp);
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                if (this.parenUI) {
+                    this.parenUI.visible = true;
+                } else {
+                    new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                }
             }
             if (index == 2) {
                 this.comp.visible = false;
