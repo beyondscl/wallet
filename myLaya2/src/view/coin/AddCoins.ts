@@ -40,7 +40,8 @@ module view.coin {
                 case 0:
                     this.updateSelectItem();
                     this.stage.removeChild(this.comp);
-                    this.parentUI.visible = true;
+                    this.parentUI.removeSelf();
+                    new view.WalletMain().initQueryData(mod.userMod.defWallet)
                     break;
                 case 1:
                     // this.comp.visible = false;
