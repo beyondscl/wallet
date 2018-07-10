@@ -18,7 +18,6 @@ var view;
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
-            new config.init().initData(mod.userMod.ethAddress);
             return _this;
         }
         EnterApp.prototype.init = function () {

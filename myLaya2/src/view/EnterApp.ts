@@ -9,8 +9,7 @@ module view {
         constructor() {
             super();
             this.init();
-            this.initEvent();
-            new config.init().initData(mod.userMod.ethAddress);
+            this.initEvent();            
         }
 
         private init() {

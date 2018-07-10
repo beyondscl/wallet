@@ -21,6 +21,7 @@ var view;
             _this.data = [];
             _this.noRender = 1; //如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
             _this.hasRended = [];
+            console.log("start main :", new Date().getTime());
             _this.init();
             _this.initEvent();
             return _this;
@@ -29,7 +30,6 @@ var view;
             this.data = [];
             this.hasRended = [];
             this.noRender = 1;
-            //获取数据!!,可以优化
             for (var i = 0; i < coins.length; i++) {
                 var coinName = coins[i];
                 var walItemT = new mod.walItemMod();
@@ -40,9 +40,9 @@ var view;
         };
         //初始化当前钱包数据
         WalletMain.prototype.initQueryData = function (data) {
+            //数据复原
             util.putCompStack(this);
-            // let wait = new view.alert.waiting("正在加载数据，请稍后");
-            // wait.popup(true,true);
+            this.comp.lab_total.text = '0';
             //修改当前内存主要钱包
             mod.userMod.defWallet = data;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
@@ -51,7 +51,10 @@ var view;
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
-            // wait.stop();
+        };
+        //set get
+        WalletMain.prototype.getEthTotal = function () {
+            return this.ethTotal;
         };
         WalletMain.prototype.initBalance = function (cName) {
             var coinMod = service.walletServcie.getCoinInfo(cName);
@@ -146,7 +149,6 @@ var view;
         WalletMain.prototype.onSelect = function (index) {
             this.noRender = 0;
             var item = this.data[index];
-            // this.stage.removeChild(this.comp);
             this.comp.visible = false;
             var wTransfer = new view.WalletTransfer();
             wTransfer.setData(item, this.comp.list_wallet.cells[index]);
@@ -154,17 +156,16 @@ var view;
         };
         WalletMain.prototype.tabSelect = function (index) {
             if (index == 1) {
-                // this.stage.removeChild(this.comp);
                 this.comp.visible = false;
                 new view.WalletMe().setParentUI(this.comp);
             }
-            if (index == 0) { //只有点击切换钱包才会刷新
+            if (index == 0) { //点击自己或者 | 点击切换钱包才会刷新
                 this.stage.removeChild(this.comp);
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
                 this.comp.visible = false;
-                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this.comp);
+                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this);
             }
             if (index == 3) {
                 //dialog千万不要设置left r t b..
@@ -186,10 +187,6 @@ var view;
         };
         WalletMain.prototype.coinGobackCB = function (coins, wMain) {
             wMain.setData(coins);
-        };
-        //set get
-        WalletMain.prototype.getEthTotal = function () {
-            return this.ethTotal;
         };
         return WalletMain;
     }(ui.WalletMainUI));

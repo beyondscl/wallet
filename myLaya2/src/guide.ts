@@ -60,7 +60,7 @@ class guide {
 }
 
 //程序入口
-console.log("start init stage!!!!!!!!!!!")
+console.log("start init stage!!!!!!!!!!!",new Date().getTime())
 Laya.init(config.prod.appWidth, config.prod.appHeight, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
@@ -87,10 +87,10 @@ function beginLoad() {
     Laya.stage.bgColor = 'white';
 
     loadBg = new Laya.Image().loadImage("load/start.png");
-    loadBg.left = 0;
-    loadBg.right = 0;
-    loadBg.top = 0;
-    loadBg.bottom = 0;
+    loadBg.x = 0;
+    loadBg.y = 0;
+    loadBg.width = config.prod.appWidth;
+    loadBg.height = config.prod.appHeight;
     Laya.stage.addChild(loadBg);
 
 
@@ -147,6 +147,7 @@ function onChange(process: number) {
 }
 
 function enter() {
+    new config.init.initData('');
     //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
     let accept = util.getItem(config.prod.appAccept);

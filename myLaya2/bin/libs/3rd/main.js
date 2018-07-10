@@ -1,6 +1,7 @@
 // api 请参考 https://github.com/ConsenSys/eth-lightwallet
 var web3 = new Web3();
 var global_keystore;
+var allInstance = {}; //存储合约实例
 
 // const HOST = "https://rinkeby.infura.io/2F62Qc2BC0h9WHj2553t";//geth dev
 // const HOST = "http://192.168.2.106:8545";//geth dev
@@ -145,9 +146,33 @@ function functionCall(password, fromAddr, contractAddr, abi, functionName, args,
 
 function balanceOf(address, abi, contractAddr){
     return new Promise((resolve, reject) =>{
-        var contract = web3.eth.contract(abi).at(contractAddr);
-        var ret = {"retCode":0, "ret":contract.balanceOf.call(address)};
-        resolve(ret);
+        if(isEmptyObject(getInstance(contractAddr))){
+            setConctract(abi, contractAddr);
+        }
+        var contract = getInstance(contractAddr);
+        contract.balanceOf(address, function(error, result){
+            console.log(error, result);
+            if(error){
+                resolve({"retCode":1, "error":error})
+            }else{
+                resolve({"retCode":0, "ret":result})
+            }
+        })
+    })
+}
+
+function newGetBalance(address, contractAddr){
+    return new Promise((resolve, reject) =>{
+        var contract = getInstance(contractAddr);
+        console.log("1", contract);
+        contract.balanceOf(address, function(error, result){
+            console.log(error, result);
+            if(error){
+                resolve({"retCode":1, "error":error})
+            }else{
+                resolve({"retCode":0, "ret":result})
+            }
+        })
     })
 }
 
@@ -199,6 +224,25 @@ function estimateGas(address, abi, functionName, args, obj){
         // resolve(contract[functionName].estimateGas.apply(this, args));
     })
 }
+
+//初始化设置合约
+function setConctract(abi, address){
+    var contract = web3.eth.contract(abi).at(address);
+    setInstance(address, contract);
+}
+
+//对象操作
+function setInstance(_addr, _instance){
+    allInstance[_addr]=_instance;
+};
+
+function getInstance(_addr){
+    return allInstance[_addr];
+};
+
+function removeInstance(_addr){
+    delete allInstance[_addr];
+};
 
 function isEmptyObject(obj)
 {

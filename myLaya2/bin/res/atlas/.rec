@@ -39,7 +39,7 @@ D img
 D load
 P 9E4DD730 progress$bar.png
 P 3FD78E12 progress.png
-P 40E12A28 start.png
+P 6BDCE838 start.png
 D template
 D img/coins
 R 41CDC3C2 .rec

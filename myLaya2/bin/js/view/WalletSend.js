@@ -27,6 +27,10 @@ var view;
             this.comp.text_addr.text = addr;
             this.total = total;
         };
+        //parentUI 传入的是this,不再是comp
+        WalletSend.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
         WalletSend.prototype.init = function () {
             this.comp = new ui.WalletSendUI();
             Laya.stage.addChild(this.comp);
@@ -38,17 +42,13 @@ var view;
             this.comp.btn_next.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_sys.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         };
+        //1来自主页
+        //2来自转账页面
+        // 设置总金额
         WalletSend.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
             this.parentUI.comp.visible = true;
             // new view.WalletMain().initQueryData(mod.userMod.defWallet);
-        };
-        //1来自主页
-        //2来自转账页面
-        // 设置总金额
-        //parentUI 传入的是this,不再是comp
-        WalletSend.prototype.setParentUI = function (parentUI) {
-            this.parentUI = parentUI;
         };
         WalletSend.prototype.btnClick = function (type) {
             switch (type) {

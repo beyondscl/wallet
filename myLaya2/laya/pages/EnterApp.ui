@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":10,
-    "selecteID":17,
+    "selecteID":9,
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneWidth":600,"sceneHeight":800,"sceneColor":"#ffffff","right":0,"left":0,"layoutEnabled":true,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":510,"valign":"middle","text":"WWEC TOKEN","height":50,"fontSize":40,"color":"#163853","centerX":0,"bold":true,"align":"center"},
+                    "props":{"y":510,"valign":"middle","text":"WWEC Wallet","height":50,"fontSize":40,"color":"#163853","centerX":0,"bold":true,"align":"center"},
                     "nodeParent":10,
                     "label":"Label",
                     "isDirectory":false,

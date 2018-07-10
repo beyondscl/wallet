@@ -31,14 +31,6 @@ var native;
             };
             this.jsCallapp(json);
         };
-        native.jsCallapp = function (json) {
-            try {
-                Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
-            }
-            catch (error) {
-                console.log("jsCallapp 只能在app环境中调用");
-            }
-        };
         native.appCalljs = function (data) {
             console.log("appcalljs return :", data);
             console.log("data return :", data);
@@ -56,6 +48,14 @@ var native;
                 console.log("appCalljs", error);
             }
             return "OK";
+        };
+        native.jsCallapp = function (json) {
+            try {
+                Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            }
+            catch (error) {
+                console.log("jsCallapp 只能在app环境中调用");
+            }
         };
         return native;
     }(Object));

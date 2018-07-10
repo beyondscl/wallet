@@ -14,6 +14,7 @@ module view {
 
         constructor() {
             super();
+            console.log("start main :",new Date().getTime());
             this.init();
             this.initEvent();
         }
@@ -23,7 +24,6 @@ module view {
             this.hasRended = [];
             this.noRender = 1;
 
-            //获取数据!!,可以优化
             for (let i: number = 0; i < coins.length; i++) {
                 let coinName = coins[i];
                 let walItemT = new mod.walItemMod();
@@ -35,9 +35,10 @@ module view {
 
         //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
+            //数据复原
             util.putCompStack(this);
-            // let wait = new view.alert.waiting("正在加载数据，请稍后");
-            // wait.popup(true,true);
+            this.comp.lab_total.text = '0';
+
             //修改当前内存主要钱包
             mod.userMod.defWallet = data;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
@@ -46,7 +47,6 @@ module view {
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
-            // wait.stop();
         }
 
         //set get
@@ -155,7 +155,6 @@ module view {
         private onSelect(index: number): void {
             this.noRender = 0;
             let item = this.data[index];
-            // this.stage.removeChild(this.comp);
             this.comp.visible = false;
             let wTransfer = new view.WalletTransfer();
             wTransfer.setData(item, this.comp.list_wallet.cells[index]);
@@ -164,17 +163,16 @@ module view {
 
         private tabSelect(index: number): void {
             if (index == 1) {
-                // this.stage.removeChild(this.comp);
                 this.comp.visible = false;
                 new view.WalletMe().setParentUI(this.comp);
             }
-            if (index == 0) {//只有点击切换钱包才会刷新
+            if (index == 0) {//点击自己或者 | 点击切换钱包才会刷新
                 this.stage.removeChild(this.comp);
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
                 this.comp.visible = false;
-                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this.comp);
+                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this);
             }
             if (index == 3) {
                 //dialog千万不要设置left r t b..

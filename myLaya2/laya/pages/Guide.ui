@@ -412,19 +412,6 @@
                         ]
                 }],
             "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"ProgressBar",
-            "props":{"x":137,"width":507,"skin":"comp/progress.png","height":40,"bottom":140},
-            "nodeParent":1,
-            "label":"ProgressBar",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":46,
-            "child":[
-                ]
         }],
     "animations":[
         {

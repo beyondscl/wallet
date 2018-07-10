@@ -2,7 +2,7 @@
 module view {
     export class WalletReceive extends ui.WalletReceiveUI {
         private comp: ui.WalletReceiveUI;
-        private paretnUI: ui.WalletMainUI;
+        private paretnUI: any;
 
         constructor(wName: string) {
             super();
@@ -14,8 +14,8 @@ module view {
 
         }
 
-        public setParentUI(main: ui.WalletMainUI) {
-            this.paretnUI = main;
+        public setParentUI(p :any) {
+            this.paretnUI = p;
         }
 
         private init(wName: string) {//wName可以不要的。
@@ -35,9 +35,7 @@ module view {
         }
 
         private getImgSrc(qrcode: any) {
-            console.log("getImgSrc：" + qrcode._oDrawing._elImage.src);
             if (qrcode && qrcode._oDrawing._elImage.src) {
-                console.log("qrcode._oDrawing._elImage.src：" + qrcode._oDrawing._elImage.src);
                 Laya.timer.clearAll(this);
                 let img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
                 img.x = this.comp.img_wAddr.x;
@@ -55,8 +53,8 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            if (this.paretnUI) {
-                this.paretnUI.visible = true;
+            if (this.paretnUI.comp) {
+                this.paretnUI.comp.visible = true;
             } else {
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }

@@ -54,8 +54,8 @@ var view;
                 send.setParentUI(this);
             }
             else if (type == 2) {
-                Laya.stage.removeChild(this.comp);
-                new view.WalletReceive(this.parentUI.comp.lab_wName.text);
+                this.comp.visible = false;
+                new view.WalletReceive(this.parentUI.comp.lab_wName.text).setParentUI(this);
             }
         };
         //init deal history list

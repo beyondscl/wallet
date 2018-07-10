@@ -21,8 +21,8 @@ var view;
         }
         WalletReceive.prototype.setData = function (data) {
         };
-        WalletReceive.prototype.setParentUI = function (main) {
-            this.paretnUI = main;
+        WalletReceive.prototype.setParentUI = function (p) {
+            this.paretnUI = p;
         };
         WalletReceive.prototype.init = function (wName) {
             this.comp = new ui.WalletReceiveUI();
@@ -40,9 +40,7 @@ var view;
             Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletReceive.prototype.getImgSrc = function (qrcode) {
-            console.log("getImgSrc：" + qrcode._oDrawing._elImage.src);
             if (qrcode && qrcode._oDrawing._elImage.src) {
-                console.log("qrcode._oDrawing._elImage.src：" + qrcode._oDrawing._elImage.src);
                 Laya.timer.clearAll(this);
                 var img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
                 img.x = this.comp.img_wAddr.x;
@@ -57,8 +55,8 @@ var view;
         };
         WalletReceive.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            if (this.paretnUI) {
-                this.paretnUI.visible = true;
+            if (this.paretnUI.comp) {
+                this.paretnUI.comp.visible = true;
             }
             else {
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
