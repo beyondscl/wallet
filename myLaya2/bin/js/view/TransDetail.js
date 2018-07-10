@@ -19,16 +19,6 @@ var view;
             _this.initEvent();
             return _this;
         }
-        TransDetail.prototype.init = function () {
-            this.comp = new ui.TransDetailUI();
-            Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
-        };
-        TransDetail.prototype.initEvent = function () {
-            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
-            this.comp.btn_moreinfo.on(Laya.Event.CLICK, this, this.moreinfo);
-        };
         /**
          * @param data
          * @param parent ui only
@@ -45,6 +35,16 @@ var view;
             this.comp.lab_confirm.text = data.dealConfirm + '';
             this.comp.lab_time.text = data.dealTime;
             this.comp.lab_nonce.text = data.dealNonce + '';
+        };
+        TransDetail.prototype.init = function () {
+            this.comp = new ui.TransDetailUI();
+            Laya.stage.addChild(this.comp);
+            Laya.stage.bgColor = 'white';
+            Laya.stage.scaleMode = config.prod.appAdapterType;
+        };
+        TransDetail.prototype.initEvent = function () {
+            this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.btn_moreinfo.on(Laya.Event.CLICK, this, this.moreinfo);
         };
         TransDetail.prototype.goBack = function () {
             this.removeSelf();

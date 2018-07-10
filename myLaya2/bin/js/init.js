@@ -18,6 +18,12 @@ var config;
             new net.HttpRequest().sendReq(config.prod.ethToUsd, null, "get", "json", null, function (data) {
                 mod.userMod.ethToUsd = data.bid;
             });
+            new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret) {
+                if (ret && ret.retCode == 0) {
+                    mod.userMod.ethToUsd = ret.gasPrice;
+                    console.log("gasPrice baidu success");
+                }
+            }, null);
         };
         return init;
     }());

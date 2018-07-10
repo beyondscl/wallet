@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
-    "props":{"y":0,"x":0,"width":375,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
+    "selecteID":10,
+    "props":{"y":0,"x":0,"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,21 +14,8 @@
     "child":[
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":10,"width":117,"var":"btn_goback","top":20,"skin":"template/Navigator/btn_BackButton.png","left":20,"height":30},
-            "nodeParent":1,
-            "label":"Button(btn_goback)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Label",
-            "props":{"var":"lab_coin_name","valign":"middle","top":20,"text":"ETH","right":149,"height":30,"fontSize":16,"color":"#000000","align":"center"},
+            "props":{"y":30,"x":355,"width":87,"var":"lab_coin_name","valign":"middle","top":66,"text":"ETH","height":60,"fontSize":32,"color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_coin_name)",
             "isDirectory":false,
@@ -41,7 +28,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"valign":"middle","top":20,"text":"转账","left":151,"height":30,"fontSize":16,"color":"#000000","align":"center"},
+            "props":{"y":30,"x":283,"width":70,"valign":"middle","top":66,"text":"转账","height":60,"fontSize":32,"color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isOpen":true,
@@ -55,9 +42,9 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":70,"right":20,"prompt":"收款人账户地址","maxChars":30,"left":20,"layoutEnabled":true,"height":22},
+            "props":{"y":220,"var":"text_addr","right":30,"prompt":"收款人账户地址","maxChars":42,"left":30,"layoutEnabled":true,"height":80,"fontSize":28},
             "nodeParent":1,
-            "label":"TextInput",
+            "label":"TextInput(text_addr)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -70,9 +57,9 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":100,"type":"number","right":20,"prompt":"转账金额ETH","maxChars":30,"left":20,"layoutEnabled":true,"height":22},
+            "props":{"y":360,"var":"text_amount","type":"number","right":30,"prompt":"转账金额","maxChars":30,"left":30,"layoutEnabled":true,"height":80,"fontSize":28},
             "nodeParent":1,
-            "label":"TextInput",
+            "label":"TextInput(text_amount)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -84,7 +71,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":379,"x":0,"var":"btn_next","skin":"comp/button.png","sizeGrid":"0,0,0,0","right":0,"left":0,"labelAlign":"center","label":"下一步","height":60,"bottom":0},
+            "props":{"y":379,"x":0,"var":"btn_next","stateNum":"1","skin":"img/main/bfqb@2x.png","sizeGrid":"0,0,0,0","right":0,"left":0,"labelSize":28,"labelColors":"#ffffff","labelAlign":"center","label":"下一步","height":88,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_next)",
             "isDirectory":false,
@@ -94,6 +81,59 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"width":60,"var":"btn_sys","top":30,"skin":"img/main/sys@2x.png","right":30,"height":60},
+            "nodeParent":1,
+            "label":"Image(btn_sys)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":30,"x":30,"width":60,"var":"btn_goback","stateNum":"1","skin":"img/main/back@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":60},
+            "nodeParent":1,
+            "label":"Button(btn_goback)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":310,"width":491,"visible":false,"var":"warn_Addr","text":"地址不正确","right":30,"height":35,"fontSize":18,"color":"#ff0400","align":"right"},
+            "nodeParent":1,
+            "label":"Label(warn_Addr)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":14,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":450,"width":440,"visible":false,"var":"warn_amount","text":"请输入正确的金额","right":30,"height":40,"fontSize":18,"color":"#ff0400","align":"right"},
+            "nodeParent":1,
+            "label":"Label(warn_amount)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":15,
+            "child":[
+                ]
         }],
     "animations":[
         {

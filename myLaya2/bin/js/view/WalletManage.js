@@ -19,6 +19,17 @@ var view;
             _this.initEvent();
             return _this;
         }
+        WalletManage.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
+        WalletManage.prototype.setData = function (data) {
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.x = 1;
+            this.comp.list_wallet.y = data.length;
+            this.comp.list_wallet.vScrollBarSkin = "";
+            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+        };
         WalletManage.prototype.init = function () {
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
@@ -33,8 +44,12 @@ var view;
         WalletManage.prototype.btnClick = function (index) {
             if (1 == index) {
                 Laya.stage.removeChild(this.comp);
-                Laya.stage.removeChild(this.parentUI);
-                new view.WalletMe();
+                if (this.parentUI) { //这里还有一点点bug
+                    this.parentUI.visible = true;
+                }
+                else {
+                    new view.WalletMe();
+                }
             }
             if (2 == index) {
                 this.comp.visible = false;
@@ -45,17 +60,6 @@ var view;
                 new view.set.WalletImport().setParetUI(this.comp);
             }
         };
-        WalletManage.prototype.setParentUI = function (parentUI) {
-            this.parentUI = parentUI;
-        };
-        WalletManage.prototype.setData = function (data) {
-            this.comp.list_wallet.array = data;
-            this.comp.list_wallet.x = 1;
-            this.comp.list_wallet.y = data.length;
-            this.comp.list_wallet.vScrollBarSkin = "";
-            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
-        };
         WalletManage.prototype.onListRender = function (cell, index) {
             var data = this.comp.list_wallet.array[index];
             var wImg = cell.getChildByName('img_wallet');
@@ -65,8 +69,19 @@ var view;
             var wAddr = cell.getChildByName('lab_wAddr');
             wAddr.text = util.getAddr(data.wAddr);
             var wTotal = cell.getChildByName('lab_wTotal');
-            wTotal.text = '0 ether'; //test
+            // wTotal.text = '0 ether';//test
         };
+        WalletManage.prototype.initWalletTotal = function (wName) {
+            var coins = service.walletServcie.getWallet(wName).wCoins;
+        };
+        // private initBalance(cName: string) {
+        //     let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
+        //     if (coinMod.abi) {//查询token
+        //         service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
+        //     } else {//eth
+        //         service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
+        //     }
+        // }
         WalletManage.prototype.onSelect = function (index) {
             this.comp.visible = false;
             var wd = new view.WalletDetail();

@@ -68,6 +68,21 @@
    <item name="img/main/template.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/wallet_manage.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/white.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main" type="" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/bfqb@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/wallet_manage.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/BCH@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/BTH@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/ETH@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/LTC@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/MKR@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/REP@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/coins/WWEC@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/e@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/white_radius.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/guide/ydy_1.png.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="load" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="load/progress.png" type="ProgressBar" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="load/start.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
 </res>

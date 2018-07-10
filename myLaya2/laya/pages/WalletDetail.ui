@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":25,
-    "props":{"width":375,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
+    "selecteID":35,
+    "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,20 +15,34 @@
         {
             "x":15,
             "type":"Rect",
-            "props":{"y":0,"x":0,"width":300,"lineWidth":1,"height":60},
+            "props":{"y":0,"x":0,"width":750,"height":216,"fillColor":"#598ADA"},
             "nodeParent":1,
             "label":"Rect",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":28,
             "child":[
                 ]
         },
         {
             "x":15,
+            "type":"Button",
+            "props":{"y":40,"x":30,"width":60,"var":"btn_back","stateNum":"1","skin":"img/main/back@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":60},
+            "nodeParent":1,
+            "label":"Button(btn_back)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":33,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"y":10,"x":108,"var":"lab_wName","valign":"middle","top":20,"text":"myeth","height":30,"fontSize":16,"color":"#000000","centerX":0,"align":"center"},
+            "props":{"y":40,"x":353,"var":"lab_wName","valign":"middle","text":"myeth","height":44,"fontSize":32,"color":"#ffffff","centerX":0,"align":"center"},
             "nodeParent":1,
             "label":"Label(lab_wName)",
             "isDirectory":false,
@@ -40,21 +54,8 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":20,"x":20,"width":117,"var":"btn_back","top":20,"skin":"template/Navigator/btn_BackButton.png","height":30},
-            "nodeParent":1,
-            "label":"Button(btn_back)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Label",
-            "props":{"y":20,"var":"btn_save","valign":"middle","top":20,"text":"保存","right":20,"height":30,"fontSize":16,"color":"#218d92","align":"center"},
+            "props":{"var":"btn_save","valign":"middle","top":40,"text":"保存","right":30,"height":40,"fontSize":28,"color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(btn_save)",
             "isDirectory":false,
@@ -67,7 +68,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"width":67,"var":"lab_total","valign":"middle","top":97,"text":"0.00 $USDT","height":19,"fontSize":12,"color":"#000000","centerX":0,"align":"center"},
+            "props":{"y":282,"width":67,"var":"lab_total","valign":"middle","text":"0 ¥","height":40,"fontSize":28,"color":"#163853","centerX":0,"align":"center"},
             "nodeParent":1,
             "label":"Label(lab_total)",
             "isDirectory":false,
@@ -80,7 +81,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":65,"width":30,"var":"img_wImg","skin":"img/main/add.png","height":30,"centerX":0},
+            "props":{"y":172,"width":88,"var":"img_wImg","skin":"img/main/wd@2x.png","height":88,"centerX":0},
             "nodeParent":1,
             "label":"Image(img_wImg)",
             "isDirectory":false,
@@ -93,7 +94,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"var":"lab_wAddr","valign":"middle","top":115,"text":"52s5c2d6...3625x15d","height":20,"fontSize":12,"color":"#000000","centerX":0,"align":"center"},
+            "props":{"y":332,"var":"lab_wAddr","valign":"middle","text":"52s5c2d6...3625x15d","right":0,"left":0,"height":40,"fontSize":28,"color":"#8E979F","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_wAddr)",
             "isDirectory":false,
@@ -106,7 +107,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"valign":"middle","top":138,"text":"钱包名称","left":20,"height":20,"fontSize":12,"color":"#000000","align":"center"},
+            "props":{"y":516,"x":30,"valign":"middle","text":"钱包名称","height":40,"fontSize":28,"color":"#163853","align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -119,20 +120,32 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":161,"var":"text_wName","text":"myeth","left":20},
+            "props":{"y":556,"width":478,"var":"text_wName","text":"myeth","left":30,"height":40,"fontSize":28,"color":"#163853"},
             "nodeParent":1,
             "label":"TextInput(text_wName)",
-            "isDirectory":false,
+            "isOpen":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":11,
             "child":[
-                ]
+                {
+                    "type":"Image",
+                    "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
+                    "nodeParent":11,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":34,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":186,"var":"box_reverpass","right":0,"left":0,"height":50},
+            "props":{"y":644,"var":"box_reverpass","right":0,"left":0,"height":50,"disabled":true},
             "nodeParent":1,
             "label":"Box(box_reverpass)",
             "isOpen":true,
@@ -144,7 +157,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"width":107,"valign":"middle","text":"修改密码","left":20,"height":22,"centerY":0,"align":"left"},
+                    "props":{"width":191,"valign":"middle","text":"修改密码","left":30,"height":40,"fontSize":28,"color":"#163853","centerY":0,"align":"left"},
                     "nodeParent":13,
                     "label":"Label",
                     "isDirectory":false,
@@ -157,7 +170,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"template/List/arrow.png","right":20,"centerY":0},
+                    "props":{"skin":"img/main/next@2x.png","right":20,"centerY":0},
                     "nodeParent":13,
                     "label":"Image",
                     "isDirectory":false,
@@ -171,7 +184,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":250,"var":"box_expSeckey","right":0,"left":0,"height":50},
+            "props":{"y":764,"var":"box_expSeckey","right":0,"left":0,"height":50,"disabled":true},
             "nodeParent":1,
             "label":"Box(box_expSeckey)",
             "isOpen":true,
@@ -183,7 +196,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"width":107,"valign":"middle","text":"导出私钥","left":20,"height":22,"centerY":0,"align":"left"},
+                    "props":{"width":233,"valign":"middle","text":"导出私钥","left":30,"height":40,"fontSize":28,"color":"#163853","centerY":0,"align":"left"},
                     "nodeParent":21,
                     "label":"Label",
                     "isDirectory":false,
@@ -196,7 +209,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"template/List/arrow.png","right":20,"centerY":0},
+                    "props":{"skin":"img/main/next@2x.png","right":20,"centerY":0},
                     "nodeParent":21,
                     "label":"Image",
                     "isDirectory":false,
@@ -210,7 +223,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":300,"x":0,"var":"box_expKeystore","right":0,"left":0,"height":50},
+            "props":{"y":884,"var":"box_expKeystore","right":0,"left":0,"height":50,"disabled":true},
             "nodeParent":1,
             "label":"Box(box_expKeystore)",
             "isOpen":true,
@@ -222,7 +235,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"width":107,"valign":"middle","text":"导出Keystore","left":20,"height":22,"centerY":0,"align":"left"},
+                    "props":{"width":203,"valign":"middle","text":"导出Keystore","left":30,"height":44,"fontSize":28,"color":"#163853","centerY":0,"align":"left"},
                     "nodeParent":17,
                     "label":"Label",
                     "isDirectory":false,
@@ -235,7 +248,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"template/List/arrow.png","right":20,"centerY":0},
+                    "props":{"skin":"img/main/next@2x.png","right":20,"centerY":0},
                     "nodeParent":17,
                     "label":"Image",
                     "isDirectory":false,
@@ -249,13 +262,26 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":483,"x":20,"width":354,"var":"btn_backup","stateNum":"1","skin":"img/main/anliu@2x.png","sizeGrid":"0,0,0,0","labelSize":16,"labelColors":"#ffffff","label":"备份钱包","height":40,"centerX":0},
+            "props":{"var":"btn_backup","stateNum":"1","skin":"img/main/anliu@2x.png","sizeGrid":"0,0,0,0","right":30,"left":30,"labelSize":32,"labelColors":"#ffffff","label":"备份助记词","height":80,"bottom":172},
             "nodeParent":1,
             "label":"Button(btn_backup)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":25,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"var":"btn_delete","stateNum":"1","skin":"img/main/anliu-@2x.png","sizeGrid":"0,0,0,0","right":30,"left":30,"labelSize":32,"labelColors":"#ffffff","label":"删除钱包","height":80,"disabled":true,"bottom":60},
+            "nodeParent":1,
+            "label":"Button(btn_delete)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":35,
             "child":[
                 ]
         }],

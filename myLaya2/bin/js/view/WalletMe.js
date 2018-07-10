@@ -19,6 +19,9 @@ var view;
             _this.initEvent();
             return _this;
         }
+        WalletMe.prototype.setParentUI = function (main) {
+            this.parenUI = main;
+        };
         WalletMe.prototype.init = function () {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
@@ -30,6 +33,8 @@ var view;
             this.comp.btn_me.on(Laya.Event.CLICK, this, this.tabSelect, [1]);
             this.comp.btn_dealHistory.on(Laya.Event.CLICK, this, this.tabSelect, [2]);
             this.comp.btn_manageWal.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
+            this.comp.btn_about.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
+            this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
         };
         WalletMe.prototype.initQueryData = function () {
         };
@@ -39,9 +44,14 @@ var view;
             if (index == 1) {
                 // new view.WalletMe();
             }
-            if (index == 0) {
+            if (index == 0) { //稍微优化了一下。
                 this.stage.removeChild(this.comp);
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                if (this.parenUI) {
+                    this.parenUI.visible = true;
+                }
+                else {
+                    new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                }
             }
             if (index == 2) {
                 this.comp.visible = false;
@@ -53,6 +63,16 @@ var view;
                 var wm = new view.WalletManage();
                 wm.setParentUI(this.comp);
                 wm.setData(service.walletServcie.getWallets());
+            }
+            if (index == 4) {
+                this.comp.visible = false;
+                new view.info.about().setParetUI(this.comp);
+            }
+            if (index == 5) {
+                this.comp.visible = false;
+                var candy = new view.info.Candy();
+                candy.setParetUI(this.comp);
+                candy.setData(service.walletServcie.getWallets());
             }
         };
         return WalletMe;

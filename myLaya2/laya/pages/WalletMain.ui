@@ -2,10 +2,10 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
-    "props":{"width":375,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
+    "selecteID":1,
+    "props":{"width":750,"var":"WALLET_MAIN","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "label":"View",
+    "label":"View(WALLET_MAIN)",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -14,21 +14,21 @@
     "child":[
         {
             "x":15,
-            "type":"Rect",
-            "props":{"y":0,"x":0,"width":375,"lineWidth":1,"height":240,"fillColor":"#c1e2ef"},
+            "type":"Image",
+            "props":{"top":0,"skin":"img/main/e@2x.png","right":0,"left":0,"height":544},
             "nodeParent":1,
-            "label":"Rect",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":25,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":50,"width":30,"skin":"img/eth.jpg","height":30,"centerX":0},
+            "props":{"y":80,"width":120,"skin":"img/main/touxiang@2x.png","height":120,"centerX":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":81,"var":"lab_wName","text":"0","height":30,"color":"#000000","centerX":0},
+            "props":{"y":225,"var":"lab_wName","text":"我的钱包名称","height":40,"fontSize":32,"color":"#ffffff","centerX":0},
             "nodeParent":1,
             "label":"Label(lab_wName)",
             "isDirectory":false,
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":100,"var":"lab_wAddr","valign":"middle","text":"AAAAAAAA......AAAAAAAA","overflow":"hidden","height":30,"color":"#000000","centerX":-5,"align":"left"},
+            "props":{"y":288,"width":368,"var":"lab_wAddr","valign":"middle","text":"AAAAAAAA......AAAAAAAA","overflow":"hidden","height":44,"fontSize":24,"color":"#ffffff","centerX":-61,"align":"right"},
             "nodeParent":1,
             "label":"Label(lab_wAddr)",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":190,"x":25,"valign":"middle","text":"总资产($)","height":30,"color":"#000000"},
+            "props":{"y":480,"x":30,"width":565,"valign":"middle","text":"总资产(¥)","height":44,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -80,9 +80,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":155,"var":"lab_total_usd","text":"≈ 0","right":20,"left":20,"height":35,"fontSize":32,"color":"#000000"},
+            "props":{"y":398,"width":518,"var":"lab_total","valign":"middle","text":"0","left":75,"height":80,"fontSize":56,"color":"#000000","align":"left"},
             "nodeParent":1,
-            "label":"Label(lab_total_usd)",
+            "label":"Label(lab_total)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":102,"x":260,"width":30,"var":"btn_owner_info","skin":"img/ewm.jpg","height":30},
+            "props":{"y":283,"x":501,"width":60,"var":"btn_owner_info","skin":"img/main/erweima@2x.png","height":60},
             "nodeParent":1,
             "label":"Image(btn_owner_info)",
             "isDirectory":false,
@@ -106,7 +106,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":190,"width":40,"var":"btn_addCoin","skin":"img/add.png","sizeGrid":"0,0,0,0","right":20,"height":40},
+            "props":{"y":429,"width":88,"var":"btn_addCoin","skin":"img/main/tj@2x.png","sizeGrid":"0,0,0,0","right":30,"height":88},
             "nodeParent":1,
             "label":"Image(btn_addCoin)",
             "isDirectory":false,
@@ -118,34 +118,8 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"x":0,"width":187,"var":"btn_assets","selected":true,"labelAlign":"center","label":"资产","height":60,"bottom":0},
-            "nodeParent":1,
-            "label":"Button(btn_assets)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"var":"btn_me","right":0,"mouseEnabled":true,"left":187,"layoutEnabled":true,"label":"我","height":60,"bottom":0},
-            "nodeParent":1,
-            "label":"Button(btn_me)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":50,"width":30,"var":"btn_more","top":20,"skin":"img/more.png","right":20,"height":30},
+            "props":{"width":60,"var":"btn_more","top":60,"skin":"img/main/mr@2x.png","right":30,"height":60},
             "nodeParent":1,
             "label":"Image(btn_more)",
             "isDirectory":false,
@@ -155,6 +129,150 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"List",
+            "props":{"width":750,"var":"list_wallet","top":544,"selectEnable":true,"right":0,"repeatX":1,"left":0,"height":844,"bottom":96},
+            "nodeParent":1,
+            "label":"List(list_wallet)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":16,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"right":0,"name":"render","left":0,"height":120},
+                    "nodeParent":16,
+                    "label":"Box(render)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":17,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"top":0,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":17,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":18,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":28,"width":80,"var":"cImg","skin":"img/main/qb@2x.png","name":"cImg","height":80,"centerY":0},
+                            "nodeParent":17,
+                            "label":"Image(cImg)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"x":114,"width":300,"var":"cName","text":"label","skin":"template/List/label.png","name":"cName","height":48,"fontSize":40,"color":"#100E28","centerY":0},
+                            "nodeParent":17,
+                            "label":"Label(cName)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"var":"cTotal","valign":"middle","text":"第三方士大夫","right":30,"name":"cTotal","height":40,"fontSize":40,"color":"#100E28","centerY":-13,"align":"right"},
+                            "nodeParent":17,
+                            "label":"Label(cTotal)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"var":"cValue","valign":"middle","text":"不晓得官方","right":30,"name":"cValue","height":44,"fontSize":24,"color":"#8E979F","bottom":5,"align":"right"},
+                            "nodeParent":17,
+                            "label":"Label(cValue)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"height":1,"bottom":0},
+                            "nodeParent":17,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":24,
+                            "child":[
+                                ]
+                        }]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"x":155,"width":72,"var":"btn_assets","stateNum":"1","skin":"img/main/zichan@2x.png","sizeGrid":"0,0,-80,0","name":"item1","labelSize":20,"labelPadding":"30","labelColors":"#598ADA","label":"资产","height":88,"bottom":8},
+            "nodeParent":1,
+            "label":"Button(btn_assets)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":31,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"x":473,"width":72,"var":"btn_me","stateNum":"1","skin":"img/main/wode@2x.png","sizeGrid":"0,0,-80,0","name":"item2","labelSize":20,"labelPadding":"30","labelColors":"#B0BBC4","label":"我的","height":88,"bottom":8},
+            "nodeParent":1,
+            "label":"Button(btn_me)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":33,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":398,"width":40,"valign":"middle","text":"≈","left":30,"height":80,"fontSize":56,"color":"#000000","align":"left"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":34,
+            "child":[
+                ]
         }],
     "animations":[
         {

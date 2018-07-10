@@ -2,7 +2,13 @@
 var web3 = new Web3();
 var global_keystore;
 
-const HOST = "http://192.168.2.106:8545";
+// const HOST = "https://rinkeby.infura.io/2F62Qc2BC0h9WHj2553t";//geth dev
+// const HOST = "http://192.168.2.106:8545";//geth dev
+// const HOST = "https://main-eth.wwec.top";//geth prod
+// const HOST = "https://mainnet-eth.token.im";//geth prod
+// const HOST = "https://mainnet.infura.io";//geth prod
+const HOST = "https://mainnet.infura.io/2F62Qc2BC0h9WHj2553t";
+
 
 function setWeb3Provider(keystore) {
     var web3Provider = new HookedWeb3Provider({
@@ -40,6 +46,9 @@ function generateAddresses(seed, totalAddresses, password)
     		password: password,
     	  	seedPhrase: seed
     	}, function (err, ks) {
+            if(err){
+                reject({"retCode":2, "error": err});
+            }
     	  	ks.keyFromPassword(password, function (err, pwDerivedKey) {
     	    	if(err)
     	    	{
@@ -88,14 +97,106 @@ function deserialize(serialized_keystore)
 //valueEth 单位用 ether
 function sendEther(password, fromAddr, toAddr, valueEth, gasPrice, gas)
 {
-    global_keystore.passwordProvider = function(callback){
-        callback(null, password);
-    };
+    return new Promise((resolve, reject) =>{
+        global_keystore.passwordProvider = function(callback){
+            callback(null, password);
+        };
+        value = parseFloat(valueEth)*1.0e18;
+        web3.eth.sendTransaction({from: fromAddr, to: toAddr, value: value, gasPrice: gasPrice, gas: gas},
+            function (err, txhash) {
+                if(err){
+                    reject({"retCode":1, "error":err})
+                }else{
+                    resolve({"retCode":0, "txhash":txhash})
+                }
+        })
+    })
+}
 
-    value = parseFloat(valueEth)*1.0e18;
-    web3.eth.sendTransaction({from: fromAddr, to: toAddr, value: value, gasPrice: gasPrice, gas: gas}, function (err, txhash) {
-        console.log('error: ' + err)
-        console.log('txhash: ' + txhash)
+/**
+    fromAddr:string(),
+    contractAddr:string(),
+    abi:JSON,
+    functionName:string(),
+    args:[],
+    valueEth:float,
+    gasPrice:integer(),
+    gas:integer()
+*/
+function functionCall(password, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas) {
+    return new Promise((resolve, reject) =>{
+        global_keystore.passwordProvider = function(callback){
+            callback(null, password);
+        };
+        var contract = web3.eth.contract(abi).at(contractAddr);
+        var value = parseFloat(valueEth)*1.0e18;
+        args.push({from: fromAddr, value: value, gasPrice: gasPrice, gas: gas})
+        var callback = function(err, txhash) {
+            if(err){
+                reject({"retCode":1, "error":err})
+            }else{
+                resolve({"retCode":0, "txhash":txhash})
+            }
+        }
+        args.push(callback);
+        contract[functionName].apply(this, args);
+    })
+}
+
+function balanceOf(address, abi, contractAddr){
+    return new Promise((resolve, reject) =>{
+        var contract = web3.eth.contract(abi).at(contractAddr);
+        var ret = {"retCode":0, "ret":contract.balanceOf.call(address)};
+        resolve(ret);
+    })
+}
+
+function getBalance(addr) {
+    return new Promise((resolve, reject) =>{
+        web3.eth.getBalance(addr, function (err, result) {
+            if(err){
+                resolve({"retCode":1, "error":err})
+            }else{
+                resolve({"retCode":0, "ret":result})
+            }
+        })
+    })
+}
+
+function isSeedValid(seed){
+    return lightwallet.keystore.isSeedValid(seed);
+}
+
+/**
+    address: string(), 合约地址
+    abi: json, 合约abi
+    functionName: string(),函数名
+    args:[], 函数的参数列表  举例 函数为ERC20的 transfer的时候 [toAddr, value]
+    obj: {}, 交易的默认参数 {from:from, to: to, value: value}
+
+*/
+function estimateGas(address, abi, functionName, args, obj){
+    return new Promise((resolve, reject) =>{
+        var contract = web3.eth.contract(abi).at(address);
+        // var callData = contract.transfer.getData(args[0], args[1]);
+        // var gasEstimate = web3.eth.estimateGas({
+        //     from: obj.from,
+        //     to: address,
+        //     data: callData
+        // });
+        args.push(obj);
+        var callback = function(err, ret) {
+            if(err){
+                reject({"retCode":1, "error":err})
+            }else{
+                resolve({"retCode":0, "ret":ret})
+            }
+        };
+        args.push(callback);
+        contract[functionName].estimateGas.apply(this, args);
+
+
+        // resolve(contract[functionName].estimateGas.apply(this, args));
     })
 }
 

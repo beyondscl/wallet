@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":9,
-    "selecteID":7,
-    "props":{"width":345,"sceneColor":"#ffffff","height":314},
+    "selecteID":8,
+    "props":{"width":690,"sceneColor":"#ffffff","height":648},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":22,"x":145,"width":56,"skin":"img/main/camera@2x.png","height":56,"centerX":0},
+                    "props":{"y":44,"width":112,"skin":"img/main/camera@2x.png","height":112,"centerX":0},
                     "nodeParent":9,
                     "label":"Image",
                     "isDirectory":false,
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":91,"x":132,"text":"请勿截图","height":28,"fontSize":20,"color":"#163853","centerX":0,"bold":true},
+                    "props":{"y":182,"text":"请勿截图","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true},
                     "nodeParent":9,
                     "label":"Label",
                     "isDirectory":false,
@@ -66,7 +66,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":139,"x":30,"valign":"middle","text":"如果有人获取你的助记词将直接获取你的资产","height":22,"fontSize":12,"color":"#687076","align":"left"},
+                    "props":{"y":278,"x":47,"valign":"middle","text":"下来助记词并存放在安全的地方。","height":44,"fontSize":24,"color":"#687076","align":"left"},
                     "nodeParent":9,
                     "label":"Label",
                     "isDirectory":false,
@@ -79,7 +79,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":161,"x":28,"valign":"middle","text":"请抄写下来助记词并存放在安全的地方。","height":22,"fontSize":12,"color":"#687076","align":"left"},
+                    "props":{"y":232,"valign":"middle","text":"如果有人获取你的助记词将直接获取你的资产！请抄写","right":50,"left":50,"height":44,"fontSize":24,"color":"#687076","align":"left"},
                     "nodeParent":9,
                     "label":"Label",
                     "isDirectory":false,
@@ -92,7 +92,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":229,"x":71,"width":204,"var":"btn_know","stateNum":"1","skin":"img/main/anliu@2x.png","label":"我知道了","height":40,"centerX":0},
+                    "props":{"y":458,"width":408,"var":"btn_know","stateNum":"1","skin":"img/main/anliu@2x.png","labelSize":32,"label":"我知道了","height":80,"centerX":0},
                     "nodeParent":9,
                     "label":"Button(btn_know)",
                     "isDirectory":false,

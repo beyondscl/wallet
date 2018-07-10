@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":20,
-    "selecteID":22,
-    "props":{"width":200,"sceneColor":"#ffffff","layoutEnabled":true,"height":120},
+    "selecteID":11,
+    "props":{"width":690,"sceneColor":"#ffffff","layoutEnabled":true,"height":500},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"top":-1,"skin":"template/Warn/alert_dialog.png","right":0,"left":0,"layoutEnabled":true,"bottom":0},
+                    "props":{"width":690,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0},
                     "nodeParent":20,
                     "label":"Image",
                     "isOpen":true,
@@ -40,8 +40,22 @@
                 },
                 {
                     "x":30,
+                    "type":"Label",
+                    "props":{"valign":"middle","top":50,"text":"请输入钱包密码","right":0,"left":0,"height":44,"fontSize":32,"color":"#163853","align":"center"},
+                    "nodeParent":20,
+                    "label":"Label",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"TextInput",
-                    "props":{"y":40,"var":"text_pass","type":"password","right":5,"prompt":"请输入密码","left":5,"layoutEnabled":true,"height":30,"borderColor":"#c0c0c0","bgColor":"#ffffff"},
+                    "props":{"width":560,"var":"text_pass","type":"password","promptColor":"#B0BBC4","prompt":"请输入密码","layoutEnabled":true,"height":88,"fontSize":32,"color":"#B0BBC4","centerY":0,"centerX":0,"borderColor":"#c0c0c0","bgColor":"#ffffff","align":"left"},
                     "nodeParent":20,
                     "label":"TextInput(text_pass)",
                     "isDirectory":false,
@@ -54,20 +68,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":85,"x":0,"width":100,"var":"btn_cancel","stateNum":"2","skin":"template/Warn/btn_alert dialogLeftButton.png","left":0,"layoutEnabled":true,"labelSize":16,"labelColors":"#3476CA,#E2E6E5,#E2E6E5","label":"取消","height":35,"bottom":0},
-                    "nodeParent":20,
-                    "label":"Button(btn_cancel)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":85,"x":100,"width":100,"var":"btn_submit","stateNum":"2","skin":"template/Warn/btn_alert dialogRightButton.png","right":0,"layoutEnabled":true,"labelSize":16,"labelColors":"#3476CA,#E2E6E5,#E2E6E5","label":"确定","height":35,"bottom":0},
+                    "props":{"var":"btn_submit","stateNum":"2","skin":"img/main/img_blue2.png","right":0,"left":0,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"确定","height":88,"bottom":0},
                     "nodeParent":20,
                     "label":"Button(btn_submit)",
                     "isOpen":true,
@@ -81,16 +82,46 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"valign":"middle","top":0,"text":"请输入密码","right":0,"left":0,"height":30,"font":"SimHei","color":"#000000","align":"center"},
+                    "props":{"visible":false,"var":"addr","valign":"middle","top":120,"text":"To:0x5da6284904kskgkfe42lkdkl2940020r jfkell","right":0,"left":0,"height":44,"fontSize":32,"color":"#163853","align":"center"},
                     "nodeParent":20,
-                    "label":"Label",
+                    "label":"Label(addr)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":22,
+                    "compId":23,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"visible":false,"var":"amount","valign":"middle","top":252,"text":"0.0098 ETH","right":0,"left":1,"height":44,"fontSize":32,"color":"#598ADA","align":"center"},
+                    "nodeParent":20,
+                    "label":"Label(amount)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":300,"width":560,"visible":false,"var":"warn","valign":"middle","text":"密码不正确，请重新输入","height":40,"fontSize":20,"color":"#ff0400","centerX":0,"align":"right"},
+                    "nodeParent":20,
+                    "label":"Label(warn)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":25,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

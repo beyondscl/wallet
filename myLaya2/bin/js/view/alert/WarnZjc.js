@@ -21,20 +21,20 @@ var view;
                 _this.initEvent();
                 return _this;
             }
+            WarnZjc.prototype.setData = function (key) {
+            };
+            WarnZjc.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             WarnZjc.prototype.init = function () {
             };
             WarnZjc.prototype.initEvent = function () {
                 this.btn_know.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             };
-            WarnZjc.prototype.setData = function (key) {
-            };
             WarnZjc.prototype.btnClick = function (index) {
                 if (1 == index) {
                     this.close();
                 }
-            };
-            WarnZjc.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             return WarnZjc;
         }(ui.alert.WarnZjcUI));

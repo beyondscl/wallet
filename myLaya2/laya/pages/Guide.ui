@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":35,
-    "props":{"y":0,"x":0,"width":375,"sceneColor":"#000000","height":667},
+    "selecteID":46,
+    "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"width":354,"top":0,"skin":"img/guide/ydy_1.png","left":0,"height":627},
+                    "props":{"width":708,"top":0,"skin":"img/guide/ydy_1.png","left":0,"height":1254},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":500,"skin":"img/guide/ydy_1_word.png","right":0,"left":0,"height":82},
+                    "props":{"y":1025,"skin":"img/guide/ydy_1_word.png","right":0,"left":0,"height":164},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -66,60 +66,60 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":638,"x":0,"var":"leading","right":0,"left":0,"height":8,"bottom":21},
+                    "props":{"y":10,"x":10,"right":0,"left":0,"height":16,"bottom":42},
                     "nodeParent":3,
-                    "label":"Box(leading)",
+                    "label":"Box",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":6,
+                    "compId":34,
                     "child":[
                         {
                             "type":"Image",
-                            "props":{"x":153,"width":8,"skin":"img/guide/ty16_1.png","height":8},
-                            "nodeParent":6,
+                            "props":{"x":306,"width":16,"skin":"img/guide/ty16_1.png","height":16},
+                            "nodeParent":34,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":7,
+                            "compId":35,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":174,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":6,
+                            "props":{"x":348,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":34,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":8,
+                            "compId":36,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":194,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":6,
+                            "props":{"x":388,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":34,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":9,
+                            "compId":37,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":215,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":6,
+                            "props":{"x":430,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":34,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":10,
+                            "compId":38,
                             "child":[
                                 ]
                         }],
@@ -154,7 +154,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":355,"skin":"img/guide/ydy_2.png","height":657},
+                    "props":{"y":0,"x":0,"width":710,"skin":"img/guide/ydy_2.png","height":1314},
                     "nodeParent":11,
                     "label":"Image",
                     "isDirectory":false,
@@ -167,7 +167,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":500,"skin":"img/guide/ydy_2_word.png","right":0,"left":0,"height":82},
+                    "props":{"y":1000,"width":749,"skin":"img/guide/ydy_2_word.png","left":0,"height":164},
                     "nodeParent":11,
                     "label":"Image",
                     "isDirectory":false,
@@ -179,60 +179,60 @@
                 },
                 {
                     "type":"Box",
-                    "props":{"y":638,"x":0,"right":0,"left":0,"height":8,"bottom":21},
+                    "props":{"y":1276,"x":0,"right":0,"left":0,"height":16,"bottom":42},
                     "nodeParent":11,
                     "label":"Box",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":24,
+                    "compId":6,
                     "child":[
                         {
                             "type":"Image",
-                            "props":{"x":153,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":24,
+                            "props":{"x":306,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":6,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":25,
+                            "compId":7,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":174,"width":8,"skin":"img/guide/ty16_1.png","height":8},
-                            "nodeParent":24,
+                            "props":{"x":348,"width":16,"skin":"img/guide/ty16_1.png","height":16},
+                            "nodeParent":6,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":26,
+                            "compId":8,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":194,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":24,
+                            "props":{"x":388,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":6,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":27,
+                            "compId":9,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":215,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":24,
+                            "props":{"x":430,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":6,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":28,
+                            "compId":10,
                             "child":[
                                 ]
                         }],
@@ -266,7 +266,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":0,"width":375,"skin":"img/guide/ydy_3.png","left":0,"height":597},
+                    "props":{"y":0,"skin":"img/guide/ydy_3.png","right":0,"left":0,"height":1194},
                     "nodeParent":15,
                     "label":"Image",
                     "isDirectory":false,
@@ -278,7 +278,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":500,"skin":"img/guide/ydy_3_word.png","right":0,"left":0,"height":82},
+                    "props":{"y":1000,"skin":"img/guide/ydy_3_word.png","right":0,"left":0,"height":164},
                     "nodeParent":15,
                     "label":"Image",
                     "isDirectory":false,
@@ -290,60 +290,60 @@
                 },
                 {
                     "type":"Box",
-                    "props":{"y":638,"x":0,"right":0,"left":0,"height":8,"bottom":21},
+                    "props":{"y":1276,"x":0,"right":0,"left":0,"height":16,"bottom":42},
                     "nodeParent":15,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":29,
+                    "compId":39,
                     "child":[
                         {
                             "type":"Image",
-                            "props":{"x":153,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":29,
+                            "props":{"x":306,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":39,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":30,
+                            "compId":40,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":174,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":29,
+                            "props":{"x":348,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":39,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":31,
+                            "compId":41,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":194,"width":8,"skin":"img/guide/ty16_1.png","height":8},
-                            "nodeParent":29,
+                            "props":{"x":388,"width":16,"skin":"img/guide/ty16_1.png","height":16},
+                            "nodeParent":39,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":32,
+                            "compId":42,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
-                            "props":{"x":215,"width":8,"skin":"img/guide/tu16.png","height":8},
-                            "nodeParent":29,
+                            "props":{"x":430,"width":16,"skin":"img/guide/tu16.png","height":16},
+                            "nodeParent":39,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":33,
+                            "compId":43,
                             "child":[
                                 ]
                         }],
@@ -377,7 +377,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":375,"skin":"img/guide/ydy_4.png","height":627},
+                    "props":{"y":0,"x":0,"width":748,"skin":"img/guide/ydy_4.png","height":1252},
                     "nodeParent":19,
                     "label":"Image",
                     "isDirectory":false,
@@ -389,7 +389,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":500,"skin":"img/guide/ydy_4_word.png","right":0,"left":0,"height":82},
+                    "props":{"y":1000,"skin":"img/guide/ydy_4_word.png","right":0,"left":0,"height":164},
                     "nodeParent":19,
                     "label":"Image",
                     "isDirectory":false,
@@ -401,7 +401,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":593,"x":121,"width":133,"var":"img_enter","skin":"img/guide/ljjr.png","height":40,"centerX":0,"bottom":34},
+                    "props":{"width":266,"var":"img_enter","skin":"img/guide/ljjr.png","height":80,"centerX":0,"bottom":67},
                     "nodeParent":19,
                     "label":"Image(img_enter)",
                     "isDirectory":false,
@@ -412,6 +412,19 @@
                         ]
                 }],
             "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"ProgressBar",
+            "props":{"x":137,"width":507,"skin":"comp/progress.png","height":40,"bottom":140},
+            "nodeParent":1,
+            "label":"ProgressBar",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":46,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-//钱包中币种列表
+//钱包中币种列表:过时
 var walItemUI = /** @class */ (function (_super) {
     __extends(walItemUI, _super);
     function walItemUI() {
@@ -28,13 +28,14 @@ var walItemUI = /** @class */ (function (_super) {
     }
     walItemUI.prototype.init = function (walItem) {
         this.img.skin = walItem.getItemImgSrc();
-        this.img.width = 60;
-        this.img.height = 60;
+        this.img.width = 80;
+        this.img.height = 80;
         this.img.centerY = 0;
-        this.img.x = 20;
+        this.img.x = 30;
         this.lab_name.text = walItem.itemName;
         this.lab_name.x = this.img.x + this.img.width + 20;
         this.lab_name.centerY = 0;
+        this.lab_name.fontSize = 28;
         this.lab_total.text = walItem.itemTotal;
         this.lab_total.height = 25;
         this.lab_total.align = "right";
@@ -49,10 +50,10 @@ var walItemUI = /** @class */ (function (_super) {
         this.sperated.skin = config.resource.sperated;
         this.sperated.left = 0;
         this.sperated.right = 0;
-        this.sperated.y = walItemUI.HEI - 1;
+        this.sperated.y = walItemUI.HEI;
     };
     walItemUI.WID = util.getScreenWidth();
-    walItemUI.HEI = 80;
+    walItemUI.HEI = 160;
     return walItemUI;
 }(Box));
 //# sourceMappingURL=walItemUI.js.map

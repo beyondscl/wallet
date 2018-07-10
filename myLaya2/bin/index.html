@@ -5,7 +5,7 @@
     <meta charset='utf-8'/>
     <title>万微钱包</title>
     <meta name='viewport'
-          content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes'
+          content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
     />
     <meta name="renderer" content="webkit"/>
     <meta name='apple-mobile-web-app-capable' content='yes'/>
@@ -30,9 +30,9 @@
 <!--封装了webgl渲染管线，如果使用webgl渲染，可以在初始化时调用Laya.init(1000,800,laya.webgl.WebGL);-->
 <script type="text/javascript" src="libs/laya.webgl.js"></script>
 <!--是动画模块，包含了swf动画，骨骼动画等-->
-<script type="text/javascript" src="libs/laya.ani.js"></script>
+<!--<script type="text/javascript" src="libs/laya.ani.js"></script>-->
 <!--包含更多webgl滤镜，比如外发光，阴影，模糊以及更多-->
-<script type="text/javascript" src="libs/laya.filter.js"></script>
+<!--<script type="text/javascript" src="libs/laya.filter.js"></script>-->
 <!--封装了html动态排版功能-->
 <script type="text/javascript" src="libs/laya.html.js"></script>
 <!--粒子类库-->
@@ -47,13 +47,14 @@
 <!--jsfile--Custom-->
 <!--3rd part -->
 <script type="text/javascript" src="libs/3rd/web3.min.js"></script>
+<script type="text/javascript" src="libs/3rd/ethereumjs-tx.js"></script>
 <script type="text/javascript" src="libs/3rd/hooked-web3-provider.min.js"></script>
 <script type="text/javascript" src="libs/3rd/lightwallet.min.js"></script>
 <script type="text/javascript" src="libs/3rd//main.js"></script>
 
 <script type="text/javascript" src="libs/3rd/vconsole.min.js"></script>
 <script type="text/javascript" src="libs/3rd/test.js"></script>
-<script type="text/javascript" src="libs/3rd/jquery.min.js"></script>
+<!--<script type="text/javascript" src="libs/3rd/jquery.min.js"></script>-->
 <!--复制-->
 <script type="text/javascript" src="libs/3rd/clipboard.min.js"></script>
 <!--二维码-->
@@ -85,16 +86,25 @@
 	<script src="js/itemui/walItemUI.js"></script>
 	<script src="js/itemui/walltNameUI.js"></script>
 	<script src="js/login.js"></script>
+	<script src="js/native/native.js"></script>
 	<script src="js/net/net.js"></script>
 	<script src="js/ui/layaUI.max.all.js"></script>
+	<script src="js/view/alert/confirm.js"></script>
 	<script src="js/view/alert/EnterPass.js"></script>
 	<script src="js/view/alert/ExportPriKey.js"></script>
+	<script src="js/view/alert/waiting.js"></script>
+	<script src="js/view/alert/Warn.js"></script>
 	<script src="js/view/alert/WarnZjc.js"></script>
+	<script src="js/view/backup/BackUpConf.js"></script>
 	<script src="js/view/backup/BackUpZjc.js"></script>
 	<script src="js/view/coin/AddCoins.js"></script>
 	<script src="js/view/coin/queryCoins.js"></script>
 	<script src="js/view/CreateWallet.js"></script>
 	<script src="js/view/EnterApp.js"></script>
+	<script src="js/view/info/about.js"></script>
+	<script src="js/view/info/aboutTeam.js"></script>
+	<script src="js/view/info/Candy.js"></script>
+	<script src="js/view/info/Service.js"></script>
 	<script src="js/view/Msg.js"></script>
 	<script src="js/view/set/ExpKeystore.js"></script>
 	<script src="js/view/set/UpdatePass.js"></script>

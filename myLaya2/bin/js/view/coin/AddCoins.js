@@ -17,14 +17,20 @@ var view;
             __extends(AddCoins, _super);
             function AddCoins() {
                 var _this = _super.call(this) || this;
-                _this.listCoin = new Laya.List();
                 _this.init();
                 _this.initEvent();
                 return _this;
             }
+            AddCoins.prototype.setParentUI = function (parentView) {
+                this.parentView = parentView;
+            };
+            AddCoins.prototype.setData = function (data) {
+                this.comp.listCoin.array = data;
+                this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
+                this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
+            };
             AddCoins.prototype.init = function () {
                 this.comp = new ui.coin.AddCoinsUI();
-                this.comp.addChild(this.listCoin);
                 this.stage.addChild(this.comp);
             };
             AddCoins.prototype.initEvent = function () {
@@ -34,9 +40,15 @@ var view;
             AddCoins.prototype.btnClick = function (index) {
                 switch (index) {
                     case 0:
-                        this.updateSelectItem();
-                        this.stage.removeChild(this.comp);
-                        new view.WalletMain().initQueryData(testData.getWalletInfo(this.parentUI.lab_wName.text));
+                        this.comp.removeSelf();
+                        if (this.parentView) {
+                            this.updateSelectItem();
+                            this.parentView.comp.visible = true;
+                        }
+                        else {
+                            this.parentView.comp.removeSelf();
+                            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                        }
                         break;
                     case 1:
                         break;
@@ -46,42 +58,41 @@ var view;
                         break;
                 }
             };
-            AddCoins.prototype.setParentUI = function (parentUI) {
-                this.parentUI = parentUI;
-            };
-            AddCoins.prototype.setData = function (data) {
-                this.listCoin.x = 0;
-                this.listCoin.width = util.getScreenWidth();
-                this.listCoin.top = 60;
-                this.listCoin.bottom = 0;
-                this.listCoin.itemRender = coinItemUI;
-                this.listCoin.repeatX = 1;
-                this.listCoin.repeatY = data.length;
-                this.listCoin.vScrollBarSkin = "";
-                this.listCoin.selectEnable = false;
-                // this.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
-                this.listCoin.renderHandler = new Laya.Handler(this, this.updateItem);
-                this.listCoin.array = data;
-            };
-            AddCoins.prototype.updateItem = function (cell, index) {
-                cell.init(cell.dataSource);
+            AddCoins.prototype.onListRender = function (cell, index) {
+                var data = this.comp.listCoin.array[index];
+                var cImg = cell.getChildByName('cImg');
+                cImg.skin = data.coinImg;
+                var cName = cell.getChildByName('cName');
+                cName.text = data.coinName.toUpperCase();
+                var cVender = cell.getChildByName('cVender');
+                cVender.text = data.coinVender;
+                var cAddr = cell.getChildByName('cAddr');
+                cAddr.text = util.getAddr(data.coinAddr);
+                var cCheckbox = cell.getChildByName('cCheckbox');
+                cCheckbox.selected = data.coinSelected;
             };
             AddCoins.prototype.onSelect = function (index) {
             };
             //operator data
             AddCoins.prototype.updateSelectItem = function () {
                 var coins = [];
-                for (var i = 0; i < this.listCoin.array.length; i++) {
-                    if (this.listCoin.cells[i].coinCheckBox.selected) {
-                        coins[coins.length] = this.listCoin.cells[i].labCoinName.text;
+                for (var i = 0; i < this.comp.listCoin.array.length; i++) {
+                    if (this.comp.listCoin.cells[i].getChildByName("cCheckbox").selected) {
+                        coins[coins.length] = this.comp.listCoin.cells[i].getChildByName('cName').text;
                     }
                 }
-                var walletName = this.parentUI.lab_wName.text;
+                var walletName = this.parentView.comp.lab_wName.text;
                 var wallet = util.getItem(walletName);
-                if (wallet) {
+                //是否需要更新
+                var diff1 = coins.filter(function (ea) { return wallet.wCoins.every(function (eb) { return eb !== ea; }); });
+                var diff2 = wallet.wCoins.filter(function (ea) { return coins.every(function (eb) { return eb !== ea; }); });
+                if (diff1.length > 0 || diff2.length > 0) {
                     wallet.wCoins = coins;
+                    mod.userMod.defWallet.wCoins = coins; //必定是当前钱包
                     util.setItemNoJson(walletName, JSON.stringify(wallet));
+                    this.parentView.setData(coins);
                 }
+                return coins;
             };
             return AddCoins;
         }(ui.coin.AddCoinsUI));

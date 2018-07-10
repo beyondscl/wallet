@@ -21,6 +21,12 @@ var view;
                 _this.initEvent();
                 return _this;
             }
+            ExpKeystore.prototype.setData = function (key) {
+                this.comp.text_keystore.text = key;
+            };
+            ExpKeystore.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             ExpKeystore.prototype.init = function () {
                 this.comp = new ui.set.ExpKeystoreUI();
                 Laya.stage.addChild(this.comp);
@@ -49,9 +55,6 @@ var view;
                     this.comp.item1.addChild(img);
                 }
             };
-            ExpKeystore.prototype.setData = function (key) {
-                this.comp.text_keystore.text = key;
-            };
             ExpKeystore.prototype.btnClick = function (index) {
                 if (1 == index) {
                     this.stage.removeChild(this.comp);
@@ -67,9 +70,6 @@ var view;
             };
             ExpKeystore.prototype.copyBack = function (comp) {
                 comp.btn_copy.label = '已复制';
-            };
-            ExpKeystore.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             return ExpKeystore;
         }(ui.set.ExpKeystoreUI));

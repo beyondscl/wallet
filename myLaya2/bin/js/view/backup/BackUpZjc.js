@@ -21,6 +21,14 @@ var view;
                 _this.initEvent();
                 return _this;
             }
+            BackUpZjc.prototype.setData = function (wName) {
+                this.wName = wName;
+                this.wZjc = service.walletServcie.getWallet(wName).wZjc;
+                this.comp.text_zjc.text = this.wZjc;
+            };
+            BackUpZjc.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             BackUpZjc.prototype.init = function () {
                 this.comp = new ui.backup.BackUpZjcUI();
                 Laya.stage.addChild(this.comp);
@@ -29,17 +37,21 @@ var view;
             };
             BackUpZjc.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            };
-            BackUpZjc.prototype.setData = function (key) {
+                this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             };
             BackUpZjc.prototype.btnClick = function (index) {
                 if (1 == index) {
                     this.comp.removeSelf();
                     this.parentUI.visible = true;
+                    util.compShow([]);
                 }
-            };
-            BackUpZjc.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
+                if (2 == index) {
+                    this.comp.visible = false;
+                    var conf = new view.backup.BackUpConf();
+                    conf.setData(this.wZjc, this.wName);
+                    conf.setParetUI(this.comp);
+                    util.putCompStack(this.comp);
+                }
             };
             return BackUpZjc;
         }(ui.backup.BackUpZjcUI));

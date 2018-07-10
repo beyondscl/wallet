@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="566355f0-5bed-40ad-8eb0-3f59b2f61a49" name="Default" comment="更换界面图片">
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/BrowserMetrics-spare.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/BrowserMetrics/BrowserMetrics-5B359F7B-2A50.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/BrowserMetrics/BrowserMetrics-5B37457A-1A70.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateRevocation/4538/_metadata/verified_contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateRevocation/4538/crl-set" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateRevocation/4538/manifest.fingerprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateRevocation/4538/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_metadata/verified_contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/03019df3fd85a69a8ebd1facc6da9ba73e469774fe77f579fc5a08b8328c1d6b.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/15970488d7b997a05beb52512adee8d2e8b4a3165264121a9fabfbd5f85ad93f.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/2245450759552456963fa12ff1f76d86e0232663adc04b7f5dc6835c6ee20f02.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/293c519654c83965baaa50fc5807d4b76fbf587a2972dca4c30cf4e54547f478.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/34bb6ad6c3df9c03eea8a499ff7891486c9d5e5cac92d01f7bfd1bce19db48ef.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/41b2dc2e89e63ce4af1ba7bb29bf68c6dee6f9f1cc047e30dffae3b3ba259263.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/4494652eb0eeceafc44007d8a8fe28c0dae682bed8cb31b53fd33396b5b681a8.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/5581d4c2169036014aea0b9b573c53f0c0e43878702508172fa3aa1d0713d30c.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/5614069a2fd7c2ecd3f5e1bd44b23ec74676b9bc99115cc0ef949855d689d0dd.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/5cdc4392fee6ab4544b15e9ad456e61037fbd5fa47dca17394b25ee6f6c70eca.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/5ea773f9df56c0e7b536487dd049e0327a919a0c84a112128418759681714558.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/63f2dbcde83bcc2ccf0b728427576b33a48d61778fbd75a638b1c768544bd88d.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/68f698f81f6482be3a8ceeb9281d4cfc71515d6793d444d10a67acbb4f4ffbc4.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/6f5376ac31f03119d89900a45115ff77151c11d902c10029068db2089a37d913.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/7461b4a09cfb3d41d75159575b2e7649a445a8d27709b0cc564a6482b7eb41a3.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/747eda8331ad331091219cce254f4270c2bffd5e422008c6373579e6107bcc56.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/8775bfe7597cf88c43995fbdf36eff568d475636ff4ab560c1b4eaff5ea0830f.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/a4501269055a15545e6211ab37bc103f62ae5576a45e4b1714453e1b22106a25.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/a4b90990b418581487bb13a2cc67700a3c359804f91bdfb8e377cd0ec80ddc10.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/a577ac9ced7548dd8f025b67a241089df86e0f476ec203c2ecbedb185f282638.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/ac3b9aed7fa9674757159e6d7d575672f9d98100941e9bdeffeca1313b75782d.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/b21e05cc8ba2cd8a204e8766f92bb98a2520676bdafa70e7b249532def8b905e.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/bbd9dfbc1f8a71b593942397aa927b473857950aab52e81a909664368e1ed185.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/bc78e1dfc5f63c684649334da10fa15f0979692009c081b4f3f6917f3ed9b8a5.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/c1164ae0a772d2d4392dc80ac10770d4f0c49bde991a4840c1fa075164f63360.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/cdb5179b7fc1c046feea31136a3f8f002e6182faf8896fecc8b2f5b5ab604900.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/db74afeecb29ecb1feca3e716d2ce5b9aabb36f7847183c75d9d4f37b61fbf64.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/ddeb1d2b7a0d4fa6208b81ad8168707e2e8e9d01d55c888d3d11c4cdb6ecbecc.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/e2694bae26e8e94009e8861bb63b83d43ee7fe7488fba48f2893019dddf1dbfe.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/ee4bbdb775ce60bae142691fabe19e66a30f7e5fb072d88300c47b897aa8fdcb.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/f095a459f200d18240102d2f93888ead4bfe1d47e399e1d034a6b0a8aa8eb273.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/_platform_specific/all/sths/f65c942fd1773022145418083094568ee34d131933bfdf0c2f200bcc4ef164e3.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/manifest.fingerprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/CertificateTransparency/794/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_2" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/data_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cache/f_00014d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cookies" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Cookies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Current Session" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Current Session" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Current Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Current Tabs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/000163.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/CURRENT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Download Service/EntryDB/MANIFEST-000162" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Extension State/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Extension State/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Extension State/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Extension State/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Favicons" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Favicons" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/EventDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/EventDB/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/EventDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Feature Engagement Tracker/EventDB/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/GPUCache/data_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/GPUCache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/GPUCache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/GPUCache/data_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/History" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/History" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/History-journal" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/History-journal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Last Session" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Last Session" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Last Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Last Tabs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/000019.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/MANIFEST-000001" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Local Storage/leveldb/MANIFEST-000001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Login Data" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Login Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Network Action Predictor" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Network Action Predictor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Network Persistent State" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Network Persistent State" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Preferences" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Preferences" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Session Storage/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Session Storage/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Session Storage/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Session Storage/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Session Storage/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Session Storage/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Shortcuts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Shortcuts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Data/LevelDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Data/LevelDB/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Data/LevelDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Data/LevelDB/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Extension Settings/pkedcjkdefgpdelpbcmbmeomcjbeemfm/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Extension Settings/pkedcjkdefgpdelpbcmbmeomcjbeemfm/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Extension Settings/pkedcjkdefgpdelpbcmbmeomcjbeemfm/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Sync Extension Settings/pkedcjkdefgpdelpbcmbmeomcjbeemfm/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Thumbnails/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Thumbnails/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Thumbnails/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Thumbnails/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Top Sites" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Top Sites" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/TransportSecurity" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/TransportSecurity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Visited Links" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Visited Links" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Web Data" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/Web Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/000163.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/CURRENT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Default/data_reduction_proxy_leveldb/MANIFEST-000162" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Local State" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Local State" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/ChromeExtMalware.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/ChromeExtMalware.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlCsdWhitelist.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlCsdWhitelist.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlMalBin.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlMalBin.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlMalware.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlMalware.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlSoceng.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlSoceng.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlSubresourceFilter.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlSubresourceFilter.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlUws.store" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/Safe Browsing/UrlUws.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/ShaderCache/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/ShaderCache/GPUCache/data_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/ShaderCache/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/ShaderCache/GPUCache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/chrome/ShaderCache/GPUCache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/chrome/ShaderCache/GPUCache/data_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/publish_window.json" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/publish_window.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/img/guide/ydy_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/resource.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/resource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/resource.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/resource.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/guide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/guide.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/guide.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/init.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/init.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/itemui/coinItemUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/itemui/coinItemUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/itemui/coinItemUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/itemui/coinItemUI.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/itemui/dealItemUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/itemui/dealItemUI.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/itemui/walItemUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/itemui/walItemUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/itemui/walItemUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/itemui/walItemUI.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/coinItemMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/coinItemMod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/coinItemMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/coinItemMod.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/dealtemMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/dealtemMod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/dealtemMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/dealtemMod.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/userMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/userMod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/userMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/userMod.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/walItemMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/walItemMod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/walItemMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/walItemMod.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/walletMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/walletMod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/module/walletMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/module/walletMod.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/test/testData.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/test/testData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/test/testData.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/test/testData.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/CreateWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/CreateWallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/CreateWallet.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/CreateWallet.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletBackUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletBackUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletBackUp.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletBackUp.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMe.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMe.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/EnterPass.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/EnterPass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/EnterPass.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/EnterPass.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/ExportPriKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/ExportPriKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/ExportPriKey.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/ExportPriKey.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/Iframe.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/Iframe.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/WarnZjc.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/WarnZjc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/WarnZjc.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/alert/WarnZjc.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/backup/BackUpZjc.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/backup/BackUpZjc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/backup/BackUpZjc.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/backup/BackUpZjc.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/coin/AddCoins.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/coin/AddCoins.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/coin/AddCoins.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/coin/AddCoins.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/set/ExpKeystore.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/set/ExpKeystore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/set/ExpKeystore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/set/ExpKeystore.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/set/UpdatePass.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/set/UpdatePass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/set/UpdatePass.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/set/UpdatePass.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/.rec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/comp.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/comp.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/comp.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/comp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/guide.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/guide.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/guide.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/guide.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/template/Switcher.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/template/Switcher.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/template/Switcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/template/Switcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/assets/img/guide/ydy_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/assets/img/main/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/EnterApp.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/EnterApp.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/Guide.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/Guide.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/Msg.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/Msg.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/TransHisList.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/TransHisList.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletBackUp.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletBackUp.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletCreate.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletCreate.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletDetail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletDetail.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMain.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMain.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletManage.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletManage.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMe.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMe.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMex.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletQuick.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletQuick.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletReceive.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletReceive.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSend.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSend.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSendSubmit.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSendSubmit.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletTransfer.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletTransfer.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/alert/EnterPass.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/alert/EnterPass.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/alert/Iframe.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/alert/Iframe.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/alert/WarnZjc.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/alert/WarnZjc.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/backup/BackUpZjc.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/backup/BackUpZjc.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/coin/AddCoins.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/coin/AddCoins.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/coin/queryCoins.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/coin/queryCoins.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/set/WalletImport.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/set/WalletImport.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/laya/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/styles.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>coinAddr</find>
+      <find>apps</find>
+      <find>app</find>
+      <find>push</find>
+      <find>laya.LocalStorage</find>
+      <find>img/img.atlas</find>
+      <find>Laya.LocalStorage</find>
+      <find>.put</find>
+      <find>wZjc</find>
+      <find>BTC</find>
+      <find>toLocaleLowerCase</find>
+      <find>send request er</find>
+      <find>new mod.walletMod()</find>
+      <find>wing</find>
+      <find>baidu</find>
+      <find>HttpRequest</find>
+      <find>clearall</find>
+      <find>infoYsfw</find>
+      <find>usdt</find>
+      <find>EnterPass</find>
+      <find>enterpass</find>
+      <find>confirm</find>
+      <find>toFixed</find>
+      <find>tip</find>
+      <find>new walletmain</find>
+      <find>initq</find>
+      <find>getBalance</find>
+      <find>getBalanceCb</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>cbCoincheckBox</replace>
+      <replace>Laya.net.LocalStorage</replace>
+      <replace>_progressBar</replace>
+      <replace>_tip</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\wswork\myLaya2\src</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/myLaya2/src/itemui/coinItemUI.ts" />
+        <option value="$USER_HOME$/Downloads/clipboard.js-master/demo/target-input - 副本.html" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/Msg.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/util/util.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/TransDetail.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/TransHisList.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletMe.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/EnterApp.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/index.html" />
+        <option value="$PROJECT_DIR$/myLaya2/src/login.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/js/util/util.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/module/walletMod.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/info/service.html" />
+        <option value="$PROJECT_DIR$/myLaya2/service.html" />
+        <option value="$PROJECT_DIR$/myLaya2/src/service/walletService.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/util/util.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/config/prod.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/config/msg.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/Service.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/guide.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/Candy.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/text" />
+        <option value="$PROJECT_DIR$/myLaya2/src/init.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="100" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="820" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="wswork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wswork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wswork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wswork" type="462c0819:PsiDirectoryNode" />
+              <item name="myLaya2" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Chapter05/Project/Final" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.1.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wswork\myLaya2\bin\libs\3rd" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="566355f0-5bed-40ad-8eb0-3f59b2f61a49" name="Default" comment="" />
+      <created>1529648091920</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529648091920</updated>
+      <workItem from="1529648093717" duration="620000" />
+      <workItem from="1529648724485" duration="1616000" />
+      <workItem from="1529652150479" duration="2615000" />
+      <workItem from="1529737682937" duration="1697000" />
+      <workItem from="1529892979150" duration="21000" />
+      <workItem from="1529919749213" duration="3312000" />
+      <workItem from="1529976473829" duration="7808000" />
+      <workItem from="1530020147868" duration="391000" />
+      <workItem from="1530020566334" duration="233000" />
+      <workItem from="1530064877534" duration="862000" />
+      <workItem from="1530070008877" duration="7179000" />
+      <workItem from="1530164460800" duration="2894000" />
+      <workItem from="1530242097186" duration="1300000" />
+      <workItem from="1530340442255" duration="7802000" />
+      <workItem from="1530622823606" duration="396000" />
+      <workItem from="1530670165081" duration="3347000" />
+      <workItem from="1530755131348" duration="20077000" />
+      <workItem from="1530935116299" duration="13836000" />
+      <workItem from="1531029795921" duration="4307000" />
+      <workItem from="1531194957709" duration="249000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1529649171508</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1529649171508</updated>
+    </task>
+    <task id="LOCAL-00002" summary="调试接口完成页面之间的跳转">
+      <created>1529748103919</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1529748103920</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1完成助记词，私钥，keystore导出。&#10;2完成二维码集成">
+      <created>1529932379771</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1529932379771</updated>
+    </task>
+    <task id="LOCAL-00004" summary="实现复制功能">
+      <created>1529982843681</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1529982843681</updated>
+    </task>
+    <task id="LOCAL-00005" summary="完成钱包导入界面。">
+      <created>1529998909717</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1529998909717</updated>
+    </task>
+    <task id="LOCAL-00006" summary="完成钱包导入界面。">
+      <created>1530000956249</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1530000956249</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修改了竖屏。&#10;普通js使用报错。">
+      <created>1530020100726</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1530020100726</updated>
+    </task>
+    <task id="LOCAL-00008" summary="将代码全部添加适配。">
+      <created>1530020641201</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1530020641201</updated>
+    </task>
+    <task id="LOCAL-00009" summary="更新适配">
+      <created>1530098994078</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1530098994078</updated>
+    </task>
+    <task id="LOCAL-00010" summary="设置屏幕大小默认为373*667，解决部分屏幕不适配问题。">
+      <created>1530104663062</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1530104663062</updated>
+    </task>
+    <task id="LOCAL-00011" summary="更新适配等细节。">
+      <created>1530191468575</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1530191468576</updated>
+    </task>
+    <task id="LOCAL-00012" summary="更换界面图片">
+      <created>1530355801855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1530355801855</updated>
+    </task>
+    <task id="LOCAL-00013" summary="将界面分辨率设置为675*1334解决字体不清晰问题。">
+      <created>1530498012166</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1530498012166</updated>
+    </task>
+    <task id="LOCAL-00014" summary="调试界面">
+      <created>1530536317802</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1530536317802</updated>
+    </task>
+    <task id="LOCAL-00015" summary="修改很多细节。">
+      <created>1530874199072</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1530874199072</updated>
+    </task>
+    <task id="LOCAL-00016" summary="进度条问题。">
+      <created>1530937285267</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1530937285267</updated>
+    </task>
+    <task id="LOCAL-00017" summary="糖果 + 提示删除助记词。">
+      <created>1530948511995</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1530948511995</updated>
+    </task>
+    <task id="LOCAL-00018" summary="糖果 和 post请求。">
+      <created>1530951925930</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1530951925930</updated>
+    </task>
+    <task id="LOCAL-00019" summary="第一版。">
+      <created>1530977099227</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1530977099227</updated>
+    </task>
+    <task id="LOCAL-00020" summary="更换界面图片">
+      <created>1531032515047</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1531032515047</updated>
+    </task>
+    <task id="LOCAL-00021" summary="修复添加币种主页不刷新的问题">
+      <created>1531034779012</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1531034779012</updated>
+    </task>
+    <task id="LOCAL-00022" summary="获取默认的gasprice">
+      <created>1531034918426</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1531034918426</updated>
+    </task>
+    <task id="LOCAL-00023" summary="修改gasprice">
+      <created>1531037183485</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1531037183485</updated>
+    </task>
+    <task id="LOCAL-00024" summary="异步查询账户余额接口">
+      <created>1531037239479</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1531037239479</updated>
+    </task>
+    <task id="LOCAL-00025" summary="修改币种，缓存主页币种没更新">
+      <created>1531037300482</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1531037300482</updated>
+    </task>
+    <task id="LOCAL-00026" summary="修改异步接口">
+      <created>1531037332158</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1531037332158</updated>
+    </task>
+    <task id="LOCAL-00027" summary="....">
+      <created>1531037350863</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1531037350863</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixed bug">
+      <created>1531037436946</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1531037436946</updated>
+    </task>
+    <task id="LOCAL-00029" summary="添加二维码扫描。&#10;修复部分bug">
+      <created>1531195171350</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1531195171351</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="80562000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <layout>
+      <window_info anchor="bottom" id="TypeScript" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16223067" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32971507" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.14654003" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.87516963" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32971507" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3283582" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14765526" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TypeScript" order="8" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32971507" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33649933" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.32971507" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/service/walletService.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/service/walletService.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/Iframe.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/Iframe.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/WarnZjc.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/WarnZjc.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpZjc.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpZjc.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/Warn.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/Warn.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/Service.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/Service.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/about.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/aboutTeam.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/aboutTeam.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/about.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/waiting.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/waiting.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/Candy.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/Candy.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/native/native.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/native/native.js.map" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1完成助记词，私钥，keystore导出。&#10;2完成二维码集成" />
+    <MESSAGE value="实现复制功能" />
+    <MESSAGE value="完成钱包导入界面。" />
+    <MESSAGE value="修改了竖屏。&#10;普通js使用报错。" />
+    <MESSAGE value="将代码全部添加适配。" />
+    <MESSAGE value="更新适配" />
+    <MESSAGE value="设置屏幕大小默认为373*667，解决部分屏幕不适配问题。" />
+    <MESSAGE value="更新适配等细节。" />
+    <MESSAGE value="将界面分辨率设置为675*1334解决字体不清晰问题。" />
+    <MESSAGE value="调试界面" />
+    <MESSAGE value="修改很多细节。" />
+    <MESSAGE value="进度条问题。" />
+    <MESSAGE value="糖果 + 提示删除助记词。" />
+    <MESSAGE value="糖果 和 post请求。" />
+    <MESSAGE value="第一版。" />
+    <MESSAGE value="更换界面图片" />
+    <MESSAGE value="修复添加币种主页不刷新的问题" />
+    <MESSAGE value="获取默认的gasprice" />
+    <MESSAGE value="修改gasprice" />
+    <MESSAGE value="异步查询账户余额接口" />
+    <MESSAGE value="修改币种，缓存主页币种没更新" />
+    <MESSAGE value="修改异步接口" />
+    <MESSAGE value="...." />
+    <MESSAGE value="fixed bug" />
+    <MESSAGE value="添加二维码扫描。&#10;修复部分bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加二维码扫描。&#10;修复部分bug" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/Downloads/clipboard.js-master/demo/target-input - 副本.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1827" lean-forward="true" selection-start-column="1827" selection-end-column="1827" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/Msg.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/TransHisList.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletMe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/TransDetail.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="19" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/EnterApp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/clipboard.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/resource.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/dev.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/guide.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/module/walletMod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/module/walletMod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/info/service.html" />
+    <entry file="file://$PROJECT_DIR$/myLaya2/service.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/net/net.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="132" column="1100" selection-start-line="132" selection-start-column="1100" selection-end-line="132" selection-end-column="1100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/prod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletReceive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/CreateWallet.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/msg.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/info/Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="124" column="53" selection-start-line="124" selection-start-column="53" selection-end-line="124" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/info/Candy.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2371">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/guide.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/alert/confirm.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1738">
+          <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="110" column="40" lean-forward="true" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/net/net.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/text">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="4194" lean-forward="true" selection-start-line="3" selection-start-column="4194" selection-end-line="3" selection-end-column="4194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="33" column="69" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="128" column="21" lean-forward="true" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/init.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/service/walletService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="495" column="32" selection-start-line="495" selection-start-column="32" selection-end-line="495" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

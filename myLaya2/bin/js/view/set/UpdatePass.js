@@ -21,6 +21,9 @@ var view;
                 _this.initEvent();
                 return _this;
             }
+            UpdatePass.prototype.setParentUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             UpdatePass.prototype.init = function () {
                 this.comp = new ui.set.UpdatePassUI();
                 Laya.stage.bgColor = 'white';
@@ -30,9 +33,6 @@ var view;
             };
             UpdatePass.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            };
-            UpdatePass.prototype.setParentUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             UpdatePass.prototype.btnClick = function (index) {
                 if (1 == index) {

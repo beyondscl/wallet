@@ -20,6 +20,9 @@ var view;
             _this.initEvent();
             return _this;
         }
+        CreateWallet.prototype.setParentUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
         CreateWallet.prototype.init = function () {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.addChild(this.comp);
@@ -30,13 +33,19 @@ var view;
             this.comp.check_argee.on(Laya.Event.CLICK, this, this.updateArgee);
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
-            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.infoYsfw);
             this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
             this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
+            this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.btn_click, [1]); //服务隐私条款
         };
-        CreateWallet.prototype.setParentUI = function (parentUI) {
-            this.parentUI = parentUI;
+        CreateWallet.prototype.btn_click = function (index) {
+            if (1 == index) {
+                this.comp.visible = false;
+                var s = new view.info.Service();
+                s.setParetUI(this.comp);
+                s.setData("1");
+                return;
+            }
         };
         CreateWallet.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
@@ -44,14 +53,39 @@ var view;
         };
         CreateWallet.prototype.updateArgee = function () {
             this.comp.btn_create.disabled = !this.comp.check_argee.selected;
-            this.comp.btn_create.mouseEnabled = this.comp.check_argee.selected;
         };
         CreateWallet.prototype.createWallet = function () {
             if (this.checkArgs()) {
-                Laya.stage.removeChild(this.comp);
-                var wallet = service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text);
-                new view.WalletMain().initQueryData(wallet);
+                var load = new view.alert.waiting(config.msg.WAIT_CREATE_WALLET);
+                load.popup();
+                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, [this.comp, load]); //异步
             }
+        };
+        //创建[切换]钱包在内存中设置默认钱包为当前钱包
+        //args[0]:comp args[1]:loadingui
+        CreateWallet.prototype.creatWalletCb = function (wName, wPass, mnemonicWord, ret, args) {
+            if (ret && ret.retCode == 0) {
+                var keystore = Laya.Browser.window.serialize();
+                var wallet = new mod.walletMod();
+                wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                var walletJson = wallet.toJson();
+                util.setItemJson(wallet.wName, walletJson);
+                var appStore = util.getItem(config.prod.appKey);
+                if (appStore) {
+                    appStore[appStore.length] = wallet.wName;
+                    util.setItemJson(config.prod.appKey, appStore);
+                }
+                else {
+                    util.setItemJson(config.prod.appKey, [wallet.wName]);
+                }
+                var com = args[0];
+                com.removeSelf();
+                var dialog = args[1];
+                dialog.stop();
+                new view.WalletMain().initQueryData(wallet);
+                return;
+            }
+            console.log("create wallet error!");
         };
         CreateWallet.prototype.checkArgs = function () {
             if (this.checkWname() && this.checkPass() && this.checkPassConf()) {
@@ -74,12 +108,18 @@ var view;
             return true;
         };
         CreateWallet.prototype.checkPass = function () {
-            this.infoPassStrong();
-            if (this.comp.text_pass.text.length < 8 || this.comp.text_pass.text.length > 32) {
+            if (this.comp.text_pass.text.length <= 5) {
                 this.comp.lab_pass.text = "不少于8个字符,建议混合大小写字母，数字，特殊字符";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
+            if (this.comp.text_pass.text.length < 8) {
+                this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
+                this.comp.lab_pass.visible = true;
+                return false;
+            }
+            this.comp.lab_pass.visible = false;
+            this.infoPassStrong();
             return true;
         };
         CreateWallet.prototype.checkPassConf = function () {
@@ -95,8 +135,8 @@ var view;
             this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
             var pass = this.comp.text_pass.text.trim();
             this.comp.lab_pass_level.visible = true;
-            var middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])'; //字母数字大小写:中
-            var strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})'; //字母数字大小写特殊符号
+            var middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])'; //大小写字母数字:中
+            var strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})'; //大小写字母数字特殊符号
             if (pass.length == 0) {
                 util.getPassLevel(this.comp.box_pass_level, -1);
                 return;
@@ -116,20 +156,18 @@ var view;
                 util.getPassLevel(this.comp.box_pass_level, 1);
                 this.comp.lab_pass_level.text = '一般';
                 this.comp.lab_pass_level.color = '#5eb0c2';
-                this.comp.lab_pass.visible = true;
+                this.comp.lab_pass.visible = false;
                 return;
             }
             util.getPassLevel(this.comp.box_pass_level, 0);
             this.comp.lab_pass_level.text = '弱';
             this.comp.lab_pass_level.color = 'red';
             this.comp.lab_pass.visible = true;
+            this.comp.lab_pass.visible = true;
         };
         CreateWallet.prototype.importWallet = function () {
             this.comp.visible = false;
             new view.set.WalletImport().setParetUI(this.comp);
-        };
-        CreateWallet.prototype.infoYsfw = function () {
-            new view.alert.Iframe("https://zhidao.baidu.com/question/433551549918009724.html");
         };
         CreateWallet.prototype.webViewHref = function () {
             Browser.window['conch'] && Browser.window['conch'].showAssistantTouch(false);

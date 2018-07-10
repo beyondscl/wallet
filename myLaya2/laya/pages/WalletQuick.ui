@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":16,
-    "props":{"y":0,"x":0,"width":150,"sceneColor":"#ffffff","height":667},
+    "selectedBox":31,
+    "selecteID":18,
+    "props":{"y":0,"x":0,"width":375,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":150,"var":"bg","skin":"img/main/white.jpg","height":667},
+            "props":{"var":"bg","top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image(bg)",
             "isDirectory":false,
@@ -27,68 +27,146 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":60,"x":10,"width":30,"skin":"img/main/add.png","height":30},
+            "type":"List",
+            "props":{"var":"list_wallet","top":200,"selectEnable":true,"right":0,"repeatX":1,"left":0,"height":320},
             "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
+            "label":"List(list_wallet)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":17,
+            "hasChild":true,
+            "compId":34,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"right":0,"name":"render","left":0,"height":80},
+                    "nodeParent":34,
+                    "label":"Box(render)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":35,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":-1},
+                            "nodeParent":35,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":30,"width":56,"var":"img_wallet","skin":"img/main/wode@2x.png","name":"img_wallet","height":56,"centerY":0},
+                            "nodeParent":35,
+                            "label":"Image(img_wallet)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":37,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":19,"x":100,"width":215,"var":"lab_wName","valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_wName","height":50,"fontSize":28,"color":"#687076","align":"left"},
+                            "nodeParent":35,
+                            "label":"Label(lab_wName)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ]
+                        }]
+                }]
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":60,"x":50,"var":"lab_sao","valign":"middle","text":"扫一扫","height":30,"fontSize":16,"color":"#000000"},
+            "type":"Box",
+            "props":{"x":0,"var":"box_btns","top":520,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
-            "label":"Label(lab_sao)",
-            "isDirectory":false,
+            "label":"Box(box_btns)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":18,
+            "hasChild":true,
+            "compId":31,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":110,"x":10,"width":30,"skin":"img/main/add.png","height":30},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":19,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":110,"x":50,"var":"lab_create","valign":"middle","text":"创建钱包","height":30,"fontSize":16,"color":"#000000","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_create)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"var":"img_spe","top":180,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
-            "nodeParent":1,
-            "label":"Image(img_spe)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":16,
-            "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":0,"var":"img_spe","skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
+                    "nodeParent":31,
+                    "label":"Image(img_spe)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":20,"x":30,"width":56,"skin":"img/main/sys@2x.png","left":30,"height":56},
+                    "nodeParent":31,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":20,"x":100,"var":"lab_sao","valign":"middle","text":"扫一扫","height":56,"fontSize":28,"color":"#687076","align":"left"},
+                    "nodeParent":31,
+                    "label":"Label(lab_sao)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":90,"x":30,"width":56,"skin":"img/main/qb@2x.png","left":30,"height":56},
+                    "nodeParent":31,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":19,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":90,"x":100,"var":"lab_create","valign":"middle","text":"创建钱包","height":56,"fontSize":28,"color":"#687076","align":"left"},
+                    "nodeParent":31,
+                    "label":"Label(lab_create)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":20,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

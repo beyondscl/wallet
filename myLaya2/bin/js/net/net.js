@@ -17,8 +17,10 @@ var net;
             var _this = _super.call(this) || this;
             _this.method = 'get';
             _this.resp = 'json';
+            _this.headers = ['Access-Control-Allow-Origin', '*'];
+            _this.post = "POST";
             _this.xhr = new Laya.HttpRequest();
-            _this.xhr.http.headers = ['Access-Control-Allow-Origin-*'];
+            _this.xhr.http.headers = _this.headers;
             _this.xhr.http.timeout = 10000;
             _this.xhr.on(Laya.Event.COMPLETE, _this, _this.completeHandler);
             _this.xhr.on(Laya.Event.ERROR, _this, _this.errorHandler);
@@ -33,7 +35,23 @@ var net;
                 this.resp = resp;
             if (callback)
                 this.callback = callback;
-            this.xhr.send(url, data, this.method, this.resp, headers);
+            if (headers)
+                this.headers = headers;
+            this.xhr.send(url, data, this.method, this.resp, this.headers);
+        };
+        HttpRequest.prototype.sendPost = function (url, data, callback, args) {
+            if (callback)
+                this.callback = callback;
+            if (args)
+                this.callBackArgs = args;
+            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded', "Access-Control-Allow-Origin", "*"]);
+        };
+        HttpRequest.prototype.sendSimpleReq = function (url, callback, args) {
+            if (args)
+                this.callBackArgs = args;
+            if (callback)
+                this.callback = callback;
+            this.xhr.send(url, null, this.method, this.resp, this.headers);
         };
         HttpRequest.prototype.processHandler = function (data) {
             console.log(data);
@@ -42,8 +60,14 @@ var net;
             console.log("send request error:" + data);
         };
         HttpRequest.prototype.completeHandler = function (data) {
-            if (this.callback)
-                this.callback(data);
+            if (this.callback) {
+                if (this.callBackArgs) {
+                    this.callback(data, this.callBackArgs); //回传参数
+                }
+                else {
+                    this.callback(data);
+                }
+            }
         };
         return HttpRequest;
     }(Laya.HttpRequest));

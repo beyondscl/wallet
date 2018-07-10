@@ -3,7 +3,7 @@
     "type":"View",
     "selectedBox":1,
     "selecteID":11,
-    "props":{"width":375,"sceneColor":"#ffffff","height":667},
+    "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":27,"x":10,"width":30,"var":"btn_back","skin":"img/main/back@2x.png","height":30},
+            "props":{"y":54,"x":20,"width":60,"var":"btn_back","skin":"img/main/back@2x.png","height":60},
             "nodeParent":1,
             "label":"Image(btn_back)",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":31,"valign":"middle","text":"备份助记词","height":22,"fontSize":16,"color":"#163853","centerX":0,"align":"center"},
+            "props":{"y":62,"valign":"middle","text":"备份助记词","height":44,"fontSize":32,"color":"#163853","centerX":0,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":99,"x":15,"valign":"middle","text":"抄写下你的钱包助记词","height":28,"fontSize":20,"color":"#163853","bold":true,"align":"center"},
+            "props":{"y":198,"x":30,"valign":"middle","text":"抄写下你的钱包助记词","height":56,"fontSize":40,"color":"#163853","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":137,"x":15,"valign":"middle","text":"助记词用于恢复钱包和充值钱包密码，将它准确的抄写到纸上，","height":22,"fontSize":12,"color":"#687076","align":"left"},
+            "props":{"y":274,"x":30,"valign":"middle","text":"助记词用于恢复钱包和充值钱包密码，将它准确的抄写到纸上，","height":44,"fontSize":24,"color":"#687076","align":"left"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":159,"x":13,"valign":"middle","text":" 并存放在只有你知道的安全的地方。","height":22,"fontSize":12,"color":"#687076","align":"left"},
+            "props":{"y":318,"x":26,"valign":"middle","text":" 并存放在只有你知道的安全的地方。","height":44,"fontSize":24,"color":"#687076","align":"left"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -80,7 +80,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":437,"width":354,"var":"btn_backup","stateNum":"1","skin":"img/main/anliu@2x.png","sizeGrid":"0,0,0,0","labelSize":16,"labelColors":"#ffffff","label":"下一步","height":40,"centerX":0},
+            "props":{"y":874,"width":708,"var":"btn_backup","stateNum":"1","skin":"img/main/anliu@2x.png","sizeGrid":"0,0,0,0","labelSize":32,"labelColors":"#ffffff","label":"下一步","height":80,"centerX":0},
             "nodeParent":1,
             "label":"Button(btn_backup)",
             "isDirectory":false,
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"TextArea",
-            "props":{"y":209,"wordWrap":true,"width":344,"var":"text_zjc","text":"wing wing wing wing wing wing wing wing wing wing wing wing","padding":"15","leading":15,"height":76,"fontSize":14,"editable":false,"color":"#163853","centerX":0,"bgColor":"#ECECEC","align":"left"},
+            "props":{"y":418,"wordWrap":true,"width":688,"var":"text_zjc","text":"winga wingb wingcc wingd winge wingf wingg wingh wingi wingj wingk wingl","padding":"30","leading":30,"height":152,"fontSize":28,"editable":false,"color":"#163853","centerX":0,"bgColor":"#ECECEC","align":"left"},
             "nodeParent":1,
             "label":"TextArea(text_zjc)",
             "isDirectory":false,

@@ -19,12 +19,23 @@ var view;
             _this.initEvent();
             return _this;
         }
+        WalletReceive.prototype.setData = function (data) {
+        };
+        WalletReceive.prototype.setParentUI = function (main) {
+            this.paretnUI = main;
+        };
         WalletReceive.prototype.init = function (wName) {
             this.comp = new ui.WalletReceiveUI();
             Laya.stage.addChild(this.comp);
-            var wAddr = service.walletServcie.getWallet(wName).wAddr;
-            this.comp.lab_wAddr.text = wAddr;
-            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, wAddr, this, this.getImgSrc);
+            this.comp.lab_wAddr.text = mod.userMod.defWallet.wAddr;
+            var val = {
+                "address": mod.userMod.defWallet.wAddr,
+                "amount": 0,
+                "token": "ETH",
+                "vender": "WWEC",
+                "type": 2
+            };
+            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, JSON.stringify(val), this, this.getImgSrc);
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         };
@@ -42,17 +53,38 @@ var view;
         WalletReceive.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-        };
-        WalletReceive.prototype.setData = function (data) {
+            this.comp.text_amount.on(Laya.Event.KEY_UP, this, this.btnClick, [2]);
         };
         WalletReceive.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            if (this.paretnUI) {
+                this.paretnUI.visible = true;
+            }
+            else {
+                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            }
         };
         WalletReceive.prototype.btnClick = function (type) {
             switch (type) {
                 case (1):
                     util.getCopyValue(this.comp.lab_wAddr.text, this.copyBack, this.comp);
+                    break;
+                case (2):
+                    if (util.isNumber(this.comp.text_amount.text)) {
+                        this.comp.warn_amount.visible = false;
+                        var val = {
+                            "address": mod.userMod.defWallet.wAddr,
+                            "amount": Number(this.comp.text_amount.text),
+                            "token": "ETH",
+                            "vender": "WWEC",
+                            "type": 2
+                        };
+                        util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, JSON.stringify(val), this, this.getImgSrc);
+                    }
+                    else {
+                        this.comp.warn_amount.visible = true;
+                        this.comp.text_amount.text = '';
+                    }
                     break;
                 default:
                     console.log("error type");
@@ -60,7 +92,8 @@ var view;
             }
         };
         WalletReceive.prototype.copyBack = function (comp) {
-            comp.btn_copy.label = '已复制';
+            //需要调用本地native api
+            comp.btn_copy.text = '已复制';
         };
         return WalletReceive;
     }(ui.WalletReceiveUI));

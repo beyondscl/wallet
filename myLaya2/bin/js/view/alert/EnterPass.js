@@ -21,12 +21,21 @@ var view;
                 _this.initEvent();
                 return _this;
             }
+            EnterPass.prototype.setParentUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
+            EnterPass.prototype.setCallBack = function (func) {
+                this.callBack = func;
+            };
+            //必须设置
+            EnterPass.prototype.setWalName = function (wName) {
+                this.wName = wName;
+            };
             EnterPass.prototype.init = function () {
                 Laya.stage.bgColor = 'white';
                 Laya.stage.scaleMode = config.prod.appAdapterType;
             };
             EnterPass.prototype.initEvent = function () {
-                this.btn_cancel.on(Laya.Event.CLICK, this, this.btnClick, [1]);
                 this.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             };
             EnterPass.prototype.btnClick = function (index) {
@@ -34,16 +43,25 @@ var view;
                     this.close();
                 }
                 if (2 == index) {
+                    //统一验证密码,至于是否加密暂定,是否添加验证次数
+                    var wallet = void 0;
+                    if (this.wName) {
+                        wallet = service.walletServcie.getWallet(this.wName);
+                    }
+                    else {
+                        wallet = mod.userMod.defWallet;
+                    }
+                    if (!wallet.wPassword) {
+                        console.error("mod.userMod.defWallet.wPassword is null");
+                    }
                     var pass = this.text_pass.text;
+                    if (pass != wallet.wPassword) {
+                        this.warn.visible = true;
+                        return;
+                    }
                     this.callBack(pass, this.parentUI);
                     this.close();
                 }
-            };
-            EnterPass.prototype.setParentUI = function (parentUI) {
-                this.parentUI = parentUI;
-            };
-            EnterPass.prototype.setCallBack = function (func) {
-                this.callBack = func;
             };
             return EnterPass;
         }(ui.alert.EnterPassUI));

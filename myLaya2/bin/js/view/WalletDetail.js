@@ -19,6 +19,24 @@ var view;
             _this.initEvent();
             return _this;
         }
+        WalletDetail.prototype.deleteCb = function (pass, comp) {
+            //比较复杂
+            // service.walletServcie.deleteWallet(comp.lab_wAddr.text);
+        };
+        WalletDetail.prototype.setData = function (data) {
+            this.data = data;
+            this.comp.lab_wName.text = data.wName;
+            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
+            this.comp.lab_total.text = '0.00 ¥';
+            this.comp.img_wImg.skin = config.resource.walletImg;
+            this.comp.text_wName.text = data.wName;
+            if (!data.wZjc) {
+                this.comp.btn_backup.visible = false;
+            }
+        };
+        WalletDetail.prototype.setParetUI = function (parentUI) {
+            this.parentUI = parentUI;
+        };
         WalletDetail.prototype.init = function () {
             this.comp = new ui.WalletDetailUI();
             Laya.stage.addChild(this.comp);
@@ -31,6 +49,7 @@ var view;
             this.comp.box_reverpass.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.box_expSeckey.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
+            this.comp.btn_delete.on(Laya.Event.CLICK, this, this.btnClick, [6]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
         };
         WalletDetail.prototype.goBack = function () {
@@ -69,22 +88,28 @@ var view;
                 return;
             }
             if (5 == index) {
-                this.comp.visible = false;
-                var backupw = new view.WalletBackUp();
-                backupw.setParetUI(this.comp);
+                var p = new view.alert.EnterPass();
+                p.setParentUI(this.comp);
+                p.setCallBack(this.enterPassCb);
+                p.setWalName(this.comp.lab_wName.text);
+                p.popup();
+                return;
+            }
+            if (6 == index) {
+                var p = new view.alert.EnterPass();
+                p.setParentUI(this.comp);
+                p.setCallBack(this.deleteCb);
+                p.popup();
                 return;
             }
         };
-        WalletDetail.prototype.setData = function (data) {
-            this.data = data;
-            this.comp.lab_wName.text = data.wName;
-            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_total.text = '0.00 $USDT';
-            this.comp.img_wImg.skin = config.resource.walletImg;
-            this.comp.text_wName.text = data.wName;
-        };
-        WalletDetail.prototype.setParetUI = function (parentUI) {
-            this.parentUI = parentUI;
+        WalletDetail.prototype.enterPassCb = function (pass, comp) {
+            comp.visible = false;
+            var backupw = new view.WalletBackUp();
+            backupw.setData(comp.lab_wName.text);
+            backupw.setParetUI(comp);
+            util.compClear();
+            util.putCompStack(comp);
         };
         //这里的comp需要重新传值回来
         WalletDetail.prototype.exportPriKeyCb = function (pass, comp) {

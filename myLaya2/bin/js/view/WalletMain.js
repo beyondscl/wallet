@@ -16,15 +16,55 @@ var view;
         __extends(WalletMain, _super);
         function WalletMain() {
             var _this = _super.call(this) || this;
+            _this.ethTotal = '0'; //主要用于扫一扫回调
+            //list 相关
             _this.data = [];
-            _this.list = new Laya.List();
+            _this.noRender = 1; //如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
+            _this.hasRended = [];
             _this.init();
             _this.initEvent();
             return _this;
         }
+        WalletMain.prototype.setData = function (coins) {
+            this.data = [];
+            this.hasRended = [];
+            this.noRender = 1;
+            //获取数据!!,可以优化
+            for (var i = 0; i < coins.length; i++) {
+                var coinName = coins[i];
+                var walItemT = new mod.walItemMod();
+                walItemT.setItem("", coinName, "0", "0");
+                this.data.push(walItemT);
+            }
+            this.setListUp(this.data);
+        };
+        //初始化当前钱包数据
+        WalletMain.prototype.initQueryData = function (data) {
+            util.putCompStack(this);
+            // let wait = new view.alert.waiting("正在加载数据，请稍后");
+            // wait.popup(true,true);
+            //修改当前内存主要钱包
+            mod.userMod.defWallet = data;
+            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
+            this.comp.lab_wName.text = data.wName;
+            //初始化全局实例，不然无法操作转账
+            service.walletServcie.initLigthWallet(data.wKeyStore);
+            //初始化币种
+            this.setData(data.wCoins);
+            // wait.stop();
+        };
+        WalletMain.prototype.initBalance = function (cName) {
+            var coinMod = service.walletServcie.getCoinInfo(cName);
+            if (coinMod.abi) { //查询token
+                service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod]);
+            }
+            else { //eth
+                service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod]);
+            }
+        };
         WalletMain.prototype.init = function () {
             this.comp = new ui.WalletMainUI();
-            this.comp.addChild(this.list);
+            this.name = config.resource.WALLET_MAIN;
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
         };
@@ -35,76 +75,121 @@ var view;
             this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_addCoin.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
         };
-        WalletMain.prototype.setData = function () {
-        };
-        WalletMain.prototype.initQueryData = function (data) {
-            this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_wName.text = data.wName;
-            for (var i = 0; i < data.wCoins.length; i++) {
-                var walItemT = new mod.walItemMod();
-                var coinName = data.wCoins[i];
-                walItemT.setItem("img/" + coinName.toLocaleLowerCase() + ".jpg", coinName.toUpperCase(), "0", "0");
-                this.data.push(walItemT);
+        WalletMain.prototype.getBalanceCb = function (res, args) {
+            if (res && res.retCode == 0) {
+                console.info("getBalanceCb res:" + res);
+                res = res.ret;
+                var comp = args[0];
+                var coinMod = args[1];
+                var cells = comp.list_wallet.cells;
+                for (var i = 0; i < cells.length; i++) {
+                    if (!cells[i]._dataSource) {
+                        continue;
+                    }
+                    var cell = cells[i];
+                    var cName = cell.getChildByName('cName');
+                    var cTotal = cell.getChildByName('cTotal');
+                    var cValue = cell.getChildByName('cValue');
+                    if ('ETH' == coinMod.coinName) {
+                        this.ethTotal = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                    }
+                    if (cName.text == coinMod.coinName) {
+                        if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
+                            cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                            cValue.text = "≈¥ -";
+                            break;
+                        }
+                        else {
+                            cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                            var tempRmb = (res.toNumber() / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(0);
+                            cValue.text = "≈¥" + tempRmb;
+                            comp.lab_total.text = (Number(comp.lab_total.text) + Number(tempRmb)).toFixed(0); //总资产
+                            break;
+                        }
+                    }
+                }
             }
-            this.setListUp(this.data);
+            else {
+                console.error("getBalanceCb error:", res);
+            }
         };
         WalletMain.prototype.queryCallBack = function () {
         };
         //init coin list
         WalletMain.prototype.setListUp = function (data) {
-            this.list.name = 'item0';
-            this.list.itemRender = walItemUI;
-            this.list.repeatX = 1;
-            this.list.repeatY = data.length;
-            this.list.x = 0;
-            this.list.bottom = 60;
-            this.list.top = 240;
-            this.list.vScrollBarSkin = "";
-            this.list.selectEnable = true;
-            this.list.selectHandler = new Handler(this, this.onSelect);
-            this.list.renderHandler = new Handler(this, this.updateItem);
-            this.list.array = data;
+            this.comp.list_wallet.array = data;
+            this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Handler(this, this.onSelect);
         };
-        WalletMain.prototype.updateItem = function (cell, index) {
-            cell.init(cell.dataSource);
+        //为什么会执行多次？？
+        WalletMain.prototype.onListRender = function (cell, index) {
+            console.log("onListRender" + this.comp.list_wallet.cells.length);
+            var data = this.comp.list_wallet.array[index];
+            for (var m = 0; m < this.hasRended.length; m++) {
+                if (this.hasRended[m] == data.itemName) {
+                    return;
+                }
+            }
+            var cImg = cell.getChildByName('cImg');
+            cImg.skin = data.getItemImgSrc();
+            var cName = cell.getChildByName('cName');
+            cName.text = data.itemName;
+            var cTotal = cell.getChildByName('cTotal');
+            cTotal.text = data.itemTotal;
+            var cValue = cell.getChildByName('cValue');
+            cValue.text = "¥ " + data.itemMonType;
+            if (this.noRender == 1) {
+                this.hasRended.push(data.itemName);
+                this.initBalance(cName.text);
+            }
         };
         WalletMain.prototype.onSelect = function (index) {
+            this.noRender = 0;
             var item = this.data[index];
-            this.stage.removeChild(this.comp);
+            // this.stage.removeChild(this.comp);
+            this.comp.visible = false;
             var wTransfer = new view.WalletTransfer();
-            wTransfer.setData(item);
-            wTransfer.setParentUI(this.comp);
+            wTransfer.setData(item, this.comp.list_wallet.cells[index]);
+            wTransfer.setParentUI(this);
         };
         WalletMain.prototype.tabSelect = function (index) {
             if (index == 1) {
-                this.stage.removeChild(this.comp);
-                new view.WalletMe();
+                // this.stage.removeChild(this.comp);
+                this.comp.visible = false;
+                new view.WalletMe().setParentUI(this.comp);
             }
-            if (index == 0) {
+            if (index == 0) { //只有点击切换钱包才会刷新
                 this.stage.removeChild(this.comp);
                 new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
-                this.stage.removeChild(this.comp);
-                new view.WalletReceive(this.comp.lab_wName.text);
+                this.comp.visible = false;
+                new view.WalletReceive(this.comp.lab_wName.text).setParentUI(this.comp);
             }
             if (index == 3) {
                 //dialog千万不要设置left r t b..
                 var pom = new view.WalletQuick();
-                pom.width = Laya.stage.width / 3;
-                pom.height = 667;
+                pom.width = Laya.stage.width / 2;
+                pom.height = Laya.stage.height;
                 pom.top = 0;
-                pom.left = Laya.stage.width * 2 / 3; //right 不行
-                pom.setParentUI(this.comp);
+                pom.left = Laya.stage.width / 2; //right 不行
+                pom.setParentUI(this);
                 pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();
             }
             if (index == 4) {
-                this.stage.removeChild(this.comp);
+                this.comp.visible = false;
                 var coinUI = new view.coin.AddCoins();
-                coinUI.setParentUI(this.comp);
+                coinUI.setParentUI(this);
                 coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));
             }
+        };
+        WalletMain.prototype.coinGobackCB = function (coins, wMain) {
+            wMain.setData(coins);
+        };
+        //set get
+        WalletMain.prototype.getEthTotal = function () {
+            return this.ethTotal;
         };
         return WalletMain;
     }(ui.WalletMainUI));

@@ -2,10 +2,10 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":375,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
+    "selecteID":1,
+    "props":{"width":750,"var":"WALLET_TRANSFER","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "label":"View",
+    "label":"View(WALLET_TRANSFER)",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -14,60 +14,185 @@
     "child":[
         {
             "x":15,
-            "type":"Rect",
-            "props":{"y":0,"x":0,"width":375,"lineWidth":1,"height":110,"fillColor":"#c6e2ee"},
+            "type":"Box",
+            "props":{"top":0,"right":0,"left":0,"height":224},
             "nodeParent":1,
-            "label":"Rect",
-            "isDirectory":false,
+            "label":"Box",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
+            "hasChild":true,
+            "compId":31,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Rect",
+                    "props":{"y":0,"x":0,"width":0,"height":0,"fillColor":"#598ADA"},
+                    "nodeParent":31,
+                    "label":"Rect",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":28,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":140,"x":330,"valign":"middle","text":"总资产(¥)","fontSize":22,"color":"#8E979F","centerX":1,"align":"center"},
+                    "nodeParent":31,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":100,"x":358,"var":"lab_coin_total","valign":"middle","text":"≈ 0","height":30,"fontSize":24,"color":"#598ADA","centerX":0,"align":"center"},
+                    "nodeParent":31,
+                    "label":"Label(lab_coin_total)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":38,"x":343,"var":"lab_coin_name","valign":"middle","text":"ETH","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","centerX":0,"align":"center"},
+                    "nodeParent":31,
+                    "label":"Label(lab_coin_name)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":30,"x":30,"width":60,"var":"btn_goback","stateNum":"1","skin":"img/main/back@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":60},
+                    "nodeParent":31,
+                    "label":"Button(btn_goback)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }]
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"var":"lab_coin_name","valign":"middle","top":20,"text":"ETH","height":30,"fontSize":16,"color":"#000000","centerX":0,"align":"center"},
+            "type":"List",
+            "props":{"var":"list","top":224,"selectEnable":false,"right":0,"left":0,"bottom":88},
             "nodeParent":1,
-            "label":"Label(lab_coin_name)",
-            "isDirectory":false,
+            "label":"List(list)",
+            "isOpen":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
+            "hasChild":true,
+            "compId":61,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":78,"text":"总资产($)","fontSize":12,"color":"#000000","centerX":0},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":50,"var":"lab_coin_total","text":"≈ 0","fontSize":22,"color":"#000000","centerX":0},
-            "nodeParent":1,
-            "label":"Label(lab_coin_total)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
+                {
+                    "type":"Box",
+                    "props":{"right":0,"name":"render","left":0,"height":120},
+                    "nodeParent":61,
+                    "label":"Box(render)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":62,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"top":0,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":62,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":32,"x":30,"width":56,"var":"img","skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0},
+                            "nodeParent":62,
+                            "label":"Image(img)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":37,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":100,"width":400,"var":"lab_deal_name","valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"},
+                            "nodeParent":62,
+                            "label":"Label(lab_deal_name)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":60,"x":100,"width":400,"var":"lab_addr","valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"},
+                            "nodeParent":62,
+                            "label":"Label(lab_addr)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":40,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":35,"x":520,"width":200,"var":"lab_amount","valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
+                            "nodeParent":62,
+                            "label":"Label(lab_amount)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":41,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":62,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":42,
+                            "child":[
+                                ]
+                        }]
+                }]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"width":187,"var":"btn_send","skin":"comp/button.png","sizeGrid":"0,0,0,0","left":0,"labelAlign":"center","label":"转账","height":60,"bottom":0},
+            "props":{"y":1246,"x":0,"width":375,"var":"btn_send","stateNum":"3","skin":"img/main/img_blue1.png","left":0,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"转账","height":88,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_send)",
             "isDirectory":false,
@@ -80,26 +205,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"var":"btn_receive","skin":"comp/button.png","sizeGrid":"0,0,0,0","right":0,"left":187,"labelAlign":"center","label":"收款","height":60,"bottom":0},
+            "props":{"y":1246,"x":374,"var":"btn_receive","stateNum":"1","skin":"img/main/img_blue2.png","right":0,"left":374,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"收款","height":88,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_receive)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":21,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"width":117,"var":"btn_goback","top":20,"skin":"template/Navigator/btn_BackButton.png","left":20,"height":30},
-            "nodeParent":1,
-            "label":"Button(btn_goback)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":27,
             "child":[
                 ]
         }],
