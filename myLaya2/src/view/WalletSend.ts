@@ -4,7 +4,8 @@ module view {
 
     export class WalletSend extends ui.WalletSendUI {
         private comp: ui.WalletSendUI;
-        private total = 0;
+        private total: number = 0;
+        private parentUI: any;
 
         constructor() {
             super();
@@ -12,9 +13,17 @@ module view {
             this.initEvent();
         }
 
-        public setData(data: string, amount: number) {
+        //data:coin type total:number,amount:转账金额,addr:地址
+        public setData(data: string, total: number, amount: number, addr: string) {
             this.comp.lab_coin_name.text = data.toUpperCase();
-            this.total = amount;
+            this.comp.text_amount.text = amount + '';
+            this.comp.text_addr.text = addr;
+            this.total = total;
+        }
+
+        //parentUI 传入的是this,不再是comp
+        public setParentUI(parentUI: View) {
+            this.parentUI = parentUI;
         }
 
         private init() {
@@ -27,11 +36,18 @@ module view {
         private initEvent() {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_next.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.btn_sys.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+
         }
+
+        //1来自主页
+        //2来自转账页面
+        // 设置总金额
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            this.parentUI.comp.visible = true;
+            // new view.WalletMain().initQueryData(mod.userMod.defWallet);
         }
 
         private btnClick(type: number) {
@@ -42,7 +58,9 @@ module view {
                         let sub = new view.WalletSendSubmit();
                         sub.setParenUI(this.comp);
                     }
-
+                    break;
+                case (2):
+                    native.native.startCamara(this.startCamaraCb, [this]);
                     break;
                 default:
                     console.log("error type");
@@ -70,6 +88,25 @@ module view {
             }
             this.comp.warn_amount.visible = false;
             return true;
+        }
+
+        private startCamaraCb(ret, args) {
+            let comp: view.WalletSend = args[0].comp;
+            try {
+                let resp = JSON.parse(ret);
+                if (resp.type == 2 && resp.vender == 'WWEC') {
+                    let addr = resp.address;
+                    let amount = resp.amount;
+                    comp.text_addr.text = addr;
+                    comp.text_amount.text = amount;
+                } else {
+                    comp.text_addr.text = ret;
+                    comp.text_amount.text = '0';
+                }
+            } catch (error) {
+                comp.text_addr.text = ret;
+                comp.text_amount.text = '0';
+            }
         }
     }
 }

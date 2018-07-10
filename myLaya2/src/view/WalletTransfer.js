@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -21,7 +13,6 @@ var view;
     var Handler = Laya.Handler;
     var WalletTransfer = /** @class */ (function (_super) {
         __extends(WalletTransfer, _super);
-
         function WalletTransfer() {
             var _this = _super.call(this) || this;
             _this.total = 0;
@@ -29,7 +20,6 @@ var view;
             _this.initEvent();
             return _this;
         }
-
         WalletTransfer.prototype.setParentUI = function (parentUI) {
             this.parentUI = parentUI;
         };
@@ -43,6 +33,7 @@ var view;
         };
         WalletTransfer.prototype.init = function () {
             this.comp = new ui.WalletTransferUI();
+            this.name = config.resource.WALLET_TRANSFER;
             Laya.stage.addChild(this.comp);
             Laya.stage.scaleMode = config.prod.appAdapterType;
         };
@@ -53,15 +44,18 @@ var view;
         };
         WalletTransfer.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            this.parentUI.visible = true;
+            this.parentUI.comp.visible = true;
         };
         WalletTransfer.prototype.btnClick = function (type) {
-            Laya.stage.removeChild(this.comp);
             if (type == 1) {
-                new view.WalletSend().setData(this.comp.lab_coin_name.text, this.total);
+                this.comp.visible = false;
+                var send = new view.WalletSend();
+                send.setData(this.comp.lab_coin_name.text, this.total, 0, '');
+                send.setParentUI(this);
             }
             else if (type == 2) {
-                new view.WalletReceive(this.parentUI.lab_wName.text);
+                Laya.stage.removeChild(this.comp);
+                new view.WalletReceive(this.parentUI.comp.lab_wName.text);
             }
         };
         //init deal history list

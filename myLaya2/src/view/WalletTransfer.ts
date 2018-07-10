@@ -2,8 +2,8 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletTransfer extends ui.WalletTransferUI {
-        private comp: ui.WalletTransferUI;
-        private parentUI: ui.WalletMainUI;
+        public comp: ui.WalletTransferUI;
+        private parentUI: view.WalletMain;
         private total: number = 0;
 
         constructor() {
@@ -12,7 +12,7 @@ module view {
             this.initEvent();
         }
 
-        public setParentUI(parentUI: ui.WalletMainUI) {
+        public setParentUI(parentUI: view.WalletMain) {
             this.parentUI = parentUI;
         }
 
@@ -23,11 +23,11 @@ module view {
             this.total = Number(cTotal.text);
             this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
             this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
-
         }
 
         private init() {
             this.comp = new ui.WalletTransferUI();
+            this.name = config.resource.WALLET_TRANSFER;
             Laya.stage.addChild(this.comp);
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
@@ -40,15 +40,18 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI.visible = true;
+            this.parentUI.comp.visible = true;
         }
 
         private btnClick(type: number) {
-            Laya.stage.removeChild(this.comp);
             if (type == 1) {
-                new view.WalletSend().setData(this.comp.lab_coin_name.text, this.total);
+                this.comp.visible = false;
+                let send = new view.WalletSend();
+                send.setData(this.comp.lab_coin_name.text, this.total, 0, '');
+                send.setParentUI(this);
             } else if (type == 2) {
-                new view.WalletReceive(this.parentUI.lab_wName.text);
+                Laya.stage.removeChild(this.comp);
+                new view.WalletReceive(this.parentUI.comp.lab_wName.text);
             }
         }
 

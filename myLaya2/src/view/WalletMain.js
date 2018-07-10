@@ -11,10 +11,13 @@ var __extends = (this && this.__extends) || (function () {
 /**Created by the LayaAirIDE*/
 var view;
 (function (view) {
+    var Handler = Laya.Handler;
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
         function WalletMain() {
             var _this = _super.call(this) || this;
+            _this.ethTotal = '0'; //主要用于扫一扫回调
+            //list 相关
             _this.data = [];
             _this.noRender = 1; //如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
             _this.hasRended = [];
@@ -23,6 +26,9 @@ var view;
             return _this;
         }
         WalletMain.prototype.setData = function (coins) {
+            this.data = [];
+            this.hasRended = [];
+            this.noRender = 1;
             //获取数据!!,可以优化
             for (var i = 0; i < coins.length; i++) {
                 var coinName = coins[i];
@@ -34,10 +40,11 @@ var view;
         };
         //初始化当前钱包数据
         WalletMain.prototype.initQueryData = function (data) {
+            util.putCompStack(this);
             // let wait = new view.alert.waiting("正在加载数据，请稍后");
             // wait.popup(true,true);
             //修改当前内存主要钱包
-            mod.userMod.defWallet = data; //*
+            mod.userMod.defWallet = data;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
             //初始化全局实例，不然无法操作转账
@@ -45,6 +52,10 @@ var view;
             //初始化币种
             this.setData(data.wCoins);
             // wait.stop();
+        };
+        //set get
+        WalletMain.prototype.getEthTotal = function () {
+            return this.ethTotal;
         };
         WalletMain.prototype.initBalance = function (cName) {
             var coinMod = service.walletServcie.getCoinInfo(cName);
@@ -57,6 +68,7 @@ var view;
         };
         WalletMain.prototype.init = function () {
             this.comp = new ui.WalletMainUI();
+            this.name = config.resource.WALLET_MAIN;
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
         };
@@ -82,6 +94,9 @@ var view;
                     var cName = cell.getChildByName('cName');
                     var cTotal = cell.getChildByName('cTotal');
                     var cValue = cell.getChildByName('cValue');
+                    if ('ETH' == coinMod.coinName) {
+                        this.ethTotal = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                    }
                     if (cName.text == coinMod.coinName) {
                         if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
                             cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
@@ -107,13 +122,12 @@ var view;
         //init coin list
         WalletMain.prototype.setListUp = function (data) {
             this.comp.list_wallet.array = data;
-            this.comp.list_wallet.repeatY = data.length;
-            this.comp.list_wallet.vScrollBarSkin = "";
-            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Handler(this, this.onSelect);
         };
         //为什么会执行多次？？
         WalletMain.prototype.onListRender = function (cell, index) {
+            console.log("onListRender" + this.comp.list_wallet.cells.length);
             var data = this.comp.list_wallet.array[index];
             for (var m = 0; m < this.hasRended.length; m++) {
                 if (this.hasRended[m] == data.itemName) {
@@ -140,7 +154,7 @@ var view;
             this.comp.visible = false;
             var wTransfer = new view.WalletTransfer();
             wTransfer.setData(item, this.comp.list_wallet.cells[index]);
-            wTransfer.setParentUI(this.comp);
+            wTransfer.setParentUI(this);
         };
         WalletMain.prototype.tabSelect = function (index) {
             if (index == 1) {
@@ -163,16 +177,19 @@ var view;
                 pom.height = Laya.stage.height;
                 pom.top = 0;
                 pom.left = Laya.stage.width / 2; //right 不行
-                pom.setParentUI(this.comp);
+                pom.setParentUI(this);
                 pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();
             }
             if (index == 4) {
                 this.comp.visible = false;
                 var coinUI = new view.coin.AddCoins();
-                coinUI.setParentUI(this.comp);
+                coinUI.setParentUI(this);
                 coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));
             }
+        };
+        WalletMain.prototype.coinGobackCB = function (coins, wMain) {
+            wMain.setData(coins);
         };
         return WalletMain;
     }(ui.WalletMainUI));

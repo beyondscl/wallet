@@ -4,7 +4,7 @@ module view.coin {
 
     export class AddCoins extends ui.coin.AddCoinsUI {
         private comp: ui.coin.AddCoinsUI;
-        private parentUI: ui.WalletMainUI;
+        private parentView: view.WalletMain;
 
         constructor() {
             super();
@@ -12,15 +12,12 @@ module view.coin {
             this.initEvent();
         }
 
-        public setParentUI(parentUI: ui.WalletMainUI) {
-            this.parentUI = parentUI;
+        public setParentUI(parentView: view.WalletMain) {
+            this.parentView = parentView;
         }
 
         public setData(data: Array<mod.coinItemMod>) {
             this.comp.listCoin.array = data;
-            this.comp.listCoin.y = data.length;
-            this.comp.listCoin.repeatY = data.length;
-            this.comp.listCoin.vScrollBarSkin = "";
             this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
         }
@@ -38,14 +35,16 @@ module view.coin {
         private btnClick(index: number) {
             switch (index) {
                 case 0:
-                    this.updateSelectItem();
-                    this.stage.removeChild(this.comp);
-                    this.parentUI.removeSelf();
-                    new view.WalletMain().initQueryData(mod.userMod.defWallet)
+                    this.comp.removeSelf();
+                    if (this.parentView) {
+                        this.updateSelectItem();
+                        this.parentView.comp.visible = true;
+                    } else {
+                        this.parentView.comp.removeSelf();
+                        new view.WalletMain().initQueryData(mod.userMod.defWallet)
+                    }
                     break;
                 case 1:
-                    // this.comp.visible = false;
-                    // new view.coin.queryCoins();
                     break;
                 case 2:
 
@@ -73,20 +72,25 @@ module view.coin {
         }
 
         //operator data
-        private updateSelectItem() {
+        private updateSelectItem(): Array<string> {
             let coins = [];
             for (let i = 0; i < this.comp.listCoin.array.length; i++) {
                 if (this.comp.listCoin.cells[i].getChildByName("cCheckbox").selected) {
                     coins[coins.length] = this.comp.listCoin.cells[i].getChildByName('cName').text;
                 }
             }
-            let walletName = this.parentUI.lab_wName.text;
+            let walletName = this.parentView.comp.lab_wName.text;
             let wallet = util.getItem(walletName);
-            if (wallet) {
+            //是否需要更新
+            let diff1: Array<any> = coins.filter(ea => wallet.wCoins.every(eb => eb !== ea));
+            let diff2: Array<any> = wallet.wCoins.filter(ea => coins.every(eb => eb !== ea));
+            if (diff1.length > 0 || diff2.length > 0) {
                 wallet.wCoins = coins;
                 mod.userMod.defWallet.wCoins = coins;//必定是当前钱包
                 util.setItemNoJson(walletName, JSON.stringify(wallet));
+                this.parentView.setData(coins);
             }
+            return coins;
         }
 
     }

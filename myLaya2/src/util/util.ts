@@ -1,6 +1,9 @@
 class util {
-    //提供一个数组存储comp删除，第一个显示，其余的删除。
+    //用于钱包钱包备份相关
+    //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数
     private static _compStack = [];
+    //所有的页面，view非comp，为了不影响之前的代码
+    private static _viewStack = [];
 
     constructor() {
 
@@ -39,18 +42,14 @@ class util {
 
     //生成二维码:qrcode._oDrawing._elImage.src
     public static createEwm(w: number, h: number, value: string, caller, callBack: any): any {
-
         try {
             console.log("createEwm    value:" + value);
-
             var div: any = Laya.Browser.document.createElement("div");
             let qrcode = new Laya.Browser.window.QRCode(div, {
                 width: w,
                 height: h
             });
             qrcode.makeCode(value);
-            console.log("qrcode    value:" + value);
-            console.log("qrcode._oDrawing._elImage.src " + qrcode._oDrawing._elImage.src);//这里是一个异步的
             Laya.timer.loop(300, caller, callBack, [qrcode]);
         } catch (error) {
             console.log(error)
@@ -60,33 +59,33 @@ class util {
     //复制功能
     public static getCopyValue(value: string, callBack: any, data: any) {
         // 只能使用native 方法
-        // try {
-        //     console.log("getCopyValue    value:" + value);
-        //     let btn = Laya.Browser.document.createElement('button');
-        //     var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
-        //         text: function () {
-        //             return value;
-        //         }
-        //     });
-        //     btn.click();
-        //     clipboard.on('success', function (e) {
-        //         console.log("success", e);
-        //     });
-        //     clipboard.on('error', function (e) {
-        //         console.log("error" + e);
-        //     });
-        //     callBack(data);
-        //     btn.remove();
-        // } catch (error) {
-        //     console.log("getCopyValue    error:" + error);
-        // }
-        callBack(data);
+        try {
+            console.log("try ClipboardJS value:" + value);
+            let btn = Laya.Browser.document.createElement('button');
+            var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
+                text: function () {
+                    return value;
+                }
+            });
+            btn.click();
+            clipboard.on('success', function (e) {
+                console.log("success", e);
+            });
+            clipboard.on('error', function (e) {
+                console.log("error" + e);
+            });
+            callBack(data);
+            btn.remove();
+        } catch (error) {
+            console.log("getCopyValue    error:" + error);
+        }
         let json = {
             "type": 1,
             "data": value
         };
         try {
             Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            callBack(data);
         } catch (error) {
             console.log("复制只支持app")
         }
@@ -172,6 +171,7 @@ class util {
         return false;
     }
 
+    //---------------------------------------------
     public static putCompStack(comp: View) {
         this._compStack[this._compStack.length] = comp;
     }
@@ -205,7 +205,17 @@ class util {
         this._compStack = [];
     }
 
-    //判断一个数组中是否包含一个
+    //---------------------------------------------
+    //_viewStack
+    public static clearView() {
+        this._viewStack = [];
+    }
+
+    public static putView(v: View) {
+        this._viewStack.push(v);
+    }
+
+    //判断一个数组中是否包含一个元素
     public static isContain(array: Array<any>, item): boolean {
         for (let i = 0; i < array.length; i++) {
             if (array[i] == item) {

@@ -5,7 +5,7 @@ module view {
     export class WalletQuick extends ui.WalletQuickUI {
         //最好不要再界面创建list，可能导致第一个item无法获取点击事件
         private listData;
-        private parentUI: ui.WalletMainUI;
+        private parentUI: view.WalletMain;
 
         constructor() {
             super();
@@ -13,7 +13,7 @@ module view {
             this.initEvent();
         }
 
-        public setParentUI(parentUI: ui.WalletMainUI) {
+        public setParentUI(parentUI: view.WalletMain) {
             this.parentUI = parentUI;
         }
 
@@ -22,15 +22,9 @@ module view {
             let height = lines * 80;
             height = height > 600 ? 600 : height;
 
-            // this.list_wallet.height = height;
             this.list_wallet.array = walletNames;
-            this.list_wallet.repeatY = walletNames.length;
-            this.list_wallet.repeatX = 1;
-            this.list_wallet.vScrollBarSkin = "";
             this.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
-            // this.box_btns.top = this.list_wallet.y + this.list_wallet.height+100;
-
         }
 
         private init() {
@@ -43,10 +37,11 @@ module view {
 
         private btnClick(index: number) {
             if (index == 1) {
+                native.native.startCamara(this.startCamaraCb, [this.parentUI, this]);
             }
             if (index == 2) {
                 this.close();
-                this.parentUI.visible = false;
+                this.parentUI.comp.visible = false;
                 new CreateWallet().setParentUI(this.parentUI);
             }
         }
@@ -63,10 +58,38 @@ module view {
 
         private onSelect(index: number): void {
             let item = this.list_wallet.array[index];
-            this.stage.removeChild(this.parentUI);
-            new view.WalletMain().initQueryData(service.walletServcie.getWallet(item));
+            this.parentUI.initQueryData(service.walletServcie.getWallet(item))
             this.close();
+        }
 
+        //跳转到转账界面,是否针对特殊的二维码识别 比如imtoken,trust
+        private startCamaraCb(resp, args) {
+            let parentUI: view.WalletMain = args[0];
+            let quick: Dialog = args[1];
+            console.log("startCamaraCb", resp);
+            try {
+                resp = JSON.parse(resp);
+                if (resp.type == 2 && resp.vender == 'WWEC') {
+                    let addr = resp.address;
+                    let amount = resp.amount;
+                    let send = new WalletSend();
+                    send.setParentUI(parentUI);
+                    send.setData('ETH', Number(parentUI.getEthTotal()), amount, addr);
+                    console.log('if ETH', amount, addr);
+                } else {
+                    let send = new WalletSend();
+                    send.setParentUI(parentUI);
+                    send.setData('ETH', Number(parentUI.getEthTotal()), 0, resp);//不识别的数据
+                    console.log('else ETH', 0, resp);
+                }
+            } catch (error) {
+                console.log("startCamaraCb error:", error)
+                let send = new WalletSend();
+                send.setParentUI(parentUI);
+                send.setData('ETH', Number(parentUI.getEthTotal()), 0, resp);//不识别的数据
+            }
+            parentUI.comp.visible = false;
+            quick.close();
         }
     }
 }

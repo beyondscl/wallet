@@ -1,12 +1,14 @@
 /**Created by the LayaAirIDE*/
 module view {
     import Image = Laya.Image;
-
+    import Handler = Laya.Handler;
 
     export class WalletMain extends ui.WalletMainUI {
-        private data: Array<mod.walItemMod> = [];
-        private comp: ui.WalletMainUI;
+        public comp: ui.WalletMainUI;
+        private ethTotal: string = '0';//主要用于扫一扫回调
 
+        //list 相关
+        private data: Array<mod.walItemMod> = [];
         private noRender: number = 1;//如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
         private hasRended: Array<string> = [];
 
@@ -17,6 +19,10 @@ module view {
         }
 
         public setData(coins: Array<string>) {
+            this.data = [];
+            this.hasRended = [];
+            this.noRender = 1;
+
             //获取数据!!,可以优化
             for (let i: number = 0; i < coins.length; i++) {
                 let coinName = coins[i];
@@ -29,10 +35,11 @@ module view {
 
         //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
+            util.putCompStack(this);
             // let wait = new view.alert.waiting("正在加载数据，请稍后");
             // wait.popup(true,true);
             //修改当前内存主要钱包
-            mod.userMod.defWallet = data;//*
+            mod.userMod.defWallet = data;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
             //初始化全局实例，不然无法操作转账
@@ -40,6 +47,11 @@ module view {
             //初始化币种
             this.setData(data.wCoins);
             // wait.stop();
+        }
+
+        //set get
+        public getEthTotal() {
+            return this.ethTotal;
         }
 
         private initBalance(cName: string) {
@@ -53,6 +65,7 @@ module view {
 
         private init() {
             this.comp = new ui.WalletMainUI();
+            this.name = config.resource.WALLET_MAIN;
             Laya.stage.addChild(this.comp);
             Laya.stage.bgColor = 'white';
         }
@@ -66,10 +79,10 @@ module view {
         }
 
         private getBalanceCb(res, args: Array<any>) {
-            if (res&&res.retCode==0) {
+            if (res && res.retCode == 0) {
                 console.info("getBalanceCb res:" + res);
                 res = res.ret;
-                
+
                 let comp = args[0] as view.WalletMain;
                 let coinMod = args[1] as mod.coinItemMod;
                 let cells = comp.list_wallet.cells;
@@ -81,6 +94,10 @@ module view {
                     let cName = cell.getChildByName('cName') as Label;
                     let cTotal = cell.getChildByName('cTotal') as Label;
                     let cValue = cell.getChildByName('cValue') as Label;
+                    if ('ETH' == coinMod.coinName) {
+                        this.ethTotal = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                    }
+
                     if (cName.text == coinMod.coinName) {
                         if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
                             cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
@@ -94,11 +111,10 @@ module view {
                             comp.lab_total.text = (Number(comp.lab_total.text) + Number(tempRmb)).toFixed(0);//总资产
                             break;
                         }
-
                     }
                 }
             } else {
-                console.error("getBalanceCb error:" ,res);
+                console.error("getBalanceCb error:", res);
             }
         }
 
@@ -109,14 +125,13 @@ module view {
         //init coin list
         private setListUp(data: Array<mod.walItemMod>): void {
             this.comp.list_wallet.array = data;
-            this.comp.list_wallet.repeatY = data.length;
-            this.comp.list_wallet.vScrollBarSkin = "";
-            this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
+            this.comp.list_wallet.selectHandler = new Handler(this, this.onSelect);
         }
 
         //为什么会执行多次？？
         private onListRender(cell: Box, index: number) {
+            console.log("onListRender" + this.comp.list_wallet.cells.length);
             var data: mod.walItemMod = this.comp.list_wallet.array[index];
             for (let m = 0; m < this.hasRended.length; m++) {
                 if (this.hasRended[m] == data.itemName) {
@@ -144,7 +159,7 @@ module view {
             this.comp.visible = false;
             let wTransfer = new view.WalletTransfer();
             wTransfer.setData(item, this.comp.list_wallet.cells[index]);
-            wTransfer.setParentUI(this.comp);
+            wTransfer.setParentUI(this);
         }
 
         private tabSelect(index: number): void {
@@ -169,16 +184,20 @@ module view {
                 pom.top = 0;
                 pom.left = Laya.stage.width / 2;//right 不行
 
-                pom.setParentUI(this.comp);
+                pom.setParentUI(this);
                 pom.initData(util.getItem(config.prod.appKey));
                 pom.popup();
             }
             if (index == 4) {
                 this.comp.visible = false;
                 let coinUI = new view.coin.AddCoins();
-                coinUI.setParentUI(this.comp);
+                coinUI.setParentUI(this);
                 coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));
             }
+        }
+
+        private coinGobackCB(coins: Array<string>, wMain: view.WalletMain) {
+            wMain.setData(coins)
         }
     }
 }

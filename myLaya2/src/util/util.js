@@ -1,7 +1,6 @@
 var util = /** @class */ (function () {
     function util() {
     }
-
     util.getAddr = function (addr) {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     };
@@ -37,8 +36,6 @@ var util = /** @class */ (function () {
                 height: h
             });
             qrcode.makeCode(value);
-            console.log("qrcode    value:" + value);
-            console.log("qrcode._oDrawing._elImage.src " + qrcode._oDrawing._elImage.src); //这里是一个异步的
             Laya.timer.loop(300, caller, callBack, [qrcode]);
         }
         catch (error) {
@@ -48,33 +45,34 @@ var util = /** @class */ (function () {
     //复制功能
     util.getCopyValue = function (value, callBack, data) {
         // 只能使用native 方法
-        // try {
-        //     console.log("getCopyValue    value:" + value);
-        //     let btn = Laya.Browser.document.createElement('button');
-        //     var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
-        //         text: function () {
-        //             return value;
-        //         }
-        //     });
-        //     btn.click();
-        //     clipboard.on('success', function (e) {
-        //         console.log("success", e);
-        //     });
-        //     clipboard.on('error', function (e) {
-        //         console.log("error" + e);
-        //     });
-        //     callBack(data);
-        //     btn.remove();
-        // } catch (error) {
-        //     console.log("getCopyValue    error:" + error);
-        // }
-        callBack(data);
+        try {
+            console.log("try ClipboardJS value:" + value);
+            var btn = Laya.Browser.document.createElement('button');
+            var clipboard = new Laya.Browser.window.ClipboardJS(btn, {
+                text: function () {
+                    return value;
+                }
+            });
+            btn.click();
+            clipboard.on('success', function (e) {
+                console.log("success", e);
+            });
+            clipboard.on('error', function (e) {
+                console.log("error" + e);
+            });
+            callBack(data);
+            btn.remove();
+        }
+        catch (error) {
+            console.log("getCopyValue    error:" + error);
+        }
         var json = {
             "type": 1,
             "data": value
         };
         try {
             Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            callBack(data);
         }
         catch (error) {
             console.log("复制只支持app");
@@ -130,7 +128,7 @@ var util = /** @class */ (function () {
     util.getFormatTime = function () {
         var date = new Date();
         var year = date.getFullYear(), month = date.getMonth() + 1, //月份是从0开始的
-            day = date.getDate(), hour = date.getHours(), min = date.getMinutes(), sec = date.getSeconds();
+        day = date.getDate(), hour = date.getHours(), min = date.getMinutes(), sec = date.getSeconds();
         var newTime = year + '-' +
             month + '-' +
             day + ' ' +
@@ -148,6 +146,7 @@ var util = /** @class */ (function () {
         }
         return false;
     };
+    //---------------------------------------------
     util.putCompStack = function (comp) {
         this._compStack[this._compStack.length] = comp;
     };
@@ -178,7 +177,15 @@ var util = /** @class */ (function () {
     util.compClear = function () {
         this._compStack = [];
     };
-    //判断一个数组中是否包含一个
+    //---------------------------------------------
+    //_viewStack
+    util.clearView = function () {
+        this._viewStack = [];
+    };
+    util.putView = function (v) {
+        this._viewStack.push(v);
+    };
+    //判断一个数组中是否包含一个元素
     util.isContain = function (array, item) {
         for (var i = 0; i < array.length; i++) {
             if (array[i] == item) {
@@ -187,8 +194,11 @@ var util = /** @class */ (function () {
         }
         return false;
     };
-    //提供一个数组存储comp删除，第一个显示，其余的删除。
+    //用于钱包钱包备份相关
+    //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数
     util._compStack = [];
+    //所有的页面，view非comp，为了不影响之前的代码
+    util._viewStack = [];
     return util;
 }());
 //# sourceMappingURL=util.js.map

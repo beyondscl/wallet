@@ -13,5 +13,9 @@ module config {
         public static btn_colse = "img/main/transfer_in.png";//网页关闭
 
 
+        //view name
+        public static WALLET_TRANSFER = 'WALLET_TRANSFER';
+        public static WALLET_MAIN = 'WALLET_MAIN';
+
     }
 }

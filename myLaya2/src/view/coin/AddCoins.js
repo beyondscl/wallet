@@ -21,14 +21,11 @@ var view;
                 _this.initEvent();
                 return _this;
             }
-            AddCoins.prototype.setParentUI = function (parentUI) {
-                this.parentUI = parentUI;
+            AddCoins.prototype.setParentUI = function (parentView) {
+                this.parentView = parentView;
             };
             AddCoins.prototype.setData = function (data) {
                 this.comp.listCoin.array = data;
-                this.comp.listCoin.y = data.length;
-                this.comp.listCoin.repeatY = data.length;
-                this.comp.listCoin.vScrollBarSkin = "";
                 this.comp.listCoin.renderHandler = new Laya.Handler(this, this.onListRender);
                 this.comp.listCoin.selectHandler = new Laya.Handler(this, this.onSelect);
             };
@@ -43,14 +40,17 @@ var view;
             AddCoins.prototype.btnClick = function (index) {
                 switch (index) {
                     case 0:
-                        this.updateSelectItem();
-                        this.stage.removeChild(this.comp);
-                        this.parentUI.removeSelf();
-                        new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                        this.comp.removeSelf();
+                        if (this.parentView) {
+                            this.updateSelectItem();
+                            this.parentView.comp.visible = true;
+                        }
+                        else {
+                            this.parentView.comp.removeSelf();
+                            new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                        }
                         break;
                     case 1:
-                        // this.comp.visible = false;
-                        // new view.coin.queryCoins();
                         break;
                     case 2:
                         break;
@@ -81,13 +81,18 @@ var view;
                         coins[coins.length] = this.comp.listCoin.cells[i].getChildByName('cName').text;
                     }
                 }
-                var walletName = this.parentUI.lab_wName.text;
+                var walletName = this.parentView.comp.lab_wName.text;
                 var wallet = util.getItem(walletName);
-                if (wallet) {
+                //是否需要更新
+                var diff1 = coins.filter(function (ea) { return wallet.wCoins.every(function (eb) { return eb !== ea; }); });
+                var diff2 = wallet.wCoins.filter(function (ea) { return coins.every(function (eb) { return eb !== ea; }); });
+                if (diff1.length > 0 || diff2.length > 0) {
                     wallet.wCoins = coins;
                     mod.userMod.defWallet.wCoins = coins; //必定是当前钱包
                     util.setItemNoJson(walletName, JSON.stringify(wallet));
+                    this.parentView.setData(coins);
                 }
+                return coins;
             };
             return AddCoins;
         }(ui.coin.AddCoinsUI));

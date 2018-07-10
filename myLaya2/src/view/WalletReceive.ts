@@ -18,12 +18,18 @@ module view {
             this.paretnUI = main;
         }
 
-        private init(wName: string) {
+        private init(wName: string) {//wName可以不要的。
             this.comp = new ui.WalletReceiveUI();
             Laya.stage.addChild(this.comp);
-            let wAddr = service.walletServcie.getWallet(wName).wAddr;
-            this.comp.lab_wAddr.text = wAddr;
-            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, wAddr, this, this.getImgSrc);
+            this.comp.lab_wAddr.text = mod.userMod.defWallet.wAddr;
+            let val = {
+                "address": mod.userMod.defWallet.wAddr,
+                "amount": 0,
+                "token": "ETH",
+                "vender": "WWEC",
+                "type": 2
+            };
+            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, JSON.stringify(val), this, this.getImgSrc);
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
@@ -43,6 +49,8 @@ module view {
         private initEvent() {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.text_amount.on(Laya.Event.KEY_UP, this, this.btnClick, [2]);
+
         }
 
         private goBack() {
@@ -58,6 +66,22 @@ module view {
             switch (type) {
                 case (1):
                     util.getCopyValue(this.comp.lab_wAddr.text, this.copyBack, this.comp);
+                    break;
+                case (2):
+                    if (util.isNumber(this.comp.text_amount.text)) {
+                        this.comp.warn_amount.visible = false;
+                        let val = {
+                            "address": mod.userMod.defWallet.wAddr,
+                            "amount": Number(this.comp.text_amount.text),
+                            "token": "ETH",
+                            "vender": "WWEC",
+                            "type": 2
+                        };
+                        util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, JSON.stringify(val), this, this.getImgSrc);
+                    } else {
+                        this.comp.warn_amount.visible = true;
+                        this.comp.text_amount.text = '';
+                    }
                     break;
                 default:
                     console.log("error type");

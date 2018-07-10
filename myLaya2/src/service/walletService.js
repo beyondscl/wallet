@@ -480,6 +480,18 @@ var service;
             }
             return false;
         };
+        //iban 地址转国际地址
+        walletServcie.getIban = function (addr) {
+            console.log(Laya.Browser.window.web3.eth.iban.isValid(addr));
+            return Laya.Browser.window.web3.eth.iban.toAddress(addr);
+        };
+        //web3 等外部操作--------------------------------
+        walletServcie.ibanToAddr = function (data) {
+            var addr = '';
+            var amount = '';
+            var token = 'ETH';
+        };
+        //判断钱包是否选择了该coin
         walletServcie.getSelected = function (wName, cName) {
             var wallet = util.getItem(wName);
             if (wallet) {

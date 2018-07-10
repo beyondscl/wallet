@@ -4,7 +4,6 @@ var config;
     var resource = /** @class */ (function () {
         function resource() {
         }
-
         resource.abc = "BackProgressBar";
         resource.dealFromSrc = "img/main/transfer_in.png"; //交易接收图片
         resource.dealToSrc = "img/main/transfer_out.png"; //交易发送图片
@@ -13,6 +12,9 @@ var config;
         resource.passLevelS = "img/main/fangkuai-@2x.png"; //密码等级默认图片地址,强
         resource.passLevelW = "img/main/fangkuai@2x.png"; //弱
         resource.btn_colse = "img/main/transfer_in.png"; //网页关闭
+        //view name
+        resource.WALLET_TRANSFER = 'WALLET_TRANSFER';
+        resource.WALLET_MAIN = 'WALLET_MAIN';
         return resource;
     }());
     config.resource = resource;

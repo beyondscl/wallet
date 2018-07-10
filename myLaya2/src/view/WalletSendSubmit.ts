@@ -19,13 +19,13 @@ module view {
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
             //初始化gasprice
             //默认70
-            let gasPrice = mod.userMod.gasPrice!=0?mod.userMod.gasPrice:20
+            let gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice : 20
             this.comp.sli_gas.value = gasPrice// gwei
             this.comp.sli_gas.min = gasPrice;
-            this.comp.sli_gas.max = gasPrice+130;
+            this.comp.sli_gas.max = gasPrice + 130;
             new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
                 if (ret && ret.retCode == 0) {
-                    mod.userMod.gasPrice =  ret.gasPrice / 1e9;
+                    mod.userMod.gasPrice = ret.gasPrice / 1e9;
                     let comp = args[0] as view.WalletSendSubmit;
                     comp.sli_gas.value = mod.userMod.gasPrice;// gwei
                     comp.sli_gas.min = mod.userMod.gasPrice;
