@@ -95,11 +95,11 @@ function beginLoad() {
 
 
     tip = new Laya.Label();
-    tip.bottom = 90;
+    tip.bottom = 5;
     tip.left = 0;
     tip.right = 0;
     tip.centerX = 0;
-    tip.height = 50;
+    tip.height = 40;
     tip.fontSize = 32;
     tip.text = "正在检查更新:0%";
     tip.color = '#163853';
@@ -109,7 +109,7 @@ function beginLoad() {
     progressBar.width = 500;
     progressBar.height = 40;
     progressBar.centerX = 0;
-    progressBar.bottom = 140;
+    progressBar.bottom = 85;
     progressBar.sizeGrid = "5,5,5,5";
 
     let res: Array<any> =

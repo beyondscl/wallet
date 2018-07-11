@@ -61,12 +61,13 @@ module view {
             this.comp.list.repeatY = data.length;
             // 使用但隐藏滚动条
             this.comp.list.vScrollBarSkin = "";
-            this.comp.list.selectHandler = new Handler(this, this.onSelect, null, false);
+            // this.comp.list.selectHandler = new Handler(this, this.onSelect, null, false);
             this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
             this.comp.list.array = data;
         }
 
         private onListRender(cell: Box, index: number) {
+            // cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
             var data: mod.dealtemMod = this.comp.list.array[index];
 
             let cImg = cell.getChildByName('img') as Laya.Image;

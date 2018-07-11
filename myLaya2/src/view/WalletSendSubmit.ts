@@ -54,7 +54,12 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            new view.WalletSend();
+            if(this.parentUI){
+                this.parentUI.visible = true;
+            }else{
+                new view.WalletSend();
+            }
+            
         }
 
         private btnClick(type: number) {
@@ -107,7 +112,7 @@ module view {
                                     "");
                                 service.walletServcie.addDealItem(deal);
                             } else {
-                                console.log(ret);
+                                console.log("transfer submit error:",ret);
                                 new alert.Warn("交易失败", "").popup();
                             }
                         }, [comp, pom, this.parentUI]);
@@ -138,7 +143,7 @@ module view {
                         "");
                     service.walletServcie.addDealItem(deal);
                 } else {
-                    console.log(ret);
+                    console.log("transfer submit error:",ret);
                     new alert.Warn("交易失败", "").popup();
                 }
             }, [comp, pom, this.parentUI]);//this.parentUI 没有传过去

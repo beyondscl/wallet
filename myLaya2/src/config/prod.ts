@@ -8,8 +8,7 @@ module config {
         public static apiKey: string = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         public static appAdapterType = 'SCALE_EXACTFIT';
 
-        // public static apiLocalHost = "http://192.168.2.106:3005";//dev
-        public static apiLocalHost = "https://wallet.wwec.top";//prod
+        public static apiLocalHost = Laya.Browser.window.main_config[Laya.Browser.window.env].apiLocalHost;//prod 
 
 
         public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";//

@@ -5,7 +5,6 @@ var mod;
         function walletMod() {
             this.wSkin = config.resource.walletImg;
         }
-
         //初始化
         walletMod.prototype.init = function (wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {
             this.wName = wName;

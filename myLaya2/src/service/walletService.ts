@@ -58,7 +58,7 @@ module service {
                     }
                 );
             } catch (error) {
-                console.log(error)
+                console.log("creatWallet error:",error)
             }
         }
 
@@ -75,7 +75,7 @@ module service {
                     }
                 );
             } catch (error) {
-                console.log(error)
+                console.log("importWallet error:",error)
             }
         }
 
@@ -85,16 +85,15 @@ module service {
             let coins = [
                 {
                     "name": "ETH",
-                    "vender": "cdcqwl",
+                    "vender": "Ethereum Foundation",
                     "addr": "0x000000000000000000000000000000000000000000",
                     "abi": "",
 
                 },
                 {
                     "name": "WWEC",
-                    "vender": "cdcqwl",
-                    // "addr": "0xd86ad2fe358f4650b1035e967ffb8ef0381c4f58",//dev
-                    "addr": "0xd33996d55fd5c5dabf5ec7eb24a94b57263de169",//prod
+                    "vender": "WWEC Foundation",
+                    "addr":Laya.Browser.window.main_config[Laya.Browser.window.env].WWEC_ADDR,
                     "abi": [{
                         constant: true,
                         inputs: [],

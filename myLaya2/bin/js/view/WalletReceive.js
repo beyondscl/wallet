@@ -91,7 +91,7 @@ var view;
         };
         WalletReceive.prototype.copyBack = function (comp) {
             //需要调用本地native api
-            comp.btn_copy.text = '已复制';
+            comp.btn_copy.label = '已复制';
         };
         return WalletReceive;
     }(ui.WalletReceiveUI));

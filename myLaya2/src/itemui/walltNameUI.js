@@ -1,25 +1,16 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
 //主界面弹出框,快速引导层
 var walltNameUI = /** @class */ (function (_super) {
     __extends(walltNameUI, _super);
-
     function walltNameUI() {
         var _this = _super.call(this) || this;
         _this.WID = 150;
@@ -33,7 +24,6 @@ var walltNameUI = /** @class */ (function (_super) {
         _this.addChild(_this.wSpe);
         return _this;
     }
-
     walltNameUI.prototype.init = function (walletName) {
         this.wImg.skin = 'img/wallet_manage.png';
         this.wImg.left = 10;

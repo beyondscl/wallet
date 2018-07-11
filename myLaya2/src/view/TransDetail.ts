@@ -21,14 +21,14 @@ module view {
 
             let lab_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'Sender' : 'Recipient';//入|出
             let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//
-            this.comp.lab_amount.text = trans_type + data.dealAmount + ' ' + data.dealCoinType.toUpperCase() + " (US$" + (data.dealAmount * mod.userMod.ethToUsd).toFixed(4) + ")";//-0.00001 ETH (US$0.05)
+            this.comp.lab_amount.text = trans_type + data.dealAmount + ' ' + data.dealCoinType.toUpperCase() + " (RMB¥" + (data.dealAmount * mod.userMod.ethToUsd * mod.userMod.usdToRmb ).toFixed(2) + ")";//-0.00001 ETH (US$0.05)
             this.comp.lab_type.text = lab_type;
             this.comp.lab_addr.text = util.getAddr(data.getDealAddr());
             this.comp.lab_transId.text = data.dealTransId;
             this.comp.lab_gas.text = data.dealGas + '';
-            this.comp.lab_confirm.text = data.dealConfirm + '';
+            this.comp.lab_confirm.text = data.dealConfirm?data.dealConfirm+"":'-';
             this.comp.lab_time.text = data.dealTime;
-            this.comp.lab_nonce.text = data.dealNonce + '';
+            this.comp.lab_nonce.text = data.dealNonce?data.dealNonce+"":'-';
         }
 
         private init() {
@@ -44,9 +44,7 @@ module view {
         }
 
         private goBack() {
-            this.removeSelf();
-            this.stage.removeSelf();
-            this.stage.removeChild(this.comp);
+            this.comp.removeSelf();
             this.parentUI.visible = true;
         }
 

@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":45,
-    "props":{"width":375,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":667,"bottom":0},
+    "selecteID":27,
+    "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,21 +14,8 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"skin":"img/blue.png","right":0,"left":0,"height":60},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":46,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Label",
-            "props":{"y":20,"x":118,"var":"lab_coin_name","valign":"middle","top":20,"text":"交易明细","height":30,"fontSize":16,"color":"#000000","centerX":0,"align":"center"},
+            "props":{"var":"lab_coin_name","valign":"middle","top":38,"text":"交易明细","height":30,"fontSize":32,"color":"#163853","centerX":0,"align":"center"},
             "nodeParent":1,
             "label":"Label(lab_coin_name)",
             "isDirectory":false,
@@ -41,7 +28,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":20,"x":20,"width":117,"var":"btn_goback","top":20,"skin":"template/Navigator/btn_BackButton.png","left":20,"height":30},
+            "props":{"width":65,"var":"btn_goback","top":30,"stateNum":"1","skin":"img/main/back@2x.png","left":30,"height":65},
             "nodeParent":1,
             "label":"Button(btn_goback)",
             "isDirectory":false,
@@ -54,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":70,"x":83,"var":"lab_amount","valign":"middle","text":"-0.00001 ETH (US$0.05)","height":30,"color":"#ff0400","centerX":0},
+            "props":{"y":140,"var":"lab_amount","valign":"middle","text":"-0.00001 ETH (US$0.05)","height":30,"fontSize":28,"color":"#ff0400","centerX":-1},
             "nodeParent":1,
             "label":"Label(lab_amount)",
             "isDirectory":false,
@@ -68,7 +55,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":100,"x":20,"var":"lab_type","valign":"middle","text":"收款账户","right":20,"left":20,"height":20,"color":"#000000","bold":true},
+            "props":{"y":200,"var":"lab_type","valign":"middle","text":"收款账户","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_type)",
             "isDirectory":false,
@@ -82,7 +69,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":120,"x":20,"var":"lab_addr","valign":"middle","text":"dddddddd*****dddddddd","right":20,"overflow":"scroll","left":20,"height":20,"color":"#000000","align":"left"},
+            "props":{"y":250,"var":"lab_addr","valign":"middle","text":"-----","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_addr)",
             "isDirectory":false,
@@ -96,7 +83,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":140,"x":20,"valign":"middle","text":"交易 ID","right":20,"left":20,"height":20,"color":"#000000","bold":true},
+            "props":{"y":300,"valign":"middle","text":"交易 ID","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -110,7 +97,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":160,"x":20,"var":"lab_transId","valign":"middle","text":"dddddddd*****dddddddd","right":20,"overflow":"scroll","left":20,"height":20,"color":"#000000","align":"left"},
+            "props":{"y":350,"var":"lab_transId","valign":"middle","text":"-----","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_transId)",
             "isDirectory":false,
@@ -124,7 +111,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":190,"x":20,"valign":"middle","text":"Gas 价格","right":20,"left":20,"height":20,"color":"#000000","bold":true},
+            "props":{"y":400,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -138,7 +125,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":210,"x":20,"var":"lab_gas","valign":"middle","text":"0.000021 ETH(US$0.01)","right":20,"overflow":"scroll","left":20,"height":20,"color":"#000000"},
+            "props":{"y":450,"var":"lab_gas","valign":"middle","text":"0.000021 ETH(US$0.01)","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_gas)",
             "isDirectory":false,
@@ -152,7 +139,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":240,"x":20,"valign":"middle","text":"确认","left":20,"height":20,"color":"#000000","bold":true},
+            "props":{"y":600,"valign":"middle","text":"确认","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -166,7 +153,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":260,"x":20,"var":"lab_confirm","valign":"middle","text":"5236","overflow":"scroll","left":20,"height":20,"color":"#000000"},
+            "props":{"y":650,"var":"lab_confirm","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_confirm)",
             "isDirectory":false,
@@ -180,7 +167,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":240,"x":120,"valign":"middle","text":"时间","left":120,"height":20,"color":"#000000","bold":true},
+            "props":{"y":500,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -194,7 +181,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":260,"x":120,"var":"lab_time","valign":"middle","text":"2018-06-22 15:10:10","overflow":"scroll","left":120,"height":20,"color":"#000000"},
+            "props":{"y":550,"var":"lab_time","valign":"middle","text":"2018-06-22 15:10:10","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_time)",
             "isDirectory":false,
@@ -208,7 +195,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":290,"x":20,"valign":"middle","text":"Nonce","right":20,"left":20,"height":20,"color":"#000000","bold":true},
+            "props":{"y":700,"valign":"middle","text":"Nonce","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -222,7 +209,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":310,"x":20,"var":"lab_nonce","valign":"middle","text":"2","right":20,"left":20,"height":20,"color":"#000000"},
+            "props":{"y":750,"var":"lab_nonce","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_nonce)",
             "isDirectory":false,
@@ -236,7 +223,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":389,"x":0,"var":"btn_moreinfo","right":0,"left":0,"label":"查看更多交易详情","height":40,"bottom":0},
+            "props":{"y":389,"x":0,"visible":false,"var":"btn_moreinfo","right":0,"left":0,"label":"查看更多交易详情","height":40,"bottom":0},
             "nodeParent":1,
             "label":"Button(btn_moreinfo)",
             "isDirectory":false,
@@ -244,7 +231,8 @@
             "hasChild":false,
             "compId":45,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         }],
     "animations":[
         {

@@ -33,14 +33,16 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
-            this.comp.list.repeatY = data.length;
-            this.comp.list.vScrollBarSkin = "";
-            this.comp.list.selectHandler = new Handler(this, this.onSelect);
-            this.comp.list.renderHandler = new Handler(this, this.onListRender);
             this.comp.list.array = data;
+            this.comp.list.vScrollBarSkin = "";
+            // this.comp.list.selectHandler = new Handler(this, this.onSelect);
+            this.comp.list.renderHandler = new Handler(this, this.onListRender);
+            
         }
 
         private onListRender(cell: Box, index: number) {
+            // cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
+
             var data: mod.dealtemMod = this.comp.list.array[index];
 
             let cImg = cell.getChildByName('img') as Laya.Image;

@@ -101,7 +101,7 @@ var view;
                                 service.walletServcie.addDealItem(deal);
                             }
                             else {
-                                console.log(ret);
+                                console.log("transfer submit error:", ret);
                                 new view.alert.Warn("交易失败", "").popup();
                             }
                         }, [comp, pom, this.parentUI]);
@@ -125,7 +125,7 @@ var view;
                     service.walletServcie.addDealItem(deal);
                 }
                 else {
-                    console.log(ret);
+                    console.log("transfer submit error:", ret);
                     new view.alert.Warn("交易失败", "").popup();
                 }
             }, [comp, pom, this.parentUI]); //this.parentUI 没有传过去

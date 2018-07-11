@@ -29,8 +29,6 @@ module view {
         private init() {
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
         private initEvent() {
@@ -42,7 +40,7 @@ module view {
         private btnClick(index: number) {
             if (1 == index) {
                 Laya.stage.removeChild(this.comp);
-                if (this.parentUI) {//这里还有一点点bug
+                if (this.parentUI) {
                     this.parentUI.visible = true;
                 } else {
                     new view.WalletMe();

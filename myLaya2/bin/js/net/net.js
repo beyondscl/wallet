@@ -54,7 +54,7 @@ var net;
             this.xhr.send(url, null, this.method, this.resp, this.headers);
         };
         HttpRequest.prototype.processHandler = function (data) {
-            console.log(data);
+            console.log("processHandler", data);
         };
         HttpRequest.prototype.errorHandler = function (data) {
             console.log("send request error:" + data);

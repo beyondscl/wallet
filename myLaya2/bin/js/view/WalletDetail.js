@@ -53,10 +53,8 @@ var view;
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
         };
         WalletDetail.prototype.goBack = function () {
-            this.stage.removeChild(this.comp);
-            this.stage.removeChild(this.parentUI);
-            var wm = new view.WalletManage();
-            wm.setData(service.walletServcie.getWallets());
+            this.comp.removeSelf();
+            this.parentUI.visible = true;
         };
         WalletDetail.prototype.btnClick = function (index) {
             if (1 == index) {

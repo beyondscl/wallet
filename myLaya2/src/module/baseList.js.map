@@ -1,10 +1,1 @@
-{
-  "version": 3,
-  "file": "baseList.js",
-  "sourceRoot": "",
-  "sources": [
-    "baseList.ts"
-  ],
-  "names": [],
-  "mappings": "AAAA,IAAO,GAAG,CAMT;AAND,WAAO,GAAG;IACN;QACI;QAEA,CAAC;QACL,eAAC;IAAD,CAAC,AAJD,IAIC;IAJY,YAAQ,WAIpB,CAAA;AACL,CAAC,EANM,GAAG,KAAH,GAAG,QAMT"
-}
+{"version":3,"file":"baseList.js","sourceRoot":"","sources":["baseList.ts"],"names":[],"mappings":"AAAA,IAAO,GAAG,CAMT;AAND,WAAO,GAAG;IACN;QACI;QAEA,CAAC;QACL,eAAC;IAAD,CAAC,AAJD,IAIC;IAJY,YAAQ,WAIpB,CAAA;AACL,CAAC,EANM,GAAG,KAAH,GAAG,QAMT"}

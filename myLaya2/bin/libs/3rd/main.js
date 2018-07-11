@@ -3,12 +3,7 @@ var web3 = new Web3();
 var global_keystore;
 var allInstance = {}; //存储合约实例
 
-// const HOST = "https://rinkeby.infura.io/2F62Qc2BC0h9WHj2553t";//geth dev
-// const HOST = "http://192.168.2.106:8545";//geth dev
-// const HOST = "https://main-eth.wwec.top";//geth prod
-// const HOST = "https://mainnet-eth.token.im";//geth prod
-// const HOST = "https://mainnet.infura.io";//geth prod
-const HOST = "https://mainnet.infura.io/2F62Qc2BC0h9WHj2553t";
+const HOST = main_config[env].HOST;
 
 
 function setWeb3Provider(keystore) {
@@ -151,8 +146,8 @@ function balanceOf(address, abi, contractAddr){
         }
         var contract = getInstance(contractAddr);
         contract.balanceOf(address, function(error, result){
-            console.log(error, result);
             if(error){
+                console.log("contract.balanceOf error, result,address,contract,abi :",error, result,address,contract);
                 resolve({"retCode":1, "error":error})
             }else{
                 resolve({"retCode":0, "ret":result})
@@ -164,10 +159,9 @@ function balanceOf(address, abi, contractAddr){
 function newGetBalance(address, contractAddr){
     return new Promise((resolve, reject) =>{
         var contract = getInstance(contractAddr);
-        console.log("1", contract);
         contract.balanceOf(address, function(error, result){
-            console.log(error, result);
             if(error){
+                console.log("newGetBalance error result address contractAddr:",error, result,address,contractAddr);
                 resolve({"retCode":1, "error":error})
             }else{
                 resolve({"retCode":0, "ret":result})

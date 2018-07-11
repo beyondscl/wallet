@@ -32,7 +32,6 @@ var view;
                 };
                 Laya.Browser.document.body.appendChild(close);
             }
-
             return Iframe;
         }());
         alert.Iframe = Iframe;

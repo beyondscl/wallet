@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":4,
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":30,"x":30,"width":60,"var":"btn_goback","stateNum":"1","skin":"img/main/back@2x.png","height":60},
+            "props":{"y":30,"x":30,"width":65,"var":"btn_goback","stateNum":"1","skin":"img/main/back@2x.png","height":65},
             "nodeParent":1,
             "label":"Button(btn_goback)",
             "isDirectory":false,
@@ -41,17 +41,16 @@
         {
             "x":15,
             "type":"List",
-            "props":{"x":0,"var":"list","top":100,"selectEnable":false,"right":0,"repeatX":1,"left":0,"bottom":0},
+            "props":{"var":"list","top":100,"selectEnable":false,"right":0,"name":"list","left":0,"bottom":0},
             "nodeParent":1,
             "label":"List(list)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"right":0,"name":"render","left":0,"height":120},
                     "nodeParent":6,
@@ -63,7 +62,6 @@
                     "compId":7,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"top":0,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"bottom":0},
                             "nodeParent":7,
@@ -76,7 +74,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":32,"x":30,"width":56,"skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0},
                             "nodeParent":7,
@@ -89,7 +86,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":0,"x":100,"width":400,"valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"},
                             "nodeParent":7,
@@ -102,7 +98,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":60,"x":100,"width":400,"valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"},
                             "nodeParent":7,
@@ -115,7 +110,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":35,"x":520,"width":200,"valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
                             "nodeParent":7,
@@ -128,7 +122,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
                             "nodeParent":7,

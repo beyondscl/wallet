@@ -39,7 +39,7 @@ var util = /** @class */ (function () {
             Laya.timer.loop(300, caller, callBack, [qrcode]);
         }
         catch (error) {
-            console.log(error);
+            console.log("createEwm error :", error);
         }
     };
     //复制功能

@@ -99,13 +99,13 @@ var view;
                     if (cName.text == coinMod.coinName) {
                         if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
                             cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
-                            cValue.text = "≈¥ -";
+                            cValue.text = "≈ ¥ -";
                             break;
                         }
                         else {
                             cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
                             var tempRmb = (res.toNumber() / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(0);
-                            cValue.text = "≈¥" + tempRmb;
+                            cValue.text = "≈ ¥ " + tempRmb;
                             comp.lab_total.text = (Number(comp.lab_total.text) + Number(tempRmb)).toFixed(0); //总资产
                             break;
                         }
@@ -121,15 +121,18 @@ var view;
         //init coin list
         WalletMain.prototype.setListUp = function (data) {
             this.comp.list_wallet.array = data;
+            this.comp.list_wallet.vScrollBarSkin = '';
+            this.comp.list_wallet.repeatY = data.length;
             this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Handler(this, this.onSelect);
+            // this.comp.list_wallet.selectHandler = new Handler(this, this.onSelect);
         };
-        //为什么会执行多次？？
+        //为什么会执行多次？？,回来就不行。
         WalletMain.prototype.onListRender = function (cell, index) {
-            console.log("onListRender" + this.comp.list_wallet.cells.length);
+            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
             var data = this.comp.list_wallet.array[index];
             for (var m = 0; m < this.hasRended.length; m++) {
                 if (this.hasRended[m] == data.itemName) {
+                    console.log("excape render index:", index);
                     return;
                 }
             }
@@ -160,8 +163,8 @@ var view;
                 new view.WalletMe().setParentUI(this.comp);
             }
             if (index == 0) { //点击自己或者 | 点击切换钱包才会刷新
-                this.stage.removeChild(this.comp);
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+                // this.stage.removeChild(this.comp);
+                // new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
             if (index == 2) {
                 this.comp.visible = false;

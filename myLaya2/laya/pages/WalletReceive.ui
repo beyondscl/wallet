@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":11,
-    "selecteID":21,
+    "selecteID":9,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":40,"x":40,"width":60,"var":"btn_goback","stateNum":"1","skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":60},
+                    "props":{"y":40,"x":40,"width":65,"var":"btn_goback","stateNum":"1","skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65},
                     "nodeParent":11,
                     "label":"Button(btn_goback)",
                     "isDirectory":false,
@@ -94,7 +94,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":337,"x":0,"wordWrap":true,"var":"lab_wAddr","valign":"middle","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":0,"overflow":"scroll","left":0,"layoutEnabled":true,"height":40,"fontSize":24,"editable":false,"color":"#8E979F","align":"center"},
+                    "props":{"y":308,"wordWrap":true,"var":"lab_wAddr","valign":"middle","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":0,"overflow":"scroll","left":0,"layoutEnabled":true,"height":40,"fontSize":24,"editable":false,"color":"#8E979F","align":"center"},
                     "nodeParent":11,
                     "label":"TextInput(lab_wAddr)",
                     "isDirectory":false,
@@ -108,7 +108,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"width":320,"var":"img_wAddr","skin":"img/main/xx@2x.png","height":320,"centerY":95,"centerX":0},
+                    "props":{"width":500,"var":"img_wAddr","height":500,"centerY":127,"centerX":0},
                     "nodeParent":11,
                     "label":"Image(img_wAddr)",
                     "isDirectory":false,
@@ -121,20 +121,21 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":1000,"var":"btn_copy","valign":"middle","text":"复制地址","right":0,"left":0,"height":80,"fontSize":32,"color":"#8E979F","align":"center"},
+                    "props":{"y":1000,"visible":false,"valign":"middle","text":"复制地址","right":0,"left":0,"height":80,"fontSize":32,"color":"#8E979F","align":"center"},
                     "nodeParent":11,
-                    "label":"Label(btn_copy)",
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":18,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":430,"wordWrap":true,"var":"text_amount","valign":"middle","type":"number","right":100,"promptColor":"#163853","prompt":"请输入金额","overflow":"scroll","left":100,"layoutEnabled":true,"height":40,"fontSize":32,"color":"#163853","align":"left"},
+                    "props":{"y":390,"wordWrap":true,"var":"text_amount","valign":"middle","type":"number","right":100,"promptColor":"#163853","prompt":"请输入金额","overflow":"scroll","left":100,"layoutEnabled":true,"height":40,"fontSize":24,"color":"#163853","align":"left"},
                     "nodeParent":11,
                     "label":"TextInput(text_amount)",
                     "isOpen":true,
@@ -161,13 +162,26 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":491,"visible":false,"var":"warn_amount","text":"请输入合法的金额","right":100,"height":30,"fontSize":24,"color":"#ff0400","align":"right"},
+                    "props":{"y":451,"visible":false,"var":"warn_amount","text":"请输入合法的金额","right":100,"height":30,"fontSize":24,"color":"#ff0400","align":"right"},
                     "nodeParent":11,
                     "label":"Label(warn_amount)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":23,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":1134,"var":"btn_copy","stateNum":"1","skin":"img/main/anliu@2x.png","right":40,"left":40,"labelSize":32,"labelColors":"#ffffff","label":"复制地址","height":80},
+                    "nodeParent":11,
+                    "label":"Button(btn_copy)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
                     "child":[
                         ]
                 }],

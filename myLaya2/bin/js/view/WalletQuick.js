@@ -23,12 +23,16 @@ var view;
             this.parentUI = parentUI;
         };
         WalletQuick.prototype.initData = function (walletNames) {
-            var lines = walletNames.length;
+            var lines = walletNames.length + 1;
             var height = lines * 80;
             height = height > 600 ? 600 : height;
+            this.list_wallet.height = height;
+            this.list_wallet.vScrollBarSkin = '';
+            this.list_wallet.repeatY = walletNames.length;
             this.list_wallet.array = walletNames;
             this.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            this.box_btns.top = this.list_wallet.y + this.list_wallet.height + 60;
         };
         WalletQuick.prototype.init = function () {
         };
@@ -53,6 +57,10 @@ var view;
             cImg.skin = wallet.wSkin;
             var cName = cell.getChildByName('lab_wName');
             cName.text = data.replace(/([^]{8})([^]+)/, "$1...");
+            var cImgBg = cell.getChildByName('img_bg');
+            if (data == mod.userMod.defWallet.wName) {
+                cImgBg.skin = 'img/main/list_bg.png';
+            }
         };
         WalletQuick.prototype.onSelect = function (index) {
             var item = this.list_wallet.array[index];

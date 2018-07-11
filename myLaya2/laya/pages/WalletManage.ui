@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":18,
-    "selecteID":10,
-    "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
+    "selectedBox":21,
+    "selecteID":20,
+    "props":{"width":750,"top":0,"sceneColor":"#F3F3F4","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -26,34 +26,73 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":64,"x":30,"width":60,"var":"btn_goback","skin":"img/main/back@2x.png","height":60},
+                    "type":"Rect",
+                    "props":{"y":0,"x":0,"width":750,"lineWidth":1,"height":1334,"fillColor":"#F3F3F4"},
                     "nodeParent":18,
-                    "label":"Image(btn_goback)",
+                    "label":"Rect",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":19,
+                    "compId":23,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":72,"x":311,"valign":"middle","text":"管理钱包","height":44,"fontSize":32,"color":"#163853","centerX":0,"bold":true,"align":"center"},
+                    "type":"Box",
+                    "props":{"y":0,"right":0,"left":0,"height":128},
                     "nodeParent":18,
-                    "label":"Label",
-                    "isDirectory":false,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":20,
+                    "hasChild":true,
+                    "compId":21,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Rect",
+                            "props":{"y":0,"x":0,"width":750,"lineWidth":1,"height":128,"fillColor":"#ffffff"},
+                            "nodeParent":21,
+                            "label":"Rect",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":30,"width":65,"var":"btn_goback","skin":"img/main/back@2x.png","height":65,"centerY":0},
+                            "nodeParent":21,
+                            "label":"Image(btn_goback)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"x":310,"valign":"middle","text":"管理钱包","height":40,"fontSize":32,"color":"#163853","centerY":0,"centerX":0,"bold":true,"align":"center"},
+                            "nodeParent":21,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
                     "type":"List",
-                    "props":{"x":0,"var":"list_wallet","top":156,"selectEnable":true,"right":0,"repeatX":1,"left":0,"bottom":88},
+                    "props":{"var":"list_wallet","top":156,"spaceY":50,"selectEnable":true,"right":0,"repeatX":1,"left":0,"bottom":88},
                     "nodeParent":18,
                     "label":"List(list_wallet)",
                     "isOpen":true,
@@ -90,7 +129,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":44,"x":60,"width":58,"var":"img_wallet","skin":"img/main/wo de-@2x.png","name":"img_wallet","height":58},
+                                    "props":{"y":67,"x":60,"width":60,"var":"img_wallet","skin":"img/main/wd@2x.png","name":"img_wallet","height":60},
                                     "nodeParent":11,
                                     "label":"Image(img_wallet)",
                                     "isDirectory":false,
@@ -103,7 +142,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":58,"x":154,"width":170,"var":"lab_wName","valign":"middle","text":"ETH","skin":"template/List/label.png","name":"lab_wName","height":34,"fontSize":24,"color":"#163853","align":"left"},
+                                    "props":{"y":56,"x":154,"width":170,"var":"lab_wName","valign":"middle","text":"ETH","skin":"template/List/label.png","name":"lab_wName","height":40,"fontSize":30,"color":"#163853","align":"left"},
                                     "nodeParent":11,
                                     "label":"Label(lab_wName)",
                                     "isDirectory":false,
@@ -116,7 +155,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":96,"x":154,"width":560,"var":"lab_wAddr","valign":"middle","text":"035dx5dx...","skin":"template/List/label.png","name":"lab_wAddr","height":28,"fontSize":20,"color":"#8E979F","align":"left"},
+                                    "props":{"y":104,"x":154,"width":560,"var":"lab_wAddr","valign":"middle","text":"035dx5dx...","skin":"template/List/label.png","name":"lab_wAddr","height":30,"fontSize":26,"color":"#8E979F","align":"left"},
                                     "nodeParent":11,
                                     "label":"Label(lab_wAddr)",
                                     "isDirectory":false,
@@ -143,7 +182,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"width":609,"var":"lab_wTotal","valign":"middle","text":"0 ¥","skin":"template/List/label.png","right":80,"name":"lab_wTotal","height":55,"fontSize":28,"color":"#163853","bottom":50,"align":"right"},
+                                    "props":{"var":"lab_wTotal","valign":"middle","text":"0 ¥","skin":"template/List/label.png","right":25,"name":"lab_wTotal","left":60,"height":55,"fontSize":28,"color":"#163853","bottom":39,"align":"right"},
                                     "nodeParent":11,
                                     "label":"Label(lab_wTotal)",
                                     "isDirectory":false,
@@ -153,6 +192,19 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":155,"skin":"img/main/itemSepar.png","right":20,"left":60,"height":1},
+                                    "nodeParent":11,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":24,
+                                    "child":[
+                                        ]
                                 }]
                         }],
                     "$HIDDEN":false

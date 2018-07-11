@@ -47,8 +47,12 @@ var view;
         // 设置总金额
         WalletSend.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            this.parentUI.comp.visible = true;
-            // new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            if (this.parentUI && this.parentUI.comp) {
+                this.parentUI.comp.visible = true;
+            }
+            else {
+                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            }
         };
         WalletSend.prototype.btnClick = function (type) {
             switch (type) {

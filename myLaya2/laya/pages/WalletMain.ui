@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":1,
+    "selectedBox":17,
+    "selecteID":18,
     "props":{"width":750,"var":"WALLET_MAIN","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_MAIN)",
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":288,"width":368,"var":"lab_wAddr","valign":"middle","text":"AAAAAAAA......AAAAAAAA","overflow":"hidden","height":44,"fontSize":24,"color":"#ffffff","centerX":-61,"align":"right"},
+            "props":{"y":288,"width":368,"var":"lab_wAddr","valign":"middle","text":"AAAAAAAA......AAAAAAAA","overflow":"hidden","height":44,"fontSize":28,"color":"#ffffff","centerX":-61,"align":"right"},
             "nodeParent":1,
             "label":"Label(lab_wAddr)",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":480,"x":30,"width":565,"valign":"middle","text":"总资产(¥)","height":44,"fontSize":24,"color":"#000000"},
+            "props":{"y":480,"x":30,"width":565,"valign":"middle","text":"总资产( ¥ )","height":44,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -133,7 +133,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"width":750,"var":"list_wallet","top":544,"selectEnable":true,"right":0,"repeatX":1,"left":0,"height":844,"bottom":96},
+            "props":{"width":750,"var":"list_wallet","top":544,"spaceY":5,"selectEnable":true,"right":0,"repeatX":1,"left":0,"height":844,"bottom":96},
             "nodeParent":1,
             "label":"List(list_wallet)",
             "isOpen":true,
@@ -145,7 +145,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"right":0,"name":"render","left":0,"height":120},
+                    "props":{"right":0,"name":"render","left":0,"height":150},
                     "nodeParent":16,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -160,6 +160,7 @@
                             "props":{"top":0,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"bottom":0},
                             "nodeParent":17,
                             "label":"Image",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,

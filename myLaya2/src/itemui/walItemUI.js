@@ -1,25 +1,16 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
 //钱包中币种列表:过时
 var walItemUI = /** @class */ (function (_super) {
     __extends(walItemUI, _super);
-
     function walItemUI() {
         var _this = _super.call(this) || this;
         _this.img = new Laya.Image();
@@ -35,7 +26,6 @@ var walItemUI = /** @class */ (function (_super) {
         _this.addChild(_this.sperated);
         return _this;
     }
-
     walItemUI.prototype.init = function (walItem) {
         this.img.skin = walItem.getItemImgSrc();
         this.img.width = 80;

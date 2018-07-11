@@ -52,10 +52,8 @@ module view {
         }
 
         private goBack() {
-            this.stage.removeChild(this.comp);
-            this.stage.removeChild(this.parentUI);
-            let wm = new view.WalletManage()
-            wm.setData(service.walletServcie.getWallets());
+            this.comp.removeSelf();
+            this.parentUI.visible = true;
 
         }
 
