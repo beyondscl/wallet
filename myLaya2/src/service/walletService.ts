@@ -472,6 +472,12 @@ module service {
 
         //发送token
         public static sendToken(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas, callback, cbArgs) {
+            //测试成功返回
+            // let ret = {
+            //     retCode : 0,
+            //     txhash : 'ox54a5sd1f5as1dfa5sd'
+            // }
+            // callback(ret,cbArgs);
             if (!functionName) functionName = 'transfer';
             Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
                 .then(ret => {
