@@ -36,7 +36,6 @@ module view {
         //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
             //数据复原
-            util.putCompStack(this);
             this.comp.lab_total.text = '0';
 
             //修改当前内存主要钱包
