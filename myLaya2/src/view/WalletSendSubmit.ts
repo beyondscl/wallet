@@ -20,16 +20,16 @@ module view {
             //初始化gasprice
             //默认70
             let gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice : 20
-            this.comp.sli_gas.value = gasPrice// gwei
             this.comp.sli_gas.min = gasPrice;
             this.comp.sli_gas.max = gasPrice + 130;
+            this.comp.sli_gas.value = gasPrice// gwei
             new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
                 if (ret && ret.retCode == 0) {
                     mod.userMod.gasPrice = ret.gasPrice / 1e9;
                     let comp = args[0] as view.WalletSendSubmit;
-                    comp.sli_gas.value = mod.userMod.gasPrice;// gwei
                     comp.sli_gas.min = mod.userMod.gasPrice;
                     comp.sli_gas.max = mod.userMod.gasPrice + 50;
+                    comp.sli_gas.value = mod.userMod.gasPrice;// gwei
                 }
             }, [this.comp]);
         }
@@ -111,6 +111,8 @@ module view {
                                     "",
                                     "");
                                 service.walletServcie.addDealItem(deal);
+                                comp.removeSelf();
+                                util.showView([2]);
                             } else {
                                 console.log("transfer submit error:",ret);
                                 new alert.Warn("交易失败", "").popup();
@@ -128,8 +130,6 @@ module view {
                     new alert.Warn("交易已发送请等待确认", "").popup();
                     let comp = args[0] as view.WalletSendSubmit;
                     let comParent = args[2] as View;
-                    // comp.removeSelf();
-                    // comParent.visible = true;//
                     //记录交易!!!
                     let deal = new mod.dealtemMod(config.msg.deal_transfer_out,
                         comp.text_from.text,
@@ -142,6 +142,8 @@ module view {
                         "",
                         "");
                     service.walletServcie.addDealItem(deal);
+                    comp.removeSelf();
+                    util.showView([2]);
                 } else {
                     console.log("transfer submit error:",ret);
                     new alert.Warn("交易失败", "").popup();

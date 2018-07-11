@@ -59,6 +59,7 @@ module view {
                         this.comp.visible = false;
                         let sub = new view.WalletSendSubmit();
                         sub.setParenUI(this.comp);
+                        util.putView(this);
                     }
                     break;
                 case (2):
