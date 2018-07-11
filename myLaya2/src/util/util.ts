@@ -171,6 +171,7 @@ class util {
         return false;
     }
 
+    //compstack
     //---------------------------------------------
     public static putCompStack(comp: View) {
         this._compStack[this._compStack.length] = comp;
@@ -204,7 +205,14 @@ class util {
     public static compClear() {
         this._compStack = [];
     }
-
+    //删除所有已经存入的comp
+    public static compDeleteAll() {
+        for(let i=0;i<this._viewStack.length;i++){
+            let t = this._viewStack[i] as View;
+            t.removeSelf();
+        }
+        this._compStack = [];
+    }
     //---------------------------------------------
     //_viewStack
     public static clearView() {
@@ -214,6 +222,30 @@ class util {
     public static putView(v: View) {
         this._viewStack.push(v);
     }
+    public static showView(args) {
+        for (let i = 1; i < this._viewStack.length; i++) {
+            if (this._viewStack[i]) {
+                if(this._viewStack[i]&&this._viewStack[i].comp){
+                    let comp: View = this._viewStack[i].comp;
+                    comp.removeSelf();
+                }
+            }
+
+        }
+        if (this._viewStack[0]) {
+            let t: View = this._viewStack[0];
+            let type = args[0];
+            if (type && 2 == type&&t) {//1:转账成功
+                let v: view.WalletTransfer = this._viewStack[0];
+                v.comp.visible = true;
+                v.refresh();
+            }
+        }
+        this._viewStack = [];
+    }
+    //---------------------------------------------
+
+
 
     //判断一个数组中是否包含一个元素
     public static isContain(array: Array<any>, item): boolean {
