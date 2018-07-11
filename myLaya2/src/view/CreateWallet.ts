@@ -47,7 +47,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI == null ? new EnterApp() : this.parentUI.visible = true;
+            this.parentUI == null ? new EnterApp() : this.parentUI.comp.visible = true;
         }
 
         private updateArgee() {
