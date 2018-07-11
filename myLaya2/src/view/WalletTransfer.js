@@ -24,6 +24,8 @@ var view;
             this.parentUI = parentUI;
         };
         WalletTransfer.prototype.setData = function (data, cell) {
+            this.refData = data;
+            this.refCell = cell;
             this.comp.lab_coin_name.text = data.itemName;
             var cValue = cell.getChildByName('cValue');
             var cTotal = cell.getChildByName('cTotal');
@@ -31,11 +33,13 @@ var view;
             this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
             this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         };
+        WalletTransfer.prototype.refresh = function () {
+            this.setData(this.refData, this.refCell);
+        };
         WalletTransfer.prototype.init = function () {
             this.comp = new ui.WalletTransferUI();
             this.name = config.resource.WALLET_TRANSFER;
             Laya.stage.addChild(this.comp);
-            Laya.stage.scaleMode = config.prod.appAdapterType;
         };
         WalletTransfer.prototype.initEvent = function () {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
@@ -43,6 +47,7 @@ var view;
             this.comp.btn_receive.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         };
         WalletTransfer.prototype.goBack = function () {
+            util.clearView();
             Laya.stage.removeChild(this.comp);
             this.parentUI.comp.visible = true;
         };
@@ -52,6 +57,8 @@ var view;
                 var send = new view.WalletSend();
                 send.setData(this.comp.lab_coin_name.text, this.total, 0, '');
                 send.setParentUI(this);
+                util.clearView();
+                util.putView(this);
             }
             else if (type == 2) {
                 this.comp.visible = false;

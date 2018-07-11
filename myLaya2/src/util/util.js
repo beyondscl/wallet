@@ -146,6 +146,7 @@ var util = /** @class */ (function () {
         }
         return false;
     };
+    //compstack
     //---------------------------------------------
     util.putCompStack = function (comp) {
         this._compStack[this._compStack.length] = comp;
@@ -177,6 +178,14 @@ var util = /** @class */ (function () {
     util.compClear = function () {
         this._compStack = [];
     };
+    //删除所有已经存入的comp
+    util.compDeleteAll = function () {
+        for (var i = 0; i < this._viewStack.length; i++) {
+            var t = this._viewStack[i];
+            t.removeSelf();
+        }
+        this._compStack = [];
+    };
     //---------------------------------------------
     //_viewStack
     util.clearView = function () {
@@ -185,6 +194,27 @@ var util = /** @class */ (function () {
     util.putView = function (v) {
         this._viewStack.push(v);
     };
+    util.showView = function (args) {
+        for (var i = 1; i < this._viewStack.length; i++) {
+            if (this._viewStack[i]) {
+                if (this._viewStack[i] && this._viewStack[i].comp) {
+                    var comp = this._viewStack[i].comp;
+                    comp.removeSelf();
+                }
+            }
+        }
+        if (this._viewStack[0]) {
+            var t = this._viewStack[0];
+            var type = args[0];
+            if (type && 2 == type && t) { //1:转账成功
+                var v = this._viewStack[0];
+                v.comp.visible = true;
+                v.refresh();
+            }
+        }
+        this._viewStack = [];
+    };
+    //---------------------------------------------
     //判断一个数组中是否包含一个元素
     util.isContain = function (array, item) {
         for (var i = 0; i < array.length; i++) {
