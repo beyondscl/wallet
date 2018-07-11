@@ -23,7 +23,7 @@ module view {
             this.comp.list_wallet.y = data.length;
             this.comp.list_wallet.vScrollBarSkin = "";
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
-            this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            // this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
         private init() {
@@ -57,6 +57,8 @@ module view {
         }
 
         private onListRender(cell: Box, index: number) {
+            cell.on(Laya.Event.CLICK, this, this.onSelect,[index]);
+
             var data: mod.walletMod = this.comp.list_wallet.array[index];
             let wImg = cell.getChildByName('img_wallet') as Image;
             wImg.skin = data.wSkin;
