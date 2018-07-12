@@ -19,10 +19,6 @@ var view;
             _this.initEvent();
             return _this;
         }
-        WalletDetail.prototype.deleteCb = function (pass, comp) {
-            //比较复杂
-            // service.walletServcie.deleteWallet(comp.lab_wAddr.text);
-        };
         WalletDetail.prototype.setData = function (data) {
             this.data = data;
             this.comp.lab_wName.text = data.wName;
@@ -75,6 +71,7 @@ var view;
                 var enterPass = new view.alert.EnterPass();
                 enterPass.setParentUI(this.comp);
                 enterPass.setCallBack(this.exportPriKeyCb);
+                enterPass.setWalName(this.comp.lab_wName.text);
                 enterPass.popup(true, true);
                 return;
             }
@@ -82,6 +79,7 @@ var view;
                 var enterPass = new view.alert.EnterPass();
                 enterPass.setParentUI(this.comp);
                 enterPass.setCallBack(this.exportKeystoreCb);
+                enterPass.setWalName(this.comp.lab_wName.text);
                 enterPass.popup(true, true);
                 return;
             }
@@ -95,11 +93,16 @@ var view;
             }
             if (6 == index) {
                 var p = new view.alert.EnterPass();
-                p.setParentUI(this.comp);
+                p.setParentUI(this);
                 p.setCallBack(this.deleteCb);
+                p.setWalName(this.comp.lab_wName.text);
                 p.popup();
                 return;
             }
+        };
+        WalletDetail.prototype.deleteCb = function (pass, v) {
+            var wName = v.comp.lab_wName.text;
+            service.walletServcie.deleteWallet(wName, v);
         };
         WalletDetail.prototype.enterPassCb = function (pass, comp) {
             comp.visible = false;

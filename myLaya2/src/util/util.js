@@ -1,6 +1,12 @@
 var util = /** @class */ (function () {
     function util() {
     }
+    util.setMainView = function (v) {
+        this._mainView = v;
+    };
+    util.getMainView = function () {
+        return this._mainView;
+    };
     util.getAddr = function (addr) {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     };
@@ -191,6 +197,20 @@ var util = /** @class */ (function () {
     util.clearView = function () {
         this._viewStack = [];
     };
+    util.deleteView = function () {
+        console.log("deleteView", this._viewStack);
+        for (var i = 1; i < this._viewStack.length; i++) {
+            try {
+                if (this._viewStack[i] && this._viewStack[i].comp) {
+                    this._viewStack[i].comp.removeSelf();
+                    console.log("deleteView_:", this._viewStack[i].comp);
+                }
+            }
+            catch (error) {
+            }
+        }
+        this._viewStack = [];
+    };
     util.putView = function (v) {
         this._viewStack.push(v);
     };
@@ -206,10 +226,15 @@ var util = /** @class */ (function () {
         if (this._viewStack[0]) {
             var t = this._viewStack[0];
             var type = args[0];
-            if (type && 2 == type && t) { //1:转账成功
+            if (type && 2 == type && t) { //转账成功
                 var v = this._viewStack[0];
                 v.comp.visible = true;
                 v.refresh();
+            }
+            else if (type && 3 == type && t) { //删除钱包成功
+                var v = this._viewStack[0];
+                v.setData(service.walletServcie.getWallets());
+                v.comp.visible = true;
             }
         }
         this._viewStack = [];

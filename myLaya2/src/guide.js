@@ -134,7 +134,7 @@ function enter() {
     var accept = util.getItem(config.prod.appAccept);
     if (accept) {
         var walletNames = util.getItem(config.prod.appKey);
-        if (!walletNames) {
+        if (!walletNames || walletNames.length == 0) {
             new guide();
             return;
         }

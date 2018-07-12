@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view {
     export class WalletDetail extends ui.WalletDetailUI {
-        private comp: ui.WalletDetailUI;
+        public comp: ui.WalletDetailUI;
         private parentUI: ui.WalletManageUI;
         private data: mod.walletMod;
 
@@ -9,11 +9,6 @@ module view {
             super();
             this.init();
             this.initEvent();
-        }
-
-        public deleteCb(pass, comp: ui.WalletDetailUI) {
-            //比较复杂
-            // service.walletServcie.deleteWallet(comp.lab_wAddr.text);
         }
 
         public setData(data: mod.walletMod) {
@@ -47,8 +42,6 @@ module view {
             this.comp.box_expKeystore.on(Laya.Event.CLICK, this, this.btnClick, [4]);
             this.comp.btn_delete.on(Laya.Event.CLICK, this, this.btnClick, [6]);
             this.comp.btn_backup.on(Laya.Event.CLICK, this, this.btnClick, [5]);
-
-
         }
 
         private goBack() {
@@ -76,6 +69,7 @@ module view {
                 let enterPass = new view.alert.EnterPass();
                 enterPass.setParentUI(this.comp);
                 enterPass.setCallBack(this.exportPriKeyCb);
+                enterPass.setWalName(this.comp.lab_wName.text);
                 enterPass.popup(true, true)
                 return;
             }
@@ -83,6 +77,7 @@ module view {
                 let enterPass = new view.alert.EnterPass();
                 enterPass.setParentUI(this.comp);
                 enterPass.setCallBack(this.exportKeystoreCb);
+                enterPass.setWalName(this.comp.lab_wName.text);
                 enterPass.popup(true, true)
                 return;
             }
@@ -96,13 +91,17 @@ module view {
             }
             if (6 == index) {
                 let p = new alert.EnterPass()
-                p.setParentUI(this.comp);
+                p.setParentUI(this);
                 p.setCallBack(this.deleteCb);
+                p.setWalName(this.comp.lab_wName.text);
                 p.popup()
                 return;
             }
         }
-
+        public deleteCb(pass, v: view.WalletDetail) {
+            let wName = v.comp.lab_wName.text;
+            service.walletServcie.deleteWallet(wName,v);
+        }
         private enterPassCb(pass, comp: ui.WalletDetailUI) {
             comp.visible = false;
             let backupw = new view.WalletBackUp();

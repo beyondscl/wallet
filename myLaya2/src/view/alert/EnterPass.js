@@ -52,12 +52,15 @@ var view;
                         wallet = mod.userMod.defWallet;
                     }
                     if (!wallet.wPassword) {
-                        console.error("mod.userMod.defWallet.wPassword is null");
+                        console.error("wallet.wPassword is null");
                     }
                     var pass = this.text_pass.text;
                     if (pass != wallet.wPassword) {
                         this.warn.visible = true;
                         return;
+                    }
+                    else {
+                        this.warn.visible = false;
                     }
                     this.callBack(pass, this.parentUI);
                     this.close();

@@ -35,6 +35,7 @@ module view {
 
         //初始化当前钱包数据
         public initQueryData(data: mod.walletMod) {
+            util.setMainView(this);
             //数据复原
             this.comp.lab_total.text = '0';
 

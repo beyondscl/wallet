@@ -4,9 +4,16 @@ class util {
     private static _compStack = [];
     //所有的页面，view非comp，为了不影响之前的代码
     private static _viewStack = [];
-
+    // main view 这个变量很重要
+    private static _mainView:view.WalletMain;
     constructor() {
 
+    }
+    public static setMainView(v:view.WalletMain){
+        this._mainView = v;
+    }
+    public static getMainView():view.WalletMain{
+        return this._mainView;
     }
 
     public static getAddr(addr: string): string {
@@ -218,6 +225,21 @@ class util {
     public static clearView() {
         this._viewStack = [];
     }
+    public static deleteView() {
+        console.log("deleteView",this._viewStack);
+        for (let i = 1; i < this._viewStack.length; i++) {
+            try {
+                if(this._viewStack[i]&&this._viewStack[i].comp)
+                {
+                    this._viewStack[i].comp.removeSelf();
+                    console.log("deleteView_:",this._viewStack[i].comp);
+                }
+            } catch (error) {
+                
+            }
+        }
+        this._viewStack = [];
+    }
 
     public static putView(v: View) {
         this._viewStack.push(v);
@@ -235,10 +257,14 @@ class util {
         if (this._viewStack[0]) {
             let t: View = this._viewStack[0];
             let type = args[0];
-            if (type && 2 == type&&t) {//1:转账成功
+            if (type && 2 == type&&t) {//转账成功
                 let v: view.WalletTransfer = this._viewStack[0];
                 v.comp.visible = true;
                 v.refresh();
+            }else if (type && 3 == type&&t) {//删除钱包成功
+                let v:view.WalletManage = this._viewStack[0];
+                v.setData(service.walletServcie.getWallets());
+                v.comp.visible = true;
             }
         }
         this._viewStack = [];

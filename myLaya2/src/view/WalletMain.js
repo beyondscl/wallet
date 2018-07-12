@@ -40,6 +40,7 @@ var view;
         };
         //初始化当前钱包数据
         WalletMain.prototype.initQueryData = function (data) {
+            util.setMainView(this);
             //数据复原
             this.comp.lab_total.text = '0';
             //修改当前内存主要钱包

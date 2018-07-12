@@ -61,6 +61,41 @@ module service {
                 console.log("creatWallet error:",error)
             }
         }
+        //删除钱包
+        public static deleteWallet(wName:string,v:view.WalletDetail){
+            //删除list name
+            //删除wallet
+            //删除后可能没有钱包了,跳转到创建界面
+            try {
+                console.log("deleteWallet :",wName);
+                let wals:Array<string> = util.getItem(config.prod.appKey);
+                let walsNew:Array<string> = [];
+                for(let i=0;i<wals.length;i++){
+                    if(wals[i]!=wName){
+                        walsNew.push(wals[i]);
+                    }
+                }
+                util.setItemJson(config.prod.appKey,walsNew);
+                util.delItem(wName);
+                //删除当前页面
+                v.comp.removeSelf();
+                if(walsNew.length==0){
+                    util.deleteView();
+                    new EnterApp();
+                }else{
+                    //后台更新主页数据
+                    let walletMod = this.getWallet(walsNew[0]);
+                    util.getMainView().initQueryData(walletMod);
+                    //显示钱包管理页面
+                    util.showView([3]);   
+                    new view.alert.Warn("删除钱包成功","").popup();
+                }
+
+            } catch (error) {
+                new view.alert.Warn("删除钱包失败","").popup();
+                console.log("deleteWallet",error);
+            }
+        }
 
         //import钱包
         public static importWallet(mnemonicWord: string, wName: string, wPass: string, cb: any, args: Array<any>): mod.walletMod {

@@ -20,6 +20,7 @@ class guide {
         this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
         this.guideUI.img_enter.on(Laya.Event.CLICK, this, function () {
             Laya.stage.removeChild(this.guideUI);
+            util.setItemJson(config.prod.appGuide,[]);
             new EnterApp();
         });
     }
@@ -75,9 +76,14 @@ Laya.stage.alignV = "middle";
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();
+//进度条
 let progressBar;
 let tip;
 let loadBg;
+//基本数据
+let acc = util.getItem(config.prod.appAccept)
+let gui = util.getItem(config.prod.appGuide)
+let app = util.getItem(config.prod.appKey)
 
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
@@ -95,7 +101,7 @@ function beginLoad() {
 
 
     tip = new Laya.Label();
-    tip.bottom = 5;
+    tip.bottom = 40;
     tip.left = 0;
     tip.right = 0;
     tip.centerX = 0;
@@ -112,21 +118,15 @@ function beginLoad() {
     progressBar.bottom = 85;
     progressBar.sizeGrid = "5,5,5,5";
 
-    let res: Array<any> =
-        ["res/atlas/img/main.atlas",
-            "res/atlas/img/coins.atlas",
-            "res/atlas/img/guide.atlas"]
+    var res: Array<string> =
+            ["res/atlas/img/main.atlas",
+            "res/atlas/img/coins.atlas"]
+    if(!acc||!gui){
+        res.push("res/atlas/img/guide.atlas");
+    }
     Laya.loader.load(res, null, Laya.Handler.create(this, onProcess, null, false));
     progressBar.changeHandler = new Laya.Handler(this, onChange);
     Laya.stage.addChild(progressBar);
-    // "res/atlas/template/ScrollBar.atlas",
-    // Laya.loader.load("res/atlas/template/Warn.atlas");
-    // Laya.loader.load("res/atlas/template/Navigator.atlas");
-    // Laya.loader.load("res/atlas/template/ToolBar.atlas");
-    // Laya.loader.load("res/atlas/template/Switcher.atlas");
-    // Laya.loader.load("res/atlas/template/List.atlas");
-    // Laya.loader.load("res/atlas/template/Search.atlas");
-    // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
 
 function onProcess(p: number) {
@@ -150,20 +150,27 @@ function enter() {
     new config.init.initData('');
     //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
-    let accept = util.getItem(config.prod.appAccept);
-    if (accept) {
+    if (acc) {//已同意服务协议
         let walletNames = util.getItem(config.prod.appKey);
-        if (!walletNames) {
-            new guide();
-            return;
+        if (!walletNames||walletNames.length==0) {//没有钱包数据
+            if(gui){//非第一次进入
+                new EnterApp();
+            }else{
+                new guide();
+            }
+        }else{
+            enterMain();
         }
+        console.log("end loading!")
+    } else {
+        new view.info.Service();
+    }
+}
+function enterMain(){
+        let walletNames = util.getItem(config.prod.appKey);
         let wallet = util.getItem(walletNames[0]);
         let walletMod = new mod.walletMod();
         walletMod.setWallet(wallet);
         mod.userMod.defWallet = walletMod;
         new view.WalletMain().initQueryData(walletMod);
-        console.log("end loading!")
-    } else {
-        new view.info.Service();
-    }
 }

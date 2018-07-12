@@ -4,7 +4,7 @@ module view {
     import Label = Laya.Label;
 
     export class WalletManage extends ui.WalletManageUI {
-        private comp: ui.WalletManageUI;
+        public comp: ui.WalletManageUI;
         private parentUI: ui.WalletMeUI;
 
         constructor() {
@@ -19,9 +19,8 @@ module view {
 
         public setData(data: Array<mod.walletMod>) {
             this.comp.list_wallet.array = data;
-            this.comp.list_wallet.x = 1;
-            this.comp.list_wallet.y = data.length;
             this.comp.list_wallet.vScrollBarSkin = "";
+            this.comp.list_wallet.repeatY = data.length;
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             // this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
@@ -92,6 +91,7 @@ module view {
             let wd = new view.WalletDetail();
             wd.setData(this.comp.list_wallet.array[index]);
             wd.setParetUI(this.comp);
+            util.putView(this);
         }
     }
 }
