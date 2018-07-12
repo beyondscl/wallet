@@ -28,16 +28,16 @@ var view;
             //初始化gasprice
             //默认70
             var gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice : 20;
-            this.comp.sli_gas.value = gasPrice; // gwei
             this.comp.sli_gas.min = gasPrice;
             this.comp.sli_gas.max = gasPrice + 130;
+            this.comp.sli_gas.value = gasPrice; // gwei
             new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
                 if (ret && ret.retCode == 0) {
                     mod.userMod.gasPrice = ret.gasPrice / 1e9;
                     var comp = args[0];
-                    comp.sli_gas.value = mod.userMod.gasPrice; // gwei
                     comp.sli_gas.min = mod.userMod.gasPrice;
                     comp.sli_gas.max = mod.userMod.gasPrice + 50;
+                    comp.sli_gas.value = mod.userMod.gasPrice; // gwei
                 }
             }, [this.comp]);
         };
@@ -58,7 +58,12 @@ var view;
         };
         WalletSendSubmit.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            new view.WalletSend();
+            if (this.parentUI) {
+                this.parentUI.visible = true;
+            }
+            else {
+                new view.WalletSend();
+            }
         };
         WalletSendSubmit.prototype.btnClick = function (type) {
             switch (type) {
@@ -99,6 +104,8 @@ var view;
                                 var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_1.text_from.text, comp_1.text_to.text, comp_1.send_amout.text, comp_1.coin_type.text, ret.txhash, //可以根据这个去查询更新
                                 gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                                 service.walletServcie.addDealItem(deal);
+                                comp_1.removeSelf();
+                                util.showView([2]);
                             }
                             else {
                                 console.log("transfer submit error:", ret);
@@ -117,12 +124,12 @@ var view;
                     new view.alert.Warn("交易已发送请等待确认", "").popup();
                     var comp_2 = args[0];
                     var comParent = args[2];
-                    // comp.removeSelf();
-                    // comParent.visible = true;//
                     //记录交易!!!
                     var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_2.text_from.text, comp_2.text_to.text, comp_2.send_amout.text, comp_2.coin_type.text, ret.txhash, //可以根据这个去查询更新
                     gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                     service.walletServcie.addDealItem(deal);
+                    comp_2.removeSelf();
+                    util.showView([2]);
                 }
                 else {
                     console.log("transfer submit error:", ret);

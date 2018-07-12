@@ -49,7 +49,7 @@ var view;
         };
         CreateWallet.prototype.goBack = function () {
             Laya.stage.removeChild(this.comp);
-            this.parentUI == null ? new view.EnterApp() : this.parentUI.visible = true;
+            this.parentUI == null ? new view.EnterApp() : this.parentUI.comp.visible = true;
         };
         CreateWallet.prototype.updateArgee = function () {
             this.comp.btn_create.disabled = !this.comp.check_argee.selected;

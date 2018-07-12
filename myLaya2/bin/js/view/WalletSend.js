@@ -61,6 +61,7 @@ var view;
                         this.comp.visible = false;
                         var sub = new view.WalletSendSubmit();
                         sub.setParenUI(this.comp);
+                        util.putView(this);
                     }
                     break;
                 case (2):

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":21,
-    "selecteID":20,
+    "selectedBox":18,
+    "selecteID":10,
     "props":{"width":750,"top":0,"sceneColor":"#F3F3F4","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -92,7 +92,7 @@
                 {
                     "x":30,
                     "type":"List",
-                    "props":{"var":"list_wallet","top":156,"spaceY":50,"selectEnable":true,"right":0,"repeatX":1,"left":0,"bottom":88},
+                    "props":{"var":"list_wallet","top":156,"spaceY":28,"selectEnable":true,"right":0,"repeatX":1,"left":0,"bottom":88},
                     "nodeParent":18,
                     "label":"List(list_wallet)",
                     "isOpen":true,
