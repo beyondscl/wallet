@@ -7,7 +7,8 @@ var config;
             return this.ethBalance + "module=account&action=balance&address=" + addr + "&apikey=" + this.apiKey;
         };
         prod.appKey = "wwwallet"; //用于存储标识用户是否已经有钱包
-        prod.appAccept = "appAccept"; //用于存储标识用户是否已经有钱包
+        prod.appAccept = "appAccept"; //用于存储标识用户是否已经同意协议
+        prod.appGuide = "appGuide"; //用于存储标识用户是否已经经过引导页面
         prod.appDealKey = "wwwalletDeal"; //
         prod.ethToUsd = "https://api.infura.io/v1/ticker/ethusd"; //获取eth与美元的汇率
         prod.ethBalance = "https://api.etherscan.io/api?"; //获取账户eth

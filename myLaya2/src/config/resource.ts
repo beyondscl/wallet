@@ -17,5 +17,7 @@ module config {
         public static WALLET_TRANSFER = 'WALLET_TRANSFER';
         public static WALLET_MAIN = 'WALLET_MAIN';
 
+        public static devLogPath = "res/json/dev_log.text";
+
     }
 }

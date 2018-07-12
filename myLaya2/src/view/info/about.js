@@ -34,6 +34,9 @@ var view;
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
                 this.comp.btn_team.on(Laya.Event.CLICK, this, this.btnClick, [2]);
                 this.comp.btn_service.on(Laya.Event.CLICK, this, this.btnClick, [3]);
+                this.comp.btn_log.on(Laya.Event.CLICK, this, this.btnClick, [4]);
+                this.comp.btn_guide.on(Laya.Event.CLICK, this, this.btnClick, [5]);
+                this.comp.btn_update.on(Laya.Event.CLICK, this, this.btnClick, [6]);
             };
             about.prototype.btnClick = function (index) {
                 if (1 == index) {
@@ -53,6 +56,21 @@ var view;
                     s.setData("1");
                     return;
                 }
+                if (4 == index) {
+                }
+                if (5 == index) {
+                    var wait = new view.alert.waiting("正在加载资源,请稍后...");
+                    wait.popup;
+                    var res = ["res/atlas/img/guide.atlas"];
+                    Laya.loader.load(res, null, Laya.Handler.create(this, this.guide, [wait]));
+                }
+                if (6 == index) {
+                }
+            };
+            about.prototype.guide = function (args) {
+                var wait = args;
+                wait.stop();
+                new guide().setParentUI(this);
             };
             return about;
         }(ui.info.aboutUI));

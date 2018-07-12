@@ -5,12 +5,13 @@ class guide {
     private guideUI: ui.GuideUI;
     private index: number = 0;
     private mouseStart = 0;
+    private parentUI: view.info.about;
 
     constructor() {
         this.init();
     }
 
-    protected init(): void {
+    private init(): void {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
 
@@ -18,11 +19,17 @@ class guide {
         this.guideUI.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.CLICK, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
-        this.guideUI.img_enter.on(Laya.Event.CLICK, this, function () {
-            Laya.stage.removeChild(this.guideUI);
-            util.setItemJson(config.prod.appGuide,[]);
+        this.guideUI.img_enter.on(Laya.Event.CLICK, this, this.go);
+    }
+
+    private go() {
+        this.guideUI.removeSelf();
+        util.setItemJson(config.prod.appGuide, []);
+        if (this.parentUI) {
+            this.parentUI.comp.visible = true;
+        } else {
             new EnterApp();
-        });
+        }
     }
 
     //functions
@@ -58,10 +65,14 @@ class guide {
                 break;
         }
     }
+
+    public setParentUI(p: view.info.about) {
+        this.parentUI = p;
+    }
 }
 
 //程序入口
-console.log("start init stage!!!!!!!!!!!",new Date().getTime())
+console.log("start init stage!!!!!!!!!!!", new Date().getTime())
 Laya.init(config.prod.appWidth, config.prod.appHeight, Laya.WebGL);
 Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
@@ -119,9 +130,9 @@ function beginLoad() {
     progressBar.sizeGrid = "5,5,5,5";
 
     var res: Array<string> =
-            ["res/atlas/img/main.atlas",
+        ["res/atlas/img/main.atlas",
             "res/atlas/img/coins.atlas"]
-    if(!acc||!gui){
+    if (!acc || !gui) {
         res.push("res/atlas/img/guide.atlas");
     }
     Laya.loader.load(res, null, Laya.Handler.create(this, onProcess, null, false));
@@ -152,13 +163,13 @@ function enter() {
     // laya.net.LocalStorage.clear();
     if (acc) {//已同意服务协议
         let walletNames = util.getItem(config.prod.appKey);
-        if (!walletNames||walletNames.length==0) {//没有钱包数据
-            if(gui){//非第一次进入
+        if (!walletNames || walletNames.length == 0) {//没有钱包数据
+            if (gui) {//非第一次进入
                 new EnterApp();
-            }else{
+            } else {
                 new guide();
             }
-        }else{
+        } else {
             enterMain();
         }
         console.log("end loading!")
@@ -166,11 +177,12 @@ function enter() {
         new view.info.Service();
     }
 }
-function enterMain(){
-        let walletNames = util.getItem(config.prod.appKey);
-        let wallet = util.getItem(walletNames[0]);
-        let walletMod = new mod.walletMod();
-        walletMod.setWallet(wallet);
-        mod.userMod.defWallet = walletMod;
-        new view.WalletMain().initQueryData(walletMod);
+
+function enterMain() {
+    let walletNames = util.getItem(config.prod.appKey);
+    let wallet = util.getItem(walletNames[0]);
+    let walletMod = new mod.walletMod();
+    walletMod.setWallet(wallet);
+    mod.userMod.defWallet = walletMod;
+    new view.WalletMain().initQueryData(walletMod);
 }
