@@ -15,6 +15,7 @@ var config;
         //view name
         resource.WALLET_TRANSFER = 'WALLET_TRANSFER';
         resource.WALLET_MAIN = 'WALLET_MAIN';
+        resource.devLogPath = "res/json/dev_log.text";
         return resource;
     }());
     config.resource = resource;

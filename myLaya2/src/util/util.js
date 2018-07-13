@@ -249,6 +249,79 @@ var util = /** @class */ (function () {
         }
         return false;
     };
+    //密码算法
+    util.getPassScore = function (pass) {
+        var score = 0;
+        //长度判断
+        var reg = /(?=.{12,})/;
+        if (reg.test(pass)) { //
+            score += 25;
+        }
+        //数字判断
+        reg = /\D/;
+        var _pass = pass.replace(reg, '');
+        if (_pass.length == 1) {
+            score += 10;
+        }
+        else if (_pass.length == 2) {
+            score += 20;
+        }
+        //字母判断
+        reg = /^[a-z]*$/; //全小写
+        if (reg.test(pass)) {
+            score += 10;
+        }
+        reg = /^[A-Z]*$/; //全大写
+        if (reg.test(pass)) {
+            score += 10;
+        }
+        reg = /(?=.*[a-z])(?=.*[A-Z])([^A-Za-z])/; //必须且仅仅包含大小写
+        if (reg.test(pass)) {
+            score += 20;
+        }
+        // + : >=1; * 任意次数;{n,} 大于等于n次 ; ? 0或者1次
+        // (?=.*\d) 匹配任意字符开头，包含一个数字
+        // ?:不捕获
+        //特殊字符判断
+        //前置后置表达式
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})/;
+        if (reg.test(pass)) {
+            score += 10;
+        }
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){2,})/;
+        if (reg.test(pass)) {
+            score += 25;
+        }
+        //其他
+        reg = /(?=.*[A-Za-z])(?=.*\d)/;
+        if (reg.test(pass)) { //字母数字
+            score += 2;
+        }
+        reg = /(?=.*[A-Za-z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if (reg.test(pass)) { //字母数字特殊
+            score += 3;
+        }
+        reg = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if (reg.test(pass)) { //大小写字母数字特殊字符
+            score += 5;
+        }
+        //返回等级
+        if (score < 35) {
+            return 0;
+        }
+        else if (score < 50) {
+            return 1;
+        }
+        else if (score < 70) {
+            return 2;
+        }
+        else if (score < 90) {
+            return 3;
+        }
+        else {
+            return 4;
+        }
+    };
     //用于钱包钱包备份相关
     //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数
     util._compStack = [];

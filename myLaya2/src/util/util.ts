@@ -114,7 +114,7 @@ class util {
         return config.prod.appWidth;
     }
 
-    //密码等级0-3 : 弱-强
+    //密码等级0-3 : 弱-极强
     public static getPassLevel(view: Laya.Box, level: number) {
         for (let i = view._childs.length - 1; i >= 0; i--) {
             let t: Laya.Image = view._childs[i];
@@ -281,5 +281,78 @@ class util {
             }
         }
         return false;
+    }
+
+    //密码算法
+    public static getPassScore(pass:string){
+        let score = 0;
+        //长度判断
+        let reg = /(?=.{12,})/;
+        if(reg.test(pass)){//
+            score += 25;
+        }
+        //数字判断
+        reg = /\D*/; 
+        let _pass = pass.replace(reg,'');
+        if(_pass.length==1){
+            score += 10;
+        }else if(_pass.length>1){
+            score += 20;
+        }
+        //字母判断
+        reg = /^[a-z]*$/;//全小写
+        if(reg.test(pass)){
+            score+=10;
+        }
+        reg = /^[A-Z]*$/;//全大写
+        if(reg.test(pass)){
+            score+=10;
+        }
+        //包含大小写
+        reg = /(?=.*[a-z])(?=.*[A-Z])/;
+        // let reg2 = /(?=\d)/;
+        // let reg3 = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if(reg.test(pass)){
+            score+=20;
+        }
+        // + : >=1; * 任意次数;{n,} 大于等于n次 ; ? 0或者1次
+        // (?=.*\d) 匹配任意字符开头，包含一个数字
+        // ?:不捕获
+        //特殊字符判断
+        //前置后置表达式
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})/;//1个
+        if(reg.test(pass)){
+            score+=10;
+        }
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){2,})/;//大于1个
+        if(reg.test(pass)){
+            score+=25;
+        }
+        //其他
+        reg = /(?=.*[A-Za-z])(?=.*\d)/;
+        if(reg.test(pass)){//包含不限于字母数字
+            score+=2;
+        }
+        reg = /(?=.*[A-Za-z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if(reg.test(pass)){//包含不限于字母数字特殊
+            score+=3;
+        }
+        reg = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if(reg.test(pass)){//包含不限于大小写字母数字特殊字符
+            score+=5;
+        }
+
+        //返回等级
+        if(score<35){
+            return 0;
+        }else if(score<50){
+            return 1;
+        }else if(score<70){
+            return 2;
+        }else if(score<90){
+            return 3;
+        }else{
+            return 4;
+        }
     }
 }

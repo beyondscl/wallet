@@ -34,6 +34,9 @@ var view;
                     this.comp.text.height = this.comp.text.height + 130;
                 }
             };
+            Service.prototype.setTextData = function (str) {
+                this.comp.text.text = str;
+            };
             Service.prototype.setParetUI = function (parentUI) {
                 this.parentUI = parentUI;
             };

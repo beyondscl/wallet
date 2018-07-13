@@ -111,20 +111,27 @@ module view {
         }
 
         private checkPass() {
-
-            if (this.comp.text_pass.text.length <= 5) {
+            this.infoPassStrong();
+            let pass = this.comp.text_pass.text;
+            if(pass.length==0){
                 this.comp.lab_pass.text = "不少于8个字符,建议混合大小写字母，数字，特殊字符";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
-            if (this.comp.text_pass.text.length < 8) {
+            if (util.getPassScore(pass)==0) {
                 this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
-            this.comp.lab_pass.visible = false;
-            this.infoPassStrong();
-            return true;
+            if (this.comp.text_pass.text.length >= 8) {
+                if (util.getPassScore(pass)==0) {
+                    this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
+                    this.comp.lab_pass.visible = true;
+                }else{
+                    this.comp.lab_pass.visible = false;
+                }
+                return true;
+            }
         }
 
         private checkPassConf() {
@@ -138,28 +145,37 @@ module view {
         }
 
         private infoPassStrong() {
-            this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
-
             let pass = this.comp.text_pass.text.trim();
+
+            this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
+            if (pass.length < 8) {
+                this.comp.lab_words.color = 'red';
+                return;
+            }else{
+                this.comp.lab_words.color = 'green';
+            }
+
             this.comp.lab_pass_level.visible = true;
-            let middle = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])';//大小写字母数字:中
-            let strong = '(?=^.{8,20}$)(?=(?:.*?\d))(?=.*[a-z])(?=.*[A-Z])(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})';//大小写字母数字特殊符号
+
             if (pass.length == 0) {
                 util.getPassLevel(this.comp.box_pass_level, -1);
                 return;
             }
-            if (new RegExp(strong).test(pass)) {
-                this.comp.lab_pass_level.text = '强';
-                util.getPassLevel(this.comp.box_pass_level, 2);
-                if (pass.length > 12) {
-                    this.comp.lab_pass_level.text = '极强';
-                    util.getPassLevel(this.comp.box_pass_level, 3);
-                }
+            if (util.getPassScore(pass)==4) {
+                this.comp.lab_pass_level.text = '非常安全';
+                util.getPassLevel(this.comp.box_pass_level, 3);
                 this.comp.lab_pass_level.color = 'green';
                 this.comp.lab_pass.visible = false;
                 return;
             }
-            if (new RegExp(middle).test(pass)) {
+            if (util.getPassScore(pass)==3) {
+                this.comp.lab_pass_level.text = '强';
+                util.getPassLevel(this.comp.box_pass_level, 2);
+                this.comp.lab_pass_level.color = 'green';
+                this.comp.lab_pass.visible = false;
+                return;
+            }
+            if (util.getPassScore(pass)==2) {
                 util.getPassLevel(this.comp.box_pass_level, 1);
                 this.comp.lab_pass_level.text = '一般';
                 this.comp.lab_pass_level.color = '#5eb0c2';
@@ -169,8 +185,6 @@ module view {
             util.getPassLevel(this.comp.box_pass_level, 0);
             this.comp.lab_pass_level.text = '弱';
             this.comp.lab_pass_level.color = 'red';
-            this.comp.lab_pass.visible = true;
-
             this.comp.lab_pass.visible = true;
         }
 
