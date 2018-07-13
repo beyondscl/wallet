@@ -28,9 +28,9 @@ module view {
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
 
-            this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
+            // this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
-            this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
+            // this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
 
             this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.btn_click, [1]);//服务隐私条款
         }
@@ -89,21 +89,30 @@ module view {
         }
 
         private checkArgs(): boolean {
-            if (this.checkWname() && this.checkPass() && this.checkPassConf()) {
+            if (this.checkWname() &&this.alertPaa()&& this.checkPass()&& this.checkPassConf()) {
                 return true;
             }
             return false;
         }
-
+        private alertPaa(){
+            let pass = this.comp.text_pass.text;
+            if(pass.length<8){
+                new view.alert.Warn("输入有误","请输入不少于8位字符的密码").popup();
+                return false;
+            }
+            return true;
+        }
         private checkWname() {
             if (this.comp.text_wall_name.text.length < 1 || this.comp.text_wall_name.text.length > 12) {
-                this.comp.lab_warn_wName.text = "钱包名称长度1-12";
-                this.comp.lab_warn_wName.visible = true;
+                // this.comp.lab_warn_wName.text = "钱包名称长度1-12";
+                // this.comp.lab_warn_wName.visible = true;
+                new view.alert.Warn("输入有误","钱包名称长度1-12").popup();
                 return false;
             }
             if (service.walletServcie.checkDupWal(this.comp.text_wall_name.text)) {
-                this.comp.lab_warn_wName.text = "该钱包名称已经存在";
-                this.comp.lab_warn_wName.visible = true;
+                // this.comp.lab_warn_wName.text = "该钱包名称已经存在";
+                // this.comp.lab_warn_wName.visible = true;
+                new view.alert.Warn("输入有误","钱包名称已经存在").popup();
                 return false;
             }
             this.comp.lab_warn_wName.visible = false;
@@ -137,8 +146,9 @@ module view {
 
         private checkPassConf() {
             if (this.comp.text_pass_conf.text != this.comp.text_pass.text) {
-                this.comp.lab_pass_conf.text = "两次密码不一致";
-                this.comp.lab_pass_conf.visible = true;
+                new view.alert.Warn("输入有误","输入密码不一致，请重新输入").popup();
+                // this.comp.lab_pass_conf.text = "两次密码不一致";
+                // this.comp.lab_pass_conf.visible = true;
                 return false;
             }
             this.comp.lab_pass_conf.visible = false;

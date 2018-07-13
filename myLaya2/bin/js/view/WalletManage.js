@@ -15,6 +15,7 @@ var view;
         __extends(WalletManage, _super);
         function WalletManage() {
             var _this = _super.call(this) || this;
+            _this.rended = [];
             _this.init();
             _this.initEvent();
             return _this;
@@ -24,9 +25,8 @@ var view;
         };
         WalletManage.prototype.setData = function (data) {
             this.comp.list_wallet.array = data;
-            this.comp.list_wallet.x = 1;
-            this.comp.list_wallet.y = data.length;
             this.comp.list_wallet.vScrollBarSkin = "";
+            this.comp.list_wallet.repeatY = data.length;
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             // this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         };
@@ -68,24 +68,22 @@ var view;
             var wAddr = cell.getChildByName('lab_wAddr');
             wAddr.text = util.getAddr(data.wAddr);
             var wTotal = cell.getChildByName('lab_wTotal');
-            // wTotal.text = '0 ether';//test
+            if (!util.isContain(this.rended, wAddr.text)) {
+                service.walletServcie.getWalletMoney(data.wName, wTotal);
+                this.rended.push(wAddr.text);
+            }
         };
         WalletManage.prototype.initWalletTotal = function (wName) {
             var coins = service.walletServcie.getWallet(wName).wCoins;
         };
-        // private initBalance(cName: string) {
-        //     let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
-        //     if (coinMod.abi) {//查询token
-        //         service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
-        //     } else {//eth
-        //         service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
-        //     }
-        // }
         WalletManage.prototype.onSelect = function (index) {
             this.comp.visible = false;
             var wd = new view.WalletDetail();
-            wd.setData(this.comp.list_wallet.array[index]);
+            var walletMod = this.comp.list_wallet.array[index];
+            walletMod.wAmount = this.comp.list_wallet.cells[index].getChildByName("lab_wTotal").text;
+            wd.setData(walletMod);
             wd.setParetUI(this.comp);
+            util.putView(this);
         };
         return WalletManage;
     }(ui.WalletManageUI));

@@ -97,13 +97,18 @@ var util = /** @class */ (function () {
         }
         return config.prod.appWidth;
     };
-    //密码等级0-3 : 弱-强
+    //密码等级0-3 : 弱-极强
     util.getPassLevel = function (view, level) {
         for (var i = view._childs.length - 1; i >= 0; i--) {
             var t = view._childs[i];
             var m = [3, 2, 1, 0];
             if (m[i] <= level) {
-                t.skin = config.resource.passLevelS;
+                if (level == 0) {
+                    t.skin = config.resource.passLeveSW;
+                }
+                else {
+                    t.skin = config.resource.passLevelS;
+                }
             }
             else {
                 t.skin = config.resource.passLevelW;
@@ -253,17 +258,17 @@ var util = /** @class */ (function () {
     util.getPassScore = function (pass) {
         var score = 0;
         //长度判断
-        var reg = /(?=.{12,})/;
+        var reg = /(?=.{8,})/;
         if (reg.test(pass)) { //
             score += 25;
         }
         //数字判断
-        reg = /\D/;
+        reg = /\D*/;
         var _pass = pass.replace(reg, '');
         if (_pass.length == 1) {
             score += 10;
         }
-        else if (_pass.length == 2) {
+        else if (_pass.length > 1) {
             score += 20;
         }
         //字母判断
@@ -275,7 +280,10 @@ var util = /** @class */ (function () {
         if (reg.test(pass)) {
             score += 10;
         }
-        reg = /(?=.*[a-z])(?=.*[A-Z])([^A-Za-z])/; //必须且仅仅包含大小写
+        //包含大小写
+        reg = /(?=.*[a-z])(?=.*[A-Z])/;
+        // let reg2 = /(?=\d)/;
+        // let reg3 = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
         if (reg.test(pass)) {
             score += 20;
         }
@@ -284,25 +292,25 @@ var util = /** @class */ (function () {
         // ?:不捕获
         //特殊字符判断
         //前置后置表达式
-        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})/;
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})/; //1个
         if (reg.test(pass)) {
             score += 10;
         }
-        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){2,})/;
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){2,})/; //大于1个
         if (reg.test(pass)) {
             score += 25;
         }
         //其他
         reg = /(?=.*[A-Za-z])(?=.*\d)/;
-        if (reg.test(pass)) { //字母数字
+        if (reg.test(pass)) { //包含不限于字母数字
             score += 2;
         }
         reg = /(?=.*[A-Za-z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
-        if (reg.test(pass)) { //字母数字特殊
+        if (reg.test(pass)) { //包含不限于字母数字特殊
             score += 3;
         }
         reg = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
-        if (reg.test(pass)) { //大小写字母数字特殊字符
+        if (reg.test(pass)) { //包含不限于大小写字母数字特殊字符
             score += 5;
         }
         //返回等级
@@ -321,6 +329,14 @@ var util = /** @class */ (function () {
         else {
             return 4;
         }
+    };
+    // wei 转人民币
+    // 其他的要转。以后再做
+    util.coinToRmb = function (amount, coin) {
+        if (coin == 'ETH') {
+            return (amount / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(2);
+        }
+        return 0;
     };
     //用于钱包钱包备份相关
     //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数

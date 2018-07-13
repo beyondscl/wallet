@@ -27,6 +27,13 @@ var view;
             EnterPass.prototype.setCallBack = function (func) {
                 this.callBack = func;
             };
+            //转账需要显示地址与金额
+            EnterPass.prototype.setData = function (addr, amount) {
+                this.addr.text = addr;
+                this.addr.visible = true;
+                this.amount.text = amount;
+                this.amount.visible = true;
+            };
             //必须设置
             EnterPass.prototype.setWalName = function (wName) {
                 this.wName = wName;
@@ -37,6 +44,7 @@ var view;
             };
             EnterPass.prototype.initEvent = function () {
                 this.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+                this.btn_cancel.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             };
             EnterPass.prototype.btnClick = function (index) {
                 if (1 == index) {
@@ -62,7 +70,11 @@ var view;
                     else {
                         this.warn.visible = false;
                     }
+                    this.btn_submit.disabled = true;
                     this.callBack(pass, this.parentUI);
+                    this.close();
+                }
+                if (3 == index) {
                     this.close();
                 }
             };

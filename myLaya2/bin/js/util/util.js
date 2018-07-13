@@ -1,6 +1,12 @@
 var util = /** @class */ (function () {
     function util() {
     }
+    util.setMainView = function (v) {
+        this._mainView = v;
+    };
+    util.getMainView = function () {
+        return this._mainView;
+    };
     util.getAddr = function (addr) {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     };
@@ -91,13 +97,18 @@ var util = /** @class */ (function () {
         }
         return config.prod.appWidth;
     };
-    //密码等级0-3 : 弱-强
+    //密码等级0-3 : 弱-极强
     util.getPassLevel = function (view, level) {
         for (var i = view._childs.length - 1; i >= 0; i--) {
             var t = view._childs[i];
             var m = [3, 2, 1, 0];
             if (m[i] <= level) {
-                t.skin = config.resource.passLevelS;
+                if (level == 0) {
+                    t.skin = config.resource.passLeveSW;
+                }
+                else {
+                    t.skin = config.resource.passLevelS;
+                }
             }
             else {
                 t.skin = config.resource.passLevelW;
@@ -191,6 +202,20 @@ var util = /** @class */ (function () {
     util.clearView = function () {
         this._viewStack = [];
     };
+    util.deleteView = function () {
+        console.log("deleteView", this._viewStack);
+        for (var i = 1; i < this._viewStack.length; i++) {
+            try {
+                if (this._viewStack[i] && this._viewStack[i].comp) {
+                    this._viewStack[i].comp.removeSelf();
+                    console.log("deleteView_:", this._viewStack[i].comp);
+                }
+            }
+            catch (error) {
+            }
+        }
+        this._viewStack = [];
+    };
     util.putView = function (v) {
         this._viewStack.push(v);
     };
@@ -206,10 +231,15 @@ var util = /** @class */ (function () {
         if (this._viewStack[0]) {
             var t = this._viewStack[0];
             var type = args[0];
-            if (type && 2 == type && t) { //1:转账成功
+            if (type && 2 == type && t) { //转账成功
                 var v = this._viewStack[0];
                 v.comp.visible = true;
                 v.refresh();
+            }
+            else if (type && 3 == type && t) { //删除钱包成功
+                var v = this._viewStack[0];
+                v.setData(service.walletServcie.getWallets());
+                v.comp.visible = true;
             }
         }
         this._viewStack = [];
@@ -223,6 +253,90 @@ var util = /** @class */ (function () {
             }
         }
         return false;
+    };
+    //密码算法
+    util.getPassScore = function (pass) {
+        var score = 0;
+        //长度判断
+        var reg = /(?=.{8,})/;
+        if (reg.test(pass)) { //
+            score += 25;
+        }
+        //数字判断
+        reg = /\D*/;
+        var _pass = pass.replace(reg, '');
+        if (_pass.length == 1) {
+            score += 10;
+        }
+        else if (_pass.length > 1) {
+            score += 20;
+        }
+        //字母判断
+        reg = /^[a-z]*$/; //全小写
+        if (reg.test(pass)) {
+            score += 10;
+        }
+        reg = /^[A-Z]*$/; //全大写
+        if (reg.test(pass)) {
+            score += 10;
+        }
+        //包含大小写
+        reg = /(?=.*[a-z])(?=.*[A-Z])/;
+        // let reg2 = /(?=\d)/;
+        // let reg3 = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if (reg.test(pass)) {
+            score += 20;
+        }
+        // + : >=1; * 任意次数;{n,} 大于等于n次 ; ? 0或者1次
+        // (?=.*\d) 匹配任意字符开头，包含一个数字
+        // ?:不捕获
+        //特殊字符判断
+        //前置后置表达式
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})/; //1个
+        if (reg.test(pass)) {
+            score += 10;
+        }
+        reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){2,})/; //大于1个
+        if (reg.test(pass)) {
+            score += 25;
+        }
+        //其他
+        reg = /(?=.*[A-Za-z])(?=.*\d)/;
+        if (reg.test(pass)) { //包含不限于字母数字
+            score += 2;
+        }
+        reg = /(?=.*[A-Za-z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if (reg.test(pass)) { //包含不限于字母数字特殊
+            score += 3;
+        }
+        reg = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
+        if (reg.test(pass)) { //包含不限于大小写字母数字特殊字符
+            score += 5;
+        }
+        //返回等级
+        if (score < 35) {
+            return 0;
+        }
+        else if (score < 50) {
+            return 1;
+        }
+        else if (score < 70) {
+            return 2;
+        }
+        else if (score < 90) {
+            return 3;
+        }
+        else {
+            return 4;
+        }
+    };
+    // wei 转人民币
+    // 其他的要转。以后再做
+    util.coinToRmb = function (amount, coin) {
+        if (coin == 'ETH') {
+            return (amount / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(2);
+        }
+        return 0;
     };
     //用于钱包钱包备份相关
     //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数

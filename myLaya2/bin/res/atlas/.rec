@@ -39,7 +39,7 @@ D img
 D load
 P 9E4DD730 progress$bar.png
 P 3FD78E12 progress.png
-P 6BDCE838 start.png
+P 7804553B start.png
 D template
 D img/coins
 R 41CDC3C2 .rec
@@ -53,6 +53,7 @@ P 9B85DA0B WWEC.png
 D img/guide
 S 58E53357 bg.png
 P B3021ACE ljjr.png
+P 4BD11040 red.png
 P 48D82038 tu16.png
 P 43295155 ty16_1.png
 P 388CC58D ydy_1.png
@@ -104,6 +105,7 @@ P D04FE20F qb@2x.png
 P 4D16FC20 qianbaoicon@2x.png
 P 01BFD820 radio.png
 P 7326DE70 radio2.png
+P 4BD11040 red.png
 P E1BEA108 search@2x.png
 P 8B831CFB Stroke 2@2x.png
 P D02E26B7 sys@2x.png

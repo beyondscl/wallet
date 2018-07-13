@@ -29,11 +29,15 @@ var view;
             about.prototype.init = function () {
                 this.comp = new ui.info.aboutUI();
                 Laya.stage.addChild(this.comp);
+                this.comp.lab_version.text = "当前版本：" + Laya.Browser.window.main_config[Laya.Browser.window.env].VERSION;
             };
             about.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
                 this.comp.btn_team.on(Laya.Event.CLICK, this, this.btnClick, [2]);
                 this.comp.btn_service.on(Laya.Event.CLICK, this, this.btnClick, [3]);
+                this.comp.btn_log.on(Laya.Event.CLICK, this, this.btnClick, [4]);
+                this.comp.btn_guide.on(Laya.Event.CLICK, this, this.btnClick, [5]);
+                this.comp.btn_update.on(Laya.Event.CLICK, this, this.btnClick, [6]);
             };
             about.prototype.btnClick = function (index) {
                 if (1 == index) {
@@ -53,6 +57,30 @@ var view;
                     s.setData("1");
                     return;
                 }
+                if (4 == index) {
+                    Laya.loader.load(config.resource.devLogPath, Laya.Handler.create(this, this.devLog), null, Laya.Loader.TEXT);
+                }
+                if (5 == index) {
+                    var wait = new view.alert.waiting("正在加载资源...");
+                    wait.popup();
+                    var res = ["res/atlas/img/guide.atlas"];
+                    Laya.loader.load(res, Laya.Handler.create(this, this.guide, [wait], true));
+                }
+                if (6 == index) {
+                    new view.alert.Warn("已是最新版本", "").popup();
+                }
+            };
+            about.prototype.guide = function (args) {
+                var wait = args;
+                wait.stop();
+                new guide().setParentUI(this);
+            };
+            about.prototype.devLog = function () {
+                var json = Laya.loader.getRes(config.resource.devLogPath);
+                var s = new info.Service();
+                s.setParetUI(this.comp);
+                s.setData("1");
+                s.setTextData(json);
             };
             return about;
         }(ui.info.aboutUI));

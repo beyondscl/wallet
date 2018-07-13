@@ -18,6 +18,13 @@ module view.alert {
         public setCallBack(func: any) {
             this.callBack = func;
         }
+        //转账需要显示地址与金额
+        public setData(addr,amount){
+            this.addr.text = addr;
+            this.addr.visible = true;
+            this.amount.text = amount;
+            this.amount.visible = true;
+        }
 
         //必须设置
         public setWalName(wName: string) {
@@ -31,6 +38,7 @@ module view.alert {
 
         private initEvent() {
             this.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+            this.btn_cancel.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         }
 
         private btnClick(index: number) {
@@ -55,7 +63,11 @@ module view.alert {
                 }else{
                     this.warn.visible = false;
                 }
+                this.btn_submit.disabled = true;
                 this.callBack(pass, this.parentUI);
+                this.close()
+            }
+            if (3 == index) {
                 this.close()
             }
         }

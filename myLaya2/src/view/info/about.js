@@ -61,7 +61,7 @@ var view;
                     Laya.loader.load(config.resource.devLogPath, Laya.Handler.create(this, this.devLog), null, Laya.Loader.TEXT);
                 }
                 if (5 == index) {
-                    var wait = new view.alert.waiting("正在加载资源,请稍后...");
+                    var wait = new view.alert.waiting("正在加载资源...");
                     wait.popup();
                     var res = ["res/atlas/img/guide.atlas"];
                     Laya.loader.load(res, Laya.Handler.create(this, this.guide, [wait], true));

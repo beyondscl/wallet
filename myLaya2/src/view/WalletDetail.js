@@ -23,7 +23,7 @@ var view;
             this.data = data;
             this.comp.lab_wName.text = data.wName;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_total.text = '0.00 ¥';
+            this.comp.lab_total.text = data.wAmount + ' ¥';
             this.comp.img_wImg.skin = config.resource.walletImg;
             this.comp.text_wName.text = data.wName;
             if (!data.wZjc) {

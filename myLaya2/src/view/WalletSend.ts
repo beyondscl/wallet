@@ -89,6 +89,11 @@ module view {
                 this.comp.warn_amount.visible = true;
                 return false;
             }
+            if (Number(amount) <=0) {
+                this.comp.warn_amount.text = "转账金额必须大于0";
+                this.comp.warn_amount.visible = true;
+                return false;
+            }
             this.comp.warn_amount.visible = false;
             return true;
         }

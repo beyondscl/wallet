@@ -4,6 +4,9 @@ var mod;
     var walletMod = /** @class */ (function () {
         function walletMod() {
             this.wSkin = config.resource.walletImg;
+            //该钱包的总金额rmb，用于管理钱包显示,在你确认有值的情况下获取
+            this.wAmount = 0;
+            this.wCoinAmount = [];
         }
         //初始化
         walletMod.prototype.init = function (wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {

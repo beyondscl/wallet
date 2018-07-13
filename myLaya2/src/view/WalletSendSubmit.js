@@ -72,6 +72,7 @@ var view;
                     var enterpass = new view.alert.EnterPass();
                     enterpass.setParentUI(this.comp);
                     enterpass.setCallBack(this.enterPassCb);
+                    enterpass.setData("To: " + util.getAddr(this.comp.text_to.text), this.comp.send_amout.text + " " + this.comp.coin_type.text);
                     enterpass.popup();
                     break;
                 default:
@@ -85,7 +86,7 @@ var view;
             var toAddr = comp.text_to.text;
             var value = comp.send_amout.text;
             var gasPrice = comp.sli_gas.value;
-            var pom = new view.alert.waiting("正在处理交易，请稍后");
+            var pom = new view.alert.waiting("正在处理交易");
             pom.popup();
             var coins = service.walletServcie.getAllCoins();
             for (var i = 0; i < coins.length; i++) {
@@ -159,7 +160,9 @@ var view;
             this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type.text;
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
             this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type.text;
-            this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
+            if (!util.isContain(config.prod.expCoins, this.comp.coin_type.text)) {
+                this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
+            }
         };
         return WalletSendSubmit;
     }(ui.WalletSendSubmitUI));

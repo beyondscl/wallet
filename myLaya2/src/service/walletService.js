@@ -531,6 +531,31 @@ var service;
             }
             return false;
         };
+        //-----------------------------------------------
+        //查询钱包总金额，是否缓存处理?
+        //过滤的连总数都不需要查
+        walletServcie.getWalletMoney = function (wName, lab) {
+            var wallet = this.getWallet(wName);
+            var coins = wallet.wCoins;
+            if (!coins || coins.length == 0) {
+                return 0;
+            }
+            var t = 0;
+            for (var i = 0; i < coins.length; i++) {
+                if (util.isContain(config.prod.expCoins, coins[i])) {
+                    continue;
+                }
+                this.getBalance(wallet.wAddr, function (ret, args) {
+                    var lab = args[0];
+                    var c = args[1];
+                    if (ret.retCode == 0) {
+                        lab.text = util.coinToRmb(ret.ret.toNumber(), c) + '';
+                        console.log(c, lab.text);
+                    }
+                }, [lab, coins[i]]);
+            }
+            return t;
+        };
         return walletServcie;
     }());
     service.walletServcie = walletServcie;

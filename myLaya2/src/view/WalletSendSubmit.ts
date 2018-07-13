@@ -69,6 +69,7 @@ module view {
                     let enterpass = new view.alert.EnterPass();
                     enterpass.setParentUI(this.comp);
                     enterpass.setCallBack(this.enterPassCb);
+                    enterpass.setData("To: "+util.getAddr(this.comp.text_to.text),this.comp.send_amout.text+" "+this.comp.coin_type.text);
                     enterpass.popup();
                     break;
                 default:
@@ -84,7 +85,7 @@ module view {
             let value = comp.send_amout.text;
             let gasPrice = comp.sli_gas.value;
 
-            let pom = new alert.waiting("正在处理交易，请稍后");
+            let pom = new alert.waiting("正在处理交易");
             pom.popup();
             let coins: Array<mod.coinItemMod> = service.walletServcie.getAllCoins();
             for (let i = 0; i < coins.length; i++) {
@@ -176,7 +177,9 @@ module view {
             this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type.text;
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
             this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type.text;
-            this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
+            if(!util.isContain(config.prod.expCoins,this.comp.coin_type.text)){
+                this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
+            }
         }
     }
 }

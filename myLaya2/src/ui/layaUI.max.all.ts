@@ -8,31 +8,36 @@ module ui.alert {
 		public btn_sub:Laya.Button;
 		public sub_title:Laya.TextArea;
 
-        public static  uiView:any ={"type":"Dialog","props":{"width":690,"height":648},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"y":182,"var":"title","text":"备份成功","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true,"align":"center"}},{"type":"Label","props":{"y":254,"visible":false,"text":"是否删除助记词","height":56,"fontSize":32,"color":"#163853","centerX":0,"bold":false,"align":"center"}},{"type":"Button","props":{"width":345,"var":"btn_cancel","stateNum":1,"skin":"img/main/img_blue1.png","left":0,"labelSize":32,"label":"不","height":80,"bottom":0}},{"type":"Button","props":{"width":345,"var":"btn_sub","stateNum":1,"skin":"img/main/img_blue2.png","right":0,"labelSize":32,"label":"是","height":80,"bottom":0}},{"type":"TextArea","props":{"y":254,"width":594,"var":"sub_title","text":"你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？","height":150,"fontSize":32,"editable":false,"centerX":0,"align":"left"}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"y":0,"x":0,"width":750,"height":1334},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0,"alpha":0}},{"type":"Box","props":{"y":467,"x":100,"width":550,"height":400,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"y":47,"var":"title","text":"备份成功","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true,"align":"center"}},{"type":"Label","props":{"y":254,"visible":false,"text":"是否删除助记词","height":56,"fontSize":32,"color":"#163853","centerX":0,"bold":false,"align":"center"}},{"type":"Button","props":{"width":275,"var":"btn_cancel","stateNum":1,"skin":"img/main/img_blue1.png","left":0,"labelSize":32,"label":"不","height":80,"bottom":0}},{"type":"Button","props":{"width":275,"var":"btn_sub","stateNum":1,"skin":"img/main/img_blue2.png","right":0,"labelSize":32,"label":"是","height":80,"bottom":0}},{"type":"TextArea","props":{"var":"sub_title","text":"你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？","right":10,"left":10,"height":150,"fontSize":32,"editable":false,"centerY":0,"align":"left"}}]}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.alert.confirmUI.uiView);
+
         }
+
     }
 }
 
 module ui.alert {
     export class EnterPassUI extends Dialog {
 		public text_pass:Laya.TextInput;
+		public btn_cancel:Laya.Button;
 		public btn_submit:Laya.Button;
 		public addr:Laya.Label;
 		public amount:Laya.Label;
 		public warn:Laya.Label;
 
-        public static  uiView:any ={"type":"Dialog","props":{"width":690,"layoutEnabled":true,"height":500},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"layoutEnabled":true,"bottom":0},"child":[{"type":"Image","props":{"width":690,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0}},{"type":"Label","props":{"valign":"middle","top":50,"text":"请输入钱包密码","right":0,"left":0,"height":44,"fontSize":32,"color":"#163853","align":"center"}},{"type":"TextInput","props":{"width":560,"var":"text_pass","type":"password","promptColor":"#B0BBC4","prompt":"请输入密码","layoutEnabled":true,"height":88,"fontSize":32,"color":"#B0BBC4","centerY":0,"centerX":0,"borderColor":"#c0c0c0","bgColor":"#ffffff","align":"left"}},{"type":"Button","props":{"var":"btn_submit","stateNum":2,"skin":"img/main/img_blue2.png","right":0,"left":0,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"确定","height":88,"bottom":0}},{"type":"Label","props":{"visible":false,"var":"addr","valign":"middle","top":120,"text":"To:0x5da6284904kskgkfe42lkdkl2940020r jfkell","right":0,"left":0,"height":44,"fontSize":32,"color":"#163853","align":"center"}},{"type":"Label","props":{"visible":false,"var":"amount","valign":"middle","top":252,"text":"0.0098 ETH","right":0,"left":1,"height":44,"fontSize":32,"color":"#598ADA","align":"center"}},{"type":"Label","props":{"y":300,"width":560,"visible":false,"var":"warn","valign":"middle","text":"密码不正确，请重新输入","height":40,"fontSize":20,"color":"#ff0400","centerX":0,"align":"right"}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"y":0,"x":0,"width":750,"layoutEnabled":true,"height":1334},"child":[{"type":"Image","props":{"y":0,"x":0,"width":690,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0,"alpha":0}},{"type":"Box","props":{"width":550,"layoutEnabled":true,"height":400,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"width":690,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0}},{"type":"Label","props":{"valign":"middle","top":50,"text":"请输入钱包密码","right":0,"left":0,"height":44,"fontSize":32,"color":"#163853","bold":true,"align":"center"}},{"type":"TextInput","props":{"var":"text_pass","type":"password","right":30,"promptColor":"#B0BBC4","prompt":"请输入密码","left":30,"layoutEnabled":true,"height":60,"fontSize":32,"color":"#B0BBC4","centerY":35,"borderColor":"#c0c0c0","bgColor":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":0,"width":275,"var":"btn_cancel","stateNum":2,"skin":"img/main/img_blue1.png","left":0,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"取消","height":75,"bottom":0}},{"type":"Button","props":{"var":"btn_submit","stateNum":2,"skin":"img/main/img_blue2.png","right":0,"left":275,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"确定","height":75,"bottom":0}},{"type":"Label","props":{"visible":false,"var":"addr","valign":"middle","top":105,"text":"To:000000...000000","height":44,"fontSize":32,"color":"#687076","centerX":0,"align":"center"}},{"type":"Label","props":{"visible":false,"var":"amount","valign":"middle","top":152,"text":"0.0098 ETH","height":44,"fontSize":32,"color":"#598ADA","centerX":0,"align":"center"}},{"type":"Label","props":{"y":268,"visible":false,"var":"warn","valign":"middle","text":"密码不正确，请重新输入","right":30,"left":30,"height":30,"fontSize":20,"color":"#ff0400","align":"right"}}]}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.alert.EnterPassUI.uiView);
+
         }
+
     }
 }
 
@@ -69,13 +74,15 @@ module ui.alert {
 		public img_wait:Laya.Image;
 		public wait_msg:Laya.Label;
 
-        public static  uiView:any ={"type":"Dialog","props":{"width":750,"height":1334},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Image","props":{"width":692,"skin":"img/main/white_radius.png","height":628,"centerY":0,"centerX":0,"alpha":0.6}},{"type":"Image","props":{"y":667,"x":375,"width":192,"var":"img_wait","skin":"img/main/jiazai@3x.png","height":192,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5,"alpha":1}},{"type":"Label","props":{"y":788,"var":"wait_msg","valign":"middle","text":"正在加载","right":0,"left":0,"height":50,"fontSize":32,"color":"#163853","alpha":1,"align":"center"}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"y":0,"x":0,"width":750,"height":1334},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0,"alpha":0}},{"type":"Box","props":{"width":200,"height":200,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"width":550,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"height":400,"bottom":0,"alpha":0.6}},{"type":"Image","props":{"width":90,"var":"img_wait","skin":"img/main/jiazai@3x.png","height":90,"centerY":-16,"centerX":0,"anchorY":0.5,"anchorX":0.5,"alpha":1}},{"type":"Label","props":{"var":"wait_msg","valign":"middle","text":"正在加载...","height":50,"fontSize":24,"color":"#163853","centerX":0,"bottom":6,"alpha":1,"align":"center"}}]}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.alert.waitingUI.uiView);
+
         }
+
     }
 }
 
@@ -85,13 +92,15 @@ module ui.alert {
 		public warn_msg:Laya.Label;
 		public btn_know:Laya.Button;
 
-        public static  uiView:any ={"type":"Dialog","props":{"width":690,"height":648},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"y":182,"var":"warn_title","text":"备份失败","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true}},{"type":"Label","props":{"y":254,"var":"warn_msg","text":"请检查你的助记词","height":56,"fontSize":32,"color":"#163853","centerX":0,"bold":false}},{"type":"Button","props":{"y":458,"x":141,"width":408,"var":"btn_know","stateNum":1,"skin":"img/main/anliu@2x.png","labelSize":32,"label":"我知道了","height":80,"centerX":0}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"y":0,"x":0,"width":750,"height":1334},"child":[{"type":"Image","props":{"y":10,"x":10,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0,"alpha":0}},{"type":"Box","props":{"width":550,"height":400,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"y":60,"var":"warn_title","text":"备份失败","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true}},{"type":"Label","props":{"var":"warn_msg","valign":"middle","text":"请检查你的助记词","height":56,"fontSize":32,"color":"#163853","centerY":0,"centerX":0,"bold":false,"align":"center"}},{"type":"Button","props":{"var":"btn_know","stateNum":1,"skin":"img/main/anliu@2x.png","right":-1,"left":0,"labelSize":32,"label":"我知道了","height":80,"bottom":0}}]}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.alert.WarnUI.uiView);
+
         }
+
     }
 }
 
@@ -99,13 +108,15 @@ module ui.alert {
     export class WarnZjcUI extends Dialog {
 		public btn_know:Laya.Button;
 
-        public static  uiView:any ={"type":"Dialog","props":{"width":690,"height":648},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":44,"width":112,"skin":"img/main/camera@2x.png","height":112,"centerX":0}},{"type":"Label","props":{"y":182,"text":"请勿截图","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true}},{"type":"Label","props":{"y":278,"x":47,"valign":"middle","text":"下来助记词并存放在安全的地方。","height":44,"fontSize":24,"color":"#687076","align":"left"}},{"type":"Label","props":{"y":232,"valign":"middle","text":"如果有人获取你的助记词将直接获取你的资产！请抄写","right":50,"left":50,"height":44,"fontSize":24,"color":"#687076","align":"left"}},{"type":"Button","props":{"y":458,"width":408,"var":"btn_know","stateNum":1,"skin":"img/main/anliu@2x.png","labelSize":32,"label":"我知道了","height":80,"centerX":0}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"y":0,"x":0,"width":750,"height":1334},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0,"alpha":0}},{"type":"Box","props":{"width":550,"height":400,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":16,"width":112,"skin":"img/main/camera@2x.png","height":112,"centerX":0}},{"type":"Label","props":{"y":134,"text":"请勿截图","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true}},{"type":"Label","props":{"y":237,"valign":"middle","text":"请抄写下来助记词并存放在安全的地方。","right":20,"left":20,"height":44,"fontSize":24,"color":"#687076","align":"left"}},{"type":"Label","props":{"y":192,"valign":"middle","text":"如果有人获取你的助记词将直接获取你的资产！","right":20,"left":20,"height":44,"fontSize":24,"color":"#687076","align":"left"}},{"type":"Button","props":{"var":"btn_know","stateNum":1,"skin":"img/main/anliu@2x.png","right":-2,"left":0,"labelSize":32,"labelColors":"#ffffff","label":"我知道了","height":80,"bottom":0}}]}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.alert.WarnZjcUI.uiView);
+
         }
+
     }
 }
 
@@ -672,13 +683,15 @@ module ui {
 		public lab_max_total:Laya.TextInput;
 		public lab_max_total_usd:Laya.TextInput;
 
-        public static  uiView:any ={"type":"View","props":{"y":0,"x":0,"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Button","props":{"y":40,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}},{"type":"Label","props":{"y":48,"x":162,"width":204,"var":"coin_type","valign":"middle","text":"ETH","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","align":"right"}},{"type":"TextInput","props":{"y":131,"text":"收款人账户地址","right":20,"maxChars":30,"left":30,"layoutEnabled":true,"height":40,"fontSize":24,"editable":false,"color":"#8E979F"}},{"type":"TextInput","props":{"y":270,"right":20,"prompt":"发送人账户地址","maxChars":30,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F"}},{"type":"Label","props":{"y":410,"valign":"middle","text":"转账金额 :","left":30,"height":40,"fontSize":28,"color":"#868686","align":"left"}},{"type":"TextInput","props":{"y":180,"var":"text_to","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":20,"maxChars":42,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"left"},"child":[{"type":"Image","props":{"visible":false,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"TextInput","props":{"y":320,"var":"text_from","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":20,"prompt":"发送人账户地址","overflow":"scroll","maxChars":42,"left":30,"layoutEnabled":true,"height":40,"fontSize":29,"editable":false,"color":"#8E979F","align":"left"}},{"type":"Button","props":{"var":"btn_submit","stateNum":1,"skin":"img/main/bfqb@2x.png","sizeGrid":"0,0,0,0","right":0,"left":0,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"提交","height":88,"bottom":0}},{"type":"TextInput","props":{"y":410,"x":177,"width":532,"var":"send_amout","valign":"middle","type":"number","text":"0","maxChars":30,"height":40,"fontSize":32,"editable":false,"color":"#8E979F","align":"left"},"child":[{"type":"Image","props":{"visible":false,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"HSlider","props":{"y":550,"var":"sli_gas","skin":"img/main/BackProgressBar.png","sizeGrid":"0,15,0,15","right":30,"min":10,"max":200,"left":30,"height":50}},{"type":"Label","props":{"y":500,"text":"矿工费用(GWEI)","left":30,"height":40,"fontSize":28,"color":"#868686"}},{"type":"Label","props":{"y":610,"var":"lab_slow","text":"慢","left":30,"height":30,"fontSize":20,"color":"#868686"}},{"type":"Label","props":{"y":610,"var":"lab_quick","text":"快","right":30,"height":30,"fontSize":20,"color":"#868686"}},{"type":"Label","props":{"y":680,"text":"最大交易手续费","left":30,"height":30,"fontSize":20,"color":"#8E979F"}},{"type":"TextInput","props":{"y":680,"width":154,"var":"lab_max_gas","valign":"top","text":"0.000021 ETH","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"TextInput","props":{"y":710,"width":248,"var":"lab_max_gas_usd","valign":"middle","text":"0.01 USD","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"Label","props":{"y":780,"text":"总费用","left":30,"height":30,"fontSize":20,"color":"#8E979F"}},{"type":"TextInput","props":{"y":780,"width":194,"var":"lab_max_total","valign":"top","text":"1.000021 ETH","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"TextInput","props":{"y":810,"width":245,"var":"lab_max_total_usd","valign":"middle","text":"516.10 USD","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"Label","props":{"y":48,"x":393,"valign":"middle","text":"转账","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","align":"left"}}]};
+        public static  uiView:any ={"type":"View","props":{"y":0,"x":0,"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Button","props":{"y":40,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}},{"type":"Label","props":{"y":48,"x":162,"width":204,"var":"coin_type","valign":"middle","text":"ETH","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","align":"right"}},{"type":"TextInput","props":{"y":131,"text":"收款人账户地址","right":20,"maxChars":30,"left":30,"layoutEnabled":true,"height":40,"fontSize":24,"editable":false,"color":"#8E979F"}},{"type":"TextInput","props":{"y":270,"right":20,"prompt":"发送人账户地址","maxChars":30,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F"}},{"type":"Label","props":{"y":410,"valign":"middle","text":"转账金额 :","left":30,"height":40,"fontSize":28,"color":"#868686","align":"left"}},{"type":"TextInput","props":{"y":180,"var":"text_to","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":20,"maxChars":42,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"left"},"child":[{"type":"Image","props":{"visible":false,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"TextInput","props":{"y":320,"var":"text_from","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":20,"prompt":"发送人账户地址","overflow":"scroll","maxChars":42,"left":30,"layoutEnabled":true,"height":40,"fontSize":29,"editable":false,"color":"#8E979F","align":"left"}},{"type":"Button","props":{"var":"btn_submit","stateNum":1,"skin":"img/main/bfqb@2x.png","sizeGrid":"0,0,0,0","right":0,"left":0,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"提交","height":88,"bottom":0}},{"type":"TextInput","props":{"y":410,"x":177,"width":532,"var":"send_amout","valign":"middle","type":"number","text":"0","maxChars":30,"height":40,"fontSize":32,"editable":false,"color":"#8E979F","align":"left"},"child":[{"type":"Image","props":{"visible":false,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"HSlider","props":{"y":550,"var":"sli_gas","skin":"img/main/BackProgressBar.png","sizeGrid":"0,15,0,15","right":30,"min":10,"max":200,"left":30,"height":50}},{"type":"Label","props":{"y":500,"text":"矿工费用(GWEI)","left":30,"height":40,"fontSize":28,"color":"#868686"}},{"type":"Label","props":{"y":610,"var":"lab_slow","text":"慢","left":30,"height":30,"fontSize":20,"color":"#868686"}},{"type":"Label","props":{"y":610,"var":"lab_quick","text":"快","right":30,"height":30,"fontSize":20,"color":"#868686"}},{"type":"Label","props":{"y":680,"text":"最大交易手续费","left":30,"height":30,"fontSize":20,"color":"#8E979F"}},{"type":"TextInput","props":{"y":680,"width":154,"var":"lab_max_gas","valign":"top","text":"0.000021 ETH","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"TextInput","props":{"y":710,"width":248,"var":"lab_max_gas_usd","valign":"middle","text":"- ¥ ","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"Label","props":{"y":780,"text":"总费用","left":30,"height":30,"fontSize":20,"color":"#8E979F"}},{"type":"TextInput","props":{"y":780,"width":194,"var":"lab_max_total","valign":"top","text":"1.000021 ETH","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"TextInput","props":{"y":810,"width":245,"var":"lab_max_total_usd","valign":"middle","text":"- ¥","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"Label","props":{"y":48,"x":393,"valign":"middle","text":"转账","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","align":"left"}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.WalletSendSubmitUI.uiView);
+
         }
+
     }
 }
 

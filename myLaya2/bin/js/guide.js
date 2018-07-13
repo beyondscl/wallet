@@ -12,10 +12,17 @@ var guide = /** @class */ (function () {
         this.guideUI.on(Laya.Event.MOUSE_UP, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.CLICK, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
-        this.guideUI.img_enter.on(Laya.Event.CLICK, this, function () {
-            Laya.stage.removeChild(this.guideUI);
+        this.guideUI.img_enter.on(Laya.Event.CLICK, this, this.go);
+    };
+    guide.prototype.go = function () {
+        this.guideUI.removeSelf();
+        util.setItemJson(config.prod.appGuide, []);
+        if (this.parentUI) {
+            this.parentUI.comp.visible = true;
+        }
+        else {
             new EnterApp();
-        });
+        }
     };
     //functions
     guide.prototype.touchEvent = function (next) {
@@ -49,6 +56,9 @@ var guide = /** @class */ (function () {
                 break;
         }
     };
+    guide.prototype.setParentUI = function (p) {
+        this.parentUI = p;
+    };
     return guide;
 }());
 //程序入口
@@ -64,12 +74,21 @@ Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 Laya.stage.alignH = "center";
 //设置垂直对齐
 Laya.stage.alignV = "middle";
+//打开性能面板
+if (Laya.Browser.window.env == "dev") {
+    // Laya.Stat.show(0,0);
+}
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();
+//进度条
 var progressBar;
 var tip;
 var loadBg;
+//基本数据
+var acc = util.getItem(config.prod.appAccept);
+var gui = util.getItem(config.prod.appGuide);
+var app = util.getItem(config.prod.appKey);
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
 }
@@ -82,7 +101,7 @@ function beginLoad() {
     loadBg.height = config.prod.appHeight;
     Laya.stage.addChild(loadBg);
     tip = new Laya.Label();
-    tip.bottom = 5;
+    tip.bottom = 40;
     tip.left = 0;
     tip.right = 0;
     tip.centerX = 0;
@@ -98,19 +117,13 @@ function beginLoad() {
     progressBar.bottom = 85;
     progressBar.sizeGrid = "5,5,5,5";
     var res = ["res/atlas/img/main.atlas",
-        "res/atlas/img/coins.atlas",
-        "res/atlas/img/guide.atlas"];
+        "res/atlas/img/coins.atlas"];
+    if (!acc || !gui) {
+        res.push("res/atlas/img/guide.atlas");
+    }
     Laya.loader.load(res, null, Laya.Handler.create(this, onProcess, null, false));
     progressBar.changeHandler = new Laya.Handler(this, onChange);
     Laya.stage.addChild(progressBar);
-    // "res/atlas/template/ScrollBar.atlas",
-    // Laya.loader.load("res/atlas/template/Warn.atlas");
-    // Laya.loader.load("res/atlas/template/Navigator.atlas");
-    // Laya.loader.load("res/atlas/template/ToolBar.atlas");
-    // Laya.loader.load("res/atlas/template/Switcher.atlas");
-    // Laya.loader.load("res/atlas/template/List.atlas");
-    // Laya.loader.load("res/atlas/template/Search.atlas");
-    // Laya.loader.load(""res/atlas/comp.atlas"]");
 }
 function onProcess(p) {
     progressBar.value = p;
@@ -131,22 +144,31 @@ function enter() {
     new config.init.initData('');
     //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
-    var accept = util.getItem(config.prod.appAccept);
-    if (accept) {
+    if (acc) { //已同意服务协议
         var walletNames = util.getItem(config.prod.appKey);
-        if (!walletNames) {
-            new guide();
-            return;
+        if (!walletNames || walletNames.length == 0) { //没有钱包数据
+            if (gui) { //非第一次进入
+                new EnterApp();
+            }
+            else {
+                new guide();
+            }
         }
-        var wallet = util.getItem(walletNames[0]);
-        var walletMod = new mod.walletMod();
-        walletMod.setWallet(wallet);
-        mod.userMod.defWallet = walletMod;
-        new view.WalletMain().initQueryData(walletMod);
+        else {
+            enterMain();
+        }
         console.log("end loading!");
     }
     else {
         new view.info.Service();
     }
+}
+function enterMain() {
+    var walletNames = util.getItem(config.prod.appKey);
+    var wallet = util.getItem(walletNames[0]);
+    var walletMod = new mod.walletMod();
+    walletMod.setWallet(wallet);
+    mod.userMod.defWallet = walletMod;
+    new view.WalletMain().initQueryData(walletMod);
 }
 //# sourceMappingURL=guide.js.map

@@ -32,7 +32,7 @@ var view;
             this.list_wallet.array = walletNames;
             this.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
-            this.box_btns.top = this.list_wallet.y + this.list_wallet.height + 60;
+            this.box_btns.top = this.list_wallet.y + this.list_wallet.height + 5;
         };
         WalletQuick.prototype.init = function () {
         };
