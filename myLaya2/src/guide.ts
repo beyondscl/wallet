@@ -84,6 +84,10 @@ Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 Laya.stage.alignH = "center";
 //设置垂直对齐
 Laya.stage.alignV = "middle";
+//打开性能面板
+if(Laya.Browser.window.env=="dev"){
+    // Laya.Stat.show(0,0);
+}
 //激活资源版本控制,太费时间
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();

@@ -96,8 +96,8 @@ module view {
         }
 
         private checkWname() {
-            if (this.comp.text_wall_name.text.length < 3 || this.comp.text_wall_name.text.length > 20) {
-                this.comp.lab_warn_wName.text = "钱包名称长度3-20";
+            if (this.comp.text_wall_name.text.length < 1 || this.comp.text_wall_name.text.length > 12) {
+                this.comp.lab_warn_wName.text = "钱包名称长度1-12";
                 this.comp.lab_warn_wName.visible = true;
                 return false;
             }
@@ -118,19 +118,20 @@ module view {
                 this.comp.lab_pass.visible = true;
                 return false;
             }
-            if (util.getPassScore(pass)==0) {
+            if (util.getPassScore(pass)<=1) {
                 this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
                 this.comp.lab_pass.visible = true;
-                return false;
             }
             if (this.comp.text_pass.text.length >= 8) {
-                if (util.getPassScore(pass)==0) {
+                if (util.getPassScore(pass)<=1) {
                     this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
                     this.comp.lab_pass.visible = true;
                 }else{
                     this.comp.lab_pass.visible = false;
                 }
                 return true;
+            }else{
+                return false;
             }
         }
 
@@ -147,32 +148,23 @@ module view {
         private infoPassStrong() {
             let pass = this.comp.text_pass.text.trim();
 
-            this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
-            if (pass.length < 8) {
-                this.comp.lab_words.color = 'red';
-                return;
-            }else{
-                this.comp.lab_words.color = 'green';
-            }
-
             this.comp.lab_pass_level.visible = true;
+            this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
 
-            if (pass.length == 0) {
-                util.getPassLevel(this.comp.box_pass_level, -1);
-                return;
-            }
             if (util.getPassScore(pass)==4) {
                 this.comp.lab_pass_level.text = '非常安全';
                 util.getPassLevel(this.comp.box_pass_level, 3);
-                this.comp.lab_pass_level.color = 'green';
+                this.comp.lab_pass_level.color = '#5eb0c2';
                 this.comp.lab_pass.visible = false;
+                this.comp.lab_words.visible = true;
                 return;
             }
             if (util.getPassScore(pass)==3) {
                 this.comp.lab_pass_level.text = '强';
                 util.getPassLevel(this.comp.box_pass_level, 2);
-                this.comp.lab_pass_level.color = 'green';
+                this.comp.lab_pass_level.color = '#5eb0c2';
                 this.comp.lab_pass.visible = false;
+                this.comp.lab_words.visible = true;
                 return;
             }
             if (util.getPassScore(pass)==2) {
@@ -180,12 +172,22 @@ module view {
                 this.comp.lab_pass_level.text = '一般';
                 this.comp.lab_pass_level.color = '#5eb0c2';
                 this.comp.lab_pass.visible = false;
+                this.comp.lab_words.visible = true;
                 return;
             }
-            util.getPassLevel(this.comp.box_pass_level, 0);
-            this.comp.lab_pass_level.text = '弱';
+            if (util.getPassScore(pass)==1) {
+                util.getPassLevel(this.comp.box_pass_level, 0);
+                this.comp.lab_pass_level.text = '弱';
+                this.comp.lab_pass_level.color = 'red';
+                this.comp.lab_pass.visible = true;
+                this.comp.lab_words.visible = false;
+                return;
+            }
+            util.getPassLevel(this.comp.box_pass_level, -1);
+            this.comp.lab_pass_level.text = '很弱';
             this.comp.lab_pass_level.color = 'red';
             this.comp.lab_pass.visible = true;
+            this.comp.lab_words.visible = false;
         }
 
         private importWallet() {

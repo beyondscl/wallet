@@ -7,8 +7,9 @@ module config {
         public static sperated = "img/main/itemSepar.png";//列表分割线
         public static walletImg = "img/main/wd@2x.png";//钱包默认
 
-        public static passLevelS = "img/main/fangkuai-@2x.png";//密码等级默认图片地址,强
-        public static passLevelW = "img/main/fangkuai@2x.png";//弱
+        public static passLevelS = "img/main/fangkuai-@2x.png";//密码等级默认图片地址,强，蓝色
+        public static passLevelW = "img/main/fangkuai@2x.png";//弱,灰色
+        public static passLeveSW = "img/main/red.png";//很弱，红色
 
         public static btn_colse = "img/main/transfer_in.png";//网页关闭
 

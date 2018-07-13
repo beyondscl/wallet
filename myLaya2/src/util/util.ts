@@ -120,7 +120,11 @@ class util {
             let t: Laya.Image = view._childs[i];
             let m = [3, 2, 1, 0];
             if (m[i] <= level) {
-                t.skin = config.resource.passLevelS;
+                if(level==0){
+                    t.skin = config.resource.passLeveSW;
+                }else{
+                    t.skin = config.resource.passLevelS;
+                }
             } else {
                 t.skin = config.resource.passLevelW;
             }
@@ -287,7 +291,7 @@ class util {
     public static getPassScore(pass:string){
         let score = 0;
         //长度判断
-        let reg = /(?=.{12,})/;
+        let reg = /(?=.{8,})/;
         if(reg.test(pass)){//
             score += 25;
         }
@@ -354,5 +358,13 @@ class util {
         }else{
             return 4;
         }
+    }
+    // wei 转人民币
+    // 其他的要转。以后再做
+    public static coinToRmb(amount:number,coin){
+        if(coin=='ETH'){
+            return (amount/config.prod.WEI_TO_ETH*mod.userMod.ethToUsd*mod.userMod.usdToRmb).toFixed(2);
+        }
+        return 0;
     }
 }

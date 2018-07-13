@@ -7,6 +7,8 @@ module view {
         public comp: ui.WalletManageUI;
         private parentUI: ui.WalletMeUI;
 
+        private rended:Array<string> = [];
+
         constructor() {
             super();
             this.init();
@@ -66,30 +68,22 @@ module view {
             let wAddr = cell.getChildByName('lab_wAddr') as Label;
             wAddr.text = util.getAddr(data.wAddr);
             let wTotal = cell.getChildByName('lab_wTotal') as Label;
-
-            // wTotal.text = '0 ether';//test
-
+            if(!util.isContain(this.rended,wAddr.text)){
+                service.walletServcie.getWalletMoney(data.wName,wTotal);
+                this.rended.push(wAddr.text);
+            }
         }
 
         private initWalletTotal(wName: string) {
             let coins = service.walletServcie.getWallet(wName).wCoins;
-
-
         }
-
-        // private initBalance(cName: string) {
-        //     let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
-        //     if (coinMod.abi) {//查询token
-        //         service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
-        //     } else {//eth
-        //         service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
-        //     }
-        // }
 
         private onSelect(index: number) {
             this.comp.visible = false;
             let wd = new view.WalletDetail();
-            wd.setData(this.comp.list_wallet.array[index]);
+            let walletMod:mod.walletMod = this.comp.list_wallet.array[index];
+            walletMod.wAmount = this.comp.list_wallet.cells[index].getChildByName("lab_wTotal").text;
+            wd.setData(walletMod);
             wd.setParetUI(this.comp);
             util.putView(this);
         }
