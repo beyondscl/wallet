@@ -6,8 +6,8 @@ module view {
         private parentUI: view.WalletMain;
         private total: number = 0;
 
-        private refData:mod.walItemMod;
-        private refCell:Box;
+        private refData: mod.walItemMod;
+        private refCell: Box;
 
         constructor() {
             super();
@@ -30,8 +30,9 @@ module view {
             this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
             this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
         }
-        public refresh(){
-            this.setData(this.refData,this.refCell);
+
+        public refresh() {
+            this.setData(this.refData, this.refCell);
         }
 
         private init() {

@@ -5,6 +5,9 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+    guide.prototype.setParentUI = function (p) {
+        this.parentUI = p;
+    };
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -55,9 +58,6 @@ var guide = /** @class */ (function () {
             case Laya.Event.MOUSE_OVER:
                 break;
         }
-    };
-    guide.prototype.setParentUI = function (p) {
-        this.parentUI = p;
     };
     return guide;
 }());
@@ -131,6 +131,7 @@ function onProcess(p) {
 function onChange(process) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
     if (process == 1) {
+        new view.alert.info().popup();
         loadBg.visible = false;
         tip.visible = false;
         progressBar.visible = false;

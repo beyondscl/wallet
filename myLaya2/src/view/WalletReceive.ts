@@ -14,7 +14,7 @@ module view {
 
         }
 
-        public setParentUI(p :any) {
+        public setParentUI(p: any) {
             this.paretnUI = p;
         }
 

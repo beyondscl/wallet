@@ -26,7 +26,8 @@ module view.info {
                 this.comp.text.height = this.comp.text.height + 130;
             }
         }
-        public setTextData(str:string){
+
+        public setTextData(str: string) {
             this.comp.text.text = str;
         }
 

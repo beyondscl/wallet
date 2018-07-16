@@ -18,7 +18,7 @@ module view {
         }
 
         public initData(walletNames: Array<string>) {
-            let lines = walletNames.length+1;
+            let lines = walletNames.length + 1;
             let height = lines * 80;
             height = height > 600 ? 600 : height;
 
@@ -29,8 +29,8 @@ module view {
             this.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
 
-            this.box_btns.top = this.list_wallet.y+ this.list_wallet.height + 5;
-             
+            this.box_btns.top = this.list_wallet.y + this.list_wallet.height + 5;
+
         }
 
         private init() {
@@ -61,7 +61,7 @@ module view {
             cName.text = data.replace(/([^]{8})([^]+)/, "$1...");
 
             let cImgBg = cell.getChildByName('img_bg') as Laya.Image;
-            if(data==mod.userMod.defWallet.wName){
+            if (data == mod.userMod.defWallet.wName) {
                 cImgBg.skin = 'img/main/list_bg.png';
             }
         }

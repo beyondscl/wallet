@@ -4,6 +4,7 @@ var config;
     var msg = /** @class */ (function () {
         function msg() {
         }
+
         msg.submit = "提交";
         msg.queding = "确定";
         msg.cancel = "取消";

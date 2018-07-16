@@ -9,7 +9,7 @@ module view {
         constructor() {
             super();
             this.init();
-            this.initEvent();            
+            this.initEvent();
         }
 
         private init() {

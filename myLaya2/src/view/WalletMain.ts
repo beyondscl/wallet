@@ -14,7 +14,7 @@ module view {
 
         constructor() {
             super();
-            console.log("start main :",new Date().getTime());
+            console.log("start main :", new Date().getTime());
             this.init();
             this.initEvent();
         }
@@ -139,7 +139,7 @@ module view {
             var data: mod.walItemMod = this.comp.list_wallet.array[index];
             for (let m = 0; m < this.hasRended.length; m++) {
                 if (this.hasRended[m] == data.itemName) {
-                    console.log("excape render index:",index)
+                    console.log("excape render index:", index)
                     return;
                 }
             }

@@ -18,8 +18,9 @@ module view.alert {
         public setCallBack(func: any) {
             this.callBack = func;
         }
+
         //转账需要显示地址与金额
-        public setData(addr,amount){
+        public setData(addr, amount) {
             this.addr.text = addr;
             this.addr.visible = true;
             this.amount.text = amount;
@@ -60,7 +61,7 @@ module view.alert {
                 if (pass != wallet.wPassword) {
                     this.warn.visible = true;
                     return;
-                }else{
+                } else {
                     this.warn.visible = false;
                 }
                 this.btn_submit.disabled = true;

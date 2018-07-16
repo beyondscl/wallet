@@ -54,12 +54,12 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            if(this.parentUI){
+            if (this.parentUI) {
                 this.parentUI.visible = true;
-            }else{
+            } else {
                 new view.WalletSend();
             }
-            
+
         }
 
         private btnClick(type: number) {
@@ -69,7 +69,7 @@ module view {
                     let enterpass = new view.alert.EnterPass();
                     enterpass.setParentUI(this.comp);
                     enterpass.setCallBack(this.enterPassCb);
-                    enterpass.setData("To: "+util.getAddr(this.comp.text_to.text),this.comp.send_amout.text+" "+this.comp.coin_type.text);
+                    enterpass.setData("To: " + util.getAddr(this.comp.text_to.text), this.comp.send_amout.text + " " + this.comp.coin_type.text);
                     enterpass.popup();
                     break;
                 default:
@@ -115,7 +115,7 @@ module view {
                                 comp.removeSelf();
                                 util.showView([2]);
                             } else {
-                                console.log("transfer submit error:",ret);
+                                console.log("transfer submit error:", ret);
                                 new alert.Warn("交易失败", "").popup();
                             }
                         }, [comp, pom, this.parentUI]);
@@ -146,7 +146,7 @@ module view {
                     comp.removeSelf();
                     util.showView([2]);
                 } else {
-                    console.log("transfer submit error:",ret);
+                    console.log("transfer submit error:", ret);
                     new alert.Warn("交易失败", "").popup();
                 }
             }, [comp, pom, this.parentUI]);//this.parentUI 没有传过去
@@ -177,7 +177,7 @@ module view {
             this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type.text;
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
             this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type.text;
-            if(!util.isContain(config.prod.expCoins,this.comp.coin_type.text)){
+            if (!util.isContain(config.prod.expCoins, this.comp.coin_type.text)) {
                 this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
             }
         }

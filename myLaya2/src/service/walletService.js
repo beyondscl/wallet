@@ -519,20 +519,6 @@ var service;
             var amount = '';
             var token = 'ETH';
         };
-        //判断钱包是否选择了该coin
-        walletServcie.getSelected = function (wName, cName) {
-            var wallet = util.getItem(wName);
-            if (wallet) {
-                for (var i = 0; i < wallet.wCoins.length; i++) {
-                    if (wallet.wCoins[i] == cName) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        };
-        //-----------------------------------------------
-        //查询钱包总金额，是否缓存处理?
         //过滤的连总数都不需要查
         walletServcie.getWalletMoney = function (wName, lab) {
             var wallet = this.getWallet(wName);
@@ -555,6 +541,20 @@ var service;
                 }, [lab, coins[i]]);
             }
             return t;
+        };
+        //-----------------------------------------------
+        //查询钱包总金额，是否缓存处理?
+        //判断钱包是否选择了该coin
+        walletServcie.getSelected = function (wName, cName) {
+            var wallet = util.getItem(wName);
+            if (wallet) {
+                for (var i = 0; i < wallet.wCoins.length; i++) {
+                    if (wallet.wCoins[i] == cName) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         };
         return walletServcie;
     }());

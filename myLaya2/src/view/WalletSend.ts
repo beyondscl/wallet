@@ -39,16 +39,17 @@ module view {
             this.comp.btn_sys.on(Laya.Event.CLICK, this, this.btnClick, [2]);
 
         }
+
         //1来自主页
         //2来自转账页面
         // 设置总金额
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            if(this.parentUI&&this.parentUI.comp){
+            if (this.parentUI && this.parentUI.comp) {
                 this.parentUI.comp.visible = true;
-            }else{
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);    
+            } else {
+                new view.WalletMain().initQueryData(mod.userMod.defWallet);
             }
         }
 
@@ -89,7 +90,7 @@ module view {
                 this.comp.warn_amount.visible = true;
                 return false;
             }
-            if (Number(amount) <=0) {
+            if (Number(amount) <= 0) {
                 this.comp.warn_amount.text = "转账金额必须大于0";
                 this.comp.warn_amount.visible = true;
                 return false;

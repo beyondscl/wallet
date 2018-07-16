@@ -40,7 +40,7 @@ module net {
         }
 
         private processHandler(data: any): void {
-            console.log("processHandler",data);
+            console.log("processHandler", data);
         }
 
         private errorHandler(data: any): void {

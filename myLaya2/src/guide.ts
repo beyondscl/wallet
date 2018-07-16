@@ -11,6 +11,10 @@ class guide {
         this.init();
     }
 
+    public setParentUI(p: view.info.about) {
+        this.parentUI = p;
+    }
+
     private init(): void {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -65,10 +69,6 @@ class guide {
                 break;
         }
     }
-
-    public setParentUI(p: view.info.about) {
-        this.parentUI = p;
-    }
 }
 
 //程序入口
@@ -85,7 +85,7 @@ Laya.stage.alignH = "center";
 //设置垂直对齐
 Laya.stage.alignV = "middle";
 //打开性能面板
-if(Laya.Browser.window.env=="dev"){
+if (Laya.Browser.window.env == "dev") {
     // Laya.Stat.show(0,0);
 }
 //激活资源版本控制,太费时间
@@ -151,6 +151,9 @@ function onProcess(p: number) {
 function onChange(process: number) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
     if (process == 1) {
+        new view.alert.info().popup()
+
+
         loadBg.visible = false;
         tip.visible = false;
         progressBar.visible = false;

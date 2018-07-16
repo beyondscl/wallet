@@ -11,6 +11,7 @@ var mod;
             this.coinSelected = coinSelected;
             this.abi = abi;
         }
+
         return coinItemMod;
     }());
     mod.coinItemMod = coinItemMod;

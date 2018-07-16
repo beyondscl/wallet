@@ -5,14 +5,17 @@ class util {
     //所有的页面，view非comp，为了不影响之前的代码
     private static _viewStack = [];
     // main view 这个变量很重要
-    private static _mainView:view.WalletMain;
+    private static _mainView: view.WalletMain;
+
     constructor() {
 
     }
-    public static setMainView(v:view.WalletMain){
+
+    public static setMainView(v: view.WalletMain) {
         this._mainView = v;
     }
-    public static getMainView():view.WalletMain{
+
+    public static getMainView(): view.WalletMain {
         return this._mainView;
     }
 
@@ -59,7 +62,7 @@ class util {
             qrcode.makeCode(value);
             Laya.timer.loop(300, caller, callBack, [qrcode]);
         } catch (error) {
-            console.log("createEwm error :",error)
+            console.log("createEwm error :", error)
         }
     }
 
@@ -120,9 +123,9 @@ class util {
             let t: Laya.Image = view._childs[i];
             let m = [3, 2, 1, 0];
             if (m[i] <= level) {
-                if(level==0){
+                if (level == 0) {
                     t.skin = config.resource.passLeveSW;
-                }else{
+                } else {
                     t.skin = config.resource.passLevelS;
                 }
             } else {
@@ -216,30 +219,32 @@ class util {
     public static compClear() {
         this._compStack = [];
     }
+
     //删除所有已经存入的comp
     public static compDeleteAll() {
-        for(let i=0;i<this._viewStack.length;i++){
+        for (let i = 0; i < this._viewStack.length; i++) {
             let t = this._viewStack[i] as View;
             t.removeSelf();
         }
         this._compStack = [];
     }
+
     //---------------------------------------------
     //_viewStack
     public static clearView() {
         this._viewStack = [];
     }
+
     public static deleteView() {
-        console.log("deleteView",this._viewStack);
+        console.log("deleteView", this._viewStack);
         for (let i = 1; i < this._viewStack.length; i++) {
             try {
-                if(this._viewStack[i]&&this._viewStack[i].comp)
-                {
+                if (this._viewStack[i] && this._viewStack[i].comp) {
                     this._viewStack[i].comp.removeSelf();
-                    console.log("deleteView_:",this._viewStack[i].comp);
+                    console.log("deleteView_:", this._viewStack[i].comp);
                 }
             } catch (error) {
-                
+
             }
         }
         this._viewStack = [];
@@ -248,10 +253,11 @@ class util {
     public static putView(v: View) {
         this._viewStack.push(v);
     }
+
     public static showView(args) {
         for (let i = 1; i < this._viewStack.length; i++) {
             if (this._viewStack[i]) {
-                if(this._viewStack[i]&&this._viewStack[i].comp){
+                if (this._viewStack[i] && this._viewStack[i].comp) {
                     let comp: View = this._viewStack[i].comp;
                     comp.removeSelf();
                 }
@@ -261,20 +267,20 @@ class util {
         if (this._viewStack[0]) {
             let t: View = this._viewStack[0];
             let type = args[0];
-            if (type && 2 == type&&t) {//转账成功
+            if (type && 2 == type && t) {//转账成功
                 let v: view.WalletTransfer = this._viewStack[0];
                 v.comp.visible = true;
                 v.refresh();
-            }else if (type && 3 == type&&t) {//删除钱包成功
-                let v:view.WalletManage = this._viewStack[0];
+            } else if (type && 3 == type && t) {//删除钱包成功
+                let v: view.WalletManage = this._viewStack[0];
                 v.setData(service.walletServcie.getWallets());
                 v.comp.visible = true;
             }
         }
         this._viewStack = [];
     }
-    //---------------------------------------------
 
+    //---------------------------------------------
 
 
     //判断一个数组中是否包含一个元素
@@ -288,36 +294,36 @@ class util {
     }
 
     //密码算法
-    public static getPassScore(pass:string){
+    public static getPassScore(pass: string) {
         let score = 0;
         //长度判断
         let reg = /(?=.{8,})/;
-        if(reg.test(pass)){//
+        if (reg.test(pass)) {//
             score += 25;
         }
         //数字判断
-        reg = /\D*/; 
-        let _pass = pass.replace(reg,'');
-        if(_pass.length==1){
+        reg = /\D*/;
+        let _pass = pass.replace(reg, '');
+        if (_pass.length == 1) {
             score += 10;
-        }else if(_pass.length>1){
+        } else if (_pass.length > 1) {
             score += 20;
         }
         //字母判断
         reg = /^[a-z]*$/;//全小写
-        if(reg.test(pass)){
-            score+=10;
+        if (reg.test(pass)) {
+            score += 10;
         }
         reg = /^[A-Z]*$/;//全大写
-        if(reg.test(pass)){
-            score+=10;
+        if (reg.test(pass)) {
+            score += 10;
         }
         //包含大小写
         reg = /(?=.*[a-z])(?=.*[A-Z])/;
         // let reg2 = /(?=\d)/;
         // let reg3 = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
-        if(reg.test(pass)){
-            score+=20;
+        if (reg.test(pass)) {
+            score += 20;
         }
         // + : >=1; * 任意次数;{n,} 大于等于n次 ; ? 0或者1次
         // (?=.*\d) 匹配任意字符开头，包含一个数字
@@ -325,45 +331,46 @@ class util {
         //特殊字符判断
         //前置后置表达式
         reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})/;//1个
-        if(reg.test(pass)){
-            score+=10;
+        if (reg.test(pass)) {
+            score += 10;
         }
         reg = /(?=(?:.*?[!@#$%*()_+^&}{:;?.]){2,})/;//大于1个
-        if(reg.test(pass)){
-            score+=25;
+        if (reg.test(pass)) {
+            score += 25;
         }
         //其他
         reg = /(?=.*[A-Za-z])(?=.*\d)/;
-        if(reg.test(pass)){//包含不限于字母数字
-            score+=2;
+        if (reg.test(pass)) {//包含不限于字母数字
+            score += 2;
         }
         reg = /(?=.*[A-Za-z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
-        if(reg.test(pass)){//包含不限于字母数字特殊
-            score+=3;
+        if (reg.test(pass)) {//包含不限于字母数字特殊
+            score += 3;
         }
         reg = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=(?:.*?[!@#$%*()_+^&}{:;?.]))/;
-        if(reg.test(pass)){//包含不限于大小写字母数字特殊字符
-            score+=5;
+        if (reg.test(pass)) {//包含不限于大小写字母数字特殊字符
+            score += 5;
         }
 
         //返回等级
-        if(score<35){
+        if (score < 35) {
             return 0;
-        }else if(score<50){
+        } else if (score < 50) {
             return 1;
-        }else if(score<70){
+        } else if (score < 70) {
             return 2;
-        }else if(score<90){
+        } else if (score < 90) {
             return 3;
-        }else{
+        } else {
             return 4;
         }
     }
+
     // wei 转人民币
     // 其他的要转。以后再做
-    public static coinToRmb(amount:number,coin){
-        if(coin=='ETH'){
-            return (amount/config.prod.WEI_TO_ETH*mod.userMod.ethToUsd*mod.userMod.usdToRmb).toFixed(2);
+    public static coinToRmb(amount: number, coin) {
+        if (coin == 'ETH') {
+            return (amount / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(2);
         }
         return 0;
     }

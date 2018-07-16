@@ -7,7 +7,7 @@ module view {
         public comp: ui.WalletManageUI;
         private parentUI: ui.WalletMeUI;
 
-        private rended:Array<string> = [];
+        private rended: Array<string> = [];
 
         constructor() {
             super();
@@ -58,7 +58,7 @@ module view {
         }
 
         private onListRender(cell: Box, index: number) {
-            cell.on(Laya.Event.CLICK, this, this.onSelect,[index]);
+            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
 
             var data: mod.walletMod = this.comp.list_wallet.array[index];
             let wImg = cell.getChildByName('img_wallet') as Image;
@@ -68,8 +68,8 @@ module view {
             let wAddr = cell.getChildByName('lab_wAddr') as Label;
             wAddr.text = util.getAddr(data.wAddr);
             let wTotal = cell.getChildByName('lab_wTotal') as Label;
-            if(!util.isContain(this.rended,wAddr.text)){
-                service.walletServcie.getWalletMoney(data.wName,wTotal);
+            if (!util.isContain(this.rended, wAddr.text)) {
+                service.walletServcie.getWalletMoney(data.wName, wTotal);
                 this.rended.push(wAddr.text);
             }
         }
@@ -81,7 +81,7 @@ module view {
         private onSelect(index: number) {
             this.comp.visible = false;
             let wd = new view.WalletDetail();
-            let walletMod:mod.walletMod = this.comp.list_wallet.array[index];
+            let walletMod: mod.walletMod = this.comp.list_wallet.array[index];
             walletMod.wAmount = this.comp.list_wallet.cells[index].getChildByName("lab_wTotal").text;
             wd.setData(walletMod);
             wd.setParetUI(this.comp);

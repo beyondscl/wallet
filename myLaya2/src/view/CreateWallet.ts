@@ -47,7 +47,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI == null ? new EnterApp() : (this.parentUI.comp?this.parentUI.comp.visible = true:this.parentUI.visible = true);
+            this.parentUI == null ? new EnterApp() : (this.parentUI.comp ? this.parentUI.comp.visible = true : this.parentUI.visible = true);
         }
 
         private updateArgee() {
@@ -89,30 +89,32 @@ module view {
         }
 
         private checkArgs(): boolean {
-            if (this.checkWname() &&this.alertPaa()&& this.checkPass()&& this.checkPassConf()) {
+            if (this.checkWname() && this.alertPaa() && this.checkPass() && this.checkPassConf()) {
                 return true;
             }
             return false;
         }
-        private alertPaa(){
+
+        private alertPaa() {
             let pass = this.comp.text_pass.text;
-            if(pass.length<8){
-                new view.alert.Warn("输入有误","请输入不少于8位字符的密码").popup();
+            if (pass.length < 8) {
+                new view.alert.Warn("输入有误", "请输入不少于8位字符的密码").popup();
                 return false;
             }
             return true;
         }
+
         private checkWname() {
             if (this.comp.text_wall_name.text.length < 1 || this.comp.text_wall_name.text.length > 12) {
                 // this.comp.lab_warn_wName.text = "钱包名称长度1-12";
                 // this.comp.lab_warn_wName.visible = true;
-                new view.alert.Warn("输入有误","钱包名称长度1-12").popup();
+                new view.alert.Warn("输入有误", "钱包名称长度1-12").popup();
                 return false;
             }
             if (service.walletServcie.checkDupWal(this.comp.text_wall_name.text)) {
                 // this.comp.lab_warn_wName.text = "该钱包名称已经存在";
                 // this.comp.lab_warn_wName.visible = true;
-                new view.alert.Warn("输入有误","钱包名称已经存在").popup();
+                new view.alert.Warn("输入有误", "钱包名称已经存在").popup();
                 return false;
             }
             this.comp.lab_warn_wName.visible = false;
@@ -122,31 +124,31 @@ module view {
         private checkPass() {
             this.infoPassStrong();
             let pass = this.comp.text_pass.text;
-            if(pass.length==0){
+            if (pass.length == 0) {
                 this.comp.lab_pass.text = "不少于8个字符,建议混合大小写字母，数字，特殊字符";
                 this.comp.lab_pass.visible = true;
                 return false;
             }
-            if (util.getPassScore(pass)<=1) {
+            if (util.getPassScore(pass) <= 1) {
                 this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
                 this.comp.lab_pass.visible = true;
             }
             if (this.comp.text_pass.text.length >= 8) {
-                if (util.getPassScore(pass)<=1) {
+                if (util.getPassScore(pass) <= 1) {
                     this.comp.lab_pass.text = "密码强度太弱，极易被黑客破解";
                     this.comp.lab_pass.visible = true;
-                }else{
+                } else {
                     this.comp.lab_pass.visible = false;
                 }
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
 
         private checkPassConf() {
             if (this.comp.text_pass_conf.text != this.comp.text_pass.text) {
-                new view.alert.Warn("输入有误","输入密码不一致，请重新输入").popup();
+                new view.alert.Warn("输入有误", "输入密码不一致，请重新输入").popup();
                 // this.comp.lab_pass_conf.text = "两次密码不一致";
                 // this.comp.lab_pass_conf.visible = true;
                 return false;
@@ -161,7 +163,7 @@ module view {
             this.comp.lab_pass_level.visible = true;
             this.comp.lab_words.text = this.comp.text_pass.text.trim().length + '个字符';
 
-            if (util.getPassScore(pass)==4) {
+            if (util.getPassScore(pass) == 4) {
                 this.comp.lab_pass_level.text = '非常安全';
                 util.getPassLevel(this.comp.box_pass_level, 3);
                 this.comp.lab_pass_level.color = '#5eb0c2';
@@ -169,7 +171,7 @@ module view {
                 this.comp.lab_words.visible = true;
                 return;
             }
-            if (util.getPassScore(pass)==3) {
+            if (util.getPassScore(pass) == 3) {
                 this.comp.lab_pass_level.text = '强';
                 util.getPassLevel(this.comp.box_pass_level, 2);
                 this.comp.lab_pass_level.color = '#5eb0c2';
@@ -177,7 +179,7 @@ module view {
                 this.comp.lab_words.visible = true;
                 return;
             }
-            if (util.getPassScore(pass)==2) {
+            if (util.getPassScore(pass) == 2) {
                 util.getPassLevel(this.comp.box_pass_level, 1);
                 this.comp.lab_pass_level.text = '一般';
                 this.comp.lab_pass_level.color = '#5eb0c2';
@@ -185,7 +187,7 @@ module view {
                 this.comp.lab_words.visible = true;
                 return;
             }
-            if (util.getPassScore(pass)==1) {
+            if (util.getPassScore(pass) == 1) {
                 util.getPassLevel(this.comp.box_pass_level, 0);
                 this.comp.lab_pass_level.text = '弱';
                 this.comp.lab_pass_level.color = 'red';

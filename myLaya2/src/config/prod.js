@@ -3,6 +3,7 @@ var config;
     var prod = /** @class */ (function () {
         function prod() {
         }
+
         prod.getEthBalanceUrl = function (addr) {
             return this.ethBalance + "module=account&action=balance&address=" + addr + "&apikey=" + this.apiKey;
         };

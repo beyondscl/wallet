@@ -25,6 +25,7 @@ var mod;
             this.dealConfirm = dealConfirm;
             this.dealNonce = dealNonce;
         }
+
         dealtemMod.prototype.toJson = function () {
             var json = {
                 "dealType": this.dealType,

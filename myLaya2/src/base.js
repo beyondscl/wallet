@@ -2,6 +2,7 @@ var base = /** @class */ (function () {
     function base() {
         this.screenModes = ["noscale", "exactfit", "showall", "noborder", "full", "fixedwidth", "fixedheight"];
     }
+
     //初始舞台
     base.prototype.init = function () {
         Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;

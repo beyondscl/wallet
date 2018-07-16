@@ -20,7 +20,7 @@ module view.info {
         private init() {
             this.comp = new ui.info.aboutUI();
             Laya.stage.addChild(this.comp);
-            this.comp.lab_version.text = "当前版本："+Laya.Browser.window.main_config[Laya.Browser.window.env].VERSION;
+            this.comp.lab_version.text = "当前版本：" + Laya.Browser.window.main_config[Laya.Browser.window.env].VERSION;
         }
 
         private initEvent() {
@@ -57,23 +57,25 @@ module view.info {
                 let wait = new view.alert.waiting("正在加载资源...")
                 wait.popup();
                 let res = ["res/atlas/img/guide.atlas"];
-                Laya.loader.load(res, Laya.Handler.create(this, this.guide,[wait],true));
+                Laya.loader.load(res, Laya.Handler.create(this, this.guide, [wait], true));
             }
             if (6 == index) {
-                new view.alert.Warn("已是最新版本","").popup();
+                new view.alert.Warn("已是最新版本", "").popup();
             }
         }
-        private guide(args){
-            let wait:view.alert.waiting = args;
+
+        private guide(args) {
+            let wait: view.alert.waiting = args;
             wait.stop();
             new guide().setParentUI(this);
         }
-        private devLog(){
-             var json: string = Laya.loader.getRes(config.resource.devLogPath);
-             let s = new info.Service();
-             s.setParetUI(this.comp);
-             s.setData("1");
-             s.setTextData(json);
+
+        private devLog() {
+            var json: string = Laya.loader.getRes(config.resource.devLogPath);
+            let s = new info.Service();
+            s.setParetUI(this.comp);
+            s.setData("1");
+            s.setTextData(json);
         }
     }
 }

@@ -25,7 +25,7 @@ var Ajax = {
         objAdapter.complete = obj.complete || objAdapter.complete;
         objAdapter.success = obj.success || objAdapter.success;
         objAdapter.error = obj.error || objAdapter.error;
-        objAdapter.callbackArgs = obj.callbackArgs||[];//列表数组[]
+        objAdapter.callbackArgs = obj.callbackArgs || [];//列表数组[]
         return objAdapter;
     },
     //创建XMLHttpRequest对象
@@ -59,7 +59,7 @@ var Ajax = {
         if (xhr.status == 200) { //判断http的交互是否成功，200表示成功
             obj.success(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
         } else {
-            console.log('获取数据错误！错误代号：',obj, xhr.status ,'，错误信息：' , xhr.statusText);
+            console.log('获取数据错误！错误代号：', obj, xhr.status, '，错误信息：', xhr.statusText);
         }
     },
     ajax: function (obj) {
@@ -72,7 +72,7 @@ var Ajax = {
     //post方法
     post: function (obj) {
         var xhr = Ajax.createXHR(); //创建XHR对象
-        xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
         var opt = Ajax.init(obj);
         opt.method = 'post';
         if (opt.async === true) { //true表示异步，false表示同步

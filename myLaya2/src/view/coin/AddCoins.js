@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -15,12 +23,14 @@ var view;
     (function (coin) {
         var AddCoins = /** @class */ (function (_super) {
             __extends(AddCoins, _super);
+
             function AddCoins() {
                 var _this = _super.call(this) || this;
                 _this.init();
                 _this.initEvent();
                 return _this;
             }
+
             AddCoins.prototype.setParentUI = function (parentView) {
                 this.parentView = parentView;
             };
@@ -84,8 +94,16 @@ var view;
                 var walletName = this.parentView.comp.lab_wName.text;
                 var wallet = util.getItem(walletName);
                 //是否需要更新
-                var diff1 = coins.filter(function (ea) { return wallet.wCoins.every(function (eb) { return eb !== ea; }); });
-                var diff2 = wallet.wCoins.filter(function (ea) { return coins.every(function (eb) { return eb !== ea; }); });
+                var diff1 = coins.filter(function (ea) {
+                    return wallet.wCoins.every(function (eb) {
+                        return eb !== ea;
+                    });
+                });
+                var diff2 = wallet.wCoins.filter(function (ea) {
+                    return coins.every(function (eb) {
+                        return eb !== ea;
+                    });
+                });
                 if (diff1.length > 0 || diff2.length > 0) {
                     wallet.wCoins = coins;
                     mod.userMod.defWallet.wCoins = coins; //必定是当前钱包

@@ -37,7 +37,7 @@ module view {
             this.comp.list.vScrollBarSkin = "";
             // this.comp.list.selectHandler = new Handler(this, this.onSelect);
             this.comp.list.renderHandler = new Handler(this, this.onListRender);
-            
+
         }
 
         private onListRender(cell: Box, index: number) {

@@ -15,7 +15,7 @@ module view {
             this.data = data;
             this.comp.lab_wName.text = data.wName;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
-            this.comp.lab_total.text = data.wAmount+' ¥';
+            this.comp.lab_total.text = data.wAmount + ' ¥';
             this.comp.img_wImg.skin = config.resource.walletImg;
             this.comp.text_wName.text = data.wName;
             if (!data.wZjc) {
@@ -25,6 +25,11 @@ module view {
 
         public setParetUI(parentUI: ui.WalletManageUI) {
             this.parentUI = parentUI;
+        }
+
+        public deleteCb(pass, v: view.WalletDetail) {
+            let wName = v.comp.lab_wName.text;
+            service.walletServcie.deleteWallet(wName, v);
         }
 
         private init() {
@@ -98,10 +103,7 @@ module view {
                 return;
             }
         }
-        public deleteCb(pass, v: view.WalletDetail) {
-            let wName = v.comp.lab_wName.text;
-            service.walletServcie.deleteWallet(wName,v);
-        }
+
         private enterPassCb(pass, comp: ui.WalletDetailUI) {
             comp.visible = false;
             let backupw = new view.WalletBackUp();
