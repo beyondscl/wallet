@@ -5,6 +5,7 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+
     guide.prototype.setParentUI = function (p) {
         this.parentUI = p;
     };
@@ -89,9 +90,11 @@ var loadBg;
 var acc = util.getItem(config.prod.appAccept);
 var gui = util.getItem(config.prod.appGuide);
 var app = util.getItem(config.prod.appKey);
+
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
 }
+
 function beginLoad() {
     Laya.stage.bgColor = 'white';
     loadBg = new Laya.Image().loadImage("load/start.png");
@@ -125,22 +128,25 @@ function beginLoad() {
     progressBar.changeHandler = new Laya.Handler(this, onChange);
     Laya.stage.addChild(progressBar);
 }
+
 function onProcess(p) {
     progressBar.value = p;
 }
+
 function onChange(process) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
-    if (process == 1) {
-        new view.alert.info().popup();
+    if (process == 1) { //登录检查
         loadBg.visible = false;
         tip.visible = false;
         progressBar.visible = false;
         Laya.stage.removeChild(loadBg);
         Laya.stage.removeChild(tip);
         Laya.stage.removeChild(progressBar);
-        Laya.timer.once(1, this, enter);
+        var userLogin = new view.user.UserLogin();
+        userLogin.checkAutoLogin();
     }
 }
+
 function enter() {
     new config.init.initData('');
     //有些测试遗留数据会出错
@@ -164,6 +170,7 @@ function enter() {
         new view.info.Service();
     }
 }
+
 function enterMain() {
     var walletNames = util.getItem(config.prod.appKey);
     var wallet = util.getItem(walletNames[0]);
@@ -172,4 +179,5 @@ function enterMain() {
     mod.userMod.defWallet = walletMod;
     new view.WalletMain().initQueryData(walletMod);
 }
+
 //# sourceMappingURL=guide.js.map

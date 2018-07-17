@@ -11,6 +11,7 @@ var config;
             var getEthBalance = {
                 url: ethBalanceUrl,
                 method: 'get',
+                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {
@@ -33,6 +34,7 @@ var config;
             var getEthTOUsd = {
                 url: config.prod.ethToUsd,
                 method: 'get',
+                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {
@@ -50,6 +52,7 @@ var config;
             var getGasPrice = {
                 url: config.prod.getGasPrice,
                 method: 'get',
+                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {

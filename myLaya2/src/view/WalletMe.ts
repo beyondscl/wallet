@@ -19,6 +19,7 @@ module view {
         private init() {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
+            this.comp.lab_wel.text = mod.userMod.userName;
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
@@ -30,6 +31,7 @@ module view {
             this.comp.btn_manageWal.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_about.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
             this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
+            this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
         }
 
         private initQueryData() {
@@ -72,6 +74,20 @@ module view {
                 let candy = new view.info.Candy();
                 candy.setParetUI(this.comp);
                 candy.setData(service.walletServcie.getWallets());
+            }
+            if (index == 6) {
+                service.userServcie.userLogout(this.logoutCb, this);
+            }
+        }
+
+        private logoutCb(ret, v: view.WalletMe) {
+            ret = JSON.parse(ret)
+            if (ret && ret.retCode == 0) {
+                util.delItem(config.prod.appUserKey);
+                v.comp.removeSelf();
+                new view.user.UserLogin().checkAutoLogin();
+            } else {
+                new view.alert.info(ret.reason).popup();
             }
         }
     }

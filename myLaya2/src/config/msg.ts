@@ -21,5 +21,13 @@ module config {
         public static WAIT_CREATE_WALLET: string = "正在创建钱包...";
         public static WAIT_IMPORT_WALLET: string = "正在导入钱包...";
         public static WAIT_DELETE_WALLET: string = "正在删除钱包...";
+
+        //用户模块
+        public static PHONE_ERROR: string = "请输入正确的手机号";
+        public static VCODE_ERROR: string = "请输入6位数字验证码";
+        public static PASS_ERROR: string = "密码长度8-32";
+        public static PASS_CONF_ERROR: string = "2次输入的密码不一致";
+        public static INVITATION_ERROR: string = "请输入5位邀请码";
+        
     }
 }

@@ -2,12 +2,9 @@
 // 统一的错误信息提示
 module view.alert {
     export class info extends ui.alert.infoUI {
-        constructor() {
+        constructor(msg: string) {
             super();
-            Laya.timer.once(3000, this, this.stop);
-        }
-
-        public setMsg(msg: string) {
+            Laya.timer.once(2000, this, this.stop);
             this.msg.text = msg;
         }
 

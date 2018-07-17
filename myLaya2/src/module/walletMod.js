@@ -8,6 +8,7 @@ var mod;
             this.wAmount = 0;
             this.wCoinAmount = [];
         }
+
         //初始化
         walletMod.prototype.init = function (wName, wPassword, wPrivateKey, wKeyStore, wAddr, wCoins, wZjc) {
             this.wName = wName;

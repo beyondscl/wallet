@@ -16,14 +16,12 @@ var view;
     (function (alert) {
         var info = /** @class */ (function (_super) {
             __extends(info, _super);
-            function info() {
+            function info(msg) {
                 var _this = _super.call(this) || this;
-                Laya.timer.once(3000, _this, _this.stop);
+                Laya.timer.once(2000, _this, _this.stop);
+                _this.msg.text = msg;
                 return _this;
             }
-            info.prototype.setMsg = function (msg) {
-                this.msg.text = msg;
-            };
             info.prototype.stop = function () {
                 this.close();
             };

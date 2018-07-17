@@ -114,7 +114,6 @@ function beginLoad() {
     loadBg.height = config.prod.appHeight;
     Laya.stage.addChild(loadBg);
 
-
     tip = new Laya.Label();
     tip.bottom = 40;
     tip.left = 0;
@@ -150,14 +149,15 @@ function onProcess(p: number) {
 
 function onChange(process: number) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
-    if (process == 1) {
+    if (process == 1) {//登录检查
         loadBg.visible = false;
         tip.visible = false;
         progressBar.visible = false;
         Laya.stage.removeChild(loadBg);
         Laya.stage.removeChild(tip);
         Laya.stage.removeChild(progressBar);
-        Laya.timer.once(1, this, enter);
+        let userLogin = new view.user.UserLogin();
+        userLogin.checkAutoLogin()
     }
 }
 
