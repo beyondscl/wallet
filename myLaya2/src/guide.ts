@@ -151,9 +151,6 @@ function onProcess(p: number) {
 function onChange(process: number) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
     if (process == 1) {
-        new view.alert.info().popup()
-
-
         loadBg.visible = false;
         tip.visible = false;
         progressBar.visible = false;
