@@ -37,6 +37,7 @@ var view;
             this.comp.btn_about.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
             this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
             this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
+            this.comp.btn_invid.on(Laya.Event.CLICK, this, this.tabSelect, [7]);
         };
         WalletMe.prototype.initQueryData = function () {
         };
@@ -78,6 +79,10 @@ var view;
             }
             if (index == 6) {
                 service.userServcie.userLogout(this.logoutCb, this);
+            }
+            if (index == 7) {
+                this.comp.visible = false;
+                new view.user.UseInvite().setParetUI(this);
             }
         };
         WalletMe.prototype.logoutCb = function (ret, v) {

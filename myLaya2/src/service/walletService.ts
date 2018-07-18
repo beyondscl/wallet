@@ -17,12 +17,12 @@ module service {
                 ow.wName = nName;
                 util.setItemJson(nName, ow);
                 mod.userMod.defWallet.wName = nName;//更新默认钱包
-                let walletNames = util.getItem(config.prod.appKey);//更新钱包列表
+                let walletNames = util.getItem(config.prod.getAppKey());//更新钱包列表
                 if (walletNames) {
                     for (let i = 0; i < walletNames.length; i++) {
                         if (walletNames[i].trim() == oName.trim()) {
                             walletNames[i] = nName;
-                            util.setItemJson(config.prod.appKey, walletNames);
+                            util.setItemJson(config.prod.getAppKey(), walletNames);
                             break;
                         }
                     }
@@ -69,14 +69,14 @@ module service {
             //删除后可能没有钱包了,跳转到创建界面
             try {
                 console.log("deleteWallet :", wName);
-                let wals: Array<string> = util.getItem(config.prod.appKey);
+                let wals: Array<string> = util.getItem(config.prod.getAppKey());
                 let walsNew: Array<string> = [];
                 for (let i = 0; i < wals.length; i++) {
                     if (wals[i] != wName) {
                         walsNew.push(wals[i]);
                     }
                 }
-                util.setItemJson(config.prod.appKey, walsNew);
+                util.setItemJson(config.prod.getAppKey(), walsNew);
                 util.delItem(wName);
                 //删除当前页面
                 v.comp.removeSelf();
@@ -456,7 +456,7 @@ module service {
 
         //管理钱包：获取所有钱包
         public static getWallets(): Array<mod.walletMod> {
-            let walletNames = util.getItem(config.prod.appKey);
+            let walletNames = util.getItem(config.prod.getAppKey());
             if (walletNames) {
                 let data = [];
                 for (let i = 0; i < walletNames.length; i++) {
@@ -489,7 +489,9 @@ module service {
 
         //创建，切换钱包需要实例化全局对象用于交易
         public static initLigthWallet(wKeyStore: string) {
+            console.log("start initLigthWallet");
             Laya.Browser.window.deserialize(wKeyStore);
+            console.log("end initLigthWallet");
         }
 
         //交易eth

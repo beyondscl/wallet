@@ -4,10 +4,6 @@ var config;
     var init = /** @class */ (function () {
         function init() {
         }
-        init.prototype.errFun = function (a, b) {
-            console.log("require error:", a, b);
-        };
-        //load data from owner db
         //load data from public network
         init.initData = function (addr) {
             // 初始化用户账户 eth 数量,自己节点
@@ -15,6 +11,7 @@ var config;
             var getEthBalance = {
                 url: ethBalanceUrl,
                 method: 'get',
+                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {
@@ -27,14 +24,17 @@ var config;
                         console.log("getEthBalance error:", ret);
                     }
                 },
-                complete: function () { },
-                error: function () { }
+                complete: function () {
+                },
+                error: function () {
+                }
             };
             // Laya.Browser.window.Ajax.get(getEthBalance);
             //获取eth-usd
             var getEthTOUsd = {
                 url: config.prod.ethToUsd,
                 method: 'get',
+                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {
@@ -42,14 +42,17 @@ var config;
                     mod.userMod.ethToUsd = ret.bid;
                     console.log("getEthTOUsd ok:", ret);
                 },
-                complete: function () { },
-                error: function () { }
+                complete: function () {
+                },
+                error: function () {
+                }
             };
             Laya.Browser.window.Ajax.get(getEthTOUsd);
             //获取eth-usd,自己节点
             var getGasPrice = {
                 url: config.prod.getGasPrice,
                 method: 'get',
+                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {
@@ -62,12 +65,17 @@ var config;
                         console.log("getGasPrice error:", ret);
                     }
                 },
-                complete: function () { },
+                complete: function () {
+                },
                 error: function (a, b) {
                     console.log("require error:", a, b);
                 }
             };
             Laya.Browser.window.Ajax.get(getGasPrice);
+        };
+        //load data from owner db
+        init.prototype.errFun = function (a, b) {
+            console.log("require error:", a, b);
         };
         return init;
     }());

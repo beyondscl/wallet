@@ -25,6 +25,7 @@ var view;
         WalletMe.prototype.init = function () {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
+            this.comp.lab_wel.text = mod.userMod.userName;
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         };
@@ -35,6 +36,8 @@ var view;
             this.comp.btn_manageWal.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
             this.comp.btn_about.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
             this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
+            this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
+            this.comp.btn_invid.on(Laya.Event.CLICK, this, this.tabSelect, [7]);
         };
         WalletMe.prototype.initQueryData = function () {
         };
@@ -73,6 +76,24 @@ var view;
                 var candy = new view.info.Candy();
                 candy.setParetUI(this.comp);
                 candy.setData(service.walletServcie.getWallets());
+            }
+            if (index == 6) {
+                service.userServcie.userLogout(this.logoutCb, this);
+            }
+            if (index == 7) {
+                this.comp.visible = false;
+                new view.user.UseInvite().setParetUI(this);
+            }
+        };
+        WalletMe.prototype.logoutCb = function (ret, v) {
+            ret = JSON.parse(ret);
+            if (ret && ret.retCode == 0) {
+                util.delItem(config.prod.appUserKey);
+                v.comp.removeSelf();
+                new view.user.UserLogin().checkAutoLogin();
+            }
+            else {
+                new view.alert.info(ret.reason).popup();
             }
         };
         return WalletMe;

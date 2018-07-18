@@ -19,15 +19,19 @@ var mod;
             this.userId = json.id;
             this.code = json.code;
             this.inviter = json.inviter;
+            this.invitedNum = json.invitedNum;
+            this.addr = json.addr;
         };
         //操作本地数据
         userMod.setUserFromJson = function (userJson) {
-            this.userName = userJson.userName;
+            this.userId = this.userId,
+                this.userName = userJson.userName;
             this.userPass = userJson.userPass;
         };
         //操作本地数据
         userMod.userToJson = function () {
             var j = {
+                userId: this.userId,
                 userName: this.userName,
                 userPass: this.userPass,
             };

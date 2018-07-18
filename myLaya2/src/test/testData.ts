@@ -18,7 +18,7 @@ class testData {
 
     //管理钱包：获取所有钱包
     public static getWallets(): Array<mod.walletMod> {
-        let walletNames = util.getItem(config.prod.appKey);
+        let walletNames = util.getItem(config.prod.getAppKey());
         if (walletNames) {
             let data = [];
             for (let i = 0; i < walletNames.length; i++) {

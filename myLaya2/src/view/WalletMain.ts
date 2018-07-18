@@ -81,7 +81,7 @@ module view {
 
         private getBalanceCb(res, args: Array<any>) {
             if (res && res.retCode == 0) {
-                console.info("getBalanceCb res:" + res);
+                console.info("getBalanceCb res:" + res.ret);
                 res = res.ret;
 
                 let comp = args[0] as view.WalletMain;
@@ -189,7 +189,7 @@ module view {
                 pom.left = Laya.stage.width / 2;//right 不行
 
                 pom.setParentUI(this);
-                pom.initData(util.getItem(config.prod.appKey));
+                pom.initData(util.getItem(config.prod.getAppKey()));
                 pom.popup();
             }
             if (index == 4) {

@@ -42,8 +42,8 @@ var service;
             Laya.Browser.window.Ajax.post(login);
         };
         /**
-        * 登出
-        */
+         * 登出
+         */
         userServcie.userLogout = function (fun, args) {
             var logout = {
                 url: config.prod.apiLogout,
@@ -65,8 +65,8 @@ var service;
             Laya.Browser.window.Ajax.post(logout);
         };
         /**
-        * 注册
-        */
+         * 注册
+         */
         userServcie.userRegist = function (uname, upass, captcha, code, inviter, fun, args) {
             var regist = {
                 url: config.prod.apiUserRegist,
@@ -162,6 +162,31 @@ var service;
                 }
             };
             Laya.Browser.window.Ajax.post(reset);
+        };
+        /**
+         * 设置领取奖励地址
+         */
+        userServcie.setMainAddr = function (addr, fun, args) {
+            var setAddr = {
+                url: config.prod.apiSetMainAddr,
+                method: 'POST',
+                token: mod.userMod.token,
+                data: {
+                    "addr": addr,
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (a, args) {
+                    fun(JSON.stringify(service.userServcie.error), args);
+                    console.log("request error:", a, args);
+                }
+            };
+            Laya.Browser.window.Ajax.post(setAddr);
         };
         userServcie.error = {
             "retCode": 2,

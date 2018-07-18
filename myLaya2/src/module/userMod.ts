@@ -11,12 +11,14 @@ module mod {
         public static gasPrice = 0;
 
         //需要存储的字段
-        public static userName;
-        public static userPass;
-        public static token;
-        public static userId;
+        public static userName;//一般为手机号
+        public static userPass;//密码
+        public static token;//请求的token
+        public static userId;//编码
         public static code;//邀请码
-        public static inviter;//邀请人数
+        public static inviter;//谁邀请他的人的id
+        public static addr;//领取奖励的地址
+        public static invitedNum;//我已邀请人的数量
 
         constructor() {
 
@@ -38,17 +40,21 @@ module mod {
             this.userId = json.id;
             this.code = json.code;
             this.inviter = json.inviter;
+            this.invitedNum = json.invitedNum;
+            this.addr = json.addr;
         }
 
         //操作本地数据
         public static setUserFromJson(userJson: any) {
-            this.userName = userJson.userName;
+            this.userId = this.userId,
+                this.userName = userJson.userName;
             this.userPass = userJson.userPass;
         }
 
         //操作本地数据
         public static userToJson(): any {
             let j = {
+                userId: this.userId,
                 userName: this.userName,
                 userPass: this.userPass,
             }

@@ -2,7 +2,8 @@
 module view.info {
     export class SelectWallet extends ui.info.SelectWalletUI {
         private comp: ui.info.SelectWalletUI;
-        private parentUI: View;
+        private parentUI: view.user.UseInvite;
+        private selectedAddr: string;
 
         constructor() {
             super();
@@ -10,11 +11,12 @@ module view.info {
             this.initEvent();
         }
 
-        public setData(data: Array<mod.walletMod>) {
+        public setData(data: Array<mod.walletMod>, selctAddr: string) {
             this.comp.list_wallet.array = data;
             this.comp.list_wallet.vScrollBarSkin = "";
             this.comp.list_wallet.renderHandler = new Laya.Handler(this, this.onListRender);
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
+            this.selectedAddr = selctAddr;
         }
 
         public setParetUI(parentUI: view.user.UseInvite) {
@@ -39,12 +41,15 @@ module view.info {
             let wAddr = cell.getChildByName('lab_wAddr') as Label;
             wAddr.text = util.getAddr(data.wAddr);
             let radio = cell.getChildByName('radio') as Laya.Radio;
+            if (this.selectedAddr && this.selectedAddr == data.wAddr) {
+                radio.selected = true;
+            }
         }
 
         private btnClick(index: number) {
             if (1 == index) {
                 this.comp.removeSelf();
-                this.parentUI.visible = true;
+                this.parentUI.comp.visible = true;
                 return;
             }
         }
@@ -57,6 +62,10 @@ module view.info {
                     radio.selected = false;
                 } else {
                     radio.selected = true;
+                    let wName = childs[i].getChildByName('lab_wName') as Laya.Label;
+                    this.parentUI.setSelectedWaddr(wName.text);
+                    this.comp.removeSelf();
+                    this.parentUI.comp.visible = true;
                 }
             }
         }

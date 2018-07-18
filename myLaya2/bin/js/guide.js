@@ -5,6 +5,9 @@ var guide = /** @class */ (function () {
         this.mouseStart = 0;
         this.init();
     }
+    guide.prototype.setParentUI = function (p) {
+        this.parentUI = p;
+    };
     guide.prototype.init = function () {
         this.guideUI = new ui.GuideUI();
         Laya.stage.addChild(this.guideUI);
@@ -56,9 +59,6 @@ var guide = /** @class */ (function () {
                 break;
         }
     };
-    guide.prototype.setParentUI = function (p) {
-        this.parentUI = p;
-    };
     return guide;
 }());
 //程序入口
@@ -78,7 +78,7 @@ Laya.stage.alignV = "middle";
 if (Laya.Browser.window.env == "dev") {
     // Laya.Stat.show(0,0);
 }
-//激活资源版本控制,太费时间
+//激活资源版本控制,数据太大加载耗时
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();
 //进度条
@@ -88,7 +88,7 @@ var loadBg;
 //基本数据
 var acc = util.getItem(config.prod.appAccept);
 var gui = util.getItem(config.prod.appGuide);
-var app = util.getItem(config.prod.appKey);
+var app = util.getItem(config.prod.getAppKey());
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
 }
@@ -130,14 +130,15 @@ function onProcess(p) {
 }
 function onChange(process) {
     tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
-    if (process == 1) {
+    if (process == 1) { //登录检查
         loadBg.visible = false;
         tip.visible = false;
         progressBar.visible = false;
         Laya.stage.removeChild(loadBg);
         Laya.stage.removeChild(tip);
         Laya.stage.removeChild(progressBar);
-        Laya.timer.once(1, this, enter);
+        var userLogin = new view.user.UserLogin();
+        userLogin.checkAutoLogin();
     }
 }
 function enter() {
@@ -145,7 +146,7 @@ function enter() {
     //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
     if (acc) { //已同意服务协议
-        var walletNames = util.getItem(config.prod.appKey);
+        var walletNames = util.getItem(config.prod.getAppKey());
         if (!walletNames || walletNames.length == 0) { //没有钱包数据
             if (gui) { //非第一次进入
                 new EnterApp();
@@ -164,7 +165,7 @@ function enter() {
     }
 }
 function enterMain() {
-    var walletNames = util.getItem(config.prod.appKey);
+    var walletNames = util.getItem(config.prod.getAppKey());
     var wallet = util.getItem(walletNames[0]);
     var walletMod = new mod.walletMod();
     walletMod.setWallet(wallet);

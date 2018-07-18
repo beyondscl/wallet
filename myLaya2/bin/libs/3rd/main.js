@@ -147,7 +147,12 @@ function balanceOf(address, abi, contractAddr){
         var contract = getInstance(contractAddr);
         contract.balanceOf(address, function(error, result){
             if(error){
-                console.log("contract.balanceOf error, result,address,contract,abi :",error, result,address,contract);
+                console.log("contract.balanceOf error:",error);
+                console.log("contract.balanceOf result:", result);
+                console.log("contract.balanceOf address:",address);
+                console.log("contract.balanceOf contract:",contract);
+                console.log("contract.balanceOf contractAddr:",contractAddr);
+                console.log("contract.balanceOf abi:",abi);
                 resolve({"retCode":1, "error":error})
             }else{
                 resolve({"retCode":0, "ret":result})

@@ -144,13 +144,13 @@ var view;
                     //记录数据
                     var walletJson = wallet.toJson();
                     util.setItemJson(wallet.wName, walletJson);
-                    var appStore = util.getItem(config.prod.appKey);
+                    var appStore = util.getItem(config.prod.getAppKey());
                     if (appStore) {
                         appStore[appStore.length] = wallet.wName;
-                        util.setItemJson(config.prod.appKey, appStore);
+                        util.setItemJson(config.prod.getAppKey(), appStore);
                     }
                     else {
-                        util.setItemJson(config.prod.appKey, [wallet.wName]);
+                        util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
                     }
                     var com = args[0];
                     com.removeSelf(); //删除之前父类的comp

@@ -88,7 +88,7 @@ Laya.stage.alignV = "middle";
 if (Laya.Browser.window.env == "dev") {
     // Laya.Stat.show(0,0);
 }
-//激活资源版本控制,太费时间
+//激活资源版本控制,数据太大加载耗时
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();
 //进度条
@@ -98,7 +98,7 @@ let loadBg;
 //基本数据
 let acc = util.getItem(config.prod.appAccept)
 let gui = util.getItem(config.prod.appGuide)
-let app = util.getItem(config.prod.appKey)
+let app = util.getItem(config.prod.getAppKey())
 
 function loadProcess() {
     Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
@@ -166,7 +166,7 @@ function enter() {
     //有些测试遗留数据会出错
     // laya.net.LocalStorage.clear();
     if (acc) {//已同意服务协议
-        let walletNames = util.getItem(config.prod.appKey);
+        let walletNames = util.getItem(config.prod.getAppKey());
         if (!walletNames || walletNames.length == 0) {//没有钱包数据
             if (gui) {//非第一次进入
                 new EnterApp();
@@ -183,7 +183,7 @@ function enter() {
 }
 
 function enterMain() {
-    let walletNames = util.getItem(config.prod.appKey);
+    let walletNames = util.getItem(config.prod.getAppKey());
     let wallet = util.getItem(walletNames[0]);
     let walletMod = new mod.walletMod();
     walletMod.setWallet(wallet);

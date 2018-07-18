@@ -28,6 +28,20 @@ var view;
             UserRegist.prototype.setParentUI = function (p) {
                 this.parentUI = p;
             };
+            UserRegist.prototype.changTime = function (btn) {
+                var text = this.comp.btn_getcode.label.trim().split("(")[0];
+                text = text + "(" + this._getCode + ")";
+                btn.label = text;
+                this._getCode--;
+                if (this._getCode < 0) {
+                    Laya.timer.clear(this, this.changTime);
+                    text = this.comp.btn_getcode.label.trim().split("(")[0];
+                    btn.label = text;
+                    this.comp.btn_getcode.disabled = false;
+                    this._getCode = config.prod.smsTimeInterval;
+                    ;
+                }
+            };
             UserRegist.prototype.init = function () {
                 this.comp = new ui.user.UserRegistUI();
                 Laya.stage.addChild(this.comp);
@@ -90,20 +104,6 @@ var view;
                 var phone = this.comp.inp_phNumber.text;
                 service.userServcie.getRegistCode(phone, this.getCodeCb, this);
                 Laya.timer.loop(1000, this, this.changTime, [this.comp.btn_getcode]);
-            };
-            UserRegist.prototype.changTime = function (btn) {
-                var text = this.comp.btn_getcode.label.trim().split("(")[0];
-                text = text + "(" + this._getCode + ")";
-                btn.label = text;
-                this._getCode--;
-                if (this._getCode < 0) {
-                    Laya.timer.clear(this, this.changTime);
-                    text = this.comp.btn_getcode.label.trim().split("(")[0];
-                    btn.label = text;
-                    this.comp.btn_getcode.disabled = false;
-                    this._getCode = config.prod.smsTimeInterval;
-                    ;
-                }
             };
             /**
              * 获取验证码回调

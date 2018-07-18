@@ -22,8 +22,8 @@ var view;
                 return _this;
             }
             waiting.prototype.stop = function () {
-                this.close();
                 Laya.timer.clear(this, this.stopCb);
+                this.close();
             };
             waiting.prototype.stopCb = function () {
             };

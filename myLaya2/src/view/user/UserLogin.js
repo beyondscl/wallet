@@ -21,51 +21,10 @@ var view;
                 _this.initEvent();
                 return _this;
             }
-            UserLogin.prototype.init = function () {
-                this.comp = new ui.user.UserLoginUI();
-                this.comp.visible = false;
-                Laya.stage.addChild(this.comp);
-            };
-            UserLogin.prototype.initEvent = function () {
-                this.comp.btn_login.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-                this.comp.btn_regist.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-                this.comp.lab_reset.on(Laya.Event.CLICK, this, this.btnClick, [3]);
-            };
             UserLogin.prototype.setData = function (key) {
-            };
-            UserLogin.prototype.btnClick = function (index) {
-                if (1 == index) {
-                    var uname = this.comp.inp_uname.text;
-                    var upass = this.comp.inp_upass.text;
-                    //判断
-                    if (this.check(uname, upass)) {
-                        this.login(uname, upass);
-                    }
-                }
-                if (2 == index) {
-                    this.comp.visible = false;
-                    var regist = new view.user.UserRegist();
-                    regist.setParentUI(this);
-                }
-                if (3 == index) {
-                    this.comp.visible = false;
-                    var reset = new view.user.UserReset();
-                    reset.setParentUI(this);
-                }
             };
             UserLogin.prototype.setParetUI = function (parentUI) {
                 this.parentUI = parentUI;
-            };
-            UserLogin.prototype.check = function (phone, pass) {
-                if (!util.vilPhoneNumber(phone)) {
-                    new view.alert.info(config.msg.PHONE_ERROR).popup();
-                    return false;
-                }
-                if (!pass || pass.length < 8 || pass.length > 32) {
-                    new view.alert.info(config.msg.PASS_ERROR).popup();
-                    return false;
-                }
-                return true;
             };
             /**
              * 存在即自动登录
@@ -91,6 +50,47 @@ var view;
                 mod.userMod.userName = uname.trim();
                 mod.userMod.userPass = upass.trim();
                 service.userServcie.userLogin(uname, upass, this.loginCb, this);
+            };
+            UserLogin.prototype.init = function () {
+                this.comp = new ui.user.UserLoginUI();
+                this.comp.visible = false;
+                Laya.stage.addChild(this.comp);
+            };
+            UserLogin.prototype.initEvent = function () {
+                this.comp.btn_login.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+                this.comp.btn_regist.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+                this.comp.lab_reset.on(Laya.Event.CLICK, this, this.btnClick, [3]);
+            };
+            UserLogin.prototype.btnClick = function (index) {
+                if (1 == index) {
+                    var uname = this.comp.inp_uname.text;
+                    var upass = this.comp.inp_upass.text;
+                    //判断
+                    if (this.check(uname, upass)) {
+                        this.login(uname, upass);
+                    }
+                }
+                if (2 == index) {
+                    this.comp.visible = false;
+                    var regist = new view.user.UserRegist();
+                    regist.setParentUI(this);
+                }
+                if (3 == index) {
+                    this.comp.visible = false;
+                    var reset = new view.user.UserReset();
+                    reset.setParentUI(this);
+                }
+            };
+            UserLogin.prototype.check = function (phone, pass) {
+                if (!util.vilPhoneNumber(phone)) {
+                    new view.alert.info(config.msg.PHONE_ERROR).popup();
+                    return false;
+                }
+                if (!pass || pass.length < 8 || pass.length > 32) {
+                    new view.alert.info(config.msg.PASS_ERROR).popup();
+                    return false;
+                }
+                return true;
             };
             /**
              * 登录回调

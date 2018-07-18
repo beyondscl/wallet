@@ -81,7 +81,7 @@ var view;
         };
         WalletMain.prototype.getBalanceCb = function (res, args) {
             if (res && res.retCode == 0) {
-                console.info("getBalanceCb res:" + res);
+                console.info("getBalanceCb res:" + res.ret);
                 res = res.ret;
                 var comp = args[0];
                 var coinMod = args[1];
@@ -179,7 +179,7 @@ var view;
                 pom.top = 0;
                 pom.left = Laya.stage.width / 2; //right 不行
                 pom.setParentUI(this);
-                pom.initData(util.getItem(config.prod.appKey));
+                pom.initData(util.getItem(config.prod.getAppKey()));
                 pom.popup();
             }
             if (index == 4) {

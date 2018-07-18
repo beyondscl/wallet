@@ -4,6 +4,7 @@ var config;
     var init = /** @class */ (function () {
         function init() {
         }
+
         //load data from public network
         init.initData = function (addr) {
             // 初始化用户账户 eth 数量,自己节点

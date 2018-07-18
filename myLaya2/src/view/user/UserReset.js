@@ -18,13 +18,33 @@ var view;
             function UserReset() {
                 var _this = _super.call(this) || this;
                 /**
-                 * 获取验证码按钮
+                 * 获取验证码按钮变灰
                  */
                 _this._getCode = config.prod.smsTimeInterval;
                 _this.init();
                 _this.initEvent();
                 return _this;
             }
+            UserReset.prototype.setParentUI = function (p) {
+                this.parentUI = p;
+            };
+            UserReset.prototype.changTime = function (btn) {
+                var text = this.comp.btn_getcode.label.trim().split("(")[0];
+                text = text + "(" + this._getCode + ")";
+                btn.label = text;
+                this._getCode--;
+                if (this._getCode < 0) {
+                    Laya.timer.clear(this, this.changTime);
+                    text = this.comp.btn_getcode.label.trim().split("(")[0];
+                    btn.label = text;
+                    this.comp.btn_getcode.disabled = false;
+                    this._getCode = config.prod.smsTimeInterval;
+                    ;
+                }
+            };
+            UserReset.prototype.setParetUI = function (parentUI) {
+                this.parentUI = parentUI;
+            };
             UserReset.prototype.init = function () {
                 this.comp = new ui.user.UserResetUI();
                 Laya.stage.addChild(this.comp);
@@ -34,15 +54,13 @@ var view;
                 this.comp.btn_update.on(Laya.Event.CLICK, this, this.btnClick, [2]);
                 this.comp.btn_login.on(Laya.Event.CLICK, this, this.btnClick, [3]);
             };
-            UserReset.prototype.setParentUI = function (p) {
-                this.parentUI = p;
-            };
             UserReset.prototype.btnClick = function (index) {
                 if (1 == index) {
                     var phone = this.comp.inp_phone.text;
                     if (util.vilPhoneNumber(phone)) {
-                        this.getCode();
+                        this.comp.btn_getcode.disabled = true;
                         service.userServcie.getResetPassCode(phone, this.getCodeCb, "");
+                        this.getCode();
                     }
                     else {
                         new view.alert.info(config.msg.PHONE_ERROR).popup();
@@ -65,26 +83,8 @@ var view;
                 }
             };
             UserReset.prototype.getCode = function () {
-                this.comp.btn_getcode.disabled = true;
                 var phone = this.comp.btn_getcode.text;
                 Laya.timer.loop(1000, this, this.changTime, [this.comp.btn_getcode]);
-            };
-            UserReset.prototype.changTime = function (btn) {
-                var text = this.comp.btn_getcode.label.trim().split("(")[0];
-                text = text + "(" + this._getCode + ")";
-                btn.label = text;
-                this._getCode--;
-                if (this._getCode < 0) {
-                    Laya.timer.clear(this, this.changTime);
-                    text = this.comp.btn_getcode.label.trim().split("(")[0];
-                    btn.label = text;
-                    this.comp.btn_getcode.disabled = false;
-                    this._getCode = config.prod.smsTimeInterval;
-                    ;
-                }
-            };
-            UserReset.prototype.setParetUI = function (parentUI) {
-                this.parentUI = parentUI;
             };
             UserReset.prototype.check = function (inp_phone, inp_code, inp_pass, inp_passconf) {
                 if (!util.vilPhoneNumber(inp_phone)) {

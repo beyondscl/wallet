@@ -37,10 +37,7 @@ module view {
         private getImgSrc(qrcode: any) {
             if (qrcode && qrcode._oDrawing._elImage.src) {
                 Laya.timer.clearAll(this);
-                let img = new Laya.Image().loadImage(qrcode._oDrawing._elImage.src);
-                img.x = this.comp.img_wAddr.x;
-                img.y = this.comp.img_wAddr.y;
-                this.comp.addChild(img)
+                this.comp.img_wAddr.skin = qrcode._oDrawing._elImage.src;
             }
         }
 

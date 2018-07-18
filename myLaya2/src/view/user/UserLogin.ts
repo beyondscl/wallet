@@ -3,7 +3,7 @@ module view.user {
     export class UserLogin extends ui.user.UserLoginUI {
         public comp: ui.user.UserLoginUI;
         private parentUI: View;
-        private waiting:view.alert.waiting;
+        private waiting: view.alert.waiting;
 
         constructor() {
             super();
@@ -11,56 +11,11 @@ module view.user {
             this.initEvent();
         }
 
-        private init() {
-            this.comp = new ui.user.UserLoginUI();
-            this.comp.visible = false;
-            Laya.stage.addChild(this.comp);
-        }
-
-        private initEvent() {
-            this.comp.btn_login.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-			this.comp.btn_regist.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-            this.comp.lab_reset.on(Laya.Event.CLICK, this, this.btnClick, [3]);
-            
-        }
-
         public setData(key: string) {
-        }
-
-        private btnClick(index: number) {
-            if (1 == index) {
-				let uname = this.comp.inp_uname.text;
-            	let upass = this.comp.inp_upass.text;
-                //判断
-                if(this.check(uname,upass)){
-                    this.login(uname,upass);
-                }
-            }
-			if (2 == index) {
-                this.comp.visible = false;
-				let regist = new view.user.UserRegist();
-				regist.setParentUI(this);
-            }
-            if (3 == index) {
-                this.comp.visible = false;
-				let reset = new view.user.UserReset();
-				reset.setParentUI(this);
-            }
         }
 
         public setParetUI(parentUI: any) {
             this.parentUI = parentUI;
-        }
-        private check(phone:string,pass:string):boolean{
-            if(!util.vilPhoneNumber(phone)){
-                new view.alert.info(config.msg.PHONE_ERROR).popup();
-                return false;
-            }
-            if(!pass||pass.length<8||pass.length>32){
-                new view.alert.info(config.msg.PASS_ERROR).popup();
-                return false;
-            }
-            return true;
         }
 
         /**
@@ -71,7 +26,7 @@ module view.user {
         public checkAutoLogin() {
             let u = service.userServcie.getUser()
             if (u) {
-				this.login(mod.userMod.userName,mod.userMod.userPass);
+                this.login(mod.userMod.userName, mod.userMod.userPass);
             } else {
                 this.comp.visible = true;
             }
@@ -80,28 +35,74 @@ module view.user {
         /**
          * 登录
          */
-        public login(uname,upass) {
+        public login(uname, upass) {
             this.waiting = new view.alert.waiting("登录中...")
             this.waiting.popup();
-			//更新内存数据
-			mod.userMod.userName = uname.trim();
-			mod.userMod.userPass = upass.trim();
-            service.userServcie.userLogin(uname, upass, this.loginCb,this);
+            //更新内存数据
+            mod.userMod.userName = uname.trim();
+            mod.userMod.userPass = upass.trim();
+            service.userServcie.userLogin(uname, upass, this.loginCb, this);
+        }
+
+        private init() {
+            this.comp = new ui.user.UserLoginUI();
+            this.comp.visible = false;
+            Laya.stage.addChild(this.comp);
+        }
+
+        private initEvent() {
+            this.comp.btn_login.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+            this.comp.btn_regist.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+            this.comp.lab_reset.on(Laya.Event.CLICK, this, this.btnClick, [3]);
+
+        }
+
+        private btnClick(index: number) {
+            if (1 == index) {
+                let uname = this.comp.inp_uname.text;
+                let upass = this.comp.inp_upass.text;
+                //判断
+                if (this.check(uname, upass)) {
+                    this.login(uname, upass);
+                }
+            }
+            if (2 == index) {
+                this.comp.visible = false;
+                let regist = new view.user.UserRegist();
+                regist.setParentUI(this);
+            }
+            if (3 == index) {
+                this.comp.visible = false;
+                let reset = new view.user.UserReset();
+                reset.setParentUI(this);
+            }
+        }
+
+        private check(phone: string, pass: string): boolean {
+            if (!util.vilPhoneNumber(phone)) {
+                new view.alert.info(config.msg.PHONE_ERROR).popup();
+                return false;
+            }
+            if (!pass || pass.length < 8 || pass.length > 32) {
+                new view.alert.info(config.msg.PASS_ERROR).popup();
+                return false;
+            }
+            return true;
         }
 
         /**
          * 登录回调
          */
-        private loginCb(ret, v:view.user.UserLogin) {
+        private loginCb(ret, v: view.user.UserLogin) {
             v.waiting.stop();
             ret = JSON.parse(ret)
             if (ret && ret.retCode == 0) {
-				//储存本地账户,注意上面已经赋值
-				mod.userMod.setUserJson(ret.data);
-				util.setItemJson(config.prod.appUserKey,mod.userMod.userToJson());
-				//开始进入
-				v.comp.removeSelf();
-				Laya.Browser.window.enter();
+                //储存本地账户,注意上面已经赋值
+                mod.userMod.setUserJson(ret.data);
+                util.setItemJson(config.prod.appUserKey, mod.userMod.userToJson());
+                //开始进入
+                v.comp.removeSelf();
+                Laya.Browser.window.enter();
             } else {
                 new view.alert.info(ret.reason).popup();
             }

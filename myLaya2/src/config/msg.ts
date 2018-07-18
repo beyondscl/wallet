@@ -28,6 +28,6 @@ module config {
         public static PASS_ERROR: string = "密码长度8-32";
         public static PASS_CONF_ERROR: string = "2次输入的密码不一致";
         public static INVITATION_ERROR: string = "请输入5位邀请码";
-        
+
     }
 }

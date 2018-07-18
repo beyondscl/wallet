@@ -80,13 +80,13 @@ var view;
                 wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
                 var walletJson = wallet.toJson();
                 util.setItemJson(wallet.wName, walletJson);
-                var appStore = util.getItem(config.prod.appKey);
+                var appStore = util.getItem(config.prod.getAppKey());
                 if (appStore) {
                     appStore[appStore.length] = wallet.wName;
-                    util.setItemJson(config.prod.appKey, appStore);
+                    util.setItemJson(config.prod.getAppKey(), appStore);
                 }
                 else {
-                    util.setItemJson(config.prod.appKey, [wallet.wName]);
+                    util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
                 }
                 var com = args[0];
                 com.removeSelf();
