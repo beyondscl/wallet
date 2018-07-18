@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":3,
+    "selecteID":6,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -87,13 +87,13 @@
                             "compId":22,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }]
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":198,"width":165,"var":"btn_getcode","skin":"img/main/img_blue2.png","right":48,"labelSize":24,"labelColors":"#FFFFFF","label":"获取验证码","height":34,"disabled":false},
+                    "props":{"y":198,"width":165,"var":"btn_getcode","skin":"img/main/img_blue2.png","right":48,"labelSize":24,"labelColors":"#FFFFFF","label":"获取验证码","height":40,"disabled":false},
                     "nodeParent":2,
                     "label":"Button(btn_getcode)",
                     "isDirectory":false,
@@ -109,13 +109,14 @@
                     "props":{"y":269,"x":30,"width":300,"var":"text_code","type":"number","promptColor":"#163853","prompt":"验证码","maxChars":6,"height":34,"fontSize":24,"color":"#163853"},
                     "nodeParent":2,
                     "label":"TextInput(text_code)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":8,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
                             "nodeParent":8,
@@ -128,6 +129,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"visible":false,"var":"warn_code","top":40,"text":"验证码不正确","right":0,"left":0,"height":20,"fontSize":20,"color":"#ff0400","align":"right"},
                             "nodeParent":8,
@@ -138,7 +140,7 @@
                             "compId":21,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }]
                 },
                 {
@@ -239,7 +241,8 @@
                     "hasChild":false,
                     "compId":23,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

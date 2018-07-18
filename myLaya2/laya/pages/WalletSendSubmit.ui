@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":31,
+    "selecteID":21,
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -244,7 +244,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":710,"width":248,"var":"lab_max_gas_usd","valign":"middle","text":"0.01 USD","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"},
+            "props":{"y":710,"width":248,"var":"lab_max_gas_usd","valign":"middle","text":"- ¥ ","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"},
             "nodeParent":1,
             "label":"TextInput(lab_max_gas_usd)",
             "isDirectory":false,
@@ -283,7 +283,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":810,"width":245,"var":"lab_max_total_usd","valign":"middle","text":"516.10 USD","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"},
+            "props":{"y":810,"width":245,"var":"lab_max_total_usd","valign":"middle","text":"- ¥","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"},
             "nodeParent":1,
             "label":"TextInput(lab_max_total_usd)",
             "isDirectory":false,

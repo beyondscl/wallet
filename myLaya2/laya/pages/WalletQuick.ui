@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":35,
-    "selecteID":36,
-    "props":{"y":0,"x":0,"width":375,"sceneColor":"#ffffff","height":1334},
+    "selectedBox":1,
+    "selecteID":1,
+    "props":{"y":0,"x":0,"width":375,"sceneColor":"#ffffff","height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap"},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -118,7 +118,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":40,"width":56,"skin":"img/main/sys@2x.png","left":30,"height":56},
+                    "props":{"y":10,"width":56,"skin":"img/main/sys@2x.png","left":30,"height":56},
                     "nodeParent":31,
                     "label":"Image",
                     "isDirectory":false,
@@ -131,7 +131,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":40,"x":100,"var":"lab_sao","valign":"middle","text":"扫一扫","height":56,"fontSize":28,"color":"#687076","align":"left"},
+                    "props":{"y":10,"x":100,"var":"lab_sao","valign":"middle","text":"扫一扫","height":56,"fontSize":28,"color":"#687076","align":"left"},
                     "nodeParent":31,
                     "label":"Label(lab_sao)",
                     "isDirectory":false,
@@ -144,7 +144,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":120,"width":56,"skin":"img/main/qb@2x.png","left":30,"height":56},
+                    "props":{"y":90,"width":56,"skin":"img/main/qb@2x.png","left":30,"height":56},
                     "nodeParent":31,
                     "label":"Image",
                     "isDirectory":false,
@@ -157,7 +157,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":120,"x":100,"var":"lab_create","valign":"middle","text":"创建钱包","height":56,"fontSize":28,"color":"#687076","align":"left"},
+                    "props":{"y":90,"x":100,"var":"lab_create","valign":"middle","text":"创建钱包","height":56,"fontSize":28,"color":"#687076","align":"left"},
                     "nodeParent":31,
                     "label":"Label(lab_create)",
                     "isDirectory":false,

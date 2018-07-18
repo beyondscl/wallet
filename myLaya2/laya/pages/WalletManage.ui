@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":18,
-    "selecteID":10,
+    "selectedBox":11,
+    "selecteID":17,
     "props":{"width":750,"top":0,"sceneColor":"#F3F3F4","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -182,7 +182,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"var":"lab_wTotal","valign":"middle","text":"0 ¥","skin":"template/List/label.png","right":25,"name":"lab_wTotal","left":60,"height":55,"fontSize":28,"color":"#163853","bottom":39,"align":"right"},
+                                    "props":{"var":"lab_wTotal","valign":"middle","text":"0","skin":"template/List/label.png","right":55,"name":"lab_wTotal","left":35,"height":55,"fontSize":28,"color":"#163853","bottom":37,"align":"right"},
                                     "nodeParent":11,
                                     "label":"Label(lab_wTotal)",
                                     "isDirectory":false,
@@ -205,6 +205,20 @@
                                     "compId":24,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"valign":"middle","text":"¥","skin":"template/List/label.png","right":35,"height":55,"fontSize":28,"color":"#163853","bottom":39,"align":"right"},
+                                    "nodeParent":11,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":25,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
                                 }]
                         }],
                     "$HIDDEN":false

@@ -1,8 +1,7 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":7,
-    "selecteID":90,
+    "selectedBox":1,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"layoutEnabled":true,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -193,7 +192,6 @@
                             "compId":15,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":-10},
                                     "nodeParent":15,
@@ -219,7 +217,6 @@
                             "compId":17,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":-10},
                                     "nodeParent":17,

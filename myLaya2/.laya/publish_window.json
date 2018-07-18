@@ -1,1 +1,1 @@
-{"build":{"versionName":"","merge":false,"compress":false,"recompile":true,"regenerateUI":true,"regenerateAtlas":true}}
+{"build":{"versionName":"dev-1.1.4 -last1","merge":true,"compress":true,"recompile":true,"regenerateUI":true,"regenerateAtlas":true},"pngquant":{"showAdvanceOptions":false,"colors":8,"speed":3,"quality":[50,90],"table":{"unselectedFiles":[]}},"guetzli":{"quality":84,"table":{"unselectedFiles":[]}}}

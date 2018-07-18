@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":33,
+    "selecteID":7,
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -68,7 +68,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":282,"width":67,"var":"lab_total","valign":"middle","text":"0 ¥","height":40,"fontSize":28,"color":"#163853","centerX":0,"align":"center"},
+            "props":{"y":282,"var":"lab_total","valign":"middle","text":"0 ¥","height":40,"fontSize":28,"color":"#163853","centerX":0,"align":"center"},
             "nodeParent":1,
             "label":"Label(lab_total)",
             "isDirectory":false,
@@ -275,7 +275,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"var":"btn_delete","stateNum":"1","skin":"img/main/anliu-@2x.png","sizeGrid":"0,0,0,0","right":30,"left":30,"labelSize":32,"labelColors":"#ffffff","label":"删除钱包","height":80,"disabled":true,"bottom":60},
+            "props":{"var":"btn_delete","stateNum":"1","skin":"img/main/anliu-@2x.png","sizeGrid":"0,0,0,0","right":30,"left":30,"labelSize":32,"labelColors":"#ffffff","label":"删除钱包","height":80,"bottom":60},
             "nodeParent":1,
             "label":"Button(btn_delete)",
             "isDirectory":false,

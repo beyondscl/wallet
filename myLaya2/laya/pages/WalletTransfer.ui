@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":31,
-    "selecteID":30,
+    "selectedBox":1,
+    "selecteID":61,
     "props":{"width":750,"var":"WALLET_TRANSFER","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_TRANSFER)",
@@ -95,7 +95,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"var":"list","top":224,"selectEnable":false,"right":0,"left":0,"bottom":88},
+            "props":{"var":"list","top":224,"right":0,"left":0,"bottom":88},
             "nodeParent":1,
             "label":"List(list)",
             "isOpen":false,

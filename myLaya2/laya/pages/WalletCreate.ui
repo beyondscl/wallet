@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":59,
-    "props":{"width":750,"visible":true,"top":0,"sceneWidth":600,"sceneHeight":800,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
+    "selecteID":30,
+    "props":{"width":750,"visible":true,"top":0,"sceneWidth":600,"sceneHeight":800,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":234,"x":70,"valign":"middle","text":"WWECToken 不储存密码，也无法帮您找回，请务必牢记","height":34,"fontSize":24,"color":"#163853","align":"left"},
+            "props":{"y":234,"x":70,"valign":"middle","text":"WWEC Wallet 不储存密码，也无法帮您找回，请务必牢记","height":34,"fontSize":24,"color":"#163853","align":"left"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -175,7 +175,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":432,"visible":false,"var":"lab_pass_level","valign":"middle","text":"弱","right":106,"height":34,"fontSize":20,"color":"#5eb0c2","align":"center"},
+            "props":{"y":450,"var":"lab_pass_level","valign":"middle","text":"很弱","right":106,"height":34,"fontSize":20,"color":"#ff0400","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_pass_level)",
             "isDirectory":false,
@@ -203,7 +203,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":510,"width":643,"visible":false,"var":"lab_pass","valign":"middle","text":"简单密码","right":70,"height":34,"fontSize":20,"color":"#ff0400","align":"right"},
+            "props":{"y":510,"width":643,"var":"lab_pass","valign":"middle","text":"不少于8个字符,建议混合大小写字母，数字，特殊字符","right":70,"height":34,"fontSize":20,"color":"#ff0400","align":"right"},
             "nodeParent":1,
             "label":"Label(lab_pass)",
             "isDirectory":false,
@@ -271,7 +271,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":470,"var":"lab_words","valign":"middle","text":"0字符","right":106,"height":34,"fontSize":20,"color":"#8e979f","align":"right"},
+            "props":{"y":510,"visible":false,"var":"lab_words","valign":"middle","text":"0字符","right":70,"height":34,"fontSize":20,"color":"#5eb0c2","align":"right"},
             "nodeParent":1,
             "label":"Label(lab_words)",
             "isDirectory":false,
