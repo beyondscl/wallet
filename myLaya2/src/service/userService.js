@@ -188,6 +188,58 @@ var service;
             };
             Laya.Browser.window.Ajax.post(setAddr);
         };
+        /**
+         * 发送糖果短信
+         */
+        userServcie.sendCandySms = function (phoneNumber, fun, args) {
+            var sendCandySms = {
+                url: config.prod.apiCandyCode,
+                method: 'POST',
+                token: mod.userMod.token,
+                data: {
+                    "phoneNumber": phoneNumber,
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (a, args) {
+                    fun(JSON.stringify(service.userServcie.error), args);
+                    console.log("request error:", a, args);
+                }
+            };
+            Laya.Browser.window.Ajax.post(sendCandySms);
+        };
+        /**
+         * 获取糖果
+         */
+        userServcie.getCandy = function (phoneNumber, address, vcode, fun, args) {
+            var getCandy = {
+                url: config.prod.apiGetCandy,
+                method: 'POST',
+                token: mod.userMod.token,
+                data: {
+                    "phoneNumber": phoneNumber,
+                    "address": address,
+                    "vcode": vcode,
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (a, args) {
+                    fun(JSON.stringify(service.userServcie.error), args);
+                    console.log("request error:", a, args);
+                }
+            };
+            Laya.Browser.window.Ajax.post(getCandy);
+        };
         userServcie.error = {
             "retCode": 2,
             "reason": "网错出现故障"

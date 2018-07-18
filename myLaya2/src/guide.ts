@@ -88,6 +88,7 @@ Laya.stage.alignV = "middle";
 if (Laya.Browser.window.env == "dev") {
     // Laya.Stat.show(0,0);
 }
+Laya.stage.alpha = 0;
 //激活资源版本控制,数据太大加载耗时
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
 loadProcess();
@@ -156,6 +157,7 @@ function onChange(process: number) {
         Laya.stage.removeChild(loadBg);
         Laya.stage.removeChild(tip);
         Laya.stage.removeChild(progressBar);
+        Laya.stage.alpha = 1;
         let userLogin = new view.user.UserLogin();
         userLogin.checkAutoLogin()
     }

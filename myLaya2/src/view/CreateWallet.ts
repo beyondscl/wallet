@@ -28,10 +28,7 @@ module view {
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.createWallet);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.importWallet);
 
-            // this.comp.text_wall_name.on(Laya.Event.KEY_UP, this, this.checkWname);
             this.comp.text_pass.on(Laya.Event.KEY_UP, this, this.checkPass);
-            // this.comp.text_pass_conf.on(Laya.Event.KEY_UP, this, this.checkPassConf);
-
             this.comp.href_ysfw.on(Laya.Event.CLICK, this, this.btn_click, [1]);//服务隐私条款
         }
 
@@ -106,15 +103,11 @@ module view {
 
         private checkWname() {
             if (this.comp.text_wall_name.text.length < 1 || this.comp.text_wall_name.text.length > 12) {
-                // this.comp.lab_warn_wName.text = "钱包名称长度1-12";
-                // this.comp.lab_warn_wName.visible = true;
                 new view.alert.Warn("输入有误", "钱包名称长度1-12").popup();
                 return false;
             }
             if (service.walletServcie.checkDupWal(this.comp.text_wall_name.text)) {
-                // this.comp.lab_warn_wName.text = "该钱包名称已经存在";
-                // this.comp.lab_warn_wName.visible = true;
-                new view.alert.Warn("输入有误", "钱包名称已经存在").popup();
+                new view.alert.Warn("输入有误", "钱包名称被占用").popup();
                 return false;
             }
             this.comp.lab_warn_wName.visible = false;

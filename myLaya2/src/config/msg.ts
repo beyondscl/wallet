@@ -32,6 +32,5 @@ module config {
         public static SELECT_ERROR: string = "请选择钱包";
         public static GET_CANDY: string = "领取中";
         
-
     }
 }

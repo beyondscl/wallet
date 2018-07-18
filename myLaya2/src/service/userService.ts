@@ -227,7 +227,7 @@ module service {
             Laya.Browser.window.Ajax.post(sendCandySms);
         }
         /**
-         * 发送糖果短信
+         * 获取糖果
          */
         public static getCandy(phoneNumber,address, vcode,fun, args): any {
             let getCandy = {
@@ -237,7 +237,7 @@ module service {
                 data: {
                     "phoneNumber": phoneNumber,
                     "address": address,
-                    "vcode": vcode,
+                    //"vcode": vcode,
                 },
                 callbackArgs: args,
                 async: true,

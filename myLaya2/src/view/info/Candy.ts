@@ -28,6 +28,7 @@ module view.info {
         private init() {
             this.comp = new ui.info.CandyUI();
             Laya.stage.addChild(this.comp);
+            this.comp.text_phone.text = mod.userMod.userName;
         }
 
         private initEvent() {
@@ -137,13 +138,13 @@ module view.info {
             let warn_code = this.comp.warn_code;
             let warn_list = this.comp.warn_list;
             if (!phone || !util.vilPhoneNumber(phone)) {
-                new view.alert.info(config.msg.PHONE_ERROR).popup();
-                return false;
+                // new view.alert.info(config.msg.PHONE_ERROR).popup();
+                // return false;
             }
             warn_phone.visible = false;
             if (!code || code.length != 6) {
-                new view.alert.info(config.msg.VCODE_ERROR).popup();
-                return false;
+                // new view.alert.info(config.msg.VCODE_ERROR).popup();
+                // return false;
             }
             warn_code.visible = false;
             if (!this.getSelectedItem()) {
