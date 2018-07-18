@@ -79,7 +79,7 @@ module view {
         }
 
         private onListRender(cell: Box, index: number) {
-            // cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
+            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
             var data: mod.dealtemMod = this.comp.list.array[index];
 
             let cImg = cell.getChildByName('img') as Laya.Image;

@@ -43,7 +43,7 @@ var view;
             this.comp.list.renderHandler = new Handler(this, this.onListRender);
         };
         TransHisList.prototype.onListRender = function (cell, index) {
-            // cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
+            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
             var data = this.comp.list.array[index];
             var cImg = cell.getChildByName('img');
             cImg.skin = data.getDealImgSrc();

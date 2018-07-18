@@ -33,6 +33,10 @@ var view;
         WalletDetail.prototype.setParetUI = function (parentUI) {
             this.parentUI = parentUI;
         };
+        WalletDetail.prototype.deleteCb = function (pass, v) {
+            var wName = v.comp.lab_wName.text;
+            service.walletServcie.deleteWallet(wName, v);
+        };
         WalletDetail.prototype.init = function () {
             this.comp = new ui.WalletDetailUI();
             Laya.stage.addChild(this.comp);
@@ -99,10 +103,6 @@ var view;
                 p.popup();
                 return;
             }
-        };
-        WalletDetail.prototype.deleteCb = function (pass, v) {
-            var wName = v.comp.lab_wName.text;
-            service.walletServcie.deleteWallet(wName, v);
         };
         WalletDetail.prototype.enterPassCb = function (pass, comp) {
             comp.visible = false;

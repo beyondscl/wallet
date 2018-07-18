@@ -17,6 +17,7 @@ var view;
             __extends(Candy, _super);
             function Candy() {
                 var _this = _super.call(this) || this;
+                _this._timeInter = config.prod.smsTimeInterval;
                 _this.init();
                 _this.initEvent();
                 return _this;
@@ -59,36 +60,54 @@ var view;
                 }
                 if (2 == index) { //发送获取糖果请求
                     if (this.checkArgs()) {
+                        this.waiting = new view.alert.waiting(config.msg.GET_CANDY);
+                        this.waiting.popup();
                         var phone = this.comp.text_phone.text;
                         var code = this.comp.text_code.text;
                         var wName = this.getSelectedItem();
                         var wallet = service.walletServcie.getWallet(wName);
                         var wAddr = wallet.wAddr;
-                        new net.HttpRequest().sendPost(config.prod.getCandy, "phoneNumber=" + phone + "&address=" + wAddr + "&vcode=" + code, this.callBack, [2]);
+                        service.userServcie.getCandy(phone, wAddr, code, this.callBack, this);
                     }
                     return;
                 }
-                if (3 == index) { //get code
+                if (3 == index) {
                     if (util.vilPhoneNumber(this.comp.text_phone.text)) {
                         this.comp.warn_phone.visible = false;
                         var phone = this.comp.text_phone.text;
-                        new net.HttpRequest().sendPost(config.prod.getCode, 'phoneNumber=' + phone, this.callBack, [1]);
+                        service.userServcie.sendCandySms(phone, this.callBack, this);
+                        Laya.timer.loop(1000, this, this.changTime, [this.comp.btn_getcode]);
                     }
                     else {
-                        this.comp.warn_phone.visible = true;
+                        new view.alert.info(config.msg.PHONE_ERROR).popup();
                     }
                     return;
-                    // "a=b,b=c"
                 }
             };
-            Candy.prototype.callBack = function (ret, args) {
-                var type = args[0];
+            Candy.prototype.changTime = function (btn) {
+                btn.disabled = true;
+                var text = this.comp.btn_getcode.label.trim().split("(")[0];
+                text = text + "(" + this._timeInter + ")";
+                btn.label = text;
+                this._timeInter--;
+                if (this._timeInter < 0) {
+                    Laya.timer.clear(this, this.changTime);
+                    text = this.comp.btn_getcode.label.trim().split("(")[0];
+                    btn.label = text;
+                    btn.disabled = false;
+                    this._timeInter = this._timeInter;
+                }
+            };
+            Candy.prototype.callBack = function (ret, v) {
+                if (v && v.waiting) {
+                    v.waiting.stop();
+                }
+                ret = JSON.parse(ret);
                 if (ret && ret.retCode == 0) {
-                    var msg = ret.retMsg.msg;
-                    new view.alert.Warn(msg, "").popup();
+                    new view.alert.info(ret.retMsg.msg).popup();
                 }
                 else {
-                    new view.alert.Warn(ret.reason, "").popup();
+                    new view.alert.info(ret.reason).popup();
                 }
             };
             Candy.prototype.onSelect = function (index) {
@@ -118,21 +137,19 @@ var view;
                 var warn_phone = this.comp.warn_phone;
                 var code = this.comp.text_code.text;
                 var warn_code = this.comp.warn_code;
-                ;
                 var warn_list = this.comp.warn_list;
-                ;
                 if (!phone || !util.vilPhoneNumber(phone)) {
-                    warn_phone.visible = true;
+                    new view.alert.info(config.msg.PHONE_ERROR).popup();
                     return false;
                 }
                 warn_phone.visible = false;
                 if (!code || code.length != 6) {
-                    warn_code.visible = true;
+                    new view.alert.info(config.msg.VCODE_ERROR).popup();
                     return false;
                 }
                 warn_code.visible = false;
                 if (!this.getSelectedItem()) {
-                    warn_list.visible = true;
+                    new view.alert.info(config.msg.SELECT_ERROR).popup();
                     return false;
                 }
                 warn_list.visible = false;

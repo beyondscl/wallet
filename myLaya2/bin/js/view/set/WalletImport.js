@@ -37,7 +37,7 @@ var view;
                 this.comp.btn_sao.on(Laya.Event.CLICK, this, this.btnClick, [2]);
                 this.comp.o_btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
                 this.comp.o_check_agree.on(Laya.Event.CLICK, this, this.btnClick, [4]);
-                this.comp.lab_service.on(Laya.Event.CLICK, this, this.btnClick, [5]); //需要去重复
+                this.comp.lab_service.on(Laya.Event.CLICK, this, this.btnClick, [5]);
             };
             WalletImport.prototype.onSelect = function (index) {
                 this.comp.stack.selectedIndex = index;
@@ -134,13 +134,13 @@ var view;
                     //记录数据
                     var walletJson = wallet.toJson();
                     util.setItemJson(wallet.wName, walletJson);
-                    var appStore = util.getItem(config.prod.appKey);
+                    var appStore = util.getItem(config.prod.getAppKey());
                     if (appStore) {
                         appStore[appStore.length] = wallet.wName;
-                        util.setItemJson(config.prod.appKey, appStore);
+                        util.setItemJson(config.prod.getAppKey(), appStore);
                     }
                     else {
-                        util.setItemJson(config.prod.appKey, [wallet.wName]);
+                        util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
                     }
                     var com = args[0];
                     com.removeSelf(); //删除之前父类的comp

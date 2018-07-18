@@ -16,12 +16,12 @@ var service;
                 ow.wName = nName;
                 util.setItemJson(nName, ow);
                 mod.userMod.defWallet.wName = nName; //更新默认钱包
-                var walletNames = util.getItem(config.prod.appKey); //更新钱包列表
+                var walletNames = util.getItem(config.prod.getAppKey()); //更新钱包列表
                 if (walletNames) {
                     for (var i = 0; i < walletNames.length; i++) {
                         if (walletNames[i].trim() == oName.trim()) {
                             walletNames[i] = nName;
-                            util.setItemJson(config.prod.appKey, walletNames);
+                            util.setItemJson(config.prod.getAppKey(), walletNames);
                             break;
                         }
                     }
@@ -64,14 +64,14 @@ var service;
             //删除后可能没有钱包了,跳转到创建界面
             try {
                 console.log("deleteWallet :", wName);
-                var wals = util.getItem(config.prod.appKey);
+                var wals = util.getItem(config.prod.getAppKey());
                 var walsNew = [];
                 for (var i = 0; i < wals.length; i++) {
                     if (wals[i] != wName) {
                         walsNew.push(wals[i]);
                     }
                 }
-                util.setItemJson(config.prod.appKey, walsNew);
+                util.setItemJson(config.prod.getAppKey(), walsNew);
                 util.delItem(wName);
                 //删除当前页面
                 v.comp.removeSelf();
@@ -389,7 +389,7 @@ var service;
         //获取币种交易列表
         walletServcie.getDealListByWName = function (coinName) {
             var datas = [];
-            var deals = util.getItem(config.prod.appDealKey);
+            var deals = util.getItem(config.prod.getAppDealKey());
             if (deals) {
                 for (var j = 0; j < deals.length; j++) {
                     var d = deals[j];
@@ -405,7 +405,7 @@ var service;
         //获取所有交易列表
         walletServcie.getDealList = function () {
             var datas = [];
-            var deals = util.getItem(config.prod.appDealKey);
+            var deals = util.getItem(config.prod.getAppDealKey());
             if (deals) {
                 for (var j = 0; j < deals.length; j++) {
                     var d = deals[j];
@@ -418,7 +418,7 @@ var service;
         };
         //管理钱包：获取所有钱包
         walletServcie.getWallets = function () {
-            var walletNames = util.getItem(config.prod.appKey);
+            var walletNames = util.getItem(config.prod.getAppKey());
             if (walletNames) {
                 var data = [];
                 for (var i = 0; i < walletNames.length; i++) {
@@ -448,7 +448,9 @@ var service;
         };
         //创建，切换钱包需要实例化全局对象用于交易
         walletServcie.initLigthWallet = function (wKeyStore) {
+            console.log("start initLigthWallet");
             Laya.Browser.window.deserialize(wKeyStore);
+            console.log("end initLigthWallet");
         };
         //交易eth
         walletServcie.transfer = function (password, fromAddr, toAddr, value, gasPrice, gas, callback, args) {
@@ -492,13 +494,13 @@ var service;
         };
         //key{
         walletServcie.addDealItem = function (data) {
-            var deals = util.getItem(config.prod.appDealKey);
+            var deals = util.getItem(config.prod.getAppDealKey());
             if (deals) {
                 deals[deals.length] = data.toJson();
-                util.setItemJson(config.prod.appDealKey, deals);
+                util.setItemJson(config.prod.getAppDealKey(), deals);
             }
             else { //新建
-                util.setItemJson(config.prod.appDealKey, [data.toJson()]);
+                util.setItemJson(config.prod.getAppDealKey(), [data.toJson()]);
             }
         };
         //记录交易
@@ -519,20 +521,6 @@ var service;
             var amount = '';
             var token = 'ETH';
         };
-        //判断钱包是否选择了该coin
-        walletServcie.getSelected = function (wName, cName) {
-            var wallet = util.getItem(wName);
-            if (wallet) {
-                for (var i = 0; i < wallet.wCoins.length; i++) {
-                    if (wallet.wCoins[i] == cName) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        };
-        //-----------------------------------------------
-        //查询钱包总金额，是否缓存处理?
         //过滤的连总数都不需要查
         walletServcie.getWalletMoney = function (wName, lab) {
             var wallet = this.getWallet(wName);
@@ -555,6 +543,20 @@ var service;
                 }, [lab, coins[i]]);
             }
             return t;
+        };
+        //-----------------------------------------------
+        //查询钱包总金额，是否缓存处理?
+        //判断钱包是否选择了该coin
+        walletServcie.getSelected = function (wName, cName) {
+            var wallet = util.getItem(wName);
+            if (wallet) {
+                for (var i = 0; i < wallet.wCoins.length; i++) {
+                    if (wallet.wCoins[i] == cName) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         };
         return walletServcie;
     }());

@@ -44,7 +44,7 @@ var net;
                 this.callback = callback;
             if (args)
                 this.callBackArgs = args;
-            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded', "Access-Control-Allow-Origin", "*"]);
+            this.xhr.send(url, data, this.post, this.resp, ['Content-Type', 'application/x-www-form-urlencoded']);
         };
         HttpRequest.prototype.sendSimpleReq = function (url, callback, args) {
             if (args)

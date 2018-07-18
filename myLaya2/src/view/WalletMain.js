@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -22,7 +14,6 @@ var view;
     var Handler = Laya.Handler;
     var WalletMain = /** @class */ (function (_super) {
         __extends(WalletMain, _super);
-
         function WalletMain() {
             var _this = _super.call(this) || this;
             _this.ethTotal = '0'; //主要用于扫一扫回调
@@ -35,7 +26,6 @@ var view;
             _this.initEvent();
             return _this;
         }
-
         WalletMain.prototype.setData = function (coins) {
             this.data = [];
             this.hasRended = [];
@@ -91,7 +81,7 @@ var view;
         };
         WalletMain.prototype.getBalanceCb = function (res, args) {
             if (res && res.retCode == 0) {
-                console.info("getBalanceCb res:" + res);
+                console.info("getBalanceCb res:" + res.ret);
                 res = res.ret;
                 var comp = args[0];
                 var coinMod = args[1];
@@ -189,7 +179,7 @@ var view;
                 pom.top = 0;
                 pom.left = Laya.stage.width / 2; //right 不行
                 pom.setParentUI(this);
-                pom.initData(util.getItem(config.prod.appKey));
+                pom.initData(util.getItem(config.prod.getAppKey()));
                 pom.popup();
             }
             if (index == 4) {

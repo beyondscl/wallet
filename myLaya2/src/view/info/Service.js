@@ -1,18 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({__proto__: []} instanceof Array && function (d, b) {
-            d.__proto__ = b;
-        }) ||
-        function (d, b) {
-            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        };
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -24,7 +16,6 @@ var view;
         var Event = Laya.Event;
         var Service = /** @class */ (function (_super) {
             __extends(Service, _super);
-
             function Service() {
                 var _this = _super.call(this) || this;
                 _this.prevX = 0;
@@ -33,7 +24,6 @@ var view;
                 _this.initEvent();
                 return _this;
             }
-
             //  非第一次使用调用
             Service.prototype.setData = function (key) {
                 if (Number(key) == 1) {
@@ -86,7 +76,7 @@ var view;
                 if (1 == index) {
                     this.comp.removeSelf();
                     util.setItemJson(config.prod.appAccept, []);
-                    var walletNames = util.getItem(config.prod.appKey);
+                    var walletNames = util.getItem(config.prod.getAppKey());
                     if (!walletNames) {
                         new guide();
                         return;

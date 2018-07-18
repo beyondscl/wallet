@@ -19,7 +19,7 @@ module view {
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
             //初始化gasprice
             //默认70
-            let gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice : 20
+            let gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice/1e9 : 20
             this.comp.sli_gas.min = gasPrice;
             this.comp.sli_gas.max = gasPrice + 130;
             this.comp.sli_gas.value = gasPrice// gwei
@@ -166,7 +166,7 @@ module view {
             }
 
         }
-
+        //默认滑动选择范围是gwei
         private sliChange(value: number) {
             let lab_max_gas = value * 1e9 / 1e18 * config.prod.gasLimit;//矿工费用eth
             let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd).toFixed(2);//矿工费用 usd

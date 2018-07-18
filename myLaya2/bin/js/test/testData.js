@@ -14,7 +14,7 @@ var testData = /** @class */ (function () {
     };
     //管理钱包：获取所有钱包
     testData.getWallets = function () {
-        var walletNames = util.getItem(config.prod.appKey);
+        var walletNames = util.getItem(config.prod.getAppKey());
         if (walletNames) {
             var data = [];
             for (var i = 0; i < walletNames.length; i++) {

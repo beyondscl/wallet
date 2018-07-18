@@ -25,6 +25,8 @@ var Ajax = {
         objAdapter.success = obj.success || objAdapter.success;
         objAdapter.error = obj.error || objAdapter.error;
         objAdapter.callbackArgs = obj.callbackArgs||[];//列表数组[]
+
+        objAdapter.token = obj.token||'';// token,或者headers
         return objAdapter;
     },
     //创建XMLHttpRequest对象
@@ -58,7 +60,8 @@ var Ajax = {
         if (xhr.status == 200) { //判断http的交互是否成功，200表示成功
             obj.success(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
         } else {
-            console.log('获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText);
+            console.log('net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText);
+            obj.error(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
         }
     },
     ajax: function (obj) {
@@ -73,6 +76,9 @@ var Ajax = {
         var xhr = Ajax.createXHR(); //创建XHR对象
         var opt = Ajax.init(obj);
         opt.method = 'post';
+        //在使用XHR对象时，必须先调用open()方法，
+        //它接受三个参数：请求类型(get、post)、请求的URL和表示是否异步。
+        xhr.open(opt.method, opt.url, opt.async);
         if (opt.async === true) { //true表示异步，false表示同步
             //使用异步调用的时候，需要触发readystatechange 事件
             xhr.onreadystatechange = function () {
@@ -81,12 +87,12 @@ var Ajax = {
                 }
             };
         }
-        //在使用XHR对象时，必须先调用open()方法，
-        //它接受三个参数：请求类型(get、post)、请求的URL和表示是否异步。
-        xhr.open(opt.method, opt.url, opt.async);
         //post方式需要自己设置http的请求头，来模仿表单提交。
         //放在open方法之后，send方法之前。
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        if(opt.token){
+            xhr.setRequestHeader('x-access-token', opt.token);
+        }
         xhr.send(opt.data); //post方式将数据放在send()方法里
         if (opt.async === false) { //同步
             Ajax.callback(obj, xhr); //回调
@@ -96,6 +102,11 @@ var Ajax = {
     get: function (obj) {
         var xhr = Ajax.createXHR(); //创建XHR对象
         var opt = Ajax.init(obj);
+        //若是GET请求，则将数据加到url后面
+        opt.url += opt.url.indexOf('?') == -1 ? '?' + opt.data : '&' + opt.data;
+        //在使用XHR对象时，必须先调用open()方法，
+        //它接受三个参数：请求类型(get、post)、请求的URL和表示是否异步。
+        xhr.open(opt.method, opt.url, opt.async);
         if (opt.async === true) { //true表示异步，false表示同步
             //使用异步调用的时候，需要触发readystatechange 事件
             xhr.onreadystatechange = function () {
@@ -104,11 +115,9 @@ var Ajax = {
                 }
             };
         }
-        //若是GET请求，则将数据加到url后面
-        opt.url += opt.url.indexOf('?') == -1 ? '?' + opt.data : '&' + opt.data;
-        //在使用XHR对象时，必须先调用open()方法，
-        //它接受三个参数：请求类型(get、post)、请求的URL和表示是否异步。
-        xhr.open(opt.method, opt.url, opt.async);
+        if(opt.token){
+            xhr.setRequestHeader('x-access-token', opt.token);
+        }
         xhr.send(null); //get方式则填null
         if (opt.async === false) { //同步
             Ajax.callback(obj, xhr); //回调

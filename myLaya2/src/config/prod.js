@@ -3,6 +3,10 @@ var config;
     var prod = /** @class */ (function () {
         function prod() {
         }
+        prod.getAppKey = function () {
+            service.userServcie.getUser(); //init
+            return prod.originAppKey + mod.userMod.userId;
+        };
         prod.getEthBalanceUrl = function (addr) {
             return this.ethBalance + "module=account&action=balance&address=" + addr + "&apikey=" + this.apiKey;
         };
@@ -10,7 +14,6 @@ var config;
         prod.appWidth = 750;
         prod.appHeight = 1334;
         prod.scale = prod.appHeight / prod.appWidth; //当初设计的高与宽比
-        prod.appKey = "wwwallet"; //用于存储标识用户是否已经有钱包
         prod.appAccept = "appAccept"; //用于存储标识用户是否已经同意协议
         prod.appGuide = "appGuide"; //用于存储标识用户是否已经经过引导页面
         prod.appDealKey = "wwwalletDeal"; //存储用户交易记录,[定时拉取接收的数据]
@@ -29,6 +32,8 @@ var config;
         prod.apiUserResetPwd = prod.apiLocalHost + "/user/resetPwd"; //用户找回密码
         prod.apiGetUserInfo = prod.apiLocalHost + "/user/getUserInfo"; //用户获取个人信息
         prod.apiLogout = prod.apiLocalHost + "/user/logout"; //退出登录
+        prod.apiAddAddr = prod.apiLocalHost + "/user/addAddr"; //更新钱包与邀请码关系,不用
+        prod.apiSetMainAddr = prod.apiLocalHost + "/user/setMainAddr"; //更新钱包与邀请码关系
         prod.gasLimit = 21000;
         prod.tokenGasLimit = 80000;
         prod.getCode = prod.apiLocalHost + "/candy/sendSms"; //获取短信验证码
@@ -36,6 +41,9 @@ var config;
         prod.WEI_TO_ETH = 1e18; //wei转换eth
         prod.expCoins = ["WWEC"]; //价格显示-,不计算总价
         prod.smsTimeInterval = 60; //短信时间间隔
+        prod.downLoadUrl = Laya.Browser.window.main_config[Laya.Browser.window.env].downLoadUrl;
+        //与用户绑定
+        prod.originAppKey = "wwwallet"; //用于存储标识用户是否已经有钱包
         return prod;
     }());
     config.prod = prod;

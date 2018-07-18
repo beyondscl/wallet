@@ -131,12 +131,12 @@ module view.set {
                 //记录数据
                 let walletJson = wallet.toJson();
                 util.setItemJson(wallet.wName, walletJson);
-                let appStore = util.getItem(config.prod.appKey);
+                let appStore = util.getItem(config.prod.getAppKey());
                 if (appStore) {
                     appStore[appStore.length] = wallet.wName;
-                    util.setItemJson(config.prod.appKey, appStore);
+                    util.setItemJson(config.prod.getAppKey(), appStore);
                 } else {
-                    util.setItemJson(config.prod.appKey, [wallet.wName]);
+                    util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
                 }
                 let com = args[0] as View;
                 com.removeSelf();//删除之前父类的comp

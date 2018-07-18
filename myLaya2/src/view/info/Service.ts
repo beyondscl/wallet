@@ -79,7 +79,7 @@ module view.info {
             if (1 == index) {
                 this.comp.removeSelf();
                 util.setItemJson(config.prod.appAccept, []);
-                let walletNames = util.getItem(config.prod.appKey);
+                let walletNames = util.getItem(config.prod.getAppKey());
                 if (!walletNames) {
                     new guide();
                     return;

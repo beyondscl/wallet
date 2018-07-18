@@ -1,9 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view {
-
-
     export class WalletMe extends ui.WalletMeUI {
-        private comp: ui.WalletMeUI;
+        public comp: ui.WalletMeUI;
         private parenUI: ui.WalletMainUI
 
         constructor() {
@@ -32,6 +30,7 @@ module view {
             this.comp.btn_about.on(Laya.Event.CLICK, this, this.tabSelect, [4]);
             this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
             this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
+            this.comp.btn_invid.on(Laya.Event.CLICK, this, this.tabSelect, [7]);
         }
 
         private initQueryData() {
@@ -77,6 +76,10 @@ module view {
             }
             if (index == 6) {
                 service.userServcie.userLogout(this.logoutCb, this);
+            }
+            if (index == 7) {
+                this.comp.visible = false;
+                new view.user.UseInvite().setParetUI(this);
             }
         }
 

@@ -76,7 +76,7 @@ var view;
                 if (1 == index) {
                     this.comp.removeSelf();
                     util.setItemJson(config.prod.appAccept, []);
-                    var walletNames = util.getItem(config.prod.appKey);
+                    var walletNames = util.getItem(config.prod.getAppKey());
                     if (!walletNames) {
                         new guide();
                         return;
