@@ -27,7 +27,6 @@ module mod {
         //登录成功返回数据
         public static setUser(uName, uPass, token, userId, code, inviter) {
             this.userName = uName;
-            this.userPass = uPass;
             this.token = token;
             this.userId = userId;
             this.code = code;
@@ -36,19 +35,21 @@ module mod {
 
         //登录成功返回数据
         public static setUserJson(json: any) {
-            this.token = json.token;
+            if(json.token){//toekn登录不会返回token
+                this.token = json.token;
+            }
+            this.userName = json.cellphone;
             this.userId = json.id;
             this.code = json.code;
             this.inviter = json.inviter;
             this.invitedNum = json.invitedNum;
             this.addr = json.addr;
         }
-
         //操作本地数据
         public static setUserFromJson(userJson: any) {
-            this.userId = this.userId,
-                this.userName = userJson.userName;
-            this.userPass = userJson.userPass;
+            this.userId = userJson.userId,
+            this.userName = userJson.userName;
+            this.token = userJson.token;
         }
 
         //操作本地数据
@@ -56,7 +57,7 @@ module mod {
             let j = {
                 userId: this.userId,
                 userName: this.userName,
-                userPass: this.userPass,
+                token: this.token,
             }
             return j;
         }

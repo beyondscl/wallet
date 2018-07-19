@@ -41,6 +41,13 @@ var native;
             };
             this.jsCallapp(json);
         };
+        native.colseAppbg = function () {
+            var json = {
+                "type": 3,
+                "data": "",
+            };
+            this.jsCallapp(json);
+        };
         native.appCalljs = function (data) {
             console.log("appcalljs return :", data);
             console.log("data return :", data);

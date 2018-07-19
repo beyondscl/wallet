@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -14,12 +22,14 @@ var view;
     var Browser = Laya.Browser;
     var CreateWallet = /** @class */ (function (_super) {
         __extends(CreateWallet, _super);
+
         function CreateWallet() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
+
         CreateWallet.prototype.setParentUI = function (parentUI) {
             this.parentUI = parentUI;
         };
@@ -196,6 +206,7 @@ var view;
         CreateWallet.prototype.webViewHref = function () {
             Browser.window['conch'] && Browser.window['conch'].showAssistantTouch(false);
             var ctx = Browser.window.document.createElement('canvas').getContext('2d');
+
             function render() {
                 ctx.fillStyle = 'black';
                 ctx.fillRect(0, 0, Browser.window.innerWidth, Browser.window.innerHeight);

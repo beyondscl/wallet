@@ -4,7 +4,7 @@ module view.info {
         private comp: ui.info.CandyUI;
         private parentUI: View;
         private _timeInter = config.prod.smsTimeInterval
-        private waiting:view.alert.waiting;
+        private waiting: view.alert.waiting;
 
         constructor() {
             super();
@@ -23,6 +23,19 @@ module view.info {
 
         public setParetUI(parentUI: any) {
             this.parentUI = parentUI;
+        }
+
+        public changTime(btn: Laya.Button) {
+            btn.disabled = true;
+            let text = config.msg.SENDED_CODE + "(" + this._timeInter + ")";
+            btn.label = text;
+            this._timeInter--;
+            if (this._timeInter < 0) {
+                Laya.timer.clear(this, this.changTime);
+                btn.label = config.msg.SEND_CODE;
+                btn.disabled = false;
+                this._timeInter = this._timeInter;
+            }
         }
 
         private init() {
@@ -63,7 +76,7 @@ module view.info {
                     let wName = this.getSelectedItem();
                     let wallet: mod.walletMod = service.walletServcie.getWallet(wName);
                     let wAddr = wallet.wAddr;
-                    service.userServcie.getCandy(phone,wAddr,code, this.callBack,this);
+                    service.userServcie.getCandy(phone, wAddr, code, this.callBack, this);
                 }
                 return;
             }
@@ -71,7 +84,7 @@ module view.info {
                 if (util.vilPhoneNumber(this.comp.text_phone.text)) {
                     this.comp.warn_phone.visible = false;
                     let phone = this.comp.text_phone.text;
-                    service.userServcie.sendCandySms(phone,this.callBack,this);
+                    service.userServcie.sendCandySms(phone, this.callBack, this);
                     Laya.timer.loop(1000, this, this.changTime, [this.comp.btn_getcode]);
 
                 } else {
@@ -81,23 +94,8 @@ module view.info {
             }
         }
 
-        public changTime(btn: Laya.Button) {
-            btn.disabled = true;
-            let text = this.comp.btn_getcode.label.trim().split("(")[0];
-            text = text + "(" + this._timeInter + ")";
-            btn.label = text;
-            this._timeInter--;
-            if (this._timeInter < 0) {
-                Laya.timer.clear(this, this.changTime);
-                text = this.comp.btn_getcode.label.trim().split("(")[0];
-                btn.label = text;
-                btn.disabled = false;
-                this._timeInter = this._timeInter;
-            }
-        }
-
         private callBack(ret, v) {
-            if(v&&v.waiting){
+            if (v && v.waiting) {
                 v.waiting.stop();
             }
             ret = JSON.parse(ret)

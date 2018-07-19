@@ -21,6 +21,14 @@ module native {
             this.jsCallapp(json);
         }
 
+        public static colseAppbg() {
+            var json = {
+                "type": 3,
+                "data": "",
+            }
+            this.jsCallapp(json);
+        }
+
         public static appCalljs(data: any): string {
 
             console.log("appcalljs return :", data);

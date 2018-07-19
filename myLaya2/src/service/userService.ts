@@ -201,6 +201,7 @@ module service {
             }
             Laya.Browser.window.Ajax.post(setAddr);
         }
+
         /**
          * 发送糖果短信
          */
@@ -226,10 +227,11 @@ module service {
             }
             Laya.Browser.window.Ajax.post(sendCandySms);
         }
+
         /**
          * 获取糖果
          */
-        public static getCandy(phoneNumber,address, vcode,fun, args): any {
+        public static getCandy(phoneNumber, address, vcode, fun, args): any {
             let getCandy = {
                 url: config.prod.apiGetCandy,
                 method: 'POST',
@@ -252,6 +254,31 @@ module service {
                 }
             }
             Laya.Browser.window.Ajax.post(getCandy);
+        }
+
+        /**
+         * token登录
+         */
+        public static tokenLogin(fun, args): any {
+            let tokenLogin = {
+                url: config.prod.apiGetUserInfo,
+                method: 'POST',
+                token: mod.userMod.token,
+                data: {
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (ret, args) {
+                    fun(ret, args);
+                    console.log("request error:", ret, args);
+                }
+            }
+            Laya.Browser.window.Ajax.post(tokenLogin);
         }
     }
 }

@@ -1,10 +1,18 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        ({__proto__: []} instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        };
     return function (d, b) {
         extendStatics(d, b);
-        function __() { this.constructor = d; }
+
+        function __() {
+            this.constructor = d;
+        }
+
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -14,12 +22,14 @@ var view;
     var Handler = Laya.Handler;
     var WalletSendSubmit = /** @class */ (function (_super) {
         __extends(WalletSendSubmit, _super);
+
         function WalletSendSubmit() {
             var _this = _super.call(this) || this;
             _this.init();
             _this.initEvent();
             return _this;
         }
+
         WalletSendSubmit.prototype.setData = function (data) {
             this.comp.text_from.text = mod.userMod.defWallet.wAddr;
             this.comp.text_to.text = data.text_addr.text;
@@ -103,7 +113,7 @@ var view;
                                 var comp_1 = args[0];
                                 var comParent = args[2];
                                 var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_1.text_from.text, comp_1.text_to.text, comp_1.send_amout.text, comp_1.coin_type.text, ret.txhash, //可以根据这个去查询更新
-                                gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
+                                    gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                                 service.walletServcie.addDealItem(deal);
                                 comp_1.removeSelf();
                                 util.showView([2]);
@@ -127,7 +137,7 @@ var view;
                     var comParent = args[2];
                     //记录交易!!!
                     var deal = new mod.dealtemMod(config.msg.deal_transfer_out, comp_2.text_from.text, comp_2.text_to.text, comp_2.send_amout.text, comp_2.coin_type.text, ret.txhash, //可以根据这个去查询更新
-                    gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
+                        gasPrice * 1e9 * config.prod.gasLimit, util.getFormatTime(), "", "");
                     service.walletServcie.addDealItem(deal);
                     comp_2.removeSelf();
                     util.showView([2]);

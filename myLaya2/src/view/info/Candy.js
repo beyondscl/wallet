@@ -33,9 +33,22 @@ var view;
             Candy.prototype.setParetUI = function (parentUI) {
                 this.parentUI = parentUI;
             };
+            Candy.prototype.changTime = function (btn) {
+                btn.disabled = true;
+                var text = config.msg.SENDED_CODE + "(" + this._timeInter + ")";
+                btn.label = text;
+                this._timeInter--;
+                if (this._timeInter < 0) {
+                    Laya.timer.clear(this, this.changTime);
+                    btn.label = config.msg.SEND_CODE;
+                    btn.disabled = false;
+                    this._timeInter = this._timeInter;
+                }
+            };
             Candy.prototype.init = function () {
                 this.comp = new ui.info.CandyUI();
                 Laya.stage.addChild(this.comp);
+                this.comp.text_phone.text = mod.userMod.userName;
             };
             Candy.prototype.initEvent = function () {
                 this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
@@ -84,20 +97,6 @@ var view;
                     return;
                 }
             };
-            Candy.prototype.changTime = function (btn) {
-                btn.disabled = true;
-                var text = this.comp.btn_getcode.label.trim().split("(")[0];
-                text = text + "(" + this._timeInter + ")";
-                btn.label = text;
-                this._timeInter--;
-                if (this._timeInter < 0) {
-                    Laya.timer.clear(this, this.changTime);
-                    text = this.comp.btn_getcode.label.trim().split("(")[0];
-                    btn.label = text;
-                    btn.disabled = false;
-                    this._timeInter = this._timeInter;
-                }
-            };
             Candy.prototype.callBack = function (ret, v) {
                 if (v && v.waiting) {
                     v.waiting.stop();
@@ -139,13 +138,13 @@ var view;
                 var warn_code = this.comp.warn_code;
                 var warn_list = this.comp.warn_list;
                 if (!phone || !util.vilPhoneNumber(phone)) {
-                    new view.alert.info(config.msg.PHONE_ERROR).popup();
-                    return false;
+                    // new view.alert.info(config.msg.PHONE_ERROR).popup();
+                    // return false;
                 }
                 warn_phone.visible = false;
                 if (!code || code.length != 6) {
-                    new view.alert.info(config.msg.VCODE_ERROR).popup();
-                    return false;
+                    // new view.alert.info(config.msg.VCODE_ERROR).popup();
+                    // return false;
                 }
                 warn_code.visible = false;
                 if (!this.getSelectedItem()) {

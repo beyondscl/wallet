@@ -85,107 +85,57 @@ Laya.stage.alignH = "center";
 //设置垂直对齐
 Laya.stage.alignV = "middle";
 //打开性能面板
-if (Laya.Browser.window.env == "dev") {
-    // Laya.Stat.show(0,0);
+if (Laya.Browser.window.env != "prod") {
+    Laya.Stat.show(0, 0);
 }
 Laya.stage.alpha = 0;
 //激活资源版本控制,数据太大加载耗时
 // Laya.ResourceVersion.enable("version.json", Laya.Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
+// laya.net.LocalStorage.clear();
 loadProcess();
-//进度条
-let progressBar;
-let tip;
-let loadBg;
 //基本数据
 let acc = util.getItem(config.prod.appAccept)
 let gui = util.getItem(config.prod.appGuide)
 let app = util.getItem(config.prod.getAppKey())
 
 function loadProcess() {
-    Laya.loader.load(["res/atlas/load.atlas"], Laya.Handler.create(this, beginLoad));
+    beginLoad();
 }
 
 function beginLoad() {
     Laya.stage.bgColor = 'white';
-
-    loadBg = new Laya.Image().loadImage("load/start.png");
-    loadBg.x = 0;
-    loadBg.y = 0;
-    loadBg.width = config.prod.appWidth;
-    loadBg.height = config.prod.appHeight;
-    Laya.stage.addChild(loadBg);
-
-    tip = new Laya.Label();
-    tip.bottom = 40;
-    tip.left = 0;
-    tip.right = 0;
-    tip.centerX = 0;
-    tip.height = 40;
-    tip.fontSize = 32;
-    tip.text = "正在检查更新:0%";
-    tip.color = '#163853';
-    Laya.stage.addChild(tip);
-
-    progressBar = new Laya.ProgressBar("load/progress.png")
-    progressBar.width = 500;
-    progressBar.height = 40;
-    progressBar.centerX = 0;
-    progressBar.bottom = 85;
-    progressBar.sizeGrid = "5,5,5,5";
-
     var res: Array<string> =
         ["res/atlas/img/main.atlas",
             "res/atlas/img/coins.atlas"]
     if (!acc || !gui) {
         res.push("res/atlas/img/guide.atlas");
     }
-    Laya.loader.load(res, null, Laya.Handler.create(this, onProcess, null, false));
-    progressBar.changeHandler = new Laya.Handler(this, onChange);
-    Laya.stage.addChild(progressBar);
+    Laya.loader.load(res, Laya.Handler.create(this, onComplete));
 }
 
-function onProcess(p: number) {
-    progressBar.value = p;
-}
-
-function onChange(process: number) {
-    tip.text = "正在检查更新:" + (process * 100).toFixed(0) + "%";
-    if (process == 1) {//登录检查
-        loadBg.visible = false;
-        tip.visible = false;
-        progressBar.visible = false;
-        Laya.stage.removeChild(loadBg);
-        Laya.stage.removeChild(tip);
-        Laya.stage.removeChild(progressBar);
-        Laya.stage.alpha = 1;
-        let userLogin = new view.user.UserLogin();
-        userLogin.checkAutoLogin()
-    }
+function onComplete() {
+    Laya.stage.alpha = 1;
+    native.native.colseAppbg();
+    let userLogin = new view.user.UserLogin();
+    userLogin.checkAutoLogin()
 }
 
 function enter() {
     new config.init.initData('');
-    //有些测试遗留数据会出错
-    // laya.net.LocalStorage.clear();
-    if (acc) {//已同意服务协议
-        let walletNames = util.getItem(config.prod.getAppKey());
-        if (!walletNames || walletNames.length == 0) {//没有钱包数据
-            if (gui) {//非第一次进入
-                new EnterApp();
-            } else {
-                new guide();
-            }
+    let walletNames = app;
+    if (!walletNames || walletNames.length == 0) {//没有钱包数据
+        if (gui) {//非第一次进入
+            new EnterApp();
         } else {
-            enterMain();
+            new guide();
         }
-        console.log("end loading!")
     } else {
-        new view.info.Service();
+        enterMain();
     }
 }
 
 function enterMain() {
-    let walletNames = util.getItem(config.prod.getAppKey());
+    let walletNames = app;
     let wallet = util.getItem(walletNames[0]);
     let walletMod = new mod.walletMod();
     walletMod.setWallet(wallet);

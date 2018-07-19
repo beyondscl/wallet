@@ -79,17 +79,18 @@ module view.info {
             if (1 == index) {
                 this.comp.removeSelf();
                 util.setItemJson(config.prod.appAccept, []);
-                let walletNames = util.getItem(config.prod.getAppKey());
-                if (!walletNames) {
-                    new guide();
-                    return;
-                }
-                let wallet = util.getItem(walletNames[0]);
-                let walletMod = new mod.walletMod();
-                walletMod.setWallet(wallet);
-                mod.userMod.defWallet = walletMod;
-                new view.WalletMain().initQueryData(walletMod);
-                console.log("end loading!")
+                this.comp.removeSelf();
+                this.parentUI.visible = true;
+                // let walletNames = util.getItem(config.prod.getAppKey());
+                // if (!walletNames) {
+                //     new guide();
+                //     return;
+                // }
+                // let wallet = util.getItem(walletNames[0]);
+                // let walletMod = new mod.walletMod();
+                // walletMod.setWallet(wallet);
+                // mod.userMod.defWallet = walletMod;
+                // new view.WalletMain().initQueryData(walletMod);
             }
             if (2 == index) {
                 this.comp.btn_accept.disabled = !this.comp.agree.selected;

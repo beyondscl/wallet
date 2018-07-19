@@ -26,10 +26,18 @@ module view.user {
         public checkAutoLogin() {
             let u = service.userServcie.getUser()
             if (u) {
-                this.login(mod.userMod.userName, mod.userMod.userPass);
+                this.tokenLogin();
             } else {
                 this.comp.visible = true;
             }
+        }
+        /**
+         * token登录
+         */
+        public tokenLogin() {
+            this.waiting = new view.alert.waiting("登录中...")
+            this.waiting.popup();
+            service.userServcie.tokenLogin(this.loginCb, this);
         }
 
         /**
@@ -40,7 +48,6 @@ module view.user {
             this.waiting.popup();
             //更新内存数据
             mod.userMod.userName = uname.trim();
-            mod.userMod.userPass = upass.trim();
             service.userServcie.userLogin(uname, upass, this.loginCb, this);
         }
 
@@ -105,6 +112,7 @@ module view.user {
                 Laya.Browser.window.enter();
             } else {
                 new view.alert.info(ret.reason).popup();
+                v.comp.visible = true;
             }
         }
     }

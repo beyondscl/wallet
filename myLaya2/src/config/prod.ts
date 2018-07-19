@@ -6,7 +6,6 @@ module config {
         public static scale = prod.appHeight / prod.appWidth;//当初设计的高与宽比
         public static appAccept: string = "appAccept";//用于存储标识用户是否已经同意协议
         public static appGuide: string = "appGuide";//用于存储标识用户是否已经经过引导页面
-        private static appDealKey: string = "wwwalletDeal";//存储用户交易记录,[定时拉取接收的数据]
         public static appUserKey: string = "appUser";//存储用户
         public static ethToUsd: string = "https://api.infura.io/v1/ticker/ethusd"; //获取eth与美元的汇率
         public static ethBalance: string = "https://api.etherscan.io/api?"; //获取账户eth
@@ -26,15 +25,14 @@ module config {
         public static apiSetMainAddr: string = prod.apiLocalHost + "/user/setMainAddr";//更新钱包与邀请码关系
         public static apiCandyCode: string = prod.apiLocalHost + "/candy/sendSms";//获取短信验证码
         public static apiGetCandy: string = prod.apiLocalHost + "/candy/sendCandy";//获取糖果
-
+        
         public static gasLimit: number = 21000;
         public static tokenGasLimit: number = 80000;
-        
-        
         public static WEI_TO_ETH: number = 1e18;//wei转换eth
         public static expCoins: Array<string> = ["WWEC"];//价格显示-,不计算总价
         public static smsTimeInterval = 60;//短信时间间隔
         public static downLoadUrl = Laya.Browser.window.main_config[Laya.Browser.window.env].downLoadUrl;
+        private static appDealKey: string = "wwwalletDeal";//存储用户交易记录,[定时拉取接收的数据]
         //与用户绑定
         private static originAppKey: string = "wwwallet";//用于存储标识用户是否已经有钱包
 
@@ -45,7 +43,8 @@ module config {
             service.userServcie.getUser();//init
             return prod.originAppKey + mod.userMod.userId;
         }
-        public static getAppDealKey():string{
+
+        public static getAppDealKey(): string {
             service.userServcie.getUser();//init
             return prod.appDealKey + mod.userMod.userId;
         }

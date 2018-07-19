@@ -34,11 +34,19 @@ var view;
             UserLogin.prototype.checkAutoLogin = function () {
                 var u = service.userServcie.getUser();
                 if (u) {
-                    this.login(mod.userMod.userName, mod.userMod.userPass);
+                    this.tokenLogin();
                 }
                 else {
                     this.comp.visible = true;
                 }
+            };
+            /**
+             * token登录
+             */
+            UserLogin.prototype.tokenLogin = function () {
+                this.waiting = new view.alert.waiting("登录中...");
+                this.waiting.popup();
+                service.userServcie.tokenLogin(this.loginCb, this);
             };
             /**
              * 登录
@@ -48,7 +56,6 @@ var view;
                 this.waiting.popup();
                 //更新内存数据
                 mod.userMod.userName = uname.trim();
-                mod.userMod.userPass = upass.trim();
                 service.userServcie.userLogin(uname, upass, this.loginCb, this);
             };
             UserLogin.prototype.init = function () {
@@ -108,6 +115,7 @@ var view;
                 }
                 else {
                     new view.alert.info(ret.reason).popup();
+                    v.comp.visible = true;
                 }
             };
             return UserLogin;

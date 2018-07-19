@@ -20,17 +20,14 @@ module view.user {
         }
 
         public changTime(btn: Laya.Button) {
-            let text = this.comp.btn_getcode.label.trim().split("(")[0];
-            text = text + "(" + this._getCode + ")";
+            let text = config.msg.SENDED_CODE + "(" + this._getCode + ")";
             btn.label = text;
             this._getCode--;
             if (this._getCode < 0) {
                 Laya.timer.clear(this, this.changTime);
-                text = this.comp.btn_getcode.label.trim().split("(")[0];
-                btn.label = text;
+                btn.label = config.msg.SEND_CODE;
                 this.comp.btn_getcode.disabled = false;
                 this._getCode = config.prod.smsTimeInterval;
-                ;
             }
         }
 
@@ -93,7 +90,7 @@ module view.user {
                 return false;
             }
             if (!inp_pass || inp_pass.length < 8 || inp_pass.length > 32) {
-                new view.alert.info(config.msg.PASS_ERROR).popup();
+                new view.alert.info(config.msg.NEW_PASS_ERROR).popup();
                 return false;
             }
             if (inp_passconf != inp_pass) {

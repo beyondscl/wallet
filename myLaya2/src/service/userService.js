@@ -224,7 +224,6 @@ var service;
                 data: {
                     "phoneNumber": phoneNumber,
                     "address": address,
-                    "vcode": vcode,
                 },
                 callbackArgs: args,
                 async: true,
@@ -239,6 +238,29 @@ var service;
                 }
             };
             Laya.Browser.window.Ajax.post(getCandy);
+        };
+        /**
+         * token登录
+         */
+        userServcie.tokenLogin = function (fun, args) {
+            var tokenLogin = {
+                url: config.prod.apiGetUserInfo,
+                method: 'POST',
+                token: mod.userMod.token,
+                data: {},
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (ret, args) {
+                    fun(ret, args);
+                    console.log("request error:", ret, args);
+                }
+            };
+            Laya.Browser.window.Ajax.post(tokenLogin);
         };
         userServcie.error = {
             "retCode": 2,

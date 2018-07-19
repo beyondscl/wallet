@@ -20,23 +20,22 @@ module view.user {
         }
 
         public changTime(btn: Laya.Button) {
-            let text = this.comp.btn_getcode.label.trim().split("(")[0];
-            text = text + "(" + this._getCode + ")";
+            let text = config.msg.SENDED_CODE + "(" + this._getCode + ")";
             btn.label = text;
             this._getCode--;
             if (this._getCode < 0) {
                 Laya.timer.clear(this, this.changTime);
-                text = this.comp.btn_getcode.label.trim().split("(")[0];
-                btn.label = text;
+                btn.label = config.msg.SEND_CODE;
                 this.comp.btn_getcode.disabled = false;
                 this._getCode = config.prod.smsTimeInterval;
-                ;
             }
         }
 
         private init() {
             this.comp = new ui.user.UserRegistUI();
             Laya.stage.addChild(this.comp);
+            this.comp.visible = false;
+            new view.info.Service().setParetUI(this.comp);
         }
 
         private initEvent() {
@@ -57,10 +56,12 @@ module view.user {
                 }
             }
             if (2 == index) {
+                this.comp.btn_getcode.disabled = true;
                 let phone = this.comp.inp_phNumber.text.trim();
                 if (util.vilPhoneNumber(phone)) {
                     this.getCode();
                 } else {
+                    this.comp.btn_getcode.disabled = false;
                     new view.alert.info(config.msg.PHONE_ERROR).popup();
                 }
             }
@@ -81,7 +82,7 @@ module view.user {
                 return false;
             }
             if (!pass || pass.length < 8 || pass.length > 32) {
-                new view.alert.info(config.msg.PASS_ERROR).popup();
+                new view.alert.info(config.msg.NEW_PASS_ERROR).popup();
                 return false;
             }
             if (pass != inp_passconf) {
@@ -105,7 +106,7 @@ module view.user {
         /**
          * 获取验证码回调
          */
-        private getCodeCb(ret, a) {
+        private getCodeCb(ret, v) {
             ret = JSON.parse(ret)
             if (ret && ret.retCode == 0) {
                 new view.alert.info(ret.retMsg.msg).popup();
