@@ -33,6 +33,18 @@ var view;
             Candy.prototype.setParetUI = function (parentUI) {
                 this.parentUI = parentUI;
             };
+            Candy.prototype.changTime = function (btn) {
+                btn.disabled = true;
+                var text = config.msg.SENDED_CODE + "(" + this._timeInter + ")";
+                btn.label = text;
+                this._timeInter--;
+                if (this._timeInter < 0) {
+                    Laya.timer.clear(this, this.changTime);
+                    btn.label = config.msg.SEND_CODE;
+                    btn.disabled = false;
+                    this._timeInter = this._timeInter;
+                }
+            };
             Candy.prototype.init = function () {
                 this.comp = new ui.info.CandyUI();
                 Laya.stage.addChild(this.comp);
@@ -83,20 +95,6 @@ var view;
                         new view.alert.info(config.msg.PHONE_ERROR).popup();
                     }
                     return;
-                }
-            };
-            Candy.prototype.changTime = function (btn) {
-                btn.disabled = true;
-                var text = this.comp.btn_getcode.label.trim().split("(")[0];
-                text = text + "(" + this._timeInter + ")";
-                btn.label = text;
-                this._timeInter--;
-                if (this._timeInter < 0) {
-                    Laya.timer.clear(this, this.changTime);
-                    text = this.comp.btn_getcode.label.trim().split("(")[0];
-                    btn.label = text;
-                    btn.disabled = false;
-                    this._timeInter = this._timeInter;
                 }
             };
             Candy.prototype.callBack = function (ret, v) {

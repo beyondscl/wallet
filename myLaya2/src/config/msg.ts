@@ -25,17 +25,19 @@ module config {
         //用户模块
         public static PHONE_ERROR: string = "请输入正确的手机号";
         public static VCODE_ERROR: string = "请输入正确的验证码";
-        public static PASS_ERROR: string =  "请输入正确的密码";
-        public static PASS_CONF_ERROR: string =  "密码不一致，请重新输入";
+        public static PASS_ERROR: string = "请输入正确的密码";
+        public static PASS_CONF_ERROR: string = "密码不一致，请重新输入";
         public static INVITATION_ERROR: string = "请输入正确的邀请码";
         public static NEW_PASS_ERROR: string = "请输入不少于8位字符的密码";//注册于重置
-        
+
+        public static SERVER_ERROR: string = "服务器开小差了，请重新登录";//注册于重置
+
 
         public static SELECT_ERROR: string = "请选择钱包";
         public static GET_CANDY: string = "领取中";
 
-        public static SEND_CODE: string = "发送验证码"; 
-        public static SENDED_CODE: string = "已发送"; 
+        public static SEND_CODE: string = "发送验证码";
+        public static SENDED_CODE: string = "已发送";
 
     }
 }

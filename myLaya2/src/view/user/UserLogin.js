@@ -104,7 +104,14 @@ var view;
              */
             UserLogin.prototype.loginCb = function (ret, v) {
                 v.waiting.stop();
-                ret = JSON.parse(ret);
+                try {
+                    ret = JSON.parse(ret);
+                }
+                catch (error) {
+                    new view.alert.info(config.msg.SERVER_ERROR).popup();
+                    v.comp.visible = true;
+                    return;
+                }
                 if (ret && ret.retCode == 0) {
                     //储存本地账户,注意上面已经赋值
                     mod.userMod.setUserJson(ret.data);

@@ -35,7 +35,7 @@ module mod {
 
         //登录成功返回数据
         public static setUserJson(json: any) {
-            if(json.token){//toekn登录不会返回token
+            if (json.token) {//toekn登录不会返回token
                 this.token = json.token;
             }
             this.userName = json.cellphone;
@@ -45,10 +45,11 @@ module mod {
             this.invitedNum = json.invitedNum;
             this.addr = json.addr;
         }
+
         //操作本地数据
         public static setUserFromJson(userJson: any) {
             this.userId = userJson.userId,
-            this.userName = userJson.userName;
+                this.userName = userJson.userName;
             this.token = userJson.token;
         }
 

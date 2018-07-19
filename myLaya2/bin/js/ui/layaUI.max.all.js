@@ -349,21 +349,6 @@ var ui;
     })(info = ui.info || (ui.info = {}));
 })(ui || (ui = {}));
 (function (ui) {
-    var LoginUI = /** @class */ (function (_super) {
-        __extends(LoginUI, _super);
-        function LoginUI() {
-            return _super.call(this) || this;
-        }
-        LoginUI.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this);
-            this.createView(ui.LoginUI.uiView);
-        };
-        LoginUI.uiView = { "type": "View", "props": { "y": 0, "x": 0, "width": 600, "height": 800 }, "child": [{ "type": "Label", "props": { "width": 600, "var": "lab_title", "valign": "middle", "top": 20, "text": "登  录", "left": 0, "fontSize": 32, "font": "SimHei", "color": "#000000", "align": "center" } }, { "type": "Label", "props": { "x": 55, "width": 40, "var": "lab_quit", "top": 20, "text": "X", "height": 40, "fontSize": 32, "font": "SimSun", "color": "#000000", "align": "center" } }, { "type": "Line", "props": { "y": 60, "x": 300, "toY": 1, "toX": 0, "lineWidth": 600, "lineColor": "#9f9f9f" } }, { "type": "Label", "props": { "y": 80, "x": 55, "text": "国家/地区", "name": "lab_conArea", "layoutEnabled": true, "fontSize": 20, "font": "SimHei", "color": "#a6a6a6" } }, { "type": "Label", "props": { "y": 80, "x": 196, "var": "lab_contury", "text": "中国", "name": "lab_contury", "fontSize": 20, "font": "SimHei", "color": "#000000" } }, { "type": "Label", "props": { "y": 80, "x": 530, "var": "lab_sele_contury", "text": ">", "name": "lab_sele_contury", "fontSize": 20, "font": "Arial", "color": "#000000" } }, { "type": "Line", "props": { "y": 115, "x": 300, "toY": 1, "toX": 0, "lineWidth": 500, "lineColor": "#9f9f9f" } }, { "type": "TextInput", "props": { "y": 130, "x": 55, "width": 490, "var": "text_phoneNum", "valign": "middle", "type": "number", "rotation": 0, "prompt": "手机号码", "overflow": "hidden", "name": "text_phoneNum", "maxChars": 11, "layoutEnabled": true, "hitTestPrior": true, "height": 22, "fontSize": 20, "font": "SimHei", "color": "#a6a6a6", "align": "left" } }, { "type": "Line", "props": { "y": 165, "x": 300, "toY": 1, "toX": 0, "lineWidth": 500, "lineColor": "#9f9f9f" } }, { "type": "TextInput", "props": { "y": 175, "x": 55, "width": 487, "var": "text_password", "valign": "middle", "type": "password", "prompt": "密码", "name": "text_password", "maxChars": 30, "layoutEnabled": true, "height": 22, "fontSize": 20, "font": "SimHei", "color": "#a6a6a6", "align": "left" } }, { "type": "Line", "props": { "y": 209, "x": 300, "toY": 1, "toX": 0, "lineWidth": 500, "lineColor": "#9f9f9f" } }, { "type": "Button", "props": { "y": 236, "x": 55, "width": 500, "stateNum": 3, "skin": "comp/button.png", "name": "btn_submit", "label": "确    定", "height": 37 } }, { "type": "Button", "props": { "y": 292, "x": 55, "width": 500, "skin": "comp/button.png", "name": "btn_regist", "label": "注    册", "height": 36 } }] };
-        return LoginUI;
-    }(View));
-    ui.LoginUI = LoginUI;
-})(ui || (ui = {}));
-(function (ui) {
     var MsgUI = /** @class */ (function (_super) {
         __extends(MsgUI, _super);
         function MsgUI() {
@@ -432,24 +417,6 @@ var ui;
         }(View));
         set.WalletImportUI = WalletImportUI;
     })(set = ui.set || (ui.set = {}));
-})(ui || (ui = {}));
-(function (ui) {
-    var temple;
-    (function (temple) {
-        var testUI = /** @class */ (function (_super) {
-            __extends(testUI, _super);
-            function testUI() {
-                return _super.call(this) || this;
-            }
-            testUI.prototype.createChildren = function () {
-                _super.prototype.createChildren.call(this);
-                this.createView(ui.temple.testUI.uiView);
-            };
-            testUI.uiView = { "type": "View", "props": { "width": 750, "height": 1334 }, "child": [{ "type": "Image", "props": { "y": 770, "x": 27, "skin": "template/Tab/tab bar_no button.png" } }, { "type": "Tab", "props": { "y": 770, "x": 78, "stateNum": 0, "selectedIndex": 1 }, "child": [{ "type": "Button", "props": { "stateNum": 2, "skin": "template/Tab/btn_Icon1.png", "name": "item0", "labelPadding": "30", "labelColors": "#929292,#0079ff", "label": "Favorites" } }, { "type": "Button", "props": { "y": 0, "x": 154, "stateNum": 2, "skin": "template/Tab/btn_Icon2.png", "name": "item1", "labelPadding": "30", "labelColors": "#929292,#0079ff", "label": "Recents" } }, { "type": "Button", "props": { "y": 0, "x": 314, "stateNum": 2, "skin": "template/Tab/btn_Icon3.png", "name": "item2", "labelPadding": "30", "labelColors": "#929292,#0079ff", "label": "Contacts" } }, { "type": "Button", "props": { "y": 0, "x": 473, "stateNum": 2, "skin": "template/Tab/btn_Icon4.png", "name": "item3", "labelPadding": "30", "labelColors": "#929292,#0079ff", "label": "Keypad" } }] }] };
-            return testUI;
-        }(View));
-        temple.testUI = testUI;
-    })(temple = ui.temple || (ui.temple = {}));
 })(ui || (ui = {}));
 (function (ui) {
     var TransDetailUI = /** @class */ (function (_super) {

@@ -7,7 +7,6 @@ var mod;
         //登录成功返回数据
         userMod.setUser = function (uName, uPass, token, userId, code, inviter) {
             this.userName = uName;
-            this.userPass = uPass;
             this.token = token;
             this.userId = userId;
             this.code = code;
@@ -15,7 +14,10 @@ var mod;
         };
         //登录成功返回数据
         userMod.setUserJson = function (json) {
-            this.token = json.token;
+            if (json.token) { //toekn登录不会返回token
+                this.token = json.token;
+            }
+            this.userName = json.cellphone;
             this.userId = json.id;
             this.code = json.code;
             this.inviter = json.inviter;
@@ -24,16 +26,16 @@ var mod;
         };
         //操作本地数据
         userMod.setUserFromJson = function (userJson) {
-            this.userId = this.userId,
+            this.userId = userJson.userId,
                 this.userName = userJson.userName;
-            this.userPass = userJson.userPass;
+            this.token = userJson.token;
         };
         //操作本地数据
         userMod.userToJson = function () {
             var j = {
                 userId: this.userId,
                 userName: this.userName,
-                userPass: this.userPass,
+                token: this.token,
             };
             return j;
         };

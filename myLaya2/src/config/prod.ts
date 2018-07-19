@@ -25,7 +25,7 @@ module config {
         public static apiSetMainAddr: string = prod.apiLocalHost + "/user/setMainAddr";//更新钱包与邀请码关系
         public static apiCandyCode: string = prod.apiLocalHost + "/candy/sendSms";//获取短信验证码
         public static apiGetCandy: string = prod.apiLocalHost + "/candy/sendCandy";//获取糖果
-        
+
         public static gasLimit: number = 21000;
         public static tokenGasLimit: number = 80000;
         public static WEI_TO_ETH: number = 1e18;//wei转换eth

@@ -1,46 +1,5 @@
 D .
-D comp
-P D12221A9 bg.png
-P 9401CC40 blank.png
-P B03390E5 btn_close.png
-P 1F3929EA button.png
-P 6CC6DF97 checkbox.png
-P FB94CCF2 clip_num.png
-P F7B6B7D7 clip_selectBox.png
-P 755271AE clip_tree_arrow.png
-P 859FD34C clip_tree_folder.png
-P A0E3B8F9 combobox.png
-P 9EDA959E hscroll$bar.png
-P 1AB768D4 hscroll$down.png
-P 685261D3 hscroll$up.png
-P 274B8076 hscroll.png
-P E466EB1C hslider$bar.png
-P C4BECA54 hslider.png
-P 5EDC128C html.png
-P ACFFCCCF image.png
-P 5EDC128C label.png
-P 5EDC128C linkbutton.png
-P 9E4DD730 progress$bar.png
-P 3FD78E12 progress.png
-P BF898D6A radio.png
-P BF898D6A radiogroup.png
-P 8CFD9D35 tab.png
-P BDA71F88 textarea.png
-P BDA71F88 textinput.png
-P 52107B89 vscroll$bar.png
-P E26B933E vscroll$down.png
-P B9680947 vscroll$up.png
-P 7E990267 vscroll.png
-P E466EB1C vslider$bar.png
-P 2BFF7046 vslider.png
-P 72BDA2E1 xuan@2x.png
-P 9757A563 xuan_no22x.png
 D img
-D load
-P 9E4DD730 progress$bar.png
-P 3FD78E12 progress.png
-P 7804553B start.png
-D template
 D img/coins
 R 41CDC3C2 .rec
 P 9FA4774F BCH.png
@@ -51,19 +10,19 @@ P 964655A1 MKR.png
 P 5CA45000 REP.png
 P 9B85DA0B WWEC.png
 D img/guide
-S 58E53357 bg.png
-P B3021ACE ljjr.png
-P 4BD11040 red.png
-P 48D82038 tu16.png
-P 43295155 ty16_1.png
-P 388CC58D ydy_1.png
-P D527FCE6 ydy_1_word.png
-P 7E2B544E ydy_2.png
-P CBEFCF46 ydy_2_word.png
-P A8B482D4 ydy_3.png
-P 19E6CC1A ydy_3_word.png
-P C247DB65 ydy_4.png
-P 4D51F2FC ydy_4_word.png
+S 3BEB2290 bg.png
+P 00F249E4 ljjr.png
+P A821C839 red.png
+P EA3D64FA tu16.png
+P 48512804 ty16_1.png
+P 9ECF41E0 ydy_1.png
+P 4E864A1D ydy_1_word.png
+P 95282228 ydy_2.png
+P 125A3DC7 ydy_2_word.png
+P 66DA2207 ydy_3.png
+P 4E864B55 ydy_3_word.png
+P E3C58CB6 ydy_4.png
+P 72EDDAA1 ydy_4_word.png
 D img/main
 R A7D09581 .rec
 P D5659A9C anliu-@2x.png
@@ -135,57 +94,3 @@ P 4BCEF5A3 xx@2x.png
 P 4AA84913 zichan-@2x.png
 P 755A0512 zichan@2x.png
 D img/walleticon
-D template/ButtonTab
-P FC49EE94 btn_LargeTabButton_Left.png
-P AE499BA2 btn_LargeTabButton_Middle.png
-P 71BBA39E btn_LargeTabButton_Right.png
-D template/List
-P 140B5401 arrow.png
-P 5EDC128C label.png
-P 173F1169 message icon_57x57.png
-R 11909C67 SimpleListBoxItemBackground.png
-P 52107B89 vscroll$bar.png
-P E26B933E vscroll$down.png
-P B9680947 vscroll$up.png
-P 7E990267 vscroll.png
-D template/Navigator
-R EBE10BFB bar bottom.png
-P 6349C7D7 btn_BackButton.png
-P 5EDC128C label.png
-D template/PageBar
-P 3A56D49F btn_pageIndicator.png
-P 923A0A16 pageIndicatorBack.png
-D template/ScrollBar
-P A4FD74DB BackProgressBar$bar.png
-P 5058DE30 BackProgressBar.png
-P E466EB1C hslider$bar.png
-P C4BECA54 hslider.png
-D template/Search
-P 789B5A2E btn_search_close.png
-P E8BF1864 btn_search_icon.png
-P 5EDC128C label.png
-R 4F2CD3AC search bar_blue.png
-D template/Switcher
-P 9E2641E5 checkbox_switch.png
-P BF898D6A radio.png
-D template/Tab
-P 7BEE4C98 btn_Icon1.png
-P 03CFB713 btn_Icon2.png
-P 9222EE46 btn_Icon3.png
-P 175788C7 btn_Icon4.png
-R 513EBDE1 tab bar_no button.png
-D template/Text
-P 5EDC128C label.png
-R 1E74727C TextBox.png
-D template/ToolBar
-R 60D7A831 bar bottom.png
-P CEFB530A btn_Add.png
-P EEBAFE6D btn_BackIcon.png
-P 7F5D8ABF btn_Bookmark.png
-P DC9B61BB btn_Forward.png
-P 8720F16C btn_page.png
-D template/Warn
-R D7C1FE60 alert_dialog.png
-P FF562FEC btn_alert dialogLeftButton.png
-P B1B9E5E0 btn_alert dialogRightButton.png
-P 5EDC128C label.png

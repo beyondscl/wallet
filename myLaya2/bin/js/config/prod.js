@@ -20,7 +20,6 @@ var config;
         prod.scale = prod.appHeight / prod.appWidth; //当初设计的高与宽比
         prod.appAccept = "appAccept"; //用于存储标识用户是否已经同意协议
         prod.appGuide = "appGuide"; //用于存储标识用户是否已经经过引导页面
-        prod.appDealKey = "wwwalletDeal"; //存储用户交易记录,[定时拉取接收的数据]
         prod.appUserKey = "appUser"; //存储用户
         prod.ethToUsd = "https://api.infura.io/v1/ticker/ethusd"; //获取eth与美元的汇率
         prod.ethBalance = "https://api.etherscan.io/api?"; //获取账户eth
@@ -46,6 +45,7 @@ var config;
         prod.expCoins = ["WWEC"]; //价格显示-,不计算总价
         prod.smsTimeInterval = 60; //短信时间间隔
         prod.downLoadUrl = Laya.Browser.window.main_config[Laya.Browser.window.env].downLoadUrl;
+        prod.appDealKey = "wwwalletDeal"; //存储用户交易记录,[定时拉取接收的数据]
         //与用户绑定
         prod.originAppKey = "wwwallet"; //用于存储标识用户是否已经有钱包
         return prod;

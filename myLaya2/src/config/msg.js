@@ -27,6 +27,7 @@ var config;
         msg.PASS_CONF_ERROR = "密码不一致，请重新输入";
         msg.INVITATION_ERROR = "请输入正确的邀请码";
         msg.NEW_PASS_ERROR = "请输入不少于8位字符的密码"; //注册于重置
+        msg.SERVER_ERROR = "服务器开小差了，请重新登录"; //注册于重置
         msg.SELECT_ERROR = "请选择钱包";
         msg.GET_CANDY = "领取中";
         msg.SEND_CODE = "发送验证码";

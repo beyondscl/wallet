@@ -99,7 +99,7 @@ var view;
                     this.parentUI.comp.visible = true;
                 }
                 if (2 == index) {
-                    util.getCopyValue(config.prod.downLoadUrl, function (a) {
+                    util.getCopyValue(mod.userMod.code, function (a) {
                     }, []);
                     this.comp.btn_copy.label = '已复制';
                 }

@@ -264,8 +264,7 @@ module service {
                 url: config.prod.apiGetUserInfo,
                 method: 'POST',
                 token: mod.userMod.token,
-                data: {
-                },
+                data: {},
                 callbackArgs: args,
                 async: true,
                 success: function (ret, args) {

@@ -29,22 +29,21 @@ var view;
                 this.parentUI = p;
             };
             UserRegist.prototype.changTime = function (btn) {
-                var text = this.comp.btn_getcode.label.trim().split("(")[0];
-                text = text + "(" + this._getCode + ")";
+                var text = config.msg.SENDED_CODE + "(" + this._getCode + ")";
                 btn.label = text;
                 this._getCode--;
                 if (this._getCode < 0) {
                     Laya.timer.clear(this, this.changTime);
-                    text = this.comp.btn_getcode.label.trim().split("(")[0];
-                    btn.label = text;
+                    btn.label = config.msg.SEND_CODE;
                     this.comp.btn_getcode.disabled = false;
                     this._getCode = config.prod.smsTimeInterval;
-                    ;
                 }
             };
             UserRegist.prototype.init = function () {
                 this.comp = new ui.user.UserRegistUI();
                 Laya.stage.addChild(this.comp);
+                this.comp.visible = false;
+                new view.info.Service().setParetUI(this.comp);
             };
             UserRegist.prototype.initEvent = function () {
                 this.comp.btn_regist.on(Laya.Event.CLICK, this, this.btnClick, [1]);
@@ -63,11 +62,13 @@ var view;
                     }
                 }
                 if (2 == index) {
+                    this.comp.btn_getcode.disabled = true;
                     var phone = this.comp.inp_phNumber.text.trim();
                     if (util.vilPhoneNumber(phone)) {
                         this.getCode();
                     }
                     else {
+                        this.comp.btn_getcode.disabled = false;
                         new view.alert.info(config.msg.PHONE_ERROR).popup();
                     }
                 }
@@ -86,7 +87,7 @@ var view;
                     return false;
                 }
                 if (!pass || pass.length < 8 || pass.length > 32) {
-                    new view.alert.info(config.msg.PASS_ERROR).popup();
+                    new view.alert.info(config.msg.NEW_PASS_ERROR).popup();
                     return false;
                 }
                 if (pass != inp_passconf) {
@@ -108,7 +109,7 @@ var view;
             /**
              * 获取验证码回调
              */
-            UserRegist.prototype.getCodeCb = function (ret, a) {
+            UserRegist.prototype.getCodeCb = function (ret, v) {
                 ret = JSON.parse(ret);
                 if (ret && ret.retCode == 0) {
                     new view.alert.info(ret.retMsg.msg).popup();
