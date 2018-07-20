@@ -107,7 +107,7 @@ function onComplete() {
 }
 function enter() {
     new config.init.initData('');
-    var walletNames = app;
+    var walletNames = util.getItem(config.prod.getAppKey()); //重新获取
     if (!walletNames || walletNames.length == 0) { //没有钱包数据
         if (gui) { //非第一次进入
             new EnterApp();
@@ -121,7 +121,7 @@ function enter() {
     }
 }
 function enterMain() {
-    var walletNames = app;
+    var walletNames = util.getItem(config.prod.getAppKey()); //重新获取
     var wallet = util.getItem(walletNames[0]);
     var walletMod = new mod.walletMod();
     walletMod.setWallet(wallet);

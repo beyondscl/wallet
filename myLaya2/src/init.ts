@@ -34,7 +34,6 @@ module config {
             let getEthTOUsd = {
                 url: config.prod.ethToUsd,
                 method: 'get',
-                token: mod.userMod.token,
                 data: {},
                 async: true,
                 success: function (ret, args) {

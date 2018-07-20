@@ -122,7 +122,7 @@ function onComplete() {
 
 function enter() {
     new config.init.initData('');
-    let walletNames = app;
+    let walletNames = util.getItem(config.prod.getAppKey());//重新获取
     if (!walletNames || walletNames.length == 0) {//没有钱包数据
         if (gui) {//非第一次进入
             new EnterApp();
@@ -135,7 +135,7 @@ function enter() {
 }
 
 function enterMain() {
-    let walletNames = app;
+    let walletNames = util.getItem(config.prod.getAppKey());//重新获取
     let wallet = util.getItem(walletNames[0]);
     let walletMod = new mod.walletMod();
     walletMod.setWallet(wallet);

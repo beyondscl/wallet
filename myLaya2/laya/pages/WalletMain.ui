@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
+    "selecteID":16,
     "props":{"width":750,"var":"WALLET_MAIN","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_MAIN)",
@@ -157,7 +157,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"top":0,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"bottom":0},
+                            "props":{"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
                             "nodeParent":17,
                             "label":"Image",
                             "isOpen":true,

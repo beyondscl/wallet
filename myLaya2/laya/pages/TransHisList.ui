@@ -44,13 +44,14 @@
             "props":{"var":"list","top":100,"selectEnable":true,"right":0,"name":"list","left":0,"bottom":0},
             "nodeParent":1,
             "label":"List(list)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"right":0,"name":"render","left":0,"height":120},
                     "nodeParent":6,
@@ -62,8 +63,9 @@
                     "compId":7,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":0,"x":0,"top":0,"skin":"template/List/SimpleListBoxItemBackground.png","right":0,"left":0,"bottom":0},
+                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
                             "nodeParent":7,
                             "label":"Image",
                             "isDirectory":false,
@@ -74,6 +76,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":32,"x":30,"width":56,"skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0},
                             "nodeParent":7,
@@ -86,6 +89,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":0,"x":100,"width":400,"valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"},
                             "nodeParent":7,
@@ -98,6 +102,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":60,"x":100,"width":400,"valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"},
                             "nodeParent":7,
@@ -110,6 +115,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":35,"x":520,"width":200,"valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
                             "nodeParent":7,
@@ -122,6 +128,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
                             "nodeParent":7,
