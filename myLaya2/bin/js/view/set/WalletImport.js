@@ -72,7 +72,7 @@ var view;
                 var walletName = 'import_' + util.randomString(6);
                 var zjc = this.comp.o_text_zjc.text;
                 var pass = this.comp.o_text_pass.text;
-                service.walletServcie.importWallet(zjc, walletName, pass, this.creatWalletCb, [this.comp, load]); //异步
+                service.walletServcie.importWallet(zjc, walletName, util.md5WithSalt(pass), this.creatWalletCb, [this.comp, load]); //异步
             };
             WalletImport.prototype.checkArgs = function (zjc, pass, passConf) {
                 if (!zjc || zjc.trim().split(" ").length != 12) {

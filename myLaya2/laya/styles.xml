@@ -85,4 +85,7 @@
    <item name="load" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="load/progress.png" type="ProgressBar" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="load/start.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/QDZZ 6@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/qx@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/fz@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
 </res>

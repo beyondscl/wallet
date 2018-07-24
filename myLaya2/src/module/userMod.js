@@ -4,6 +4,7 @@ var mod;
     var userMod = /** @class */ (function () {
         function userMod() {
         }
+
         //登录成功返回数据
         userMod.setUser = function (uName, uPass, token, userId, code, inviter) {
             this.userName = uName;

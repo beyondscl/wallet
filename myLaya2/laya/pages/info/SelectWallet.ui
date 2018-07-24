@@ -56,13 +56,14 @@
                     "props":{"var":"list_wallet","top":170,"selectEnable":true,"right":0,"repeatX":1,"left":0,"bottom":0},
                     "nodeParent":2,
                     "label":"List(list_wallet)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"right":0,"renderType":"render","name":"render","left":0,"height":120},
                             "nodeParent":10,
@@ -74,8 +75,9 @@
                             "compId":11,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"width":750,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"height":60,"bottom":0},
+                                    "props":{"width":750,"top":0,"skin":"img/main/white.png","right":0,"left":0,"height":60,"bottom":0},
                                     "nodeParent":11,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -86,6 +88,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":60,"width":58,"skin":"img/main/wo de-@2x.png","name":"img_wallet","height":58,"centerY":0},
                                     "nodeParent":11,
@@ -98,6 +101,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":26,"x":154,"width":170,"valign":"middle","text":"ETH","skin":"template/List/label.png","name":"lab_wName","height":34,"fontSize":24,"color":"#163853","align":"left"},
                                     "nodeParent":11,
@@ -110,6 +114,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":60,"x":154,"width":400,"valign":"middle","text":"035dx5dx...","skin":"template/List/label.png","name":"lab_wAddr","height":28,"fontSize":20,"color":"#8E979F","align":"left"},
                                     "nodeParent":11,
@@ -123,6 +128,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"Radio",
                                     "props":{"width":30,"var":"radio","skin":"img/main/radio2.png","right":50,"name":"radio","height":30,"centerY":0},
                                     "nodeParent":11,

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":11,
-    "selecteID":17,
+    "selecteID":16,
     "props":{"width":750,"top":0,"sceneColor":"#F3F3F4","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -116,7 +116,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
+                                    "props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                                     "nodeParent":11,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -142,7 +142,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":56,"x":154,"width":170,"var":"lab_wName","valign":"middle","text":"ETH","skin":"template/List/label.png","name":"lab_wName","height":40,"fontSize":30,"color":"#163853","align":"left"},
+                                    "props":{"y":56,"x":154,"width":170,"var":"lab_wName","valign":"middle","text":"ETH","skin":"template/List/label.png","name":"lab_wName","height":40,"fontSize":38,"color":"#163853","align":"left"},
                                     "nodeParent":11,
                                     "label":"Label(lab_wName)",
                                     "isDirectory":false,

@@ -48,6 +48,7 @@ var config;
         prod.appDealKey = "wwwalletDeal"; //存储用户交易记录,[定时拉取接收的数据]
         //与用户绑定
         prod.originAppKey = "wwwallet"; //用于存储标识用户是否已经有钱包
+        prod.salt = "543d1509a659b17f3352041760d59052"; //MD5盐
         return prod;
     }());
     config.prod = prod;

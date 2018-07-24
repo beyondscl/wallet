@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":10,
-    "selecteID":9,
+    "selecteID":13,
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneWidth":600,"sceneHeight":800,"sceneColor":"#ffffff","right":0,"left":0,"layoutEnabled":true,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -24,19 +24,6 @@
             "hasChild":true,
             "compId":10,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"visible":false,"top":0,"right":0,"left":0,"bottom":0},
-                    "nodeParent":10,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ]
-                },
                 {
                     "x":30,
                     "type":"Image",

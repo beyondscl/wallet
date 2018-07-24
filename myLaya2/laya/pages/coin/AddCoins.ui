@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":13,
+    "selectedBox":33,
+    "selecteID":39,
     "props":{"width":750,"visible":true,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":30,"x":10,"valign":"middle","text":"添加新资产","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#000000","centerX":0,"align":"center"},
+            "props":{"y":36,"valign":"middle","text":"添加新资产","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#000000","centerX":0,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"width":60,"var":"btn_query","top":30,"skin":"img/main/btn_search_icon.png","sizeGrid":"0,0,0,0","right":30,"height":60,"disabled":true},
+            "props":{"width":40,"var":"btn_query","top":44,"skin":"img/main/btn_search_icon.png","sizeGrid":"0,0,0,0","right":38,"height":40,"disabled":true},
             "nodeParent":1,
             "label":"Button(btn_query)",
             "isDirectory":false,
@@ -80,7 +80,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
+                            "props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
@@ -106,7 +106,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":88,"x":150,"width":400,"var":"cVender","valign":"middle","text":"cVender","skin":"template/List/label.png","name":"cVender","height":32,"fontSize":24,"color":"#8E979F","align":"left"},
+                            "props":{"y":80,"x":150,"width":400,"var":"cVender","valign":"middle","text":"cVender","skin":"template/List/label.png","name":"cVender","height":32,"fontSize":24,"color":"#8E979F","align":"left"},
                             "nodeParent":33,
                             "label":"Label(cVender)",
                             "isDirectory":false,
@@ -119,7 +119,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":40,"x":150,"width":400,"var":"cName","valign":"middle","text":"cName","skin":"template/List/label.png","name":"cName","height":40,"fontSize":32,"color":"#100E28","align":"left"},
+                            "props":{"y":33,"x":150,"width":400,"var":"cName","valign":"middle","text":"cName","skin":"template/List/label.png","name":"cName","height":40,"fontSize":32,"color":"#100E28","align":"left"},
                             "nodeParent":33,
                             "label":"Label(cName)",
                             "isDirectory":false,
@@ -132,7 +132,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":128,"x":150,"width":400,"var":"cAddr","valign":"middle","text":"cAddr","skin":"template/List/label.png","name":"cAddr","height":32,"fontSize":24,"color":"#8E979F","align":"left"},
+                            "props":{"y":117,"x":150,"width":400,"var":"cAddr","valign":"middle","text":"cAddr","skin":"template/List/label.png","name":"cAddr","height":32,"fontSize":24,"color":"#8E979F","align":"left"},
                             "nodeParent":33,
                             "label":"Label(cAddr)",
                             "isOpen":true,
@@ -153,6 +153,19 @@
                             "isAniNode":false,
                             "hasChild":false,
                             "compId":42,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":33,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":43,
                             "child":[
                                 ]
                         }]

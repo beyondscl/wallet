@@ -32,6 +32,7 @@ var config;
         msg.GET_CANDY = "领取中";
         msg.SEND_CODE = "发送验证码";
         msg.SENDED_CODE = "已发送";
+        msg.REVER_PASS_SUCCESS = "修改密码成功";
         return msg;
     }());
     config.msg = msg;

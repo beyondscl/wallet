@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
+                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":7,
                             "label":"Image",
                             "isDirectory":false,

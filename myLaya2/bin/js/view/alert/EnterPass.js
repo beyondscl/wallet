@@ -63,7 +63,7 @@ var view;
                         console.error("wallet.wPassword is null");
                     }
                     var pass = this.text_pass.text;
-                    if (pass != wallet.wPassword) {
+                    if (util.md5WithSalt(pass) != wallet.wPassword) {
                         this.warn.visible = true;
                         return;
                     }

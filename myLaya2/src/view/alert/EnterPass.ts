@@ -58,7 +58,7 @@ module view.alert {
                     console.error("wallet.wPassword is null");
                 }
                 let pass = this.text_pass.text;
-                if (pass != wallet.wPassword) {
+                if (util.md5WithSalt(pass) != wallet.wPassword) {
                     this.warn.visible = true;
                     return;
                 } else {

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":61,
-    "selecteID":62,
+    "selectedBox":1,
+    "selecteID":61,
     "props":{"width":750,"var":"WALLET_TRANSFER","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_TRANSFER)",
@@ -119,7 +119,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
+                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":62,
                             "label":"Image",
                             "isDirectory":false,

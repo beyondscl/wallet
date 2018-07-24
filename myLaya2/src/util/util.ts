@@ -374,4 +374,13 @@ class util {
         }
         return 0;
     }
-}
+
+    //md5加密
+    public static MD5(value: string) {
+        Laya.Browser.window.md5(value)
+    }
+
+    public static md5WithSalt(value: string) {
+        return Laya.Browser.window.md5(value + config.prod.salt);
+    }
+}   

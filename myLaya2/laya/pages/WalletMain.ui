@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":16,
+    "selectedBox":17,
+    "selecteID":35,
     "props":{"width":750,"var":"WALLET_MAIN","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_MAIN)",
@@ -157,7 +157,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
+                            "props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":17,
                             "label":"Image",
                             "isOpen":true,
@@ -184,7 +184,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"x":114,"width":300,"var":"cName","text":"label","skin":"template/List/label.png","name":"cName","height":48,"fontSize":40,"color":"#100E28","centerY":0},
+                            "props":{"x":114,"width":300,"var":"cName","text":"数据读取中","skin":"template/List/label.png","name":"cName","height":48,"fontSize":40,"color":"#100E28","centerY":0},
                             "nodeParent":17,
                             "label":"Label(cName)",
                             "isDirectory":false,
@@ -197,7 +197,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"var":"cTotal","valign":"middle","text":"第三方士大夫","right":30,"name":"cTotal","height":40,"fontSize":40,"color":"#100E28","centerY":-13,"align":"right"},
+                            "props":{"var":"cTotal","valign":"middle","text":"0","right":30,"name":"cTotal","height":40,"fontSize":40,"color":"#100E28","centerY":-13,"align":"right"},
                             "nodeParent":17,
                             "label":"Label(cTotal)",
                             "isDirectory":false,
@@ -210,13 +210,26 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"var":"cValue","valign":"middle","text":"不晓得官方","right":30,"name":"cValue","height":44,"fontSize":24,"color":"#8E979F","bottom":5,"align":"right"},
+                            "props":{"var":"cValue","valign":"middle","text":"0","right":30,"name":"cValue","height":44,"fontSize":24,"color":"#8E979F","bottom":5,"align":"right"},
                             "nodeParent":17,
                             "label":"Label(cValue)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
                             "compId":23,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":17,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":35,
                             "child":[
                                 ]
                         }]

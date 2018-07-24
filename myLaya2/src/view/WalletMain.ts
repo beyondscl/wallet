@@ -8,7 +8,7 @@ module view {
         private ethTotal: string = '0';//主要用于扫一扫回调
 
         //list 相关
-        private data: Array<mod.walItemMod> = [];
+        private data: Array<mod.walItemMod> = [];//可用于定时刷新
         private noRender: number = 1;//如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
         private hasRended: Array<string> = [];
 

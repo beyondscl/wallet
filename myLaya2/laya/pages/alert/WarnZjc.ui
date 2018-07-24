@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":9,
+    "selectedBox":9,
+    "selecteID":8,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0,"alpha":0},
+            "props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0,"alpha":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -23,7 +23,8 @@
             "hasChild":false,
             "compId":10,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -105,7 +106,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"var":"btn_know","stateNum":"1","skin":"img/main/anliu@2x.png","right":-2,"left":0,"labelSize":32,"labelColors":"#ffffff","label":"我知道了","height":80,"bottom":0},
+                    "props":{"width":550,"var":"btn_know","stateNum":"1","skin":"img/main/QDZZ 6@3x.png","labelSize":32,"labelColors":"#ffffff","label":"我知道了","height":80,"bottom":0},
                     "nodeParent":9,
                     "label":"Button(btn_know)",
                     "isDirectory":false,
@@ -114,7 +115,8 @@
                     "compId":7,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

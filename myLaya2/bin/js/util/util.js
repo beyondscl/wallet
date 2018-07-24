@@ -338,6 +338,13 @@ var util = /** @class */ (function () {
         }
         return 0;
     };
+    //md5加密
+    util.MD5 = function (value) {
+        Laya.Browser.window.md5(value);
+    };
+    util.md5WithSalt = function (value) {
+        return Laya.Browser.window.md5(value + config.prod.salt);
+    };
     //用于钱包钱包备份相关
     //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数
     util._compStack = [];

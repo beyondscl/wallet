@@ -67,7 +67,7 @@ module view.set {
             let walletName = 'import_' + util.randomString(6);
             let zjc = this.comp.o_text_zjc.text;
             let pass = this.comp.o_text_pass.text;
-            service.walletServcie.importWallet(zjc, walletName, pass, this.creatWalletCb, [this.comp, load]);//异步
+            service.walletServcie.importWallet(zjc, walletName, util.md5WithSalt(pass), this.creatWalletCb, [this.comp, load]);//异步
         }
 
         private checkArgs(zjc: string, pass: string, passConf: string) {

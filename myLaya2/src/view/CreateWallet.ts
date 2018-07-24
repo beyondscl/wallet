@@ -65,7 +65,7 @@ module view {
             if (ret && ret.retCode == 0) {
                 let keystore = Laya.Browser.window.serialize();
                 let wallet = new mod.walletMod();
-                wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                wallet.init(wName, util.md5WithSalt(wPass), "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
                 let walletJson = wallet.toJson();
                 util.setItemJson(wallet.wName, walletJson);
                 let appStore = util.getItem(config.prod.getAppKey());

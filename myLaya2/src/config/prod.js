@@ -3,6 +3,7 @@ var config;
     var prod = /** @class */ (function () {
         function prod() {
         }
+
         prod.getAppKey = function () {
             service.userServcie.getUser(); //init
             return prod.originAppKey + mod.userMod.userId;

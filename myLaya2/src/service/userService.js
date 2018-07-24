@@ -4,6 +4,7 @@ var service;
     var userServcie = /** @class */ (function () {
         function userServcie() {
         }
+
         /**
          * 当前设计仅保留一个用户数据，退出即删除
          */

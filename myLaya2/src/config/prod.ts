@@ -32,6 +32,7 @@ module config {
         public static expCoins: Array<string> = ["WWEC"];//价格显示-,不计算总价
         public static smsTimeInterval = 60;//短信时间间隔
         public static downLoadUrl = Laya.Browser.window.main_config[Laya.Browser.window.env].downLoadUrl;
+        public static salt = "543d1509a659b17f3352041760d59052";//MD5盐
         private static appDealKey: string = "wwwalletDeal";//存储用户交易记录,[定时拉取接收的数据]
         //与用户绑定
         private static originAppKey: string = "wwwallet";//用于存储标识用户是否已经有钱包

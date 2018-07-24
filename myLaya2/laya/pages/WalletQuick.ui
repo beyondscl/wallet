@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":1,
+    "selecteID":22,
     "props":{"y":0,"x":0,"width":375,"sceneColor":"#ffffff","height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap"},
     "nodeParent":-1,
     "label":"Dialog",
@@ -52,7 +52,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"var":"img_bg","top":0,"skin":"img/main/white.jpg","right":0,"name":"img_bg","left":0,"bottom":-1},
+                            "props":{"var":"img_bg","top":0,"skin":"img/main/white.png","right":0,"name":"img_bg","left":0,"bottom":-1},
                             "nodeParent":35,
                             "label":"Image(img_bg)",
                             "isDirectory":false,

@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":20,
-    "selecteID":22,
+    "selecteID":10,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","layoutEnabled":true,"height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":690,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0,"alpha":0},
+            "props":{"y":0,"x":0,"width":690,"top":0,"skin":"img/main/white.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0,"alpha":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -83,7 +83,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":325,"x":0,"width":275,"var":"btn_cancel","stateNum":"2","skin":"img/main/img_blue1.png","left":0,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"取消","height":75,"bottom":0},
+                    "props":{"y":325,"x":0,"width":275,"var":"btn_cancel","stateNum":"1","skin":"img/main/qx@3x.png","left":0,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"取消","height":75,"bottom":0},
                     "nodeParent":20,
                     "label":"Button(btn_cancel)",
                     "isOpen":true,
@@ -97,7 +97,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"var":"btn_submit","stateNum":"2","skin":"img/main/img_blue2.png","right":0,"left":275,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"确定","height":75,"bottom":0},
+                    "props":{"var":"btn_submit","stateNum":"1","skin":"img/main/fz@3x.png","right":0,"left":275,"layoutEnabled":true,"labelSize":32,"labelColors":"#ffffff","label":"确定","height":75,"bottom":0},
                     "nodeParent":20,
                     "label":"Button(btn_submit)",
                     "isOpen":true,

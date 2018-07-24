@@ -39,5 +39,7 @@ module config {
         public static SEND_CODE: string = "发送验证码";
         public static SENDED_CODE: string = "已发送";
 
+        public static REVER_PASS_SUCCESS: string = "修改密码成功";
+
     }
 }

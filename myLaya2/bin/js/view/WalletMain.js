@@ -18,7 +18,7 @@ var view;
             var _this = _super.call(this) || this;
             _this.ethTotal = '0'; //主要用于扫一扫回调
             //list 相关
-            _this.data = [];
+            _this.data = []; //可用于定时刷新
             _this.noRender = 1; //如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
             _this.hasRended = [];
             console.log("start main :", new Date().getTime());
