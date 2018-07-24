@@ -3,7 +3,7 @@ module service {
     export class userServcie {
         private static error = {
             "retCode": 2,
-            "reason": "网错出现故障"
+            "reason": "网络出现故障"
         }
 
         constructor() {

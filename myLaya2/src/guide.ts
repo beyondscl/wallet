@@ -86,7 +86,7 @@ Laya.stage.alignH = "center";
 Laya.stage.alignV = "middle";
 //打开性能面板
 if (Laya.Browser.window.env != "prod") {
-    Laya.Stat.show(0, 0);
+    //Laya.Stat.show(0, 0);
 }
 Laya.stage.alpha = 0;
 //激活资源版本控制,数据太大加载耗时

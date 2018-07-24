@@ -3,6 +3,7 @@ module view {
     export class WalletMe extends ui.WalletMeUI {
         public comp: ui.WalletMeUI;
         private parenUI: ui.WalletMainUI
+        private wait:view.alert.waiting;
 
         constructor() {
             super();
@@ -75,6 +76,8 @@ module view {
                 candy.setData(service.walletServcie.getWallets());
             }
             if (index == 6) {
+                this.wait = new view.alert.waiting(config.msg.WAIT_LOGOUT);
+                this.wait.popup();
                 service.userServcie.userLogout(this.logoutCb, this);
             }
             if (index == 7) {
@@ -84,6 +87,7 @@ module view {
         }
 
         private logoutCb(ret, v: view.WalletMe) {
+            v.wait.stop();
             ret = JSON.parse(ret)
             if (ret && ret.retCode == 0) {
                 util.delItem(config.prod.appUserKey);

@@ -137,9 +137,7 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpConfUI.uiView);
-
         }
-
     }
 }
 
@@ -176,9 +174,7 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.AddCoinsUI.uiView);
-
         }
-
     }
 }
 
@@ -225,9 +221,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.GuideUI.uiView);
-
         }
-
     }
 }
 
@@ -603,9 +597,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -631,9 +623,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMainUI.uiView);
-
         }
-
     }
 }
 
@@ -654,9 +644,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletManageUI.uiView);
-
         }
-
     }
 }
 
@@ -679,9 +667,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMeUI.uiView);
-
         }
-
     }
 }
 
@@ -703,9 +689,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletQuickUI.uiView);
-
         }
-
     }
 }
 
