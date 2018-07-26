@@ -21,6 +21,7 @@ var config;
         msg.WAIT_IMPORT_WALLET = "正在导入钱包...";
         msg.WAIT_DELETE_WALLET = "正在删除钱包...";
         msg.WAIT_LOGOUT = "正在退出...";
+        msg.WAIT_OPERATOR = "正在处理...";
         //用户模块
         msg.PHONE_ERROR = "请输入正确的手机号";
         msg.VCODE_ERROR = "请输入正确的验证码";

@@ -1,0 +1,5 @@
+.idea
+./myLaya2/.laya/
+./myLaya2/bin/js/
+./myLaya2/src/*.js
+./myLaya2/release/

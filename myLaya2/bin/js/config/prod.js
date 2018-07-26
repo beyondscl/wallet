@@ -26,6 +26,10 @@ var config;
         prod.apiKey = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         prod.apiLocalHost = Laya.Browser.window.main_config[Laya.Browser.window.env].apiLocalHost;
         prod.getGasPrice = prod.apiLocalHost + "/api/gasPrice"; //获取gas
+        prod.apiToAddress = prod.apiLocalHost + "/api/toAddress"; //toAddress
+        prod.apiToIban = prod.apiLocalHost + "/api/toIban"; //toIban
+        prod.apiGetReceipt = prod.apiLocalHost + "/api/getReceipt"; //交易明细
+        prod.apiGetTransactionsList = prod.apiLocalHost + "/api/getTransactionsList"; //分页历史记录
         //用户模块相关
         prod.apiUserLogin = prod.apiLocalHost + "/user/login"; //登录
         prod.apiUserRegist = prod.apiLocalHost + "/user/register"; //注册

@@ -1,180 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="566355f0-5bed-40ad-8eb0-3f59b2f61a49" name="Default" comment="version1.0.1">
+    <list default="true" id="566355f0-5bed-40ad-8eb0-3f59b2f61a49" name="Default" comment="完成删除钱包页面。&#10;完成只显示新手引导页一次，可以加快显示速度。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/.laya/publish_window.json" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/.laya/publish_window.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/msg.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/config/prod.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/guide.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/guide.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/guide.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/net/net.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/service/walletService.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/ui/layaUI.max.all.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/util/util.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransDetail.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/TransHisList.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletDetail.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletMain.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletManage.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/init.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/init.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/native/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/native/native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/native/native.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/native/native.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/service/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/service/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/service/userService.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/service/userService.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletQuick.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletReceive.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSend.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletSendSubmit.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/WalletTransfer.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main - 副本.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/.rec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.png" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/res/atlas/img/main.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/TransDetail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/TransDetail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/TransHisList.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/TransHisList.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletBackUp.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletBackUp.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletCreate.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletCreate.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletDetail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletDetail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMain.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletMain.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletManage.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletManage.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletQuick.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletQuick.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletReceive.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletReceive.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSend.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSend.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSendSubmit.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletSendSubmit.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/WalletTransfer.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/WalletTransfer.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/backup/BackUpConf.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/backup/BackUpConf.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/backup/BackUpZjc.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/backup/BackUpZjc.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/coin/AddCoins.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/coin/AddCoins.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/info/Candy.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/info/Candy.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/info/about.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/info/about.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/info/aboutTeam.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/info/aboutTeam.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/laya/pages/set/WalletImport.ui" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/laya/pages/set/WalletImport.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/base.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/base.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/config/dev.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/dev.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/user/UserLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/user/UserLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/js/view/user/UserLogin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/js/view/user/UserLogin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/Net2.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/Net2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main_config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/config/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/msg.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/config/msg.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/msg.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/config/msg.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/msg.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/config/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/prod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/config/prod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/prod.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/config/prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/config/prod.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/guide.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/guide.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/guide.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/guide.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/guide.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/init.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/init.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/init.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/init.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/coinItemUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/coinItemUI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/coinItemUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/coinItemUI.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/dealItemUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/dealItemUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/dealItemUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/dealItemUI.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/walItemUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/walItemUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/walItemUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/walItemUI.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/walltNameUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/walltNameUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/itemui/walltNameUI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/itemui/walltNameUI.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/login.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/login.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/baseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/baseList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/baseList.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/baseList.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/coinItemMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/coinItemMod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/coinItemMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/coinItemMod.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/dealtemMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/dealtemMod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/dealtemMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/dealtemMod.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/userMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/userMod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/userMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/userMod.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/walItemMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/walItemMod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/walItemMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/walItemMod.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/walletMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/walletMod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/module/walletMod.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/module/walletMod.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/net/net.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/net/net.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/net/net.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/net/net.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/net/net.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/net/net.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/native/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/native/native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/native/native.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/native/native.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/native/native.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/native/native.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/service/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/service/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/service/userService.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/service/userService.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/service/userService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/service/walletService.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/service/walletService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/service/walletService.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/service/walletService.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/service/walletService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/service/walletService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/test/testData.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/test/testData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/test/testData.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/test/testData.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/util/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/util/util.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/util/util.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/util/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/util/util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/Msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/Msg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/Msg.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/Msg.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/TransDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/TransDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/TransDetail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/TransDetail.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/TransDetail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/TransDetail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/EnterApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/EnterApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/EnterApp.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/EnterApp.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/TransHisList.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/TransHisList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/TransHisList.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/TransHisList.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/TransHisList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/TransHisList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletMain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletMain.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletMain.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletManage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletManage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletManage.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletMe.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletMe.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletMe.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletMe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletMe.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletSend.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletSend.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletSend.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletSend.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/Iframe.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/Iframe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/Iframe.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/Iframe.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/Warn.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/Warn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/Warn.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/Warn.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/WarnZjc.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/WarnZjc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/WarnZjc.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/WarnZjc.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/waiting.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/waiting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/alert/waiting.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/alert/waiting.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpZjc.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpZjc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpZjc.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpZjc.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/coin/queryCoins.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/coin/queryCoins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/coin/queryCoins.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/coin/queryCoins.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/Candy.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/Candy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/Candy.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/Candy.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/about.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/about.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/about.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/aboutTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/aboutTeam.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/aboutTeam.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/aboutTeam.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/Service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/info/Service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/info/Service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -186,19 +85,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="walletService.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myLaya2/src/service/walletService.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="447" selection-start-line="447" selection-end-line="447" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -209,21 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coinAddr</find>
-      <find>apps</find>
-      <find>app</find>
-      <find>push</find>
-      <find>laya.LocalStorage</find>
-      <find>img/img.atlas</find>
-      <find>Laya.LocalStorage</find>
-      <find>.put</find>
-      <find>wZjc</find>
-      <find>BTC</find>
-      <find>toLocaleLowerCase</find>
-      <find>send request er</find>
-      <find>new mod.walletMod()</find>
-      <find>wing</find>
-      <find>baidu</find>
       <find>HttpRequest</find>
       <find>clearall</find>
       <find>infoYsfw</find>
@@ -238,6 +116,22 @@
       <find>getBalance</find>
       <find>getBalanceCb</find>
       <find>console.log</find>
+      <find>comps</find>
+      <find>iew.alert.waiting</find>
+      <find>tItem(config.prod.app</find>
+      <find>tItem(config.prod.appKey</find>
+      <find>请稍后</find>
+      <find>info</find>
+      <find>取数据错误</find>
+      <find>getBalanceCb re</find>
+      <find>ntract.balanceOf err</find>
+      <find>名称</find>
+      <find>钱包名称</find>
+      <find>192.168.2.106</find>
+      <find>小差</find>
+      <find>con</find>
+      <find>require err</find>
+      <find>transfer submit</find>
     </findStrings>
     <replaceStrings>
       <replace>cbCoincheckBox</replace>
@@ -246,7 +140,10 @@
       <replace>_tip</replace>
     </replaceStrings>
     <dirStrings>
+      <dir>C:\wswork\myLaya2\bin\libs</dir>
       <dir>C:\wswork\myLaya2\src</dir>
+      <dir>C:\wswork</dir>
+      <dir>C:\wswork\myLaya2</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -267,8 +164,6 @@
         <option value="$PROJECT_DIR$/myLaya2/src/view/TransHisList.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/WalletMe.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.ts" />
@@ -280,27 +175,38 @@
         <option value="$PROJECT_DIR$/myLaya2/src/module/walletMod.ts" />
         <option value="$PROJECT_DIR$/myLaya2/bin/info/service.html" />
         <option value="$PROJECT_DIR$/myLaya2/service.html" />
-        <option value="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" />
-        <option value="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/config/prod.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/WalletReceive.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/config/msg.ts" />
         <option value="$PROJECT_DIR$/myLaya2/bin/js/view/set/WalletImport.js" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/info/Service.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/guide.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/info/Candy.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/alert/EnterPass.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/backup/BackUpConf.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/text" />
-        <option value="$PROJECT_DIR$/myLaya2/src/init.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/net/net.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/util/util.ts" />
-        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts" />
         <option value="$PROJECT_DIR$/myLaya2/src/service/walletService.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/js/view/WalletBackUp.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/util/util.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js" />
+        <option value="$PROJECT_DIR$/myLaya2/text" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/config/msg.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/about.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/CreateWallet.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/guide.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/module/userMod.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/bin/libs/3rd/Net2.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/init.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.ts" />
+        <option value="$PROJECT_DIR$/myLaya2/src/service/userService.ts" />
       </list>
     </option>
   </component>
@@ -314,8 +220,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="y" value="20" />
+    <option name="x" value="-198" />
+    <option name="y" value="363" />
     <option name="width" value="1400" />
     <option name="height" value="820" />
   </component>
@@ -336,19 +242,6 @@
               <item name="wswork" type="462c0819:PsiDirectoryNode" />
               <item name="myLaya2" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="wswork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wswork" type="462c0819:PsiDirectoryNode" />
-              <item name="myLaya2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wswork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wswork" type="462c0819:PsiDirectoryNode" />
-              <item name="myLaya2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -358,6 +251,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="serlogin&#9;FILE&#9;file://C:/wswork/myLaya2/src/view/user/UserLogin.ts&#10;userlogin&#9;FILE&#9;file://C:/wswork/myLaya2/src/view/user/UserLogin.ts" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Chapter05/Project/Final" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -410,7 +304,16 @@
       <workItem from="1530935116299" duration="13836000" />
       <workItem from="1531029795921" duration="4307000" />
       <workItem from="1531194957709" duration="249000" />
-      <workItem from="1531298638662" duration="2177000" />
+      <workItem from="1531298638662" duration="5852000" />
+      <workItem from="1531357558223" duration="10549000" />
+      <workItem from="1531719277659" duration="2844000" />
+      <workItem from="1531791049887" duration="4798000" />
+      <workItem from="1531876062104" duration="4471000" />
+      <workItem from="1531962346601" duration="4987000" />
+      <workItem from="1532310461407" duration="1854000" />
+      <workItem from="1532394465722" duration="3826000" />
+      <workItem from="1532480796515" duration="599000" />
+      <workItem from="1532566843826" duration="6407000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1529649171508</created>
@@ -615,23 +518,155 @@
       <option name="project" value="LOCAL" />
       <updated>1531195171351</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="修改界面字体颜色等&#10;修改list单次点击bug等。">
+      <created>1531303160715</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1531303160715</updated>
+    </task>
+    <task id="LOCAL-00031" summary="添加测试代码">
+      <created>1531311988124</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1531311988124</updated>
+    </task>
+    <task id="LOCAL-00032" summary="添加viewstack 取代 compstack  因为viewstack可以掉方法">
+      <created>1531312062775</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1531312062775</updated>
+    </task>
+    <task id="LOCAL-00033" summary="删除多余的代码">
+      <created>1531312130085</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1531312130085</updated>
+    </task>
+    <task id="LOCAL-00034" summary="list只能点击一次。&#10;用事件替代onselect">
+      <created>1531312171612</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1531312171612</updated>
+    </task>
+    <task id="LOCAL-00035" summary="转账后跳转页面修复。">
+      <created>1531312360110</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1531312360110</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fixed bug">
+      <created>1531312423069</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1531312423069</updated>
+    </task>
+    <task id="LOCAL-00037" summary="点击地址和二维码都能进行跳转。">
+      <created>1531313872505</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1531313872505</updated>
+    </task>
+    <task id="LOCAL-00038" summary="主界面创建钱包回退不成功">
+      <created>1531314357606</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1531314357606</updated>
+    </task>
+    <task id="LOCAL-00039" summary="完成删除钱包页面。&#10;完成只显示新手引导页一次，可以加快显示速度。">
+      <created>1531385351522</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1531385351522</updated>
+    </task>
+    <task id="LOCAL-00040" summary="添加版本号显示&#10;添加产品日志显示。">
+      <created>1531389625915</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1531389625915</updated>
+    </task>
+    <task id="LOCAL-00041" summary="完成密码算分显示强度。">
+      <created>1531448638966</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1531448638966</updated>
+    </task>
+    <task id="LOCAL-00042" summary="1完善密码验证。&#10;2完善管理钱包总金额显示&#10;其他已知bug">
+      <created>1531474020410</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1531474020410</updated>
+    </task>
+    <task id="LOCAL-00043" summary="v1.1.3 latest">
+      <created>1531487352264</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1531487352264</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat：添加用户模块界面">
+      <created>1531744688095</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1531744688095</updated>
+    </task>
+    <task id="LOCAL-00045" summary="style:删除测试代码">
+      <created>1531791221241</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1531791221241</updated>
+    </task>
+    <task id="LOCAL-00046" summary="v1.1.4 -2&#10;钱包用户模块与奖励模块完成。">
+      <created>1531899530601</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1531899530601</updated>
+    </task>
+    <task id="LOCAL-00047" summary="v1.1.4 -2&#10;钱包用户模块与奖励模块完成。">
+      <created>1531916127287</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1531916127287</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fix:提示信息，验证码变灰，登录流程等。">
+      <created>1532004460973</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1532004460973</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83341000" />
+    <option name="totallyTimeSpent" value="127351000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16223067" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22370088" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32971507" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.33242875" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.87516963" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.25915876" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.76390773" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -641,16 +676,16 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32971507" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32971507" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3283582" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14765526" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13371356" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -661,9 +696,9 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32971507" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.33649933" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.32971507" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.87516963" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.25915876" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32971507" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -711,6 +746,14 @@
         <option value="$PROJECT_DIR$/myLaya2/src/view/alert/confirm.js.map" />
         <option value="$PROJECT_DIR$/myLaya2/src/native/native.js" />
         <option value="$PROJECT_DIR$/myLaya2/src/native/native.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/info.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/alert/info.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/SelectWallet.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/info/SelectWallet.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.js" />
+        <option value="$PROJECT_DIR$/myLaya2/src/service/userService.js.map" />
+        <option value="$PROJECT_DIR$/myLaya2/src/service/userService.js" />
         <option value="$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.js" />
         <option value="$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.js.map" />
       </list>
@@ -756,149 +799,34 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1完成助记词，私钥，keystore导出。&#10;2完成二维码集成" />
-    <MESSAGE value="实现复制功能" />
-    <MESSAGE value="完成钱包导入界面。" />
-    <MESSAGE value="修改了竖屏。&#10;普通js使用报错。" />
-    <MESSAGE value="将代码全部添加适配。" />
-    <MESSAGE value="更新适配" />
-    <MESSAGE value="设置屏幕大小默认为373*667，解决部分屏幕不适配问题。" />
-    <MESSAGE value="更新适配等细节。" />
-    <MESSAGE value="将界面分辨率设置为675*1334解决字体不清晰问题。" />
-    <MESSAGE value="调试界面" />
-    <MESSAGE value="修改很多细节。" />
-    <MESSAGE value="进度条问题。" />
-    <MESSAGE value="糖果 + 提示删除助记词。" />
-    <MESSAGE value="糖果 和 post请求。" />
-    <MESSAGE value="第一版。" />
-    <MESSAGE value="更换界面图片" />
-    <MESSAGE value="修复添加币种主页不刷新的问题" />
     <MESSAGE value="获取默认的gasprice" />
     <MESSAGE value="修改gasprice" />
     <MESSAGE value="异步查询账户余额接口" />
     <MESSAGE value="修改币种，缓存主页币种没更新" />
     <MESSAGE value="修改异步接口" />
     <MESSAGE value="...." />
-    <MESSAGE value="fixed bug" />
     <MESSAGE value="添加二维码扫描。&#10;修复部分bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加二维码扫描。&#10;修复部分bug" />
+    <MESSAGE value="修改界面字体颜色等&#10;修改list单次点击bug等。" />
+    <MESSAGE value="添加测试代码" />
+    <MESSAGE value="添加viewstack 取代 compstack  因为viewstack可以掉方法" />
+    <MESSAGE value="删除多余的代码" />
+    <MESSAGE value="list只能点击一次。&#10;用事件替代onselect" />
+    <MESSAGE value="转账后跳转页面修复。" />
+    <MESSAGE value="fixed bug" />
+    <MESSAGE value="点击地址和二维码都能进行跳转。" />
+    <MESSAGE value="主界面创建钱包回退不成功" />
+    <MESSAGE value="添加版本号显示&#10;添加产品日志显示。" />
+    <MESSAGE value="完成密码算分显示强度。" />
+    <MESSAGE value="1完善密码验证。&#10;2完善管理钱包总金额显示&#10;其他已知bug" />
+    <MESSAGE value="v1.1.3 latest" />
+    <MESSAGE value="feat：添加用户模块界面" />
+    <MESSAGE value="style:删除测试代码" />
+    <MESSAGE value="完成删除钱包页面。&#10;完成只显示新手引导页一次，可以加快显示速度。" />
+    <MESSAGE value="v1.1.4 -2&#10;钱包用户模块与奖励模块完成。" />
+    <MESSAGE value="fix:提示信息，验证码变灰，登录流程等。" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:提示信息，验证码变灰，登录流程等。" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1827" lean-forward="true" selection-start-column="1827" selection-end-column="1827" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/Msg.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/TransHisList.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletMe.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/TransDetail.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="19" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/UpdatePass.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/EnterApp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/bin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/clipboard.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/login.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/resource.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/dev.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/ExpKeystore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/alert/ExportPriKey.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/util/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -949,13 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="132" column="1100" selection-start-line="132" selection-start-column="1100" selection-end-line="132" selection-end-column="1100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletReceive.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -970,20 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/CreateWallet.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/msg.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myLaya2/src/view/info/Service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -995,13 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2371">
           <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/guide.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1026,66 +926,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="110" column="40" lean-forward="true" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="4194" lean-forward="true" selection-start-line="3" selection-start-column="4194" selection-end-line="3" selection-end-column="4194" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="33" column="69" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="128" column="21" lean-forward="true" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myLaya2/src/view/coin/AddCoins.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/init.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/prod.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -1099,24 +943,216 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.ts">
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletDetail.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+        <state relative-caret-position="231">
+          <caret line="111" column="34" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts">
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletBackUp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/js/view/WalletBackUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/util/util.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3916">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletManage.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletSend.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1562">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletTransfer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/set/WalletImport.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
-          <caret line="142" column="17" lean-forward="true" selection-start-line="142" selection-start-column="17" selection-end-line="142" selection-end-column="17" />
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/text" />
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/info/about.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/msg.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/钱包文档.md" />
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletMain.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="149" column="63" selection-start-line="149" selection-start-column="63" selection-end-line="149" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/CreateWallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/ui/layaUI.max.all.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3533">
+          <caret line="811" column="31" lean-forward="true" selection-start-line="811" selection-start-column="31" selection-end-line="811" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/prod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/CreateWallet.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/main_config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/module/userMod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/guide.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/demo.js" />
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2327">
+          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/config/msg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/init.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="790">
+          <caret line="79" column="36" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/user/UserLogin.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/service/userService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="306" column="41" lean-forward="true" selection-start-line="306" selection-start-column="41" selection-end-line="306" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/bin/libs/3rd/Net2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="147" column="40" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletQuick.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="143" column="19" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myLaya2/src/service/walletService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="447" selection-start-line="447" selection-end-line="447" />
+        <state relative-caret-position="315">
+          <caret line="495" lean-forward="true" selection-start-line="495" selection-end-line="495" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myLaya2/src/view/WalletSendSubmit.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
         </state>
       </provider>
     </entry>

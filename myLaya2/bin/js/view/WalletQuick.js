@@ -69,32 +69,84 @@ var view;
         };
         //跳转到转账界面,是否针对特殊的二维码识别 比如imtoken,trust
         WalletQuick.prototype.startCamaraCb = function (resp, args) {
+            var wait = new view.alert.waiting(config.msg.WAIT_OPERATOR);
+            wait.popup();
             var parentUI = args[0];
             var quick = args[1];
-            console.log("startCamaraCb", resp);
-            try {
-                resp = JSON.parse(resp);
-                if (resp.type == 2 && resp.vender == 'WWEC') {
-                    var addr = resp.address;
-                    var amount = resp.amount;
-                    var send = new view.WalletSend();
-                    send.setParentUI(parentUI);
-                    send.setData('ETH', Number(parentUI.getEthTotal()), amount, addr);
-                    console.log('if ETH', amount, addr);
-                }
-                else {
-                    var send = new view.WalletSend();
-                    send.setParentUI(parentUI);
-                    send.setData('ETH', Number(parentUI.getEthTotal()), 0, resp); //不识别的数据
-                    console.log('else ETH', 0, resp);
+            try { //trust
+                var resp1 = resp;
+                if (resp1 && resp1.length == 42) {
+                    var addr = resp1;
+                    var amount = 0;
+                    wait.stop();
+                    this.showSendOk(parentUI, quick, amount, addr);
+                    return;
                 }
             }
             catch (error) {
-                console.log("startCamaraCb error:", error);
-                var send = new view.WalletSend();
-                send.setParentUI(parentUI);
-                send.setData('ETH', Number(parentUI.getEthTotal()), 0, resp); //不识别的数据
+                console.error("尝试解析trust二维码失败");
             }
+            try {
+                var resp1 = JSON.parse(resp);
+                if (resp1.type == 2 && resp1.vender == 'WWEC') {
+                    var addr = resp1.address;
+                    var amount = resp1.amount;
+                    wait.stop();
+                    this.showSendOk(parentUI, quick, amount, addr);
+                    return;
+                }
+            }
+            catch (error) {
+                console.error("尝试解析wwec二维码失败");
+            }
+            try { //imtoken iban:XE04P02MNI75D9LSZ8XJ8Z68Q7KYFEW5UWF?amount=0&token=ETH
+                var resp1 = resp;
+                if (resp1.indexOf("iban:") == 0 && resp1.indexOf("amount") != -1 && resp1.indexOf("token") != -1) {
+                    var resp2 = resp1.split("?");
+                    var iban = resp2[0].replace("iban:", "");
+                    var amount = resp2[1].split("&")[0].replace("amount=", "");
+                    service.userServcie.ibanOrAddr(true, iban, function (ret, args) {
+                        wait.stop();
+                        ret = JSON.parse(ret);
+                        if (ret.retCode == 0) {
+                            var addr = ret.data.address;
+                            var send = new view.WalletSend();
+                            send.setParentUI(parentUI);
+                            send.setData('ETH', Number(parentUI.getEthTotal()), args[0], addr);
+                            parentUI.comp.visible = false;
+                            quick.close();
+                        }
+                        else {
+                            //请求失败或者转换失败
+                            var send = new view.WalletSend();
+                            send.setParentUI(parentUI);
+                            send.setData('ETH', Number(parentUI.getEthTotal()), 0, resp); //不识别的数据
+                            console.log('else ETH', 0, resp);
+                            parentUI.comp.visible = false;
+                            quick.close();
+                        }
+                    }, [amount]);
+                }
+                return;
+            }
+            catch (error) {
+                console.error("尝试解析imtoken二维码失败");
+            }
+            wait.stop();
+            this.showSend(parentUI, quick, resp);
+        };
+        WalletQuick.prototype.showSend = function (parentUI, quick, resp) {
+            var send = new view.WalletSend();
+            send.setParentUI(parentUI);
+            send.setData('ETH', Number(parentUI.getEthTotal()), 0, resp); //不识别的数据
+            console.log('else ETH', 0, resp);
+            parentUI.comp.visible = false;
+            quick.close();
+        };
+        WalletQuick.prototype.showSendOk = function (parentUI, quick, amount, addr) {
+            var send = new view.WalletSend();
+            send.setParentUI(parentUI);
+            send.setData('ETH', Number(parentUI.getEthTotal()), amount, addr);
             parentUI.comp.visible = false;
             quick.close();
         };

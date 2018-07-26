@@ -73,6 +73,7 @@ module config {
             Laya.Browser.window.Ajax.get(getGasPrice);
         }
 
+
         //load data from owner db
 
         private errFun(a, b) {

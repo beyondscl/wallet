@@ -12,6 +12,13 @@ module config {
         public static apiKey: string = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         public static apiLocalHost = Laya.Browser.window.main_config[Laya.Browser.window.env].apiLocalHost;
         public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";//获取gas
+
+        public static apiToAddress: string = prod.apiLocalHost + "/api/toAddress";//toAddress
+        public static apiToIban: string = prod.apiLocalHost + "/api/toIban";//toIban
+        public static apiGetReceipt: string = prod.apiLocalHost + "/api/getReceipt";//交易明细
+        public static apiGetTransactionsList: string = prod.apiLocalHost + "/api/getTransactionsList";//分页历史记录
+        
+
         //用户模块相关
         public static apiUserLogin: string = prod.apiLocalHost + "/user/login";//登录
         public static apiUserRegist: string = prod.apiLocalHost + "/user/register";//注册

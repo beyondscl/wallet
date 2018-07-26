@@ -3,7 +3,7 @@ module view {
     export class WalletMe extends ui.WalletMeUI {
         public comp: ui.WalletMeUI;
         private parenUI: ui.WalletMainUI
-        private wait:view.alert.waiting;
+        private wait: view.alert.waiting;
 
         constructor() {
             super();

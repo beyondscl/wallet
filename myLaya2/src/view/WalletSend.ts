@@ -100,7 +100,22 @@ module view {
         }
 
         private startCamaraCb(ret, args) {
+            let wait = new view.alert.waiting(config.msg.WAIT_OPERATOR);
+            wait.popup();
             let comp: view.WalletSend = args[0].comp;
+            try {//trust
+                let resp1 = ret;
+                if (resp1 && resp1.length == 42) {
+                    let addr = resp1;
+                    let amount = "0";
+                    comp.text_addr.text = addr;
+                    comp.text_amount.text = amount;
+                    wait.stop();
+                    return;
+                }
+            } catch (error) {
+                console.error("尝试解析trust二维码失败");
+            }
             try {
                 let resp = JSON.parse(ret);
                 if (resp.type == 2 && resp.vender == 'WWEC') {
@@ -108,14 +123,44 @@ module view {
                     let amount = resp.amount;
                     comp.text_addr.text = addr;
                     comp.text_amount.text = amount;
-                } else {
-                    comp.text_addr.text = ret;
-                    comp.text_amount.text = '0';
-                }
+                    wait.stop();
+                    return;
+                } 
             } catch (error) {
-                comp.text_addr.text = ret;
-                comp.text_amount.text = '0';
+                console.error("尝试解析wwec二维码失败");
             }
+            try { //imtoken iban:XE04P02MNI75D9LSZ8XJ8Z68Q7KYFEW5UWF?amount=0&token=ETH
+                let resp1 = ret;
+                if (resp1.indexOf("iban:") == 0 && resp1.indexOf("amount") != -1 && resp1.indexOf("token") != -1) {
+                    let resp2 = resp1.split("?");
+                    let iban = resp2[0].replace("iban:", "");
+                    let amount = resp2[1].split("&")[0].replace("amount=", "");
+                    service.userServcie.ibanOrAddr(true, iban, function (ret, args) {
+                        wait.stop();
+                        ret = JSON.parse(ret);
+                        if (ret.retCode == 0) {
+                            let addr = ret.data.address;
+                            let amount = args[0];
+                            comp.text_addr.text = addr;
+                            comp.text_amount.text = amount;
+                        } else {
+                            //请求失败或者转换失败
+                            let addr = ret;
+                            let amount = '0'
+                            comp.text_addr.text = addr;
+                            comp.text_amount.text = amount;
+                        }
+                    }, [amount]);
+                }
+                return;
+            } catch (error) {
+                console.error("尝试解析imtoken二维码失败");
+            }
+            wait.stop();
+            let addr = ret;
+            let amount = '0'
+            comp.text_addr.text = addr;
+            comp.text_amount.text = amount;
         }
     }
 }

@@ -105,22 +105,23 @@ module view.user {
             v.waiting.stop();
             try {
                 ret = JSON.parse(ret)
+                if (ret && ret.retCode == 0) {
+                    //储存本地账户,注意上面已经赋值
+                    mod.userMod.setUserJson(ret.data);
+                    util.setItemJson(config.prod.appUserKey, mod.userMod.userToJson());
+                    //开始进入
+                    v.comp.removeSelf();
+                    Laya.Browser.window.enter();
+                } else {
+                    new view.alert.info(ret.reason).popup();
+                    v.comp.visible = true;
+                }
             } catch (error) {
                 new view.alert.info(config.msg.SERVER_ERROR).popup();
                 v.comp.visible = true;
                 return;
             }
-            if (ret && ret.retCode == 0) {
-                //储存本地账户,注意上面已经赋值
-                mod.userMod.setUserJson(ret.data);
-                util.setItemJson(config.prod.appUserKey, mod.userMod.userToJson());
-                //开始进入
-                v.comp.removeSelf();
-                Laya.Browser.window.enter();
-            } else {
-                new view.alert.info(ret.reason).popup();
-                v.comp.visible = true;
-            }
+
         }
     }
 }

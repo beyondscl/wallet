@@ -1,11 +1,6 @@
 //用户操作相关
 module service {
     export class userServcie {
-        private static error = {
-            "retCode": 2,
-            "reason": "网络出现故障"
-        }
-
         constructor() {
 
         }
@@ -41,9 +36,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(login);
@@ -65,9 +62,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(logout);
@@ -93,9 +92,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(regist);
@@ -117,9 +118,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(regist);
@@ -141,9 +144,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(reset);
@@ -168,9 +173,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(reset);
@@ -194,9 +201,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(setAddr);
@@ -220,9 +229,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(sendCandySms);
@@ -248,9 +259,11 @@ module service {
                 },
                 complete: function () {
                 },
-                error: function (a, args) {
-                    fun(JSON.stringify(service.userServcie.error), args);
-                    console.log("request error:", a, args);
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(getCandy);
@@ -273,11 +286,43 @@ module service {
                 complete: function () {
                 },
                 error: function (ret, args) {
-                    fun(ret, args);
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
                     console.log("request error:", ret, args);
                 }
             }
             Laya.Browser.window.Ajax.post(tokenLogin);
+        }
+
+        /**
+         * iban <-> addr
+         * fromIban=true  iban->addr
+         * fromIban=false  addr->iban
+         */
+        public static ibanOrAddr(fromIban: boolean, addr, fun, args): any {
+            let getAddr = {
+                url: config.prod.apiToAddress,
+                method: 'GET',
+                token: mod.userMod.token,
+                data: {
+                    "iban": addr
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
+                }
+            }
+            Laya.Browser.window.Ajax.get(getAddr);
         }
     }
 }

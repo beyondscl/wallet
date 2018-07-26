@@ -22,7 +22,8 @@ module config {
         public static WAIT_IMPORT_WALLET: string = "正在导入钱包...";
         public static WAIT_DELETE_WALLET: string = "正在删除钱包...";
         public static WAIT_LOGOUT: string = "正在退出...";
-        
+        public static WAIT_OPERATOR: string = "正在处理...";
+
 
         //用户模块
         public static PHONE_ERROR: string = "请输入正确的手机号";

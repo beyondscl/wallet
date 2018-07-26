@@ -11,6 +11,9 @@ module native {
                 "data": "",
             }
             this.jsCallapp(json);
+            // test
+            // let data = "iban:XE04P02MNI75D9LSZ8XJ8Z68Q7KYFEW5UWF?amount=10&token=ETH";
+            // this.appCalljs(data);
         }
 
         public static startCopy() {
