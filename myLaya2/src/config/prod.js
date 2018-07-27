@@ -30,6 +30,7 @@ var config;
         prod.apiToIban = prod.apiLocalHost + "/api/toIban"; //toIban
         prod.apiGetReceipt = prod.apiLocalHost + "/api/getReceipt"; //交易明细
         prod.apiGetTransactionsList = prod.apiLocalHost + "/api/getTransactionsList"; //分页历史记录
+        prod.apiGetContractList = prod.apiLocalHost + "/api/getContractList"; //获取所有币种
         //用户模块相关
         prod.apiUserLogin = prod.apiLocalHost + "/user/login"; //登录
         prod.apiUserRegist = prod.apiLocalHost + "/user/register"; //注册
