@@ -70,10 +70,12 @@ module view {
                 new view.info.about().setParetUI(this.comp);
             }
             if (index == 5) {
-                this.comp.visible = false;
-                let candy = new view.info.Candy();
-                candy.setParetUI(this.comp);
-                candy.setData(service.walletServcie.getWallets());
+                new view.alert.info(config.msg.CANDY_NO).popup();
+                return;
+                // this.comp.visible = false;
+                // let candy = new view.info.Candy();
+                // candy.setParetUI(this.comp);
+                // candy.setData(service.walletServcie.getWallets());
             }
             if (index == 6) {
                 this.wait = new view.alert.waiting(config.msg.WAIT_LOGOUT);

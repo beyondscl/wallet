@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":11,
-    "selecteID":9,
+    "selecteID":10,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -94,7 +94,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":308,"wordWrap":true,"var":"lab_wAddr","valign":"middle","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":0,"overflow":"scroll","left":0,"layoutEnabled":true,"height":40,"fontSize":24,"editable":false,"color":"#8E979F","align":"center"},
+                    "props":{"y":360,"wordWrap":true,"var":"lab_wAddr","valign":"middle","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":0,"overflow":"scroll","left":0,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"center"},
                     "nodeParent":11,
                     "label":"TextInput(lab_wAddr)",
                     "isDirectory":false,
@@ -103,6 +103,7 @@
                     "compId":10,
                     "child":[
                         ],
+                    "$LOCKED":true,
                     "$HIDDEN":false
                 },
                 {
@@ -135,10 +136,10 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":390,"wordWrap":true,"var":"text_amount","valign":"middle","type":"number","right":100,"promptColor":"#163853","prompt":"请输入金额","overflow":"scroll","left":100,"layoutEnabled":true,"height":40,"fontSize":24,"color":"#163853","align":"left"},
+                    "props":{"y":390,"wordWrap":true,"visible":false,"var":"text_amount","valign":"middle","type":"number","right":100,"promptColor":"#163853","prompt":"请输入金额","overflow":"scroll","left":100,"layoutEnabled":true,"height":40,"fontSize":24,"color":"#163853","align":"left"},
                     "nodeParent":11,
                     "label":"TextInput(text_amount)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -157,7 +158,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -170,7 +171,8 @@
                     "hasChild":false,
                     "compId":23,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

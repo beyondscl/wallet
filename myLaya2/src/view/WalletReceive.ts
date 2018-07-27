@@ -22,14 +22,14 @@ module view {
             this.comp = new ui.WalletReceiveUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_wAddr.text = mod.userMod.defWallet.wAddr;
-            let val = {
-                "address": mod.userMod.defWallet.wAddr,
-                "amount": 0,
-                "token": "ETH",
-                "vender": "WWEC",
-                "type": 2
-            };
-            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, JSON.stringify(val), this, this.getImgSrc);
+            // let val = {
+            //     "address": mod.userMod.defWallet.wAddr,
+            //     "amount": 0,
+            //     "token": "ETH",
+            //     "vender": "WWEC",
+            //     "type": 2
+            // };
+            util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, mod.userMod.defWallet.wAddr, this, this.getImgSrc);
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
@@ -65,14 +65,14 @@ module view {
                 case (2):
                     if (util.isNumber(this.comp.text_amount.text)) {
                         this.comp.warn_amount.visible = false;
-                        let val = {
-                            "address": mod.userMod.defWallet.wAddr,
-                            "amount": Number(this.comp.text_amount.text),
-                            "token": "ETH",
-                            "vender": "WWEC",
-                            "type": 2
-                        };
-                        util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, JSON.stringify(val), this, this.getImgSrc);
+                        // let val = {
+                        //     "address": mod.userMod.defWallet.wAddr,
+                        //     "amount": Number(this.comp.text_amount.text),
+                        //     "token": "ETH",
+                        //     "vender": "WWEC",
+                        //     "type": 2
+                        // };
+                        util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, mod.userMod.defWallet.wAddr, this, this.getImgSrc);
                     } else {
                         this.comp.warn_amount.visible = true;
                         this.comp.text_amount.text = '';

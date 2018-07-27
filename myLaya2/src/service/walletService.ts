@@ -496,7 +496,7 @@ module service {
 
         //交易eth
         public static transfer(password, fromAddr, toAddr, value, gasPrice, gas, callback, args) {
-            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
+            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice*10, gas*10).then(
                 ret => {
                     callback(ret, args)
                 }, error => {

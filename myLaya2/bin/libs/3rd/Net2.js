@@ -63,19 +63,19 @@ var Ajax = {
         return arr.join('&');
     },
     callback: function (obj, xhr) {
-        if (obj.timer) {
-            clearTimeout(obj.timer);
-        }
+        console.timeEnd('sendPost')
+        xhr.ontimeout = null;
         if (obj.isTimeout == true) {
             console.log("timeout", obj)
             obj.error(obj.timeoutMsg, obj.callbackArgs);
-            return;
-        }
-        if (xhr.status == 200) { //判断http的交互是否成功，200表示成功
-            obj.success(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
-        } else {
-            console.log('net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText, "url:" + obj.url);
-            obj.error(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
+            console.log('net2.js timeout：' + xhr.status + '，错误信息：' + xhr.statusText, "url:" + obj.url,xhr);
+        }else{
+            if (xhr.status == 200) { //判断http的交互是否成功，200表示成功
+                obj.success(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
+            } else {
+                console.log('net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText, "url:" + obj.url);
+                obj.error(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
+            }
         }
     },
     ajax: function (obj) {
@@ -88,12 +88,13 @@ var Ajax = {
     //post方法
     post: function (obj) {
         var xhr = Ajax.createXHR(); //创建XHR对象
-        var opt = Ajax.init(obj);
+        var opt = new Ajax.init(obj);
+        Ajax.initXhr(xhr,opt);
         opt.method = 'post';
-        opt = Ajax.startTimecheck(xhr, opt);
         //在使用XHR对象时，必须先调用open()方法，
         //它接受三个参数：请求类型(get、post)、请求的URL和表示是否异步。
         xhr.open(opt.method, opt.url, opt.async);
+        console.time('sendPost')
         if (opt.async === true) { //true表示异步，false表示同步
             //使用异步调用的时候，需要触发readystatechange 事件
             xhr.onreadystatechange = function () {
@@ -116,8 +117,8 @@ var Ajax = {
     //get方法
     get: function (obj) {
         var xhr = Ajax.createXHR(); //创建XHR对象
-        var opt = Ajax.init(obj);
-        opt = Ajax.startTimecheck(xhr, opt);
+        var opt = new Ajax.init(obj);
+        Ajax.initXhr(xhr,opt);
         //若是GET请求，则将数据加到url后面
         opt.url += opt.url.indexOf('?') == -1 ? '?' + opt.data : '&' + opt.data;
         //在使用XHR对象时，必须先调用open()方法，
@@ -139,18 +140,33 @@ var Ajax = {
             Ajax.callback(obj, xhr); //回调
         }
     },
+    initXhr:function(xhr,obj){
+        // xhr.timeout = 10*1000;
+        // xhr.ontimeout = function(){
+        //     obj.isTimeout = true;
+        //     xhr.abort();
+        //     Ajax.callback(obj, xhr); //回调
+        //     console.log("timeout",xhr)
+        // }
+    },
     //默认20秒超时
     startTimecheck: function (xhr, opt) {
         try {
-            // var timer = setTimeout(function () {
-            //     clearTimeout(opt.timer)
-            //     opt.isTimeout = true;
-            //     Ajax.callback(opt, xhr);
-            // }, 20 * 1000);
-            // opt.timer = timer;
+            var timer = setTimeout(function () {
+                clearTimeout(opt.timer)
+                opt.isTimeout = true;
+                xhr.abort();
+            }, 5 * 1000);
+            opt.timer = timer;
             return opt;
         } catch (error) {
             console.log("e",error)
+        }
+    },
+    clear:function(obj,xhr){
+        if (obj.timer) {
+            clearTimeout(obj.timer);
+            obj.timer = null;
         }
     }
 }

@@ -54,7 +54,7 @@ module view.user {
 
         private init() {
             this.comp = new ui.user.UserLoginUI();
-            this.comp.visible = false;
+            // this.comp.visible = false;
             Laya.stage.addChild(this.comp);
         }
 

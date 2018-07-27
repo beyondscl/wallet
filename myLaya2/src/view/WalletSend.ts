@@ -114,22 +114,9 @@ module view {
                     return;
                 }
             } catch (error) {
-                console.error("尝试解析trust二维码失败");
+                console.error("尝试解析trust二维码失败",error);
             }
-            try {
-                let resp = JSON.parse(ret);
-                if (resp.type == 2 && resp.vender == 'WWEC') {
-                    let addr = resp.address;
-                    let amount = resp.amount;
-                    comp.text_addr.text = addr;
-                    comp.text_amount.text = amount;
-                    wait.stop();
-                    return;
-                } 
-            } catch (error) {
-                console.error("尝试解析wwec二维码失败");
-            }
-            try { //imtoken iban:XE04P02MNI75D9LSZ8XJ8Z68Q7KYFEW5UWF?amount=0&token=ETH
+            try { //imtoken 版本1 iban:XE04P02MNI75D9LSZ8XJ8Z68Q7KYFEW5UWF?amount=0&token=ETH
                 let resp1 = ret;
                 if (resp1.indexOf("iban:") == 0 && resp1.indexOf("amount") != -1 && resp1.indexOf("token") != -1) {
                     let resp2 = resp1.split("?");
@@ -154,7 +141,7 @@ module view {
                 }
                 return;
             } catch (error) {
-                console.error("尝试解析imtoken二维码失败");
+                console.error("尝试解析imtoken二维码失败",error);
             }
             wait.stop();
             let addr = ret;

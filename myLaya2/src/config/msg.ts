@@ -44,5 +44,7 @@ module config {
 
         public static REVER_PASS_SUCCESS: string = "修改密码成功";
 
+        public static CANDY_NO: string = "暂时不能领取糖果";
+
     }
 }

@@ -1,5 +1,9 @@
-.idea
-./myLaya2/.laya/
-./myLaya2/bin/js/
-./myLaya2/src/*.js
-./myLaya2/release/
+.idea/inspectionProfiles/
+myLaya2/.laya/
+myLaya2/bin/img/
+myLaya2/bin/js/
+myLaya2/bin/res
+myLaya2/laya/assets/img/walleticon/
+myLaya2/release/
+myLaya2/src/*.js
+/.idea/workspace.xml
