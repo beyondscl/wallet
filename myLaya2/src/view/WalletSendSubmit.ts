@@ -100,18 +100,6 @@ module view {
                             if (ret && ret.retCode == 0) {
                                 new alert.Warn("交易已发送请等待确认", "").popup();
                                 let comp = args[0] as view.WalletSendSubmit;
-                                let comParent = args[2] as View;
-                                let deal = new mod.dealtemMod(config.msg.deal_transfer_out,
-                                    comp.text_from.text,
-                                    comp.text_to.text,
-                                    comp.send_amout.text,
-                                    comp.coin_type.text,
-                                    ret.txhash,//可以根据这个去查询更新
-                                    gasPrice * 1e9 * config.prod.gasLimit,
-                                    util.getFormatTime(),
-                                    "",
-                                    "");
-                                service.walletServcie.addDealItem(deal);
                                 comp.removeSelf();
                                 util.showView([2]);
                             } else {
@@ -130,19 +118,6 @@ module view {
                 if (ret && ret.retCode == 0) {
                     new alert.Warn("交易已发送请等待确认", "").popup();
                     let comp = args[0] as view.WalletSendSubmit;
-                    let comParent = args[2] as View;
-                    //记录交易!!!
-                    let deal = new mod.dealtemMod(config.msg.deal_transfer_out,
-                        comp.text_from.text,
-                        comp.text_to.text,
-                        comp.send_amout.text,
-                        comp.coin_type.text,
-                        ret.txhash,//可以根据这个去查询更新
-                        gasPrice * 1e9 * config.prod.gasLimit,
-                        util.getFormatTime(),
-                        "",
-                        "");
-                    service.walletServcie.addDealItem(deal);
                     comp.removeSelf();
                     util.showView([2]);
                 } else {

@@ -63,7 +63,6 @@ var Ajax = {
         return arr.join('&');
     },
     callback: function (obj, xhr) {
-        console.timeEnd('sendPost')
         xhr.ontimeout = null;
         if (obj.isTimeout == true) {
             console.log("timeout", obj)
@@ -94,7 +93,6 @@ var Ajax = {
         //在使用XHR对象时，必须先调用open()方法，
         //它接受三个参数：请求类型(get、post)、请求的URL和表示是否异步。
         xhr.open(opt.method, opt.url, opt.async);
-        console.time('sendPost')
         if (opt.async === true) { //true表示异步，false表示同步
             //使用异步调用的时候，需要触发readystatechange 事件
             xhr.onreadystatechange = function () {

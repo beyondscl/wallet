@@ -6,8 +6,15 @@ module view {
         private parentUI: view.WalletMain;
         private total: number = 0;
 
+        private originData: Array<mod.dealtemMod> = [];
+        private scrollGate = false;
+
         private refData: mod.walItemMod;
         private refCell: Box;
+
+        private page = 1;
+        private pageSize = 10;
+
 
         constructor() {
             super();
@@ -19,6 +26,7 @@ module view {
             this.parentUI = parentUI;
         }
 
+        //传入的coin
         public setData(data: mod.walItemMod, cell: Box) {
             this.refData = data;
             this.refCell = cell;
@@ -28,7 +36,26 @@ module view {
             let cTotal = cell.getChildByName('cTotal') as Label;
             this.total = Number(cTotal.text);
             this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
-            this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
+            // this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
+            this.loadData(this.page,this.pageSize);
+
+        }
+        private loadData(page,pageSize){
+            let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
+            wait.popup();
+            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,page,pageSize,function(ret,args){
+                let v:view.WalletTransfer = args[0];
+                ret = JSON.parse(ret);
+                if(ret.retCode==0&&ret.data){
+                    v.setListUp(service.transService.getTransListItem(ret.data));
+                }else{
+                    new view.alert.info(ret.reason?ret.reason:config.msg.OPERATOR_ERROR).popup();
+                }
+                args[1].stop();
+            },[this,wait]);
+        }
+        public getTransList(){
+            
         }
 
         public refresh() {
@@ -69,33 +96,50 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
-            this.comp.list.repeatX = 1;
-            this.comp.list.repeatY = data.length;
-            // 使用但隐藏滚动条
-            this.comp.list.vScrollBarSkin = "";
-            // this.comp.list.selectHandler = new Handler(this, this.onSelect, null, false);
-            this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
-            this.comp.list.array = data;
+            for(let i=0;i<data.length;i++){
+                this.originData.push(data[i]);
+            }
+            if(this.originData.length==0){
+                this.comp.lab_nodata.visible = true;
+                this.comp.list.array = [];
+            }else{
+                this.comp.lab_nodata.visible = false;
+            }
+            if(data.length!=0){
+                this.comp.list.vScrollBarSkin = "";
+                this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
+                this.comp.list.array = this.originData;
+                this.scrollGate = true;
+                this.comp.list.scrollBar.on(Laya.Event.CHANGE,this,this.loadMore)
+                this.comp.list.scrollTo((this.page-1)*this.pageSize);
+            }
+        }
+        private loadMore(){
+            if(this.scrollGate&&this.comp.list.scrollBar.max==this.comp.list.scrollBar.value){
+                this.scrollGate = false;
+                this.page+=1;
+                this.loadData(this.page,this.pageSize);
+            }
         }
 
         private onListRender(cell: Box, index: number) {
-            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
-            var data: mod.dealtemMod = this.comp.list.array[index];
+                cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
+                var data: mod.dealtemMod = this.comp.list.array[index];
 
-            let cImg = cell.getChildByName('img') as Laya.Image;
-            cImg.skin = data.getDealImgSrc();
+                let cImg = cell.getChildByName('img') as Laya.Image;
+                cImg.skin = data.getDealImgSrc();
 
-            let cName = cell.getChildByName('lab_deal_name') as Label;
-            cName.text = data.getDealChName();
+                let cName = cell.getChildByName('lab_deal_name') as Label;
+                cName.text = data.getDealChName();
 
-            let addr = cell.getChildByName('lab_addr') as Label;
-            let trans_type1 = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To';//from | to
-            addr.text = trans_type1 + ": " + util.getAddr(data.getDealAddr());
+                let addr = cell.getChildByName('lab_addr') as Label;
+                let trans_type1 = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To';//from | to
+                addr.text = trans_type1 + ": " + util.getAddr(data.getDealAddr());
 
-            let amount = cell.getChildByName('lab_amount') as Label;
-            let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//+ | -
-            amount.text = trans_type + data.dealAmount + " " + data.dealCoinType.toUpperCase();
-            amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
+                let amount = cell.getChildByName('lab_amount') as Label;
+                let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//+ | -
+                amount.text = trans_type + data.dealAmount + " " + data.dealCoinType;
+                amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
         }
 
         private onSelect(index: number): void {

@@ -48,7 +48,7 @@ module config {
             }
             Laya.Browser.window.Ajax.get(getEthTOUsd);
 
-            //获取eth-usd,自己节点
+            //获取gasprice
             let getGasPrice = {
                 url: config.prod.getGasPrice,
                 method: 'get',
@@ -71,9 +71,23 @@ module config {
                 }
             }
             Laya.Browser.window.Ajax.get(getGasPrice);
+            //初始化币种合约等
+            service.transService.getAllCoins(function(ret,args){
+                ret = JSON.parse(ret)
+                if(ret&&ret.retCode==0){
+                    let coins = ret.data;
+                    let all = [];
+                    for (let i = 0; i < coins.length; i++) {
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, JSON.parse(coins[i].abi));
+                    }
+                    mod.userMod.allCoins = all;
+                    console.log("getAllCoins success");
+                }else{
+                    new view.alert.info(config.msg.INIT_ERROR).popup();
+                    console.log("getAllCoins error");
+                }
+            },[]);
         }
-
-
         //load data from owner db
 
         private errFun(a, b) {

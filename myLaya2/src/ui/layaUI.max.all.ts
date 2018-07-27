@@ -14,7 +14,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.confirmUI.uiView);
+
         }
+
     }
 }
 
@@ -33,7 +35,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.EnterPassUI.uiView);
+
         }
+
     }
 }
 
@@ -48,7 +52,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.ExportPriKeyUI.uiView);
+
         }
+
     }
 }
 
@@ -61,7 +67,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.IframeUI.uiView);
+
         }
+
     }
 }
 
@@ -75,7 +83,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.infoUI.uiView);
+
         }
+
     }
 }
 
@@ -90,7 +100,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.waitingUI.uiView);
+
         }
+
     }
 }
 
@@ -106,7 +118,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.WarnUI.uiView);
+
         }
+
     }
 }
 
@@ -120,7 +134,9 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.WarnZjcUI.uiView);
+
         }
+
     }
 }
 
@@ -137,7 +153,9 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpConfUI.uiView);
+
         }
+
     }
 }
 
@@ -153,7 +171,9 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpZjcUI.uiView);
+
         }
+
     }
 }
 
@@ -174,7 +194,9 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.AddCoinsUI.uiView);
+
         }
+
     }
 }
 
@@ -188,7 +210,9 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.queryCoinsUI.uiView);
+
         }
+
     }
 }
 
@@ -203,7 +227,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.EnterAppUI.uiView);
+
         }
+
     }
 }
 
@@ -221,7 +247,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.GuideUI.uiView);
+
         }
+
     }
 }
 
@@ -241,7 +269,9 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.aboutUI.uiView);
+
         }
+
     }
 }
 
@@ -255,7 +285,9 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.aboutTeamUI.uiView);
+
         }
+
     }
 }
 
@@ -278,7 +310,9 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.CandyUI.uiView);
+
         }
+
     }
 }
 
@@ -294,7 +328,9 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.SelectWalletUI.uiView);
+
         }
+
     }
 }
 
@@ -314,7 +350,9 @@ module ui.info {
 
             super.createChildren();
             this.createView(ui.info.ServiceUI.uiView);
+
         }
+
     }
 }
 
@@ -330,7 +368,9 @@ module ui {
 
             super.createChildren();
             this.createView(ui.MsgUI.uiView);
+
         }
+
     }
 }
 
@@ -350,7 +390,9 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.ExpKeystoreUI.uiView);
+
         }
+
     }
 }
 
@@ -369,7 +411,9 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.UpdatePassUI.uiView);
+
         }
+
     }
 }
 
@@ -407,7 +451,9 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.WalletImportUI.uiView);
+
         }
+
     }
 }
 
@@ -425,13 +471,15 @@ module ui {
 		public lab_nonce:Laya.Label;
 		public btn_moreinfo:Laya.Button;
 
-        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Label","props":{"var":"lab_coin_name","valign":"middle","top":38,"text":"交易明细","height":30,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"width":65,"var":"btn_goback","top":30,"stateNum":1,"skin":"img/main/back@2x.png","left":30,"height":65}},{"type":"Label","props":{"y":140,"var":"lab_amount","valign":"middle","text":"-0.00001 ETH (US$0.05)","height":30,"fontSize":28,"color":"#ff0400","centerX":-1}},{"type":"Label","props":{"y":200,"var":"lab_type","valign":"middle","text":"收款账户","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":250,"var":"lab_addr","valign":"middle","text":"-----","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"}},{"type":"Label","props":{"y":330,"valign":"middle","text":"交易 ID","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":380,"var":"lab_transId","valign":"middle","text":"-----","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"}},{"type":"Label","props":{"y":460,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":510,"var":"lab_gas","valign":"middle","text":"0.000021 ETH(US$0.01)","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Label","props":{"y":720,"valign":"middle","text":"确认","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":770,"var":"lab_confirm","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Label","props":{"y":590,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":640,"var":"lab_time","valign":"middle","text":"2018-06-22 15:10:10","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Label","props":{"y":850,"valign":"middle","text":"Nonce","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":900,"var":"lab_nonce","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Button","props":{"y":389,"x":0,"visible":false,"var":"btn_moreinfo","right":0,"left":0,"label":"查看更多交易详情","height":40,"bottom":0}}]};
+        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Label","props":{"var":"lab_coin_name","valign":"middle","top":38,"text":"交易明细","height":30,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"width":65,"var":"btn_goback","top":30,"stateNum":1,"skin":"img/main/back@2x.png","left":30,"height":65}},{"type":"Label","props":{"y":140,"var":"lab_amount","valign":"middle","text":"-0.00001 ETH (US$0.05)","height":30,"fontSize":28,"color":"#ff0400","centerX":-1}},{"type":"Label","props":{"y":200,"var":"lab_type","valign":"middle","text":"收款账户","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":250,"var":"lab_addr","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"}},{"type":"Label","props":{"y":330,"valign":"middle","text":"交易 ID","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":380,"wordWrap":true,"var":"lab_transId","valign":"top","text":"获取数据中","right":30,"padding":"2,2,2,2","overflow":"scroll","left":30,"leading":10,"height":80,"fontSize":28,"color":"#000000","align":"left"}},{"type":"Label","props":{"y":500,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":550,"var":"lab_gas","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Label","props":{"y":760,"valign":"middle","text":"状态","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":810,"var":"lab_confirm","valign":"middle","text":"获取数据中","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Label","props":{"y":630,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":680,"var":"lab_time","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Label","props":{"y":850,"visible":false,"valign":"middle","text":"Nonce","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true}},{"type":"Label","props":{"y":900,"visible":false,"var":"lab_nonce","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"}},{"type":"Button","props":{"y":389,"x":0,"visible":false,"var":"btn_moreinfo","right":0,"left":0,"label":"查看更多交易详情","height":40,"bottom":0}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.TransDetailUI.uiView);
+
         }
+
     }
 }
 
@@ -439,14 +487,17 @@ module ui {
     export class TransHisListUI extends View {
 		public btn_goback:Laya.Button;
 		public list:Laya.List;
+		public lab_nodata:Laya.Label;
 
-        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Label","props":{"y":30,"x":108,"valign":"middle","text":"交易","height":60,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"y":30,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/back@2x.png","height":65}},{"type":"List","props":{"var":"list","top":100,"selectEnable":true,"right":0,"name":"list","left":0,"bottom":0},"child":[{"type":"Box","props":{"right":0,"name":"render","left":0,"height":120},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":32,"x":30,"width":56,"skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0}},{"type":"Label","props":{"y":0,"x":100,"width":400,"valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"}},{"type":"Label","props":{"y":60,"x":100,"width":400,"valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"}},{"type":"Label","props":{"y":35,"x":520,"width":200,"valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"}},{"type":"Image","props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Label","props":{"y":30,"x":108,"valign":"middle","text":"交易","height":60,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"y":30,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/back@2x.png","height":65}},{"type":"List","props":{"var":"list","top":100,"selectEnable":true,"right":0,"repeatY":10,"repeatX":1,"name":"list","left":0,"height":0},"child":[{"type":"Box","props":{"right":0,"name":"render","left":0,"height":120},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":32,"x":30,"width":56,"skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0}},{"type":"Label","props":{"y":0,"x":100,"width":400,"valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"}},{"type":"Label","props":{"y":60,"x":100,"width":400,"valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"}},{"type":"Label","props":{"y":35,"x":520,"width":200,"valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"}},{"type":"Image","props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]}]},{"type":"Label","props":{"visible":false,"var":"lab_nodata","valign":"middle","text":"暂无数据","height":120,"fontSize":42,"color":"#163853","centerY":0,"centerX":0,"align":"center"}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.TransHisListUI.uiView);
+
         }
+
     }
 }
 
@@ -468,7 +519,9 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UseInviteUI.uiView);
+
         }
+
     }
 }
 
@@ -487,7 +540,9 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserLoginUI.uiView);
+
         }
+
     }
 }
 
@@ -508,7 +563,9 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserRegistUI.uiView);
+
         }
+
     }
 }
 
@@ -528,7 +585,9 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserResetUI.uiView);
+
         }
+
     }
 }
 
@@ -544,7 +603,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletBackUpUI.uiView);
+
         }
+
     }
 }
 
@@ -572,7 +633,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletCreateUI.uiView);
+
         }
+
     }
 }
 
@@ -597,7 +660,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletDetailUI.uiView);
+
         }
+
     }
 }
 
@@ -623,7 +688,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMainUI.uiView);
+
         }
+
     }
 }
 
@@ -644,7 +711,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletManageUI.uiView);
+
         }
+
     }
 }
 
@@ -667,7 +736,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMeUI.uiView);
+
         }
+
     }
 }
 
@@ -689,7 +760,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletQuickUI.uiView);
+
         }
+
     }
 }
 
@@ -732,7 +805,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendUI.uiView);
+
         }
+
     }
 }
 
@@ -758,7 +833,9 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendSubmitUI.uiView);
+
         }
+
     }
 }
 
@@ -774,13 +851,16 @@ module ui {
 		public lab_amount:Laya.Label;
 		public btn_send:Laya.Button;
 		public btn_receive:Laya.Button;
+		public lab_nodata:Laya.Label;
 
-        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"height":224},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":0,"height":0,"fillColor":"#598ADA"}},{"type":"Label","props":{"y":140,"x":330,"valign":"middle","text":"总资产(¥)","fontSize":22,"color":"#8E979F","centerX":1,"align":"center"}},{"type":"Label","props":{"y":100,"x":358,"var":"lab_coin_total","valign":"middle","text":"≈ 0","height":30,"fontSize":24,"color":"#598ADA","centerX":0,"align":"center"}},{"type":"Label","props":{"y":38,"x":343,"var":"lab_coin_name","valign":"middle","text":"ETH","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"y":30,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/back@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}}]},{"type":"List","props":{"var":"list","top":224,"right":0,"left":0,"bottom":88},"child":[{"type":"Box","props":{"right":0,"name":"render","left":0,"height":120},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":32,"x":30,"width":56,"var":"img","skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0}},{"type":"Label","props":{"y":0,"x":100,"width":400,"var":"lab_deal_name","valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"}},{"type":"Label","props":{"y":60,"x":100,"width":400,"var":"lab_addr","valign":"middle","text":"label","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"}},{"type":"Label","props":{"y":35,"x":520,"width":200,"var":"lab_amount","valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"}},{"type":"Image","props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]}]},{"type":"Button","props":{"y":1246,"x":0,"width":375,"var":"btn_send","stateNum":3,"skin":"img/main/img_blue1.png","left":0,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"转账","height":88,"bottom":0}},{"type":"Button","props":{"y":1246,"x":374,"var":"btn_receive","stateNum":1,"skin":"img/main/img_blue2.png","right":0,"left":374,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"收款","height":88,"bottom":0}}]};
+        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"height":224},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":0,"height":0,"fillColor":"#598ADA"}},{"type":"Label","props":{"y":140,"x":330,"valign":"middle","text":"总资产(¥)","fontSize":22,"color":"#8E979F","centerX":1,"align":"center"}},{"type":"Label","props":{"y":100,"x":358,"var":"lab_coin_total","valign":"middle","text":"≈ 0","height":30,"fontSize":24,"color":"#598ADA","centerX":0,"align":"center"}},{"type":"Label","props":{"y":38,"x":343,"var":"lab_coin_name","valign":"middle","text":"ETH","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"y":30,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/back@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}}]},{"type":"List","props":{"var":"list","top":224,"right":0,"repeatY":8,"repeatX":1,"left":0,"bottom":88},"child":[{"type":"Box","props":{"right":0,"name":"render","left":0,"height":120},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":32,"x":30,"width":56,"var":"img","skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0}},{"type":"Label","props":{"y":0,"x":100,"width":400,"var":"lab_deal_name","valign":"bottom","text":"获取数据中","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"}},{"type":"Label","props":{"y":60,"x":100,"width":400,"var":"lab_addr","valign":"middle","text":"获取数据中","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"}},{"type":"Label","props":{"y":35,"x":520,"width":200,"var":"lab_amount","valign":"middle","text":"0","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"}},{"type":"Image","props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]}]},{"type":"Button","props":{"y":1246,"x":0,"width":375,"var":"btn_send","stateNum":3,"skin":"img/main/img_blue1.png","left":0,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"转账","height":88,"bottom":0}},{"type":"Button","props":{"y":1246,"x":374,"var":"btn_receive","stateNum":1,"skin":"img/main/img_blue2.png","right":0,"left":374,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"收款","height":88,"bottom":0}},{"type":"Label","props":{"y":10,"x":10,"visible":false,"var":"lab_nodata","valign":"middle","text":"暂无记录","height":120,"fontSize":42,"color":"#163853","centerY":0,"centerX":0,"align":"center"}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.WalletTransferUI.uiView);
+
         }
+
     }
 }

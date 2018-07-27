@@ -56,6 +56,10 @@ module view {
 
         private initBalance(cName: string) {
             let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
+            if(!coinMod){
+                //异步获取的
+                return;
+            }
             if (coinMod.abi) {//查询token
                 service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
             } else {//eth

@@ -173,6 +173,23 @@ class util {
             sec;
         return newTime;
     }
+        //获取日志yyyy-M-d hh:mi:ss
+    public static getFormatTime2(timestamp): string {
+        var date = new Date(Number(timestamp)*1000);//10位*1000,13位不需要
+        var year = date.getFullYear(),
+            month = date.getMonth() + 1,//月份是从0开始的
+            day = date.getDate(),
+            hour = date.getHours(),
+            min = date.getMinutes(),
+            sec = date.getSeconds();
+        var newTime = year + '-' +
+            month + '-' +
+            day + ' ' +
+            hour + ':' +
+            min + ':' +
+            sec;
+        return newTime;
+    }
 
     //---------------------------------------------
 

@@ -99,6 +99,7 @@ let gui = util.getItem(config.prod.appGuide)
 let app = util.getItem(config.prod.getAppKey())
 
 function loadProcess() {
+    new config.init.initData('');
     beginLoad();
 }
 
@@ -120,8 +121,7 @@ function onComplete() {
     userLogin.checkAutoLogin()
 }
 
-function enter() {
-    new config.init.initData('');
+function enter() {    
     let walletNames = util.getItem(config.prod.getAppKey());//重新获取
     if (!walletNames || walletNames.length == 0) {//没有钱包数据
         if (gui) {//非第一次进入

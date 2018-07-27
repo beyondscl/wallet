@@ -16,6 +16,8 @@ module config {
         public static deal_cn_in = "已接收";
 
         public static SUCCESS = 'SUCCESS';
+        public static FAIL = 'FAIL';
+        public static PENDING = 'PENDING';
         public static ERROR = "ERROR";
 
         public static WAIT_CREATE_WALLET: string = "正在创建钱包...";
@@ -45,6 +47,9 @@ module config {
         public static REVER_PASS_SUCCESS: string = "修改密码成功";
 
         public static CANDY_NO: string = "暂时不能领取糖果";
+
+        public static OPERATOR_ERROR: string = "请求失败";
+        public static INIT_ERROR: string = "初始化数据失败";
 
     }
 }

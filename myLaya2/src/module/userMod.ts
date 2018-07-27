@@ -1,7 +1,7 @@
 //用户数据模型，运行时数据
 module mod {
     export class userMod {
-        //动态更新的数据
+        //初始化动态更新的数据
         public static ethToUsd: number = 516;
         public static ethBalance: number = 0.00;
         public static ethAddress: string = "0x911E1C126c3FddC74fd83A90283F1d50732b2a72";
@@ -9,6 +9,7 @@ module mod {
         public static defWallet: mod.walletMod;
         public static usdToRmb = 6.5;
         public static gasPrice = 0;
+        public static allCoins:Array<mod.coinItemMod> = [] ;
 
         //需要存储的字段
         public static userName;//一般为手机号

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":29,
+    "selecteID":36,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -69,7 +69,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":250,"var":"lab_addr","valign":"middle","text":"-----","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"},
+            "props":{"y":250,"var":"lab_addr","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_addr)",
             "isDirectory":false,
@@ -97,7 +97,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":380,"var":"lab_transId","valign":"middle","text":"-----","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"},
+            "props":{"y":380,"wordWrap":true,"var":"lab_transId","valign":"top","text":"获取数据中","right":30,"padding":"2,2,2,2","overflow":"scroll","left":30,"leading":10,"height":80,"fontSize":28,"color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_transId)",
             "isDirectory":false,
@@ -111,7 +111,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":460,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":500,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -125,7 +125,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":510,"var":"lab_gas","valign":"middle","text":"0.000021 ETH(US$0.01)","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":550,"var":"lab_gas","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_gas)",
             "isDirectory":false,
@@ -139,7 +139,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":720,"valign":"middle","text":"确认","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":760,"valign":"middle","text":"状态","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -153,7 +153,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":770,"var":"lab_confirm","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":810,"var":"lab_confirm","valign":"middle","text":"获取数据中","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_confirm)",
             "isDirectory":false,
@@ -167,7 +167,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":590,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":630,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -181,7 +181,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":640,"var":"lab_time","valign":"middle","text":"2018-06-22 15:10:10","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":680,"var":"lab_time","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_time)",
             "isDirectory":false,
@@ -195,7 +195,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":850,"valign":"middle","text":"Nonce","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":850,"visible":false,"valign":"middle","text":"Nonce","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -204,12 +204,12 @@
             "compId":43,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":900,"var":"lab_nonce","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":900,"visible":false,"var":"lab_nonce","valign":"middle","text":"-","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_nonce)",
             "isDirectory":false,
@@ -218,7 +218,7 @@
             "compId":44,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

@@ -6,6 +6,9 @@ module view {
         private comp: ui.TransHisListUI;
         private parentUI;
 
+        private page = 1;
+        private pageSize = 10;
+
         constructor() {
             super();
             this.init();
@@ -14,7 +17,19 @@ module view {
 
         public setData(data: Array<mod.dealtemMod>, parent: any) {
             this.parentUI = parent;
-            this.setListUp(data);
+            // this.setListUp(data);
+            let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
+            wait.popup();
+            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,this.page,this.pageSize,function(ret,args){
+                let v:view.TransHisList = args[0];
+                ret = JSON.parse(ret);
+                if(ret.retCode==0&&ret.data){
+                    v.setListUp(service.transService.getTransListItem(ret.data));
+                }else{
+                    new view.alert.info(ret.reason?ret.reason:config.msg.OPERATOR_ERROR).popup();
+                }
+                args[1].stop();
+            },[this,wait]);
         }
 
         private init() {
@@ -33,6 +48,11 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
+            if(data&&data.length==0){
+                this.comp.lab_nodata.visible = true;
+            }else{
+                this.comp.lab_nodata.visible = false;
+            }
             this.comp.list.array = data;
             this.comp.list.vScrollBarSkin = "";
             // this.comp.list.selectHandler = new Handler(this, this.onSelect);
@@ -57,7 +77,7 @@ module view {
 
             let amount = cell.getChildByName('lab_amount') as Label;
             let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//+ | -
-            amount.text = trans_type + data.dealAmount + " " + data.dealCoinType.toUpperCase();
+            amount.text = trans_type + data.dealAmount + " " + data.dealCoinType;
             amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
         }
 
