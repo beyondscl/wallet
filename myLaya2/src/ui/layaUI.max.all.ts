@@ -75,9 +75,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.infoUI.uiView);
-
         }
-
     }
 }
 
@@ -433,9 +431,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.TransDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -451,9 +447,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.TransHisListUI.uiView);
-
         }
-
     }
 }
 
@@ -716,9 +710,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletReceiveUI.uiView);
-
         }
-
     }
 }
 
@@ -789,8 +781,6 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletTransferUI.uiView);
-
         }
-
     }
 }
