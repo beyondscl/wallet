@@ -13,24 +13,24 @@ module config {
                     let coins = ret.data;
                     let all = [];
                     for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, JSON.parse(coins[i].abi));
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi?JSON.parse(coins[i].abi):"");
                     }
                     mod.userMod.allCoins = all;
                     console.log("getAllCoins success");
                 }else{
                     // new view.alert.info(config.msg.INIT_ERROR).popup();
+                    console.error("getAllCoins:",ret);
                     let coins = Laya.Browser.window.main_config[Laya.Browser.window.env].coins;
                     let all = [];
                     for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, JSON.parse(coins[i].abi));
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi?JSON.parse(coins[i].abi):"");
                     }
                     mod.userMod.allCoins = all;
                     console.warn("getAllCoins from disk");
-
                 }
             },[]);
 
-            // 初始化用户账户 eth 数量,自己节点
+            // 初始化用户账户 eth 数量
             let ethBalanceUrl = config.prod.getEthBalanceUrl(addr);
             let getEthBalance = {
                 url: ethBalanceUrl,
@@ -54,7 +54,7 @@ module config {
             }
             // Laya.Browser.window.Ajax.get(getEthBalance);
 
-            //获取eth-usd
+            //获取eth->usd
             let getEthTOUsd = {
                 url: config.prod.ethToUsd,
                 method: 'get',
@@ -67,7 +67,8 @@ module config {
                 },
                 complete: function () {
                 },
-                error: function () {
+                error: function (ret) {
+                    console.log("getEthTOUsd error:", ret);
                 }
             }
             Laya.Browser.window.Ajax.get(getEthTOUsd);
@@ -91,14 +92,12 @@ module config {
                 complete: function () {
                 },
                 error: function (a, b) {
-                    console.log("require error:", a, b);
+                    console.log("gasprice error:", a, b);
                 }
             }
             Laya.Browser.window.Ajax.get(getGasPrice);
 
         }
-        //load data from owner db
-
         private errFun(a, b) {
             console.log("require error:", a, b);
         }
