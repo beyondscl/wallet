@@ -116,7 +116,7 @@ function beginLoad() {
 
 function onComplete() {
     Laya.stage.alpha = 1;
-    native.native.colseAppbg();
+    //native.native.colseAppbg();
     let userLogin = new view.user.UserLogin();
     userLogin.checkAutoLogin()
 }
