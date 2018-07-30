@@ -1,4 +1,6 @@
-//用户操作相关
+/**
+ * 用户操作相关
+ */
 module service {
     export class userServcie {
         constructor() {

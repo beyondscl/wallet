@@ -1,4 +1,6 @@
-/**Created by the LayaAirIDE*/
+/**
+ * 交易记录与详情
+ */
 module service{
     export class transService {
         constructor(){
@@ -32,7 +34,7 @@ module service{
             Laya.Browser.window.Ajax.get(txhashDeatil);
         }
         //查询交易记录
-        public static GetTransactionsList(address,pageNO,pageSize,fun, args): any {
+        public static GetTransactionsList(address,pageNO,pageSize,type,contractaddress,fun, args): any {
             let list = {
                 url: config.prod.apiGetTransactionsList,
                 token: mod.userMod.token,
@@ -40,6 +42,8 @@ module service{
                     address: address,
                     pageNo: pageNO,
                     pageSize: pageSize,
+                    type:type,
+                    contractaddress:contractaddress
                 },
                 async: true,
                 callbackArgs: args,
@@ -82,9 +86,9 @@ module service{
                 let dealFromAddr = temp.from;
                 let dealToAddr = temp.to;
                 let dealAmount = (Number(temp.value)/1e18).toFixed(4);
-                let dealCoinType = service.walletServcie.getCoinInfo2(temp.contractAddress);
+                let dealCoinType = (temp.tokenSymbol+"").trim().toUpperCase();//service.walletServcie.getCoinInfo2(temp.contractAddress);
                 let dealTransId = temp.hash;
-                let dealGas = temp.gas;
+                let dealGas = temp.gasUsed*temp.gasPrice/1e9;
                 let dealTime = util.getFormatTime2(temp.timeStamp);
                 let dealConfirm = "";
                 let dealNonce = "";

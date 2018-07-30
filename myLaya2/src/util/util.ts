@@ -37,6 +37,8 @@ class util {
         return null;
     }
 
+    //设置storage，输入json
+
     //设置storage，输入jsonString
     public static setItemNoJson(itemName, data) {
         laya.net.LocalStorage.setItem(itemName, data);
@@ -107,6 +109,7 @@ class util {
     }
 
     //ui util
+
     public static getScreenWidth() {
         if (Laya.stage) {
             return Laya.stage.width
@@ -170,7 +173,7 @@ class util {
             sec;
         return newTime;
     }
-    //获取日志yyyy-M-d hh:mi:ss
+        //获取日志yyyy-M-d hh:mi:ss
     public static getFormatTime2(timestamp): string {
         var date = new Date(Number(timestamp)*1000);//10位*1000,13位不需要
         var year = date.getFullYear(),
@@ -391,9 +394,9 @@ class util {
 
     //md5加密
     public static MD5(value: string) {
-        return Laya.Browser.window.md5(value)
+        Laya.Browser.window.md5(value)
     }
-    //md5加盐加密
+
     public static md5WithSalt(value: string) {
         return Laya.Browser.window.md5(value + config.prod.salt);
     }

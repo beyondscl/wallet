@@ -4,7 +4,7 @@ var main_config = {
     test: {
         HOST: 'http://rinkeby.wwec.top',//https://rinkeby.infura.io/2F62Qc2BC0h9WHj2553t
         apiLocalHost : "http://120.79.236.139",
-        VERSION:"2.0.1",
+        VERSION:"2.1.0",
         downLoadUrl:"http://120.79.30.150/app-dev.apk",
         coins: [
         {
@@ -28,7 +28,7 @@ var main_config = {
     prod: {
         HOST: 'https://abc178.io',//https://mainnet.infura.io/2F62Qc2BC0h9WHj2553t
         apiLocalHost : "https://wallet.wwec.top",
-        VERSION:"2.0.1",
+        VERSION:"2.1.0",
         downLoadUrl:"http://120.79.30.150/app-release.apk",
         coins: [
         {
@@ -52,7 +52,7 @@ var main_config = {
     dev:{
         HOST: 'http://192.168.2.158:8545',//158本地rinkeby
         apiLocalHost : "http://192.168.2.148:3005",
-        VERSION:"2.0.1",
+        VERSION:"2.1.0",
         downLoadUrl:"http://120.79.30.150/app-dev.apk",
         coins: [
         {

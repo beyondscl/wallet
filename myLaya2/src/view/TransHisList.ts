@@ -26,7 +26,7 @@ module view {
         private loadData(page,pageSize){
             let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
             wait.popup();
-            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,this.page,this.pageSize,function(ret,args){
+            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,this.page,this.pageSize,1,"",function(ret,args){
                 let v:view.TransHisList = args[0];
                 ret = JSON.parse(ret);
                 if(ret.retCode==0&&ret.data){

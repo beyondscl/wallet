@@ -1,7 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
+    "selectedBox":62,
+    "selecteID":41,
     "props":{"width":750,"var":"WALLET_TRANSFER","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_TRANSFER)",
@@ -92,13 +93,14 @@
             "props":{"var":"list","top":224,"right":0,"repeatY":8,"repeatX":1,"left":0,"bottom":88},
             "nodeParent":1,
             "label":"List(list)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":61,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"right":0,"name":"render","left":0,"height":120},
                     "nodeParent":61,
@@ -110,6 +112,7 @@
                     "compId":62,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":62,
@@ -122,6 +125,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":32,"x":30,"width":56,"var":"img","skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0},
                             "nodeParent":62,
@@ -134,6 +138,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":0,"x":100,"width":400,"var":"lab_deal_name","valign":"bottom","text":"获取数据中","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"},
                             "nodeParent":62,
@@ -146,6 +151,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":60,"x":100,"width":400,"var":"lab_addr","valign":"middle","text":"获取数据中","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"},
                             "nodeParent":62,
@@ -158,8 +164,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":35,"x":520,"width":200,"var":"lab_amount","valign":"middle","text":"0","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
+                            "props":{"y":35,"x":520,"var":"lab_amount","valign":"middle","text":"0","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
                             "nodeParent":62,
                             "label":"Label(lab_amount)",
                             "isDirectory":false,
@@ -170,6 +177,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
                             "nodeParent":62,

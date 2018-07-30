@@ -1,4 +1,6 @@
-//所有数据操作逻辑都放在这里统一管理
+/**
+ * 钱包与web3.js
+ */
 module service {
     export class walletServcie {
         constructor() {

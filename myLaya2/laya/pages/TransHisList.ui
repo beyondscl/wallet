@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":14,
+    "selectedBox":7,
+    "selecteID":12,
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -91,7 +91,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":0,"x":100,"width":400,"valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"},
+                            "props":{"y":0,"x":100,"width":200,"valign":"bottom","text":"label","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"},
                             "nodeParent":7,
                             "label":"Label(lab_deal_name)",
                             "isDirectory":false,
@@ -117,7 +117,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":35,"x":520,"width":200,"valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
+                            "props":{"y":35,"x":520,"width":350,"valign":"middle","text":"label","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"},
                             "nodeParent":7,
                             "label":"Label(lab_amount)",
                             "isDirectory":false,
@@ -153,7 +153,8 @@
             "hasChild":false,
             "compId":14,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         }],
     "animations":[
         {

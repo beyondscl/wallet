@@ -43,7 +43,7 @@ module view {
         private loadData(page,pageSize){
             let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
             wait.popup();
-            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,page,pageSize,function(ret,args){
+            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,page,pageSize,this.refData.itemName=='ETH'?4:3,service.walletServcie.getCoinInfo(this.refData.itemName).coinAddr,function(ret,args){
                 let v:view.WalletTransfer = args[0];
                 ret = JSON.parse(ret);
                 if(ret.retCode==0&&ret.data){

@@ -1,7 +1,4 @@
-/**
- * @Deprecated
- * 网络模块
- */ 
+//网络模块
 module net {
     export class HttpRequest extends Laya.HttpRequest {
         private callback: any;
