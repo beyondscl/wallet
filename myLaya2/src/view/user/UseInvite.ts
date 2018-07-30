@@ -2,7 +2,7 @@
 module view.user {
     export class UseInvite extends ui.user.UseInviteUI {
         public comp: ui.user.UseInviteUI;
-        private parentUI: view.WalletMe;
+        private parentUI: any;
 
         constructor() {
             super();

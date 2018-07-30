@@ -45,11 +45,12 @@ module config {
         public static SENDED_CODE: string = "已发送";
 
         public static REVER_PASS_SUCCESS: string = "修改密码成功";
+        public static REVER_PASS_ERROR: string = "修改密码失败";
+        public static REVER_PASS_WARN: string = "助记词已被删除，请导入助记词修改密码";
 
         public static CANDY_NO: string = "暂时不能领取糖果";
 
         public static OPERATOR_ERROR: string = "请求失败";
         public static INIT_ERROR: string = "初始化数据失败";
-
     }
 }

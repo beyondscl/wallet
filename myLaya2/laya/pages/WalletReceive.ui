@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":11,
-    "selecteID":10,
+    "selecteID":17,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -81,7 +81,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":40,"width":120,"var":"btn_share","stateNum":"1","skin":"img/main/fenxiang@2x.png","sizeGrid":"0,-120,0,0","right":40,"labelSize":24,"labelPadding":"0,0,0,30","labelColors":"#ffffff","label":"分享","height":60,"disabled":true},
+                    "props":{"y":40,"width":120,"var":"btn_share","stateNum":"1","skin":"img/main/fenxiang@2x.png","sizeGrid":"0,-120,0,0","right":40,"labelSize":24,"labelPadding":"0,0,0,30","labelColors":"#ffffff","label":"分享","height":60,"disabled":false},
                     "nodeParent":11,
                     "label":"Button(btn_share)",
                     "isDirectory":false,
@@ -146,7 +146,6 @@
                     "compId":21,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
                             "nodeParent":21,

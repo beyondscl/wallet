@@ -9,6 +9,9 @@ module view {
         private page = 1;
         private pageSize = 10;
 
+        private originData: Array<mod.dealtemMod> = [];
+        private scrollGate = false;
+
         constructor() {
             super();
             this.init();
@@ -17,7 +20,10 @@ module view {
 
         public setData(data: Array<mod.dealtemMod>, parent: any) {
             this.parentUI = parent;
-            // this.setListUp(data);
+            this.loadData(this.page,this.pageSize);
+            
+        }
+        private loadData(page,pageSize){
             let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
             wait.popup();
             service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,this.page,this.pageSize,function(ret,args){
@@ -48,16 +54,31 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
-            if(data&&data.length==0){
+            for(let i=0;i<data.length;i++){
+                this.originData.push(data[i]);
+            }
+            if(this.originData.length==0){
                 this.comp.lab_nodata.visible = true;
+                this.comp.list.array = [];
             }else{
                 this.comp.lab_nodata.visible = false;
             }
-            this.comp.list.array = data;
-            this.comp.list.vScrollBarSkin = "";
-            // this.comp.list.selectHandler = new Handler(this, this.onSelect);
-            this.comp.list.renderHandler = new Handler(this, this.onListRender);
+            if(data.length!=0){
+                this.comp.list.vScrollBarSkin = "";
+                this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
+                this.comp.list.array = this.originData;
+                this.scrollGate = true;
+                this.comp.list.scrollBar.on(Laya.Event.CHANGE,this,this.loadMore)
+                this.comp.list.scrollTo((this.page-1)*this.pageSize);
+            }
 
+        }
+        private loadMore(){
+            if(this.scrollGate&&this.comp.list.scrollBar.max==this.comp.list.scrollBar.value){
+                this.scrollGate = false;
+                this.page+=1;
+                this.loadData(this.page,this.pageSize);
+            }
         }
 
         private onListRender(cell: Box, index: number) {
@@ -81,9 +102,6 @@ module view {
             amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
         }
 
-        // private updateItem(cell: dealItemUI, index: number): void {
-        //     cell.init(cell.dataSource);
-        // }
         private onSelect(index: number): void {
             this.comp.visible = false;
             new view.TransDetail().initData(this.comp.list.array[index], this.comp);

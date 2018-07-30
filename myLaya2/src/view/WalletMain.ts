@@ -60,7 +60,7 @@ module view {
                 //异步获取的
                 return;
             }
-            if (coinMod.abi) {//查询token
+            if (coinMod.abi&&coinMod.coinName!='ETH') {//查询token
                 service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
             } else {//eth
                 service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])

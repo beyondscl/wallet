@@ -6,6 +6,30 @@ module config {
 
         //load data from public network
         public static initData(addr: string) {
+            //初始化币种合约等
+            service.transService.getAllCoins(function(ret,args){
+                ret = JSON.parse(ret)
+                if(ret&&ret.retCode==0){
+                    let coins = ret.data;
+                    let all = [];
+                    for (let i = 0; i < coins.length; i++) {
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, JSON.parse(coins[i].abi));
+                    }
+                    mod.userMod.allCoins = all;
+                    console.log("getAllCoins success");
+                }else{
+                    // new view.alert.info(config.msg.INIT_ERROR).popup();
+                    let coins = Laya.Browser.window.main_config[Laya.Browser.window.env].coins;
+                    let all = [];
+                    for (let i = 0; i < coins.length; i++) {
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, JSON.parse(coins[i].abi));
+                    }
+                    mod.userMod.allCoins = all;
+                    console.warn("getAllCoins from disk");
+
+                }
+            },[]);
+
             // 初始化用户账户 eth 数量,自己节点
             let ethBalanceUrl = config.prod.getEthBalanceUrl(addr);
             let getEthBalance = {
@@ -71,22 +95,7 @@ module config {
                 }
             }
             Laya.Browser.window.Ajax.get(getGasPrice);
-            //初始化币种合约等
-            service.transService.getAllCoins(function(ret,args){
-                ret = JSON.parse(ret)
-                if(ret&&ret.retCode==0){
-                    let coins = ret.data;
-                    let all = [];
-                    for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, JSON.parse(coins[i].abi));
-                    }
-                    mod.userMod.allCoins = all;
-                    console.log("getAllCoins success");
-                }else{
-                    new view.alert.info(config.msg.INIT_ERROR).popup();
-                    console.log("getAllCoins error");
-                }
-            },[]);
+
         }
         //load data from owner db
 

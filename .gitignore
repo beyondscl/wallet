@@ -5,6 +5,8 @@ myLaya2/bin/js/
 myLaya2/bin/res
 myLaya2/laya/assets/img/walleticon/
 myLaya2/release/
-myLaya2/src/*.js
-myLaya2/src/*.map
+
+myLaya2/src/**/*.js
+myLaya2/src/**/*.map
+
 /.idea/workspace.xml

@@ -4,6 +4,12 @@ module service {
         constructor() {
         }
 
+        /*
+        *-----------------------------------------------------
+        * 钱包普通操作
+        *-----------------------------------------------------
+        */
+
         //修改钱包名称
         //oName 旧钱包名称，nName新名词
         public static walletUpdateName(oName: string, nName: string): boolean {
@@ -48,7 +54,7 @@ module service {
         public static creatWallet(wName: string, wPass: string, cb: any, args: Array<any>): mod.walletMod {
             try {
                 let walletJson = util.getItem(wName);
-                if (walletJson) {//已经验证过一次了
+                if (walletJson) {
                     return;
                 }
                 let mnemonicWord = Laya.Browser.window.genSeed();
@@ -119,6 +125,7 @@ module service {
         public static getAllCoins(): Array<mod.coinItemMod> {
             return mod.userMod.allCoins;
         }
+
         //根据币种名称获取coin
         public static getCoinInfo(coinName): mod.coinItemMod {
             let allCoins: Array<mod.coinItemMod> = service.walletServcie.getAllCoins();
@@ -129,8 +136,9 @@ module service {
             }
             return null;
         }
+
         //根据币种合约地址获取coin
-        public static getCoinInfo2(contractAddr:string): mod.coinItemMod {
+        public static getCoinInfo2(contractAddr: string): mod.coinItemMod {
             let allCoins: Array<mod.coinItemMod> = service.walletServcie.getAllCoins();
             for (let j = 0; j < allCoins.length; j++) {
                 if (allCoins[j].coinAddr == contractAddr) {
@@ -154,11 +162,12 @@ module service {
                 }
             }
             return allCoins;
-            // return [new mod.coinItemMod("template/List/message icon_57x57.png", "ETH", "vender", "95x...5s1s4", this.getSelected(wName, 'ETH')),
-            // new mod.coinItemMod("template/List/message icon_57x57.png", "BTC", "vender", "95x...5s1s4", this.getSelected(wName, 'BTC'))]
         }
 
-        //获取币种交易列表
+        /**
+         * @Deprecated
+         * 获取币种交易列表
+         */
         public static getDealListByWName(coinName: string): Array<mod.dealtemMod> {
             let datas: Array<mod.dealtemMod> = [];
             let deals = util.getItem(config.prod.getAppDealKey());
@@ -175,7 +184,10 @@ module service {
             return datas;
         }
 
-        //获取所有交易列表
+        /**
+         * @Deprecated
+         * 获取所有交易列表
+         */
         public static getDealList(): Array<mod.dealtemMod> {
             let datas: Array<mod.dealtemMod> = [];
             let deals = util.getItem(config.prod.getAppDealKey());
@@ -218,10 +230,49 @@ module service {
             return t;
         }
 
-        //检查密码是否正确
-        public static checkPassword(pass: string): boolean {
+        //判断钱包是否选择了该coin
+        private static getSelected(wName, cName) {
+            let wallet = util.getItem(wName);
+            if (wallet) {
+                for (let i = 0; i < wallet.wCoins.length; i++) {
+                    if (wallet.wCoins[i] == cName) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static checkPassword(any) {
             return true;
         }
+
+        /**
+         * 如果已经备份删除助记词是不能修改密码的
+         * @param w 钱包
+         * @param pass 新密码
+         */
+        public static resetPass(w: mod.walletMod, pass: string, callback, args) {
+            console.log(w.wKeyStore)
+            console.log(w.wPrivateKey)
+            if (this.vilMemoryWork(w.wZjc)) {
+                Laya.Browser.window.generateAddresses(w.wZjc, 1, pass).then(
+                    ret => {
+                        return callback(ret, args)
+                    },
+                    error => {
+                        console.error("重置密码失败:", error);
+                        callback(null, args)
+                    }
+                );
+            }
+        }
+
+        /*
+        *-----------------------------------------------------
+        *操作web3
+        *-----------------------------------------------------
+        */
 
         //创建，切换钱包需要实例化全局对象用于交易
         public static initLigthWallet(wKeyStore: string) {
@@ -232,7 +283,7 @@ module service {
 
         //交易eth
         public static transfer(password, fromAddr, toAddr, value, gasPrice, gas, callback, args) {
-            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice*10, gas*10).then(
+            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
                 ret => {
                     callback(ret, args)
                 }, error => {
@@ -261,7 +312,7 @@ module service {
             });
         }
 
-        //获取余额
+        //获取eth余额
         public static getBalance(addr, callback, arg) {
             Laya.Browser.window.getBalance(addr).then(
                 ret => {
@@ -285,7 +336,10 @@ module service {
             )
         }
 
-        //key{
+        /**
+         * Deprecated
+         * @param data 
+         */
         public static addDealItem(data: mod.dealtemMod): void {
             let deals = util.getItem(config.prod.getAppDealKey());
             if (deals) {
@@ -296,8 +350,6 @@ module service {
             }
         }
 
-        //记录交易
-
         //导入钱包校验助记词
         public static vilMemoryWork(words: string) {
             if (words && Laya.Browser.window.lightwallet.keystore.isSeedValid(words)) {
@@ -305,21 +357,30 @@ module service {
             }
             return false;
         }
-
-        //iban 地址转国际地址
+        /**
+         * @Deprecated
+         * @param addr 
+         */
         public static getIban(addr: string) {
             return Laya.Browser.window.web3.eth.iban.toAddress(addr);
         }
 
-        //web3 等外部操作--------------------------------
-
+        /**
+         * @Deprecated
+         * @param data 
+         */
         public static ibanToAddr(data: string) {
             let addr = '';
             let amount = '';
             let token = 'ETH';
         }
-
-        //过滤的连总数都不需要查
+        /**
+         * 过滤的币种总数都不需要查
+         * 1.eth查询
+         * 2.token查询
+         * @param wName 
+         * @param lab 
+         */
         public static getWalletMoney(wName: string, lab: Label): number {
             let wallet = this.getWallet(wName);
             let coins = wallet.wCoins;
@@ -342,21 +403,6 @@ module service {
             }
             return t;
         }
-
-        //-----------------------------------------------
-        //查询钱包总金额，是否缓存处理?
-
-        //判断钱包是否选择了该coin
-        private static getSelected(wName, cName) {
-            let wallet = util.getItem(wName);
-            if (wallet) {
-                for (let i = 0; i < wallet.wCoins.length; i++) {
-                    if (wallet.wCoins[i] == cName) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
+        //web3 等外部操作--------------------------------end
     }
 }

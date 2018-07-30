@@ -138,8 +138,8 @@ module view {
                             comp.text_amount.text = amount;
                         }
                     }, [amount]);
+                    return;
                 }
-                return;
             } catch (error) {
                 console.error("尝试解析imtoken二维码失败",error);
             }

@@ -14,9 +14,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.confirmUI.uiView);
-
         }
-
     }
 }
 
@@ -35,9 +33,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.EnterPassUI.uiView);
-
         }
-
     }
 }
 
@@ -52,9 +48,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.ExportPriKeyUI.uiView);
-
         }
-
     }
 }
 
@@ -67,9 +61,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.IframeUI.uiView);
-
         }
-
     }
 }
 
@@ -77,7 +69,7 @@ module ui.alert {
     export class infoUI extends Dialog {
 		public msg:Laya.Label;
 
-        public static  uiView:any ={"type":"Dialog","props":{"width":750,"height":1334},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0,"alpha":0}},{"type":"Box","props":{"width":200,"height":150,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/kk.png","right":0,"left":0,"bottom":0,"alpha":0.6}},{"type":"Image","props":{"y":23,"width":53,"skin":"img/main/jiazai.png","height":53,"centerX":0,"alpha":1}},{"type":"Label","props":{"wordWrap":true,"width":204,"var":"msg","valign":"middle","text":"这里只能十个字这里哦","height":40,"fontSize":20,"color":"#ffffff","centerX":0,"bottom":15,"align":"center"}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"width":750,"height":1334},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0,"alpha":0}},{"type":"Box","props":{"width":200,"height":160,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"top":0,"skin":"img/main/kk.png","right":0,"left":0,"bottom":0,"alpha":0.6}},{"type":"Image","props":{"y":23,"width":53,"skin":"img/main/jiazai.png","height":53,"centerX":0,"alpha":1}},{"type":"Label","props":{"wordWrap":true,"width":204,"var":"msg","valign":"middle","text":"这里只能十个字这里哦","padding":"2,2,2,2","leading":5,"height":30,"fontSize":20,"color":"#ffffff","centerX":0,"bottom":30,"align":"center"}}]}]};
         constructor(){ super()}
         createChildren():void {
         
@@ -100,9 +92,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.waitingUI.uiView);
-
         }
-
     }
 }
 
@@ -118,9 +108,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.WarnUI.uiView);
-
         }
-
     }
 }
 
@@ -134,9 +122,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.WarnZjcUI.uiView);
-
         }
-
     }
 }
 
@@ -153,9 +139,7 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpConfUI.uiView);
-
         }
-
     }
 }
 
@@ -171,9 +155,7 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpZjcUI.uiView);
-
         }
-
     }
 }
 
@@ -194,9 +176,7 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.AddCoinsUI.uiView);
-
         }
-
     }
 }
 
@@ -210,9 +190,7 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.queryCoinsUI.uiView);
-
         }
-
     }
 }
 
@@ -227,9 +205,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.EnterAppUI.uiView);
-
         }
-
     }
 }
 
@@ -247,9 +223,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.GuideUI.uiView);
-
         }
-
     }
 }
 
@@ -269,9 +243,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.aboutUI.uiView);
-
         }
-
     }
 }
 
@@ -285,9 +257,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.aboutTeamUI.uiView);
-
         }
-
     }
 }
 
@@ -310,9 +280,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.CandyUI.uiView);
-
         }
-
     }
 }
 
@@ -328,9 +296,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.SelectWalletUI.uiView);
-
         }
-
     }
 }
 
@@ -350,9 +316,7 @@ module ui.info {
 
             super.createChildren();
             this.createView(ui.info.ServiceUI.uiView);
-
         }
-
     }
 }
 
@@ -368,9 +332,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.MsgUI.uiView);
-
         }
-
     }
 }
 
@@ -390,9 +352,7 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.ExpKeystoreUI.uiView);
-
         }
-
     }
 }
 
@@ -411,9 +371,7 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.UpdatePassUI.uiView);
-
         }
-
     }
 }
 
@@ -451,9 +409,7 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.WalletImportUI.uiView);
-
         }
-
     }
 }
 
@@ -519,9 +475,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UseInviteUI.uiView);
-
         }
-
     }
 }
 
@@ -540,9 +494,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserLoginUI.uiView);
-
         }
-
     }
 }
 
@@ -563,9 +515,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserRegistUI.uiView);
-
         }
-
     }
 }
 
@@ -585,9 +535,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserResetUI.uiView);
-
         }
-
     }
 }
 
@@ -603,9 +551,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletBackUpUI.uiView);
-
         }
-
     }
 }
 
@@ -633,9 +579,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletCreateUI.uiView);
-
         }
-
     }
 }
 
@@ -660,9 +604,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -688,9 +630,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMainUI.uiView);
-
         }
-
     }
 }
 
@@ -711,9 +651,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletManageUI.uiView);
-
         }
-
     }
 }
 
@@ -736,9 +674,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMeUI.uiView);
-
         }
-
     }
 }
 
@@ -760,9 +696,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletQuickUI.uiView);
-
         }
-
     }
 }
 
@@ -776,7 +710,7 @@ module ui {
 		public warn_amount:Laya.Label;
 		public btn_copy:Laya.Button;
 
-        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":224,"fillColor":"#598ADA"}},{"type":"Button","props":{"y":40,"x":40,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}},{"type":"Label","props":{"y":48,"x":343,"valign":"middle","text":"收款","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#ffffff","centerX":0,"align":"center"}},{"type":"Image","props":{"y":180,"x":331,"width":88,"skin":"img/main/wd@2x.png","height":88,"centerX":0}},{"type":"Button","props":{"y":40,"width":120,"var":"btn_share","stateNum":1,"skin":"img/main/fenxiang@2x.png","sizeGrid":"0,-120,0,0","right":40,"labelSize":24,"labelPadding":"0,0,0,30","labelColors":"#ffffff","label":"分享","height":60,"disabled":true}},{"type":"TextInput","props":{"y":360,"wordWrap":true,"var":"lab_wAddr","valign":"middle","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":0,"overflow":"scroll","left":0,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"center"}},{"type":"Image","props":{"width":500,"var":"img_wAddr","height":500,"centerY":127,"centerX":0}},{"type":"Label","props":{"y":1000,"visible":false,"valign":"middle","text":"复制地址","right":0,"left":0,"height":80,"fontSize":32,"color":"#8E979F","align":"center"}},{"type":"TextInput","props":{"y":390,"wordWrap":true,"visible":false,"var":"text_amount","valign":"middle","type":"number","right":100,"promptColor":"#163853","prompt":"请输入金额","overflow":"scroll","left":100,"layoutEnabled":true,"height":40,"fontSize":24,"color":"#163853","align":"left"},"child":[{"type":"Image","props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"Label","props":{"y":451,"visible":false,"var":"warn_amount","text":"请输入合法的金额","right":100,"height":30,"fontSize":24,"color":"#ff0400","align":"right"}},{"type":"Button","props":{"y":1134,"var":"btn_copy","stateNum":1,"skin":"img/main/anliu@2x.png","right":40,"left":40,"labelSize":32,"labelColors":"#ffffff","label":"复制地址","height":80}}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":224,"fillColor":"#598ADA"}},{"type":"Button","props":{"y":40,"x":40,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}},{"type":"Label","props":{"y":48,"x":343,"valign":"middle","text":"收款","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#ffffff","centerX":0,"align":"center"}},{"type":"Image","props":{"y":180,"x":331,"width":88,"skin":"img/main/wd@2x.png","height":88,"centerX":0}},{"type":"Button","props":{"y":40,"width":120,"var":"btn_share","stateNum":1,"skin":"img/main/fenxiang@2x.png","sizeGrid":"0,-120,0,0","right":40,"labelSize":24,"labelPadding":"0,0,0,30","labelColors":"#ffffff","label":"分享","height":60,"disabled":false}},{"type":"TextInput","props":{"y":360,"wordWrap":true,"var":"lab_wAddr","valign":"middle","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":0,"overflow":"scroll","left":0,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"center"}},{"type":"Image","props":{"width":500,"var":"img_wAddr","height":500,"centerY":127,"centerX":0}},{"type":"Label","props":{"y":1000,"visible":false,"valign":"middle","text":"复制地址","right":0,"left":0,"height":80,"fontSize":32,"color":"#8E979F","align":"center"}},{"type":"TextInput","props":{"y":390,"wordWrap":true,"visible":false,"var":"text_amount","valign":"middle","type":"number","right":100,"promptColor":"#163853","prompt":"请输入金额","overflow":"scroll","left":100,"layoutEnabled":true,"height":40,"fontSize":24,"color":"#163853","align":"left"},"child":[{"type":"Image","props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"Label","props":{"y":451,"visible":false,"var":"warn_amount","text":"请输入合法的金额","right":100,"height":30,"fontSize":24,"color":"#ff0400","align":"right"}},{"type":"Button","props":{"y":1134,"var":"btn_copy","stateNum":1,"skin":"img/main/anliu@2x.png","right":40,"left":40,"labelSize":32,"labelColors":"#ffffff","label":"复制地址","height":80}}]}]};
         constructor(){ super()}
         createChildren():void {
         
@@ -805,9 +739,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendUI.uiView);
-
         }
-
     }
 }
 
@@ -833,9 +765,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendSubmitUI.uiView);
-
         }
-
     }
 }
 

@@ -45,7 +45,7 @@ module view {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.text_amount.on(Laya.Event.KEY_UP, this, this.btnClick, [2]);
-
+            this.comp.btn_share.on(Laya.Event.CLICK, this, this.btnClick, [3]);           
         }
 
         private goBack() {
@@ -77,6 +77,10 @@ module view {
                         this.comp.warn_amount.visible = true;
                         this.comp.text_amount.text = '';
                     }
+                    break;
+                case (3):
+                    this.comp.visible = false;
+                    new view.user.UseInvite().setParetUI(this);
                     break;
                 default:
                     console.log("error type");
