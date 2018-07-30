@@ -10,11 +10,11 @@ module native {
                 "type": 2,
                 "data": "",
             }
-            // this.jsCallapp(json);
+            this.jsCallapp(json);
             // test
             // let data = "iban:XE04P02MNI75D9LSZ8XJ8Z68Q7KYFEW5UWF?amount=10&token=ETH";
-            let data = "https://www.baidu.com";
-            this.appCalljs(data);
+            // let data = "https://www.baidu.com";
+            // this.appCalljs(data);
         }
 
         public static startCopy() {
