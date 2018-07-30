@@ -7,28 +7,28 @@ module config {
         //load data from public network
         public static initData(addr: string) {
             //初始化币种合约等
-            service.transService.getAllCoins(function(ret,args){
+            service.transService.getAllCoins(function (ret, args) {
                 ret = JSON.parse(ret)
-                if(ret&&ret.retCode==0){
+                if (ret && ret.retCode == 0) {
                     let coins = ret.data;
                     let all = [];
                     for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi?JSON.parse(coins[i].abi):"");
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi ? JSON.parse(coins[i].abi) : "");
                     }
                     mod.userMod.allCoins = all;
                     console.log("getAllCoins success");
-                }else{
+                } else {
                     // new view.alert.info(config.msg.INIT_ERROR).popup();
-                    console.error("getAllCoins:",ret);
+                    console.error("getAllCoins:", ret);
                     let coins = Laya.Browser.window.main_config[Laya.Browser.window.env].coins;
                     let all = [];
                     for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi?JSON.parse(coins[i].abi):"");
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi ? JSON.parse(coins[i].abi) : "");
                     }
                     mod.userMod.allCoins = all;
                     console.warn("getAllCoins from disk");
                 }
-            },[]);
+            }, []);
 
             // 初始化用户账户 eth 数量
             let ethBalanceUrl = config.prod.getEthBalanceUrl(addr);
@@ -96,8 +96,8 @@ module config {
                 }
             }
             Laya.Browser.window.Ajax.get(getGasPrice);
-
         }
+
         private errFun(a, b) {
             console.log("require error:", a, b);
         }
