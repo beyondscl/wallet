@@ -138,7 +138,7 @@ module view {
 
                 let amount = cell.getChildByName('lab_amount') as Label;
                 let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//+ | -
-                amount.text = trans_type + data.dealAmount + " " + data.dealCoinType;
+                amount.text = trans_type + data.dealAmount + " " + this.comp.lab_coin_name.text;//data.dealCoinType?;
                 amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
         }
 
