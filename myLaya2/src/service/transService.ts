@@ -86,7 +86,7 @@ module service{
                 let dealFromAddr = temp.from;
                 let dealToAddr = temp.to;
                 let dealAmount = (Number(temp.value)/1e18).toFixed(4);
-                let dealCoinType = (temp.tokenSymbol+"").trim().toUpperCase();//service.walletServcie.getCoinInfo2(temp.contractAddress);
+                let dealCoinType = temp.tokenSymbol?temp.tokenSymbol:"ETH";//总体记录会有点问题
                 let dealTransId = temp.hash;
                 let dealGas = temp.gasUsed*temp.gasPrice/1e9;
                 let dealTime = util.getFormatTime2(temp.timeStamp);
