@@ -18,20 +18,39 @@ module view {
             this.comp.send_amout.text = data.text_amount.text;
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
             //初始化gasprice
-            //默认70
             let gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice / 1e9 : 20
             this.comp.sli_gas.min = gasPrice;
             this.comp.sli_gas.max = gasPrice + 130;
             this.comp.sli_gas.value = gasPrice// gwei
-            new net.HttpRequest().sendSimpleReq(config.prod.getGasPrice, function (ret, args) {
-                if (ret && ret.retCode == 0) {
-                    mod.userMod.gasPrice = ret.gasPrice / 1e9;
-                    let comp = args[0] as view.WalletSendSubmit;
-                    comp.sli_gas.min = mod.userMod.gasPrice;
-                    comp.sli_gas.max = mod.userMod.gasPrice + 50;
-                    comp.sli_gas.value = mod.userMod.gasPrice;// gwei
+            //获取gasprice
+            let getGasPrice = {
+                url: config.prod.getGasPrice,
+                method: 'get',
+                token: mod.userMod.token,
+                data: {},
+                callbackArgs:[this.comp],
+                async: true,
+                success: function (ret, args) {
+                    ret = JSON.parse(ret)
+                    if (ret && ret.retCode == 0) {
+                        mod.userMod.gasPrice = ret.gasPrice / 1e9;
+                        let comp = args[0] as view.WalletSendSubmit;
+                        comp.sli_gas.min = mod.userMod.gasPrice;
+                        comp.sli_gas.max = mod.userMod.gasPrice + 50;
+                        comp.sli_gas.value = mod.userMod.gasPrice;// gwei
+                        console.log("get eth GasPrice ok:", ret);
+                    } else {
+                        console.log("getGasPrice error:", ret);
+                    }
+                },
+                complete: function () {
+                },
+                error: function (a, b) {
+                    console.log("gasprice error:", a, b);
                 }
-            }, [this.comp]);
+            }
+            Laya.Browser.window.Ajax.get(getGasPrice);
+
         }
 
         public setParenUI(parent: ui.WalletSendUI) {
