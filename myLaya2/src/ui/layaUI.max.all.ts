@@ -14,9 +14,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.confirmUI.uiView);
-
         }
-
     }
 }
 
@@ -35,9 +33,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.EnterPassUI.uiView);
-
         }
-
     }
 }
 
@@ -52,9 +48,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.ExportPriKeyUI.uiView);
-
         }
-
     }
 }
 
@@ -67,9 +61,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.IframeUI.uiView);
-
         }
-
     }
 }
 
@@ -83,9 +75,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.infoUI.uiView);
-
         }
-
     }
 }
 
@@ -100,9 +90,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.waitingUI.uiView);
-
         }
-
     }
 }
 
@@ -118,9 +106,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.WarnUI.uiView);
-
         }
-
     }
 }
 
@@ -134,9 +120,7 @@ module ui.alert {
         
             super.createChildren();
             this.createView(ui.alert.WarnZjcUI.uiView);
-
         }
-
     }
 }
 
@@ -153,9 +137,7 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpConfUI.uiView);
-
         }
-
     }
 }
 
@@ -171,9 +153,7 @@ module ui.backup {
         
             super.createChildren();
             this.createView(ui.backup.BackUpZjcUI.uiView);
-
         }
-
     }
 }
 
@@ -194,9 +174,7 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.AddCoinsUI.uiView);
-
         }
-
     }
 }
 
@@ -210,9 +188,7 @@ module ui.coin {
         
             super.createChildren();
             this.createView(ui.coin.queryCoinsUI.uiView);
-
         }
-
     }
 }
 
@@ -227,9 +203,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.EnterAppUI.uiView);
-
         }
-
     }
 }
 
@@ -247,9 +221,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.GuideUI.uiView);
-
         }
-
     }
 }
 
@@ -269,9 +241,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.aboutUI.uiView);
-
         }
-
     }
 }
 
@@ -285,9 +255,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.aboutTeamUI.uiView);
-
         }
-
     }
 }
 
@@ -310,9 +278,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.CandyUI.uiView);
-
         }
-
     }
 }
 
@@ -328,9 +294,7 @@ module ui.info {
         
             super.createChildren();
             this.createView(ui.info.SelectWalletUI.uiView);
-
         }
-
     }
 }
 
@@ -350,9 +314,7 @@ module ui.info {
 
             super.createChildren();
             this.createView(ui.info.ServiceUI.uiView);
-
         }
-
     }
 }
 
@@ -368,9 +330,7 @@ module ui {
 
             super.createChildren();
             this.createView(ui.MsgUI.uiView);
-
         }
-
     }
 }
 
@@ -390,9 +350,7 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.ExpKeystoreUI.uiView);
-
         }
-
     }
 }
 
@@ -411,9 +369,7 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.UpdatePassUI.uiView);
-
         }
-
     }
 }
 
@@ -451,9 +407,7 @@ module ui.set {
         
             super.createChildren();
             this.createView(ui.set.WalletImportUI.uiView);
-
         }
-
     }
 }
 
@@ -477,9 +431,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.TransDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -495,9 +447,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.TransHisListUI.uiView);
-
         }
-
     }
 }
 
@@ -519,9 +469,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UseInviteUI.uiView);
-
         }
-
     }
 }
 
@@ -540,9 +488,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserLoginUI.uiView);
-
         }
-
     }
 }
 
@@ -563,9 +509,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserRegistUI.uiView);
-
         }
-
     }
 }
 
@@ -585,9 +529,7 @@ module ui.user {
         
             super.createChildren();
             this.createView(ui.user.UserResetUI.uiView);
-
         }
-
     }
 }
 
@@ -603,9 +545,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletBackUpUI.uiView);
-
         }
-
     }
 }
 
@@ -633,9 +573,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletCreateUI.uiView);
-
         }
-
     }
 }
 
@@ -660,9 +598,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletDetailUI.uiView);
-
         }
-
     }
 }
 
@@ -688,9 +624,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMainUI.uiView);
-
         }
-
     }
 }
 
@@ -711,9 +645,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletManageUI.uiView);
-
         }
-
     }
 }
 
@@ -736,9 +668,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletMeUI.uiView);
-
         }
-
     }
 }
 
@@ -760,9 +690,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletQuickUI.uiView);
-
         }
-
     }
 }
 
@@ -782,9 +710,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletReceiveUI.uiView);
-
         }
-
     }
 }
 
@@ -805,9 +731,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendUI.uiView);
-
         }
-
     }
 }
 
@@ -833,9 +757,7 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendSubmitUI.uiView);
-
         }
-
     }
 }
 
@@ -859,8 +781,6 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletTransferUI.uiView);
-
         }
-
     }
 }

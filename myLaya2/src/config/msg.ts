@@ -52,5 +52,9 @@ module config {
 
         public static OPERATOR_ERROR: string = "请求失败";
         public static INIT_ERROR: string = "初始化数据失败";
+
+        //tx
+        public static TX_OK ="交易已发送请等待确认";
+        public static TX_ERROR ="交易失败";
     }
 }

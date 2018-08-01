@@ -115,15 +115,16 @@ module view {
                         let sendArgs = [toAddr, Number(value) * 1e18];
                         service.walletServcie.sendToken(pass, fromAdd, _coin.coinAddr, _coin.abi, null, sendArgs, 0, gasPrice * 1e9, config.prod.tokenGasLimit, function (ret, args) {
                             let pom = args[1] as view.alert.waiting;
+                            pom.visible = false;
                             pom.stop();
                             if (ret && ret.retCode == 0) {
-                                new alert.Warn("交易已发送请等待确认", "").popup();
+                                new alert.Warn(config.msg.TX_OK, "").popup();
                                 let comp = args[0] as view.WalletSendSubmit;
                                 comp.removeSelf();
                                 util.showView([2]);
                             } else {
                                 console.log("transfer submit error:", ret);
-                                new alert.Warn("交易失败", "").popup();
+                                new alert.Warn(config.msg.TX_ERROR, "").popup();
                             }
                         }, [comp, pom, this.parentUI]);
                         return;
@@ -133,15 +134,16 @@ module view {
             //默认转账eth
             service.walletServcie.transfer(pass, fromAdd, toAddr, Number(value), gasPrice * 1e9, config.prod.gasLimit, function (ret, args: Array<any>) {
                 let pom = args[1] as view.alert.waiting;
+                pom.visible = false;
                 pom.stop();
                 if (ret && ret.retCode == 0) {
-                    new alert.Warn("交易已发送请等待确认", "").popup();
+                    new alert.Warn(config.msg.TX_OK, "").popup();
                     let comp = args[0] as view.WalletSendSubmit;
                     comp.removeSelf();
                     util.showView([2]);
                 } else {
                     console.log("transfer submit error:", ret);
-                    new alert.Warn("交易失败", "").popup();
+                    new alert.Warn(config.msg.TX_ERROR, "").popup();
                 }
             }, [comp, pom, this.parentUI]);//this.parentUI 没有传过去
         }

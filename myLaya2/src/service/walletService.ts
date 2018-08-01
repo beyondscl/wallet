@@ -285,16 +285,25 @@ module service {
 
         //交易eth
         public static transfer(password, fromAddr, toAddr, value, gasPrice, gas, callback, args) {
-            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
+            let seed = mod.userMod.defWallet.wMemoryWords;
+            Laya.Browser.window.generateAddresses(seed, 1, password).then(
                 ret => {
-                    callback(ret, args)
+                    Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
+                        ret => {
+                            callback(ret, args)
+                        }, error => {
+                            console.log("交易失败:", error);
+                            callback(null, args)
+                        }
+                    ).catch(function (e) {
+                        callback(e, args)
+                    })
                 }, error => {
                     console.log("交易失败:", error);
                     callback(null, args)
                 }
-            ).catch(function (e) {
-                callback(e, args)
-            })
+            )
+
         }
 
         //发送token
@@ -305,13 +314,22 @@ module service {
             //     txhash : 'ox54a5sd1f5as1dfa5sd'
             // }
             // callback(ret,cbArgs);
-            if (!functionName) functionName = 'transfer';
-            Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
-                .then(ret => {
-                    callback(ret, cbArgs)
-                }).catch(function (e) {
-                callback(e, cbArgs);
+            let seed = mod.userMod.defWallet.wMemoryWords;
+            Laya.Browser.window.generateAddresses(seed, 1, pass).then(
+                ret => {
+                    if (!functionName) functionName = 'transfer';
+                    Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
+                        .then(ret => {
+                            callback(ret, cbArgs)
+                        }).catch(function (e) {
+                        callback(e, cbArgs);
+                    });
+                },
+                error => {
+                    console.log("交易失败:", error);
+                    callback(null, args)
             });
+            
         }
 
         //获取eth余额
@@ -340,7 +358,7 @@ module service {
 
         /**
          * Deprecated
-         * @param data 
+         * @param data
          */
         public static addDealItem(data: mod.dealtemMod): void {
             let deals = util.getItem(config.prod.getAppDealKey());
@@ -359,9 +377,10 @@ module service {
             }
             return false;
         }
+
         /**
          * @Deprecated
-         * @param addr 
+         * @param addr
          */
         public static getIban(addr: string) {
             return Laya.Browser.window.web3.eth.iban.toAddress(addr);
@@ -369,19 +388,20 @@ module service {
 
         /**
          * @Deprecated
-         * @param data 
+         * @param data
          */
         public static ibanToAddr(data: string) {
             let addr = '';
             let amount = '';
             let token = 'ETH';
         }
+
         /**
          * 过滤的币种总数都不需要查
          * 1.eth查询
          * 2.token查询
-         * @param wName 
-         * @param lab 
+         * @param wName
+         * @param lab
          */
         public static getWalletMoney(wName: string, lab: Label): number {
             let wallet = this.getWallet(wName);
@@ -405,6 +425,7 @@ module service {
             }
             return t;
         }
+
         //web3 等外部操作--------------------------------end
     }
 }
