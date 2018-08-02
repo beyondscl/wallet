@@ -14,9 +14,8 @@ module view {
 
         constructor() {
             super();
-            console.log("start main :", new Date().getTime());
             this.init();
-            this.initEvent();
+            this.initEvent();            
         }
 
         public setData(coins: Array<string>) {
@@ -47,6 +46,8 @@ module view {
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
+            Laya.timer.clear(this,this.initQueryData);
+            Laya.timer.loop(60*1000,this,this.initQueryData,[data]);
         }
 
         //set get
