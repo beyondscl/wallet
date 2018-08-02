@@ -56,5 +56,7 @@ module config {
         //tx
         public static TX_OK ="交易已发送请等待确认";
         public static TX_ERROR ="交易失败";
+
+        public static TOEKN_EXPIRE ="您的账号已在其他地方登录";
     }
 }
