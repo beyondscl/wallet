@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.user {
-    export class UseInvite extends ui.user.UseInviteUI {
+    export class UserInvite extends ui.user.UseInviteUI {
         public comp: ui.user.UseInviteUI;
         private parentUI: any;
 
@@ -8,6 +8,19 @@ module view.user {
             super();
             this.init();
             this.initEvent();
+            service.userServcie.tokenLogin(this.updateUserInfo, [this]);
+        }
+        private updateUserInfo(ret,args){
+            if(typeof ret == 'string'){
+                ret = JSON.parse(ret)
+                if (ret && ret.retCode == 0) {
+                    mod.userMod.setUserJson(ret.data);
+                    let userinvite:view.user.UserInvite = args[0];
+                    userinvite.comp.lab_invid_count.text = mod.userMod.invitedNum;
+                    return;
+                } 
+            }
+            console.error("useinvite获取userinfo error:",ret);
         }
 
         public setData(key: string) {

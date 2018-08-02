@@ -84,7 +84,7 @@ module view {
             }
             if (index == 7) {
                 this.comp.visible = false;
-                new view.user.UseInvite().setParetUI(this);
+                new view.user.UserInvite().setParetUI(this);
             }
         }
 

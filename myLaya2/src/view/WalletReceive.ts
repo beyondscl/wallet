@@ -80,7 +80,7 @@ module view {
                     break;
                 case (3):
                     this.comp.visible = false;
-                    new view.user.UseInvite().setParetUI(this);
+                    new view.user.UserInvite().setParetUI(this);
                     break;
                 default:
                     console.log("error type");
