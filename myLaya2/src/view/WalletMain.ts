@@ -64,9 +64,9 @@ module view {
                 return;
             }
             if (coinMod.abi&&coinMod.coinName!='ETH') {//查询token
-                service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this.comp, coinMod])
+                service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this, coinMod])
             } else {//eth
-                service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this.comp, coinMod])
+                service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this, coinMod])
             }
         }
 
@@ -91,9 +91,9 @@ module view {
                 console.info("getBalanceCb res:" + res.ret);
                 res = res.ret;
 
-                let comp = args[0] as view.WalletMain;
+                let wMain = args[0] as view.WalletMain;
                 let coinMod = args[1] as mod.coinItemMod;
-                let cells = comp.list_wallet.cells;
+                let cells = wMain.comp.list_wallet.cells;
                 for (let i = 0; i < cells.length; i++) {
                     if (!cells[i]._dataSource) {
                         continue;
@@ -103,9 +103,8 @@ module view {
                     let cTotal = cell.getChildByName('cTotal') as Label;
                     let cValue = cell.getChildByName('cValue') as Label;
                     if ('ETH' == coinMod.coinName) {
-                        this.ethTotal = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
+                        wMain.ethTotal =  (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4)+"";
                     }
-
                     if (cName.text == coinMod.coinName) {
                         if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
                             cTotal.text = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4);
@@ -116,7 +115,7 @@ module view {
                             let tempRmb = (res.toNumber() / config.prod.WEI_TO_ETH * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(0);
                             cValue.text = "≈ ¥ " + tempRmb
 
-                            comp.lab_total.text = (Number(comp.lab_total.text) + Number(tempRmb)).toFixed(0);//总资产
+                            wMain.comp.lab_total.text = (Number(wMain.comp.lab_total.text) + Number(tempRmb)).toFixed(0);//总资产
                             break;
                         }
                     }
