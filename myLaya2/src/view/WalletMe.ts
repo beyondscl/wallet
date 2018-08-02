@@ -78,6 +78,8 @@ module view {
                 // candy.setData(service.walletServcie.getWallets());
             }
             if (index == 6) {
+                util.delItem(config.prod.appUserKey);
+
                 this.wait = new view.alert.waiting(config.msg.WAIT_LOGOUT);
                 this.wait.popup();
                 service.userServcie.userLogout(this.logoutCb, this);
@@ -88,16 +90,15 @@ module view {
             }
         }
 
+        //必须允许登出成功
         private logoutCb(ret, v: view.WalletMe) {
             v.wait.stop();
-            ret = JSON.parse(ret)
-            if (ret && ret.retCode == 0) {
-                util.delItem(config.prod.appUserKey);
-                v.comp.removeSelf();
-                new view.user.UserLogin().checkAutoLogin();
-            } else {
-                new view.alert.info(ret.reason).popup();
-            }
+            v.comp.removeSelf();
+            new view.user.UserLogin().checkAutoLogin();
+
+            let main = util.getMainView()
+            Laya.timer.clearAll(main);
+            main.comp.removeSelf();
         }
     }
 }

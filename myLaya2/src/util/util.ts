@@ -173,9 +173,10 @@ class util {
             sec;
         return newTime;
     }
-        //获取日志yyyy-M-d hh:mi:ss
+
+    //获取日志yyyy-M-d hh:mi:ss
     public static getFormatTime2(timestamp): string {
-        var date = new Date(Number(timestamp)*1000);//10位*1000,13位不需要
+        var date = new Date(Number(timestamp) * 1000);//10位*1000,13位不需要
         var year = date.getFullYear(),
             month = date.getMonth() + 1,//月份是从0开始的
             day = date.getDate(),
@@ -399,5 +400,34 @@ class util {
 
     public static md5WithSalt(value: string) {
         return Laya.Browser.window.md5(value + config.prod.salt);
+    }
+
+    public static tokenExpire() {
+        let views:Array<Laya.View >= [];
+        for (var i = 0; i < Laya.stage._childs.length; i++) {
+            try {
+                views.push(Laya.stage._childs[i]);
+            } catch (error) {
+                console.log("error", error)
+            }
+        }
+        for (var i = 0; i < views.length; i++) {
+            try {
+                views[i].visible = false;
+                views[i].removeSelf();
+            } catch (error) {
+                console.log("error", error)
+            }
+        }
+        try {
+            let main = util.getMainView()
+            Laya.timer.clearAll(main);
+            main.comp?main.comp.removeSelf():"";
+        } catch (error) {
+            console.log("error", error)
+        }
+        util.delItem(config.prod.appUserKey);
+        new view.alert.info(config.msg.TOEKN_EXPIRE).popup();
+        new view.user.UserLogin().checkAutoLogin();
     }
 }   
