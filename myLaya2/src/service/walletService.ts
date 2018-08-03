@@ -62,11 +62,14 @@ module service {
                 let mnemonicWord = Laya.Browser.window.genSeed();
                 return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
                     ret => {
-                        return cb(wName, wPass, mnemonicWord, ret, args)
+                        cb(wName, wPass, mnemonicWord, ret, args)
+                    },error =>{
+                        cb(wName, wPass, mnemonicWord, {"retCode":3}, args)
                     }
                 );
             } catch (error) {
                 console.log("creatWallet error:", error)
+                cb("","","", {"retCode":3}, args)
             }
         }
 
@@ -104,6 +107,11 @@ module service {
                 new view.alert.Warn("删除钱包失败", "").popup();
                 console.log("deleteWallet", error);
             }
+        }
+
+        //
+        public static getKeyStore():string{
+            return Laya.Browser.window.serialize();
         }
 
         //import钱包
@@ -204,6 +212,20 @@ module service {
             return datas;
         }
 
+        //导入钱包：根据地址查询钱包是否存在
+        public static getWalletByAddr(addr:string):mod.walletMod{
+            let allWallets = service.walletServcie.getWallets();
+            if (allWallets) { //判断是否存在
+                    for (let i = 0; i < allWallets.length; i++) {
+                        let w = allWallets[i] as mod.walletMod;
+                        if (w.wAddr && w.wAddr == addr) { //一定要在初始化数据mod后再判断 0x
+                            return w;
+                        }
+                    }
+            }
+            return null;
+        }
+
         //管理钱包：获取所有钱包
         public static getWallets(): Array<mod.walletMod> {
             let walletNames = util.getItem(config.prod.getAppKey());
@@ -285,25 +307,16 @@ module service {
 
         //交易eth
         public static transfer(password, fromAddr, toAddr, value, gasPrice, gas, callback, args) {
-            let seed = mod.userMod.defWallet.wMemoryWords;
-            Laya.Browser.window.generateAddresses(seed, 1, password).then(
+            Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
                 ret => {
-                    Laya.Browser.window.sendEther(password, fromAddr, toAddr, value, gasPrice, gas).then(
-                        ret => {
-                            callback(ret, args)
-                        }, error => {
-                            console.log("交易失败:", error);
-                            callback(null, args)
-                        }
-                    ).catch(function (e) {
-                        callback(e, args)
-                    })
+                    callback(ret, args)
                 }, error => {
                     console.log("交易失败:", error);
-                    callback(null, args)
+                    callback(error, args)
                 }
-            )
-
+            ).catch(function (e) {
+                callback(e, args)
+            })
         }
 
         //发送token
@@ -314,22 +327,18 @@ module service {
             //     txhash : 'ox54a5sd1f5as1dfa5sd'
             // }
             // callback(ret,cbArgs);
-            let seed = mod.userMod.defWallet.wMemoryWords;
-            Laya.Browser.window.generateAddresses(seed, 1, pass).then(
-                ret => {
-                    if (!functionName) functionName = 'transfer';
-                    Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
-                        .then(ret => {
-                            callback(ret, cbArgs)
-                        }).catch(function (e) {
-                        callback(e, cbArgs);
-                    });
-                },
-                error => {
-                    console.log("交易失败:", error);
-                    callback(null, args)
+            if (!functionName) functionName = 'transfer';
+            Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
+                .then(ret => {
+                        callback(ret, cbArgs)
+                    }
+                    , error => {
+                        console.log("交易失败:", error);
+                        callback(error, args)
+                    }
+                ).catch(function (e) {
+                callback(e, cbArgs);
             });
-            
         }
 
         //获取eth余额

@@ -17,18 +17,18 @@ module view {
             this.comp.text_to.text = data.text_addr.text;
             this.comp.send_amout.text = data.text_amount.text;
             this.comp.coin_type.text = data.lab_coin_name.text.toUpperCase();
-            //初始化gasprice
+            //init gasprice
             let gasPrice = mod.userMod.gasPrice != 0 ? mod.userMod.gasPrice / 1e9 : 20
             this.comp.sli_gas.min = gasPrice;
             this.comp.sli_gas.max = gasPrice + 130;
             this.comp.sli_gas.value = gasPrice// gwei
-            //获取gasprice
+            //get new  gasprice
             let getGasPrice = {
                 url: config.prod.getGasPrice,
                 method: 'get',
                 token: mod.userMod.token,
                 data: {},
-                callbackArgs:[this.comp],
+                callbackArgs: [this.comp],
                 async: true,
                 success: function (ret, args) {
                     ret = JSON.parse(ret)
@@ -61,7 +61,6 @@ module view {
         private init() {
             this.comp = new ui.WalletSendSubmitUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
@@ -84,7 +83,6 @@ module view {
         private btnClick(type: number) {
             switch (type) {
                 case (1):
-                    //需要重新输入密码
                     let enterpass = new view.alert.EnterPass();
                     enterpass.setParentUI(this.comp);
                     enterpass.setCallBack(this.enterPassCb);
@@ -97,6 +95,7 @@ module view {
             }
         }
 
+        //多层嵌套
         private enterPassCb(pass: string, comp: ui.WalletSendSubmitUI) {
             let defaultW = mod.userMod.defWallet;
             let fromAdd = comp.text_from.text;
@@ -104,33 +103,30 @@ module view {
             let value = comp.send_amout.text;
             let gasPrice = comp.sli_gas.value;
 
-            let pom = new alert.waiting("正在处理交易");
+            let pom = new alert.waiting(config.msg.WAIT_OPERATOR);
             pom.popup();
-            let coins: Array<mod.coinItemMod> = service.walletServcie.getAllCoins();
-            for (let i = 0; i < coins.length; i++) {
-                let _coin = coins[i];
-                if (comp.coin_type.text == _coin.coinName) {
-                    if (_coin.abi) {//存在abi就转token
-                        //收款人地址，钱
-                        let sendArgs = [toAddr, Number(value) * 1e18];
-                        service.walletServcie.sendToken(pass, fromAdd, _coin.coinAddr, _coin.abi, null, sendArgs, 0, gasPrice * 1e9, config.prod.tokenGasLimit, function (ret, args) {
-                            let pom = args[1] as view.alert.waiting;
-                            pom.visible = false;
-                            pom.stop();
-                            if (ret && ret.retCode == 0) {
-                                new alert.Warn(config.msg.TX_OK, "").popup();
-                                let comp = args[0] as view.WalletSendSubmit;
-                                comp.removeSelf();
-                                util.showView([2]);
-                            } else {
-                                console.log("transfer submit error:", ret);
-                                new alert.Warn(config.msg.TX_ERROR, "").popup();
-                            }
-                        }, [comp, pom, this.parentUI]);
-                        return;
+            let _coin = service.walletServcie.getCoinInfo(comp.coin_type.text);
+            if (_coin.abi) {
+                let sendArgs = [toAddr, Number(value) * 1e18];
+                service.walletServcie.sendToken(pass, fromAdd, _coin.coinAddr, _coin.abi, null, sendArgs, 0, gasPrice * 1e9, config.prod.tokenGasLimit, function (ret, args) {
+                    let pom = args[1] as view.alert.waiting;
+                    pom.visible = false;
+                    pom.stop();
+                    if (ret && ret.retCode == 0) {
+                        new alert.Warn(config.msg.TX_OK, "").popup();
+                        let comp = args[0] as view.WalletSendSubmit;
+                        comp.removeSelf();
+                        util.showView([2]);
+                    } else if (ret && ret.retCode == 2) {
+                        new alert.Warn(config.msg.PASS_ERROR, "").popup();
+                    } else {
+                        console.log("transfer submit error:", ret);
+                        new alert.Warn(config.msg.TX_ERROR, config.msg.TX_ERROR_GAS).popup();
                     }
-                }
+                }, [comp, pom, this.parentUI]);
+                return;
             }
+
             //默认转账eth
             service.walletServcie.transfer(pass, fromAdd, toAddr, Number(value), gasPrice * 1e9, config.prod.gasLimit, function (ret, args: Array<any>) {
                 let pom = args[1] as view.alert.waiting;
@@ -141,26 +137,13 @@ module view {
                     let comp = args[0] as view.WalletSendSubmit;
                     comp.removeSelf();
                     util.showView([2]);
+                } else if (ret && ret.retCode == 2) {
+                    new alert.Warn(config.msg.PASS_ERROR, "").popup();
                 } else {
                     console.log("transfer submit error:", ret);
-                    new alert.Warn(config.msg.TX_ERROR, "").popup();
+                    new alert.Warn(config.msg.TX_ERROR, config.msg.TX_ERROR_GAS).popup();
                 }
-            }, [comp, pom, this.parentUI]);//this.parentUI 没有传过去
-        }
-
-        private transferCb(ret, args: Array<any>) {
-            let pom = args[1] as view.alert.waiting;
-            pom.stop();
-            if (ret && ret.retCode == 0) {
-                let comp = args[0] as View;
-                let comParent = args[2] as View;
-                comp.removeSelf();
-                comParent.visible = true;
-                //记录交易!!!
-            } else {
-                new alert.Warn("交易失败", "").popup();
-            }
-
+            }, [comp, pom, this.parentUI]);
         }
 
         //默认滑动选择范围是gwei
