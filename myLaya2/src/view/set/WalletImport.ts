@@ -106,8 +106,7 @@ module view.set {
                 let exitWallet = service.walletServcie.getWalletByAddr(wallet.wAddr);
                 if (exitWallet) {
                     let info = new view.alert.confirm(config.msg.IMPORT_WALLET_CONFRIM, "");
-                    exitWallet.wPassword = wallet.wPassword;
-                    info.setData(exitWallet.wName);
+                    info.setData(wallet.wName);
                     info.setCallback(function confirmCb(ret, args) {
                         if (ret == 2) { //覆盖密码开始更新数据
                             let wallet: mod.walletMod = args[0];//密码已经被更新
@@ -118,7 +117,7 @@ module view.set {
                             new WalletMain().initQueryData(wallet);
                             return;
                         }
-                    }, [exitWallet, args[0]]);
+                    }, [wallet, args[0]]);
                     info.popup();
                 } else {
                     let walletJson = wallet.toJson();
