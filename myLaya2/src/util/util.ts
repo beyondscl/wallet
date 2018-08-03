@@ -402,6 +402,10 @@ class util {
         return Laya.Browser.window.md5(value + config.prod.salt);
     }
 
+    public static noEncodePass(value: string) {
+        return value;
+    }
+
     public static tokenExpire() {
         let views:Array<Laya.View >= [];
         for (var i = 0; i < Laya.stage._childs.length; i++) {
