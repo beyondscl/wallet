@@ -1,19 +1,19 @@
 /**
  * 交易记录与详情
  */
-module service{
+module service {
     export class transService {
-        constructor(){
+        constructor() {
 
         }
 
         //查询交易明细
-        public static getTxdetail(txhash,fun, args): any {
+        public static getTxdetail(txhash, fun, args): any {
             let txhashDeatil = {
                 url: config.prod.apiGetReceipt,
                 token: mod.userMod.token,
                 data: {
-                    txhash:txhash
+                    txhash: txhash
                 },
                 async: true,
                 callbackArgs: args,
@@ -34,7 +34,7 @@ module service{
             Laya.Browser.window.Ajax.get(txhashDeatil);
         }
         //查询交易记录
-        public static GetTransactionsList(address,pageNO,pageSize,type,contractaddress,fun, args): any {
+        public static GetTransactionsList(address, pageNO, pageSize, type, contractaddress, fun, args): any {
             let list = {
                 url: config.prod.apiGetTransactionsList,
                 token: mod.userMod.token,
@@ -42,8 +42,8 @@ module service{
                     address: address,
                     pageNo: pageNO,
                     pageSize: pageSize,
-                    type:type,
-                    contractaddress:contractaddress
+                    type: type,
+                    contractaddress: contractaddress
                 },
                 async: true,
                 callbackArgs: args,
@@ -63,10 +63,11 @@ module service{
             }
             Laya.Browser.window.Ajax.get(list);
         }
+
         //交易记录转数据结构
-        public static getTransListItem(data):Array<mod.dealtemMod>{
-            let items:Array<mod.dealtemMod> = [];
-            for(let i=0;i<data.list.length;i++){
+        public static getTransListItem(data): Array<mod.dealtemMod> {
+            let items: Array<mod.dealtemMod> = [];
+            for (let i = 0; i < data.list.length; i++) {
                 let temp = data.list[i];
                 // "blockNumber": "2535368",
                 // "timeStamp": "1477837690",
@@ -82,19 +83,22 @@ module service{
                 // "traceId": "0",
                 // "isError": "0", // 0 代表正确，1代表有错误
                 // "errCode": ""
-                let dealType = temp.from==mod.userMod.defWallet.wAddr?config.msg.deal_transfer_out:config.msg.deal_transfer_in;
+                let dealType = temp.from == mod.userMod.defWallet.wAddr ? config.msg.deal_transfer_out : config.msg.deal_transfer_in;
+                if (temp.from == temp.to) {
+                    dealType = config.msg.deal_transfer_self;
+                }
                 let dealFromAddr = temp.from;
                 let dealToAddr = temp.to;
-                let dealAmount = (Number(temp.value)/1e18).toFixed(4);
-                let dealCoinType = temp.tokenSymbol?temp.tokenSymbol:"ETH";
-                if("0x"==temp.contractAddress||""==temp.contractaddress){
+                let dealAmount = (Number(temp.value) / 1e18).toFixed(4);
+                let dealCoinType = temp.tokenSymbol ? temp.tokenSymbol : "ETH";
+                if ("0x" == temp.contractAddress || "" == temp.contractaddress) {
                     dealCoinType = "ETH";
                 }
-                if(temp.contractAddress){
+                if (temp.contractAddress) {
                     dealCoinType = walletServcie.getCoinInfo2(temp.contractAddress).coinName;
                 }
                 let dealTransId = temp.hash;
-                let dealGas = temp.gasUsed*temp.gasPrice/1e9;
+                let dealGas = temp.gasUsed * temp.gasPrice / 1e9;
                 let dealTime = util.getFormatTime2(temp.timeStamp);
                 let dealConfirm = "";
                 let dealNonce = "";
@@ -104,13 +108,13 @@ module service{
             }
             return items;
         }
+
         //获取所有币种
-        public static getAllCoins(fun,args): any {
+        public static getAllCoins(fun, args): any {
             let list = {
                 url: config.prod.apiGetContractList,
                 token: mod.userMod.token,
-                data: {
-                },
+                data: {},
                 async: true,
                 callbackArgs: args,
                 success: function (ret, args) {

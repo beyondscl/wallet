@@ -20,22 +20,24 @@ module view {
 
         public setData(data: Array<mod.dealtemMod>, parent: any) {
             this.parentUI = parent;
-            this.loadData(this.page,this.pageSize);
-            
+            this.loadData(this.page, this.pageSize);
+
         }
-        private loadData(page,pageSize){
+
+        private loadData(page, pageSize) {
             let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
             wait.popup();
-            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr,this.page,this.pageSize,1,"",function(ret,args){
-                let v:view.TransHisList = args[0];
+            service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr, this.page, this.pageSize, 1, "", function (ret, args) {
+                let v: view.TransHisList = args[0];
                 ret = JSON.parse(ret);
-                if(ret.retCode==0&&ret.data){
+                if (ret.retCode == 0 && ret.data) {
                     v.setListUp(service.transService.getTransListItem(ret.data));
-                }else{
-                    new view.alert.info(ret.reason?ret.reason:config.msg.OPERATOR_ERROR).popup();
+                } else {
+                    new view.alert.info(ret.reason ? ret.reason : config.msg.OPERATOR_ERROR).popup();
+                    v.setListUp([]);
                 }
                 args[1].stop();
-            },[this,wait]);
+            }, [this, wait]);
         }
 
         private init() {
@@ -54,36 +56,38 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
-            for(let i=0;i<data.length;i++){
+            for (let i = 0; i < data.length; i++) {
                 this.originData.push(data[i]);
             }
-            if(this.originData.length==0){
+            if (this.originData.length == 0) {
                 this.comp.lab_nodata.visible = true;
                 this.comp.list.array = [];
-            }else{
+            } else {
                 this.comp.lab_nodata.visible = false;
             }
-            if(data.length!=0){
+            this.comp.list.vScrollBarSkin = "";
+            this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
+            this.comp.list.array = this.originData;
+            if (data.length != 0) {
                 this.comp.list.vScrollBarSkin = "";
                 this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
                 this.comp.list.array = this.originData;
                 this.scrollGate = true;
-                this.comp.list.scrollBar.on(Laya.Event.CHANGE,this,this.loadMore)
-                this.comp.list.scrollTo((this.page-1)*this.pageSize);
+                this.comp.list.scrollBar.on(Laya.Event.CHANGE, this, this.loadMore)
+                this.comp.list.scrollTo((this.page - 1) * this.pageSize);
             }
-
         }
-        private loadMore(){
-            if(this.scrollGate&&this.comp.list.scrollBar.max==this.comp.list.scrollBar.value){
+
+        private loadMore() {
+            if (this.scrollGate && this.comp.list.scrollBar.max == this.comp.list.scrollBar.value) {
                 this.scrollGate = false;
-                this.page+=1;
-                this.loadData(this.page,this.pageSize);
+                this.page += 1;
+                this.loadData(this.page, this.pageSize);
             }
         }
 
         private onListRender(cell: Box, index: number) {
             cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
-
             var data: mod.dealtemMod = this.comp.list.array[index];
 
             let cImg = cell.getChildByName('img') as Laya.Image;
@@ -93,13 +97,11 @@ module view {
             cName.text = data.getDealChName();
 
             let addr = cell.getChildByName('lab_addr') as Label;
-            let trans_type1 = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To';//from | to
-            addr.text = trans_type1 + ": " + util.getAddr(data.getDealAddr());
+            addr.text = data.getDealType() + ": " + util.getAddr(data.getDealAddr());
 
             let amount = cell.getChildByName('lab_amount') as Label;
-            let trans_type = data.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+' : '-';//+ | -
-            amount.text = trans_type + data.dealAmount + " " + data.dealCoinType;
-            amount.color = data.dealType.toUpperCase() == config.msg.deal_transfer_out ? 'red' : 'green';
+            amount.text = data.getDealSymbol() + data.dealAmount + " " + data.dealCoinType;
+            amount.color = data.getDealColor()
         }
 
         private onSelect(index: number): void {
