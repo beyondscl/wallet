@@ -24,7 +24,11 @@ module config {
         public static ERROR = "ERROR";
 
         public static WAIT_CREATE_WALLET: string = "正在创建钱包...";
+        public static CREATE_ERROR_TITLE: string = "创建钱包失败";
+        public static CREATE_ERROR_SUBTITLE: string = "抱歉，您可以与我们的客服进行反馈";
         public static WAIT_IMPORT_WALLET: string = "正在导入钱包...";
+        public static IMPORT_WALLET_ERROR: string = "导入钱包失败";
+        public static IMPORT_WALLET_CONFRIM: string = "钱包已存在是否重置密码?";
         public static WAIT_DELETE_WALLET: string = "正在删除钱包...";
         public static WAIT_LOGOUT: string = "正在退出...";
         public static WAIT_OPERATOR: string = "正在处理...";
@@ -59,6 +63,7 @@ module config {
         //tx
         public static TX_OK ="交易已发送请等待确认";
         public static TX_ERROR ="交易失败";
+        public static TX_ERROR_GAS ="建议您设置较大的矿工费用";
 
         public static TOEKN_EXPIRE ="您的账号已在其他地方登录";
     }
