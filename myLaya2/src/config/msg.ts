@@ -66,5 +66,9 @@ module config {
         public static TX_ERROR_GAS ="建议您设置较大的矿工费用";
 
         public static TOEKN_EXPIRE ="您的账号已在其他地方登录";
+
+        //操作类型
+        //删除钱包
+        public static OP_WAL_DELETE = 1;
     }
 }

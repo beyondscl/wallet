@@ -99,6 +99,7 @@ module view {
                 p.setParentUI(this);
                 p.setCallBack(this.deleteCb);
                 p.setWalName(this.comp.lab_wName.text);
+                p.setType(config.msg.OP_WAL_DELETE);
                 p.popup()
                 return;
             }

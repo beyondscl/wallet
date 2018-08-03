@@ -4,6 +4,7 @@ module view.alert {
         private parentUI: any;//很多地方需要验证
         private callBack: any;//点击确定的回调函数
         private wName: string;
+        private type: number;//删除，等
 
         constructor() {
             super();
@@ -30,6 +31,10 @@ module view.alert {
         //必须设置
         public setWalName(wName: string) {
             this.wName = wName;
+        }
+
+        public setType(type: number) {
+            this.type = type;
         }
 
         private init() {
@@ -63,6 +68,13 @@ module view.alert {
                     return;
                 } else {
                     this.warn.visible = false;
+                }
+                //用序列化验证钱包密码，本地不错任何存储,暂定
+                if (this.type) {
+                    if (this.type == config.msg.OP_WAL_DELETE && util.md5WithSalt(pass) != wallet.wPassword) {
+                        this.warn.visible = true;
+                        return;
+                    }
                 }
                 this.btn_submit.disabled = true;
                 this.callBack(pass, this.parentUI);
