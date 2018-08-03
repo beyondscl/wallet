@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
+    "selecteID":5,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":62,"var":"lab_save","valign":"middle","text":"保存","right":20,"height":44,"fontSize":32,"color":"#218d92","align":"center"},
+            "props":{"y":62,"var":"lab_save","valign":"middle","text":"保存","right":30,"height":44,"fontSize":32,"color":"#218d92","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_save)",
             "isDirectory":false,
@@ -57,12 +57,25 @@
             "props":{"y":200,"var":"lab_oldPass","type":"password","right":30,"prompt":"旧密码","maxChars":30,"left":30,"height":44,"fontSize":32},
             "nodeParent":1,
             "label":"TextInput(lab_oldPass)",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":7,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"height":1,"bottom":-5},
+                    "nodeParent":7,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":15,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -70,12 +83,24 @@
             "props":{"y":300,"var":"lab_newPass","type":"password","right":30,"prompt":"新密码","maxChars":30,"left":30,"height":44,"fontSize":32},
             "nodeParent":1,
             "label":"TextInput(lab_newPass)",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":8,
             "child":[
-                ]
+                {
+                    "type":"Image",
+                    "props":{"y":1038,"x":-30,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":1,"bottom":-5},
+                    "nodeParent":8,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -83,12 +108,25 @@
             "props":{"y":400,"var":"lab_confPass","type":"password","right":30,"prompt":"确认密码","maxChars":30,"left":30,"height":44,"fontSize":32},
             "nodeParent":1,
             "label":"TextInput(lab_confPass)",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":9,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":938,"x":-30,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":1,"bottom":-5},
+                    "nodeParent":9,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
