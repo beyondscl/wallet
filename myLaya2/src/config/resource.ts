@@ -4,6 +4,8 @@ module config {
         public static abc: string = "BackProgressBar";
         public static dealFromSrc: string = "img/main/transfer_in.png";//交易接收图片
         public static dealToSrc: string = "img/main/transfer_out.png";//交易发送图片
+        public static dealSelfSrc: string = "img/main/transfer_self.png";//自己交易
+        
         public static sperated = "img/main/itemSepar.png";//列表分割线
         public static walletImg = "img/main/wd@2x.png";//钱包默认
 
