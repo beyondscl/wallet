@@ -21,6 +21,7 @@ module view {
             this.comp.lab_wel.text = mod.userMod.userName;
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
+            // service.walletServcie.getNotice(this.NoticeCb, this);
         }
 
         private initEvent() {
@@ -32,6 +33,7 @@ module view {
             this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
             this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
             this.comp.btn_invid.on(Laya.Event.CLICK, this, this.tabSelect, [7]);
+            this.comp.btn_notice.on(Laya.Event.CLICK, this, this.tabSelect, [8]);
         }
 
         private initQueryData() {
@@ -88,6 +90,10 @@ module view {
                 this.comp.visible = false;
                 new view.user.UserInvite().setParetUI(this);
             }
+            if (index == 8) {
+                this.comp.visible = false;
+                new view.WalletNotice().setParentUI(this.comp);
+            }
         }
 
         //必须允许登出成功
@@ -100,5 +106,36 @@ module view {
             Laya.timer.clearAll(main);
             main.comp.removeSelf();
         }
+
+        // private NoticeCb (ret, v) {
+        //     // v.waiting.stop();
+        //     console.log(ret);
+        //     try {
+        //         // ret = JSON.parse(ret);
+        //         if (ret && ret.code == 0) {
+        //             // v.setList(ret.data);
+        //             let noticeHis = util.getItem('notice') || [];
+        //             console.log(ret.data);
+        //             console.log(noticeHis);
+        //             if (noticeHis.length ==0 && ret.data.length != 0) {
+        //                 this.comp.noticeIcon.visible = true;
+        //                 util.setItemJson('notice', ret.data);
+        //                 return
+        //             } else {
+        //                 for (var i = 0;i<ret.data.length;) {
+        //                     for (var j = 0;j<noticeHis.length;j++) {
+        //                         if (ret.data[i].noticeTitle != noticeHis[j].noticeHis) {
+        //                             this.comp.noticeIcon.visible = true;
+        //                             util.setItemJson('notice', ret.data);
+        //                             return
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     } catch (err) {
+        //         console.log("Notice request: " + err);
+        //     }
+        // }
     }
 }

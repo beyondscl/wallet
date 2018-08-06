@@ -45,6 +45,10 @@ module config {
         //与用户绑定
         private static originAppKey: string = "wwwallet";//用于存储标识用户是否已经有钱包
 
+        // 公告相关接口
+        public static apiNoticeList: string = prod.apiLocalHost + "/notice" // 获取公告列表
+        public static apiNoticeDetails: string = prod.apiLocalHost + "/notice" // 获取公告详情内容 接口地址没有 随写的
+
         constructor() {
         }
 

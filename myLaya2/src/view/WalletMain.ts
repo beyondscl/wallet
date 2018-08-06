@@ -6,9 +6,7 @@ module view {
     export class WalletMain extends ui.WalletMainUI {
         public comp: ui.WalletMainUI;
         private ethTotal: string = '0';//主要用于扫一扫回调
-
         private updateTime = 60*1000;//刷新数据
-
         //list 相关
         private data: Array<mod.walItemMod> = [];//可用于定时刷新
         private noRender: number = 1;//如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
@@ -193,7 +191,6 @@ module view {
                 pom.height = Laya.stage.height;
                 pom.top = 0;
                 pom.left = Laya.stage.width / 2;//right 不行
-
                 pom.setParentUI(this);
                 pom.initData(util.getItem(config.prod.getAppKey()));
                 pom.popup();

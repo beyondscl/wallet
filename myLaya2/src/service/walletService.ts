@@ -433,6 +433,44 @@ module service {
             return t;
         }
 
+        /**
+         * 获得公告列表
+         */
+        public static getNotice(fun, args): any {
+            // let getNotice = {
+            //     url: config.prod.apiNoticeList,
+            //     method: 'GET',
+            //     token: mod.userMod.token,
+            //     data: {},
+            //     callbackArgs: args,
+            //     async: true,
+            //     success: function (ret, args) {
+            //         fun(ret, args);
+            //     },
+            //     complete: function () {
+            //     },
+            //     error: function (ret, args) {
+            //         if ("object" == typeof ret)
+            //             ret = JSON.stringify(ret)
+            //         fun(ret, args)
+            //         console.log("request error:", ret, args);
+            //     }
+            // }
+            // Laya.Browser.window.Ajax.get(getNotice);
+            let ret = {
+                data:[],
+                code: 0
+            };
+            ret.data = [
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题1", noticeContent: "公告内容1"},
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题2", noticeContent: "公告内容2"},
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题3", noticeContent: "公告内容3"},
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题4", noticeContent: "公告内容4"},
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题5", noticeContent: "公告内容5"}
+                ]
+                return fun(ret, args);
+        }
+
         //web3 等外部操作--------------------------------end
     }
 }
