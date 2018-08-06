@@ -18,6 +18,7 @@ module config {
         public static apiGetReceipt: string = prod.apiLocalHost + "/api/getReceipt";//交易明细
         public static apiGetTransactionsList: string = prod.apiLocalHost + "/api/getTransactionsList";//分页历史记录
         public static apiGetContractList: string = prod.apiLocalHost + "/api/getContractList";//获取所有币种
+        public static apiPostLog: string = prod.apiLocalHost + "/sys/saveMobileLog";//日志接口
         
 
         //用户模块相关

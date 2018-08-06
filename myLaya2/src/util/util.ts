@@ -436,4 +436,9 @@ class util {
         new view.alert.Warn(config.msg.LOGIN_EXCEPTION,config.msg.TOEKN_EXPIRE).popup();
         new view.user.UserLogin().checkAutoLogin();
     }
+
+    //记录并推送日志
+    public static log(cName:string,method:string,params:Array<any>,exceptions:string){
+        service.sysLog.log(cName,method,params,exceptions);
+    }
 }   

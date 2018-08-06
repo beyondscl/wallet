@@ -4,6 +4,7 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletMain extends ui.WalletMainUI {
+        private static claName = "view.WalletMain";
         public comp: ui.WalletMainUI;
         private ethTotal: string = '0';//主要用于扫一扫回调
         private updateTime = 60*1000;//刷新数据
@@ -119,6 +120,7 @@ module view {
                     }
                 }
             } else {
+                util.log(WalletMain.claName,"getBalance",[mod.userMod.defWallet.wAddr],res);
                 console.error("getBalanceCb error:", res);
             }
         }

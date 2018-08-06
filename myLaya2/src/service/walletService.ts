@@ -3,6 +3,7 @@
  */
 module service {
     export class walletServcie {
+        private static claName = 'service.walletServcie';
         constructor() {
         }
 
@@ -64,10 +65,12 @@ module service {
                     ret => {
                         cb(wName, wPass, mnemonicWord, ret, args)
                     },error =>{
+                        util.log(this.claName,"creatWallet",[wName,'no_pass'],error);
                         cb(wName, wPass, mnemonicWord, {"retCode":3}, args)
                     }
                 );
             } catch (error) {
+                util.log(this.claName,"creatWallet",[wName,'no_pass'],error);
                 console.log("creatWallet error:", error)
                 cb("","","", {"retCode":3}, args)
             }
@@ -104,6 +107,7 @@ module service {
                 }
 
             } catch (error) {
+                util.log(this.claName,"deleteWallet",[wName],error);
                 new view.alert.Warn("删除钱包失败", "").popup();
                 console.log("deleteWallet", error);
             }
@@ -124,9 +128,12 @@ module service {
                 return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
                     ret => {
                         return cb(wName, wPass, mnemonicWord, ret, args)
+                    },error =>{
+                        util.log(this.claName,"importWallet",['no mnemonicWord',wName],error);
                     }
                 );
             } catch (error) {
+                util.log(this.claName,"importWallet",['no mnemonicWord',wName],error);
                 console.log("importWallet error:", error)
             }
         }
@@ -298,9 +305,7 @@ module service {
 
         //创建，切换钱包需要实例化全局对象用于交易
         public static initLigthWallet(wKeyStore: string) {
-            console.log("start initLigthWallet");
             Laya.Browser.window.deserialize(wKeyStore);
-            console.log("end initLigthWallet");
         }
 
         //交易eth
@@ -309,6 +314,7 @@ module service {
                 ret => {
                     callback(ret, args)
                 }, error => {
+                    util.log(this.claName,"sendToken",['no_pass', fromAddr, toAddr, value, gasPrice, gas],error);
                     console.log("交易失败:", error);
                     callback(error, args)
                 }
@@ -319,18 +325,13 @@ module service {
 
         //发送token
         public static sendToken(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas, callback, cbArgs) {
-            //测试成功返回
-            // let ret = {
-            //     retCode : 0,
-            //     txhash : 'ox54a5sd1f5as1dfa5sd'
-            // }
-            // callback(ret,cbArgs);
             if (!functionName) functionName = 'transfer';
-            Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
+            Laya.Browser.window.functionCall('no_pass', fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
                 .then(ret => {
                         callback(ret, cbArgs)
                     }
                     , error => {
+                        util.log(this.claName,"sendToken",[pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas],error);
                         console.log("交易失败:", error);
                         callback(error, cbArgs)
                     }
@@ -347,6 +348,7 @@ module service {
                 }
                 , error => {
                     console.log("获取余额 error:", error);
+                    util.log(this.claName,"getBalance",[addr],error);
                 }
             )
         }
@@ -359,6 +361,7 @@ module service {
                 }
                 , error => {
                     console.log("获取token余额 error:", error);
+                    util.log(this.claName,"getTokenBalance",[fromAddr, contractAddr, abi],error);
                 }
             )
         }
