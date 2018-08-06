@@ -105,6 +105,7 @@ module view.set {
                 wallet.init(wName, util.md5WithSalt(wPass), "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
                 let exitWallet = service.walletServcie.getWalletByAddr(wallet.wAddr);
                 if (exitWallet) {
+                    wallet.wName = exitWallet.wName;//!!!
                     let info = new view.alert.confirm(config.msg.IMPORT_WALLET_CONFRIM, "");
                     info.setData(wallet.wName);
                     info.setCallback(function confirmCb(ret, args) {
