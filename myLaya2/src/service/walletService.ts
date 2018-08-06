@@ -277,8 +277,6 @@ module service {
          * @param pass 新密码
          */
         public static resetPass(w: mod.walletMod, pass: string, callback, args) {
-            console.log(w.wKeyStore)
-            console.log(w.wPrivateKey)
             if (this.vilMemoryWork(w.wZjc)) {
                 Laya.Browser.window.generateAddresses(w.wZjc, 1, pass).then(
                     ret => {
@@ -334,7 +332,7 @@ module service {
                     }
                     , error => {
                         console.log("交易失败:", error);
-                        callback(error, args)
+                        callback(error, cbArgs)
                     }
                 ).catch(function (e) {
                 callback(e, cbArgs);
