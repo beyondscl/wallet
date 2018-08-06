@@ -51,7 +51,7 @@ module view.set {
                 new view.alert.info(config.msg.PASS_ERROR).popup();
                 return;
             }
-            if (util.noEncodePass(oldPass) != wal.wPassword) {
+            if (util.md5WithSalt(oldPass) != wal.wPassword) {
                 new view.alert.info(config.msg.PASS_ERROR).popup();
                 return;
             }
@@ -73,7 +73,7 @@ module view.set {
                 wait.stop();
                 if (ret && ret.retCode == 0) {
                     let newKeystore = Laya.Browser.window.serialize();
-                    wallet.wPassword = util.noEncodePass(pass);
+                    wallet.wPassword = util.md5WithSalt(pass);
                     wallet.wKeyStore = newKeystore;
                     util.setItemJson(wallet.wName, wallet.toJson());
                     if (wallet.wName == mod.userMod.defWallet.wName) {
