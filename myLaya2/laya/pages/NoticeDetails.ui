@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":5,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -66,7 +66,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":0,"x":0,"wordWrap":true,"width":585,"var":"content","text":"发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生胜多负少发射点发射点发射点发生发生发生点发射点发射点发生发生","name":"content","leading":30,"height":1031,"fontSize":28,"color":"#687076"},
+                    "props":{"y":0,"x":0,"wordWrap":true,"width":585,"var":"content","name":"content","leading":30,"height":934,"fontSize":28,"color":"#687076"},
                     "nodeParent":7,
                     "label":"Text(content)",
                     "isOpen":true,
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"width":187,"var":"time","text":"2018-7-18","right":54,"name":"time","height":41,"fontSize":28,"color":"#687076","bottom":102},
+                    "props":{"width":187,"var":"time","text":"2018-7-18","right":0,"name":"time","height":41,"fontSize":28,"color":"#687076","bottom":-10,"align":"right"},
                     "nodeParent":7,
                     "label":"Label(time)",
                     "isDirectory":false,

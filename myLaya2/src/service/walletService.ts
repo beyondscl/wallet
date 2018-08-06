@@ -432,8 +432,9 @@ module service {
             }
             return t;
         }
+        //web3 等外部操作--------------------------------end
 
-        /**
+         /**
          * 获得公告列表
          */
         public static getNotice(fun, args): any {
@@ -463,14 +464,13 @@ module service {
             };
             ret.data = [
                     {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题1", noticeContent: "公告内容1"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题2", noticeContent: "公告内容2"},
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题啊实打2", noticeContent: "公告内啊实打容2"},
                     {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题3", noticeContent: "公告内容3"},
                     {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题4", noticeContent: "公告内容4"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题5", noticeContent: "公告内容5"}
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题15", noticeContent: "公告内容5"},
+                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题56", noticeContent: "公告内容56"}
                 ]
                 return fun(ret, args);
         }
-
-        //web3 等外部操作--------------------------------end
     }
 }

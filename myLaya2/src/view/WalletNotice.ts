@@ -34,10 +34,16 @@ module view {
         }
 
         public setList(data: any): void{
-            this.comp.listNotice.array = data;
-            this.comp.listNotice.repeatY = data.length;
-            this.comp.listNotice.vScrollBarSkin = '';
-            this.comp.listNotice.renderHandler = new Laya.Handler(this, this.onListRender);
+            console.log(data.length);
+            if (data.length == 0) {
+                this.comp.listNotice.array = [];
+                this.comp.lab_nodata.visible = true;
+            } else {
+                this.comp.listNotice.array = data;
+                this.comp.listNotice.repeatY = data.length;
+                this.comp.listNotice.vScrollBarSkin = '';
+                this.comp.listNotice.renderHandler = new Laya.Handler(this, this.onListRender);
+            }
         }
 
         private onListRender(cell: Laya.Box,index: number){
