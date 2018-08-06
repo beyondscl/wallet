@@ -156,7 +156,7 @@ class util {
         return pwd;
     }
 
-    //获取日志yyyy-M-d hh:mi:ss
+    //获取时间yyyy-M-d hh:mi:ss
     public static getFormatTime(): string {
         var date = new Date();
         var year = date.getFullYear(),
@@ -173,9 +173,10 @@ class util {
             sec;
         return newTime;
     }
-        //获取日志yyyy-M-d hh:mi:ss
+
+    //获取时间yyyy-M-d hh:mi:ss
     public static getFormatTime2(timestamp): string {
-        var date = new Date(Number(timestamp)*1000);//10位*1000,13位不需要
+        var date = new Date(Number(timestamp) * 1000);//10位*1000,13位不需要
         var year = date.getFullYear(),
             month = date.getMonth() + 1,//月份是从0开始的
             day = date.getDate(),
@@ -399,5 +400,45 @@ class util {
 
     public static md5WithSalt(value: string) {
         return Laya.Browser.window.md5(value + config.prod.salt);
+    }
+
+    public static noEncodePass(value: string) {
+        return value;
+    }
+
+    //token过期
+    public static tokenExpire() {
+        try {
+            Dialog.manager.closeAll();
+            
+            let main = util.getMainView()
+            Laya.timer.clearAll(main);
+            main.comp?main.comp.removeSelf():"";
+        } catch (error) {
+            console.log("error", error)
+        }
+        let views:Array<Laya.View >= [];
+        for (var i = 0; i < Laya.stage._childs.length; i++) {
+            if(Laya.stage._childs[i].__className != "laya.ui.DialogManager"){
+                views.push(Laya.stage._childs[i]);           
+            }
+        }
+        for (var i = 0; i < views.length; i++) {
+            try {
+                views[i].visible = false;
+                Laya.timer.clearAll(view[i]);
+                views[i].removeSelf();
+            } catch (error) {
+                console.log("error", error)
+            }
+        }
+        util.delItem(config.prod.appUserKey);
+        new view.alert.Warn(config.msg.LOGIN_EXCEPTION,config.msg.TOEKN_EXPIRE).popup();
+        new view.user.UserLogin().checkAutoLogin();
+    }
+
+    //记录并推送日志
+    public static log(cName:string,method:string,params:Array<any>,exceptions:string){
+        service.sysLog.log(cName,method,params,exceptions);
     }
 }   

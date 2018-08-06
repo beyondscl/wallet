@@ -97,14 +97,20 @@ function sendEther(password, fromAddr, toAddr, valueEth, gasPrice, gas)
         global_keystore.passwordProvider = function(callback){
             callback(null, password);
         };
-        value = parseFloat(valueEth)*1.0e18;
-        web3.eth.sendTransaction({from: fromAddr, to: toAddr, value: value, gasPrice: gasPrice, gas: gas},
-            function (err, txhash) {
-                if(err){
-                    reject({"retCode":1, "error":err})
-                }else{
-                    resolve({"retCode":0, "txhash":txhash})
-                }
+        global_keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+            if(global_keystore.isDerivedKeyCorrect(pwDerivedKey)){
+                    value = parseFloat(valueEth)*1.0e18;
+                    web3.eth.sendTransaction({from: fromAddr, to: toAddr, value: value, gasPrice: gasPrice, gas: gas},
+                        function (err, txhash) {
+                            if(err){
+                                reject({"retCode":1, "error":err})
+                            }else{
+                                resolve({"retCode":0, "txhash":txhash})
+                            }
+                    })
+            }else{
+                reject({"retCode":2, "error":"Incorrect passwrod"})
+            }
         })
     })
 }
@@ -124,18 +130,24 @@ function functionCall(password, fromAddr, contractAddr, abi, functionName, args,
         global_keystore.passwordProvider = function(callback){
             callback(null, password);
         };
-        var contract = web3.eth.contract(abi).at(contractAddr);
-        var value = parseFloat(valueEth)*1.0e18;
-        args.push({from: fromAddr, value: value, gasPrice: gasPrice, gas: gas})
-        var callback = function(err, txhash) {
-            if(err){
-                reject({"retCode":1, "error":err})
+        global_keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+            if(global_keystore.isDerivedKeyCorrect(pwDerivedKey)){
+                    var contract = web3.eth.contract(abi).at(contractAddr);
+                    var value = parseFloat(valueEth)*1.0e18;
+                    args.push({from: fromAddr, value: value, gasPrice: gasPrice, gas: gas})
+                    var callback = function(err, txhash) {
+                        if(err){
+                            reject({"retCode":1, "error":err})
+                        }else{
+                            resolve({"retCode":0, "txhash":txhash})
+                        }
+                    }
+                    args.push(callback);
+                    contract[functionName].apply(this, args);
             }else{
-                resolve({"retCode":0, "txhash":txhash})
+                reject({"retCode":2, "error":"Incorrect passwrod"})
             }
-        }
-        args.push(callback);
-        contract[functionName].apply(this, args);
+        })
     })
 }
 

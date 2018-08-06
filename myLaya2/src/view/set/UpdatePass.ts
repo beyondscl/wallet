@@ -43,9 +43,9 @@ module view.set {
 
         private updatePass(oldPass: string, pass: string, passconfi: string) {
             let wal = service.walletServcie.getWallet(this.parentUI.lab_wName.text);
-            if(!wal.wZjc){
-                    new view.alert.info(config.msg.REVER_PASS_WARN).popup();
-                    return;
+            if (!wal.wZjc) {
+                new view.alert.info(config.msg.REVER_PASS_WARN).popup();
+                return;
             }
             if (oldPass.length < 8) {
                 new view.alert.info(config.msg.PASS_ERROR).popup();
@@ -65,27 +65,27 @@ module view.set {
             }
             let wait = new view.alert.waiting(config.msg.WAIT_OPERATOR);
             wait.popup();
-            service.walletServcie.resetPass(wal,pass,function(ret,args){
-                let wallet:mod.walletMod = args[0];
-                let pass:string = args[1];
-                let wait:view.alert.waiting = args[2];
-                let v:view.set.UpdatePass = args[3];
+            service.walletServcie.resetPass(wal, pass, function (ret, args) {
+                let wallet: mod.walletMod = args[0];
+                let pass: string = args[1];
+                let wait: view.alert.waiting = args[2];
+                let v: view.set.UpdatePass = args[3];
                 wait.stop();
                 if (ret && ret.retCode == 0) {
                     let newKeystore = Laya.Browser.window.serialize();
                     wallet.wPassword = util.md5WithSalt(pass);
                     wallet.wKeyStore = newKeystore;
                     util.setItemJson(wallet.wName, wallet.toJson());
-                    if (wallet.wName==mod.userMod.defWallet.wName) {
-                            mod.userMod.defWallet.wPassword = wallet.wPassword;
+                    if (wallet.wName == mod.userMod.defWallet.wName) {
+                        mod.userMod.defWallet.wPassword = wallet.wPassword;
                     }
                     new view.alert.info(config.msg.REVER_PASS_SUCCESS).popup();
                     v.comp.removeSelf();
                     v.parentUI.visible = true;
-                }else{
+                } else {
                     new view.alert.info(config.msg.REVER_PASS_ERROR).popup();
                 }
-            },[wal,pass,wait,this]);
+            }, [wal, pass, wait, this]);
         }
     }
 }

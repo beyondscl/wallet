@@ -21,6 +21,7 @@ module view {
             this.comp.lab_wel.text = mod.userMod.userName;
             Laya.stage.bgColor = 'white';
             Laya.stage.scaleMode = config.prod.appAdapterType;
+            service.walletServcie.getNotice(this.NoticeHisCb, this);
         }
 
         private initEvent() {
@@ -32,6 +33,7 @@ module view {
             this.comp.btn_lqtg.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
             this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
             this.comp.btn_invid.on(Laya.Event.CLICK, this, this.tabSelect, [7]);
+            this.comp.btn_notice.on(Laya.Event.CLICK, this, this.tabSelect, [8]);
         }
 
         private initQueryData() {
@@ -78,25 +80,58 @@ module view {
                 // candy.setData(service.walletServcie.getWallets());
             }
             if (index == 6) {
+                util.delItem(config.prod.appUserKey);
+
                 this.wait = new view.alert.waiting(config.msg.WAIT_LOGOUT);
                 this.wait.popup();
                 service.userServcie.userLogout(this.logoutCb, this);
             }
             if (index == 7) {
                 this.comp.visible = false;
-                new view.user.UseInvite().setParetUI(this);
+                new view.user.UserInvite().setParetUI(this);
+            }
+            if (index == 8) {
+                this.comp.visible = false;
+                new view.WalletNotice().setParentUI(this.comp);
             }
         }
 
+        //必须允许登出成功
         private logoutCb(ret, v: view.WalletMe) {
             v.wait.stop();
-            ret = JSON.parse(ret)
-            if (ret && ret.retCode == 0) {
-                util.delItem(config.prod.appUserKey);
-                v.comp.removeSelf();
-                new view.user.UserLogin().checkAutoLogin();
-            } else {
-                new view.alert.info(ret.reason).popup();
+            v.comp.removeSelf();
+            new view.user.UserLogin().checkAutoLogin();
+
+            let main = util.getMainView()
+            Laya.timer.clearAll(main);
+            main.comp.removeSelf();
+        }
+
+        private NoticeHisCb (ret, v: ui.WalletMeUI) {
+            // v.waiting.stop();
+            console.log(ret);
+            try {
+                if (ret && ret.code == 0) {
+                    let noticeHis = util.getItem('notice') || [];
+                    console.log(noticeHis);
+                    if (noticeHis.length ==0 && ret.data.length != 0) {
+                        v.noticeIcon.visible = true;
+                        util.setItemJson('notice', ret.data);
+                        return
+                    } else {
+                        for (var i = 0;i<ret.data.length;) {
+                            for (var j = 0;j<noticeHis.length;j++) {
+                                if (ret.data[i].noticeTitle != noticeHis[j].noticeTitle) {
+                                    v.noticeIcon.visible = true;
+                                    util.setItemJson('notice', ret.data);
+                                    return
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                console.log("Notice request: " + err);
             }
         }
     }

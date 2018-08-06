@@ -136,12 +136,12 @@
                     "compId":24,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":268,"visible":false,"var":"warn","valign":"middle","text":"密码不正确，请重新输入","right":30,"left":30,"height":30,"fontSize":20,"color":"#ff0400","align":"right"},
+                    "props":{"y":268,"visible":false,"var":"warn","valign":"middle","text":"请输入正确的密码","right":30,"left":30,"height":30,"fontSize":20,"color":"#ff0400","align":"right"},
                     "nodeParent":20,
                     "label":"Label(warn)",
                     "isDirectory":false,

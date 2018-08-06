@@ -34,19 +34,8 @@ module native {
         }
 
         public static appCalljs(data: any): string {
-
-            console.log("appcalljs return :", data);
-            console.log("data return :", data);
-            console.log("this.camaraCbArg :", this.camaraCbArg);
-
             try {
-                //这里需要优化与判断是返回的具体什么数据
                 this.camaraCb(data, this.camaraCbArg);
-                //1.识别别人的二维码，格式我们不能确定，全部数据显示为addr
-                //可以可能是json字符串可能是字符串等
-                //判断是否是我们的二维码
-                //1.主页切换到转账界面,默认ETH转账
-                //2.本身就在转账界面 addr=x&amount=x&type=x
             } catch (error) {
                 console.log("appCalljs", error)
             }

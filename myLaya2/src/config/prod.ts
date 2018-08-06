@@ -18,6 +18,7 @@ module config {
         public static apiGetReceipt: string = prod.apiLocalHost + "/api/getReceipt";//交易明细
         public static apiGetTransactionsList: string = prod.apiLocalHost + "/api/getTransactionsList";//分页历史记录
         public static apiGetContractList: string = prod.apiLocalHost + "/api/getContractList";//获取所有币种
+        public static apiPostLog: string = prod.apiLocalHost + "/sys/saveMobileLog";//日志接口
         
 
         //用户模块相关
@@ -44,6 +45,10 @@ module config {
         private static appDealKey: string = "wwwalletDeal";//存储用户交易记录,[定时拉取接收的数据]
         //与用户绑定
         private static originAppKey: string = "wwwallet";//用于存储标识用户是否已经有钱包
+
+        // 公告相关接口
+        public static apiNoticeList: string = prod.apiLocalHost + "/notice" // 获取公告列表
+        public static apiNoticeDetails: string = prod.apiLocalHost + "/notice" // 获取公告详情内容 接口地址没有 随写的
 
         constructor() {
         }

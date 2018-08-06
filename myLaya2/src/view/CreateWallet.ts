@@ -62,6 +62,8 @@ module view {
         //创建[切换]钱包在内存中设置默认钱包为当前钱包
         //args[0]:comp args[1]:loadingui
         private creatWalletCb(wName, wPass, mnemonicWord, ret, args: Array<any>) {
+            let dialog = args[1] as view.alert.waiting;
+            dialog.stop();
             if (ret && ret.retCode == 0) {
                 let keystore = Laya.Browser.window.serialize();
                 let wallet = new mod.walletMod();
@@ -77,12 +79,12 @@ module view {
                 }
                 let com = args[0] as View;
                 com.removeSelf();
-                let dialog = args[1] as view.alert.waiting;
-                dialog.stop();
                 new WalletMain().initQueryData(wallet);
                 return;
+            }else{
+                new view.alert.Warn(config.msg.CREATE_ERROR_TITLE,config.msg.CREATE_ERROR_SUBTITLE).popup();
             }
-            console.log("create wallet error!");
+            console.log("createWallet error!",ret);
         }
 
         private checkArgs(): boolean {

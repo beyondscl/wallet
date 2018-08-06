@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":62,
-    "selecteID":41,
+    "selectedBox":1,
+    "selecteID":61,
     "props":{"width":750,"var":"WALLET_TRANSFER","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_TRANSFER)",
@@ -153,7 +153,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":60,"x":100,"width":400,"var":"lab_addr","valign":"middle","text":"获取数据中","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"},
+                            "props":{"y":60,"x":100,"width":400,"var":"lab_addr","valign":"middle","text":"0x0000....0000","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"},
                             "nodeParent":62,
                             "label":"Label(lab_addr)",
                             "isDirectory":false,
