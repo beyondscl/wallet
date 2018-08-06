@@ -42,7 +42,7 @@ module config {
         public static INVITATION_ERROR: string = "请输入正确的邀请码";
         public static NEW_PASS_ERROR: string = "请输入不少于8位字符的密码";//注册于重置
 
-        public static SERVER_ERROR: string = "服务器开小差了，请重新登录";//注册于重置
+        public static SERVER_ERROR: string = "服务器开小差了，请重新登录";//
 
 
         public static SELECT_ERROR: string = "请选择钱包";
@@ -65,7 +65,8 @@ module config {
         public static TX_ERROR ="交易失败";
         public static TX_ERROR_GAS ="建议您设置较大的矿工费用";
 
-        public static TOEKN_EXPIRE ="您的账号已在其他地方登录";
+        public static LOGIN_EXCEPTION ="状态异常";
+        public static TOEKN_EXPIRE ="您的账号再其他地方登录,请重新登录";
 
         //操作类型
         //删除钱包
