@@ -57,10 +57,6 @@ module view {
             }, [this, wait]);
         }
 
-        public getTransList() {
-
-        }
-
         public refresh() {
             this.setData(this.refData, this.refCell);
         }
@@ -69,6 +65,7 @@ module view {
             this.comp = new ui.WalletTransferUI();
             this.name = config.resource.WALLET_TRANSFER;
             Laya.stage.addChild(this.comp);
+            this.comp.list.array = [];
         }
 
         private initEvent() {
