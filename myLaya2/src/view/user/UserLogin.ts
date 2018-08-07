@@ -47,15 +47,14 @@ module view.user {
         public login(uname, upass) {
             this.waiting = new view.alert.waiting("登录中...")
             this.waiting.popup();
-            //更新内存数据
             mod.userMod.userName = uname.trim();
             service.userServcie.userLogin(uname, upass, this.loginCb, this);
         }
 
         private init() {
             this.comp = new ui.user.UserLoginUI();
-            // this.comp.visible = false;
             Laya.stage.addChild(this.comp);
+            this.comp.inp_uname.focus = true;
         }
 
         private initEvent() {
@@ -69,7 +68,6 @@ module view.user {
             if (1 == index) {
                 let uname = this.comp.inp_uname.text;
                 let upass = this.comp.inp_upass.text;
-                //判断
                 if (this.check(uname, upass)) {
                     this.login(uname, upass);
                 }
@@ -106,10 +104,8 @@ module view.user {
             try {
                 ret = JSON.parse(ret)
                 if (ret && ret.retCode == 0) {
-                    //储存本地账户,注意上面已经赋值
                     mod.userMod.setUserJson(ret.data);
                     util.setItemJson(config.prod.appUserKey, mod.userMod.userToJson());
-                    //开始进入
                     v.comp.removeSelf();
                     Laya.Browser.window.enter();
                 } else {
@@ -121,7 +117,6 @@ module view.user {
                 v.comp.visible = true;
                 return;
             }
-
         }
     }
 }

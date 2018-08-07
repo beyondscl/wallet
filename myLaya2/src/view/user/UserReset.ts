@@ -38,6 +38,7 @@ module view.user {
         private init() {
             this.comp = new ui.user.UserResetUI();
             Laya.stage.addChild(this.comp);
+            this.comp.inp_phone.focus = true;
         }
 
         private initEvent() {
