@@ -326,7 +326,7 @@ module service {
         //发送token
         public static sendToken(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas, callback, cbArgs) {
             if (!functionName) functionName = 'transfer';
-            Laya.Browser.window.functionCall('no_pass', fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
+            Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
                 .then(ret => {
                         callback(ret, cbArgs)
                     }
@@ -466,12 +466,7 @@ module service {
                 code: 0
             };
             ret.data = [
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题1", noticeContent: "公告内容1"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题啊实打2", noticeContent: "公告内啊实打容2"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题3", noticeContent: "公告内容3"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题4", noticeContent: "公告内容4"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题15", noticeContent: "公告内容5"},
-                    {noticeTime:"2018-7-21 09:25:00", noticeTitle: "公告标题56", noticeContent: "公告内容56"}
+                    {noticeTime:"2018-8-6 09:25:00", noticeTitle: "公告", noticeContent: "欢迎使用万微钱包"}
                 ]
                 return fun(ret, args);
         }

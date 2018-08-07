@@ -12,8 +12,8 @@ module service {
                 token: mod.userMod.token,
                 data: {
                         user_id: mod.userMod.userId,
-                        class_name: cName.toUpperCase(),
-                        method: method.toUpperCase(),
+                        class_name: (cName||"").toUpperCase(),
+                        method: (method||"").toUpperCase(),
                         params: this.getParams(params.toString()),
                         exceptions: this.getException(exceptions)
                 },

@@ -6,11 +6,11 @@ module view {
     export class WalletMain extends ui.WalletMainUI {
         private static claName = "view.WalletMain";
         public comp: ui.WalletMainUI;
-        private ethTotal: string = '0';//主要用于扫一扫回调
+        private ethTotal: string = '0';//扫一扫回调
         private updateTime = 60*1000;//刷新数据
-        //list 相关
-        private data: Array<mod.walItemMod> = [];//可用于定时刷新
-        private noRender: number = 1;//如果为0表示选中节点box跳转到选择coins，竟然会重新渲染list节点，所以不应该查询数据
+
+        private data: Array<mod.walItemMod> = [];//定时刷新
+        private noRender: number = 1;//过滤刷新
         private hasRended: Array<string> = [];
 
         constructor() {
@@ -23,7 +23,6 @@ module view {
             this.data = [];
             this.hasRended = [];
             this.noRender = 1;
-
             for (let i: number = 0; i < coins.length; i++) {
                 let coinName = coins[i];
                 let walItemT = new mod.walItemMod();
@@ -33,17 +32,16 @@ module view {
             this.setListUp(this.data);
         }
 
-        //初始化当前钱包数据
+        //初始化
         public initQueryData(data: mod.walletMod) {
             util.setMainView(this);
             //数据复原
             this.comp.lab_total.text = '0';
-
-            //修改当前内存主要钱包
+            //修改内存
             mod.userMod.defWallet = data;
             this.comp.lab_wAddr.text = util.getAddr(data.wAddr);
             this.comp.lab_wName.text = data.wName;
-            //初始化全局实例，不然无法操作转账
+            //初始化全局实例
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
@@ -51,7 +49,6 @@ module view {
             Laya.timer.loop(this.updateTime,this,this.initQueryData,[data]);
         }
 
-        //set get
         public getEthTotal() {
             return this.ethTotal;
         }
@@ -59,10 +56,9 @@ module view {
         private initBalance(cName: string) {
             let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
             if(!coinMod){
-                //异步获取的
                 return;
             }
-            if (coinMod.abi&&coinMod.coinName!='ETH') {//查询token
+            if (coinMod.abi&&coinMod.coinName!='ETH') {//token
                 service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this, coinMod])
             } else {//eth
                 service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this, coinMod])
@@ -73,7 +69,7 @@ module view {
             this.comp = new ui.WalletMainUI();
             this.name = config.resource.WALLET_MAIN;
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
+            this.comp.list_wallet.array = [];
         }
 
         private initEvent() {
@@ -125,20 +121,14 @@ module view {
             }
         }
 
-        private queryCallBack() {
-
-        }
-
-        //init coin list
         private setListUp(data: Array<mod.walItemMod>): void {
             this.comp.list_wallet.array = data;
             this.comp.list_wallet.vScrollBarSkin = '';
             this.comp.list_wallet.repeatY = data.length;
             this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
-            // this.comp.list_wallet.selectHandler = new Handler(this, this.onSelect);
         }
 
-        //为什么会执行多次？？,回来就不行。
+        //laya底层会渲染多次
         private onListRender(cell: Box, index: number) {
             cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
 
@@ -178,9 +168,7 @@ module view {
                 this.comp.visible = false;
                 new view.WalletMe().setParentUI(this.comp);
             }
-            if (index == 0) {//点击自己或者 | 点击切换钱包才会刷新
-                // this.stage.removeChild(this.comp);
-                // new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            if (index == 0) {
             }
             if (index == 2) {
                 this.comp.visible = false;
@@ -203,10 +191,6 @@ module view {
                 coinUI.setParentUI(this);
                 coinUI.setData(service.walletServcie.getAllCoinsByWal(this.comp.lab_wName.text));
             }
-        }
-
-        private coinGobackCB(coins: Array<string>, wMain: view.WalletMain) {
-            wMain.setData(coins)
         }
     }
 }

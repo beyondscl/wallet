@@ -19,9 +19,11 @@ module view {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_wel.text = mod.userMod.userName;
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
-            service.walletServcie.getNotice(this.NoticeHisCb, this);
+            try {
+                service.walletServcie.getNotice(this.NoticeHisCb, this);    
+            } catch (error) {
+                
+            }
         }
 
         private initEvent() {
@@ -119,7 +121,7 @@ module view {
                         util.setItemJson('notice', ret.data);
                         return
                     } else {
-                        for (var i = 0;i<ret.data.length;) {
+                        for (var i = 0;i<ret.data.length;i++) {
                             for (var j = 0;j<noticeHis.length;j++) {
                                 if (ret.data[i].noticeTitle != noticeHis[j].noticeTitle) {
                                     v.noticeIcon.visible = true;
