@@ -19,3 +19,4 @@ myLaya2/src/**/*.map
 .max.js/
 index.html/
 myLaya2/.idea/
+myLaya2/bin/3rd/main_config.js
