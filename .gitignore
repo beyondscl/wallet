@@ -1,6 +1,7 @@
 .idea/inspectionProfiles/
 myLaya2/.laya/chrome/
 myLaya2/.laya/publish_window.json
+myLaya2/bin/index.html
 myLaya2/bin/img/
 myLaya2/bin/js/
 myLaya2/bin/res
