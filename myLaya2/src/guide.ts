@@ -99,7 +99,7 @@ let gui = util.getItem(config.prod.appGuide)
 let app = util.getItem(config.prod.getAppKey())
 
 function loadProcess() {
-    new config.init.initData('');
+    config.init.initData('');
     beginLoad();
 }
 
