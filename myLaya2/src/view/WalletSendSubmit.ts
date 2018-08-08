@@ -4,7 +4,7 @@ module view {
 
     export class WalletSendSubmit extends ui.WalletSendSubmitUI {
         private comp: ui.WalletSendSubmitUI;
-        private parentUI: ui.WalletSendUI;
+        private parentUI: view.WalletSend
 
         constructor() {
             super();
@@ -12,7 +12,8 @@ module view {
             this.initEvent();
         }
 
-        public setData(data: ui.WalletSendUI) {
+        public setData(p: view.WalletSend) {
+            let data = p.comp;
             this.comp.text_from.text = mod.userMod.defWallet.wAddr;
             this.comp.text_to.text = data.text_addr.text;
             this.comp.send_amout.text = data.text_amount.text;
@@ -50,10 +51,9 @@ module view {
                 }
             }
             Laya.Browser.window.Ajax.get(getGasPrice);
-
         }
 
-        public setParenUI(parent: ui.WalletSendUI) {
+        public setParenUI(parent: view.WalletSend) {
             this.parentUI = parent;
             this.setData(parent);
         }
@@ -61,7 +61,7 @@ module view {
         private init() {
             this.comp = new ui.WalletSendSubmitUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.scaleMode = config.prod.appAdapterType;
+            native.native.setCurrView(this , 2);
         }
 
         private initEvent() {
@@ -77,7 +77,7 @@ module view {
             } else {
                 new view.WalletSend();
             }
-
+            native.native.setCurrView(this.parentUI , 2);
         }
 
         private btnClick(type: number) {

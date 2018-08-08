@@ -30,7 +30,7 @@ module view {
 
         private importWallet() {
             this.comp.visible = false;
-            new view.set.WalletImport().setParetUI(this.comp);
+            new view.set.WalletImport().setParetUI(this);
         }
     }
 }

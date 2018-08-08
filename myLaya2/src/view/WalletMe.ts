@@ -19,6 +19,7 @@ module view {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_wel.text = mod.userMod.userName;
+            native.native.setCurrView(this,1);
             try {
                 service.walletServcie.getNotice(this.NoticeHisCb, this);    
             } catch (error) {
@@ -50,7 +51,7 @@ module view {
             if (index == 1) {
                 // new view.WalletMe();
             }
-            if (index == 0) {//稍微优化了一下。
+            if (index == 0) {
                 this.stage.removeChild(this.comp);
                 if (this.parenUI) {
                     this.parenUI.visible = true;
@@ -61,17 +62,17 @@ module view {
             if (index == 2) {
                 this.comp.visible = false;
                 let datas = service.walletServcie.getDealList();
-                new view.TransHisList().setData(datas, this.comp);
+                new view.TransHisList().setData(datas, this);
             }
             if (index == 3) {
                 this.comp.visible = false;
                 let wm = new view.WalletManage()
-                wm.setParentUI(this.comp);
+                wm.setParentUI(this);
                 wm.setData(service.walletServcie.getWallets());
             }
             if (index == 4) {
                 this.comp.visible = false;
-                new view.info.about().setParetUI(this.comp);
+                new view.info.about().setParetUI(this);
             }
             if (index == 5) {
                 new view.alert.info(config.msg.CANDY_NO).popup();
@@ -94,7 +95,7 @@ module view {
             }
             if (index == 8) {
                 this.comp.visible = false;
-                new view.WalletNotice().setParentUI(this.comp);
+                new view.WalletNotice().setParentUI(this);
             }
         }
 

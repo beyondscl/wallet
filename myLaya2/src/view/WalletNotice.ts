@@ -1,7 +1,7 @@
 module view {
     export class WalletNotice extends ui.WalletNoticeUI {
         public comp: ui.WalletNoticeUI;
-        private parentUI: ui.WalletMeUI
+        private parentUI: view.WalletMe
         private waiting: view.alert.waiting
         private data: any = []
 
@@ -12,11 +12,12 @@ module view {
             this.initEvent();
         }
 
-        public setParentUI(v: ui.WalletMeUI){
+        public setParentUI(v: view.WalletMe){
             this.parentUI = v
         }
 
         public init () {
+            native.native.setCurrView(this,2);
             this.comp = new ui.WalletNoticeUI();
             this.stage.addChild(this.comp);
             this.waiting = new view.alert.waiting("查询中...");
@@ -30,11 +31,11 @@ module view {
 
         private goBack() {
             this.comp.visible = false;
-            this.parentUI.visible = true;
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,1);
         }
 
         public setList(data: any): void{
-            console.log(data.length);
             if (data.length == 0) {
                 this.comp.listNotice.array = [];
                 this.comp.lab_nodata.visible = true;

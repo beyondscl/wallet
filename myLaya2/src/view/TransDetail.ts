@@ -4,7 +4,7 @@ module view {
 
     export class TransDetail extends ui.TransDetailUI {
         private comp: ui.TransDetailUI;
-        private parentUI: ui.WalletTransferUI;
+        private parentUI: view.WalletTransfer
 
         constructor() {
             super();
@@ -55,8 +55,7 @@ module view {
         private init() {
             this.comp = new ui.TransDetailUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
+            native.native.setCurrView(this, 2);
         }
 
         private initEvent() {
@@ -67,7 +66,8 @@ module view {
 
         private goBack() {
             this.comp.removeSelf();
-            this.parentUI.visible = true;
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI, 2);
         }
 
         private moreinfo() {

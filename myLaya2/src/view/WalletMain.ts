@@ -4,7 +4,7 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletMain extends ui.WalletMainUI {
-        private static claName = "view.WalletMain";
+        public static claName = "view.WalletMain";
         public comp: ui.WalletMainUI;
         private ethTotal: string = '0';//扫一扫回调
         private updateTime = 60 * 1000;//刷新数据
@@ -76,6 +76,7 @@ module view {
             this.name = config.resource.WALLET_MAIN;
             Laya.stage.addChild(this.comp);
             this.comp.list_wallet.array = [];
+            native.native.setCurrView(this,1);
         }
 
         private initEvent() {

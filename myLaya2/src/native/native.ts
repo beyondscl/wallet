@@ -3,6 +3,13 @@ module native {
         private static camaraCb: any;
         private static camaraCbArg: any;
 
+        private static view;
+        private static viewOrder;
+        public static setCurrView(view:any,order:number){
+            this.view = view;
+            this.viewOrder = order;
+        }
+
         public static startCamara(fun: any, args) {
             this.camaraCbArg = args;
             this.camaraCb = fun;
@@ -33,13 +40,38 @@ module native {
             this.jsCallapp(json);
         }
 
-        public static appCalljs(data: any): string {
+        /**
+         * type = 1 :复制，不需要回调
+         * type = 2 :相机回调
+         * type = 3 :回退键回调
+         * @param data 返回的数据
+         * @return 3 : 再次询问回退返回
+         */
+        public static appCalljs(data: any): number {
+            console.log(data);
             try {
-                this.camaraCb(data, this.camaraCbArg);
+                let ret = JSON.parse(data);
+                if(ret.type==2){
+                    this.camaraCb(ret.data, this.camaraCbArg);
+                }
+                /**
+                 * 每个页面必须调用setCurrView方法
+                 * 1.一级页面必须提供viewOrder==1
+                 * 2.非一级页面必须并提供goBack方法
+                 */
+                if(ret.type==3){
+                    if(this.viewOrder==1){
+                        return 3;
+                    }else if(this.view){
+                        this.view.goBack();
+                    }else{
+                        console.log("回退键没有响应事件",this.view,this.viewOrder);
+                    }
+                }
             } catch (error) {
                 console.log("appCalljs", error)
             }
-            return "OK";
+            return 0;
         }
 
         private static jsCallapp(json: any) {

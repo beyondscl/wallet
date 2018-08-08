@@ -36,6 +36,14 @@ class guide {
         }
     }
 
+    private goBack(){
+        if(this.parentUI){
+            native.native.setCurrView(this,2)
+        }else{
+            native.native.setCurrView(this,1)
+        }
+    }
+
     //functions
     private touchEvent(next: number) {
         next = next <= 0 ? 0 : next;

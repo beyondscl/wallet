@@ -1,9 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view {
-
-
     export class WalletSend extends ui.WalletSendUI {
-        private comp: ui.WalletSendUI;
+        public comp: ui.WalletSendUI;
         private total: number = 0;
         private parentUI: any;
 
@@ -29,28 +27,26 @@ module view {
         private init() {
             this.comp = new ui.WalletSendUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
+            native.native.setCurrView(this, 2);
         }
 
         private initEvent() {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
             this.comp.btn_next.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_sys.on(Laya.Event.CLICK, this, this.btnClick, [2]);
-
         }
 
         //1来自主页
         //2来自转账页面
         // 设置总金额
-
         private goBack() {
-            Laya.stage.removeChild(this.comp);
-            if (this.parentUI && this.parentUI.comp) {
-                this.parentUI.comp.visible = true;
-            } else {
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            if(this.parentUI.claName&&this.parentUI.claName=="view.WalletMain"){
+                native.native.setCurrView(this.parentUI , 1);
+            }else{
+                native.native.setCurrView(this.parentUI , 2);
             }
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
         }
 
         private btnClick(type: number) {
@@ -59,7 +55,7 @@ module view {
                     if (this.checkArg()) {
                         this.comp.visible = false;
                         let sub = new view.WalletSendSubmit();
-                        sub.setParenUI(this.comp);
+                        sub.setParenUI(this);
                         util.putView(this);
                     }
                     break;

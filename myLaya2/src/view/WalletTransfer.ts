@@ -66,6 +66,7 @@ module view {
             this.name = config.resource.WALLET_TRANSFER;
             Laya.stage.addChild(this.comp);
             this.comp.list.array = [];
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -76,8 +77,9 @@ module view {
 
         private goBack() {
             util.clearView();
-            Laya.stage.removeChild(this.comp);
+            this.comp.removeSelf();
             this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI, 1);
         }
 
         private btnClick(type: number) {
@@ -143,7 +145,7 @@ module view {
 
         private onSelect(index: number): void {
             this.comp.visible = false;
-            new view.TransDetail().initData(this.comp.list.array[index], this.comp);
+            new view.TransDetail().initData(this.comp.list.array[index], this);
         }
     }
 }

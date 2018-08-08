@@ -3,6 +3,7 @@ module view {
     import Browser = Laya.Browser;
 
     export class CreateWallet extends ui.WalletCreateUI {
+        public claName = "view.CreateWallet";
         private comp: ui.WalletCreateUI;
         private parentUI: any;
 
@@ -199,7 +200,7 @@ module view {
 
         private importWallet() {
             this.comp.visible = false;
-            new view.set.WalletImport().setParetUI(this.comp);
+            new view.set.WalletImport().setParetUI(this);
         }
 
         private webViewHref(): void {

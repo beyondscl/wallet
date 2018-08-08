@@ -52,6 +52,7 @@ module view.user {
         }
 
         private init() {
+            native.native.setCurrView(this,2);
             this.comp = new ui.user.UseInviteUI();
             Laya.stage.addChild(this.comp);
 
@@ -103,13 +104,17 @@ module view.user {
             this.comp.box_wal.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_copy.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [3]);
+        }
 
+        private goBack(){
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,1);
         }
 
         private btnClick(index: number) {
             if (3 == index) {
-                this.comp.removeSelf();
-                this.parentUI.comp.visible = true;
+                this.goBack();
             }
             if (2 == index) {
                 util.getCopyValue(mod.userMod.code, function (a) {

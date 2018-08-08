@@ -4,7 +4,7 @@ module view {
 
     export class TransHisList extends ui.TransHisListUI {
         private comp: ui.TransHisListUI;
-        private parentUI;
+        private parentUI:view.WalletMe;
 
         private page = 1;
         private pageSize = 10;
@@ -18,10 +18,9 @@ module view {
             this.initEvent();
         }
 
-        public setData(data: Array<mod.dealtemMod>, parent: any) {
+        public setData(data: Array<mod.dealtemMod>, parent: view.WalletMe) {
             this.parentUI = parent;
             this.loadData(this.page, this.pageSize);
-
         }
 
         private loadData(page, pageSize) {
@@ -44,6 +43,7 @@ module view {
             this.comp = new ui.TransHisListUI();
             Laya.stage.addChild(this.comp);
             this.comp.list.array = [];
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -52,7 +52,8 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI.visible = true;
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,1);
         }
 
         //init deal history list
@@ -107,7 +108,7 @@ module view {
 
         private onSelect(index: number): void {
             this.comp.visible = false;
-            new view.TransDetail().initData(this.comp.list.array[index], this.comp);
+            new view.TransDetail().initData(this.comp.list.array[index], this);
         }
     }
 }

@@ -16,6 +16,7 @@ module view {
         public init(){
             this.comp = new ui.NoticeDetailsUI;
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this, 2);
         }
 
         public initEvent(){
@@ -32,6 +33,7 @@ module view {
         private goBack(){
             this.comp.removeSelf();
             this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI, 2);
         }
     }
 }

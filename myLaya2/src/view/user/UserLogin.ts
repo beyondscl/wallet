@@ -55,13 +55,13 @@ module view.user {
             this.comp = new ui.user.UserLoginUI();
             Laya.stage.addChild(this.comp);
             this.comp.inp_uname.focus = true;
+            native.native.setCurrView(this,1);
         }
 
         private initEvent() {
             this.comp.btn_login.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.btn_regist.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.lab_reset.on(Laya.Event.CLICK, this, this.btnClick, [3]);
-
         }
 
         private btnClick(index: number) {

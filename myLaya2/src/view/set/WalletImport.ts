@@ -2,7 +2,7 @@
 module view.set {
     export class WalletImport extends ui.set.WalletImportUI {
         private comp: ui.set.WalletImportUI;
-        private parentUI: any;
+        private parentUI;
 
         constructor() {
             super();
@@ -20,7 +20,7 @@ module view.set {
         private init() {
             this.comp = new ui.set.WalletImportUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -35,11 +35,18 @@ module view.set {
         private onSelect(index: number): void {
             this.comp.stack.selectedIndex = index;
         }
-
+        private goBack(){
+            if(this.parentUI.claName){
+                native.native.setCurrView(this.parentUI,2);
+            }else{
+                native.native.setCurrView(this.parentUI,1);
+            }
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+        }
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                this.parentUI.visible = true;
+                this.goBack();
             }
             if (3 == index) {//助记词导入
                 let zjc = this.comp.o_text_zjc.text;

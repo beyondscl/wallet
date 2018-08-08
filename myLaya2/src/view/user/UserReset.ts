@@ -39,6 +39,12 @@ module view.user {
             this.comp = new ui.user.UserResetUI();
             Laya.stage.addChild(this.comp);
             this.comp.inp_phone.focus = true;
+            native.native.setCurrView(this,2);
+        }
+        private goBack(){
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,1);
         }
 
         private initEvent() {
