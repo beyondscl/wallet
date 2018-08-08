@@ -175,6 +175,8 @@ module service {
                 for (let j = 0; j < selectedCoins.length; j++) {
                     if (c.coinName == selectedCoins[j]) {
                         c.coinSelected = true;
+                    }else{
+                        c.coinSelected = false;
                     }
                 }
             }
