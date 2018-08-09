@@ -144,18 +144,24 @@ module view {
         }
 
         //默认滑动选择范围是gwei
+        // 非eth的计算可以自己修改
         private sliChange(value: number) {
             let lab_max_gas = value * 1e9 / 1e18 * config.prod.gasLimit;//矿工费用eth
-            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd).toFixed(2);//矿工费用 usd
-
-            let lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
-            var lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd).toFixed(2);//总量usd
-
-            this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type.text;
+            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd*mod.userMod.usdToRmb).toFixed(2);//矿工费用 rmb
+            this.comp.lab_max_gas.text = lab_max_gas.toFixed(4) + " ETH";
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
-            this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type.text;
-            if (!util.isContain(config.prod.expCoins, this.comp.coin_type.text)) {
+
+            if ("ETH"==this.comp.coin_type.text) {
+                let lab_max_total = 0;
+                lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
+                this.comp.lab_max_total.text = lab_max_total.toFixed(4) + " ETH";
+                let lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd*mod.userMod.usdToRmb).toFixed(2);//总量rmb
                 this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
+            }else{
+                let lab_max_total = 0;
+                lab_max_total = Number(this.comp.send_amout.text);//总量eth
+                this.comp.lab_max_total.text = lab_max_total.toFixed(4) + " "+this.comp.coin_type.text + " "+Number(lab_max_gas).toFixed(4)+" ETH";//总量币+eth
+                this.comp.lab_max_total_usd.text = "- ¥";
             }
         }
     }
