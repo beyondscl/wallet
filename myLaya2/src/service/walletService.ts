@@ -172,11 +172,13 @@ module service {
             let allCoins = this.getAllCoins();
             for (let i = 0; i < allCoins.length; i++) {
                 let c: mod.coinItemMod = allCoins[i];
+                c.coinSelected = false;
+            }
+            for (let i = 0; i < allCoins.length; i++) {
+                let c: mod.coinItemMod = allCoins[i];
                 for (let j = 0; j < selectedCoins.length; j++) {
                     if (c.coinName == selectedCoins[j]) {
                         c.coinSelected = true;
-                    }else{
-                        c.coinSelected = false;
                     }
                 }
             }
