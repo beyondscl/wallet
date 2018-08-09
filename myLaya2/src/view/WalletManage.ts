@@ -51,7 +51,7 @@ module view {
             }
             if (2 == index) {
                 this.comp.visible = false;
-                new view.CreateWallet().setParentUI(this.comp);
+                new view.CreateWallet().setParentUI(this);
             }
             if (3 == index) {
                 this.comp.visible = false;

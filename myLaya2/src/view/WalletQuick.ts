@@ -1,9 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view {
-
-
+    
     export class WalletQuick extends ui.WalletQuickUI {
-        //最好不要再界面创建list，可能导致第一个item无法获取点击事件
         private listData;
         private parentUI: view.WalletMain;
 
@@ -70,7 +68,7 @@ module view {
             this.close();
         }
 
-        //跳转到转账界面,是否针对特殊的二维码识别 比如imtoken,trust
+        //二维码识别
         private startCamaraCb(resp, args) {
             let wait = new view.alert.waiting(config.msg.WAIT_OPERATOR);
             wait.popup();

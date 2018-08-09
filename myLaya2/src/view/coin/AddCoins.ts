@@ -35,13 +35,8 @@ module view.coin {
 
         private goBack() {
             this.comp.removeSelf();
-            if (this.parentView) {
-                this.updateSelectItem();
-                this.parentView.comp.visible = true;
-            } else {
-                this.parentView.comp.removeSelf();
-                new view.WalletMain().initQueryData(mod.userMod.defWallet)
-            }
+            this.updateSelectItem();
+            this.parentView.comp.visible = true;
             native.native.setCurrView(this.parentView, 1);
         }
 
@@ -52,7 +47,6 @@ module view.coin {
                 case 1:
                     break;
                 case 2:
-
                     break;
                 default:
                     break;
@@ -97,6 +91,5 @@ module view.coin {
             }
             return coins;
         }
-
     }
 }

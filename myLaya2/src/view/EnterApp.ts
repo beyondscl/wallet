@@ -3,8 +3,8 @@ module view {
     import CreateWallet = view.CreateWallet;
 
     export class EnterApp extends ui.EnterAppUI {
-        //properties
         private comp: ui.EnterAppUI;
+        private claName = "view.EnterApp";
 
         constructor() {
             super();
@@ -15,7 +15,7 @@ module view {
         private init() {
             this.comp = new ui.EnterAppUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
+            native.native.setCurrView(this,1)
         }
 
         private initEvent() {
@@ -24,8 +24,8 @@ module view {
         }
 
         private createWallet() {
-            this.comp.removeSelf();
-            new CreateWallet();
+            this.comp.visible = false;
+            new CreateWallet().setParentUI(this);
         }
 
         private importWallet() {

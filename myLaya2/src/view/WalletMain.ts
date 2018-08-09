@@ -135,7 +135,6 @@ module view {
             this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
         }
 
-        //laya底层会渲染多次
         private onListRender(cell: Box, index: number) {
             cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
 
@@ -161,7 +160,11 @@ module view {
         private tabSelect(index: number): void {
             if (index == 1) {
                 this.comp.visible = false;
-                new view.WalletMe().setParentUI(this.comp);
+                if(util.getMeView()){
+                    util.getMeView().comp.visible = true;
+                }else{
+                    new view.WalletMe().setParentUI(this);
+                }
             }
             if (index == 0) {
             }

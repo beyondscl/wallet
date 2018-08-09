@@ -23,11 +23,7 @@ module view {
             native.native.setCurrView(this,2);
             this.comp = new ui.WalletNoticeUI();
             this.stage.addChild(this.comp);
-            try {
-                service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);
-            } catch (error) {
-                
-            }
+            service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);
         }
 
         private initEvent () {

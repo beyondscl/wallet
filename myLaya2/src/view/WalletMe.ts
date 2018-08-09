@@ -1,8 +1,9 @@
 /**Created by the LayaAirIDE*/
 module view {
     export class WalletMe extends ui.WalletMeUI {
+        public claName = 'view.WalletMe';
         public comp: ui.WalletMeUI;
-        private parenUI: ui.WalletMainUI
+        private parenUI: view.WalletMain;
         private wait: view.alert.waiting;
 
         private pageNo = 1;
@@ -14,19 +15,17 @@ module view {
             this.initEvent();
         }
 
-        public setParentUI(main: ui.WalletMainUI) {
+        public setParentUI(main: view.WalletMain) {
             this.parenUI = main;
         }
+
         private init() {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_wel.text = mod.userMod.userName;
             native.native.setCurrView(this,1);
-            try {
-                service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);    
-            } catch (error) {
-                
-            }
+            service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);
+            util.setMeView(this);
         }
 
         private initEvent() {
@@ -54,12 +53,8 @@ module view {
                 // new view.WalletMe();
             }
             if (index == 0) {
-                this.stage.removeChild(this.comp);
-                if (this.parenUI) {
-                    this.parenUI.visible = true;
-                } else {
-                    new view.WalletMain().initQueryData(mod.userMod.defWallet);
-                }
+                this.comp.visible = false;
+                this.parenUI.comp.visible = true;
             }
             if (index == 2) {
                 this.comp.visible = false;
@@ -81,12 +76,11 @@ module view {
                 return;
                 // this.comp.visible = false;
                 // let candy = new view.info.Candy();
-                // candy.setParetUI(this.comp);
+                // candy.setParetUI(this);
                 // candy.setData(service.walletServcie.getWallets());
             }
             if (index == 6) {
                 util.delItem(config.prod.appUserKey);
-
                 this.wait = new view.alert.waiting(config.msg.WAIT_LOGOUT);
                 this.wait.popup();
                 service.userServcie.userLogout(this.logoutCb, this);
@@ -97,9 +91,7 @@ module view {
             }
             if (index == 8) {
                 this.comp.visible = false;
-                let walletNotice = new view.WalletNotice();
-                walletNotice.setParentUI(this);
-                // walletNotice.setList(this.noticeData);
+                new view.WalletNotice().setParentUI(this);
             }
         }
 
@@ -107,11 +99,16 @@ module view {
         private logoutCb(ret, v: view.WalletMe) {
             v.wait.stop();
             v.comp.removeSelf();
-            new view.user.UserLogin().checkAutoLogin();
+            let userLogin = new view.user.UserLogin();
+            userLogin.checkAutoLogin();
+            native.native.setCurrView(userLogin,1);
 
             let main = util.getMainView()
             Laya.timer.clearAll(main);
             main.comp.removeSelf();
+
+            util.setMainView(null);
+            util.setMeView(null);
         }
 
         private NoticeHisCb (ret, v: view.WalletMe) {

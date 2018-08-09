@@ -2,7 +2,7 @@
 module view.backup {
     export class BackUpConf extends ui.backup.BackUpConfUI {
         private comp: ui.backup.BackUpConfUI;
-        private parentUI: View;
+        private parentUI: any;
         private rightKey: Array<string>;
 
         private key: Array<string>;
@@ -55,10 +55,14 @@ module view.backup {
             this.comp.btn_conf.on(Laya.Event.CLICK, this, this.btnClick, [2, null]);
         }
 
+        private goBack(){
+            this.comp.removeSelf();            
+            util.showView([1]);
+        }
+
         private btnClick(index: number, v: Label) {
             if (1 == index) {
-                this.comp.removeSelf();
-                util.compShow([]);
+                this.goBack();
                 return;
             }
             if (2 == index) {
@@ -72,9 +76,23 @@ module view.backup {
                 let conf = new view.alert.confirm("备份成功", "你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？");
                 conf.setData(this.walletName);
                 conf.popup();
-                // this.comp.removeSelf();//不删除
-                this.parentUI.visible = false;
-                util.putCompStack(this.comp);
+                this.parentUI.comp.visible = false;
+                conf.setCallback(function(retType,args){
+                    if(retType==1){//取消
+                        util.showView([1]);
+                    }
+                    if(retType==2){//确定
+                        if (mod.userMod.defWallet.wName == this.wName) {
+                            mod.userMod.defWallet.wZjc = '';
+                        }
+                        let wallet: mod.walletMod = service.walletServcie.getWallet(this.wName);
+                        wallet.wZjc = '';
+                        util.setItemJson(this.wName, wallet.toJson());
+                        // util.compShow([1]);
+                        util.showView([1]);
+                    }
+                },[]);
+                util.putView(this)
                 return;
             }
             if (3 == index) {

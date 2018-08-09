@@ -24,6 +24,7 @@ class guide {
         this.guideUI.on(Laya.Event.CLICK, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
         this.guideUI.img_enter.on(Laya.Event.CLICK, this, this.go);
+        native.native.setCurrView(this,1)
     }
 
     private go() {

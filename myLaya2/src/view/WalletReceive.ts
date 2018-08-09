@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view {
     export class WalletReceive extends ui.WalletReceiveUI {
+        private claName = "view.WalletReceive";
         private comp: ui.WalletReceiveUI;
         private parentUI: any;
 
@@ -58,13 +59,6 @@ module view {
                 case (2):
                     if (util.isNumber(this.comp.text_amount.text)) {
                         this.comp.warn_amount.visible = false;
-                        // let val = {
-                        //     "address": mod.userMod.defWallet.wAddr,
-                        //     "amount": Number(this.comp.text_amount.text),
-                        //     "token": "ETH",
-                        //     "vender": "WWEC",
-                        //     "type": 2
-                        // };
                         util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, mod.userMod.defWallet.wAddr, this, this.getImgSrc);
                     } else {
                         this.comp.warn_amount.visible = true;

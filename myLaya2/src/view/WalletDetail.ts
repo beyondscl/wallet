@@ -23,6 +23,11 @@ module view {
             }
         }
 
+        public refresh(){
+            this.data = service.walletServcie.getWallet(this.data.wName)
+            this.setData(this.data);
+        }
+
         public setParetUI(parentUI: view.WalletManage) {
             this.parentUI = parentUI;
         }
@@ -57,8 +62,9 @@ module view {
         private btnClick(index: number) {
             if (1 == index) {
                 service.walletServcie.walletUpdateName(this.data.wName, this.comp.text_wName.text);
-                this.stage.removeChild(this.comp);
                 this.parentUI.setData(service.walletServcie.getWallets());
+                util.getMainView().initQueryData(mod.userMod.defWallet);
+                this.goBack();
                 return;
             }
             if (2 == index) {
@@ -85,7 +91,7 @@ module view {
             }
             if (5 == index) {
                 let p = new alert.EnterPass()
-                p.setParentUI(this.comp);
+                p.setParentUI(this);
                 p.setCallBack(this.enterPassCb);
                 p.setWalName(this.comp.lab_wName.text);
                 p.popup()
@@ -102,13 +108,13 @@ module view {
             }
         }
 
-        private enterPassCb(pass, comp: ui.WalletDetailUI) {
-            comp.visible = false;
+        private enterPassCb(pass, v: view.WalletDetail) {
+            v.comp.visible = false;
             let backupw = new view.WalletBackUp();
-            backupw.setData(comp.lab_wName.text);
-            backupw.setParetUI(comp);
-            util.compClear();
-            util.putCompStack(comp);
+            backupw.setData(v.comp.lab_wName.text);
+            backupw.setParetUI(v);
+            util.clearView();
+            util.putView(v);
         }
 
         //这里的comp需要重新传值回来

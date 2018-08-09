@@ -3,7 +3,8 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletSendSubmit extends ui.WalletSendSubmitUI {
-        private comp: ui.WalletSendSubmitUI;
+        public claName = "view.WalletSendSubmit";
+        public comp: ui.WalletSendSubmitUI;
         private parentUI: view.WalletSend
 
         constructor() {
@@ -72,11 +73,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            if (this.parentUI) {
-                this.parentUI.visible = true;
-            } else {
-                new view.WalletSend();
-            }
+            this.parentUI.comp.visible = true;
             native.native.setCurrView(this.parentUI , 2);
         }
 
@@ -95,7 +92,7 @@ module view {
             }
         }
 
-        //多层嵌套
+        //多层回调嵌套
         private enterPassCb(pass: string, comp: ui.WalletSendSubmitUI) {
             let defaultW = mod.userMod.defWallet;
             let fromAdd = comp.text_from.text;

@@ -1,14 +1,13 @@
 class util {
-    //用于钱包钱包备份相关
-    //提供一个数组存储comp删除，第一个显示，其余的删除,在你不明白的时候不要使用该相关函数
-    private static _compStack = [];
-    //所有的页面，view非comp，为了不影响之前的代码
+    /**
+     *这里模拟了tab存储view
+     *logout需要赋值null
+     */
     private static _viewStack = [];
-    // main view 这个变量很重要
     private static _mainView: view.WalletMain;
+    private static _meView: view.WalletMe;
 
     constructor() {
-
     }
 
     public static setMainView(v: view.WalletMain) {
@@ -17,6 +16,13 @@ class util {
 
     public static getMainView(): view.WalletMain {
         return this._mainView;
+    }
+    public static setMeView(v: view.WalletMe) {
+        this._meView = v;
+    }
+
+    public static getMeView(): view.WalletMe {
+        return this._meView;
     }
 
     public static getAddr(addr: string): string {
@@ -38,7 +44,6 @@ class util {
     }
 
     //设置storage，输入json
-
     //设置storage，输入jsonString
     public static setItemNoJson(itemName, data) {
         laya.net.LocalStorage.setItem(itemName, data);
@@ -109,7 +114,6 @@ class util {
     }
 
     //ui util
-
     public static getScreenWidth() {
         if (Laya.stage) {
             return Laya.stage.width
@@ -192,8 +196,6 @@ class util {
         return newTime;
     }
 
-    //---------------------------------------------
-
     //验证手机号码
     public static vilPhoneNumber(phone: string): boolean {
         var reg = /^[1][3,4,5,7,8][0-9]{9}$/;//简单验证，可以更新
@@ -203,51 +205,6 @@ class util {
         return false;
     }
 
-    //compstack
-    //---------------------------------------------
-    public static putCompStack(comp: View) {
-        this._compStack[this._compStack.length] = comp;
-    }
-
-    //请和上面的配置使用，谨慎使用
-    //args[type] type1 =1 
-    public static compShow(args) {
-        for (let i = 1; i < this._compStack.length; i++) {
-            if (this._compStack[i]) {
-                let comp: View = this._compStack[i];
-                comp.removeSelf();
-            }
-
-        }
-        if (this._compStack[0]) {
-            let comp: View = this._compStack[0];
-            let type = args[0];
-            if (type && 1 == type) {//1:备份助记词
-                let comp: view.WalletDetail = this._compStack[0];
-                comp.visible = true;
-                comp.btn_backup.visible = false;
-            } else {
-                let comp: View = this._compStack[0];
-                comp.visible = true;
-            }
-        }
-        this._compStack = [];
-    }
-
-    public static compClear() {
-        this._compStack = [];
-    }
-
-    //删除所有已经存入的comp
-    public static compDeleteAll() {
-        for (let i = 0; i < this._viewStack.length; i++) {
-            let t = this._viewStack[i] as View;
-            t.removeSelf();
-        }
-        this._compStack = [];
-    }
-
-    //---------------------------------------------
     //_viewStack
     public static clearView() {
         this._viewStack = [];
@@ -285,21 +242,22 @@ class util {
         if (this._viewStack[0]) {
             let t: View = this._viewStack[0];
             let type = args[0];
-            if (type && 2 == type && t) {//转账成功
+            if (type && 2 == type && t) { //转账成功
                 let v: view.WalletTransfer = this._viewStack[0];
                 v.comp.visible = true;
                 v.refresh();
-            } else if (type && 3 == type && t) {//删除钱包成功
+            } else if (type && 3 == type && t) { //删除钱包成功
                 let v: view.WalletManage = this._viewStack[0];
                 v.setData(service.walletServcie.getWallets());
                 v.comp.visible = true;
+            }else if(type && 1 == type && t){ //删除助记词
+                let v: view.WalletDetail = this._viewStack[0];
+                v.comp.visible = true;
+                v.refresh();
             }
         }
         this._viewStack = [];
     }
-
-    //---------------------------------------------
-
 
     //判断一个数组中是否包含一个元素
     public static isContain(array: Array<any>, item): boolean {

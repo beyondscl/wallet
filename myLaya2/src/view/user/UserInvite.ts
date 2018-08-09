@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.user {
     export class UserInvite extends ui.user.UseInviteUI {
+        private claName = "view.user.UserInvite";
         public comp: ui.user.UseInviteUI;
         private parentUI: any;
 
@@ -77,15 +78,6 @@ module view.user {
                 let url = config.prod.downLoadUrl + "?code=" + mod.userMod.code;
                 util.createEwm(this.comp.img_ewm.width, this.comp.img_ewm.height, url, this, this.getImgSrc);
                 this.comp.box_wal.visible = true;
-                // }else if(wallets&&wallets.length==1){//只有一个默认选择
-                //     let wal = mod.userMod.defWallet;//必定是当前钱包
-                //     let name = wal.wName;
-                //     let addr = wal.wAddr;
-                //     this.comp.lab_addr.text = util.getAddr(addr);
-                //     this.comp.lab_wname.text = name;
-                //     let url = config.prod.downLoadUrl + "?code="+mod.userMod.code;
-                //     util.createEwm(this.comp.img_ewm.width, this.comp.img_ewm.height, url, this, this.getImgSrc);
-                //     this.comp.box_wal.visible = true;
             } else {//未设置
                 this.comp.lab_selectw.visible = true;
                 util.createEwm(this.comp.img_ewm.width, this.comp.img_ewm.height, config.prod.downLoadUrl, this, this.getImgSrc);
@@ -109,7 +101,11 @@ module view.user {
         private goBack(){
             this.comp.removeSelf();
             this.parentUI.comp.visible = true;
-            native.native.setCurrView(this.parentUI,1);
+            if(this.parentUI.claName=="view.WalletReceive"){
+                native.native.setCurrView(this.parentUI,2);
+            }else{
+                native.native.setCurrView(this.parentUI,1);
+            }
         }
 
         private btnClick(index: number) {

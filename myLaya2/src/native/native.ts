@@ -56,8 +56,8 @@ module native {
                 }
                 /**
                  * 每个页面必须调用setCurrView方法
-                 * 1.一级页面必须提供viewOrder==1
-                 * 2.非一级页面必须并提供goBack方法
+                 * 1.一级页面必须提供viewOrder==1,可以不提供goback方法
+                 * 2.非一级页面必须并提供goBack方法，并提供view (view = this)
                  */
                 if(ret.type==3){
                     if(this.viewOrder==1){

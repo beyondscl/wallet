@@ -56,6 +56,7 @@ module view {
             this.comp.year.text = this.yearNow;
             this.comp.month.text = this.monthNow;
             this.loadData(this.page, this.pageSize);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -94,7 +95,8 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI.comp.visible = true;
+            this.parentUI.visible = true;
+            native.native.setCurrView(this.parentUI,1);
         }
 
         //init deal history list

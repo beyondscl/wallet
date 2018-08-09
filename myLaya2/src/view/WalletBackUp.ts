@@ -2,7 +2,7 @@
 module view {
     export class WalletBackUp extends ui.WalletBackUpUI {
         private comp: ui.WalletBackUpUI;
-        private parentUI: View;
+        private parentUI: any;
         private walletName: string;
 
         constructor() {
@@ -30,17 +30,20 @@ module view {
             this.comp.info_backup.on(Laya.Event.CLICK, this, this.btnClick[3]);
         }
 
+        private goBack(){
+            this.comp.removeSelf();            
+            util.showView([1]);
+        }
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                util.compShow([]);
+                this.goBack();
             }
             if (2 == index) {
                 this.comp.visible = false;
                 let backUp = new view.backup.BackUpZjc();
                 backUp.setData(this.walletName);
-                backUp.setParetUI(this.comp);
-                util.putCompStack(this.comp);
+                backUp.setParetUI(this);
+                util.putView(this);
             }
         }
     }

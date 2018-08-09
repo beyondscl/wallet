@@ -2,7 +2,7 @@
 module view.info {
     export class Candy extends ui.info.CandyUI {
         private comp: ui.info.CandyUI;
-        private parentUI: View;
+        private parentUI: view.WalletMe;
         private _timeInter = config.prod.smsTimeInterval
         private waiting: view.alert.waiting;
 
@@ -21,7 +21,7 @@ module view.info {
             this.comp.list_wallet.selectHandler = new Laya.Handler(this, this.onSelect);
         }
 
-        public setParetUI(parentUI: any) {
+        public setParetUI(parentUI: view.WalletMe) {
             this.parentUI = parentUI;
         }
 
@@ -42,6 +42,7 @@ module view.info {
             this.comp = new ui.info.CandyUI();
             Laya.stage.addChild(this.comp);
             this.comp.text_phone.text = mod.userMod.userName;
+            native.native.setCurrView(this,2)
         }
 
         private initEvent() {
@@ -60,11 +61,15 @@ module view.info {
             wAddr.text = util.getAddr(data.wAddr);
             let radio = cell.getChildByName('radio') as Laya.Radio;
         }
+        private goBack(){
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,1)
+        }
 
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                this.parentUI.visible = true;
+                this.goBack();
                 return;
             }
             if (2 == index) {//发送获取糖果请求

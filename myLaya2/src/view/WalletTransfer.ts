@@ -2,6 +2,7 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletTransfer extends ui.WalletTransferUI {
+        public claName = "view.WalletTransfer";
         public comp: ui.WalletTransferUI;
         private parentUI: view.WalletMain;
         private total: number = 0;
@@ -14,7 +15,7 @@ module view {
 
         private page = 1;
         private pageSize = 10;
-        
+
          /**
          *  copy
          */
@@ -34,7 +35,6 @@ module view {
             this.parentUI = parentUI;
         }
 
-        //传入的coin
         public setData(data: mod.walItemMod, cell: Box) {
             this.refData = data;
             this.refCell = cell;
@@ -44,7 +44,6 @@ module view {
             let cTotal = cell.getChildByName('cTotal') as Label;
             this.total = Number(cTotal.text);
             this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
-            // this.setListUp(service.walletServcie.getDealListByWName(data.itemName));
             this.loadData(this.page, this.pageSize);
 
         }
@@ -115,7 +114,7 @@ module view {
             } else {
                 if (NumMonth == 12) {
                     NumYear += 1;
-                    NumMonth = 1; 
+                    NumMonth = 1;
                 } else {
                     NumMonth +=1;
                 }
@@ -152,7 +151,6 @@ module view {
             }
         }
 
-        //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
             for (let i = 0; i < data.length; i++) {
                 this.originData.push(data[i]);
@@ -201,7 +199,6 @@ module view {
 
         private loadMore() {
             if (this.scrollGate && this.comp.list.scrollBar.max == this.comp.list.scrollBar.value) {
-                
                 this.scrollGate = false;
                 this.page += 1;
                 this.loadData(this.page, this.pageSize);
@@ -259,18 +256,18 @@ module view {
                 }
             }
             var timeData = [];
-            let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳 
+            let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳
             let TimeEnd = new Date(year + "-" + (Number(month) + 1) + "-" + "1").valueOf(); // 取下个月第一天的时间戳
             for (var i = 0; i < dataRest.length;i++) { // 返回符合日期的数据
                 if (dataRest[i].dealTime) {
                     var dealTime = new Date(dataRest[i].dealTime).valueOf();
                     if (dealTime > TimeStart && dealTime < TimeEnd) {
                         timeData.push(dataRest[i]);
-                    }   
+                    }
                 } else {
                     timeData.push(dataRest[i]);
                 }
-                
+
             }
             for (var i = 0; i<timeData.length;) {
                 if (typeof timeData[i] == 'string' && typeof timeData[i + 1] == 'string') {
@@ -286,10 +283,11 @@ module view {
             if (typeof timeData[timeData.length - 1] == 'string') {
                 timeData.splice(timeData.length - 1, 1); // 去除最后一个日期标题
             }
-            return timeData; 
+            return timeData;
         }
 
         private onListRender(cell: Box, index: number) {
+            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
             var data: mod.dealtemMod = this.comp.list.array[index];
 
             if (typeof this.comp.list.array[index] == 'string'){
