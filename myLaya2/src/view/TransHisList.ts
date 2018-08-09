@@ -95,7 +95,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI.visible = true;
+            this.parentUI.comp.visible = true;
             native.native.setCurrView(this.parentUI,1);
         }
 
