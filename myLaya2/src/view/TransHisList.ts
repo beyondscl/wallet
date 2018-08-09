@@ -4,13 +4,16 @@ module view {
 
     export class TransHisList extends ui.TransHisListUI {
         private comp: ui.TransHisListUI;
-        private parentUI:view.WalletMe;
-
+        private parentUI;
         private page = 1;
         private pageSize = 10;
-
         private originData: Array<mod.dealtemMod> = [];
         private scrollGate = false;
+        private times = [];
+        private yearNow: string = new Date().getFullYear().toString();
+        private monthNow: string = (new Date().getMonth() + 1).toString();
+        private OneDayTime: number = 86400000;
+        private realData = [];
 
         constructor() {
             super();
@@ -18,9 +21,10 @@ module view {
             this.initEvent();
         }
 
-        public setData(data: Array<mod.dealtemMod>, parent: view.WalletMe) {
+        public setData(data: Array<mod.dealtemMod>, parent: any) {
             this.parentUI = parent;
-            this.loadData(this.page, this.pageSize);
+            // this.loadData(this.page, this.pageSize);
+
         }
 
         private loadData(page, pageSize) {
@@ -29,10 +33,16 @@ module view {
             service.transService.GetTransactionsList(mod.userMod.defWallet.wAddr, page, pageSize, 1, "", function (ret, args) {
                 let v: view.TransHisList = args[0];
                 ret = JSON.parse(ret);
-                if (ret.retCode == 0 && ret.data) {
-                    v.setListUp(service.transService.getTransListItem(ret.data));
+                if (ret.retCode == 0 && ret.data.list.length != 0) {
+                    // if (v.yearNow != new Date().getFullYear().toString() || v.monthNow != Number(new Date().getMonth() + 1).toString()) {
+                    //     v.realData = [];
+                    //     v.originData = [];
+                    // }
+                    v.realData = v.realData.concat(v.getNewData(service.transService.getTransListItem(ret.data),v.yearNow, v.monthNow));
+                    v.setListUp(v.realData);
                 } else {
                     new view.alert.info(ret.reason ? ret.reason : config.msg.OPERATOR_ERROR).popup();
+                    // v.originData = [];
                     v.setListUp([]);
                 }
                 args[1].stop();
@@ -43,17 +53,48 @@ module view {
             this.comp = new ui.TransHisListUI();
             Laya.stage.addChild(this.comp);
             this.comp.list.array = [];
-            native.native.setCurrView(this,2);
+            this.comp.year.text = this.yearNow;
+            this.comp.month.text = this.monthNow;
+            this.loadData(this.page, this.pageSize);
         }
 
         private initEvent() {
             this.comp.btn_goback.on(Laya.Event.CLICK, this, this.goBack);
+            this.comp.pre_btn.on(Laya.Event.CLICK, this, this.changeMonth, [0]);
+            this.comp.aft_btn.on(Laya.Event.CLICK, this, this.changeMonth, [1]);
+        }
+
+        private changeMonth(index: number){
+            let NumYear = Number(this.yearNow);
+            let NumMonth = Number(this.monthNow);
+            if (0 == index) {
+                if (NumMonth == 1) {
+                    NumYear -= 1;
+                    NumMonth = 12;
+                } else {
+                    NumMonth -=1;
+                }
+            } else {
+                if (NumMonth == 12) {
+                    NumYear += 1;
+                    NumMonth = 1; 
+                } else {
+                    NumMonth +=1;
+                }
+            }
+                this.page = 1
+                this.comp.year.text = NumYear.toString();
+                this.comp.month.text = NumMonth.toString();
+                this.yearNow = NumYear.toString();
+                this.monthNow = NumMonth.toString();
+                this.originData = [];
+                this.realData = [];
+                this.loadData(this.page, this.pageSize);
         }
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
             this.parentUI.comp.visible = true;
-            native.native.setCurrView(this.parentUI,1);
         }
 
         //init deal history list
@@ -87,23 +128,120 @@ module view {
                 this.loadData(this.page, this.pageSize);
             }
         }
-
+        private getNewData(data:Array<any>, year: string, month: string) {
+            var dataAll = data;
+            for (var i = 0;i<dataAll.length;i++) {
+                this.times[i] = {
+                    list: [],
+                    timeNumMax: 0,
+                    timeNumMin: 0
+                };
+                let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
+                let NoTime = new Date(new Date().toLocaleDateString()).getTime(); // 当天的零点时间戳
+                console.log(Math.abs(DeTime - NoTime) - this.OneDayTime)
+                if ((DeTime - NoTime) > 0){
+                     this.times[i].list[0] = "今天";
+                     this.times[i].timeNumMax = 0 * this.OneDayTime;
+                     this.times[i].timeNumMin = (-1) * this.OneDayTime;
+                } else if ((NoTime - DeTime) <  this.OneDayTime) {
+                     this.times[i].list[0] = "昨天";
+                     this.times[i].timeNumMax = this.OneDayTime;
+                     this.times[i].timeNumMin = 0;
+                } else if ((NoTime - DeTime) >  this.OneDayTime && (NoTime - DeTime) < 2 * this.OneDayTime) {
+                        this.times[i].list[0] = "前天";
+                        this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
+                        this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;;
+                    } else {
+                        this.times[i].list[0] = dataAll[i].dealTime.split(' ')[0];
+                        this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
+                        this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;
+                    }
+                    for (var j = 0; j < this.times.length;j++) {
+                        if ((NoTime - DeTime) <= Number(this.times[j].timeNumMax) && (NoTime - DeTime) >= Number(this.times[j].timeNumMin)) {
+                            this.times[j].list.push(dataAll[i])
+                        }
+                    }
+                }
+            /**
+             * 去除数组重复值
+             */
+            for (var i = 0;i<this.times.length;i++) {
+                for (var j = i + 1; j< this.times.length; j++) {
+                    if (this.times[i].timeNumMax == this.times[j].timeNumMax) {
+                        this.times.splice(j, 1);
+                    }
+                }
+            }
+            var dataRest = []; // 统一为一个数组
+            for (var m = 0; m<this.times.length;m++) {
+                for (var n = 0; n<this.times[m].list.length; n++) {
+                    dataRest.push(this.times[m].list[n]);
+                }
+            }
+            var timeData = [];
+            let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳 
+            let TimeEnd = new Date(year + "-" + (Number(month) + 1) + "-" + "1").valueOf(); // 取下个月第一天的时间戳
+            for (var i = 0; i < dataRest.length;i++) { // 返回符合日期的数据
+                if (dataRest[i].dealTime) {
+                    var dealTime = new Date(dataRest[i].dealTime).valueOf();
+                    if (dealTime > TimeStart && dealTime < TimeEnd) {
+                        timeData.push(dataRest[i]);
+                    }   
+                } else {
+                    timeData.push(dataRest[i]);
+                }
+                
+            }
+            for (var i = 0; i<timeData.length;) {
+                if (typeof timeData[i] == 'string' && typeof timeData[i + 1] == 'string') {
+                    timeData.splice(i, 1);
+                    i = i
+                    timeData
+                    // return
+                } else {
+                    i++;
+                }
+            }
+            // timeData.splice(timeData.length - 1, 1);
+            if (typeof timeData[timeData.length - 1] == 'string') {
+                timeData.splice(timeData.length - 1, 1); // 去除最后一个日期标题
+            }
+            return timeData; 
+        }
+        // 渲染会循环两次
         private onListRender(cell: Box, index: number) {
-            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
-            var data: mod.dealtemMod = this.comp.list.array[index];
-
-            let cImg = cell.getChildByName('img') as Laya.Image;
-            cImg.skin = data.getDealImgSrc();
-
-            let cName = cell.getChildByName('lab_deal_name') as Label;
-            cName.text = data.getDealChName();
-
-            let addr = cell.getChildByName('lab_addr') as Label;
-            addr.text = data.getDealType() + ": " + util.getAddr(data.getDealAddr());
-
-            let amount = cell.getChildByName('lab_amount') as Label;
-            amount.text = data.getDealSymbol() + data.dealAmount + " " + data.dealCoinType;
-            amount.color = data.getDealColor()
+            var data: mod.dealtemMod = this.comp.list.array[index]
+            if (typeof this.comp.list.array[index] == 'string'){
+                var data: mod.dealtemMod = this.comp.list.array[index];
+                let cImg = cell.getChildByName('img') as Laya.Image;
+                cImg.visible = false;
+                let cName = cell.getChildByName('lab_deal_name') as Label;
+                cName.visible = false;
+                let addr = cell.getChildByName('lab_addr') as Label;
+                addr.visible = false;
+                let amount = cell.getChildByName('lab_amount') as Label;
+                amount.visible = false;
+                let time = cell.getChildByName('time') as Label;
+                time.text = this.comp.list.array[index];
+                let timeBg = cell.getChildByName('timeBg') as Label;
+                timeBg.visible = true;
+                // cell.height = 20;
+                // this.comp.list.cell[index].height = 20;
+                // cell[index].height = 20;
+            }else{
+                cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
+                let cImg = cell.getChildByName('img') as Laya.Image;
+                cImg.skin = data.getDealImgSrc();
+                let cName = cell.getChildByName('lab_deal_name') as Label;
+                cName.text = data.getDealChName();
+                let addr = cell.getChildByName('lab_addr') as Label;
+                addr.text = data.getDealType() + ": " + util.getAddr(data.getDealAddr());
+                let amount = cell.getChildByName('lab_amount') as Label;
+                amount.text = data.getDealSymbol() + data.dealAmount + " " + data.dealCoinType;
+                amount.color = data.getDealColor()
+                let time = cell.getChildByName('time') as Label;
+                time.visible = false;
+            }
         }
 
         private onSelect(index: number): void {
