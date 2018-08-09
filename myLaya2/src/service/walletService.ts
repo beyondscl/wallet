@@ -442,35 +442,30 @@ module service {
          /**
          * 获得公告列表
          */
-        public static getNotice(fun, args): any {
-            // let getNotice = {
-            //     url: config.prod.apiNoticeList,
-            //     method: 'GET',
-            //     token: mod.userMod.token,
-            //     data: {},
-            //     callbackArgs: args,
-            //     async: true,
-            //     success: function (ret, args) {
-            //         fun(ret, args);
-            //     },
-            //     complete: function () {
-            //     },
-            //     error: function (ret, args) {
-            //         if ("object" == typeof ret)
-            //             ret = JSON.stringify(ret)
-            //         fun(ret, args)
-            //         console.log("request error:", ret, args);
-            //     }
-            // }
-            // Laya.Browser.window.Ajax.get(getNotice);
-            let ret = {
-                data:[],
-                code: 0
-            };
-            ret.data = [
-                    {noticeTime:"2018-8-6 09:25:00", noticeTitle: "公告", noticeContent: "欢迎使用万微钱包"}
-                ]
-                return fun(ret, args);
+        public static getNotice(pageNo, pageSize, fun, args): any {
+            let getNotice = {
+                url: config.prod.apiNoticeList,
+                method: 'GET',
+                token: mod.userMod.token,
+                data: {
+                    pageNo: pageNo,
+                    pageSize: pageSize
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
+                }
+            }
+            Laya.Browser.window.Ajax.get(getNotice);
         }
     }
 }

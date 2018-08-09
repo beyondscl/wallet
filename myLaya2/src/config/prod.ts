@@ -7,12 +7,12 @@ module config {
         public static appAccept: string = "appAccept";//用于存储标识用户是否已经同意协议
         public static appGuide: string = "appGuide";//用于存储标识用户是否已经经过引导页面
         public static appUserKey: string = "appUser";//存储用户
+        public static notice: string = "notice";//存储公告
         public static ethToUsd: string = "https://api.infura.io/v1/ticker/ethusd"; //获取eth与美元的汇率
         public static ethBalance: string = "https://api.etherscan.io/api?"; //获取账户eth
         public static apiKey: string = "42E8J65KFJMTEUA56SKX78MQDW4R7PPIUT";
         public static apiLocalHost = Laya.Browser.window.main_config[Laya.Browser.window.env].apiLocalHost;
         public static getGasPrice: string = prod.apiLocalHost + "/api/gasPrice";//获取gas
-
         public static apiToAddress: string = prod.apiLocalHost + "/api/toAddress";//toAddress
         public static apiToIban: string = prod.apiLocalHost + "/api/toIban";//toIban
         public static apiGetReceipt: string = prod.apiLocalHost + "/api/getReceipt";//交易明细
@@ -47,8 +47,7 @@ module config {
         private static originAppKey: string = "wwwallet";//用于存储标识用户是否已经有钱包
 
         // 公告相关接口
-        public static apiNoticeList: string = prod.apiLocalHost + "/notice" // 获取公告列表
-        public static apiNoticeDetails: string = prod.apiLocalHost + "/notice" // 获取公告详情内容 接口地址没有 随写的
+        public static apiNoticeList: string = prod.apiLocalHost + "/notice/getNoticeList" // 获取公告列表
 
         constructor() {
         }

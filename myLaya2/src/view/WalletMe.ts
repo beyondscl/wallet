@@ -5,6 +5,9 @@ module view {
         private parenUI: ui.WalletMainUI
         private wait: view.alert.waiting;
 
+        private pageNo = 1;
+        private pageSize = 10;
+        // private noticeData = []
         constructor() {
             super();
             this.init();
@@ -14,14 +17,13 @@ module view {
         public setParentUI(main: ui.WalletMainUI) {
             this.parenUI = main;
         }
-
         private init() {
             this.comp = new ui.WalletMeUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_wel.text = mod.userMod.userName;
             native.native.setCurrView(this,1);
             try {
-                service.walletServcie.getNotice(this.NoticeHisCb, this);    
+                service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);    
             } catch (error) {
                 
             }
@@ -95,7 +97,9 @@ module view {
             }
             if (index == 8) {
                 this.comp.visible = false;
-                new view.WalletNotice().setParentUI(this);
+                let walletNotice = new view.WalletNotice();
+                walletNotice.setParentUI(this);
+                // walletNotice.setList(this.noticeData);
             }
         }
 
@@ -110,27 +114,26 @@ module view {
             main.comp.removeSelf();
         }
 
-        private NoticeHisCb (ret, v: ui.WalletMeUI) {
-            // v.waiting.stop();
-            console.log(ret);
+        private NoticeHisCb (ret, v: view.WalletMe) {
             try {
-                if (ret && ret.code == 0) {
-                    let noticeHis = util.getItem('notice') || [];
-                    console.log(noticeHis);
-                    if (noticeHis.length ==0 && ret.data.length != 0) {
-                        v.noticeIcon.visible = true;
-                        util.setItemJson('notice', ret.data);
+                ret = JSON.parse(ret);
+                if (ret && ret.retCode == 0) {
+                    let noticeHis = util.getItem(config.prod.notice) || [];
+                    if (noticeHis.length ==0 && ret.data.list.length != 0) {
+                        v.comp.noticeIcon.visible = true;
+                        // v.noticeData = ret.data.list;
+                        util.setItemJson(config.prod.notice, ret.data.list);
                         return
                     } else {
-                        for (var i = 0;i<ret.data.length;i++) {
+                        for (var i = 0;i<ret.data.list.length;i++) {
                             for (var j = 0;j<noticeHis.length;j++) {
-                                if (ret.data[i].noticeTitle != noticeHis[j].noticeTitle) {
-                                    v.noticeIcon.visible = true;
-                                    util.setItemJson('notice', ret.data);
-                                    return
+                                if (ret.data.list[i].title != noticeHis[j].title) {
+                                    v.comp.noticeIcon.visible = true;
                                 }
                             }
                         }
+                        util.setItemJson(config.prod.notice, ret.data.list);
+                        // v.noticeData = ret.data.list;
                     }
                 }
             } catch (err) {

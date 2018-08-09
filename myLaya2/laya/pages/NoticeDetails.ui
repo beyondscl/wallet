@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":5,
+    "selectedBox":7,
+    "selecteID":9,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"width":187,"var":"time","text":"2018-7-18","right":0,"name":"time","height":41,"fontSize":28,"color":"#687076","bottom":-10,"align":"right"},
+                    "props":{"width":338,"var":"time","text":"2018-7-18","right":0,"name":"time","height":41,"fontSize":28,"color":"#687076","bottom":-10,"align":"right"},
                     "nodeParent":7,
                     "label":"Label(time)",
                     "isDirectory":false,

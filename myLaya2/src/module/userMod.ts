@@ -9,6 +9,7 @@ module mod {
         public static defWallet: mod.walletMod;
         public static usdToRmb = 6.5;
         public static gasPrice = 0;
+        public static wwecToRmb: number = 0.01; // WWEC换算RMB的汇率
         public static allCoins:Array<mod.coinItemMod> = [] ;
 
         //需要存储的字段

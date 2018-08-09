@@ -25,9 +25,9 @@ module view {
 
         public setData (data: any) {
             console.log(data);
-            this.comp.title.text = data.noticeTitle;
-            this.comp.content.text = data.noticeContent;
-            this.comp.time.text = data.noticeTime;
+            this.comp.title.text = data.title;
+            this.comp.content.text = data.content;
+            this.comp.time.text = data.update_time;
         }
 
         private goBack(){
