@@ -219,7 +219,7 @@ class util {
                     console.log("deleteView_:", this._viewStack[i].comp);
                 }
             } catch (error) {
-
+                console.log("deleteView_ error",error)
             }
         }
         this._viewStack = [];
