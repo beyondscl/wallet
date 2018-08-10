@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":12,
+    "selecteID":19,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -184,7 +184,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":1222,"x":343,"var":"btn_login","valign":"middle","text":"登录","height":44,"fontSize":32,"color":"#598ADA","centerX":0,"align":"center"},
+                    "props":{"y":1222,"width":200,"var":"btn_login","valign":"middle","text":"登录","height":44,"fontSize":32,"color":"#598ADA","centerX":0,"align":"center"},
                     "nodeParent":2,
                     "label":"Label(btn_login)",
                     "isDirectory":false,
