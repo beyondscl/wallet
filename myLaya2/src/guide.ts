@@ -116,7 +116,8 @@ function beginLoad() {
     Laya.stage.bgColor = 'white';
     var res: Array<string> =
         ["res/atlas/img/main.atlas",
-            "res/atlas/img/coins.atlas"]
+            "res/atlas/img/coins.atlas",
+            "res/atlas/img/smartcat.atlas"]
     if (!acc || !gui) {
         res.push("res/atlas/img/guide.atlas");
     }

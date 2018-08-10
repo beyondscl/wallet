@@ -1,5 +1,5 @@
 //不要覆盖改变量main_config | env的值
-var env = 'prod';// prod(国外正式环境) | test(国内外面测试环境) | dev (本地环境)
+var env = 'dev';// prod(国外正式环境) | test(国内外面测试环境) | dev (本地环境)
 var main_config = {
     test: {
         HOST: 'http://rinkeby.wwec.top',//https://rinkeby.infura.io/2F62Qc2BC0h9WHj2553t
