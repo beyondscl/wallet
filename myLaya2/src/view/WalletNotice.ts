@@ -95,10 +95,8 @@ module view {
                 ret = JSON.parse(ret);
                 if (ret && ret.retCode == 0) {
                     if (ret.data.list.length != 0) {
-                        console.log(ret.data.list)
                         for(var i = 0;i<ret.data.list.length;i++){
                             ret.data.list[i].update_time = util.getFormatTime2(new Date(ret.data.list[i].update_time).valueOf() / 1000);
-                            console.log(ret.data.list[i].update_time);
                         }
                         v.data = v.data.concat(ret.data.list);
                         v.setList(v.data);            
@@ -107,6 +105,7 @@ module view {
                         v.scrollSta = false;
                         v.info = new view.alert.info("没有更多的数据...");
                         v.info.popup();
+                        v.setList([]);
                     }
                 } else {
                     v.setList([]);
