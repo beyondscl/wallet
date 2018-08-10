@@ -2,7 +2,7 @@
 module view.set {
     export class WalletImport extends ui.set.WalletImportUI {
         private comp: ui.set.WalletImportUI;
-        private parentUI: any;
+        private parentUI;
 
         constructor() {
             super();
@@ -20,7 +20,7 @@ module view.set {
         private init() {
             this.comp = new ui.set.WalletImportUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -35,11 +35,18 @@ module view.set {
         private onSelect(index: number): void {
             this.comp.stack.selectedIndex = index;
         }
-
+        private goBack(){
+            if(this.parentUI.claName){
+                native.native.setCurrView(this.parentUI,2);
+            }else{
+                native.native.setCurrView(this.parentUI,1);
+            }
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+        }
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                this.parentUI.visible = true;
+                this.goBack();
             }
             if (3 == index) {//助记词导入
                 let zjc = this.comp.o_text_zjc.text;
@@ -67,7 +74,7 @@ module view.set {
             let walletName = 'import_' + util.randomString(6);
             let zjc = this.comp.o_text_zjc.text;
             let pass = this.comp.o_text_pass.text;
-            service.walletServcie.importWallet(zjc, walletName, util.md5WithSalt(pass), this.creatWalletCb, [this.comp, load]);//异步
+            service.walletServcie.importWallet(zjc, walletName, util.noEncodePass(pass), this.creatWalletCb, [this.comp, load]);//异步
         }
 
         private checkArgs(zjc: string, pass: string, passConf: string) {
@@ -102,48 +109,40 @@ module view.set {
             if (ret && ret.retCode == 0) {
                 let keystore = Laya.Browser.window.serialize();
                 let wallet = new mod.walletMod();
-                wallet.init(wName, wPass, "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
-                let allWallets = service.walletServcie.getWallets();
-                if (allWallets) {//判断是否存在
-                    for (let i = 0; i < allWallets.length; i++) {
-                        let w = allWallets[i] as mod.walletMod;
-                        if (w.wAddr && w.wAddr == wallet.wAddr) {//一定要在初始化数据mod后再判断 0x
-                            // new view.alert.Warn("导入钱包失败", "钱包 " + w.wName + " 已经存在").popup();
-                            let info = new view.alert.confirm("钱包已存在是否重置密码?", "");
-                            w.wPassword = wPass;
-                            info.setData(w.wName);
-                            info.setCallback(function confirmCb(ret, args) {
-                                if (ret == 2) {//已经覆盖密码
-                                    let wallet: mod.walletMod = args[0];//密码已经被更新
-                                    let walletJson = wallet.toJson();
-                                    util.setItemJson(wallet.wName, walletJson);
-                                    let com = args[1] as View;
-                                    com.removeSelf();
-                                    new WalletMain().initQueryData(wallet);
-                                    return;
-                                }
-                            }, [w, args[0]]);
-                            info.popup();
+                wallet.init(wName, util.md5WithSalt(wPass), "", keystore, ret.addresses[0], ['ETH', 'WWEC'], mnemonicWord);
+                let exitWallet = service.walletServcie.getWalletByAddr(wallet.wAddr);
+                if (exitWallet) {
+                    wallet.wName = exitWallet.wName;//!!!
+                    let info = new view.alert.confirm(config.msg.IMPORT_WALLET_CONFRIM, "");
+                    info.setData(wallet.wName);
+                    info.setCallback(function confirmCb(ret, args) {
+                        if (ret == 2) { //覆盖密码开始更新数据
+                            let wallet: mod.walletMod = args[0];//密码已经被更新
+                            let walletJson = wallet.toJson();
+                            util.setItemJson(wallet.wName, walletJson);
+                            let com = args[1] as View;
+                            com.removeSelf();
+                            new WalletMain().initQueryData(wallet);
                             return;
                         }
-                    }
-                }
-                //记录数据
-                let walletJson = wallet.toJson();
-                util.setItemJson(wallet.wName, walletJson);
-                let appStore = util.getItem(config.prod.getAppKey());
-                if (appStore) {
-                    appStore[appStore.length] = wallet.wName;
-                    util.setItemJson(config.prod.getAppKey(), appStore);
+                    }, [wallet, args[0]]);
+                    info.popup();
                 } else {
-                    util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
+                    let walletJson = wallet.toJson();
+                    util.setItemJson(wallet.wName, walletJson);
+                    let appStore = util.getItem(config.prod.getAppKey());
+                    if (appStore) {
+                        appStore[appStore.length] = wallet.wName;
+                        util.setItemJson(config.prod.getAppKey(), appStore);
+                    } else {
+                        util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
+                    }
+                    let com = args[0] as View;
+                    com.removeSelf();//删除之前父类的comp
+                    new WalletMain().initQueryData(wallet);
                 }
-                let com = args[0] as View;
-                com.removeSelf();//删除之前父类的comp
-                new WalletMain().initQueryData(wallet);
-                return;
             } else {
-                new view.alert.Warn("导入钱包失败", "").popup();
+                new view.alert.Warn(config.msg.IMPORT_WALLET_ERROR, "").popup();
                 console.log("create wallet error!");
             }
         }

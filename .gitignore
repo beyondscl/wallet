@@ -1,12 +1,22 @@
 .idea/inspectionProfiles/
 myLaya2/.laya/chrome/
+myLaya2/.laya/publish_window.json
+myLaya2/bin/index.html
 myLaya2/bin/img/
 myLaya2/bin/js/
 myLaya2/bin/res
 myLaya2/laya/assets/img/walleticon/
 myLaya2/release/
+myLaya2/src/ui/
+
 
 myLaya2/src/**/*.js
 myLaya2/src/**/*.map
 
 /.idea/workspace.xml
+.laya/
+.max.html/
+.max.js/
+index.html/
+myLaya2/.idea/
+myLaya2/bin/3rd/main_config.js

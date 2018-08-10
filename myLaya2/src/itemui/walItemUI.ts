@@ -18,7 +18,6 @@ class walItemUI extends Box {
         this.addChild(this.lab_total);
         this.addChild(this.lab_type);
         this.addChild(this.sperated);
-
     }
 
     public init(walItem: mod.walItemMod): void {

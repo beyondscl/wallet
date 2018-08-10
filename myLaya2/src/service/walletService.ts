@@ -3,6 +3,7 @@
  */
 module service {
     export class walletServcie {
+        private static claName = 'service.walletServcie';
         constructor() {
         }
 
@@ -62,11 +63,16 @@ module service {
                 let mnemonicWord = Laya.Browser.window.genSeed();
                 return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
                     ret => {
-                        return cb(wName, wPass, mnemonicWord, ret, args)
+                        cb(wName, wPass, mnemonicWord, ret, args)
+                    },error =>{
+                        util.log(this.claName,"creatWallet",[wName,'no_pass'],error);
+                        cb(wName, wPass, mnemonicWord, {"retCode":3}, args)
                     }
                 );
             } catch (error) {
+                util.log(this.claName,"creatWallet",[wName,'no_pass'],error);
                 console.log("creatWallet error:", error)
+                cb("","","", {"retCode":3}, args)
             }
         }
 
@@ -101,9 +107,15 @@ module service {
                 }
 
             } catch (error) {
+                util.log(this.claName,"deleteWallet",[wName],error);
                 new view.alert.Warn("删除钱包失败", "").popup();
                 console.log("deleteWallet", error);
             }
+        }
+
+        //
+        public static getKeyStore():string{
+            return Laya.Browser.window.serialize();
         }
 
         //import钱包
@@ -116,9 +128,12 @@ module service {
                 return Laya.Browser.window.generateAddresses(mnemonicWord, 1, wPass).then(
                     ret => {
                         return cb(wName, wPass, mnemonicWord, ret, args)
+                    },error =>{
+                        util.log(this.claName,"importWallet",['no mnemonicWord',wName],error);
                     }
                 );
             } catch (error) {
+                util.log(this.claName,"importWallet",['no mnemonicWord',wName],error);
                 console.log("importWallet error:", error)
             }
         }
@@ -155,6 +170,10 @@ module service {
             let wallet: mod.walletMod = this.getWallet(wName);
             let selectedCoins = wallet.wCoins;
             let allCoins = this.getAllCoins();
+            for (let i = 0; i < allCoins.length; i++) {
+                let c: mod.coinItemMod = allCoins[i];
+                c.coinSelected = false;
+            }
             for (let i = 0; i < allCoins.length; i++) {
                 let c: mod.coinItemMod = allCoins[i];
                 for (let j = 0; j < selectedCoins.length; j++) {
@@ -202,6 +221,20 @@ module service {
                 }
             }
             return datas;
+        }
+
+        //导入钱包：根据地址查询钱包是否存在
+        public static getWalletByAddr(addr:string):mod.walletMod{
+            let allWallets = service.walletServcie.getWallets();
+            if (allWallets) { //判断是否存在
+                    for (let i = 0; i < allWallets.length; i++) {
+                        let w = allWallets[i] as mod.walletMod;
+                        if (w.wAddr && w.wAddr == addr) { //一定要在初始化数据mod后再判断 0x
+                            return w;
+                        }
+                    }
+            }
+            return null;
         }
 
         //管理钱包：获取所有钱包
@@ -255,8 +288,6 @@ module service {
          * @param pass 新密码
          */
         public static resetPass(w: mod.walletMod, pass: string, callback, args) {
-            console.log(w.wKeyStore)
-            console.log(w.wPrivateKey)
             if (this.vilMemoryWork(w.wZjc)) {
                 Laya.Browser.window.generateAddresses(w.wZjc, 1, pass).then(
                     ret => {
@@ -278,9 +309,7 @@ module service {
 
         //创建，切换钱包需要实例化全局对象用于交易
         public static initLigthWallet(wKeyStore: string) {
-            console.log("start initLigthWallet");
             Laya.Browser.window.deserialize(wKeyStore);
-            console.log("end initLigthWallet");
         }
 
         //交易eth
@@ -289,8 +318,9 @@ module service {
                 ret => {
                     callback(ret, args)
                 }, error => {
+                    util.log(this.claName,"sendToken",['no_pass', fromAddr, toAddr, value, gasPrice, gas],error);
                     console.log("交易失败:", error);
-                    callback(null, args)
+                    callback(error, args)
                 }
             ).catch(function (e) {
                 callback(e, args)
@@ -299,17 +329,17 @@ module service {
 
         //发送token
         public static sendToken(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas, callback, cbArgs) {
-            //测试成功返回
-            // let ret = {
-            //     retCode : 0,
-            //     txhash : 'ox54a5sd1f5as1dfa5sd'
-            // }
-            // callback(ret,cbArgs);
             if (!functionName) functionName = 'transfer';
             Laya.Browser.window.functionCall(pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas)
                 .then(ret => {
-                    callback(ret, cbArgs)
-                }).catch(function (e) {
+                        callback(ret, cbArgs)
+                    }
+                    , error => {
+                        util.log(this.claName,"sendToken",[pass, fromAddr, contractAddr, abi, functionName, args, valueEth, gasPrice, gas],error);
+                        console.log("交易失败:", error);
+                        callback(error, cbArgs)
+                    }
+                ).catch(function (e) {
                 callback(e, cbArgs);
             });
         }
@@ -322,6 +352,7 @@ module service {
                 }
                 , error => {
                     console.log("获取余额 error:", error);
+                    util.log(this.claName,"getBalance",[addr],error);
                 }
             )
         }
@@ -334,13 +365,14 @@ module service {
                 }
                 , error => {
                     console.log("获取token余额 error:", error);
+                    util.log(this.claName,"getTokenBalance",[fromAddr, contractAddr, abi],error);
                 }
             )
         }
 
         /**
          * Deprecated
-         * @param data 
+         * @param data
          */
         public static addDealItem(data: mod.dealtemMod): void {
             let deals = util.getItem(config.prod.getAppDealKey());
@@ -359,9 +391,10 @@ module service {
             }
             return false;
         }
+
         /**
          * @Deprecated
-         * @param addr 
+         * @param addr
          */
         public static getIban(addr: string) {
             return Laya.Browser.window.web3.eth.iban.toAddress(addr);
@@ -369,19 +402,20 @@ module service {
 
         /**
          * @Deprecated
-         * @param data 
+         * @param data
          */
         public static ibanToAddr(data: string) {
             let addr = '';
             let amount = '';
             let token = 'ETH';
         }
+
         /**
          * 过滤的币种总数都不需要查
          * 1.eth查询
          * 2.token查询
-         * @param wName 
-         * @param lab 
+         * @param wName
+         * @param lab
          */
         public static getWalletMoney(wName: string, lab: Label): number {
             let wallet = this.getWallet(wName);
@@ -406,5 +440,34 @@ module service {
             return t;
         }
         //web3 等外部操作--------------------------------end
+
+         /**
+         * 获得公告列表
+         */
+        public static getNotice(pageNo, pageSize, fun, args): any {
+            let getNotice = {
+                url: config.prod.apiNoticeList,
+                method: 'GET',
+                token: mod.userMod.token,
+                data: {
+                    pageNo: pageNo,
+                    pageSize: pageSize
+                },
+                callbackArgs: args,
+                async: true,
+                success: function (ret, args) {
+                    fun(ret, args);
+                },
+                complete: function () {
+                },
+                error: function (ret, args) {
+                    if ("object" == typeof ret)
+                        ret = JSON.stringify(ret)
+                    fun(ret, args)
+                    console.log("request error:", ret, args);
+                }
+            }
+            Laya.Browser.window.Ajax.get(getNotice);
+        }
     }
 }

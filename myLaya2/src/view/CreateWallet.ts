@@ -3,6 +3,7 @@ module view {
     import Browser = Laya.Browser;
 
     export class CreateWallet extends ui.WalletCreateUI {
+        public claName = "view.CreateWallet";
         private comp: ui.WalletCreateUI;
         private parentUI: any;
 
@@ -19,7 +20,7 @@ module view {
         private init() {
             this.comp = new ui.WalletCreateUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
+            native.native.setCurrView(this,2)
         }
 
         private initEvent() {
@@ -44,7 +45,7 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            this.parentUI == null ? new EnterApp() : (this.parentUI.comp ? this.parentUI.comp.visible = true : this.parentUI.visible = true);
+            this.parentUI.comp.visible = true;
         }
 
         private updateArgee() {
@@ -55,13 +56,15 @@ module view {
             if (this.checkArgs()) {
                 let load = new view.alert.waiting(config.msg.WAIT_CREATE_WALLET);
                 load.popup();
-                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, [this.comp, load]);//异步
+                service.walletServcie.creatWallet(this.comp.text_wall_name.text, this.comp.text_pass.text, this.creatWalletCb, [this, load]);//异步
             }
         }
 
         //创建[切换]钱包在内存中设置默认钱包为当前钱包
         //args[0]:comp args[1]:loadingui
         private creatWalletCb(wName, wPass, mnemonicWord, ret, args: Array<any>) {
+            let dialog = args[1] as view.alert.waiting;
+            dialog.stop();
             if (ret && ret.retCode == 0) {
                 let keystore = Laya.Browser.window.serialize();
                 let wallet = new mod.walletMod();
@@ -75,14 +78,17 @@ module view {
                 } else {
                     util.setItemJson(config.prod.getAppKey(), [wallet.wName]);
                 }
-                let com = args[0] as View;
-                com.removeSelf();
-                let dialog = args[1] as view.alert.waiting;
-                dialog.stop();
+                let v = args[0] as view.CreateWallet;
+                v.comp.removeSelf();
+                if(v.parentUI.claName=="view.EnterApp"){
+                    v.parentUI.comp.removeSelf();
+                }
                 new WalletMain().initQueryData(wallet);
                 return;
+            }else{
+                new view.alert.Warn(config.msg.CREATE_ERROR_TITLE,config.msg.CREATE_ERROR_SUBTITLE).popup();
             }
-            console.log("create wallet error!");
+            console.log("createWallet error!",ret);
         }
 
         private checkArgs(): boolean {
@@ -142,8 +148,6 @@ module view {
         private checkPassConf() {
             if (this.comp.text_pass_conf.text != this.comp.text_pass.text) {
                 new view.alert.Warn("输入有误", "输入密码不一致，请重新输入").popup();
-                // this.comp.lab_pass_conf.text = "两次密码不一致";
-                // this.comp.lab_pass_conf.visible = true;
                 return false;
             }
             this.comp.lab_pass_conf.visible = false;
@@ -197,7 +201,7 @@ module view {
 
         private importWallet() {
             this.comp.visible = false;
-            new view.set.WalletImport().setParetUI(this.comp);
+            new view.set.WalletImport().setParetUI(this);
         }
 
         private webViewHref(): void {

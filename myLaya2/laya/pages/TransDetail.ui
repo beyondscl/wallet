@@ -2,6 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
+    "selecteID":48,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -54,7 +55,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":200,"var":"lab_type","valign":"middle","text":"收款账户","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":200,"var":"lab_type","valign":"middle","text":"收款账户","right":30,"left":30,"height":40,"fontSize":28,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label(lab_type)",
             "isDirectory":false,
@@ -68,7 +69,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":250,"var":"lab_addr","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000","align":"left"},
+            "props":{"y":250,"var":"lab_addr","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":28,"color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_addr)",
             "isDirectory":false,
@@ -82,7 +83,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":330,"valign":"middle","text":"交易 ID","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":330,"valign":"middle","text":"交易 ID","right":30,"left":30,"height":40,"fontSize":28,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -110,7 +111,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":500,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":500,"valign":"middle","text":"Gas 价格(GWEI)","right":30,"left":30,"height":40,"fontSize":28,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -124,7 +125,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":550,"var":"lab_gas","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":550,"var":"lab_gas","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":28,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_gas)",
             "isDirectory":false,
@@ -138,7 +139,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":760,"valign":"middle","text":"状态","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":760,"valign":"middle","text":"状态","right":30,"left":30,"height":40,"fontSize":28,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -152,7 +153,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":810,"var":"lab_confirm","valign":"middle","text":"获取数据中","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":810,"var":"lab_confirm","valign":"middle","text":"获取数据中","right":30,"left":30,"height":40,"fontSize":28,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_confirm)",
             "isDirectory":false,
@@ -166,7 +167,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":630,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":24,"color":"#000000","bold":true},
+            "props":{"y":630,"valign":"middle","text":"时间","right":30,"left":30,"height":40,"fontSize":28,"color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -180,7 +181,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":680,"var":"lab_time","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":24,"color":"#000000"},
+            "props":{"y":680,"var":"lab_time","valign":"middle","text":"获取数据中","right":30,"overflow":"scroll","left":30,"height":40,"fontSize":28,"color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_time)",
             "isDirectory":false,
@@ -232,6 +233,19 @@
             "child":[
                 ],
             "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":1144,"x":10,"var":"btn_copy_tx","stateNum":"1","skin":"img/main/anliu@2x.png","right":40,"left":40,"labelSize":32,"labelColors":"#ffffff","label":"复制交易ID","height":80},
+            "nodeParent":1,
+            "label":"Button(btn_copy_tx)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":48,
+            "child":[
+                ]
         }],
     "animations":[
         {

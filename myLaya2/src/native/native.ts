@@ -3,6 +3,13 @@ module native {
         private static camaraCb: any;
         private static camaraCbArg: any;
 
+        private static view;
+        private static viewOrder;
+        public static setCurrView(view:any,order:number){
+            this.view = view;
+            this.viewOrder = order;
+        }
+
         public static startCamara(fun: any, args) {
             this.camaraCbArg = args;
             this.camaraCb = fun;
@@ -33,24 +40,38 @@ module native {
             this.jsCallapp(json);
         }
 
-        public static appCalljs(data: any): string {
-
-            console.log("appcalljs return :", data);
-            console.log("data return :", data);
-            console.log("this.camaraCbArg :", this.camaraCbArg);
-
+        /**
+         * type = 1 :复制，不需要回调
+         * type = 2 :相机回调
+         * type = 3 :回退键回调
+         * @param data 返回的数据
+         * @return 3 : 再次询问回退返回
+         */
+        public static appCalljs(data: any): number {
+            console.log(data);
             try {
-                //这里需要优化与判断是返回的具体什么数据
-                this.camaraCb(data, this.camaraCbArg);
-                //1.识别别人的二维码，格式我们不能确定，全部数据显示为addr
-                //可以可能是json字符串可能是字符串等
-                //判断是否是我们的二维码
-                //1.主页切换到转账界面,默认ETH转账
-                //2.本身就在转账界面 addr=x&amount=x&type=x
+                let ret = JSON.parse(data);
+                if(ret.type==2){
+                    this.camaraCb(ret.data, this.camaraCbArg);
+                }
+                /**
+                 * 每个页面必须调用setCurrView方法
+                 * 1.一级页面必须提供viewOrder==1,可以不提供goback方法
+                 * 2.非一级页面必须并提供goBack方法，并提供view (view = this)
+                 */
+                if(ret.type==3){
+                    if(this.viewOrder==1){
+                        return 3;
+                    }else if(this.view){
+                        this.view.goBack();
+                    }else{
+                        console.log("回退键没有响应事件",this.view,this.viewOrder);
+                    }
+                }
             } catch (error) {
                 console.log("appCalljs", error)
             }
-            return "OK";
+            return 0;
         }
 
         private static jsCallapp(json: any) {

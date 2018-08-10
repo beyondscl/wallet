@@ -25,6 +25,7 @@ module view.coin {
         private init() {
             this.comp = new ui.coin.AddCoinsUI();
             this.stage.addChild(this.comp)
+            native.native.setCurrView(this, 2);
         }
 
         private initEvent() {
@@ -32,22 +33,20 @@ module view.coin {
             this.comp.btn_query.on(Laya.Event.CLICK, this, this.btnClick, [1]);
         }
 
+        private goBack() {
+            this.comp.removeSelf();
+            this.updateSelectItem();
+            this.parentView.comp.visible = true;
+            native.native.setCurrView(this.parentView, 1);
+        }
+
         private btnClick(index: number) {
             switch (index) {
                 case 0:
-                    this.comp.removeSelf();
-                    if (this.parentView) {
-                        this.updateSelectItem();
-                        this.parentView.comp.visible = true;
-                    } else {
-                        this.parentView.comp.removeSelf();
-                        new view.WalletMain().initQueryData(mod.userMod.defWallet)
-                    }
-                    break;
+                this.goBack();
                 case 1:
                     break;
                 case 2:
-
                     break;
                 default:
                     break;
@@ -92,6 +91,5 @@ module view.coin {
             }
             return coins;
         }
-
     }
 }

@@ -9,7 +9,7 @@ module view.alert {
         }
 
         public stop() {
-            Laya.timer.clear(this, this.stopCb);
+            Laya.timer.clear(this, this.start);
             this.close();
         }
 

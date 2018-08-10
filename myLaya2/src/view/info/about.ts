@@ -2,7 +2,7 @@
 module view.info {
     export class about extends ui.info.aboutUI {
         public comp: ui.info.aboutUI;
-        private parentUI: View;
+        private parentUI: view.WalletMe;
 
         constructor() {
             super();
@@ -13,11 +13,12 @@ module view.info {
         public setData(key: string) {
         }
 
-        public setParetUI(parentUI: any) {
+        public setParetUI(parentUI: view.WalletMe) {
             this.parentUI = parentUI;
         }
 
         private init() {
+            native.native.setCurrView(this,2);
             this.comp = new ui.info.aboutUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_version.text = "当前版本：" + Laya.Browser.window.main_config[Laya.Browser.window.env].VERSION;
@@ -32,15 +33,20 @@ module view.info {
             this.comp.btn_update.on(Laya.Event.CLICK, this, this.btnClick, [6]);
         }
 
+        private goBack(){
+            native.native.setCurrView(this.parentUI,1);
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+        }
+
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                this.parentUI.visible = true;
+                this.goBack()
                 return;
             }
             if (2 == index) {
                 this.comp.visible = false;
-                let s = new view.info.aboutTeam().setParetUI(this.comp);
+                let s = new view.info.aboutTeam().setParetUI(this);
                 return;
             }
             if (3 == index) {

@@ -3,7 +3,7 @@ module view.info {
     import Event = Laya.Event;
 
     export class Service extends ui.info.ServiceUI {
-        private comp: ui.info.ServiceUI;
+        public comp: ui.info.ServiceUI;
         private parentUI: View;
 
         private prevX: number = 0;

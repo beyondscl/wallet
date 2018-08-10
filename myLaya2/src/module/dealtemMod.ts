@@ -57,16 +57,59 @@ module mod {
         }
 
         public getDealImgSrc(): string {
+            if(this.dealFromAddr==this.dealToAddr){
+                return config.resource.dealSelfSrc;
+            }
             return this.dealType == config.msg.deal_transfer_in ? config.resource.dealFromSrc : config.resource.dealToSrc;
         }
 
         public getDealChName(): string {
+            if(this.dealFromAddr==this.dealToAddr){
+                return config.msg.deal_cn_self;
+            }
             return this.dealType == config.msg.deal_transfer_in ? config.msg.deal_cn_in : config.msg.deal_cn_out;
         }
 
-        //发送返回目标地址，接受显示源地址
+        //返回全量地址
         public getDealAddr(): string {
             return this.dealType == config.msg.deal_transfer_in ? this.dealFromAddr : this.dealToAddr;
+        }
+        //返回 from  to self 
+        public getDealType(): string {
+            let trans_type1 = this.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'From' : 'To';//from | to |self
+            if(this.dealFromAddr==this.dealToAddr){
+                trans_type1 = "Self";
+            }
+            return trans_type1;
+        }
+        //返回颜色red green blue
+        public getDealColor(){
+            if(this.dealFromAddr==this.dealToAddr){
+                return "blue";
+            }
+            return this.dealType.toUpperCase() == config.msg.deal_transfer_in ? 'green':'red';
+        }
+
+        //返回符号+ - ''
+        public getDealSymbol(){
+            if(this.dealFromAddr==this.dealToAddr){
+                return "";
+            }
+            return this.dealType.toUpperCase() == config.msg.deal_transfer_in ? '+':'-';
+        }
+        //用于明细展示
+        public getDealAmount(){
+            let trans_type = this.getDealSymbol();
+            if (util.isContain(config.prod.expCoins, this.dealCoinType)) {//无法计算价格
+                return  trans_type + this.dealAmount + ' ' + this.dealCoinType + " (RMB¥ - )";
+            } else {//折算人民币
+                return trans_type + this.dealAmount + ' ' + this.dealCoinType + " (RMB¥" + (this.dealAmount * mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(2) + ")";//-0.00001 ETH (US$0.05)
+            }
+        }
+
+        //用于明细展示价格:0.01RMB
+        public getDealGas(){
+            return this.dealGas + " ("+(this.dealGas/1e9*mod.userMod.ethToUsd * mod.userMod.usdToRmb).toFixed(2)+" RMB¥)";
         }
     }
 }

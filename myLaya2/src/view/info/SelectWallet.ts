@@ -2,7 +2,7 @@
 module view.info {
     export class SelectWallet extends ui.info.SelectWalletUI {
         private comp: ui.info.SelectWalletUI;
-        private parentUI: view.user.UseInvite;
+        private parentUI: view.user.UserInvite;
         private selectedAddr: string;
 
         constructor() {
@@ -19,13 +19,14 @@ module view.info {
             this.selectedAddr = selctAddr;
         }
 
-        public setParetUI(parentUI: view.user.UseInvite) {
+        public setParetUI(parentUI: view.user.UserInvite) {
             this.parentUI = parentUI;
         }
 
         private init() {
             this.comp = new ui.info.SelectWalletUI();
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -46,11 +47,15 @@ module view.info {
             }
         }
 
+        private goBack(){
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,2);
+        }
+        
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                this.parentUI.comp.visible = true;
-                return;
+                this.goBack();
             }
         }
 
