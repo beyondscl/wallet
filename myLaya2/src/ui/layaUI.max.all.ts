@@ -573,6 +573,30 @@ module ui {
     }
 }
 
+module ui {
+    export class TransHisListUI extends View {
+		public btn_goback:Laya.Button;
+		public list:Laya.List;
+		public timeBg:Laya.Label;
+		public time:Laya.Label;
+		public lab_nodata:Laya.Label;
+		public pre_btn:Laya.Image;
+		public aft_btn:Laya.Image;
+		public year:Laya.Label;
+		public month:Laya.Label;
+
+        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Label","props":{"y":30,"x":108,"valign":"middle","text":"交易","height":60,"fontSize":32,"color":"#163853","centerX":0,"align":"center"}},{"type":"Button","props":{"y":30,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/back@2x.png","height":65}},{"type":"List","props":{"width":750,"var":"list","top":344,"selectEnable":true,"right":0,"repeatY":10,"repeatX":1,"name":"list","left":0,"height":1229,"bottom":5},"child":[{"type":"Box","props":{"visible":true,"right":0,"name":"render","left":0,"height":120},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"y":0,"x":0,"var":"timeBg","top":0,"right":0,"name":"timeBg","left":0,"bottom":0,"bgColor":"#F3F3F4"}},{"type":"Image","props":{"y":32,"x":30,"width":56,"skin":"img/main/transfer_in.png","name":"img","height":56,"centerY":0}},{"type":"Label","props":{"y":0,"x":100,"width":200,"valign":"bottom","text":"获取数据中","skin":"template/List/label.png","name":"lab_deal_name","height":60,"fontSize":24,"color":"#163853","align":"left"}},{"type":"Label","props":{"y":60,"x":100,"width":400,"valign":"middle","text":"0x0000....0000","skin":"template/List/label.png","name":"lab_addr","height":60,"fontSize":20,"color":"#8E979F","align":"left"}},{"type":"Label","props":{"y":35,"x":520,"width":350,"valign":"middle","text":"0","skin":"template/List/label.png","right":30,"name":"lab_amount","height":50,"fontSize":28,"color":"#FF516F","centerY":0,"align":"right"}},{"type":"Image","props":{"y":119,"x":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"width":105,"var":"time","valign":"bottom","text":"时间","name":"time","left":16,"height":46,"fontSize":28,"color":"#687076","bottom":36,"align":"left"}}]}]},{"type":"Label","props":{"visible":false,"var":"lab_nodata","valign":"middle","text":"暂无数据","height":120,"fontSize":42,"color":"#163853","centerY":0,"centerX":0,"align":"center"}},{"type":"Image","props":{"width":40,"var":"pre_btn","top":200,"skin":"img/main/left@2x.png","name":"pre_btn","left":164,"height":40}},{"type":"Image","props":{"width":40,"var":"aft_btn","top":200,"skin":"img/main/right@2x.png","right":164,"name":"aft_btn","height":40}},{"type":"Label","props":{"width":90,"var":"year","top":200,"text":"2018","name":"year","left":290,"height":44,"fontSize":28,"color":"#163853"}},{"type":"Label","props":{"width":31,"var":"month","top":200,"text":"12","name":"month","left":406,"height":40,"fontSize":28,"color":"#163853","align":"center"}},{"type":"Label","props":{"top":200,"text":"月","left":440,"fontSize":28,"color":"#163853"}},{"type":"Label","props":{"top":200,"text":"年","left":355,"fontSize":28,"color":"#163853"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.TransHisListUI.uiView);
+
+        }
+
+    }
+}
+
 module ui.user {
     export class UseInviteUI extends View {
 		public btn_back:Laya.Button;
@@ -790,6 +814,54 @@ module ui {
 }
 
 module ui {
+    export class WalletMeUI extends View {
+		public lab_wel:Laya.Label;
+		public btn_manageWal:Laya.Box;
+		public btn_dealHistory:Laya.Box;
+		public btn_lqtg:Laya.Box;
+		public btn_helpus:Laya.Box;
+		public btn_about:Laya.Box;
+		public btn_logout:Laya.Button;
+		public btn_assets:Laya.Button;
+		public btn_smartcat:Laya.Button;
+		public btn_me:Laya.Button;
+		public btn_invid:Laya.Box;
+		public btn_notice:Laya.Box;
+		public noticeIcon:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":750,"top":0,"right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},"child":[{"type":"Box","props":{"top":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Image","props":{"width":68,"top":30,"skin":"img/main/sz@2x.png","right":30,"height":68}},{"type":"Image","props":{"y":172,"x":60,"width":58,"skin":"img/main/wd@2x.png","height":58}},{"type":"Label","props":{"y":172,"x":146,"var":"lab_wel","valign":"middle","text":"欢迎来到WWEC Wallet","height":56,"fontSize":40,"color":"#163853","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":340,"width":750,"var":"btn_manageWal","right":0,"left":0,"height":60},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":0}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/glqb@2x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"管理钱包","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"y":50,"x":50,"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}}]},{"type":"Box","props":{"y":430,"var":"btn_dealHistory","right":0,"left":0,"height":60},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":-1}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/jyjl@2x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"交易记录","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}}]},{"type":"Box","props":{"y":520,"x":20,"var":"btn_lqtg","right":0,"left":0,"height":60,"disabled":false},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":-1}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/tglq@2x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"糖果领取","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"y":10,"x":10,"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}}]},{"type":"Box","props":{"y":791,"var":"btn_helpus","right":0,"left":0,"height":60,"disabled":false},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":-1}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/bzwm@2x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"帮助我们","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"y":20,"x":20,"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}}]},{"type":"Box","props":{"y":879,"var":"btn_about","right":0,"left":4,"height":60},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":-1}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/gywm@2x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"关于我们","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"y":40,"x":40,"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}}]},{"type":"Button","props":{"y":1088,"var":"btn_logout","stateNum":1,"skin":"img/main/anliu@2x.png","right":30,"left":30,"labelSize":32,"labelColors":"#ffffff","label":"退出登录","height":80}},{"type":"Button","props":{"y":1238,"x":155,"width":72,"var":"btn_assets","stateNum":1,"skin":"img/main/zichan-@2x.png","sizeGrid":"0,0,-80,0","labelSize":20,"labelPadding":"35","labelColors":"#B0BBC4","label":"资产","height":88,"bottom":8}},{"type":"Button","props":{"x":311,"width":72,"var":"btn_smartcat","stateNum":1,"skin":"img/main/zichan-@2x.png","sizeGrid":"0,0,-80,0","labelSize":20,"labelPadding":"35","labelColors":"#B0BBC4","label":"智能猫","height":88,"bottom":14}},{"type":"Button","props":{"y":1238,"x":473,"width":72,"var":"btn_me","stateNum":1,"skin":"img/main/wo. de-@2x.png","sizeGrid":"0,0,-80,0","name":"item2","labelSize":20,"labelPadding":"35","labelColors":"#598ADA","label":"我的","height":88,"bottom":8}},{"type":"Box","props":{"y":610,"var":"btn_invid","right":0,"left":0,"height":60,"disabled":false},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":-1}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/tuijian@3x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"邀请有奖","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"y":30,"x":30,"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}}]},{"type":"Box","props":{"y":704,"var":"btn_notice","right":0,"left":1,"height":60},"child":[{"type":"Image","props":{"top":0,"right":0,"left":0,"bottom":-1}},{"type":"Image","props":{"x":54,"width":56,"skin":"img/main/qbgg@2x.png","height":56,"centerY":0}},{"type":"Label","props":{"x":138,"width":445,"valign":"middle","text":"钱包公告","skin":"template/List/label.png","height":44,"fontSize":32,"color":"#163853","centerY":0,"bold":true,"align":"left"}},{"type":"Image","props":{"width":32,"skin":"img/main/next@2x.png","right":42,"height":32,"centerY":0}},{"type":"Image","props":{"y":40,"x":40,"skin":"img/main/itemSepar.png","right":0,"left":138,"height":1,"bottom":-15}},{"type":"Image","props":{"y":11,"x":316,"width":68,"visible":false,"var":"noticeIcon","skin":"img/main/new@2x.png","name":"noticeIcon","height":36}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.WalletMeUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class WalletNoticeUI extends View {
+		public back_btn:Laya.Button;
+		public listNotice:Laya.List;
+		public singleTitle:Laya.Label;
+		public singleTime:Laya.Label;
+		public lab_nodata:Laya.Label;
+
+        public static  uiView:any ={"type":"View","props":{"width":750,"height":1334},"child":[{"type":"Label","props":{"y":44,"x":307,"width":136,"text":"钱包公告","height":34,"fontSize":32,"color":"#163853"}},{"type":"Button","props":{"y":30,"x":30,"width":65,"var":"back_btn","top":30,"stateNum":1,"skin":"img/main/back@2x.png","name":"back_btn","left":30,"height":65}},{"type":"List","props":{"var":"listNotice","top":150,"spaceY":20,"right":40,"name":"listNotice","left":40,"bottom":0},"child":[{"type":"Box","props":{"y":3,"width":686,"renderType":"render","left":0,"height":120},"child":[{"type":"Image","props":{"y":-3,"x":0,"top":0,"skin":"img/main/grayBack.png","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"y":75,"x":23,"var":"singleTitle","text":"关于本次矿工代理费调整公告","name":"singleTitle","fontSize":28,"color":"black"}},{"type":"Label","props":{"y":24,"x":26,"var":"singleTime","text":"2018-7-22  19:33","name":"singleTime","fontSize":24,"color":"#687076"}}]}]},{"type":"Label","props":{"y":10,"x":10,"visible":false,"var":"lab_nodata","valign":"middle","text":"暂无数据","name":"lab_nodata","height":120,"fontSize":42,"color":"#163853","centerY":0,"centerX":0,"align":"center"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.WalletNoticeUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
     export class WalletQuickUI extends Dialog {
 		public bg:Laya.Image;
 		public list_wallet:Laya.List;
@@ -852,6 +924,34 @@ module ui {
         
             super.createChildren();
             this.createView(ui.WalletSendUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class WalletSendSubmitUI extends View {
+		public btn_goback:Laya.Button;
+		public coin_type:Laya.Label;
+		public text_to:Laya.TextInput;
+		public text_from:Laya.TextInput;
+		public btn_submit:Laya.Button;
+		public send_amout:Laya.TextInput;
+		public sli_gas:Laya.HSlider;
+		public lab_slow:Laya.Label;
+		public lab_quick:Laya.Label;
+		public lab_max_gas:Laya.TextInput;
+		public lab_max_gas_usd:Laya.TextInput;
+		public lab_max_total:Laya.TextInput;
+		public lab_max_total_usd:Laya.TextInput;
+
+        public static  uiView:any ={"type":"View","props":{"y":0,"x":0,"width":750,"top":0,"right":0,"left":0,"height":1334,"bottom":0},"child":[{"type":"Button","props":{"y":40,"x":30,"width":65,"var":"btn_goback","stateNum":1,"skin":"img/main/xx@2x.png","labelSize":22,"labelColors":"#057AFB,#057AFB,#7EB9FB","height":65}},{"type":"Label","props":{"y":48,"x":162,"width":204,"var":"coin_type","valign":"middle","text":"ETH","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","align":"right"}},{"type":"TextInput","props":{"y":131,"text":"收款人账户地址","right":20,"maxChars":30,"left":30,"layoutEnabled":true,"height":40,"fontSize":24,"editable":false,"color":"#8E979F"}},{"type":"TextInput","props":{"y":270,"right":20,"prompt":"发送人账户地址","maxChars":30,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F"}},{"type":"Label","props":{"y":410,"valign":"middle","text":"转账金额 :","left":30,"height":40,"fontSize":28,"color":"#868686","align":"left"}},{"type":"TextInput","props":{"y":180,"var":"text_to","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":20,"maxChars":42,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"left"},"child":[{"type":"Image","props":{"visible":false,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"TextInput","props":{"y":320,"var":"text_from","text":"0x098373B3863c1ca7862b4786c13611a71e2BB682","right":20,"prompt":"发送人账户地址","overflow":"scroll","maxChars":42,"left":30,"layoutEnabled":true,"height":40,"fontSize":28,"editable":false,"color":"#8E979F","align":"left"}},{"type":"Button","props":{"var":"btn_submit","stateNum":1,"skin":"img/main/bfqb@2x.png","sizeGrid":"0,0,0,0","right":0,"left":0,"labelSize":32,"labelColors":"#ffffff","labelAlign":"center","label":"提交","height":88,"bottom":0}},{"type":"TextInput","props":{"y":410,"x":177,"width":532,"var":"send_amout","valign":"middle","type":"number","text":"0","maxChars":30,"height":40,"fontSize":32,"editable":false,"color":"#8E979F","align":"left"},"child":[{"type":"Image","props":{"visible":false,"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0}}]},{"type":"HSlider","props":{"y":550,"var":"sli_gas","skin":"img/main/BackProgressBar.png","sizeGrid":"0,15,0,15","right":30,"min":10,"max":200,"left":30,"height":50}},{"type":"Label","props":{"y":500,"text":"矿工费用(GWEI)","left":30,"height":40,"fontSize":28,"color":"#868686"}},{"type":"Label","props":{"y":610,"var":"lab_slow","text":"慢","left":30,"height":30,"fontSize":20,"color":"#868686"}},{"type":"Label","props":{"y":610,"var":"lab_quick","text":"快","right":30,"height":30,"fontSize":20,"color":"#868686"}},{"type":"Label","props":{"y":680,"text":"最大交易手续费","left":30,"height":30,"fontSize":20,"color":"#8E979F"}},{"type":"TextInput","props":{"y":680,"width":532,"var":"lab_max_gas","valign":"top","text":"0.000021 ETH","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"TextInput","props":{"y":710,"width":677,"var":"lab_max_gas_usd","valign":"middle","text":"- ¥ ","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"Label","props":{"y":780,"text":"总费用","left":30,"height":30,"fontSize":20,"color":"#8E979F"}},{"type":"TextInput","props":{"y":780,"width":619,"var":"lab_max_total","valign":"top","text":"1.000021 ETH","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"TextInput","props":{"y":810,"width":668,"var":"lab_max_total_usd","valign":"middle","text":"- ¥","right":30,"height":30,"fontSize":20,"editable":false,"color":"#8E979F","align":"right"}},{"type":"Label","props":{"y":48,"x":393,"valign":"middle","text":"转账","strokeColor":"#f9f9f9","skin":"template/Navigator/label.png","height":44,"fontSize":32,"color":"#163853","align":"left"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.WalletSendSubmitUI.uiView);
 
         }
 

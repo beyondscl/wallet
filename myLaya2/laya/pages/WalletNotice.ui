@@ -1,13 +1,8 @@
 {
     "x":0,
     "type":"View",
-<<<<<<< Updated upstream
-    "selectedBox":5,
-    "selecteID":17,
-=======
     "selectedBox":1,
     "selecteID":19,
->>>>>>> Stashed changes
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -83,11 +78,7 @@
                         {
                             "x":45,
                             "type":"Label",
-<<<<<<< Updated upstream
-                            "props":{"y":75,"x":23,"var":"singleTitle","name":"singleTitle","fontSize":28,"color":"black"},
-=======
                             "props":{"y":75,"x":23,"var":"singleTitle","text":"关于本次矿工代理费调整公告","name":"singleTitle","fontSize":28,"color":"black"},
->>>>>>> Stashed changes
                             "nodeParent":5,
                             "label":"Label(singleTitle)",
                             "isOpen":true,
@@ -101,11 +92,7 @@
                         {
                             "x":45,
                             "type":"Label",
-<<<<<<< Updated upstream
-                            "props":{"y":24,"x":26,"var":"singleTime","name":"singleTime","fontSize":24,"color":"#687076"},
-=======
                             "props":{"y":24,"x":26,"var":"singleTime","text":"2018-7-22  19:33","name":"singleTime","fontSize":24,"color":"#687076"},
->>>>>>> Stashed changes
                             "nodeParent":5,
                             "label":"Label(singleTime)",
                             "isDirectory":false,

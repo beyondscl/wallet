@@ -44,10 +44,7 @@ module view {
             let cTotal = cell.getChildByName('cTotal') as Label;
             this.total = Number(cTotal.text);
             this.comp.lab_coin_total.text = cValue.text.split("¥")[1];
-<<<<<<< Updated upstream
             this.comp.allMount.text = cTotal.text;
-=======
->>>>>>> Stashed changes
             this.loadData(this.page, this.pageSize);
 
         }
@@ -65,16 +62,11 @@ module view {
                      */
                     v.realData = v.realData.concat(v.getNewData(service.transService.getTransListItem(ret.data),v.yearNow, v.monthNow));
                     v.setListUp(v.realData);
-<<<<<<< Updated upstream
                 } else if(ret.retCode != 0){
                     new view.alert.info(ret.reason ? ret.reason : config.msg.OPERATOR_ERROR).popup();
                     // v.originData = [];
                     v.setListUp([]);
                 }else{
-=======
-                } else {
-                    new view.alert.info(ret.reason ? ret.reason : config.msg.OPERATOR_ERROR).popup();
->>>>>>> Stashed changes
                     v.setListUp([]);
                 }
                 args[1].stop();
@@ -164,18 +156,11 @@ module view {
         }
 
         private setListUp(data: Array<mod.dealtemMod>): void {
-<<<<<<< Updated upstream
             this.originData = [];
             for (let i = 0; i < data.length; i++) {
                 this.originData.push(data[i]);
             }
              if (this.originData.length == 0 && this.realData.length == 0) {
-=======
-            for (let i = 0; i < data.length; i++) {
-                this.originData.push(data[i]);
-            }
-            if (this.originData.length == 0) {
->>>>>>> Stashed changes
                 this.comp.lab_nodata.visible = true;
                 this.comp.list.array = [];
             } else {
@@ -189,7 +174,6 @@ module view {
                     allMount -= Number(this.originData[i].dealAmount);
                }
             }
-<<<<<<< Updated upstream
             this.comp.list.vScrollBarSkin = "";
             this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
             this.comp.list.array = this.realData;
@@ -199,32 +183,6 @@ module view {
                 if(this.page * this.pageSize>this.comp.list.array.length){
                     this.scrollGate = false;
                 }
-=======
-            this.comp.allMount.text = allMount.toString();
-            // if () {
-
-            // }
-            /**
-             * itemImgSrc:""
-                itemMonType:"0"
-                itemName:"ETH"
-                itemTotal:"0"
-             */
-            if (this.refData.itemName == 'ETH') {
-                    let rmb: number = allMount * mod.userMod.ethToUsd * mod.userMod.usdToRmb
-                    this.comp.lab_coin_total.text =Number(rmb.toFixed(2)).toString();
-                } else {
-                    // let rmb: number = allMount * mod.userMod.wwecToRmb
-                    // this.comp.lab_coin_total.text =Number(rmb.toFixed(2)).toString();
-                    this.comp.lab_coin_total.text = '-'
-            }
-            this.comp.list.vScrollBarSkin = "";
-            this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
-            this.comp.list.array = this.originData;
-            if (data.length != 0) {
-                this.scrollGate = true;
-                this.comp.list.scrollBar.on(Laya.Event.CHANGE, this, this.loadMore)
->>>>>>> Stashed changes
                 this.comp.list.scrollTo((this.page - 1) * this.pageSize);
             }
         }
@@ -247,11 +205,6 @@ module view {
                 };
                 let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
                 let NoTime = new Date(new Date().toLocaleDateString()).getTime(); // 当天的零点时间戳
-<<<<<<< Updated upstream
-                // console.log(Math.abs(DeTime - NoTime) - this.OneDayTime)
-=======
-                console.log(Math.abs(DeTime - NoTime) - this.OneDayTime)
->>>>>>> Stashed changes
                 if ((DeTime - NoTime) > 0){
                      this.times[i].list[0] = "今天";
                      this.times[i].timeNumMax = 0 * this.OneDayTime;
@@ -319,7 +272,6 @@ module view {
             if (typeof timeData[timeData.length - 1] == 'string') {
                 timeData.splice(timeData.length - 1, 1); // 去除最后一个日期标题
             }
-<<<<<<< Updated upstream
             for (var i = 0; i< this.realData.length; i++) {
                for (var j =0; j<timeData.length; j++) {
                     if (this.realData[i] == timeData[j] && (typeof this.realData[i] == 'string')) {
@@ -337,26 +289,15 @@ module view {
                     }
                 }
             }
-=======
->>>>>>> Stashed changes
             return timeData;
         }
 
         private onListRender(cell: Box, index: number) {
-<<<<<<< Updated upstream
             var data: mod.dealtemMod = this.comp.list.array[index];
             if (typeof this.comp.list.array[index] == 'string'){
                 let time = cell.getChildByName('time') as Laya.Label;
                 time.text =this.comp.list.array[index];
                 time.visible = true;
-=======
-            cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
-            var data: mod.dealtemMod = this.comp.list.array[index];
-
-            if (typeof this.comp.list.array[index] == 'string'){
-                let time = cell.getChildByName('time') as Laya.Label;
-                time.text =this.comp.list.array[index];
->>>>>>> Stashed changes
                 let cImg = cell.getChildByName('img') as Laya.Image;
                 // cImg.skin = data.getDealImgSrc();
                 cImg.visible = false;
@@ -380,18 +321,11 @@ module view {
                 cName.visible = true;
                 let addr = cell.getChildByName('lab_addr') as Label;
                 addr.text = data.getDealType() + ": " + util.getAddr(data.getDealAddr());
-<<<<<<< Updated upstream
                 addr.visible = true;
                 let amount = cell.getChildByName('lab_amount') as Label;
                 amount.text = data.getDealSymbol() + data.dealAmount + " " + this.comp.lab_coin_name.text;
                 amount.color = data.getDealColor();
                 amount.visible = true;
-=======
-
-                let amount = cell.getChildByName('lab_amount') as Label;
-                amount.text = data.getDealSymbol() + data.dealAmount + " " + this.comp.lab_coin_name.text;
-                amount.color = data.getDealColor()
->>>>>>> Stashed changes
             }
         }
 

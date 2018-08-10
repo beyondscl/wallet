@@ -46,15 +46,12 @@ module config {
         //与用户绑定
         private static originAppKey: string = "wwwallet";//用于存储标识用户是否已经有钱包
 
-<<<<<<< Updated upstream
-=======
         //智能猫
         private static apiSmartcatGetSummary: string = prod.apiLocalHost + ''; //获取分红概览信息
         private static apiSmartcatGetMysmartcat: string = prod.apiLocalHost + ''; //获取我的智能猫信息
         private static apiSmartcatGetAssetsList: string = prod.apiLocalHost + ''; //获取我的资产列表
         private static apiSmartcatSetting: string  = prod.apiLocalHost + ''; //开启或者关闭智能猫
 
->>>>>>> Stashed changes
         // 公告相关接口
         public static apiNoticeList: string = prod.apiLocalHost + "/notice/getNoticeList" // 获取公告列表
 

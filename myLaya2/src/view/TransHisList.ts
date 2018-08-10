@@ -13,12 +13,7 @@ module view {
         private yearNow: string = new Date().getFullYear().toString();
         private monthNow: string = (new Date().getMonth() + 1).toString();
         private OneDayTime: number = 86400000;
-<<<<<<< Updated upstream
         private realData= [];
-=======
-        private realData = [];
-
->>>>>>> Stashed changes
         constructor() {
             super();
             this.init();
@@ -42,7 +37,6 @@ module view {
                     //     v.realData = [];
                     //     v.originData = [];
                     // }
-<<<<<<< Updated upstream
                     // let dataNew2 = service.transService.getTransListItem(ret.data)
                     // let dataNew = v.getNewData(service.transService.getTransListItem(ret.data),v.yearNow, v.monthNow)
                     v.realData = v.realData.concat(v.getNewData(service.transService.getTransListItem(ret.data),v.yearNow, v.monthNow));
@@ -53,14 +47,6 @@ module view {
                     v.setListUp([]);
                 }else{
                     v.setListUp([]);
-=======
-                    v.realData = v.realData.concat(v.getNewData(service.transService.getTransListItem(ret.data),v.yearNow, v.monthNow));
-                    v.setListUp(v.realData);
-                } else {
-                    new view.alert.info(ret.reason ? ret.reason : config.msg.OPERATOR_ERROR).popup();
-                    // v.originData = [];
-                    v.setListUp([]);
->>>>>>> Stashed changes
                 }
                 args[1].stop();
             }, [this, wait]);
@@ -96,11 +82,8 @@ module view {
                 if (NumMonth == 12) {
                     NumYear += 1;
                     NumMonth = 1; 
-<<<<<<< Updated upstream
                 } else if(NumMonth + 1 > Number(new Date().getMonth()+1) && NumYear == Number(new Date().getFullYear())) {
                     return
-=======
->>>>>>> Stashed changes
                 } else {
                     NumMonth +=1;
                 }
@@ -110,10 +93,6 @@ module view {
                 this.comp.month.text = NumMonth.toString();
                 this.yearNow = NumYear.toString();
                 this.monthNow = NumMonth.toString();
-<<<<<<< Updated upstream
-=======
-                this.originData = [];
->>>>>>> Stashed changes
                 this.realData = [];
                 this.loadData(this.page, this.pageSize);
         }
@@ -126,25 +105,16 @@ module view {
 
         //init deal history list
         private setListUp(data: Array<mod.dealtemMod>): void {
-<<<<<<< Updated upstream
             this.originData = [];
             for (let i = 0; i < data.length; i++) {
                 this.originData.push(data[i]);
             }
             if (this.originData.length == 0 && this.realData.length == 0) {
-=======
-            for (let i = 0; i < data.length; i++) {
-                this.originData.push(data[i]);
-            }
-            if (this.originData.length == 0) {
->>>>>>> Stashed changes
                 this.comp.lab_nodata.visible = true;
                 this.comp.list.array = [];
             } else {
                 this.comp.lab_nodata.visible = false;
             }
-<<<<<<< Updated upstream
-
             this.comp.list.vScrollBarSkin = "";
             this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
             this.comp.list.array = this.realData;
@@ -157,21 +127,6 @@ module view {
                 this.comp.list.scrollTo((this.page - 1) * this.pageSize);
             }            
         }
-=======
-            this.comp.list.vScrollBarSkin = "";
-            this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
-            this.comp.list.array = this.originData;
-            if (data.length != 0) {
-                this.comp.list.vScrollBarSkin = "";
-                this.comp.list.renderHandler = new Handler(this, this.onListRender, null, false);
-                this.comp.list.array = this.originData;
-                this.scrollGate = true;
-                this.comp.list.scrollBar.on(Laya.Event.CHANGE, this, this.loadMore)
-                this.comp.list.scrollTo((this.page - 1) * this.pageSize);
-            }
-        }
-
->>>>>>> Stashed changes
         private loadMore() {
             if (this.scrollGate && this.comp.list.scrollBar.max == this.comp.list.scrollBar.value) {
                 this.scrollGate = false;
@@ -189,11 +144,6 @@ module view {
                 };
                 let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
                 let NoTime = new Date(new Date().toLocaleDateString()).getTime(); // 当天的零点时间戳
-<<<<<<< Updated upstream
-                // console.log(Math.abs(DeTime - NoTime) - this.OneDayTime)
-=======
-                console.log(Math.abs(DeTime - NoTime) - this.OneDayTime)
->>>>>>> Stashed changes
                 if ((DeTime - NoTime) > 0){
                      this.times[i].list[0] = "今天";
                      this.times[i].timeNumMax = 0 * this.OneDayTime;
@@ -220,20 +170,12 @@ module view {
             /**
              * 去除数组重复值
              */
-<<<<<<< Updated upstream
             for (var i = 0;i<this.times.length - 1;) {
                 if (this.times[i].timeNumMax == this.times[i+1].timeNumMax) {
                     this.times.splice(i + 1, 1);
                     i = i;
                 } else {
                     i++;
-=======
-            for (var i = 0;i<this.times.length;i++) {
-                for (var j = i + 1; j< this.times.length; j++) {
-                    if (this.times[i].timeNumMax == this.times[j].timeNumMax) {
-                        this.times.splice(j, 1);
-                    }
->>>>>>> Stashed changes
                 }
             }
             var dataRest = []; // 统一为一个数组
@@ -261,10 +203,7 @@ module view {
                     timeData.splice(i, 1);
                     i = i
                     timeData
-<<<<<<< Updated upstream
-=======
-                    // return
->>>>>>> Stashed changes
+
                 } else {
                     i++;
                 }
@@ -273,7 +212,6 @@ module view {
             if (typeof timeData[timeData.length - 1] == 'string') {
                 timeData.splice(timeData.length - 1, 1); // 去除最后一个日期标题
             }
-<<<<<<< Updated upstream
             for (var i = 0; i< this.realData.length; i++) { // 去掉相同日期标题
                for (var j =0; j<timeData.length; j++) {
                     if (this.realData[i] == timeData[j] && (typeof this.realData[i] == 'string')) {
@@ -281,18 +219,12 @@ module view {
                     }
                }
             }
-=======
->>>>>>> Stashed changes
             return timeData; 
         }
         // 渲染会循环两次
         private onListRender(cell: Box, index: number) {
             var data: mod.dealtemMod = this.comp.list.array[index]
             if (typeof this.comp.list.array[index] == 'string'){
-<<<<<<< Updated upstream
-=======
-                var data: mod.dealtemMod = this.comp.list.array[index];
->>>>>>> Stashed changes
                 let cImg = cell.getChildByName('img') as Laya.Image;
                 cImg.visible = false;
                 let cName = cell.getChildByName('lab_deal_name') as Label;
@@ -303,10 +235,7 @@ module view {
                 amount.visible = false;
                 let time = cell.getChildByName('time') as Label;
                 time.text = this.comp.list.array[index];
-<<<<<<< Updated upstream
                 time.visible = true;
-=======
->>>>>>> Stashed changes
                 let timeBg = cell.getChildByName('timeBg') as Label;
                 timeBg.visible = true;
                 // cell.height = 20;
@@ -316,7 +245,6 @@ module view {
                 cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
                 let cImg = cell.getChildByName('img') as Laya.Image;
                 cImg.skin = data.getDealImgSrc();
-<<<<<<< Updated upstream
                 cImg.visible = true;
                 let cName = cell.getChildByName('lab_deal_name') as Label;
                 cName.text = data.getDealChName();
@@ -328,15 +256,6 @@ module view {
                 amount.text = data.getDealSymbol() + data.dealAmount + " " + data.dealCoinType;
                 amount.color = data.getDealColor()
                 amount.visible = true;
-=======
-                let cName = cell.getChildByName('lab_deal_name') as Label;
-                cName.text = data.getDealChName();
-                let addr = cell.getChildByName('lab_addr') as Label;
-                addr.text = data.getDealType() + ": " + util.getAddr(data.getDealAddr());
-                let amount = cell.getChildByName('lab_amount') as Label;
-                amount.text = data.getDealSymbol() + data.dealAmount + " " + data.dealCoinType;
-                amount.color = data.getDealColor()
->>>>>>> Stashed changes
                 let time = cell.getChildByName('time') as Label;
                 time.visible = false;
             }

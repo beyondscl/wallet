@@ -2,11 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-<<<<<<< Updated upstream
-    "selecteID":25,
-=======
     "selecteID":27,
->>>>>>> Stashed changes
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",

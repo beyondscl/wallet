@@ -38,10 +38,7 @@ module view {
             this.comp.btn_logout.on(Laya.Event.CLICK, this, this.tabSelect, [6]);
             this.comp.btn_invid.on(Laya.Event.CLICK, this, this.tabSelect, [7]);
             this.comp.btn_notice.on(Laya.Event.CLICK, this, this.tabSelect, [8]);
-<<<<<<< Updated upstream
-=======
             this.comp.btn_smartcat.on(Laya.Event.CLICK, this, this.tabSelect, [9]);
->>>>>>> Stashed changes
         }
 
         private initQueryData() {
@@ -96,13 +93,10 @@ module view {
             if (index == 8) {
                 this.comp.visible = false;
                 new view.WalletNotice().setParentUI(this);
-<<<<<<< Updated upstream
-=======
             }
             if (index == 9) {
                 this.comp.visible = false
                 new view.SmartCat().setParentUI(this.parenUI)
->>>>>>> Stashed changes
             }
         }
 

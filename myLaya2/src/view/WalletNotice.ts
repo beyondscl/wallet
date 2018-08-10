@@ -3,11 +3,7 @@ module view {
         public comp: ui.WalletNoticeUI;
         private parentUI: view.WalletMe
         private waiting: view.alert.waiting
-<<<<<<< Updated upstream
         private data= []
-=======
-        private data: Object[] = []
->>>>>>> Stashed changes
         private info: view.alert.info
         private pageNo = 1;
         private pageSize = 10;
@@ -27,11 +23,8 @@ module view {
             native.native.setCurrView(this,2);
             this.comp = new ui.WalletNoticeUI();
             this.stage.addChild(this.comp);
-<<<<<<< Updated upstream
              this.waiting = new view.alert.waiting("查询中...");
              this.waiting.popup();
-=======
->>>>>>> Stashed changes
             service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);
         }
 
@@ -76,11 +69,8 @@ module view {
                 this.scrollSta = false;
                 this.pageNo += 1;
                 try {
-<<<<<<< Updated upstream
                     this.waiting = new view.alert.waiting("查询中...");
                     this.waiting.popup();
-=======
->>>>>>> Stashed changes
                     service.walletServcie.getNotice(this.pageNo, this.pageSize, this.NoticeHisCb, this);
                 } catch (error) {
                     console.log("err:" +  error);
@@ -101,7 +91,6 @@ module view {
          */
         private NoticeHisCb (ret, v: view.WalletNotice) {
             try {
-<<<<<<< Updated upstream
                 v.waiting.stop();
                 ret = JSON.parse(ret);
                 if (ret && ret.retCode == 0) {
@@ -110,34 +99,16 @@ module view {
                             ret.data.list[i].update_time = util.getFormatTime2(new Date(ret.data.list[i].update_time).valueOf() / 1000);
                         }
                         v.data = v.data.concat(ret.data.list);
-                        v.setList(v.data);            
-=======
-                v.waiting = new view.alert.waiting("查询中...");
-                v.waiting.popup();
-                ret = JSON.parse(ret);
-                if (ret && ret.retCode == 0) {
-                    if (ret.data.list.length != 0) {
-                        console.log(ret.data.list)
-                        for(var i = 0;i<ret.data.list.length;i++){
-                            ret.data.list[i].update_time = util.getFormatTime2(new Date(ret.data.list[i].update_time).valueOf() / 1000);
-                            console.log(ret.data.list[i].update_time);
-                        }
-                        v.data = v.data.concat(ret.data.list);
-                        v.setList(v.data);                        
->>>>>>> Stashed changes
+                        v.setList(v.data);
                     } else {
                         v.waiting.stop();
                         v.scrollSta = false;
                         v.info = new view.alert.info("没有更多的数据...");
                         v.info.popup();
-<<<<<<< Updated upstream
                         v.setList([]);
                     }
                 } else {
                     v.setList([]);
-=======
-                    }
->>>>>>> Stashed changes
                 }
             } catch (err) {
                 console.log("Notice request: " + err);
