@@ -92,6 +92,7 @@ module view {
             }
             if (index == 8) {
                 this.comp.visible = false;
+                this.comp.noticeIcon.visible = false;
                 new view.WalletNotice().setParentUI(this);
             }
             if (index == 9) {

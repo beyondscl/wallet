@@ -57,7 +57,10 @@ module view.info {
                 return;
             }
             if (4 == index) {
-                Laya.loader.load(config.resource.devLogPath, Laya.Handler.create(this, this.devLog), null, Laya.Loader.TEXT);
+                this.comp.visible = false;
+                // Laya.loader.load(config.resource.devLogPath, Laya.Handler.create(this, this.devLog), null, Laya.Loader.TEXT);
+                let log = new dev_log();
+                log.setParentUI(this);
             }
             if (5 == index) {
                 let wait = new view.alert.waiting("正在加载资源...")

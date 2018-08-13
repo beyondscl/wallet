@@ -119,6 +119,8 @@ module view {
                 if (NumMonth == 12) {
                     NumYear += 1;
                     NumMonth = 1;
+                } else if(NumMonth + 1 > Number(new Date().getMonth()+1) && NumYear == Number(new Date().getFullYear())) {
+                    return
                 } else {
                     NumMonth +=1;
                 }
@@ -194,7 +196,7 @@ module view {
                 this.loadData(this.page, this.pageSize);
             }
         }
-
+            
          private getNewData(data:Array<any>, year: string, month: string) {
             var dataAll = data;
             for (var i = 0;i<dataAll.length;i++) {
@@ -291,7 +293,6 @@ module view {
             }
             return timeData;
         }
-
         private onListRender(cell: Box, index: number) {
             var data: mod.dealtemMod = this.comp.list.array[index];
             if (typeof this.comp.list.array[index] == 'string'){
