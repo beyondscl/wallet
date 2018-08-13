@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":4,
+    "selectedBox":5,
+    "selecteID":6,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"width":750,"right":0,"name":"render","left":0,"height":187},
+                    "props":{"y":0,"width":750,"right":0,"name":"render","left":0,"height":60},
                     "nodeParent":4,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":91,"wordWrap":true,"width":620,"var":"content","text":"· 修复bug","name":"content","left":82,"leading":20,"height":45,"fontSize":28},
+                            "props":{"y":23,"wordWrap":true,"width":620,"var":"content","text":"· 修复bug","name":"content","left":46,"leading":20,"height":45,"fontSize":28},
                             "nodeParent":5,
                             "label":"Label(content)",
                             "isDirectory":false,
@@ -78,26 +78,13 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":22,"x":50,"width":89,"var":"number","text":"1.0","name":"number","left":50,"height":33,"fontSize":36,"color":"#100E28"},
+                            "props":{"y":18,"width":89,"var":"number","text":"1.0","name":"number","left":48,"height":33,"fontSize":36,"color":"#100E28"},
                             "nodeParent":5,
                             "label":"Label(number)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
                             "compId":6,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":101,"x":59,"width":10,"height":10,"bgColor":"black"},
-                            "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":11,
                             "child":[
                                 ]
                         }]
