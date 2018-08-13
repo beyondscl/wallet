@@ -463,7 +463,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"x":311,"width":72,"var":"btn_smartcat","stateNum":"1","skin":"img/main/zichan-@2x.png","sizeGrid":"0,0,-80,0","labelSize":20,"labelPadding":"35","labelColors":"#B0BBC4","label":"智能猫","height":88,"bottom":14},
+            "props":{"x":311,"width":72,"visible":false,"var":"btn_smartcat","stateNum":"1","skin":"img/main/zichan-@2x.png","sizeGrid":"0,0,-80,0","labelSize":20,"labelPadding":"35","labelColors":"#B0BBC4","label":"智能猫","height":88,"bottom":14},
             "nodeParent":1,
             "label":"Button(btn_smartcat)",
             "isDirectory":false,
@@ -471,7 +471,8 @@
             "hasChild":false,
             "compId":83,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         },
         {
             "x":15,
