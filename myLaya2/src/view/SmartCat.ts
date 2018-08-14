@@ -3,10 +3,11 @@ module view {
         public claName = 'view.SmartCat';
         public comp: ui.SmartCatUI;
         private parentUI: view.WalletMain;
+        public timer = null; //定时刷新数据
+
         constructor() {
             super();
-            this.init()
-            this.initEvent()
+            this.init();
         }
 
         private init() {
@@ -14,12 +15,32 @@ module view {
             Laya.stage.addChild(this.comp);
             native.native.setCurrView(this, 1);
             util.setCatView(this);
+            this.getAllMarketValue();
+            this.initEvent()
         }
 
         public setParentUI(parentUI: any) {
             this.parentUI = parentUI;
         }
+        public setData(res, args) {
+            for (var i in res) {
+                mod.smartCatMod[i] = res[i];
+            };
+            let comp = args[0]
+            comp.label_hostAssetsValue.text = '' + mod.smartCatMod.hostAssetsValue;
+            comp.label_todayDividend.text = '' + mod.smartCatMod.todayDividend;
+            comp.label_hostDays.text = '' + mod.smartCatMod.hostDays;
+        }
 
+        public getAllMarketValue() {
+            var this1 = this;
+            service.smartcatService.getAllMarketValue(this.setData, [this.comp])
+            if (typeof this.timer == 'object')
+                clearInterval(this.timer);
+            this1.timer = setInterval(function(){
+                this1.getAllMarketValue.apply(this1);
+            }, 10000)
+        }
 
         private initEvent() {
             this.comp.my_smartcat.on(Laya.Event.CLICK, this, this.goTo, [1]);
@@ -29,6 +50,8 @@ module view {
             this.comp.inviter_earning.on(Laya.Event.CLICK, this, this.goTo, [6]);
             this.comp.apply_vip.on(Laya.Event.CLICK, this, this.goTo, [7]);
             this.comp.smartcat_explain.on(Laya.Event.CLICK, this, this.goTo, [8]);
+
+            this.comp.box_summary.on(Laya.Event.CLICK, this, this.getAllMarketValue);
 
             this.comp.btn_assets.on(Laya.Event.CLICK, this, this.goTo, [10]);
             this.comp.btn_smartcat.on(Laya.Event.CLICK, this, this.goTo, [11]);
