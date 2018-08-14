@@ -23,6 +23,7 @@ module view.smartcat{
 
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
+			
 		}
 
 		private goBack() {

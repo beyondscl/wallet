@@ -11,7 +11,7 @@ module config {
                 ret = JSON.parse(ret)
                 if (ret && ret.retCode == 0) {
                     let coins = ret.data;
-                    let all = [];
+                    let all = []; // 1111111111111
                     for (let i = 0; i < coins.length; i++) {
                         all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, true, coins[i].abi ? JSON.parse(coins[i].abi) : "");
                     }

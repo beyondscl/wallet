@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":52,
+    "selecteID":6,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -15,9 +15,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"width":65,"top":30,"stateNum":"1","skin":"img/main/back@2x.png","left":30,"height":65},
+            "props":{"width":65,"var":"btn_back","top":30,"stateNum":"1","skin":"img/main/back@2x.png","left":30,"height":65},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_back)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -67,9 +67,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"width":50,"top":20,"stateNum":"1","skin":"img/main/search@2x.png","right":25,"height":50},
+            "props":{"width":50,"var":"search","top":20,"stateNum":"1","skin":"img/main/search@2x.png","right":25,"name":"search","height":50},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(search)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -105,16 +105,381 @@
                 {
                     "x":30,
                     "type":"Box",
+                    "props":{"y":-17,"x":2,"right":0,"left":2,"height":150},
+                    "nodeParent":8,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":9,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":9,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":111,"x":624,"text":"正常","fontSize":24,"color":"#4ec657"},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":109,"x":500,"text":"收益状态:","fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":114,"x":149,"text":"100%","fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":64,"x":698,"text":"人","fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":17,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":113,"x":37,"text":"收益分享:","fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":18,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":64,"x":635,"width":59,"text":"50","height":24,"fontSize":24,"color":"black","align":"right"},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":64,"x":500,"text":"启动智能猫:","fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":15,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":71,"x":101,"width":97,"text":"88","height":28,"fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":70,"x":35,"width":59,"text":"人数:","height":28,"fontSize":24},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":10,"x":685,"width":40,"var":"one_class","top":10,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
+                            "nodeParent":9,
+                            "label":"Button(one_class)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":19,"x":32,"text":"一级伙伴","fontSize":28},
+                            "nodeParent":9,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":10,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":57,"x":0,"top":57,"skin":"img/main/itemSepar.png","right":0,"left":0},
+                            "nodeParent":9,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":180,"x":2,"top":180,"right":0,"left":2,"height":150},
+                    "nodeParent":8,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":38,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
+                            "nodeParent":38,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":39,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":111,"x":624,"text":"正常","fontSize":24,"color":"#4ec657"},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":40,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":109,"x":500,"text":"收益状态:","fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":41,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":114,"x":149,"text":"100%","fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":42,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":64,"x":698,"text":"人","fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":43,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":113,"x":37,"text":"收益分享:","fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":44,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":64,"x":635,"width":59,"text":"50","height":24,"fontSize":24,"color":"black","align":"right"},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":45,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":64,"x":500,"text":"启动智能猫:","fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":46,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":71,"x":101,"width":97,"text":"88","height":28,"fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":47,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":70,"x":35,"width":59,"text":"人数:","height":28,"fontSize":24},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":48,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":10,"x":685,"width":40,"var":"two_class","top":10,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
+                            "nodeParent":38,
+                            "label":"Button(two_class)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":49,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":19,"x":32,"text":"二级伙伴","fontSize":28},
+                            "nodeParent":38,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":50,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":57,"x":0,"top":57,"skin":"img/main/itemSepar.png","right":0,"left":0},
+                            "nodeParent":38,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":51,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
                     "props":{"y":176,"top":356,"right":0,"left":2,"height":150},
                     "nodeParent":8,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":false,
                     "hasChild":true,
                     "compId":24,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":24,
@@ -127,6 +492,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":111,"x":624,"text":"正常","fontSize":24,"color":"#4ec657"},
                             "nodeParent":24,
@@ -139,6 +505,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":109,"x":500,"text":"收益状态:","fontSize":24},
                             "nodeParent":24,
@@ -151,6 +518,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":114,"x":149,"text":"100%","fontSize":24},
                             "nodeParent":24,
@@ -163,6 +531,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":64,"x":698,"text":"人","fontSize":24},
                             "nodeParent":24,
@@ -175,6 +544,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":113,"x":37,"text":"收益分享:","fontSize":24},
                             "nodeParent":24,
@@ -187,6 +557,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":64,"x":635,"width":59,"text":"50","height":24,"fontSize":24,"color":"black","align":"right"},
                             "nodeParent":24,
@@ -199,6 +570,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":64,"x":500,"text":"启动智能猫:","fontSize":24},
                             "nodeParent":24,
@@ -211,6 +583,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":71,"x":101,"width":97,"text":"88","height":28,"fontSize":24},
                             "nodeParent":24,
@@ -223,6 +596,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":70,"x":35,"width":59,"text":"人数:","height":28,"fontSize":24},
                             "nodeParent":24,
@@ -235,10 +609,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":10,"x":685,"width":40,"top":10,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
+                            "props":{"y":10,"x":685,"width":40,"var":"three_class","top":10,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
                             "nodeParent":24,
-                            "label":"Button",
+                            "label":"Button(three_class)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
@@ -247,6 +622,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":19,"x":32,"text":"三级伙伴","fontSize":28},
                             "nodeParent":24,
@@ -259,6 +635,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":57,"x":0,"top":57,"skin":"img/main/itemSepar.png","right":0,"left":0},
                             "nodeParent":24,
@@ -275,354 +652,17 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":180,"top":180,"right":0,"left":2,"height":150},
+                    "props":{"var":"back_btn","top":531,"right":0,"left":2,"height":150},
                     "nodeParent":8,
-                    "label":"Box",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":false,
-                    "hasChild":true,
-                    "compId":38,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":39,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":111,"x":624,"text":"正常","fontSize":24,"color":"#4ec657"},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":40,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":109,"x":500,"text":"收益状态:","fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":41,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":114,"x":149,"text":"100%","fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":42,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":64,"x":698,"text":"人","fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":43,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":113,"x":37,"text":"收益分享:","fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":44,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":64,"x":635,"width":59,"text":"50","height":24,"fontSize":24,"color":"black","align":"right"},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":45,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":64,"x":500,"text":"启动智能猫:","fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":46,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":71,"x":101,"width":97,"text":"88","height":28,"fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":47,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":70,"x":35,"width":59,"text":"人数:","height":28,"fontSize":24},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":48,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":10,"x":685,"width":40,"top":10,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
-                            "nodeParent":38,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":49,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":19,"x":32,"text":"二级伙伴","fontSize":28},
-                            "nodeParent":38,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":50,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":57,"x":0,"top":57,"skin":"img/main/itemSepar.png","right":0,"left":0},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":51,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":-17,"right":0,"left":2,"height":150},
-                    "nodeParent":8,
-                    "label":"Box",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":false,
-                    "hasChild":true,
-                    "compId":9,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
-                            "nodeParent":9,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":23,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":111,"x":624,"text":"正常","fontSize":24,"color":"#4ec657"},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":22,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":109,"x":500,"text":"收益状态:","fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":20,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":114,"x":149,"text":"100%","fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":19,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":64,"x":698,"text":"人","fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":17,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":113,"x":37,"text":"收益分享:","fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":18,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":64,"x":635,"width":59,"text":"50","height":24,"fontSize":24,"color":"black","align":"right"},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":64,"x":500,"text":"启动智能猫:","fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":15,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":71,"x":101,"width":97,"text":"88","height":28,"fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":14,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":70,"x":35,"width":59,"text":"人数:","height":28,"fontSize":24},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":10,"x":685,"width":40,"top":10,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
-                            "nodeParent":9,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":12,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":19,"x":32,"text":"一级伙伴","fontSize":28},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":57,"x":0,"top":57,"skin":"img/main/itemSepar.png","right":0,"left":0},
-                            "nodeParent":9,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":11,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"top":531,"right":0,"left":2,"height":150},
-                    "nodeParent":8,
-                    "label":"Box",
-                    "isOpen":false,
+                    "label":"Box(back_btn)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":false,
                     "hasChild":true,
                     "compId":52,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":52,
@@ -635,10 +675,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"width":40,"top":54,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
+                            "props":{"width":40,"var":"universe_class","top":54,"stateNum":"1","skin":"img/main/Stroke 2@2x.png","right":25,"height":40},
                             "nodeParent":52,
-                            "label":"Button",
+                            "label":"Button(universe_class)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
@@ -647,6 +688,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":56,"x":32,"text":"无限宇宙","fontSize":36},
                             "nodeParent":52,

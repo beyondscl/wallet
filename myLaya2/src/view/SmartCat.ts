@@ -32,7 +32,9 @@ module view {
 
             this.comp.btn_assets.on(Laya.Event.CLICK, this, this.goTo, [10]);
             this.comp.btn_smartcat.on(Laya.Event.CLICK, this, this.goTo, [11]);
-            this.comp.btn_me.on(Laya.Event.CLICK, this, this.goTo, [12])
+            this.comp.btn_me.on(Laya.Event.CLICK, this, this.goTo, [12]);
+
+            this.comp.my_inviter.on(Laya.Event.CLICK, this, this.goTo, [13]);
         }
         
         private goTo(index: number): void {
@@ -56,6 +58,10 @@ module view {
                         new view.WalletMe();
                     }
                     break; //前往个人页面
+                case 13:
+                    this.comp.visible = false;
+                    let partnerMain = new view.partner.PartnerMain();
+                    partnerMain.setParentUI(this);
                 default:
                     break;
             }
