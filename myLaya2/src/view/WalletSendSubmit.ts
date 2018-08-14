@@ -38,7 +38,7 @@ module view {
                         mod.userMod.gasPrice = ret.gasPrice / 1e9;
                         let comp = args[0] as view.WalletSendSubmit;
                         comp.sli_gas.min = mod.userMod.gasPrice;
-                        comp.sli_gas.max = mod.userMod.gasPrice + 150;
+                        comp.sli_gas.max = mod.userMod.gasPrice + 250;
                         comp.sli_gas.value = mod.userMod.gasPrice;// gwei
                         console.log("get eth GasPrice ok:", ret);
                     } else {
