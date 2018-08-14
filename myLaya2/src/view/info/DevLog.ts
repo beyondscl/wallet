@@ -13,6 +13,7 @@ module view {
             this.comp = new ui.info.DevLogUI;
             Laya.stage.addChild(this.comp);
             this.setList();
+            native.native.setCurrView(this,2);
         }
 
         private initEvent () {
@@ -46,8 +47,9 @@ module view {
         }
 
         private goBack(){
-            this.comp.visible = false;
+            this.comp.removeSelf();
             this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,2);
         }
 
 
