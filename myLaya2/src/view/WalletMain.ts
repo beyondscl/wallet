@@ -52,6 +52,7 @@ module view {
         }
 
         private updateBalance() {
+            this.comp.lab_total.text = '0';
             let coins = this.comp.list_wallet.array;
             for (let i = 0; i < coins.length; i++) {
                 this.initBalance(coins[i].itemName);

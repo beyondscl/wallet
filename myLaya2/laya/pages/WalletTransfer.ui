@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":31,
-    "selecteID":71,
+    "selecteID":72,
     "props":{"width":750,"var":"WALLET_TRANSFER","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View(WALLET_TRANSFER)",
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":99,"width":117,"var":"lab_coin_total","valign":"middle","text":" 0","height":30,"fontSize":24,"color":"#598ADA","centerX":92.5,"align":"left"},
+                    "props":{"y":99,"width":117,"var":"lab_coin_total","valign":"middle","text":" 0","height":30,"fontSize":24,"color":"#8E979F","centerX":92.5,"align":"left"},
                     "nodeParent":31,
                     "label":"Label(lab_coin_total)",
                     "isDirectory":false,
@@ -107,7 +107,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":103,"x":364,"width":39,"text":"≈ ¥","height":25,"fontSize":24,"color":"#598ADA"},
+                    "props":{"y":103,"x":364,"width":39,"text":"≈ ¥","height":25,"fontSize":24,"color":"#8E979F"},
                     "nodeParent":31,
                     "label":"Label",
                     "isDirectory":false,
