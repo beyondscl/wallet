@@ -4,25 +4,21 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletMain extends ui.WalletMainUI {
-        private static claName = "view.WalletMain";
+        public static claName = "view.WalletMain";
         public comp: ui.WalletMainUI;
         private ethTotal: string = '0';//扫一扫回调
-        private updateTime = 60*1000;//刷新数据
+        private updateTime = 60 * 1000;//刷新数据
 
         private data: Array<mod.walItemMod> = [];//定时刷新
-        private noRender: number = 1;//过滤刷新
-        private hasRended: Array<string> = [];
 
         constructor() {
             super();
             this.init();
-            this.initEvent();            
+            this.initEvent();
         }
 
         public setData(coins: Array<string>) {
             this.data = [];
-            this.hasRended = [];
-            this.noRender = 1;
             for (let i: number = 0; i < coins.length; i++) {
                 let coinName = coins[i];
                 let walItemT = new mod.walItemMod();
@@ -30,6 +26,10 @@ module view {
                 this.data.push(walItemT);
             }
             this.setListUp(this.data);
+        }
+
+        public getEthTotal() {
+            return this.ethTotal;
         }
 
         //初始化
@@ -45,20 +45,26 @@ module view {
             service.walletServcie.initLigthWallet(data.wKeyStore);
             //初始化币种
             this.setData(data.wCoins);
-            Laya.timer.clear(this,this.initQueryData);
-            Laya.timer.loop(this.updateTime,this,this.initQueryData,[data]);
+            this.updateBalance();
+            //定时获取总额
+            Laya.timer.clear(this, this.updateBalance);
+            Laya.timer.loop(this.updateTime, this, this.updateBalance);
         }
 
-        public getEthTotal() {
-            return this.ethTotal;
+        private updateBalance() {
+            let coins = this.comp.list_wallet.array;
+            for (let i = 0; i < coins.length; i++) {
+                this.initBalance(coins[i].itemName);
+            }
         }
 
         private initBalance(cName: string) {
             let coinMod: mod.coinItemMod = service.walletServcie.getCoinInfo(cName)
-            if(!coinMod){
+            if (!coinMod) {
+                config.init.initData('');
                 return;
             }
-            if (coinMod.abi&&coinMod.coinName!='ETH') {//token
+            if (coinMod.abi && coinMod.coinName != 'ETH') {//token
                 service.walletServcie.getTokenBalance(mod.userMod.defWallet.wAddr, coinMod.coinAddr, coinMod.abi, this.getBalanceCb, [this, coinMod])
             } else {//eth
                 service.walletServcie.getBalance(mod.userMod.defWallet.wAddr, this.getBalanceCb, [this, coinMod])
@@ -70,6 +76,7 @@ module view {
             this.name = config.resource.WALLET_MAIN;
             Laya.stage.addChild(this.comp);
             this.comp.list_wallet.array = [];
+            native.native.setCurrView(this,1);
         }
 
         private initEvent() {
@@ -98,7 +105,7 @@ module view {
                     let cTotal = cell.getChildByName('cTotal') as Label;
                     let cValue = cell.getChildByName('cValue') as Label;
                     if ('ETH' == coinMod.coinName) {
-                        wMain.ethTotal =  (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4)+"";
+                        wMain.ethTotal = (res.toNumber() / config.prod.WEI_TO_ETH).toFixed(4) + "";
                     }
                     if (cName.text == coinMod.coinName) {
                         if (util.isContain(config.prod.expCoins, coinMod.coinName)) {
@@ -116,7 +123,7 @@ module view {
                     }
                 }
             } else {
-                util.log(WalletMain.claName,"getBalance",[mod.userMod.defWallet.wAddr],res);
+                util.log(WalletMain.claName, "getBalance", [mod.userMod.defWallet.wAddr], res);
                 console.error("getBalanceCb error:", res);
             }
         }
@@ -128,17 +135,10 @@ module view {
             this.comp.list_wallet.renderHandler = new Handler(this, this.onListRender);
         }
 
-        //laya底层会渲染多次
         private onListRender(cell: Box, index: number) {
             cell.on(Laya.Event.CLICK, this, this.onSelect, [index]);
 
             var data: mod.walItemMod = this.comp.list_wallet.array[index];
-            for (let m = 0; m < this.hasRended.length; m++) {
-                if (this.hasRended[m] == data.itemName) {
-                    console.log("excape render index:", index)
-                    return;
-                }
-            }
             let cImg = cell.getChildByName('cImg') as Image;
             cImg.skin = data.getItemImgSrc();
             let cName = cell.getChildByName('cName') as Label;
@@ -147,15 +147,9 @@ module view {
             cTotal.text = data.itemTotal
             let cValue = cell.getChildByName('cValue') as Label;
             cValue.text = "¥ " + data.itemMonType;
-            if (this.noRender == 1) {
-                this.hasRended.push(data.itemName);
-                this.initBalance(cName.text);
-            }
-
         }
 
         private onSelect(index: number): void {
-            this.noRender = 0;
             let item = this.data[index];
             this.comp.visible = false;
             let wTransfer = new view.WalletTransfer();
@@ -166,7 +160,11 @@ module view {
         private tabSelect(index: number): void {
             if (index == 1) {
                 this.comp.visible = false;
-                new view.WalletMe().setParentUI(this.comp);
+                if(util.getMeView()){
+                    util.getMeView().comp.visible = true;
+                }else{
+                    new view.WalletMe().setParentUI(this);
+                }
             }
             if (index == 0) {
             }

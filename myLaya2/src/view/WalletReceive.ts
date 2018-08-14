@@ -1,8 +1,9 @@
 /**Created by the LayaAirIDE*/
 module view {
     export class WalletReceive extends ui.WalletReceiveUI {
+        private claName = "view.WalletReceive";
         private comp: ui.WalletReceiveUI;
-        private paretnUI: any;
+        private parentUI: any;
 
         constructor(wName: string) {
             super();
@@ -15,23 +16,15 @@ module view {
         }
 
         public setParentUI(p: any) {
-            this.paretnUI = p;
+            this.parentUI = p;
         }
 
-        private init(wName: string) {//wName可以不要的。
+        private init(wName: string) {
             this.comp = new ui.WalletReceiveUI();
             Laya.stage.addChild(this.comp);
             this.comp.lab_wAddr.text = mod.userMod.defWallet.wAddr;
-            // let val = {
-            //     "address": mod.userMod.defWallet.wAddr,
-            //     "amount": 0,
-            //     "token": "ETH",
-            //     "vender": "WWEC",
-            //     "type": 2
-            // };
             util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, mod.userMod.defWallet.wAddr, this, this.getImgSrc);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
+            native.native.setCurrView(this, 2);
         }
 
         private getImgSrc(qrcode: any) {
@@ -49,11 +42,12 @@ module view {
         }
 
         private goBack() {
-            Laya.stage.removeChild(this.comp);
-            if (this.paretnUI.comp) {
-                this.paretnUI.comp.visible = true;
-            } else {
-                new view.WalletMain().initQueryData(mod.userMod.defWallet);
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+            if(this.parentUI.claName&&this.parentUI.claName=="view.WalletMain"){
+                native.native.setCurrView(this.parentUI , 1);
+            }else{
+                native.native.setCurrView(this.parentUI , 2);
             }
         }
 
@@ -65,13 +59,6 @@ module view {
                 case (2):
                     if (util.isNumber(this.comp.text_amount.text)) {
                         this.comp.warn_amount.visible = false;
-                        // let val = {
-                        //     "address": mod.userMod.defWallet.wAddr,
-                        //     "amount": Number(this.comp.text_amount.text),
-                        //     "token": "ETH",
-                        //     "vender": "WWEC",
-                        //     "type": 2
-                        // };
                         util.createEwm(this.comp.img_wAddr.width, this.comp.img_wAddr.height, mod.userMod.defWallet.wAddr, this, this.getImgSrc);
                     } else {
                         this.comp.warn_amount.visible = true;

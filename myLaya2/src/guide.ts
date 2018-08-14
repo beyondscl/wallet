@@ -24,6 +24,7 @@ class guide {
         this.guideUI.on(Laya.Event.CLICK, this, this.mouseHandler);
         this.guideUI.on(Laya.Event.MOUSE_MOVE, this, this.mouseHandler);
         this.guideUI.img_enter.on(Laya.Event.CLICK, this, this.go);
+        native.native.setCurrView(this,1)
     }
 
     private go() {
@@ -33,6 +34,14 @@ class guide {
             this.parentUI.comp.visible = true;
         } else {
             new EnterApp();
+        }
+    }
+
+    private goBack(){
+        if(this.parentUI){
+            native.native.setCurrView(this,2)
+        }else{
+            native.native.setCurrView(this,1)
         }
     }
 
@@ -99,7 +108,7 @@ let gui = util.getItem(config.prod.appGuide)
 let app = util.getItem(config.prod.getAppKey())
 
 function loadProcess() {
-    new config.init.initData('');
+    config.init.initData('');
     beginLoad();
 }
 
@@ -107,7 +116,8 @@ function beginLoad() {
     Laya.stage.bgColor = 'white';
     var res: Array<string> =
         ["res/atlas/img/main.atlas",
-            "res/atlas/img/coins.atlas"]
+            "res/atlas/img/coins.atlas",
+            "res/atlas/img/smartcat.atlas"]
     if (!acc || !gui) {
         res.push("res/atlas/img/guide.atlas");
     }

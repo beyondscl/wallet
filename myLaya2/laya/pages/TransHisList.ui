@@ -1,11 +1,11 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":7,
-    "selecteID":11,
+    "selectedBox":1,
+    "selecteID":20,
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "label":"View",
+    "label":"View(TRANS_HISTORY)",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"var":"list","top":100,"selectEnable":true,"right":0,"repeatY":10,"repeatX":1,"name":"list","left":0,"bottom":5},
+            "props":{"width":750,"var":"list","top":344,"selectEnable":true,"right":0,"repeatY":10,"repeatX":1,"name":"list","left":0,"height":1229,"bottom":5},
             "nodeParent":1,
             "label":"List(list)",
             "isOpen":true,
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"right":0,"name":"render","left":0,"height":120},
+                    "props":{"visible":true,"right":0,"name":"render","left":0,"height":120},
                     "nodeParent":6,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -68,10 +68,25 @@
                             "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
                             "nodeParent":7,
                             "label":"Image",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
                             "compId":8,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":0,"x":0,"var":"timeBg","top":0,"right":0,"name":"timeBg","left":0,"bottom":0,"bgColor":"#F3F3F4"},
+                            "nodeParent":7,
+                            "label":"Label(timeBg)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":24,
                             "child":[
                                 ]
                         },
@@ -86,7 +101,8 @@
                             "hasChild":false,
                             "compId":9,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -113,6 +129,7 @@
                             "compId":11,
                             "child":[
                                 ],
+                            "$LOCKED":false,
                             "$HIDDEN":false
                         },
                         {
@@ -140,6 +157,19 @@
                             "compId":13,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"width":105,"var":"time","valign":"bottom","text":"时间","name":"time","left":16,"height":46,"fontSize":28,"color":"#687076","bottom":36,"align":"left"},
+                            "nodeParent":7,
+                            "label":"Label(time)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
                         }]
                 }]
         },
@@ -156,6 +186,84 @@
             "child":[
                 ],
             "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"width":40,"var":"pre_btn","top":200,"skin":"img/main/left@2x.png","name":"pre_btn","left":164,"height":40},
+            "nodeParent":1,
+            "label":"Image(pre_btn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"width":40,"var":"aft_btn","top":200,"skin":"img/main/right@2x.png","right":164,"name":"aft_btn","height":40},
+            "nodeParent":1,
+            "label":"Image(aft_btn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":20,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"width":90,"var":"year","top":200,"text":"2018","name":"year","left":290,"height":44,"fontSize":28,"color":"#163853"},
+            "nodeParent":1,
+            "label":"Label(year)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"width":31,"var":"month","top":200,"text":"12","name":"month","left":406,"height":40,"fontSize":28,"color":"#163853","align":"center"},
+            "nodeParent":1,
+            "label":"Label(month)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":22,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"top":200,"text":"月","left":440,"fontSize":28,"color":"#163853"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":25,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"top":200,"text":"年","left":355,"fontSize":28,"color":"#163853"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":26,
+            "child":[
+                ]
         }],
     "animations":[
         {

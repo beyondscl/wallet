@@ -42,7 +42,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"width":690,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0},
+                    "props":{"width":690,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0},
                     "nodeParent":20,
                     "label":"Image",
                     "isOpen":true,

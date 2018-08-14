@@ -3,8 +3,9 @@ module view {
     import Handler = Laya.Handler;
 
     export class WalletSendSubmit extends ui.WalletSendSubmitUI {
-        private comp: ui.WalletSendSubmitUI;
-        private parentUI: ui.WalletSendUI;
+        public claName = "view.WalletSendSubmit";
+        public comp: ui.WalletSendSubmitUI;
+        private parentUI: view.WalletSend
 
         constructor() {
             super();
@@ -12,7 +13,8 @@ module view {
             this.initEvent();
         }
 
-        public setData(data: ui.WalletSendUI) {
+        public setData(p: view.WalletSend) {
+            let data = p.comp;
             this.comp.text_from.text = mod.userMod.defWallet.wAddr;
             this.comp.text_to.text = data.text_addr.text;
             this.comp.send_amout.text = data.text_amount.text;
@@ -36,7 +38,7 @@ module view {
                         mod.userMod.gasPrice = ret.gasPrice / 1e9;
                         let comp = args[0] as view.WalletSendSubmit;
                         comp.sli_gas.min = mod.userMod.gasPrice;
-                        comp.sli_gas.max = mod.userMod.gasPrice + 50;
+                        comp.sli_gas.max = mod.userMod.gasPrice + 150;
                         comp.sli_gas.value = mod.userMod.gasPrice;// gwei
                         console.log("get eth GasPrice ok:", ret);
                     } else {
@@ -50,10 +52,9 @@ module view {
                 }
             }
             Laya.Browser.window.Ajax.get(getGasPrice);
-
         }
 
-        public setParenUI(parent: ui.WalletSendUI) {
+        public setParenUI(parent: view.WalletSend) {
             this.parentUI = parent;
             this.setData(parent);
         }
@@ -61,7 +62,7 @@ module view {
         private init() {
             this.comp = new ui.WalletSendSubmitUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.scaleMode = config.prod.appAdapterType;
+            native.native.setCurrView(this , 2);
         }
 
         private initEvent() {
@@ -72,12 +73,8 @@ module view {
 
         private goBack() {
             Laya.stage.removeChild(this.comp);
-            if (this.parentUI) {
-                this.parentUI.visible = true;
-            } else {
-                new view.WalletSend();
-            }
-
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI , 2);
         }
 
         private btnClick(type: number) {
@@ -95,7 +92,7 @@ module view {
             }
         }
 
-        //多层嵌套
+        //多层回调嵌套
         private enterPassCb(pass: string, comp: ui.WalletSendSubmitUI) {
             let defaultW = mod.userMod.defWallet;
             let fromAdd = comp.text_from.text;
@@ -147,18 +144,24 @@ module view {
         }
 
         //默认滑动选择范围是gwei
+        // 非eth的计算可以自己修改
         private sliChange(value: number) {
             let lab_max_gas = value * 1e9 / 1e18 * config.prod.gasLimit;//矿工费用eth
-            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd).toFixed(2);//矿工费用 usd
-
-            let lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
-            var lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd).toFixed(2);//总量usd
-
-            this.comp.lab_max_gas.text = lab_max_gas.toFixed(6) + " " + this.comp.coin_type.text;
+            let lab_max_gas_usd = Number(lab_max_gas * mod.userMod.ethToUsd*mod.userMod.usdToRmb).toFixed(2);//矿工费用 rmb
+            this.comp.lab_max_gas.text = lab_max_gas.toFixed(4) + " ETH";
             this.comp.lab_max_gas_usd.text = lab_max_gas_usd + " ¥";
-            this.comp.lab_max_total.text = lab_max_total.toFixed(6) + " " + this.comp.coin_type.text;
-            if (!util.isContain(config.prod.expCoins, this.comp.coin_type.text)) {
+
+            if ("ETH"==this.comp.coin_type.text) {
+                let lab_max_total = 0;
+                lab_max_total = Number(this.comp.send_amout.text) + Number(lab_max_gas);//总量eth
+                this.comp.lab_max_total.text = lab_max_total.toFixed(4) + " ETH";
+                let lab_max_total_usd = Number(lab_max_total * mod.userMod.ethToUsd*mod.userMod.usdToRmb).toFixed(2);//总量rmb
                 this.comp.lab_max_total_usd.text = lab_max_total_usd + " ¥";
+            }else{
+                let lab_max_total = 0;
+                lab_max_total = Number(this.comp.send_amout.text);//总量eth
+                this.comp.lab_max_total.text = lab_max_total.toFixed(4) + " "+this.comp.coin_type.text + " "+Number(lab_max_gas).toFixed(4)+" ETH";//总量币+eth
+                this.comp.lab_max_total_usd.text = "- ¥";
             }
         }
     }

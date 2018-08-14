@@ -2,7 +2,7 @@
 module view.set {
     export class UpdatePass extends ui.set.UpdatePassUI {
         private comp: ui.set.UpdatePassUI;
-        private parentUI: ui.WalletDetailUI;
+        private parentUI: view.WalletDetail;
 
         constructor() {
             super();
@@ -10,24 +10,29 @@ module view.set {
             this.initEvent();
         }
 
-        public setParentUI(parentUI: any) {
+        public setParentUI(parentUI: view.WalletDetail) {
             this.parentUI = parentUI;
         }
 
         private init() {
             this.comp = new ui.set.UpdatePassUI();
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.btnClick, [1]);
             this.comp.lab_save.on(Laya.Event.CLICK, this, this.btnClick, [2]);
         }
-
+        private goBack(){
+            this.stage.removeChild(this.comp);
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,2);
+        }
+        
         private btnClick(index: number) {
             if (1 == index) {
-                this.stage.removeChild(this.comp);
-                this.parentUI.visible = true;
+                this.goBack();
             }
             if (2 == index) {
 
@@ -42,7 +47,7 @@ module view.set {
         }
 
         private updatePass(oldPass: string, pass: string, passconfi: string) {
-            let wal = service.walletServcie.getWallet(this.parentUI.lab_wName.text);
+            let wal = service.walletServcie.getWallet(this.parentUI.comp.lab_wName.text);
             if (!wal.wZjc) {
                 new view.alert.info(config.msg.REVER_PASS_WARN).popup();
                 return;

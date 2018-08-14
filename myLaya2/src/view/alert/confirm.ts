@@ -1,7 +1,9 @@
-/**Created by the LayaAirIDE*/
+/**Created by the LayaAirIDE
+ * 导入钱包和备份助记词用到
+*/
 module view.alert {
     export class confirm extends ui.alert.confirmUI {
-        private parentUI: View;
+        private parentUI: any;
         private wName: string;
 
         private callback;
@@ -40,21 +42,11 @@ module view.alert {
             if (1 == index) {
                 if (this.callback) {
                     this.callback(1, this.args);
-                } else {
                 }
-
             }
             if (2 == index) {
                 if (this.callback) {
                     this.callback(2, this.args);
-                } else {//删除助记词
-                    if (mod.userMod.defWallet.wName == this.wName) {
-                        mod.userMod.defWallet.wZjc = '';
-                    }
-                    let wallet: mod.walletMod = service.walletServcie.getWallet(this.wName);
-                    wallet.wZjc = '';
-                    util.setItemJson(this.wName, wallet.toJson());
-                    util.compShow([1]);
                 }
             }
         }

@@ -4,8 +4,9 @@ module view {
     import Label = Laya.Label;
 
     export class WalletManage extends ui.WalletManageUI {
+        public claName = "view.WalletManage";
         public comp: ui.WalletManageUI;
-        private parentUI: ui.WalletMeUI;
+        private parentUI: view.WalletMe;
 
         private rended: Array<string> = [];
 
@@ -15,7 +16,7 @@ module view {
             this.initEvent();
         }
 
-        public setParentUI(parentUI: any) {
+        public setParentUI(parentUI: view.WalletMe) {
             this.parentUI = parentUI;
         }
 
@@ -30,6 +31,7 @@ module view {
         private init() {
             this.comp = new ui.WalletManageUI();
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -37,23 +39,23 @@ module view {
             this.comp.btn_create.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         }
+        private goBack(){
+            Laya.stage.removeChild(this.comp);
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,1);
+        }
 
         private btnClick(index: number) {
             if (1 == index) {
-                Laya.stage.removeChild(this.comp);
-                if (this.parentUI) {
-                    this.parentUI.visible = true;
-                } else {
-                    new view.WalletMe();
-                }
+                this.goBack();
             }
             if (2 == index) {
                 this.comp.visible = false;
-                new view.CreateWallet().setParentUI(this.comp);
+                new view.CreateWallet().setParentUI(this);
             }
             if (3 == index) {
                 this.comp.visible = false;
-                new view.set.WalletImport().setParetUI(this.comp);
+                new view.set.WalletImport().setParetUI(this);
             }
         }
 
@@ -84,7 +86,7 @@ module view {
             let walletMod: mod.walletMod = this.comp.list_wallet.array[index];
             walletMod.wAmount = this.comp.list_wallet.cells[index].getChildByName("lab_wTotal").text;
             wd.setData(walletMod);
-            wd.setParetUI(this.comp);
+            wd.setParetUI(this);
             util.putView(this);
         }
     }

@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -26,13 +26,13 @@
 <!--以下引用了常用类库，如果不使用，可以删除-->
 
 <!--核心包，封装了显示对象渲染，事件，时间管理，时间轴动画，缓动，消息交互,socket，本地存储，鼠标触摸，声音，加载，颜色滤镜，位图字体等-->
-<script type="text/javascript" src="libs/min/laya.core.min.js"></script>
+<script type="text/javascript" src="libs/laya.core.js"></script>
 <!--封装了webgl渲染管线，如果使用webgl渲染，可以在初始化时调用Laya.init(1000,800,laya.webgl.WebGL);-->
-<script type="text/javascript" src="libs/min/laya.webgl.min.js"></script>
+<script type="text/javascript" src="libs/laya.webgl.js"></script>
 <!--封装了html动态排版功能-->
-<script type="text/javascript" src="libs/min/laya.html.min.js"></script>
+<script type="text/javascript" src="libs/laya.html.js"></script>
 <!--提供了制作UI的各种组件实现-->
-<script type="text/javascript" src="libs/min/laya.ui.min.js"></script>
+<script type="text/javascript" src="libs/laya.ui.js"></script>
 <!-- 物理引擎matter.js -->
 
 <!--用户自定义顺序文件添加到这里-->
@@ -41,16 +41,15 @@
 <!--全局配置文件,请在最上面引入-->
 <script type="text/javascript" src="libs/3rd/main_config.js"></script>
 
+<script type="text/javascript" src="libs/3rd/lightwallet.min.js"></script>
+<script type="text/javascript" src="libs/3rd/ethereumjs-tx.js"></script>
 <script type="text/javascript" src="libs/3rd/web3.min.js"></script>
 <script type="text/javascript" src="libs/3rd/hooked-web3-provider.min.js"></script>
-<script type="text/javascript" src="libs/3rd/ethereumjs-tx.js"></script>
-<script type="text/javascript" src="libs/3rd/lightwallet.min.js"></script>
 <script type="text/javascript" src="libs/3rd/main.js"></script>
-
 <script type="text/javascript" src="libs/3rd/Net2.js"></script>
 <!-- not avilable native -->
-<!--<script type="text/javascript" src="libs/3rd/vconsole.min.js"></script>-->
-<!--<script type="text/javascript" src="libs/3rd/test.js"></script>-->
+<script type="text/javascript" src="libs/3rd/vconsole.min.js"></script>
+<script type="text/javascript" src="libs/3rd/test.js"></script>
 
 <!--复制-->
 <script type="text/javascript" src="libs/3rd/clipboard.min.js"></script>
@@ -63,11 +62,6 @@
 
 <!--自定义的js(src文件夹下)文件自动添加到下面jsfile模块标签里面里-->
 <!--删除标签，ide不会自动添加js文件，请谨慎操作-->
-
-
-
-<!--自定义的js(src文件夹下)文件自动添加到下面jsfile模块标签里面里-->
-<!--删除标签，ide不会自动添加js文件，请谨慎操作-->
 <!--jsfile--startTag-->
 	<script src="js/view/alert/Iframe.js"></script>
 	<script src="js/util/util.js"></script>
@@ -76,6 +70,7 @@
 	<script src="js/service/userService.js"></script>
 	<script src="js/service/transService.js"></script>
 	<script src="js/service/sysLog.js"></script>
+	<script src="js/service/smartcatService.js"></script>
 	<script src="js/module/walletMod.js"></script>
 	<script src="js/module/walItemMod.js"></script>
 	<script src="js/module/userMod.js"></script>
@@ -111,6 +106,7 @@
 	<script src="js/view/info/about.js"></script>
 	<script src="js/view/info/aboutTeam.js"></script>
 	<script src="js/view/info/Candy.js"></script>
+	<script src="js/view/info/DevLog.js"></script>
 	<script src="js/view/info/SelectWallet.js"></script>
 	<script src="js/view/info/Service.js"></script>
 	<script src="js/view/Msg.js"></script>
@@ -118,6 +114,9 @@
 	<script src="js/view/set/ExpKeystore.js"></script>
 	<script src="js/view/set/UpdatePass.js"></script>
 	<script src="js/view/set/WalletImport.js"></script>
+	<script src="js/view/smartcat/ChargeAsset.js"></script>
+	<script src="js/view/smartcat/MySmartcat.js"></script>
+	<script src="js/view/SmartCat.js"></script>
 	<script src="js/view/TransDetail.js"></script>
 	<script src="js/view/TransHisList.js"></script>
 	<script src="js/view/user/UserInvite.js"></script>
@@ -137,9 +136,10 @@
 	<script src="js/view/WalletTransfer.js"></script>
 	<!--jsfile--endTag-->
 
+
 <!--启动类添加到这里-->
 <!--jsfile--Main-->
-		<script src="js/guide.js"></script>
+<script src="js/guide.js"></script>
 <!--jsfile--Main-->
 
 </body>

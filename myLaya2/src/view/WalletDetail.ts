@@ -2,7 +2,7 @@
 module view {
     export class WalletDetail extends ui.WalletDetailUI {
         public comp: ui.WalletDetailUI;
-        private parentUI: ui.WalletManageUI;
+        private parentUI: view.WalletManage;
         private data: mod.walletMod;
 
         constructor() {
@@ -23,7 +23,12 @@ module view {
             }
         }
 
-        public setParetUI(parentUI: ui.WalletManageUI) {
+        public refresh(){
+            this.data = service.walletServcie.getWallet(this.data.wName)
+            this.setData(this.data);
+        }
+
+        public setParetUI(parentUI: view.WalletManage) {
             this.parentUI = parentUI;
         }
 
@@ -35,8 +40,7 @@ module view {
         private init() {
             this.comp = new ui.WalletDetailUI();
             Laya.stage.addChild(this.comp);
-            Laya.stage.bgColor = 'white';
-            Laya.stage.scaleMode = config.prod.appAdapterType;
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -51,22 +55,21 @@ module view {
 
         private goBack() {
             this.comp.removeSelf();
-            this.parentUI.visible = true;
-
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,2);
         }
 
         private btnClick(index: number) {
             if (1 == index) {
                 service.walletServcie.walletUpdateName(this.data.wName, this.comp.text_wName.text);
-                this.stage.removeChild(this.comp);
-                this.stage.removeChild(this.parentUI);
-                let wm = new view.WalletManage()
-                wm.setData(service.walletServcie.getWallets());
+                this.parentUI.setData(service.walletServcie.getWallets());
+                util.getMainView().initQueryData(mod.userMod.defWallet);
+                this.goBack();
                 return;
             }
             if (2 == index) {
                 let updatePassUI = new view.set.UpdatePass();
-                updatePassUI.setParentUI(this.comp);
+                updatePassUI.setParentUI(this);
                 this.comp.visible = false;
                 return;
             }
@@ -88,7 +91,7 @@ module view {
             }
             if (5 == index) {
                 let p = new alert.EnterPass()
-                p.setParentUI(this.comp);
+                p.setParentUI(this);
                 p.setCallBack(this.enterPassCb);
                 p.setWalName(this.comp.lab_wName.text);
                 p.popup()
@@ -105,13 +108,13 @@ module view {
             }
         }
 
-        private enterPassCb(pass, comp: ui.WalletDetailUI) {
-            comp.visible = false;
+        private enterPassCb(pass, v: view.WalletDetail) {
+            v.comp.visible = false;
             let backupw = new view.WalletBackUp();
-            backupw.setData(comp.lab_wName.text);
-            backupw.setParetUI(comp);
-            util.compClear();
-            util.putCompStack(comp);
+            backupw.setData(v.comp.lab_wName.text);
+            backupw.setParetUI(v);
+            util.clearView();
+            util.putView(v);
         }
 
         //这里的comp需要重新传值回来

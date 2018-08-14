@@ -75,9 +75,11 @@ var Ajax = {
                 console.log("tokenExpire");
                 util.tokenExpire();
             } else {
-                util.log("net2",obj.method,[obj.url],'net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText);
-                console.log('net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText, "url:" + obj.url);
                 obj.error(xhr.responseText, obj.callbackArgs); //回调传递参数,及其自己传入过来的参数
+                console.log('net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText, "url:" + obj.url);
+                if(obj.url.indexOf("saveMobileLog")==-1){//过滤log自己
+                    util.log("net2",obj.method,[obj.url],'net2.js 获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText);
+                }
             }
         }
     },

@@ -26,6 +26,7 @@ module view.info {
         private init() {
             this.comp = new ui.info.SelectWalletUI();
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -46,11 +47,15 @@ module view.info {
             }
         }
 
+        private goBack(){
+            this.comp.removeSelf();
+            this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI,2);
+        }
+        
         private btnClick(index: number) {
             if (1 == index) {
-                this.comp.removeSelf();
-                this.parentUI.comp.visible = true;
-                return;
+                this.goBack();
             }
         }
 

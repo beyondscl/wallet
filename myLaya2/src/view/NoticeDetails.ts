@@ -16,6 +16,7 @@ module view {
         public init(){
             this.comp = new ui.NoticeDetailsUI;
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this, 2);
         }
 
         public initEvent(){
@@ -24,14 +25,15 @@ module view {
 
         public setData (data: any) {
             console.log(data);
-            this.comp.title.text = data.noticeTitle;
-            this.comp.content.text = data.noticeContent;
-            this.comp.time.text = data.noticeTime;
+            this.comp.title.text = data.title;
+            this.comp.content.text = data.content;
+            this.comp.time.text = data.update_time;
         }
 
         private goBack(){
             this.comp.removeSelf();
             this.parentUI.comp.visible = true;
+            native.native.setCurrView(this.parentUI, 2);
         }
     }
 }

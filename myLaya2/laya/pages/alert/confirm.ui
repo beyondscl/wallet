@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":9,
+    "selectedBox":2,
+    "selecteID":3,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -31,15 +31,16 @@
             "props":{"y":467,"x":100,"width":550,"height":400,"centerY":0,"centerX":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"top":0,"skin":"img/main/white_radius.png","right":0,"left":0,"bottom":0},
+                    "props":{"y":0,"x":0,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -50,6 +51,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":47,"var":"title","text":"备份成功","height":56,"fontSize":40,"color":"#163853","centerX":0,"bold":true,"align":"center"},
                     "nodeParent":2,
@@ -62,6 +64,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":254,"visible":false,"text":"是否删除助记词","height":56,"fontSize":32,"color":"#163853","centerX":0,"bold":false,"align":"center"},
                     "nodeParent":2,
@@ -75,6 +78,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"width":275,"var":"btn_cancel","stateNum":"1","skin":"img/main/img_blue1.png","left":0,"labelSize":32,"label":"不","height":80,"bottom":0},
                     "nodeParent":2,
@@ -87,6 +91,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"width":275,"var":"btn_sub","stateNum":"1","skin":"img/main/img_blue2.png","right":0,"labelSize":32,"label":"是","height":80,"bottom":0},
                     "nodeParent":2,
@@ -99,6 +104,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"TextArea",
                     "props":{"var":"sub_title","text":"你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？","right":10,"left":10,"height":150,"fontSize":32,"editable":false,"centerY":0,"align":"left"},
                     "nodeParent":2,

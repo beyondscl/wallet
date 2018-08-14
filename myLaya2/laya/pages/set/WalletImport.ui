@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":9,
     "props":{"width":750,"top":0,"sceneWidth":300,"sceneHeight":429,"sceneColor":"#ffffff","right":0,"left":0,"layoutEnabled":true,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -135,14 +135,13 @@
                     "props":{"top":0,"right":0,"name":"item0","left":0,"bottom":0},
                     "nodeParent":32,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":7,
                     "child":[
                         {
-                            "x":45,
                             "type":"TextArea",
                             "props":{"y":0,"var":"o_text_zjc","right":30,"promptColor":"#687076","prompt":"助记词，用空格分开","padding":"10","left":30,"layoutEnabled":true,"height":192,"fontSize":28,"borderColor":"#b5b5b5"},
                             "nodeParent":7,
@@ -155,7 +154,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"ComboBox",
                             "props":{"y":269,"var":"o_sel_dir","sizeGrid":"0,0,0,0","selectedIndex":0,"right":30,"left":30,"labels":"m/0'/0'/0',m/44’/60’/0’/0/0 Jaxx Metamask(ETH),m/44’/60’/0’/0 Ledger(ETH),m/44’/60’/1’/0/0 自定义路径","labelSize":28,"labelPadding":"10,0,10,0","labelColors":"#8E979F","itemSize":28,"itemColors":"#8E979F","height":44},
                             "nodeParent":7,
@@ -167,7 +165,6 @@
                             "compId":31,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":-10},
                                     "nodeParent":31,
@@ -181,7 +178,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"TextInput",
                             "props":{"y":375,"var":"o_text_pass","type":"password","right":30,"promptColor":"#8E979F","prompt":"密码","maxChars":30,"left":30,"height":44,"fontSize":28},
                             "nodeParent":7,
@@ -206,7 +202,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"TextInput",
                             "props":{"y":480,"var":"o_text_confpass","type":"password","right":30,"promptColor":"#8E979F","prompt":"确认密码","maxChars":30,"left":30,"height":44,"fontSize":28},
                             "nodeParent":7,
@@ -231,7 +226,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"var":"o_btn_import","stateNum":"1","skin":"img/main/anliu@2x.png","right":30,"left":28,"labelSize":32,"labelColors":"#ffffff","label":"开始导入","height":80,"disabled":true,"bottom":220},
                             "nodeParent":7,
@@ -244,7 +238,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"var":"hetp_zjc","valign":"middle","text":"什么是助记词？","right":20,"left":20,"height":30,"fontSize":24,"color":"#687076","bottom":148,"align":"center"},
                             "nodeParent":7,
@@ -257,7 +250,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":613,"x":76,"width":240,"valign":"middle","text":"我已经仔细阅读并同意","padding":"0","height":34,"fontSize":24,"color":"#8E979F","align":"left"},
                             "nodeParent":7,
@@ -270,7 +262,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"CheckBox",
                             "props":{"y":615,"x":36,"width":116,"var":"o_check_agree","skin":"img/main/radio.png","scaleY":2,"scaleX":2,"mouseEnabled":true,"layoutEnabled":true,"hitTestPrior":true,"height":24,"click":"updateArgee"},
                             "nodeParent":7,
@@ -283,7 +274,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":613,"x":318,"width":240,"var":"lab_service","valign":"middle","text":"隐私及服务条款","padding":"0","name":"lab_service","height":34,"fontSize":24,"color":"#598ADA","align":"left"},
                             "nodeParent":7,
@@ -296,7 +286,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":269,"width":44,"skin":"img/main/Stroke 2@2x.png","right":30,"height":44},
                             "nodeParent":7,
@@ -309,7 +298,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":208,"width":690,"visible":false,"var":"warn_zjc","text":"请输入正确的助记词","right":30,"left":30,"height":30,"fontSize":20,"color":"#ff0400","align":"right"},
                             "nodeParent":7,
@@ -322,7 +310,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":438,"width":690,"visible":false,"var":"warn_pass","text":"密码不少于8位","right":30,"left":37,"height":30,"fontSize":20,"color":"#ff0400","align":"right"},
                             "nodeParent":7,
@@ -335,7 +322,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":538,"width":690,"visible":false,"var":"warn_passconf","text":"2次输入的密码不一致","right":30,"left":31,"height":30,"fontSize":20,"color":"#ff0400","align":"right"},
                             "nodeParent":7,

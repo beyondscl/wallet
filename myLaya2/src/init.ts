@@ -13,7 +13,7 @@ module config {
                     let coins = ret.data;
                     let all = [];
                     for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi ? JSON.parse(coins[i].abi) : "");
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, true, coins[i].abi ? JSON.parse(coins[i].abi) : "");
                     }
                     mod.userMod.allCoins = all;
                     console.log("getAllCoins success");
@@ -23,7 +23,7 @@ module config {
                     let coins = Laya.Browser.window.main_config[Laya.Browser.window.env].coins;
                     let all = [];
                     for (let i = 0; i < coins.length; i++) {
-                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, false, coins[i].abi ? JSON.parse(coins[i].abi) : "");
+                        all[all.length] = new mod.coinItemMod("img/coins/" + coins[i].name.toUpperCase() + ".png", coins[i].name, coins[i].vender, coins[i].addr, true, coins[i].abi ? JSON.parse(coins[i].abi) : "");
                     }
                     mod.userMod.allCoins = all;
                     console.warn("getAllCoins from disk");
