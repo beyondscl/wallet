@@ -2,7 +2,7 @@
 module view {
     export class WalletDetail extends ui.WalletDetailUI {
         public comp: ui.WalletDetailUI;
-        private parentUI: view.WalletManage;
+        public parentUI: view.WalletManage;
         private data: mod.walletMod;
 
         constructor() {

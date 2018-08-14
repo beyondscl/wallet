@@ -55,7 +55,8 @@ module view {
             }
             if (index == 0) {
                 this.comp.visible = false;
-                this.parenUI.comp.visible = true;
+                util.getMainView().comp.visible = true
+                // this.parenUI.comp.visible = true;
             }
             if (index == 2) {
                 this.comp.visible = false;
@@ -97,7 +98,7 @@ module view {
             }
             if (index == 9) {
                 this.comp.visible = false
-                new view.SmartCat().setParentUI(this.parenUI)
+                new view.SmartCat()
             }
         }
 
@@ -115,6 +116,7 @@ module view {
 
             util.setMainView(null);
             util.setMeView(null);
+            util.setCatView(null);
         }
 
         private NoticeHisCb (ret, v: view.WalletMe) {
