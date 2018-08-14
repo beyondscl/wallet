@@ -82,6 +82,8 @@ module view {
         private initEvent() {
             this.comp.btn_assets.on(Laya.Event.CLICK, this, this.tabSelect, [0]);
             this.comp.btn_me.on(Laya.Event.CLICK, this, this.tabSelect, [1]);
+            this.comp.btn_smartcat.on(Laya.Event.CLICK, this, this.tabSelect, [5]);
+
             this.comp.btn_owner_info.on(Laya.Event.CLICK, this, this.tabSelect, [2]);
             this.comp.lab_wAddr.on(Laya.Event.CLICK, this, this.tabSelect, [2]);
             this.comp.btn_more.on(Laya.Event.CLICK, this, this.tabSelect, [3]);
@@ -163,7 +165,15 @@ module view {
                 if(util.getMeView()){
                     util.getMeView().comp.visible = true;
                 }else{
-                    new view.WalletMe().setParentUI(this);
+                    new view.WalletMe();
+                }
+            }
+            if (index == 5) {
+                this.comp.visible = false;
+                if (util.getCatView()) {
+                    util.getCatView().comp.visible = true;
+                } else {
+                    new view.SmartCat();
                 }
             }
             if (index == 0) {

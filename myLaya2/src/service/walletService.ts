@@ -102,7 +102,9 @@ module service {
                     let walletMod = this.getWallet(walsNew[0]);
                     util.getMainView().initQueryData(walletMod);
                     //显示钱包管理页面
-                    util.showView([3]);
+                    // util.showView([3]);
+                    v.parentUI.comp.visible = true;
+                    v.parentUI.setData(service.walletServcie.getWallets());
                     new view.alert.Warn("删除钱包成功", "").popup();
                 }
 

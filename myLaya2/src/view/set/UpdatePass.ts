@@ -86,7 +86,7 @@ module view.set {
                     }
                     new view.alert.info(config.msg.REVER_PASS_SUCCESS).popup();
                     v.comp.removeSelf();
-                    v.parentUI.visible = true;
+                    v.parentUI.comp.visible = true;
                 } else {
                     new view.alert.info(config.msg.REVER_PASS_ERROR).popup();
                 }

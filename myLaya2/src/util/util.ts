@@ -6,6 +6,7 @@ class util {
     private static _viewStack = [];
     private static _mainView: view.WalletMain;
     private static _meView: view.WalletMe;
+    private static _catView: view.SmartCat;
 
     constructor() {
     }
@@ -25,6 +26,13 @@ class util {
         return this._meView;
     }
 
+    public static setCatView(v: view.SmartCat) {
+        this._catView = v;
+    }
+
+    public static getCatView(): view.SmartCat {
+        return this._catView;
+    }
     public static getAddr(addr: string): string {
         return addr.replace(/([^]{8})([^]{26})([^]*)/, "$1......$3");
     }
