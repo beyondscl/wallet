@@ -76,12 +76,37 @@ module native {
 
         private static jsCallapp(json: any) {
             try {
-                Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+                if("iPhone"==this.getExploreType()){
+                    let url = "wwec://jsCallapp?type="+json.type;
+                    if(1==json.type){
+                        url+="&cpvalue="+json.data;
+                    }
+                    Laya.Browser.window.localtion.href = url;
+                }else{
+                    Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+                }
             } catch (error) {
                 console.log("jsCallapp 只能在app环境中调用")
             }
-
         }
-
+        public static getExploreType(){
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            if (userAgent.indexOf("OPR") > -1||userAgent.indexOf("Opera") > -1) {
+                return "Opera"
+            }//判断是否Opera浏览器
+            else if (userAgent.indexOf("Firefox") > -1) {
+                return "FF";
+            } //判断是否Firefox浏览器
+            else if (userAgent.indexOf("Chrome") > -1){
+                return "Chrome";
+            }
+            else if (userAgent.indexOf("iPhone") > -1) {
+                return "iPhone";
+            } //判断是否Safari浏览器
+            else{
+                //其他
+                return "";
+            }
+        }
     }
 }
