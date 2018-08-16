@@ -40,6 +40,9 @@ module view {
 
         public setList(data: any): void{
             if (data.length == 0) {
+                this.comp.listNotice.array = this.data;
+                this.comp.lab_nodata.visible = false;
+            } if(data.length == 0 && this.data.length == 0) {
                 this.comp.listNotice.array = [];
                 this.comp.lab_nodata.visible = true;
             } else {
@@ -105,7 +108,7 @@ module view {
                         v.scrollSta = false;
                         v.info = new view.alert.info("没有更多的数据...");
                         v.info.popup();
-                        v.setList([]);
+                        v.setList(v.data);
                     }
                 } else {
                     v.setList([]);

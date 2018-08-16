@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":4,
+    "selecteID":5,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -12,6 +12,19 @@
     "hasChild":true,
     "compId":1,
     "child":[
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":591,"x":259,"visible":false,"var":"no_record","text":"没有该级的伙伴","fontSize":36},
+            "nodeParent":1,
+            "label":"Label(no_record)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":32,
+            "child":[
+                ]
+        },
         {
             "x":15,
             "type":"Label",
@@ -41,9 +54,9 @@
         {
             "x":15,
             "type":"List",
-            "props":{"top":120,"right":0,"left":0,"bottom":0},
+            "props":{"var":"listContent","top":120,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
-            "label":"List",
+            "label":"List(listContent)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -53,7 +66,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"right":0,"name":"render","left":0,"height":300},
+                    "props":{"y":40,"right":0,"name":"render","left":0,"height":300},
                     "nodeParent":4,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -78,9 +91,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":13,"x":30,"text":"13518161111","fontSize":28},
+                            "props":{"y":13,"x":30,"var":"phoneNum","text":"13518161111","name":"phoneNum","fontSize":28},
                             "nodeParent":5,
-                            "label":"Label",
+                            "label":"Label(phoneNum)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":false,
@@ -118,9 +131,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":12,"x":473,"width":172,"text":"9999","height":28,"fontSize":28},
+                            "props":{"y":12,"x":473,"width":172,"text":"9999","name":"todayfitnit","height":28,"fontSize":28},
                             "nodeParent":5,
-                            "label":"Label",
+                            "label":"Label(todayfitnit)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
@@ -131,9 +144,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":28,"width":41,"stateNum":"1","skin":"img/main/Path 12.png","skewY":-90,"skewX":90,"right":50,"pivotY":33,"pivotX":11,"height":61},
+                            "props":{"width":41,"top":40,"stateNum":"1","skin":"img/main/Path 12.png","skewY":-90,"skewX":90,"right":92,"pivotY":0,"pivotX":0,"name":"arrow","height":61},
                             "nodeParent":5,
-                            "label":"Button",
+                            "label":"Button(arrow)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
@@ -143,83 +156,77 @@
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":66,"x":35,"text":"智能猫:","fontSize":24},
-                            "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":12,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":66,"x":127,"text":"启动中..","fontSize":24},
-                            "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":67,"x":387,"text":"托管资产产值:","fontSize":24},
-                            "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":14,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":68,"x":570,"width":74,"text":"9999","height":24,"fontSize":24},
-                            "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":15,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":68,"x":660,"width":20,"text":"$","height":18,"fontSize":24},
-                            "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":false,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
-                            "props":{"visible":false,"top":50,"right":0,"left":0,"bottom":0,"alpha":1},
+                            "props":{"visible":true,"top":50,"right":0,"name":"details","left":0,"height":250,"alpha":1},
                             "nodeParent":5,
-                            "label":"Image",
-                            "isOpen":true,
+                            "label":"Image(details)",
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":false,
                             "hasChild":true,
                             "compId":18,
                             "child":[
                                 {
-                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":16,"x":35,"text":"智能猫:","fontSize":24},
+                                    "nodeParent":18,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":12,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":16,"x":127,"text":"启动中..","name":"startCatStatus","fontSize":24},
+                                    "nodeParent":18,
+                                    "label":"Label(startCatStatus)",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":13,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":17,"x":387,"text":"托管资产产值:","fontSize":24},
+                                    "nodeParent":18,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":14,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":18,"x":570,"width":74,"text":"9999","name":"tgMoney","height":24,"fontSize":24},
+                                    "nodeParent":18,
+                                    "label":"Label(tgMoney)",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":15,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":18,"x":660,"width":20,"text":"$","height":18,"fontSize":24},
+                                    "nodeParent":18,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":16,
+                                    "child":[
+                                        ]
+                                },
+                                {
                                     "type":"Label",
                                     "props":{"y":67,"x":306,"text":"托管资产明细","fontSize":24},
                                     "nodeParent":18,
@@ -232,7 +239,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":106,"x":36,"width":50,"skin":"img/coins/ETH.png","height":50},
                                     "nodeParent":18,
@@ -245,7 +251,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":126,"x":110,"text":"ETH","fontSize":24},
                                     "nodeParent":18,
@@ -258,11 +263,10 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":126,"x":182,"width":73,"text":"0.0000","height":23,"fontSize":24},
+                                    "props":{"y":126,"x":182,"width":73,"text":"0.0000","name":"EthMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
-                                    "label":"Label",
+                                    "label":"Label(EthMoney)",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
@@ -271,7 +275,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":107,"x":456,"width":50,"skin":"img/coins/ETH.png","height":50},
                                     "nodeParent":18,
@@ -284,9 +287,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":127,"x":530,"text":"ETH","fontSize":24},
+                                    "props":{"y":127,"x":530,"text":"BTC","fontSize":24},
                                     "nodeParent":18,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -297,11 +299,10 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":127,"x":602,"width":73,"text":"0.0000","height":23,"fontSize":24},
+                                    "props":{"y":127,"x":602,"width":73,"text":"0.0000","name":"BtcMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
-                                    "label":"Label",
+                                    "label":"Label(BtcMoney)",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
@@ -310,7 +311,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":171,"x":36,"width":50,"skin":"img/coins/ETH.png","height":50},
                                     "nodeParent":18,
@@ -323,9 +323,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":191,"x":110,"text":"ETH","fontSize":24},
+                                    "props":{"y":191,"x":110,"text":"EFG","fontSize":24},
                                     "nodeParent":18,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -336,11 +335,10 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":191,"x":182,"width":73,"text":"0.0000","height":23,"fontSize":24},
+                                    "props":{"y":191,"x":182,"width":73,"text":"0.0000","name":"EfgMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
-                                    "label":"Label",
+                                    "label":"Label(EfgMoney)",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
@@ -349,7 +347,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":171,"x":455,"width":50,"skin":"img/coins/ETH.png","height":50},
                                     "nodeParent":18,
@@ -362,9 +359,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":191,"x":529,"text":"ETH","fontSize":24},
+                                    "props":{"y":191,"x":529,"text":"DGH","fontSize":24},
                                     "nodeParent":18,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -375,11 +371,10 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":191,"x":601,"width":73,"text":"0.0000","height":23,"fontSize":24},
+                                    "props":{"y":191,"x":601,"width":73,"text":"0.0000","name":"DghMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
-                                    "label":"Label",
+                                    "label":"Label(DghMoney)",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,

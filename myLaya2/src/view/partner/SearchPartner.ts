@@ -5,6 +5,7 @@ module view.partner {
 
         constructor(){
             super();
+            this.init();
         }
 
         private init () {
@@ -18,7 +19,7 @@ module view.partner {
         }
 
         private initEvent () {
-            
+
         }
     }
 }

@@ -55,6 +55,10 @@ module config {
         // 公告相关接口
         public static apiNoticeList: string = prod.apiLocalHost + "/notice/getNoticeList" // 获取公告列表
 
+        // 我的伙伴相关接口
+        public static apiPartner: string = prod.apiLocalHost + "/partner" // 我的伙伴首页获取123级伙伴的接口
+        
+        
         constructor() {
         }
 

@@ -35,6 +35,7 @@ module view {
             this.comp.btn_me.on(Laya.Event.CLICK, this, this.goTo, [12]);
 
             this.comp.my_inviter.on(Laya.Event.CLICK, this, this.goTo, [13]);
+            this.comp.inviter_earning.on(Laya.Event.CLICK, this, this.goTo, [14]);
         }
         
         private goTo(index: number): void {
@@ -44,6 +45,11 @@ module view {
                     let sms = new view.smartcat.MySmartcat()
                     sms.setParentUI(this);
                     break;
+                case 3: 
+                    this.comp.visible = false;
+                    let asset_details = new view.AssetDetails();
+                    asset_details.setParentUI(this);
+                    break; // 资产明细
                 case 10: // 前往资产页面
                     this.comp.visible = false;
                     util.getMainView().comp.visible = true;
@@ -62,6 +68,12 @@ module view {
                     this.comp.visible = false;
                     let partnerMain = new view.partner.PartnerMain();
                     partnerMain.setParentUI(this);
+                    break;
+                case 14:
+                    this.comp.visible = false;
+                    let PartnerReturn = new view.partner.PartnerReturns();
+                    PartnerReturn.setParentUI(this);
+                    break;
                 default:
                     break;
             }
