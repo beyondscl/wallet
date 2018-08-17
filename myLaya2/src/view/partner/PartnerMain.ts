@@ -1,6 +1,3 @@
-/*
-* name;
-*/
 module view.partner {
     export class PartnerMain extends ui.partner.partnerMainUI {
         public comp: ui.partner.partnerMainUI;

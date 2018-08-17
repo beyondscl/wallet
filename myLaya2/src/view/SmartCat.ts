@@ -50,6 +50,16 @@ module view {
                     let asset_details = new view.AssetDetails();
                     asset_details.setParentUI(this);
                     break; // 资产明细
+                 case 7: 
+                    this.comp.visible = false;
+                    let apply_vip = new view.ApplyVip();
+                    apply_vip.setParentUI(this);
+                    break; // 申请VIP
+                case 8: 
+                    this.comp.visible = false;
+                    let smartcat_explain = new view.SmartCatIntro();
+                    smartcat_explain.setParentUI(this);
+                    break; // 智能猫说明
                 case 10: // 前往资产页面
                     this.comp.visible = false;
                     util.getMainView().comp.visible = true;

@@ -429,5 +429,86 @@ module service {
                     return fun(data, arg);
                 }
             }
+            /**
+             * 
+             * @param str 电话号码
+             * @param fun 
+             * @param arg 
+             */
+            public static PartnerSearch (phoNum: string,fun, arg) {
+                // let partnerMain = {
+                //     url: config.prod.apiPartner,
+                //     token: "",
+                //     method: "GET",
+                //     data: {},
+                //     async: true,
+                //     callbackArgs: args,
+                //     success: function (ret, args) {
+                //         fun(ret, args);
+                //     },
+                //     complete: function () {
+                //     },
+                //     error: function (ret, args) {
+                //         if ("object" == typeof ret)
+                //             ret = JSON.stringify(ret)
+                //         fun(ret, args)
+                //         console.log("request error:", ret, args);
+                //     }
+                // }
+                // Laya.Browser.window.Ajax.get(partnerMain);
+                let data = {};
+                if (phoNum == '13518161000') {
+                    data = {
+                        retCode: 0,
+                        type: 'One',
+                        list: 
+                            {
+                                title: '一级伙伴',
+                                phoneNum: '13518161234',
+                                status: '启动中...',
+                                tgMoney: '9999',
+                                fitnit: '1234',
+                                iconType: 'WWEC',
+                                EthMoney: '1.0',
+                                BtcMoney: '1.1',
+                                EfgMoney: '1.2',
+                                DghMoney: '1.3'
+                            }
+                        
+                    }
+                    return fun(data, arg);
+                } else if (phoNum == '13518161001') {
+                    data = {
+                        retCode: 0,
+                        type: 'Mulit',
+                        list: 
+                            {
+                                title: '二级伙伴',
+                                phoneNum: '13518161001',
+                                status: '智能猫启动中...'
+                            }
+                        
+                    }
+                    return fun(data, arg);
+                } else if (phoNum == '13518161002') {
+                    data = {
+                        retCode: 0,
+                        type: 'More',
+                        list: 
+                            {
+                                title: '海王星居民',
+                                phoneNum: '13518161002',
+                                status: '智能猫启动中...'
+                            }
+                        
+                    }
+                    return fun(data, arg);
+                } else {
+                     data = {
+                        retCode: 1,
+                    }
+                    return fun(data, arg);
+                }
+            }
     }
 }
