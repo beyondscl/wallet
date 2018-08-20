@@ -74,7 +74,7 @@ module native {
             return 0;
         }
 
-        private static jsCallapp(json: any) {
+        public static jsCallapp(json: any) {
             try {
                 if("iPhone"==this.getExploreType()){
                     let url = "wwec://jsCallapp?type="+json.type;
