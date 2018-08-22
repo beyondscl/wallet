@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":8,
+    "selecteID":11,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":30,"x":30,"width":65,"top":30,"stateNum":"1","skin":"img/main/back@2x.png","name":"back_btn","left":30,"height":65},
+            "props":{"y":30,"x":30,"width":65,"var":"back_btn","top":30,"stateNum":"1","skin":"img/main/back@2x.png","name":"back_btn","left":30,"height":65},
             "nodeParent":1,
             "label":"Button(back_btn)",
             "isDirectory":false,
@@ -40,8 +40,21 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":143,"skin":"img/smartcat/wdznm-bg@3x.png","right":0,"left":-4,"height":154},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"y":100,"width":250,"text":"每日总收益","left":250,"fontSize":32,"color":"black","bold":true},
+            "props":{"y":164,"width":250,"text":"每日总收益","left":284,"fontSize":28,"color":"#fff"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -54,7 +67,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":88,"x":408,"width":68,"skin":"img/smartcat/WWEC@3x.png","height":62},
+            "props":{"y":155,"x":437,"width":48,"skin":"img/smartcat/WWEC@3x.png","height":48},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -67,9 +80,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":159,"width":250,"text":"99999","left":250,"height":40,"fontSize":40,"color":"black","bold":true,"align":"center"},
+            "props":{"y":223,"width":250,"var":"allReturn","text":"99999","left":248,"height":40,"fontSize":40,"color":"#fff","bold":true,"align":"center"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(allReturn)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -80,7 +93,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":236,"width":750,"pivotY":-8,"pivotX":-3,"left":0,"height":160},
+            "props":{"y":316,"width":692,"skin":"img/main/oneClassBg.png","right":30,"pivotY":-8,"pivotX":-3,"left":28,"height":204},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -92,7 +105,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":37,"x":22,"text":"一级伙伴分享每日收益","fontSize":28},
+                    "props":{"y":37,"x":22,"text":"一级伙伴分享每日收益","fontSize":28,"bold":true},
                     "nodeParent":8,
                     "label":"Label",
                     "isDirectory":false,
@@ -105,7 +118,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":102,"x":26,"text":"太阳系","fontSize":28},
+                    "props":{"y":140,"x":26,"text":"太阳系","fontSize":28,"bold":true},
                     "nodeParent":8,
                     "label":"Label",
                     "isDirectory":false,
@@ -118,9 +131,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":35,"x":371,"width":181,"text":"99999","height":34,"fontSize":28},
+                    "props":{"y":35,"x":374,"width":181,"var":"oneReturn","text":"99999","height":34,"fontSize":28,"color":"#2176FF","bold":true},
                     "nodeParent":8,
-                    "label":"Label",
+                    "label":"Label(oneReturn)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -131,9 +144,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":99,"x":373,"width":171,"text":"99999","height":34,"fontSize":28},
+                    "props":{"y":137,"x":374,"width":171,"var":"sunReturn","text":"99999","height":34,"fontSize":28,"color":"#2176FF","bold":true},
                     "nodeParent":8,
-                    "label":"Label",
+                    "label":"Label(sunReturn)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -144,7 +157,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":35,"x":608,"text":"WWEC","right":50,"fontSize":28},
+                    "props":{"y":35,"x":608,"text":"WWEC","right":50,"fontSize":28,"color":"#2176FF","bold":true},
                     "nodeParent":8,
                     "label":"Label",
                     "isDirectory":false,
@@ -157,7 +170,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":97,"x":608,"text":"WWEC","right":50,"fontSize":28},
+                    "props":{"y":135,"text":"WWEC","right":50.248046875,"fontSize":28,"color":"#2176FF","bold":true},
                     "nodeParent":8,
                     "label":"Label",
                     "isDirectory":false,
@@ -169,10 +182,49 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":285,"x":373,"width":171,"text":"99999","height":34,"fontSize":28},
+                    "type":"Image",
+                    "props":{"top":101,"skin":"img/main/itemSepar.png","right":20,"left":20,"height":2},
                     "nodeParent":8,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":20,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":556,"width":692,"skin":"img/main/oneClassBg.png","right":30,"pivotY":-6,"left":28,"height":80},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":15,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":27,"width":91.751953125,"text":"WWEC","right":47.248046875,"height":28,"fontSize":28,"color":"#2176FF","bold":true},
+                    "nodeParent":15,
                     "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":26,"x":374,"width":171,"var":"univerReturn","text":"99999","height":34,"fontSize":28,"color":"#2176FF","bold":true},
+                    "nodeParent":15,
+                    "label":"Label(univerReturn)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -183,42 +235,16 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":286,"width":91.751953125,"text":"WWEC","right":50,"height":28,"fontSize":28},
-                    "nodeParent":8,
+                    "props":{"y":26,"x":30,"text":"银河系","fontSize":28,"bold":true},
+                    "nodeParent":15,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":18,
+                    "compId":16,
                     "child":[
                         ]
                 }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":472,"width":750,"pivotY":-31,"pivotX":-2,"left":0,"height":80},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":15,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":533,"x":30,"text":"银河系","fontSize":28},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":16,
-            "child":[
-                ]
         }],
     "animations":[
         {

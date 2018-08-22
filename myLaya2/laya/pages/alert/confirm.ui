@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":2,
-    "selecteID":3,
+    "selecteID":6,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"width":275,"var":"btn_cancel","stateNum":"1","skin":"img/main/img_blue1.png","left":0,"labelSize":32,"label":"不","height":80,"bottom":0},
+                    "props":{"width":275,"var":"btn_cancel","stateNum":"1","skin":"img/main/img_blue1.png","left":0,"labelSize":32,"label":"取消","height":80,"bottom":0},
                     "nodeParent":2,
                     "label":"Button(btn_cancel)",
                     "isDirectory":false,
@@ -93,7 +93,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"width":275,"var":"btn_sub","stateNum":"1","skin":"img/main/img_blue2.png","right":0,"labelSize":32,"label":"是","height":80,"bottom":0},
+                    "props":{"width":275,"var":"btn_sub","stateNum":"1","skin":"img/main/img_blue2.png","right":0,"labelSize":32,"label":"确定","height":80,"bottom":0},
                     "nodeParent":2,
                     "label":"Button(btn_sub)",
                     "isDirectory":false,

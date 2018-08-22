@@ -4,7 +4,7 @@ module view {
         public comp: ui.WalletDetailUI;
         public parentUI: view.WalletManage;
         private data: mod.walletMod;
-
+        private EnterPass: view.alert.EnterPass;
         constructor() {
             super();
             this.init();
@@ -56,6 +56,7 @@ module view {
         private goBack() {
             this.comp.removeSelf();
             this.parentUI.comp.visible = true;
+            this.EnterPass.stop();
             native.native.setCurrView(this.parentUI,2);
         }
 
@@ -90,20 +91,20 @@ module view {
                 return;
             }
             if (5 == index) {
-                let p = new alert.EnterPass()
-                p.setParentUI(this);
-                p.setCallBack(this.enterPassCb);
-                p.setWalName(this.comp.lab_wName.text);
-                p.popup()
+                this.EnterPass = new view.alert.EnterPass()
+                this.EnterPass.setParentUI(this);
+                this.EnterPass.setCallBack(this.enterPassCb);
+                this.EnterPass.setWalName(this.comp.lab_wName.text);
+                this.EnterPass.popup()
                 return;
             }
             if (6 == index) {
-                let p = new alert.EnterPass()
-                p.setParentUI(this);
-                p.setCallBack(this.deleteCb);
-                p.setWalName(this.comp.lab_wName.text);
-                p.setType(config.msg.OP_WAL_DELETE);
-                p.popup()
+                this.EnterPass = new view.alert.EnterPass()
+                this.EnterPass.setParentUI(this);
+                this.EnterPass.setCallBack(this.deleteCb);
+                this.EnterPass.setWalName(this.comp.lab_wName.text);
+                this.EnterPass.setType(config.msg.OP_WAL_DELETE);
+                this.EnterPass.popup()
                 return;
             }
         }

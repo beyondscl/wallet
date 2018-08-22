@@ -42,6 +42,10 @@ module view.alert {
             Laya.stage.scaleMode = config.prod.appAdapterType;
         }
 
+        public stop () {
+            this.close();
+        }
+
         private initEvent() {
             this.btn_submit.on(Laya.Event.CLICK, this, this.btnClick, [2]);
             this.btn_cancel.on(Laya.Event.CLICK, this, this.btnClick, [3]);
