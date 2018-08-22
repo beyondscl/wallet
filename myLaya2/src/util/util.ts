@@ -107,7 +107,8 @@ class util {
             "data": value
         };
         try {
-            Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            // Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            native.native.jsCallapp(json);
             callBack(data);
         } catch (error) {
             console.log("复制只支持app")

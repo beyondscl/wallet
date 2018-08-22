@@ -75,6 +75,11 @@ module view.alert {
                         this.warn.visible = true;
                         return;
                     }
+                }else{
+                    if(util.md5WithSalt(pass)!=wallet.wPassword){
+                        this.warn.visible = true;
+                        return;
+                    }
                 }
                 this.btn_submit.disabled = true;
                 this.callBack(pass, this.parentUI);
