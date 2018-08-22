@@ -28,9 +28,6 @@ module view.partner {
 
         private initEvent () {
             this.comp.btn_back.on(Laya.Event.CLICK, this, this.goBack);
-            // this.comp.one_class.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-            // this.comp.two_class.on(Laya.Event.CLICK, this, this.btnClick, [2, 'two']);
-            // this.comp.three_class.on(Laya.Event.CLICK, this, this.btnClick, [2, 'three']);
             this.comp.universe_class.on(Laya.Event.CLICK, this, this.btnClick, [4]);
             this.comp.search.on(Laya.Event.CLICK, this, this.btnClick, [5]);
         }
@@ -45,6 +42,9 @@ module view.partner {
             v.waiting.stop();
             // let ret = ret
             if (ret.retCode == 0) {
+                v.comp.person_num.text = ret.personNum;
+                let txImg = v.comp.txImg as Laya.Image;
+                txImg.skin = ret.nickSrc;
                 v.setList(ret.list);
             }
         }

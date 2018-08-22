@@ -25,7 +25,8 @@ module view {
             this.comp.my_smartcat.on(Laya.Event.CLICK, this, this.goTo, [1]);
             this.comp.withdraw_assets.on(Laya.Event.CLICK, this, this.goTo, [2]);
             this.comp.asset_details.on(Laya.Event.CLICK, this, this.goTo, [3]);
-            this.comp.my_inviter.on(Laya.Event.CLICK, this, this.goTo, [5]);
+            this.comp.inviter.on(Laya.Event.CLICK, this, this.goTo, [4]);
+            // this.comp.my_inviter.on(Laya.Event.CLICK, this, this.goTo, [5]);
             this.comp.inviter_earning.on(Laya.Event.CLICK, this, this.goTo, [6]);
             this.comp.apply_vip.on(Laya.Event.CLICK, this, this.goTo, [7]);
             this.comp.smartcat_explain.on(Laya.Event.CLICK, this, this.goTo, [8]);
@@ -44,12 +45,22 @@ module view {
                     this.comp.visible = false;
                     let sms = new view.smartcat.MySmartcat()
                     sms.setParentUI(this);
-                    break;
+                    break; // 我的智能猫
+                case 2:
+                    this.comp.visible = false;
+                    let withdraw_assets = new view.asset.AssetTypeExtraction();
+                    withdraw_assets.setParentUI(this);
+                    break; // 提取资产
                 case 3: 
                     this.comp.visible = false;
-                    let asset_details = new view.AssetDetails();
+                    let asset_details = new view.asset.AssetDetails();
                     asset_details.setParentUI(this);
                     break; // 资产明细
+                case 4: 
+                    this.comp.visible = false;
+                    let my_inviter = new view.user.UserInvite();
+                    my_inviter.setParetUI(this);
+                    break; // 邀请伙伴
                  case 7: 
                     this.comp.visible = false;
                     let apply_vip = new view.ApplyVip();
@@ -78,12 +89,12 @@ module view {
                     this.comp.visible = false;
                     let partnerMain = new view.partner.PartnerMain();
                     partnerMain.setParentUI(this);
-                    break;
+                    break; // 伙伴主页
                 case 14:
                     this.comp.visible = false;
                     let PartnerReturn = new view.partner.PartnerReturns();
                     PartnerReturn.setParentUI(this);
-                    break;
+                    break; // 伙伴收益
                 default:
                     break;
             }

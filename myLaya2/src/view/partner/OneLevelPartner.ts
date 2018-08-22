@@ -69,7 +69,7 @@ module view.partner {
         private onRenderUp (cell:Laya.Box, index: number) {
             let data = this.comp.listContent.array[index];
 
-            cell.on(Laya.Event.CLICK, this, this.toDetails, [this.comp.listContent.cells[index]]);
+            cell.on(Laya.Event.CLICK, this, this.toDetails, [cell, index]);
 
             let phoneNum = cell.getChildByName('phoneNum') as Laya.Label;
             phoneNum.text = data.phoneNum;
@@ -78,6 +78,11 @@ module view.partner {
             todayfitnit.text = data.todayfitnit;
 
             let startCatStatus = cell.getChildByName('details').getChildByName('startCatStatus') as Laya.Label;
+            if (data.startCatStatus != '启动中...') {
+                startCatStatus.color = '#F55449';
+                let imgStatus = cell.getChildByName('imgStatus') as Laya.Image;
+                imgStatus.skin = 'img/main/OvalRed.png';
+            }
             startCatStatus.text = data.startCatStatus;
 
             let tgMoney = cell.getChildByName('details').getChildByName('tgMoney') as Laya.Label;
@@ -100,27 +105,34 @@ module view.partner {
             details.visible = false;
 
             let arrow = cell.getChildByName('arrow') as Laya.Image;
-            arrow.skewY = 90;
-            arrow.top = 0;
+            arrow.skewX = 0;
+            arrow.top = 19;
             
             cell.height = 50;
+            cell.top = 95 * index;
         }
 
-        private toDetails (cell: Box) {
+        private toDetails (cell: Laya.Box, index) {
             let arrow = cell.getChildByName('arrow') as Laya.Image;
             let details = cell.getChildByName('details') as Laya.Image;
 
             if (cell.height == 300) {
-                arrow.skewY = 90;
-                arrow.top = 0;
+                arrow.skewX = 0;
+                arrow.top = 19;
                 cell.height = 50;
+                for ( var i = index;i < this.comp.listContent.cells.length - 1; i++ ) {
+                    this.comp.listContent.cells[i+1].top -= 280;
+                }
                 details.height = 0;
                 details.visible = false;
             } else {
-                arrow.skewY = -90;
-                arrow.top = 40;
+                arrow.skewX = 180;
+                arrow.top = 53;
                 cell.height = 300;
-                details.height = 250;
+                for ( var i = index;i < this.comp.listContent.cells.length - 1; i++ ) {
+                    this.comp.listContent.cells[i+1].top += 280;
+                }
+                details.height = 280;
                 details.visible = true;
             }
         }

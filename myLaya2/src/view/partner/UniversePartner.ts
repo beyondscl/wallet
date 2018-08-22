@@ -52,12 +52,35 @@ module view.partner {
             let data = this.comp.listContent.array[index];
             let area = cell.getChildByName('area') as Laya.Label;
             area.text = data.title;
-
+            switch (index) {
+                case 0:
+                    area.color = '#2176FF';
+                    break;
+                case 1:
+                    area.color = '#F5A623';
+                    break;
+                case 2:
+                    area.color = '#F55449';
+                    break;
+                case 3:
+                    area.color = '#745553';
+                    break;
+                case 4:
+                    area.color = '#472B29';
+                    break;
+                case 5:
+                    area.color = '#5CCBE3';
+                    break;
+                case 6:
+                    area.color = '#598ADA';
+                    break;
+            }
             let personNum = cell.getChildByName('personNum') as Laya.Label;
             personNum.text = data.personNum;
 
             let startCatNum = cell.getChildByName('startCatNum') as Laya.Label;
             startCatNum.text = data.startCat;
+
         }
 
         private btnClick (index: number) {

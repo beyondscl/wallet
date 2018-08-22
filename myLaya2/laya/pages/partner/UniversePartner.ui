@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":5,
-    "selecteID":12,
+    "selectedBox":1,
+    "selecteID":4,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"width":750,"var":"listContent","top":120,"spaceY":20,"left":0,"height":1314},
+            "props":{"width":750,"var":"listContent","top":120,"spaceY":20,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"List(listContent)",
             "isOpen":true,
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"right":0,"name":"render","left":0,"height":120},
+                    "props":{"right":30,"name":"render","left":28,"height":164},
                     "nodeParent":4,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"top":0,"right":0,"left":0,"bottom":0},
+                            "props":{"top":0,"skin":"img/main/oneClassBg.png","right":0,"left":0,"bottom":0},
                             "nodeParent":5,
                             "label":"Image",
                             "isDirectory":false,
@@ -77,8 +77,21 @@
                         },
                         {
                             "x":45,
+                            "type":"Image",
+                            "props":{"top":89,"skin":"img/main/itemSepar.png","right":30,"left":30},
+                            "nodeParent":5,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":20,"x":36,"var":"area","text":"水星居民","name":"area","fontSize":24},
+                            "props":{"y":32,"x":36,"var":"area","text":"水星居民","name":"area","fontSize":28},
                             "nodeParent":5,
                             "label":"Label(area)",
                             "isDirectory":false,
@@ -91,7 +104,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":14,"width":24,"var":"btn","stateNum":"1","skin":"img/main/Path 12@3x.png","right":50,"height":34},
+                            "props":{"y":34,"width":24,"var":"btn","stateNum":"1","skin":"img/main/Path 12@3x.png","right":50,"height":34},
                             "nodeParent":5,
                             "label":"Button(btn)",
                             "isDirectory":false,
@@ -104,7 +117,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":72,"x":34,"text":"人数：","fontSize":24,"color":"black"},
+                            "props":{"y":109,"x":34,"text":"人数：","fontSize":28,"color":"black"},
                             "nodeParent":5,
                             "label":"Label",
                             "isDirectory":false,
@@ -117,7 +130,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":74,"x":103,"width":71,"var":"personNum","text":"88","name":"personNum","height":24,"fontSize":24},
+                            "props":{"y":111,"x":121,"width":71,"var":"personNum","text":"88","name":"personNum","height":24,"fontSize":28},
                             "nodeParent":5,
                             "label":"Label(personNum)",
                             "isDirectory":false,
@@ -130,7 +143,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":74,"x":495,"text":"启动智能猫:","fontSize":24},
+                            "props":{"y":111,"x":420,"text":"启动智能猫:","fontSize":28},
                             "nodeParent":5,
                             "label":"Label",
                             "isDirectory":false,
@@ -143,7 +156,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":74,"x":634,"var":"startCatNum","text":"50","name":"startCatNum","fontSize":24},
+                            "props":{"y":111,"x":580,"var":"startCatNum","text":"50","name":"startCatNum","fontSize":28},
                             "nodeParent":5,
                             "label":"Label(startCatNum)",
                             "isDirectory":false,
@@ -156,7 +169,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":72,"x":680,"text":"人","fontSize":24},
+                            "props":{"y":114,"x":622,"text":"人","fontSize":24},
                             "nodeParent":5,
                             "label":"Label",
                             "isDirectory":false,

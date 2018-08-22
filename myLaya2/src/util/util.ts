@@ -51,6 +51,12 @@ class util {
         return null;
     }
 
+    // 取出非json对象的
+    public static getNoJsonItem (itemName) {
+        let data = laya.net.LocalStorage.getItem(itemName);
+        return data;
+    }
+
     //设置storage，输入json
     //设置storage，输入jsonString
     public static setItemNoJson(itemName, data) {

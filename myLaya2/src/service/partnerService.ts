@@ -31,7 +31,7 @@ module service {
             let data = {};
             data = {
                 personNum: "12345",
-                nickName: '大咖',
+                nickSrc: 'img/main/daka.png',
                 retCode: 0,
                 list:[
                     {
@@ -136,7 +136,7 @@ module service {
                     {
                         phoneNum: '13518161234',
                         todayfitnit: "123456",
-                        startCatStatus: "启动中...",
+                        startCatStatus: "关闭中...",
                         tgMoney: '7894',
                         EthMoney: '1.1',
                         BtcMoney: '1.2',
@@ -326,109 +326,6 @@ module service {
                 }
                 return fun(data, arg);
             }
-
-            /**
-             * 资产明细
-             */
-
-            public static AssetList (page:number, pageSize: number, str: string, fun, arg) {
-                // let partnerMain = {
-                //     url: config.prod.apiPartner,
-                //     token: "",
-                //     method: "GET",
-                //     data: {},
-                //     async: true,
-                //     callbackArgs: args,
-                //     success: function (ret, args) {
-                //         fun(ret, args);
-                //     },
-                //     complete: function () {
-                //     },
-                //     error: function (ret, args) {
-                //         if ("object" == typeof ret)
-                //             ret = JSON.stringify(ret)
-                //         fun(ret, args)
-                //         console.log("request error:", ret, args);
-                //     }
-                // }
-                // Laya.Browser.window.Ajax.get(partnerMain);
-                let data = {};
-                if (str == 'BONUS') {
-                    data = {
-                        retCode: 0,
-                        list: [
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '托管分红',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '伙伴分红',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '托管分红',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '托管分红',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '托管分红',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                        ]
-                    }
-                    return fun(data, arg);
-                } else {
-                    data = {
-                        retCode: 0,
-                        list: [
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '转入',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '停止智能猫',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '兑换手续费',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '提取',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '矿工费',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                        ]
-                    }
-                    return fun(data, arg);
-                }
-            }
             /**
              * 
              * @param str 电话号码
@@ -510,5 +407,19 @@ module service {
                     return fun(data, arg);
                 }
             }
+         
+         /**
+          * 伙伴收益
+          */
+          public static PartnerRenturn (fun, arg) {
+            let ret = {
+                retCode: 0,
+                allReturn: 1258,
+                oneReturn: 1000,
+                sunReturn: 100,
+                univerReturn: 158
+            }
+            return fun(ret, arg);
+          }
     }
 }

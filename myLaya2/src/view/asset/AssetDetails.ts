@@ -1,6 +1,6 @@
-module view {
-    export class AssetDetails extends ui.AssetDetailUI {
-        private comp: ui.AssetDetailUI;
+module view.asset {
+    export class AssetDetails extends ui.asset.AssetDetailUI {
+        private comp: ui.asset.AssetDetailUI;
         private ParentUI: view.SmartCat;
         private type: string = 'BONUS'; // TRANSACTION 交易
         private waiting: view.alert.waiting;
@@ -17,13 +17,13 @@ module view {
         }
 
         private init () {
-            this.comp = new ui.AssetDetailUI();
+            this.comp = new ui.asset.AssetDetailUI();
             Laya.stage.addChild(this.comp);
             native.native.setCurrView(this, 2);
             try {
                 this.waiting = new view.alert.waiting('正在加载...');
                 this.waiting.popup();
-                service.partnerService.AssetList(this.page, this.pageSize, this.type, this.listCb, this);
+                service.assetService.AssetList(this.page, this.pageSize, this.type, this.listCb, this);
             } catch (err) {
 
             }
@@ -83,7 +83,7 @@ module view {
             if (this.flag && this.comp.force_content.scrollBar.max == this.comp.force_content.scrollBar.value) {
                 this.flag = false;
                 this.page ++ ;
-                service.partnerService.AssetList(this.page, this.pageSize , this.type, this.listCb, this);
+                service.assetService.AssetList(this.page, this.pageSize , this.type, this.listCb, this);
             }
         }
 
@@ -97,10 +97,17 @@ module view {
             this.type = str;
             this.page = 1;
             this.data = [];
+            if (str == 'BONUS') {
+                this.comp.btn_force.bgColor = '#4F8CEE';
+                this.comp.btn_trade.bgColor = '#B0BBC4';
+            } else {
+                this.comp.btn_trade.bgColor = '#4F8CEE';
+                this.comp.btn_force.bgColor = '#B0BBC4';
+            }
              try {
                 this.waiting = new view.alert.waiting('正在加载...');
                 this.waiting.popup();
-                service.partnerService.AssetList(this.page, this.pageSize, this.type, this.listCb, this);
+                service.assetService.AssetList(this.page, this.pageSize, this.type, this.listCb, this);
             } catch (err) {
 
             }

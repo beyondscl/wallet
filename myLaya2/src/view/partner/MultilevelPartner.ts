@@ -75,11 +75,12 @@ module view.partner {
             phoneNum.text = data.phoneNum;
             let status = cell.getChildByName('status') as Laya.Label;
             if (data.status == '未开启') {
-                status.color = 'red';
+                status.color = '#F55449';
             }
             status.text = data.status;
 
             this.flag = true;
+            this.comp.listContent.cells[index].top = index * 90;
             this.comp.listContent.scrollBar.on(Laya.Event.CHANGE, this, this.loadMore);
             this.comp.listContent.scrollTo((this.page - 1) * this.pageSize);
         }

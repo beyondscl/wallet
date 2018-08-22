@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":9,
+    "selectedBox":1,
+    "selecteID":5,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"var":"listContent","top":120,"right":0,"left":0,"bottom":0},
+            "props":{"var":"listContent","top":120,"spaceY":25,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"List(listContent)",
             "isOpen":true,
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":0,"width":750,"name":"render","height":60},
+                    "props":{"right":32,"name":"render","left":28,"height":70},
                     "nodeParent":4,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
+                            "props":{"top":68,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
                             "nodeParent":5,
                             "label":"Image",
                             "isDirectory":false,
@@ -77,8 +77,47 @@
                         },
                         {
                             "x":45,
+                            "type":"Image",
+                            "props":{"x":-28,"top":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
+                            "nodeParent":5,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","left":0,"height":70},
+                            "nodeParent":5,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","right":0,"height":70},
+                            "nodeParent":5,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":10,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":18,"width":141,"valign":"middle","text":"13518161111","name":"phoneNum","left":46,"fontSize":24,"color":"black"},
+                            "props":{"y":0,"width":192,"valign":"middle","text":"13518161111","name":"phoneNum","left":46,"height":70,"fontSize":28,"color":"black"},
                             "nodeParent":5,
                             "label":"Label(phoneNum)",
                             "isDirectory":false,
@@ -91,7 +130,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":0,"width":191,"valign":"middle","text":"智能猫启动中...","right":50,"name":"status","height":60,"fontSize":24,"color":"#4ec657"},
+                            "props":{"y":0,"width":191,"valign":"middle","text":"智能猫启动中...","right":50,"name":"status","height":70,"fontSize":28,"color":"#5CCBE3"},
                             "nodeParent":5,
                             "label":"Label(status)",
                             "isDirectory":false,
