@@ -60,9 +60,6 @@ module view.smartcat{
 
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
-<<<<<<< HEAD
-			this.comp.btn_toggle.on(Laya.Event.CLICK, this, this.toggleSmartcat);
-=======
 			this.comp.turn.on(Laya.Event.CLICK, this, this.btnClick);
 		}
 
@@ -72,7 +69,6 @@ module view.smartcat{
 
 			// }
 			console.log(str);
->>>>>>> origin/dev
 		}
 
 		private goBack() {

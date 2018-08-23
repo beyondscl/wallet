@@ -1,13 +1,8 @@
 {
     "x":0,
     "type":"View",
-<<<<<<< HEAD
     "selectedBox":178,
     "selecteID":110,
-=======
-    "selectedBox":123,
-    "selecteID":133,
->>>>>>> origin/dev
     "props":{"width":750,"var":"SmartCat","sceneColor":"#FCFCFC","name":"smartCatMain","height":1334},
     "nodeParent":-1,
     "label":"View(SmartCat)",

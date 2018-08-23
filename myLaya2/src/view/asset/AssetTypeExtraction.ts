@@ -87,7 +87,11 @@ module view.asset {
         private goBack () {
             Laya.stage.removeChild(this.comp);
             this.parentUI.comp.visible = true;
+<<<<<<< HEAD
             native.native.setCurrView(this.parentUI, 1);
+=======
+            native.native.setCurrView(this.parentUI, 2);
+>>>>>>> origin/dev_sxl
         }
     } 
 } 

@@ -44,7 +44,11 @@ module view.partner {
         private goBack () {
             Laya.stage.removeChild(this.comp);
             this.ParentUI.comp.visible = true;
+<<<<<<< HEAD
             native.native.setCurrView(this.ParentUI, 1);
+=======
+            native.native.setCurrView(this.ParentUI, 2);
+>>>>>>> origin/dev_sxl
         }
     }
 }

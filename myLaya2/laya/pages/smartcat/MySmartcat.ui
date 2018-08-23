@@ -198,11 +198,7 @@
         {
             "x":15,
             "type":"List",
-<<<<<<< HEAD
-            "props":{"top":560,"right":0,"renderType":"render","left":28,"bottom":200},
-=======
             "props":{"y":544,"right":28,"renderType":"render","left":28,"height":701},
->>>>>>> origin/dev
             "nodeParent":1,
             "label":"List",
             "isOpen":true,
@@ -317,9 +313,7 @@
             "type":"Button",
             "props":{"x":28,"width":690,"var":"btn_toggle","skin":"img/smartcat/gbznm@3x.png","labelSize":32,"labelColors":"#687076","label":"关闭智能猫","height":80,"bottom":100},
             "nodeParent":1,
-<<<<<<< HEAD
             "label":"Button(btn_toggle)",
-=======
             "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
@@ -334,7 +328,6 @@
             "props":{"y":1241,"width":690,"var":"turn","stateNum":"1","skin":"img/main/anliu@2x.png","labelSize":36,"labelColors":"#ffffff","label":"开启智能猫","height":80,"centerX":2},
             "nodeParent":1,
             "label":"Button(turn)",
->>>>>>> origin/dev
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

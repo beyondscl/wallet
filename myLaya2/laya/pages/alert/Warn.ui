@@ -68,6 +68,7 @@
                     "x":30,
                     "type":"Label",
                     "props":{"wordWrap":true,"width":490,"var":"warn_msg","valign":"middle","text":"的助记词请检查你的助记词请检查你的助记词请检查你的助记词请检查你的助记词请检查你的助记词","right":30,"padding":"10","left":30,"leading":20,"height":157,"fontSize":32,"color":"#163853","centerY":2,"bold":false,"align":"center"},
+                    "props":{"wordWrap":true,"var":"warn_msg","valign":"middle","text":"请检查你的助记词请检查你的助记词请检查你的助记词请检查你的助记词请检查你的助记词请检查你的助记词请检查你的助记词","right":30,"padding":"10","left":30,"leading":20,"height":200,"fontSize":32,"color":"#163853","centerY":2,"bold":false,"align":"center"},
                     "nodeParent":9,
                     "label":"Label(warn_msg)",
                     "isDirectory":false,
