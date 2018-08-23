@@ -7,7 +7,7 @@ module view.alert {
             Laya.stage.scaleMode = config.prod.appAdapterType;
             this.initEvent();
         }
-
+        public static claName = 'dialog_ExportPriKey';
         public setData(key: string) {
             this.text_pKey.text = key;
             this.text_pKey.text = "f31430d04eabdb2480ad86c0ca81f1350e05057d4951af7399d2683616f8661b";//test

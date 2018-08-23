@@ -64,6 +64,14 @@ module native {
                         return 3;
                     }else if(this.view){
                         this.view.goBack();
+                        for (var i = 0;i < Laya.stage._childs.length; i++) {
+                            if (Laya.stage._childs[i].claName) {
+                                if (Laya.stage._childs[i].claName.indexOf('dialog_') != -1) {
+                                    let com = Laya.stage._childs[i] as Laya.Dialog
+                                    com.close();
+                                }
+                            }
+                        }
                     }else{
                         console.log("回退键没有响应事件",this.view,this.viewOrder);
                     }

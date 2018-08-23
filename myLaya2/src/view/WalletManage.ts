@@ -40,7 +40,8 @@ module view {
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         }
         private goBack(){
-            Laya.stage.removeChild(this.comp);
+            // Laya.stage.removeChild(this.comp);
+            this.comp.visible = false;
             this.parentUI.comp.visible = true;
             native.native.setCurrView(this.parentUI,1);
         }

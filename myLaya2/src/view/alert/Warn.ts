@@ -2,7 +2,7 @@
 module view.alert {
     export class Warn extends ui.alert.WarnUI {
         private parentUI: View;
-
+        public static claName = 'dialog_Warn';
         constructor(title: string, subTitle: string) {
             super();
             this.warn_title.text = title;

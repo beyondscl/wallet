@@ -5,6 +5,7 @@ module view {
         public parentUI: view.WalletManage;
         private data: mod.walletMod;
         private EnterPass: view.alert.EnterPass;
+        private info: view.alert.info;
         constructor() {
             super();
             this.init();
@@ -56,12 +57,17 @@ module view {
         private goBack() {
             this.comp.removeSelf();
             this.parentUI.comp.visible = true;
-            this.EnterPass.stop();
+            // this.EnterPass.stop();
             native.native.setCurrView(this.parentUI,2);
         }
 
         private btnClick(index: number) {
             if (1 == index) {
+                if (this.comp.text_wName.text.length > 12) {
+                    this.info = new view.alert.info('钱包名称不超过12个字符');
+                    this.info.popup();
+                    return
+                }
                 service.walletServcie.walletUpdateName(this.data.wName, this.comp.text_wName.text);
                 this.parentUI.setData(service.walletServcie.getWallets());
                 util.getMainView().initQueryData(mod.userMod.defWallet);

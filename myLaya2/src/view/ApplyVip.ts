@@ -26,7 +26,7 @@ module view {
         private goBack () {
             this.comp.removeSelf();
             this.ParentUI.comp.visible = true;
-            native.native.setCurrView(this.ParentUI, 2);
+            native.native.setCurrView(this.ParentUI, 1);
         }
     }
 }

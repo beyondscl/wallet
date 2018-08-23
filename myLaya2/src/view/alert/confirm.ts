@@ -5,7 +5,7 @@ module view.alert {
     export class confirm extends ui.alert.confirmUI {
         private parentUI: any;
         private wName: string;
-
+        public static claName = 'dialog_confirm';
         private callback;
         private args;
 

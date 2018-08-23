@@ -7,7 +7,7 @@ module view.alert {
             Laya.timer.once(2000, this, this.stop);
             this.msg.text = msg;
         }
-
+        public static claName = 'dialog_info';
         private stop() {
             this.close();
         }

@@ -3,6 +3,7 @@ module view.alert {
     export class EnterPass extends ui.alert.EnterPassUI {
         private parentUI: any;//很多地方需要验证
         private callBack: any;//点击确定的回调函数
+        public static claName = 'dialog_EnterPass';
         private wName: string;
         private type: number;//删除，等
 

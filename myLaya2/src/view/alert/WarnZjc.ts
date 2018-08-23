@@ -3,7 +3,7 @@ module view.alert {
     export class WarnZjc extends ui.alert.WarnZjcUI {
         private comp: ui.alert.WarnZjcUI;
         private parentUI: View;
-
+        public static claName = 'dialog_WarnZjc';
         constructor() {
             super();
             this.init();

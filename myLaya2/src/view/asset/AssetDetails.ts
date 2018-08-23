@@ -116,7 +116,7 @@ module view.asset {
         private goBack () {
             Laya.stage.removeChild(this.comp);
             this.ParentUI.comp.visible = true;
-            native.native.setCurrView(this.ParentUI, 2);
+            native.native.setCurrView(this.ParentUI, 1);
         }
     }
 }
