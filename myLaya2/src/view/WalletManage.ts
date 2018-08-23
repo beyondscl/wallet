@@ -85,6 +85,7 @@ module view {
             this.comp.visible = false;
             let wd = new view.WalletDetail();
             let walletMod: mod.walletMod = this.comp.list_wallet.array[index];
+            walletMod = service.walletServcie.getWallet(walletMod.wName);
             walletMod.wAmount = this.comp.list_wallet.cells[index].getChildByName("lab_wTotal").text;
             wd.setData(walletMod);
             wd.setParetUI(this);

@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":2,
-    "selecteID":6,
+    "selecteID":8,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -106,7 +106,7 @@
                 {
                     "x":30,
                     "type":"TextArea",
-                    "props":{"var":"sub_title","text":"你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？","right":10,"left":10,"height":150,"fontSize":32,"editable":false,"centerY":0,"align":"left"},
+                    "props":{"var":"sub_title","text":"你备份的助记词顺序验证正确，是否从WWEC Wallet中移除该助记词？","right":10,"left":10,"leading":20,"height":150,"fontSize":32,"editable":false,"centerY":0,"align":"left"},
                     "nodeParent":2,
                     "label":"TextArea(sub_title)",
                     "isDirectory":false,
