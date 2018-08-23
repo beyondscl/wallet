@@ -54,7 +54,6 @@ module view.user {
         private init() {
             this.comp = new ui.user.UserLoginUI();
             Laya.stage.addChild(this.comp);
-            this.comp.inp_uname.focus = true;
             native.native.setCurrView(this,1);
         }
 

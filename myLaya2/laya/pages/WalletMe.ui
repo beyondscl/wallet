@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":91,
-    "selecteID":93,
+    "selectedBox":84,
+    "selecteID":91,
     "props":{"width":750,"var":"viewstack","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},
     "nodeParent":-1,
     "label":"View(viewstack)",
@@ -624,7 +624,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":95,"width":60,"var":"btn_assets","top":4,"height":80},
+                    "props":{"width":60,"var":"btn_assets","top":4,"left":150,"height":80},
                     "nodeParent":84,
                     "label":"Box(btn_assets)",
                     "isOpen":true,
@@ -665,7 +665,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":345,"width":60,"var":"btn_smartcat","height":80},
+                    "props":{"x":345,"width":60,"visible":false,"var":"btn_smartcat","height":80},
                     "nodeParent":84,
                     "label":"Box(btn_smartcat)",
                     "isOpen":true,
@@ -704,7 +704,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":595,"width":60,"var":"btn_me","height":80},
+                    "props":{"y":0,"width":60,"var":"btn_me","right":150,"height":80},
                     "nodeParent":84,
                     "label":"Box(btn_me)",
                     "isOpen":true,

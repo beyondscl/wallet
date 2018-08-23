@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.alert {
     export class waiting extends ui.alert.waitingUI {
+        public static claName = 'dialog_waiting';
         constructor(title: string) {
             super();
             this.wait_msg.text = title;

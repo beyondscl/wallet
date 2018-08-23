@@ -60,7 +60,19 @@ module view.smartcat{
 
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
+<<<<<<< HEAD
 			this.comp.btn_toggle.on(Laya.Event.CLICK, this, this.toggleSmartcat);
+=======
+			this.comp.turn.on(Laya.Event.CLICK, this, this.btnClick);
+		}
+
+		private btnClick () {
+			let str = this.comp.turn.text;
+			// if (str == '开启智能猫') {
+
+			// }
+			console.log(str);
+>>>>>>> origin/dev
 		}
 
 		private goBack() {

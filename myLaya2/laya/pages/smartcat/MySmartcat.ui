@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":16,
+    "selecteID":33,
     "props":{"x":0,"width":750,"sceneColor":"#ffffff","rotation":0,"height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -71,13 +71,14 @@
             "props":{"y":158,"x":4,"width":738,"skin":"img/smartcat/wdznm-bg@3x.png","height":386},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":104,"x":72,"width":118,"skin":"img/smartcat/bmers@3x.png","height":144},
                     "nodeParent":25,
@@ -90,6 +91,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":248,"x":72,"width":140,"text":"智能猫启动中","height":28,"fontSize":20,"color":"#ffffff","align":"center"},
                     "nodeParent":25,
@@ -102,6 +104,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":100,"x":240,"width":451,"height":172},
                     "nodeParent":25,
@@ -113,6 +116,7 @@
                     "compId":6,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":20,"x":0,"text":"托管资产市值（$）","fontSize":28,"color":"#D7E6FE","bold":true},
                             "nodeParent":6,
@@ -125,6 +129,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":75,"x":0,"text":"托管天数","fontSize":28,"color":"#D7E6FE","bold":true},
                             "nodeParent":6,
@@ -137,6 +142,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":130,"x":0,"text":"智能猫每日分红","fontSize":28,"color":"#D7E6FE","bold":true},
                             "nodeParent":6,
@@ -149,6 +155,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":20,"x":274,"var":"label_hostAssetsValue","text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
                             "nodeParent":6,
@@ -161,6 +168,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":75,"x":274,"var":"label_hostDays","text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
                             "nodeParent":6,
@@ -173,6 +181,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":130,"x":274,"var":"label_todayDividend","text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
                             "nodeParent":6,
@@ -189,7 +198,11 @@
         {
             "x":15,
             "type":"List",
+<<<<<<< HEAD
             "props":{"top":560,"right":0,"renderType":"render","left":28,"bottom":200},
+=======
+            "props":{"y":544,"right":28,"renderType":"render","left":28,"height":701},
+>>>>>>> origin/dev
             "nodeParent":1,
             "label":"List",
             "isOpen":true,
@@ -304,11 +317,28 @@
             "type":"Button",
             "props":{"x":28,"width":690,"var":"btn_toggle","skin":"img/smartcat/gbznm@3x.png","labelSize":32,"labelColors":"#687076","label":"关闭智能猫","height":80,"bottom":100},
             "nodeParent":1,
+<<<<<<< HEAD
             "label":"Button(btn_toggle)",
+=======
+            "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":31,
+            "compId":23,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":1241,"width":690,"var":"turn","stateNum":"1","skin":"img/main/anliu@2x.png","labelSize":36,"labelColors":"#ffffff","label":"开启智能猫","height":80,"centerX":2},
+            "nodeParent":1,
+            "label":"Button(turn)",
+>>>>>>> origin/dev
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":33,
             "child":[
                 ],
             "$HIDDEN":false

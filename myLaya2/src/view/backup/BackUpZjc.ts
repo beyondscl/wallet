@@ -27,6 +27,7 @@ module view.backup {
             Laya.stage.addChild(this.comp);
             let warn = new view.alert.WarnZjc();
             warn.popup(true, true);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -37,6 +38,7 @@ module view.backup {
         private goBack(){
             this.comp.removeSelf();            
             util.showView([1]);
+            native.native.setCurrView(this.parentUI,2);
         }
         private btnClick(index: number) {
             if (1 == index) {

@@ -22,6 +22,7 @@ module view {
         private init() {
             this.comp = new ui.WalletBackUpUI();
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -33,6 +34,7 @@ module view {
         private goBack(){
             this.comp.removeSelf();            
             util.showView([1]);
+            native.native.setCurrView(this.parentUI,2);
         }
         private btnClick(index: number) {
             if (1 == index) {

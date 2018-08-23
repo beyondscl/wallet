@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":11,
-    "selecteID":16,
+    "selecteID":12,
     "props":{"width":750,"top":0,"sceneColor":"#F3F3F4","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -104,7 +104,7 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"right":0,"renderType":"render","name":"render","left":0,"height":280},
+                            "props":{"rotation":0,"right":0,"renderType":"render","name":"render","left":0,"height":280},
                             "nodeParent":10,
                             "label":"Box(render)",
                             "isOpen":true,
@@ -116,7 +116,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"top":0,"skin":"img/main/white.png","right":0,"left":0,"bottom":0},
+                                    "props":{"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"bottom":0},
                                     "nodeParent":11,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -124,7 +124,8 @@
                                     "hasChild":false,
                                     "compId":12,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":true
                                 },
                                 {
                                     "x":60,

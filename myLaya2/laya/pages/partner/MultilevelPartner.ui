@@ -15,9 +15,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":50,"x":20,"width":150,"top":38,"text":"%级伙伴","left":300,"height":36,"fontSize":32,"color":"#163853","align":"center"},
+            "props":{"y":50,"x":20,"width":150,"var":"title","top":38,"text":"%级伙伴","left":300,"height":36,"fontSize":32,"color":"#163853","align":"center"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(title)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":50,"x":50,"width":65,"top":30,"stateNum":"1","skin":"img/main/back@2x.png","name":"back_btn","left":30,"height":65},
+            "props":{"y":50,"x":50,"width":65,"var":"back_btn","top":30,"stateNum":"1","skin":"img/main/back@2x.png","name":"back_btn","left":30,"height":65},
             "nodeParent":1,
             "label":"Button(back_btn)",
             "isDirectory":false,
@@ -41,9 +41,9 @@
         {
             "x":15,
             "type":"List",
-            "props":{"top":120,"right":0,"left":0,"bottom":0},
+            "props":{"var":"listContent","top":120,"spaceY":25,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
-            "label":"List",
+            "label":"List(listContent)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -53,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"right":0,"name":"render","left":0,"height":60},
+                    "props":{"right":32,"name":"render","left":28,"height":70},
                     "nodeParent":4,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"bottom":0},
+                            "props":{"top":68,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
                             "nodeParent":5,
                             "label":"Image",
                             "isDirectory":false,
@@ -77,10 +77,49 @@
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"width":141,"valign":"middle","top":0,"text":"13518161111","left":50,"fontSize":24,"color":"black","bottom":0},
+                            "type":"Image",
+                            "props":{"x":-28,"top":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
                             "nodeParent":5,
-                            "label":"Label",
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","left":0,"height":70},
+                            "nodeParent":5,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","right":0,"height":70},
+                            "nodeParent":5,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":10,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":0,"width":192,"valign":"middle","text":"13518161111","name":"phoneNum","left":46,"height":70,"fontSize":28,"color":"black"},
+                            "nodeParent":5,
+                            "label":"Label(phoneNum)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
@@ -91,9 +130,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"width":191,"valign":"middle","top":0,"text":"智能猫启动中...","right":50,"height":60,"fontSize":24,"color":"black","bottom":0},
+                            "props":{"y":0,"width":191,"valign":"middle","text":"智能猫启动中...","right":50,"name":"status","height":70,"fontSize":28,"color":"#5CCBE3"},
                             "nodeParent":5,
-                            "label":"Label",
+                            "label":"Label(status)",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
@@ -101,6 +140,19 @@
                             "child":[
                                 ]
                         }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":446,"x":261,"visible":false,"var":"noList","text":"目前没有该级伙伴","fontSize":32,"color":"black"},
+                    "nodeParent":4,
+                    "label":"Label(noList)",
+                    "isDirectory":false,
+                    "isAniNode":false,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[

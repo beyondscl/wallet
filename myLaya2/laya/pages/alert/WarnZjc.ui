@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":9,
-    "selecteID":8,
+    "selecteID":5,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -80,20 +80,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":237,"valign":"middle","text":"请抄写下来助记词并存放在安全的地方。","right":20,"left":20,"height":44,"fontSize":24,"color":"#687076","align":"left"},
-                    "nodeParent":9,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":192,"valign":"middle","text":"如果有人获取你的助记词将直接获取你的资产！","right":20,"left":20,"height":44,"fontSize":24,"color":"#687076","align":"left"},
+                    "props":{"y":192,"wordWrap":true,"valign":"middle","text":"如果有人获取你的助记词将直接获取你的资产！请抄写下来助记词并存放在安全的地方。","right":35,"left":35,"leading":20,"height":100,"fontSize":24,"color":"#687076","align":"left"},
                     "nodeParent":9,
                     "label":"Label",
                     "isDirectory":false,

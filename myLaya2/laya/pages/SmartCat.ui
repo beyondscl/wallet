@@ -1,8 +1,13 @@
 {
     "x":0,
     "type":"View",
+<<<<<<< HEAD
     "selectedBox":178,
     "selecteID":110,
+=======
+    "selectedBox":123,
+    "selecteID":133,
+>>>>>>> origin/dev
     "props":{"width":750,"var":"SmartCat","sceneColor":"#FCFCFC","name":"smartCatMain","height":1334},
     "nodeParent":-1,
     "label":"View(SmartCat)",
@@ -266,13 +271,14 @@
                     "props":{"y":820,"x":0,"width":750,"height":386},
                     "nodeParent":178,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":122,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":750,"skin":"img/smartcat/znm-bg@3x.png","height":386},
                             "nodeParent":122,
@@ -284,6 +290,7 @@
                             "compId":123,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":62,"x":68,"width":60,"skin":"img/smartcat/hbfh@3x.png","height":60},
                                     "nodeParent":123,
@@ -296,6 +303,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":72,"x":146,"width":140,"text":"伙伴分红","height":40,"fontSize":28,"color":"#2176FF","bold":true,"align":"left"},
                                     "nodeParent":123,
@@ -308,6 +316,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Line",
                                     "props":{"y":134,"x":76,"toY":0,"toX":606,"lineWidth":2,"lineColor":"#F3F3F4"},
                                     "nodeParent":123,
@@ -320,6 +329,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":160,"x":98,"width":120,"var":"inviter","height":140},
                                     "nodeParent":123,
@@ -358,6 +368,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":160,"x":320,"width":120,"var":"my_inviter","height":140},
                                     "nodeParent":123,
@@ -397,6 +408,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":160,"x":550,"width":120,"var":"inviter_earning","height":140},
                                     "nodeParent":123,
@@ -435,6 +447,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Line",
                                     "props":{"y":184,"x":262,"toY":113,"toX":0,"lineWidth":2,"lineColor":"#F3F3F4"},
                                     "nodeParent":123,
@@ -447,6 +460,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Line",
                                     "props":{"y":184,"x":488,"toY":113,"toX":0,"lineWidth":2,"lineColor":"#F3F3F4"},
                                     "nodeParent":123,
@@ -767,14 +781,13 @@
             "props":{"width":750,"left":0,"height":88,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":155,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"x":95,"width":60,"var":"btn_assets","top":4,"height":80},
                     "nodeParent":155,
@@ -786,7 +799,6 @@
                     "compId":159,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":0,"width":52,"stateNum":"1","skin":"img/smartcat/zichan-@3x.png","height":52},
                             "nodeParent":159,
@@ -799,7 +811,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":56,"x":0,"width":60,"text":"资产","fontSize":20,"color":"#B0BBC4","align":"center"},
                             "nodeParent":159,
@@ -814,7 +825,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"x":345,"width":60,"var":"btn_smartcat","height":80},
                     "nodeParent":155,
@@ -826,7 +836,6 @@
                     "compId":160,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":0,"width":52,"stateNum":"1","skin":"img/smartcat/zhinengmao@3x.png","height":52},
                             "nodeParent":160,
@@ -839,7 +848,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":56,"x":0,"width":60,"text":"智能猫","fontSize":20,"color":"#598ADA","align":"center"},
                             "nodeParent":160,
@@ -853,7 +861,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":0,"x":595,"width":60,"var":"btn_me","height":80},
                     "nodeParent":155,
@@ -865,7 +872,6 @@
                     "compId":165,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":0,"width":52,"stateNum":"1","skin":"img/smartcat/wo de-@3x.png","height":52},
                             "nodeParent":165,
@@ -878,7 +884,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":56,"x":0,"width":60,"text":"我的","fontSize":20,"color":"#B0BBC4","align":"center"},
                             "nodeParent":165,

@@ -40,7 +40,8 @@ module view {
             this.comp.btn_import.on(Laya.Event.CLICK, this, this.btnClick, [3]);
         }
         private goBack(){
-            Laya.stage.removeChild(this.comp);
+            // Laya.stage.removeChild(this.comp);
+            this.comp.visible = false;
             this.parentUI.comp.visible = true;
             native.native.setCurrView(this.parentUI,1);
         }
@@ -84,6 +85,7 @@ module view {
             this.comp.visible = false;
             let wd = new view.WalletDetail();
             let walletMod: mod.walletMod = this.comp.list_wallet.array[index];
+            walletMod = service.walletServcie.getWallet(walletMod.wName);
             walletMod.wAmount = this.comp.list_wallet.cells[index].getChildByName("lab_wTotal").text;
             wd.setData(walletMod);
             wd.setParetUI(this);

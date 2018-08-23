@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":30,
+    "selecteID":76,
     "props":{"width":750,"visible":true,"top":0,"sceneWidth":600,"sceneHeight":800,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},
     "nodeParent":-1,
     "label":"View",
@@ -134,7 +134,7 @@
         {
             "x":15,
             "type":"CheckBox",
-            "props":{"y":708,"x":30,"width":126,"var":"check_argee","skin":"img/main/radio.png","scaleY":2,"scaleX":2,"mouseEnabled":true,"layoutEnabled":true,"hitTestPrior":true,"height":24,"click":"updateArgee"},
+            "props":{"y":708,"x":30,"width":146,"var":"check_argee","skin":"img/main/radio.png","scaleY":2,"scaleX":2,"mouseEnabled":true,"layoutEnabled":true,"hitTestPrior":true,"height":16,"click":"updateArgee"},
             "nodeParent":1,
             "label":"CheckBox(check_argee)",
             "isDirectory":false,
@@ -346,7 +346,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":706,"x":312,"width":240,"var":"href_ysfw","valign":"middle","text":"隐私及服务条款","padding":"0","height":34,"fontSize":24,"color":"#598ADA","align":"left"},
+            "props":{"y":706,"x":328,"width":240,"var":"href_ysfw","valign":"middle","text":"隐私及服务条款","padding":"0","height":34,"fontSize":24,"color":"#598ADA","align":"left"},
             "nodeParent":1,
             "label":"Label(href_ysfw)",
             "isDirectory":false,
@@ -359,7 +359,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":838,"x":10,"width":708,"var":"btn_create","stateNum":"1","skin":"img/main/anliu@2x.png","sizeGrid":"0,0,0,0","labelSize":32,"labelColors":"#ffffff","label":"创建钱包","height":80,"disabled":true,"centerX":0},
+            "props":{"y":838,"x":10,"width":708,"var":"btn_create","skin":"img/main/anliu@2x.png","sizeGrid":"0,0,0,0","labelSize":32,"labelColors":"#ffffff","label":"创建钱包","height":80,"disabled":true,"centerX":0},
             "nodeParent":1,
             "label":"Button(btn_create)",
             "isDirectory":false,

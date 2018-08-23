@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":13,
+    "selectedBox":82,
+    "selecteID":87,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -15,311 +15,680 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":120,"right":0,"left":0,"height":320},
+            "props":{"var":"picInput","top":54,"skin":"img/main/grayBack.png","right":30,"left":100,"height":60},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(picInput)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":3,
+            "compId":39,
+            "child":[
+                {
+                    "x":30,
+                    "type":"TextInput",
+                    "props":{"y":1,"var":"phoNum","valign":"middle","type":"text","right":0,"promptColor":"#687076","prompt":"输入你想查找的伙伴号码","maxChars":11,"left":77,"height":60,"fontSize":28,"align":"left"},
+                    "nodeParent":39,
+                    "label":"TextInput(phoNum)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":32,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":69,"width":37,"skin":"img/main/btn_search_icon.png","right":592,"height":35},
+            "nodeParent":1,
+            "label":"Button",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":33,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"top":130,"skin":"img/main/grayBack.png","right":0,"left":0,"height":2},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":34,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":69,"x":666,"visible":false,"var":"cancel","text":"取消","fontSize":28,"color":"#687076"},
+            "nodeParent":1,
+            "label":"Label(cancel)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":40,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":522,"x":213,"width":300,"visible":false,"var":"noRecord","height":264},
+            "nodeParent":1,
+            "label":"Image(noRecord)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":41,
             "child":[
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":35,"x":40,"text":"一级伙伴:","fontSize":24},
-                    "nodeParent":3,
+                    "props":{"y":216,"x":6,"width":288,"visible":true,"text":"未搜索到相关用户","height":41,"fontSize":24,"align":"center"},
+                    "nodeParent":41,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":2,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":35,"x":155,"text":"13518161111","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":79,"x":40,"text":"智能猫:","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":79,"x":132,"text":"启动中..","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":77,"x":408,"text":"托管资产市值:","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":77,"x":573,"text":"999999","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":77,"x":676,"text":"$","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":123,"x":43,"text":"每日托管分红:","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":123,"x":205,"text":"13518161111","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":122,"x":365,"text":"WWEC","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":169,"x":295,"text":"托管资产明细","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
+                    "compId":35,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":200,"x":46,"width":50,"skin":"img/coins/ETH.png","height":50},
-                    "nodeParent":3,
+                    "props":{"y":48,"x":95,"width":108,"skin":"img/main/search@3x.png","height":108},
+                    "nodeParent":41,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":14,
+                    "compId":42,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":157,"x":44,"visible":true,"var":"history","text":"历史搜索","fontSize":28,"color":"#100E28","bold":true},
+            "nodeParent":1,
+            "label":"Label(history)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":44,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"width":65,"var":"back_btn","top":49,"stateNum":"1","skin":"img/main/back@2x.png","left":16,"height":65},
+            "nodeParent":1,
+            "label":"Button(back_btn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":45,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"width":750,"visible":false,"var":"One_class","top":192,"right":0,"left":0,"height":481},
+            "nodeParent":1,
+            "label":"Box(One_class)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":46,
+            "child":[
+                {
+                    "type":"Image",
+                    "props":{"top":68,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
+                    "nodeParent":46,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":47,
                     "child":[
                         ]
                 },
                 {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":220,"x":120,"text":"ETH","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
+                    "type":"Image",
+                    "props":{"x":0,"top":0,"skin":"img/main/itemSepar.png","right":0,"left":0},
+                    "nodeParent":46,
+                    "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":15,
+                    "compId":48,
                     "child":[
                         ]
                 },
                 {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":220,"x":192,"width":73,"text":"0.0000","height":23,"fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
+                    "type":"Image",
+                    "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","left":0,"height":70},
+                    "nodeParent":46,
+                    "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":16,
+                    "compId":49,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","right":0,"height":70},
+                    "nodeParent":46,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":50,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":21,"x":57,"var":"oneClass_level","text":"一级伙伴:","fontSize":28},
+                    "nodeParent":46,
+                    "label":"Label(oneClass_level)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":51,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":23,"x":213,"var":"oneClass_phoNum","text":"135181602000","fontSize":28},
+                    "nodeParent":46,
+                    "label":"Label(oneClass_phoNum)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":52,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"width":751,"visible":true,"top":70,"skin":"img/main/oneClassBg.png","right":0,"name":"details","left":-1,"height":307,"bottom":0,"alpha":1},
+                    "nodeParent":46,
+                    "label":"Image(details)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":55,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":32,"x":55,"text":"今日分红:","fontSize":28,"color":"#100E28","bold":true},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":56,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"top":164,"skin":"img/main/itemSepar.png","right":50,"left":50,"height":2},
+                            "nodeParent":55,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":77,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":32,"x":198,"width":122,"var":"oneClass_fitnit","text":"99999","height":28,"fontSize":28,"color":"#2176FF","align":"left"},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_fitnit)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":57,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":92,"x":388,"text":"托管资产产值:","fontSize":28,"color":"#100E28","bold":true},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":58,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":93,"x":577,"width":89,"var":"oneClass_tgMoney","text":"9999","height":27,"fontSize":28,"color":"#100E28","bold":true,"align":"right"},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_tgMoney)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":59,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":94,"x":674,"width":20,"text":"$","height":18,"fontSize":28,"bold":true},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":60,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":206,"x":52,"text":"托管资产明细","fontSize":28,"color":"#4F8CEE","bold":true},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":61,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":262,"x":36,"width":50,"skin":"img/coins/ETH.png","height":50},
+                            "nodeParent":55,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":62,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":282,"x":110,"text":"ETH","fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":63,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":282,"x":182,"width":73,"var":"oneClass_Eth","text":"0.0000","name":"EthMoney","height":23,"fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_Eth)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":64,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":263,"x":456,"width":50,"skin":"img/coins/BTH-@3x.png","height":50},
+                            "nodeParent":55,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":65,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":283,"x":530,"text":"BTC","fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":66,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":283,"x":602,"width":73,"var":"oneClass_Btc","text":"0.0000","height":23,"fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_Btc)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":67,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":327,"x":36,"width":50,"skin":"img/coins/BCH-@3x.png","height":50},
+                            "nodeParent":55,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":68,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":347,"x":110,"text":"EFG","fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":69,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":347,"x":182,"width":73,"var":"oneClass_Efg","text":"0.0000","height":23,"fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_Efg)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":70,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":327,"x":455,"width":50,"skin":"img/coins/LTC@3x.png","height":50},
+                            "nodeParent":55,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":71,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":347,"x":529,"text":"DGH","fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":72,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":347,"x":601,"width":73,"var":"oneClass_Dgh","text":"0.0000","height":23,"fontSize":24},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_Dgh)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":73,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":94,"x":52,"text":"智能猫:","fontSize":28,"color":"#100E28","bold":true},
+                            "nodeParent":55,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":75,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":94,"x":153,"width":162,"var":"oneClass_status","text":"启动中..","height":28,"fontSize":28,"color":"#5CCBE3","bold":true,"align":"left"},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_status)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":76,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":32,"x":342,"width":162,"var":"oneClass_iconType","text":"WWEC","height":28,"fontSize":28,"color":"#2176FF","align":"left"},
+                            "nodeParent":55,
+                            "label":"Label(oneClass_iconType)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":79,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"List",
+            "props":{"y":199,"x":1,"width":749,"visible":true,"var":"listPho","spaceY":10,"spaceX":20,"right":0,"left":1,"height":322},
+            "nodeParent":1,
+            "label":"List(listPho)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":36,
+            "child":[
+                {
+                    "type":"Box",
+                    "props":{"y":15,"x":37,"width":200,"name":"render","height":52},
+                    "nodeParent":36,
+                    "label":"Box(render)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":false,
+                    "hasChild":true,
+                    "compId":37,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"top":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
+                            "nodeParent":37,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":90,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":10,"x":10,"width":2,"top":0,"skin":"img/main/itemSepar.png","left":0,"height":52},
+                            "nodeParent":37,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":91,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":0,"valign":"middle","top":0,"text":"12345678912","right":0,"name":"num","left":0,"height":40,"fontSize":28,"color":"#163853","bottom":0,"bgColor":"#F3F3F4","align":"center"},
+                            "nodeParent":37,
+                            "label":"Label(num)",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":20,"width":2,"top":0,"skin":"img/main/itemSepar.png","right":0,"height":52},
+                            "nodeParent":37,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":92,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"top":50,"skin":"img/main/itemSepar.png","right":0,"left":0},
+                            "nodeParent":37,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":93,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":198,"x":30,"width":688,"visible":false,"var":"MultClass","right":32,"left":30,"height":70},
+            "nodeParent":1,
+            "label":"Box(MultClass)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":82,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"top":68,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
+                    "nodeParent":82,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":83,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":201,"x":466,"width":50,"skin":"img/coins/ETH.png","height":50},
-                    "nodeParent":3,
+                    "props":{"x":-28,"top":0,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":17,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":221,"x":540,"text":"ETH","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":221,"x":612,"width":73,"text":"0.0000","height":23,"fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":19,
+                    "compId":84,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":265,"x":46,"width":50,"skin":"img/coins/ETH.png","height":50},
-                    "nodeParent":3,
+                    "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","left":0,"height":70},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":20,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":285,"x":120,"text":"ETH","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":21,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":285,"x":192,"width":73,"text":"0.0000","height":23,"fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":22,
+                    "compId":85,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":265,"x":465,"width":50,"skin":"img/coins/ETH.png","height":50},
-                    "nodeParent":3,
+                    "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","right":0,"height":70},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":23,
+                    "compId":86,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":285,"x":539,"text":"ETH","fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
+                    "props":{"y":-1,"width":192,"var":"MultClass_PhoNum","valign":"middle","text":"13518161111","name":"phoneNum","left":184,"height":70,"fontSize":28,"color":"black"},
+                    "nodeParent":82,
+                    "label":"Label(MultClass_PhoNum)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":24,
+                    "compId":87,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":285,"x":611,"width":73,"text":"0.0000","height":23,"fontSize":24},
-                    "nodeParent":3,
-                    "label":"Label",
+                    "props":{"y":0,"width":191,"var":"MultClass_status","valign":"middle","text":"智能猫启动中...","right":42,"name":"status","height":70,"fontSize":28,"color":"#5CCBE3"},
+                    "nodeParent":82,
+                    "label":"Label(MultClass_status)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":25,
+                    "compId":88,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":20,"x":29,"var":"MultClass_level","text":"二级居民:","fontSize":28,"color":"#100E28","bold":true},
+                    "nodeParent":82,
+                    "label":"Label(MultClass_level)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":89,
                     "child":[
                         ]
                 }]

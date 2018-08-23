@@ -48,6 +48,7 @@ module view.backup {
         private init() {
             this.comp = new ui.backup.BackUpConfUI();
             Laya.stage.addChild(this.comp);
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -58,6 +59,7 @@ module view.backup {
         private goBack(){
             this.comp.removeSelf();            
             util.showView([1]);
+            native.native.setCurrView(this.parentUI,2);
         }
 
         private btnClick(index: number, v: Label) {

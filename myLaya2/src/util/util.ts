@@ -51,6 +51,12 @@ class util {
         return null;
     }
 
+    // 取出非json对象的
+    public static getNoJsonItem (itemName) {
+        let data = laya.net.LocalStorage.getItem(itemName);
+        return data;
+    }
+
     //设置storage，输入json
     //设置storage，输入jsonString
     public static setItemNoJson(itemName, data) {
@@ -107,7 +113,8 @@ class util {
             "data": value
         };
         try {
-            Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            // Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
+            native.native.jsCallapp(json);
             callBack(data);
         } catch (error) {
             console.log("复制只支持app")
