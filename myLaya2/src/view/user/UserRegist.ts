@@ -34,7 +34,6 @@ module view.user {
         private init() {
             this.comp = new ui.user.UserRegistUI();
             Laya.stage.addChild(this.comp);
-            this.comp.inp_phNumber.focus = true;
             this.comp.visible = false;
             native.native.setCurrView(this,1);
             new view.info.Service().setParetUI(this.comp);
