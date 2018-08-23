@@ -40,6 +40,7 @@ module view.info {
             Laya.stage.addChild(this.comp);
             this.comp.text.text = this.getServiceInfo();
             this.comp.text.overflow = Laya.Text.SCROLL;
+            native.native.setCurrView(this,2);
         }
 
         private initEvent() {
@@ -98,6 +99,7 @@ module view.info {
             if (3 == index) {
                 this.comp.removeSelf();
                 this.parentUI.visible = true;
+                native.native.setCurrView(this.parentUI,2);
             }
         }
 

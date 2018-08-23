@@ -66,7 +66,7 @@ module config {
         public static TX_ERROR_GAS ="建议您设置较大的矿工费用";
 
         public static LOGIN_EXCEPTION ="状态异常";
-        public static TOEKN_EXPIRE ="您的账号再其他地方登录,请重新登录";
+        public static TOEKN_EXPIRE ="您的账号在其他地方登录,请重新登录";
 
         //操作类型
         //删除钱包
