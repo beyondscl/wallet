@@ -24,10 +24,12 @@ module view.smartcat{
 			comp.label_hostDays.text = '' + mod.smartCatMod.hostDays;
 		}
 
+		// 获取概览数据
 		public getAllMarketValue() {
 			service.smartcatService.getAllMarketValue(this.setData,[this.comp])
 		}
 
+		//获取已持有资产的列表
 		public getHostAssets() {
 			let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
 			wait.popup();
@@ -67,6 +69,7 @@ module view.smartcat{
 			native.native.setCurrView(this.parentUI, 2);
 		}
 
+		// 将格式化的资产列表数据渲染展示
 		private setListData(data: Array<mod.holdAssets>): void {
 
 		}
@@ -80,16 +83,17 @@ module view.smartcat{
 						console.log('关闭智能猫页面ok')
 						var load = new view.alert.waiting(config.msg.WAIT_CLOSE_SMARTCAT);
 						load.popup();
-						service.smartcatService.closeSmartCat(this.toggleSmartcatCb, load)
+						service.smartcatService.closeSmartCat(this.toggleSmartcatCb, [load]);
 					}
 				},[]);
 				info.popup();
 			} else {
 				// 开启智能猫
-				let info = new view.alert.confirm(config.msg.START_SMARTCAT_CONFIRM, "");
-				info.setCallback(function confirmCb(ret) {
+				let info = new view.alert.confirm(config.msg.START_SMARTCAT_CONFIRM, "确认开启智能猫？");
+				info.setCallback(function confirmCb(ret, args) {
 					if (ret == 2) {
 						console.log('xxxxx')
+						mod.smartCatMod.smartCatStatus = true;
 						return;
 					}
 				}, [smartcat]);
@@ -98,7 +102,7 @@ module view.smartcat{
 		}
 		
 		private toggleSmartcatCb() {
-
+			this.init()
 		}
 	}
 }
