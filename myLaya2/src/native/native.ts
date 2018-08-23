@@ -65,9 +65,10 @@ module native {
                     }else if(this.view){
                         this.view.goBack();
                         for (var i = 0;i < Laya.stage._childs.length; i++) {
-                            if(Laya.stage._childs[i].__className != "laya.ui.DialogManager"){
+                            if(Laya.stage._childs[i].__className == "laya.ui.DialogManager"){
                                 var dm = Laya.stage._childs[i] as laya.ui.DialogManager;
                                 dm.closeAll();
+                                break;
                             }
                         }
                     }else{
