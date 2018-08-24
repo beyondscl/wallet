@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":25,
+    "selecteID":10,
     "props":{"width":750,"sceneColor":"#ffffff","name":"render","height":1334},
     "nodeParent":-1,
     "label":"View(render)",
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"x":25,"width":175,"valign":"middle","top":240,"text":"时间","left":25,"height":60,"fontSize":28,"color":"black","align":"center"},
+            "props":{"width":133,"valign":"middle","top":240,"text":"时间","left":33,"height":60,"fontSize":28,"color":"black","align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -80,7 +80,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"width":175,"valign":"middle","top":240,"text":"类型","left":200,"height":60,"fontSize":28,"align":"center"},
+            "props":{"width":153,"valign":"middle","top":240,"text":"类型","left":219,"height":60,"fontSize":28,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"width":175,"valign":"middle","top":240,"text":"币种","left":375,"height":60,"fontSize":28,"align":"center"},
+            "props":{"width":159,"valign":"middle","top":240,"text":"币种","left":393,"height":60,"fontSize":28,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -106,7 +106,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"width":175,"valign":"middle","top":240,"text":"数量","right":25,"height":60,"fontSize":28,"align":"center"},
+            "props":{"width":153,"valign":"middle","top":240,"text":"数量","right":25,"height":60,"fontSize":28,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -119,7 +119,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"y":300,"x":25,"width":700,"var":"force_content","right":25,"left":25,"height":950,"alpha":1},
+            "props":{"y":300,"var":"force_content","right":0,"left":36,"height":950,"alpha":1},
             "nodeParent":1,
             "label":"List(force_content)",
             "isOpen":true,
@@ -131,7 +131,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0,"width":700,"right":0,"name":"render","left":0,"height":100},
+                    "props":{"y":0,"x":0,"right":0,"name":"render","left":0,"height":100},
                     "nodeParent":7,
                     "label":"Box(render)",
                     "isOpen":true,
@@ -156,7 +156,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":0,"x":8,"wordWrap":true,"width":175,"var":"force_time","valign":"middle","top":0,"text":"2018-12-12 14:13","name":"force_time","height":100,"fontSize":24,"align":"center"},
+                            "props":{"wordWrap":true,"width":143,"var":"force_time","valign":"middle","top":0,"text":"2018-12-12 14:13","name":"force_time","left":0,"leading":10,"height":100,"fontSize":24,"align":"left"},
                             "nodeParent":8,
                             "label":"Label(force_time)",
                             "isDirectory":false,

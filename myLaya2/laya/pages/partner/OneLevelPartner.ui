@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":5,
-    "selecteID":39,
+    "selectedBox":1,
+    "selecteID":41,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -15,19 +15,6 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":591,"x":259,"visible":false,"var":"no_record","text":"没有该级的伙伴","fontSize":36},
-            "nodeParent":1,
-            "label":"Label(no_record)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":32,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
             "props":{"y":40,"x":10,"width":150,"top":38,"text":"一级伙伴","left":300,"height":36,"fontSize":32,"color":"#163853","align":"center"},
             "nodeParent":1,
             "label":"Label",
@@ -37,6 +24,43 @@
             "compId":2,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":532,"x":223,"width":300,"visible":false,"var":"no_record","height":264},
+            "nodeParent":1,
+            "label":"Image(no_record)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":41,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":216,"x":6,"width":288,"visible":true,"text":"未搜索到相关用户","height":41,"fontSize":24,"align":"center"},
+                    "nodeParent":41,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":42,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":48,"x":95,"width":108,"skin":"img/main/search@3x.png","height":108},
+                    "nodeParent":41,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":43,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -54,17 +78,16 @@
         {
             "x":15,
             "type":"List",
-            "props":{"var":"listContent","top":120,"right":32,"left":28,"bottom":0},
+            "props":{"var":"listContent","top":150,"right":32,"left":28,"bottom":0},
             "nodeParent":1,
             "label":"List(listContent)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"width":690,"top":0,"right":0,"name":"render","left":0,"height":350},
                     "nodeParent":4,
@@ -76,7 +99,6 @@
                     "compId":5,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"top":68,"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2},
                             "nodeParent":5,
@@ -89,7 +111,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":0,"top":0,"skin":"img/main/itemSepar.png","right":0,"left":0},
                             "nodeParent":5,
@@ -102,7 +123,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","left":0,"height":70},
                             "nodeParent":5,
@@ -115,7 +135,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":0,"width":2,"top":0,"skin":"img/main/itemSepar.png","right":0,"height":70},
                             "nodeParent":5,
@@ -128,7 +147,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":21,"x":34,"var":"phoneNum","text":"13518161111","name":"phoneNum","fontSize":28},
                             "nodeParent":5,
@@ -142,7 +160,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":27,"x":221,"width":20,"skin":"img/main/OvalGreen.png","name":"imgStatus","height":20},
                             "nodeParent":5,
@@ -155,7 +172,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":24,"x":322,"text":"今日分红:","fontSize":28},
                             "nodeParent":5,
@@ -168,7 +184,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":23,"x":452,"width":172,"text":"9999","name":"todayfitnit","height":28,"fontSize":28},
                             "nodeParent":5,
@@ -181,7 +196,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"width":32,"top":19,"stateNum":"1","skin":"img/main/down@3x.png","right":13,"name":"arrow","height":32},
                             "nodeParent":5,
@@ -194,19 +208,17 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"visible":true,"top":70,"skin":"img/main/oneClassBg.png","right":0,"name":"details","left":0,"height":280,"alpha":1},
                             "nodeParent":5,
                             "label":"Image(details)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":false,
                             "hasChild":true,
                             "compId":18,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":16,"x":35,"text":"智能猫:","fontSize":28,"color":"#100E28","bold":true},
                                     "nodeParent":18,
@@ -219,7 +231,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":16,"x":136,"width":162,"text":"启动中..","name":"startCatStatus","height":28,"fontSize":28,"color":"#5CCBE3","bold":true,"align":"left"},
                                     "nodeParent":18,
@@ -232,7 +243,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":17,"x":326,"text":"托管资产产值:","fontSize":28,"color":"#100E28","bold":true},
                                     "nodeParent":18,
@@ -245,7 +255,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":18,"x":515,"width":89,"text":"9999","name":"tgMoney","height":27,"fontSize":28,"color":"#100E28","bold":true,"align":"right"},
                                     "nodeParent":18,
@@ -258,7 +267,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":19,"x":612,"width":20,"text":"$","height":18,"fontSize":28,"bold":true},
                                     "nodeParent":18,
@@ -271,7 +279,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":94,"x":39,"text":"托管资产明细","fontSize":28,"color":"#4F8CEE","bold":true},
                                     "nodeParent":18,
@@ -284,7 +291,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":152,"x":36,"width":50,"skin":"img/coins/ETH.png","height":50},
                                     "nodeParent":18,
@@ -297,7 +303,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":165,"x":110,"text":"ETH","fontSize":24},
                                     "nodeParent":18,
@@ -310,7 +315,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":165,"x":182,"width":73,"text":"0.0000","name":"EthMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
@@ -323,7 +327,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":153,"x":456,"width":50,"skin":"img/coins/BTH-@3x.png","height":50},
                                     "nodeParent":18,
@@ -336,7 +339,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":166,"x":530,"text":"BTC","fontSize":24},
                                     "nodeParent":18,
@@ -349,7 +351,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":166,"x":602,"width":73,"text":"0.0000","name":"BtcMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
@@ -362,7 +363,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":217,"x":36,"width":50,"skin":"img/coins/BCH-@3x.png","height":50},
                                     "nodeParent":18,
@@ -375,7 +375,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":230,"x":110,"text":"EFG","fontSize":24},
                                     "nodeParent":18,
@@ -388,7 +387,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":230,"x":182,"width":73,"text":"0.0000","name":"EfgMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
@@ -401,7 +399,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":217,"x":455,"width":50,"skin":"img/coins/LTC@3x.png","height":50},
                                     "nodeParent":18,
@@ -414,7 +411,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":228,"x":529,"text":"DGH","fontSize":24},
                                     "nodeParent":18,
@@ -427,7 +423,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":228,"x":601,"width":73,"text":"0.0000","name":"DghMoney","height":23,"fontSize":24},
                                     "nodeParent":18,
@@ -440,7 +435,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"top":60,"right":20,"left":20,"height":1},
                                     "nodeParent":18,

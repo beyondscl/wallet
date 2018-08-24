@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":5,
+    "selecteID":4,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -40,8 +40,21 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":174,"skin":"img/main/inputBg.png","right":32,"left":28,"height":150},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"TextArea",
-            "props":{"y":162,"var":"walletAddresss","type":"text","right":28,"promptColor":"#687076","prompt":"输入钱包地址","left":28,"height":146,"fontSize":28,"bgColor":"#F3F3F4"},
+            "props":{"y":194,"width":610,"var":"walletAddresss","type":"text","right":80,"promptColor":"#687076","prompt":"输入钱包地址","left":60,"height":108,"fontSize":28,"bgColor":"#F3F3F4"},
             "nodeParent":1,
             "label":"TextArea(walletAddresss)",
             "isDirectory":false,
@@ -53,8 +66,21 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":401,"skin":"img/main/inputBg.png","right":32,"left":28,"height":100},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"TextInput",
-            "props":{"y":415,"var":"count","type":"number","right":28,"promptColor":"#687076","prompt":"输入提取数量","left":28,"height":100,"fontSize":28,"bgColor":"#F3F3F4"},
+            "props":{"y":411,"var":"count","type":"number","right":80,"promptColor":"#687076","prompt":"输入提取数量","left":60,"height":80,"fontSize":28,"bgColor":"#F3F3F4"},
             "nodeParent":1,
             "label":"TextInput(count)",
             "isDirectory":false,

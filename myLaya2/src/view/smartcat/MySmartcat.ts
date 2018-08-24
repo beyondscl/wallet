@@ -18,6 +18,7 @@ module view.smartcat{
 			this.comp = new ui.smartcat.MySmartcatUI();
 			Laya.stage.addChild(this.comp);
 			Laya.stage.bgColor = 'white';
+			native.native.setCurrView(this.parentUI, 2);
 			Laya.stage.scaleMode = config.prod.appAdapterType;
 		}
 
@@ -37,7 +38,7 @@ module view.smartcat{
 		private goBack() {
 			this.comp.removeSelf();
 			this.parentUI.comp.visible = true;
-			native.native.setCurrView(this.parentUI, 2);
+			native.native.setCurrView(this.parentUI, 1);
 		}
 	}
 }

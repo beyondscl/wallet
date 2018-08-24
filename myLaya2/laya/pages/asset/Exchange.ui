@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":21,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -216,7 +216,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":715,"x":563,"width":96,"text":"9999","height":31,"fontSize":28,"color":"#100E28","align":"left"},
+            "props":{"y":711,"x":563,"width":96,"text":"9999","height":31,"fontSize":28,"color":"#100E28","align":"left"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -229,7 +229,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":672,"x":631,"width":97,"skin":"img/coins/WWEC.png","pivotY":2,"pivotX":-4,"height":109},
+            "props":{"y":687,"x":630,"width":80,"skin":"img/coins/WWEC.png","pivotY":2,"pivotX":-4,"height":80},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
