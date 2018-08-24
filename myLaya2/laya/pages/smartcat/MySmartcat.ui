@@ -53,13 +53,13 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":20,"x":33,"width":35,"var":"back_btn","stateNum":"1","skin":"img/main/back@2x.png","height":35},
+                            "props":{"width":65,"var":"back_btn","top":10,"stateNum":"1","skin":"img/main/back@2x.png","left":30,"height":65},
                             "nodeParent":28,
                             "label":"Button(back_btn)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":32,
+                            "compId":35,
                             "child":[
                                 ]
                         }]
@@ -93,7 +93,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":248,"x":72,"width":140,"text":"智能猫启动中","height":28,"fontSize":20,"color":"#ffffff","align":"center"},
+                    "props":{"y":243,"x":62,"width":140,"text":"智能猫启动中","height":28,"fontSize":20,"color":"#C1D9FF","align":"center"},
                     "nodeParent":25,
                     "label":"Label",
                     "isDirectory":false,
@@ -198,7 +198,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"y":544,"right":28,"renderType":"render","left":28,"height":701},
+            "props":{"y":544,"width":694,"right":28,"repeatY":4,"renderType":"render","left":28,"height":645},
             "nodeParent":1,
             "label":"List",
             "isOpen":true,
@@ -210,7 +210,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0,"width":722,"renderType":"render","height":180},
+                    "props":{"y":0,"x":0,"width":690,"renderType":"render","height":150},
                     "nodeParent":16,
                     "label":"Box",
                     "isOpen":true,
@@ -222,7 +222,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":36,"x":0,"width":104,"skin":"img/coins/ETH.png","height":104},
+                            "props":{"y":28,"x":0,"width":104,"skin":"img/coins/ETH.png","height":104},
                             "nodeParent":17,
                             "label":"Image",
                             "isDirectory":false,
@@ -235,7 +235,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":48,"x":132,"text":"WWEC","fontSize":28,"color":"#687076","align":"left"},
+                            "props":{"y":40,"x":132,"text":"WWEC","fontSize":28,"color":"#687076","align":"left"},
                             "nodeParent":17,
                             "label":"Label",
                             "isDirectory":false,
@@ -248,7 +248,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":90,"x":132,"width":174,"text":"0.0000","height":44,"fontSize":28,"color":"#4F8CEE","bold":true,"align":"left"},
+                            "props":{"y":82,"x":132,"width":174,"text":"0.0000","height":44,"fontSize":28,"color":"#4F8CEE","bold":true,"align":"left"},
                             "nodeParent":17,
                             "label":"Label",
                             "isOpen":true,
@@ -262,7 +262,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":90,"x":318,"width":17.5625,"text":"≈","height":32,"fontSize":32,"color":"#8194A4"},
+                            "props":{"y":82,"x":318,"width":17.5625,"text":"≈","height":32,"fontSize":32,"color":"#8194A4"},
                             "nodeParent":17,
                             "label":"Label",
                             "isDirectory":false,
@@ -275,7 +275,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":90,"x":352,"width":216,"text":"$ 990","height":34,"fontSize":32,"color":"#8194A4"},
+                            "props":{"y":82,"x":352,"width":216,"text":"$ 990","height":34,"fontSize":32,"color":"#8194A4"},
                             "nodeParent":17,
                             "label":"Label",
                             "isDirectory":false,
@@ -288,7 +288,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":60,"x":600,"width":100,"stateNum":"1","skin":"img/smartcat/TJ3@3x.png","labelSize":28,"height":50},
+                            "props":{"y":52,"x":594,"width":100,"stateNum":"1","skin":"img/smartcat/TJ3@3x.png","labelSize":28,"height":50},
                             "nodeParent":17,
                             "label":"Button",
                             "isOpen":true,
@@ -301,14 +301,14 @@
                         },
                         {
                             "x":45,
-                            "type":"Line",
-                            "props":{"y":180,"x":0,"toY":0,"toX":722,"lineWidth":1,"lineColor":"#F3F3F4"},
+                            "type":"Image",
+                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2,"bottom":2},
                             "nodeParent":17,
-                            "label":"Line",
+                            "label":"Image",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
-                            "compId":22,
+                            "compId":34,
                             "child":[
                                 ]
                         }]
@@ -331,7 +331,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1241,"width":690,"var":"turn","stateNum":"1","skin":"img/main/anliu@2x.png","labelSize":36,"labelColors":"#ffffff","label":"开启智能猫","height":80,"centerX":2},
+            "props":{"y":1219,"width":690,"var":"turn","stateNum":"1","skin":"img/smartcat/turn.png","labelSize":36,"labelColors":"#687076","label":"开启智能猫","height":80,"centerX":2},
             "nodeParent":1,
             "label":"Button(turn)",
             "isDirectory":false,

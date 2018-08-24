@@ -58,7 +58,7 @@ module view.asset {
             count.text = data.count;
             let status = cell.getChildByName('status') as Laya.Label;
             status.text = data.status;
-            if (data.status == '冻结中..') {
+            if (data.status == '冻结中') {
                 btn.visible = false;
                 status.color = '#F55449';
             }

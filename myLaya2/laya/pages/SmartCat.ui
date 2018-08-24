@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":160,
-    "selecteID":157,
+    "selectedBox":112,
+    "selecteID":180,
     "props":{"width":750,"var":"SmartCat","sceneColor":"#FCFCFC","name":"smartCatMain","height":1334},
     "nodeParent":-1,
     "label":"View(SmartCat)",
@@ -257,14 +257,13 @@
                     "props":{"y":820,"x":0,"width":750,"height":386},
                     "nodeParent":178,
                     "label":"Box",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":122,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":750,"skin":"img/smartcat/znm-bg@3x.png","height":386},
                             "nodeParent":122,
@@ -276,7 +275,6 @@
                             "compId":123,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":62,"x":68,"width":60,"skin":"img/smartcat/hbfh@3x.png","height":60},
                                     "nodeParent":123,
@@ -289,7 +287,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":72,"x":146,"width":140,"text":"伙伴分红","height":40,"fontSize":28,"color":"#2176FF","bold":true,"align":"left"},
                                     "nodeParent":123,
@@ -302,7 +299,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Line",
                                     "props":{"y":134,"x":76,"toY":0,"toX":606,"lineWidth":2,"lineColor":"#F3F3F4"},
                                     "nodeParent":123,
@@ -315,7 +311,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":160,"x":98,"width":120,"var":"inviter","height":140},
                                     "nodeParent":123,
@@ -354,7 +349,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":160,"x":320,"width":120,"var":"my_inviter","height":140},
                                     "nodeParent":123,
@@ -394,7 +388,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":160,"x":550,"width":120,"var":"inviter_earning","height":140},
                                     "nodeParent":123,
@@ -433,7 +426,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Line",
                                     "props":{"y":184,"x":262,"toY":113,"toX":0,"lineWidth":2,"lineColor":"#F3F3F4"},
                                     "nodeParent":123,
@@ -446,7 +438,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Line",
                                     "props":{"y":184,"x":488,"toY":113,"toX":0,"lineWidth":2,"lineColor":"#F3F3F4"},
                                     "nodeParent":123,
@@ -630,13 +621,14 @@
                     "props":{"y":40,"x":16,"width":718,"left":16,"height":444},
                     "nodeParent":178,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":110,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":718,"skin":"img/smartcat/tg@3x.png","height":444},
                             "nodeParent":110,
@@ -648,6 +640,7 @@
                             "compId":112,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":60,"x":66,"width":292,"text":"托管资产市值 ($)","overflow":"hidden","height":25,"fontSize":28,"color":"#ffffff","align":"left"},
                                     "nodeParent":112,
@@ -661,6 +654,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":118,"x":66,"width":476,"text":"999,999","overflow":"visible","height":40,"fontSize":36,"font":"Microsoft YaHei","color":"#ffffff","bold":true,"align":"left"},
                                     "nodeParent":112,
@@ -674,6 +668,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":220,"x":64,"width":277,"text":"今日总分红 (WWEC)","overflow":"hidden","height":25,"fontSize":28,"color":"#ffffff","align":"left"},
                                     "nodeParent":112,
@@ -687,6 +682,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":278,"x":66,"width":201,"text":"0.0000","overflow":"visible","height":40,"fontSize":36,"font":"Microsoft YaHei","color":"#f8f8f8","bold":true,"align":"left"},
                                     "nodeParent":112,
@@ -700,6 +696,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":220,"x":400,"width":296,"text":"可兑换分红 (WWEC)","overflow":"hidden","height":25,"fontSize":28,"color":"#ffffff","align":"left"},
                                     "nodeParent":112,
@@ -713,6 +710,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":278,"x":404,"width":352,"text":"999,999","overflow":"visible","height":40,"fontSize":36,"font":"Microsoft YaHei","color":"#f9f6f6","bold":true,"align":"left"},
                                     "nodeParent":112,
@@ -726,26 +724,28 @@
                                     "$LOCKED":false
                                 },
                                 {
-                                    "type":"Line",
-                                    "props":{"y":188,"x":57,"toY":0,"toX":608,"lineWidth":2,"lineColor":"#4680DC"},
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"top":187,"skin":"img/main/itemSepar.png","right":70,"left":70,"height":2},
                                     "nodeParent":112,
-                                    "label":"Line",
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":113,
+                                    "compId":179,
                                     "child":[
                                         ]
                                 },
                                 {
-                                    "type":"Line",
-                                    "props":{"y":228,"x":358,"toY":102,"toX":0,"lineWidth":2,"lineColor":"4680DC"},
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"width":2,"top":218,"skin":"img/main/itemSepar.png","left":365,"height":100},
                                     "nodeParent":112,
-                                    "label":"Line",
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":114,
+                                    "compId":180,
                                     "child":[
                                         ]
                                 }]

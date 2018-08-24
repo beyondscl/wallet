@@ -133,7 +133,7 @@ module service {
                             imgSrc: 'img/coins/LTC.png',
                             name: 'LTC',
                             count: '0.000',
-                            status: '冻结中..'
+                            status: '冻结中'
                         }
                     ]
                 }

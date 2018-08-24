@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":19,
+    "selecteID":26,
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":327,"width":100,"var":"btn_WWEC","stateNum":"3","right":30,"labelStrokeColor":"#598ADA","labelSize":28,"height":50},
+            "props":{"y":327,"width":100,"var":"btn_WWEC","stateNum":"1","skin":"img/smartcat/border.png","right":30,"labelStrokeColor":"#598ADA","labelSize":28,"height":50},
             "nodeParent":1,
             "label":"Button(btn_WWEC)",
             "isDirectory":false,
@@ -106,7 +106,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":340,"text":"兑换","right":50,"fontSize":28,"color":"#4F8CEE"},
+            "props":{"y":330,"width":94,"valign":"middle","text":"兑换","right":34,"height":46,"fontSize":28,"color":"#4F8CEE","align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -158,7 +158,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":452,"width":100,"var":"btn_ETH","stateNum":"3","right":30,"labelStrokeColor":"#598ADA","labelSize":28,"height":50},
+            "props":{"y":452,"width":100,"var":"btn_ETH","stateNum":"1","skin":"img/smartcat/border.png","right":30,"labelStrokeColor":"#598ADA","labelSize":28,"height":50},
             "nodeParent":1,
             "label":"Button(btn_ETH)",
             "isDirectory":false,
@@ -171,7 +171,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":461,"text":"提取","right":50,"fontSize":28,"color":"#4F8CEE"},
+            "props":{"y":454,"width":96,"valign":"middle","text":"提取","right":34,"height":48,"fontSize":28,"color":"#4F8CEE","align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -275,7 +275,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":105,"width":100,"stateNum":"3","right":0,"name":"btn","labelStrokeColor":"#598ADA","labelSize":28,"height":50},
+                            "props":{"y":105,"width":100,"stateNum":"1","skin":"img/smartcat/border.png","right":0,"name":"btn","labelStrokeColor":"#598ADA","labelSize":28,"height":50},
                             "nodeParent":21,
                             "label":"Button(btn)",
                             "isDirectory":false,
@@ -288,7 +288,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":118,"text":"提取","right":18,"name":"status","fontSize":28,"color":"#4F8CEE"},
+                            "props":{"y":106,"width":92,"valign":"middle","text":"提取","right":5,"name":"status","height":48,"fontSize":28,"color":"#4F8CEE","align":"center"},
                             "nodeParent":21,
                             "label":"Label(status)",
                             "isOpen":false,
