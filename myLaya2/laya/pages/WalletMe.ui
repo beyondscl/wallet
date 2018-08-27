@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":84,
-    "selecteID":88,
+    "selecteID":91,
     "props":{"width":750,"var":"viewstack","top":0,"sceneWidth":300,"sceneHeight":540,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"cacheAsBitmap":true,"cacheAs":"bitmap","bottom":0},
     "nodeParent":-1,
     "label":"View(viewstack)",
