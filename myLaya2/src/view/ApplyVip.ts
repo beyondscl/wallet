@@ -62,17 +62,29 @@ module view {
             let time = cell.getChildByName('time') as Laya.Label;
             time.text = data.created_at;
             let status = cell.getChildByName('status') as Laya.Label;
-            let word: string = '';
+            let statusWord: string = '';
             if (1 == data.status && data.type == 1) {
-                word = '申请成功';
+                statusWord = '申请成功';
+                status.color = '#5CCBE3'
             } else if (2 == data.status) {
-                word = '申请中';
+                statusWord = '申请中';
+                status.color = '#2176FF';
             } else if (3 == data.status){
-                word = '申请失败';
+                statusWord = '申请失败';
+                status.color = '#F55449';
             } else if (2 == data.type && 1 == data.status){
-                word = '退出成功';
+                statusWord = '退出成功';
+                status.color = '#F55449';
             }
-            
+            status.text = statusWord;
+            let content = cell.getChildByName('content') as Laya.Label;
+            let contWord: string = '';
+            if (data.type == 1) {
+                contWord = '申请vip';
+            } else {
+                contWord = '退出vip';
+            }
+            content.text = contWord;
         }
 
         private historyCb (ret, v) {
@@ -80,7 +92,7 @@ module view {
                 let data = ret;
                 v.setList(data);
             } catch (err) {
-
+                console.log('historyCbErr:' + err);
             }
         }
 
