@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":23,
-    "selecteID":35,
+    "selecteID":27,
     "props":{"width":750,"var":"record","sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View(record)",
@@ -325,7 +325,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":33,"text":"Vip规则","left":97,"fontSize":30,"color":"#2176FF"},
+                            "props":{"y":33,"text":"Vip规则","left":97,"fontSize":30,"color":"#2176FF","bold":true},
                             "nodeParent":22,
                             "label":"Label",
                             "isDirectory":false,
@@ -455,7 +455,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":33,"width":143,"text":"Vip申请记录","left":98,"height":35,"fontSize":30,"color":"#2176FF","bold":true},
+                            "props":{"y":33,"width":180,"text":"Vip申请记录","left":98,"height":35,"fontSize":30,"color":"#2176FF","bold":true},
                             "nodeParent":23,
                             "label":"Label",
                             "isDirectory":false,
@@ -507,9 +507,9 @@
                         {
                             "x":45,
                             "type":"List",
-                            "props":{"width":753,"top":147,"right":0,"left":1,"height":204,"bottom":0},
+                            "props":{"width":753,"var":"listHistory","top":147,"right":0,"left":1,"height":204,"bottom":0},
                             "nodeParent":23,
-                            "label":"List",
+                            "label":"List(listHistory)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -597,6 +597,19 @@
                                 ]
                         }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"visible":false,"var":"ExitBtn","valign":"middle","text":"退出","right":30,"left":26,"height":80,"fontSize":32,"color":"#fff","bottom":46,"bgColor":"#F55449","align":"center"},
+            "nodeParent":1,
+            "label":"Label(ExitBtn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":56,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -139,5 +139,84 @@ module service {
                 }
                 return fun(ret, arg)
             }
+
+            /**
+             * 申请vip
+             */
+            public static applyVip (fun, arg){
+                let ApplyVip = {
+                    url: config.prod.apiApplyVip,
+                    token: mod.userMod.token,
+                    method: "POST",
+                    data: {
+                        "vip_id": 1
+                    },
+                    async: true,
+                    callbackArgs: arg,
+                    success: function (ret, arg) {
+                        fun(ret, arg);
+                    },
+                    complete: function () {
+                    },
+                    error: function (ret, args) {
+                        if ("object" == typeof ret)
+                            ret = JSON.stringify(ret)
+                        fun(ret, args)
+                        console.log("request error:", ret, args);
+                    }
+                }
+                Laya.Browser.window.Ajax.post(ApplyVip);
+            }
+
+            /**
+             * 查看当前vip状态
+             */
+             public static vipStatus (fun, arg){
+                let status = {
+                    url: config.prod.apiVipStatus,
+                    token: mod.userMod.token,
+                    method: "GET",
+                    data: {},
+                    async: true,
+                    callbackArgs: arg,
+                    success: function (ret, arg) {
+                        fun(ret, arg);
+                    },
+                    complete: function () {
+                    },
+                    error: function (ret, args) {
+                        if ("object" == typeof ret)
+                            ret = JSON.stringify(ret)
+                        fun(ret, args)
+                        console.log("request error:", ret, args);
+                    }
+                }
+                Laya.Browser.window.Ajax.get(status);
+            }
+            /**
+             * 申请Vip记录
+             */
+            public static vipHistory (fun, arg) {
+                let histroy = {
+                    url: config.prod.apiVipHistory,
+                    token: mod.userMod.token,
+                    method: "GET",
+                    data: {},
+                    async: true,
+                    callbackArgs: arg,
+                    success: function (ret, arg) {
+                        fun(ret, arg);
+                    },
+                    complete: function () {
+                    },
+                    error: function (ret, args) {
+                        if ("object" == typeof ret)
+                            ret = JSON.stringify(ret)
+                        fun(ret, args)
+                        console.log("request error:", ret, args);
+                    }
+                }
+                Laya.Browser.window.Ajax.get(histroy);
+            }
     }
 }

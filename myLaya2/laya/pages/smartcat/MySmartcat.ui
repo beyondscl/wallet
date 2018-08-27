@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":33,
+    "selecteID":36,
     "props":{"x":0,"width":750,"sceneColor":"#ffffff","rotation":0,"height":1334},
     "nodeParent":-1,
     "label":"View",
@@ -318,26 +318,27 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1468,"right":10,"left":10,"labelSize":30,"labelColors":"#000000","labelAlign":"center","label":"开启智能猫","height":80},
+            "props":{"y":1219,"width":690,"var":"turn_on","stateNum":"1","skin":"img/smartcat/turn.png","labelSize":36,"labelColors":"#687076","label":"开启智能猫","height":80,"centerX":2},
             "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":23,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":1219,"width":690,"var":"turn","stateNum":"1","skin":"img/smartcat/turn.png","labelSize":36,"labelColors":"#687076","label":"开启智能猫","height":80,"centerX":2},
-            "nodeParent":1,
-            "label":"Button(turn)",
+            "label":"Button(turn_on)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":33,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":1220,"width":690,"visible":false,"var":"turn_off","stateNum":"1","skin":"img/main/turn_off.png","labelSize":36,"labelColors":"#687076","label":"关闭智能猫","height":80,"centerX":2},
+            "nodeParent":1,
+            "label":"Button(turn_off)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":36,
             "child":[
                 ],
             "$HIDDEN":false

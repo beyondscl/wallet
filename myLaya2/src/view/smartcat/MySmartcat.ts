@@ -4,6 +4,9 @@ module view.smartcat{
 		public claName = 'view.smartcat.MySmartcat';
 		public comp: ui.smartcat.MySmartcatUI;
 		private parentUI: view.SmartCat;
+		private waiting: view.alert.waiting;
+		private comfirm: view.alert.confirm;
+		private info: view.alert.info;
 		constructor(){
 			super();
 			this.init();
@@ -24,15 +27,33 @@ module view.smartcat{
 
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
-			this.comp.turn.on(Laya.Event.CLICK, this, this.btnClick);
+			this.comp.turn_on.on(Laya.Event.CLICK, this, this.btnClick, [1]);
 		}
 
-		private btnClick () {
-			let str = this.comp.turn.text;
-			// if (str == '开启智能猫') {
+		private btnClick (index: number) {
+			if (1 == index) {
+				this.comfirm = new view.alert.confirm('开启智能猫', '确定开启智能猫?');
+				this.comfirm.setCallback((ret, arg) => {
+					if (ret == 2) {
+						arg[0].waiting = new view.alert.waiting('开启中..');
+						arg[0].waiting.popup();
+						service.smartcatService.openCat(arg[0].openCb, arg[0]);
+					}
+				}, [this]);
+				this.comfirm.popup();
+			}
+			
+		}
 
-			// }
-			console.log(str);
+		private openCb (ret, v) {
+			v.waiting.stop();
+			try {
+				ret = JSON.parse(ret);
+				v.info = new view.alert.info(ret.message);
+				v.info.popup();
+			} catch (err) {	
+				console.log("openCatErr: " + err);
+			}
 		}
 
 		private goBack() {

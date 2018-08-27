@@ -55,6 +55,14 @@ module config {
         // 公告相关接口
         public static apiNoticeList: string = prod.apiLocalHost + "/notice/getNoticeList" // 获取公告列表
 
+        // vip相关接口
+        public static apiApplyVip : string = prod.apiLocalHost + "/api/v3/vip/apply" // 申请vip
+        public static apiVipStatus : string = prod.apiLocalHost + "/api/v3/vip/status" // vip状态
+        public static apiVipHistory : string = prod.apiLocalHost + "/api/v3/vip" // vip记录
+
+        // 智能猫相关接口
+        public static openCat:string = prod.apiLocalHost + "/api/v3/clienteles"  // 开启智能猫
+
         // 我的伙伴相关接口
         public static apiPartner: string = prod.apiLocalHost + "/partner" // 我的伙伴首页获取123级伙伴的接口
         

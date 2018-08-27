@@ -12,5 +12,30 @@ module service{
 			}
 			Laya.Browser.window.Ajax.post(options)
 		}
+		/**
+		 * 开启智能猫
+		 */
+		public static openCat (fun, args) {
+			let open = {
+                    url: config.prod.openCat,
+                    token: mod.userMod.token,
+                    method: "POST",
+                    data: {},
+                    async: true,
+                    callbackArgs: args,
+                    success: function (ret, args) {
+                        fun(ret, args);
+                    },
+                    complete: function () {
+                    },
+                    error: function (ret, args) {
+                        if ("object" == typeof ret)
+                            ret = JSON.stringify(ret)
+                        fun(ret, args)
+                        console.log("request error:", ret, args);
+                    }
+                }
+                Laya.Browser.window.Ajax.post(open);
+		}
 	}
 }
