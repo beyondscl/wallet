@@ -88,7 +88,7 @@ module native {
                     if(1==json.type){
                         url+="&cpvalue="+json.data;
                     }
-                    Laya.Browser.window.localtion.href = url;
+                    Laya.Browser.window.location.href = url;
                 }else{
                     Laya.Browser.window.Bridge.callApp(JSON.stringify(json));
                 }
