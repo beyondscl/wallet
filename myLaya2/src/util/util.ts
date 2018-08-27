@@ -193,6 +193,11 @@ class util {
         return newTime;
     }
 
+    // 日期-转换为/
+    public static convertFormate(datetime): string {
+        return datetime.replace(/-/g, '/')
+    }
+
     //获取时间yyyy-M-d hh:mi:ss
     public static getFormatTime2(timestamp): string {
         var date = new Date(Number(timestamp) * 1000);//10位*1000,13位不需要

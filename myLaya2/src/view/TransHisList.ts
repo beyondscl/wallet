@@ -142,7 +142,7 @@ module view {
                     timeNumMax: 0,
                     timeNumMin: 0
                 };
-                let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
+                let DeTime = new Date(util.convertFormate(dataAll[i].dealTime)).valueOf(); // 每条记录的时间时间戳
                 let NoTime = new Date(new Date().toLocaleDateString()).getTime(); // 当天的零点时间戳
                 if ((DeTime - NoTime) > 0){
                      this.times[i].list[0] = "今天";
@@ -154,12 +154,12 @@ module view {
                      this.times[i].timeNumMin = 0;
                 } else if ((NoTime - DeTime) >  this.OneDayTime && (NoTime - DeTime) < 2 * this.OneDayTime) {
                         this.times[i].list[0] = "前天";
-                        this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
-                        this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;;
+                        this.times[i].timeNumMax = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf();
+                        this.times[i].timeNumMin = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf() - this.OneDayTime;;
                     } else {
-                        this.times[i].list[0] = dataAll[i].dealTime.split(' ')[0];
-                        this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
-                        this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;
+                    this.times[i].list[0] = util.convertFormate((dataAll[i].dealTime.split(' ')[0]);
+                        this.times[i].timeNumMax = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf();
+                        this.times[i].timeNumMin = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf() - this.OneDayTime;
                     }
                     for (var j = 0; j < this.times.length;j++) {
                         if ((NoTime - DeTime) <= Number(this.times[j].timeNumMax) && (NoTime - DeTime) >= Number(this.times[j].timeNumMin)) {
