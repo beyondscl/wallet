@@ -264,7 +264,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"var":"btn_assets","top":4,"left":100,"height":80},
+                    "props":{"var":"btn_assets","top":4,"left":150,"height":80},
                     "nodeParent":36,
                     "label":"Box(btn_assets)",
                     "isOpen":true,
@@ -305,7 +305,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":345,"width":60,"var":"btn_smartcat","top":4,"height":80},
+                    "props":{"x":345,"width":60,"visible":false,"var":"btn_smartcat","top":4,"height":80},
                     "nodeParent":36,
                     "label":"Box(btn_smartcat)",
                     "isOpen":true,
@@ -344,7 +344,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"width":60,"var":"btn_me","top":4,"right":100,"height":80},
+                    "props":{"width":60,"var":"btn_me","top":4,"right":150,"height":80},
                     "nodeParent":36,
                     "label":"Box(btn_me)",
                     "isOpen":true,
