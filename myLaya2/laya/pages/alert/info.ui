@@ -67,7 +67,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"wordWrap":true,"width":204,"var":"msg","valign":"middle","text":"这里只能十个字这里哦","padding":"2,2,2,2","leading":5,"height":30,"fontSize":20,"color":"#ffffff","centerX":0,"bottom":30,"align":"center"},
+                    "props":{"wordWrap":true,"width":160,"var":"msg","valign":"middle","text":"这里只能十个字这里哦这里只能十个字这里哦","right":20,"left":20,"height":79,"fontSize":20,"color":"#ffffff","bottom":-1,"align":"center"},
                     "nodeParent":5,
                     "label":"Label(msg)",
                     "isDirectory":false,
