@@ -54,7 +54,25 @@ module view {
         private setList (data: Array<Object>) {
             this.comp.listHistory.array = data;
             this.comp.listHistory.vScrollBarSkin = '';
-            // this.comp.listHistory.renderHandler = new Laya.Handler(this, )
+            this.comp.listHistory.renderHandler = new Laya.Handler(this, this.onRenderUp, null, false);
+        }
+
+        private onRenderUp (cell:Laya.Box, index: number){
+            let data = this.comp.listHistory.array[index];
+            let time = cell.getChildByName('time') as Laya.Label;
+            time.text = data.created_at;
+            let status = cell.getChildByName('status') as Laya.Label;
+            let word: string = '';
+            if (1 == data.status && data.type == 1) {
+                word = '申请成功';
+            } else if (2 == data.status) {
+                word = '申请中';
+            } else if (3 == data.status){
+                word = '申请失败';
+            } else if (2 == data.type && 1 == data.status){
+                word = '退出成功';
+            }
+            
         }
 
         private historyCb (ret, v) {
@@ -70,14 +88,6 @@ module view {
             v.waiting.stop();
             try {
                 ret = JSON.parse(ret);
-                // let word: string = '';
-                // if (1 == ret.status) {
-                //     word = '操作成功';
-                // } else if (2 == ret.status) {
-                //     word = '申请中';
-                // } else {
-                //     word = '申请失败';
-                // }
                 v.info = new view.alert.info(ret.message);
                 v.info.popup();
             } catch (err) {

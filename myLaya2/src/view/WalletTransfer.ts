@@ -206,7 +206,12 @@ module view {
                     timeNumMin: 0
                 };
                 let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
-                let NoTime = new Date(new Date().toLocaleDateString()).getTime(); // 当天的零点时间戳
+                let start  = new Date();
+                start.setHours(0);
+                start.setMinutes(0);
+                start.setSeconds(0);
+                start.setMilliseconds(0);
+                let NoTime = Date.parse(start.toString()); // 当天的零点时间戳
                 if ((DeTime - NoTime) > 0){
                      this.times[i].list[0] = "今天";
                      this.times[i].timeNumMax = 0 * this.OneDayTime;
