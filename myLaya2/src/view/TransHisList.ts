@@ -157,7 +157,7 @@ module view {
                         this.times[i].timeNumMax = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf();
                         this.times[i].timeNumMin = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf() - this.OneDayTime;;
                     } else {
-                    this.times[i].list[0] = util.convertFormate((dataAll[i].dealTime.split(' ')[0]);
+                    this.times[i].list[0] = util.convertFormate((dataAll[i].dealTime.split(' ')[0]));
                         this.times[i].timeNumMax = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf();
                         this.times[i].timeNumMin = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf() - this.OneDayTime;
                     }
