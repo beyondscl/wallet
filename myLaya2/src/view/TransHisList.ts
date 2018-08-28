@@ -196,8 +196,10 @@ module view {
                 }
             }
             var timeData = [];
-            let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳 
-            let TimeEnd = new Date(year + "-" + (Number(month) + 1) + "-" + "1").valueOf(); // 取下个月第一天的时间戳
+            // let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳 
+            // let TimeEnd = new Date(year + "-" + (Number(month) + 1) + "-" + "1").valueOf(); // 取下个月第一天的时间戳
+             let TimeStart = new Date(Number(year) , Number(month)-1 , 1).valueOf(); // 取当月第一天的时间戳 
+            let TimeEnd = new Date(Number(year), Number(month)  , 1).valueOf(); // 取下个月第一天的时间戳
             for (var i = 0; i < dataRest.length;i++) { // 返回符合日期的数据
                 if (dataRest[i].dealTime) {
                     var dealTime = new Date(dataRest[i].dealTime).valueOf();

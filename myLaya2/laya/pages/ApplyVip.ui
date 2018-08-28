@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":23,
-    "selecteID":27,
+    "selecteID":57,
     "props":{"width":750,"var":"record","sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View(record)",
@@ -531,7 +531,7 @@
                                         {
                                             "x":75,
                                             "type":"Label",
-                                            "props":{"y":2,"width":217,"var":"time","valign":"middle","text":"2018-3-3 13:13","left":21,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
+                                            "props":{"y":2,"width":217,"valign":"middle","text":"2018-3-3 13:13","name":"time","left":21,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
                                             "nodeParent":28,
                                             "label":"Label(time)",
                                             "isDirectory":false,
@@ -544,7 +544,7 @@
                                         {
                                             "x":75,
                                             "type":"Label",
-                                            "props":{"y":4,"width":207,"var":"content","valign":"middle","text":"申请成为VIP","left":267,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
+                                            "props":{"y":4,"width":207,"valign":"middle","text":"申请成为VIP","name":"content","left":267,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
                                             "nodeParent":28,
                                             "label":"Label(content)",
                                             "isDirectory":false,
@@ -557,7 +557,7 @@
                                         {
                                             "x":75,
                                             "type":"Label",
-                                            "props":{"y":4,"width":160,"var":"status","valign":"middle","text":"申请中","left":493,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
+                                            "props":{"y":4,"width":160,"valign":"middle","text":"申请中","name":"status","left":498,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
                                             "nodeParent":28,
                                             "label":"Label(status)",
                                             "isOpen":false,
@@ -593,6 +593,19 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":37,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":227,"width":696,"visible":false,"var":"noRecord","text":"暂无记录","right":0,"left":0,"height":32,"fontSize":32,"color":"#464C51","align":"center"},
+                            "nodeParent":23,
+                            "label":"Label(noRecord)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":57,
                             "child":[
                                 ]
                         }]

@@ -59,6 +59,7 @@ module config {
         public static apiApplyVip : string = prod.apiLocalHost + "/api/v3/vip/apply" // 申请vip
         public static apiVipStatus : string = prod.apiLocalHost + "/api/v3/vip/status" // vip状态
         public static apiVipHistory : string = prod.apiLocalHost + "/api/v3/vip" // vip记录
+        public static apiQuitVip : string = prod.apiLocalHost + "/api/v3/vip/quit" // 退出Vip
 
         // 智能猫相关接口
         public static openCat:string = prod.apiLocalHost + "/api/v3/clienteles"  // 开启智能猫

@@ -218,5 +218,33 @@ module service {
                 }
                 Laya.Browser.window.Ajax.get(histroy);
             }
+
+            /**
+             * 退出VIP
+             */
+            public static QuitVip (fun, arg) {
+                let quit = {
+                    url: config.prod.apiQuitVip,
+                    token: mod.userMod.token,
+                    method: "POST",
+                    data: {
+                        "vip_id": 1
+                    },
+                    async: true,
+                    callbackArgs: arg,
+                    success: function (ret, arg) {
+                        fun(ret, arg);
+                    },
+                    complete: function () {
+                    },
+                    error: function (ret, args) {
+                        if ("object" == typeof ret)
+                            ret = JSON.stringify(ret)
+                        fun(ret, args)
+                        console.log("request error:", ret, args);
+                    }
+                }
+                Laya.Browser.window.Ajax.post(quit);
+            }
     }
 }
