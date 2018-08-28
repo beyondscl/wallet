@@ -87,6 +87,8 @@ Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
 Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
 //设置适配模式
 Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT;//SCALE_EXACTFIT
+//fps
+Laya.stage.frameRate = Laya.Stage.FRAME_MOUSE;
 //设置横竖屏
 Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
 //设置水平对齐
@@ -95,7 +97,7 @@ Laya.stage.alignH = "center";
 Laya.stage.alignV = "middle";
 //打开性能面板
 if (Laya.Browser.window.env != "prod") {
-    //Laya.Stat.show(0, 0);
+    Laya.Stat.show(0, 0);
 }
 Laya.stage.alpha = 0;
 //激活资源版本控制,数据太大加载耗时

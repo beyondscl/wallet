@@ -35,11 +35,7 @@ module view.partner {
         private goBack () {
             this.comp.removeSelf();
             this.ParentUI.comp.visible = true;
-<<<<<<< HEAD
             native.native.setCurrView(this.ParentUI, 1);
-=======
-            native.native.setCurrView(this.ParentUI, 2);
->>>>>>> origin/dev_sxl
         }
 
         private partnerMainCb (ret, v: any) {

@@ -665,7 +665,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":345,"width":60,"visible":false,"var":"btn_smartcat","height":80},
+                    "props":{"x":345,"width":60,"visible":false,"var":"btn_smartcat","top":4,"height":80},
                     "nodeParent":84,
                     "label":"Box(btn_smartcat)",
                     "isOpen":true,
@@ -704,7 +704,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"width":60,"var":"btn_me","right":150,"height":80},
+                    "props":{"width":60,"var":"btn_me","top":4,"right":150,"height":80},
                     "nodeParent":84,
                     "label":"Box(btn_me)",
                     "isOpen":true,

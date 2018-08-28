@@ -60,15 +60,15 @@ module view.smartcat{
 
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
-			this.comp.turn.on(Laya.Event.CLICK, this, this.btnClick);
+			// this.comp.turn.on(Laya.Event.CLICK, this, this.btnClick);
 		}
 
 		private btnClick () {
-			let str = this.comp.turn.text;
+			// let str = this.comp.turn.text;
 			// if (str == '开启智能猫') {
 
 			// }
-			console.log(str);
+			// console.log(str);
 		}
 
 		private goBack() {

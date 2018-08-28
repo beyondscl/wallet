@@ -57,7 +57,7 @@ module view {
         private goBack() {
             this.comp.removeSelf();
             this.parentUI.comp.visible = true;
-            this.EnterPass.stop();
+            // this.EnterPass.stop();
             native.native.setCurrView(this.parentUI,2);
         }
 
