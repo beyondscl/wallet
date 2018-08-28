@@ -39,14 +39,17 @@ module view.asset {
 
         private listCb (ret, v) {
             v.waiting.stop();
-            if (ret.retCode == 0) {
-                if (ret.list.length != 0) {
-                    v.data = v.data.concat(ret.list);
+            // if (ret.retCode == 0) {
+                ret = JSON.parse(ret);
+                if (ret.data.length != 0) {
+                    v.data = v.data.concat(ret.data);
                     v.setList(v.data);
                 } else {
                     v.info = new view.alert.info('没有更多的数据');
+                    v.info.popup();
+                    v.setList([]);
                 }
-            }
+            // }
         }
         // force_content 分红 trade_content 交易
         private setList (data: Array<Object>) {
@@ -54,6 +57,7 @@ module view.asset {
                 this.comp.noRecord.visible = true;
                 this.comp.force_content.array = [];
             } else {
+                this.comp.noRecord.visible = false;
                 this.comp.force_content.array = data;
                 this.comp.force_content.vScrollBarSkin = '';
                 this.comp.force_content.renderHandler = new Laya.Handler(this, this.onRenderUp);

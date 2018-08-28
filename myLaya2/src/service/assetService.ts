@@ -31,10 +31,10 @@ module service {
                 if (str == 'BONUS') {
                     data = {
                         retCode: 0,
-                        list: [
+                        data: [
                             {
                                 time: "2018 8-18 12:12:12",
-                                type: '托管分红',
+                                type: '托管分红11',
                                 iconType: "WWEC",
                                 count: '99'
                             },
@@ -64,44 +64,33 @@ module service {
                             },
                         ]
                     }
+                    data = JSON.stringify(data);
                     return fun(data, arg);
                 } else {
-                    data = {
-                        retCode: 0,
-                        list: [
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '转入',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '停止智能猫',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '兑换手续费',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '提取',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                            {
-                                time: "2018 8-18 12:12:12",
-                                type: '矿工费',
-                                iconType: "WWEC",
-                                count: '99'
-                            },
-                        ]
+                    let trans = {
+                        url: config.prod.apiTransList,
+                        token: mod.userMod.token,
+                        method: 'GET',
+                        data: {
+                            type: 'ALL',
+                            page: page,
+                            per_page: pageSize
+                        },
+                        async: true,
+                        callbackArgs: arg,
+                        success: function (ret, arg) {
+                            fun(ret, arg);
+                        },
+                        complete: function () {
+                        },
+                        error: function (ret, args) {
+                            if ("object" == typeof ret)
+                                ret = JSON.stringify(ret)
+                            fun(ret, args)
+                            console.log("request error:", ret, args);
+                        }
                     }
-                    return fun(data, arg);
+                    Laya.Browser.window.Ajax.get(trans);
                 }
             }
             /**
@@ -245,6 +234,13 @@ module service {
                     }
                 }
                 Laya.Browser.window.Ajax.post(quit);
+            }
+
+            /**
+             * 查看交易列表
+             */
+            public static transList (page:number, pageSize: number,fun, arg) {
+                
             }
     }
 }

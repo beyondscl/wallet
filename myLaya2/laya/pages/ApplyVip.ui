@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":23,
-    "selecteID":57,
+    "selectedBox":1,
+    "selecteID":56,
     "props":{"width":750,"var":"record","sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
     "label":"View(record)",
@@ -40,19 +40,6 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"var":"ApplyBtn","valign":"middle","text":"申请","right":30,"left":28,"height":80,"fontSize":32,"color":"#fff","bottom":46,"bgColor":"#49a2dd","align":"center"},
-            "nodeParent":1,
-            "label":"Label(ApplyBtn)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Panel",
             "props":{"vScrollBarSkin":"img/smartcat/vscroll.png","top":100,"right":0,"left":-4,"bottom":150},
             "nodeParent":1,
@@ -69,14 +56,13 @@
                     "props":{"y":27,"skin":"img/main/oneClassBg.png","right":30,"pivotY":-8,"pivotX":-2,"left":26,"height":342},
                     "nodeParent":38,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":32,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":38,"text":"VIP特权","left":102,"fontSize":30,"color":"#2176FF","bold":true},
                             "nodeParent":32,
@@ -89,7 +75,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-35,"x":-26,"width":98,"top":0,"skin":"img/main/vip@3x.png","left":0,"height":100},
                             "nodeParent":32,
@@ -102,7 +87,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"top":100,"skin":"img/main/itemSepar.png","right":30,"left":30},
                             "nodeParent":32,
@@ -115,7 +99,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"width":2,"top":100,"skin":"img/main/itemSepar.png","left":30,"height":204},
                             "nodeParent":32,
@@ -128,7 +111,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":10,"top":302,"skin":"img/main/itemSepar.png","right":30,"left":30},
                             "nodeParent":32,
@@ -141,7 +123,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"width":2,"top":100,"skin":"img/main/itemSepar.png","right":30,"height":204},
                             "nodeParent":32,
@@ -154,7 +135,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":20,"top":167,"skin":"img/main/itemSepar.png","right":30,"left":30},
                             "nodeParent":32,
@@ -167,7 +147,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":30,"top":233,"skin":"img/main/itemSepar.png","right":30,"left":30},
                             "nodeParent":32,
@@ -180,7 +159,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"width":2,"top":100,"skin":"img/main/itemSepar.png","right":232,"height":204},
                             "nodeParent":32,
@@ -193,7 +171,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":30,"width":2,"top":100,"skin":"img/main/itemSepar.png","right":464,"height":204},
                             "nodeParent":32,
@@ -206,7 +183,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":102,"x":226,"width":234,"valign":"middle","text":"普通用户","height":66,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -219,7 +195,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":102,"x":464,"width":200,"valign":"middle","text":"VIP用户","height":70,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -232,7 +207,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":164,"x":28,"width":200,"valign":"middle","text":"兑换手续费","height":70,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -245,7 +219,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":233,"x":32,"width":198,"valign":"middle","text":"交易所手续费","height":66,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -258,7 +231,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":171,"x":230,"width":236,"valign":"middle","text":"5%","height":66,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -271,7 +243,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":233,"x":231,"width":232,"valign":"middle","text":"2%","height":66,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -284,7 +255,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":166,"x":460,"width":198,"valign":"middle","text":"1%","height":66,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -297,7 +267,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":235,"x":465,"width":198,"valign":"middle","text":"0.1%","height":66,"fontSize":28,"color":"#100E28","bold":true,"align":"center"},
                             "nodeParent":32,
@@ -316,14 +285,13 @@
                     "props":{"y":409,"width":692,"var":"rule","skin":"img/main/oneClassBg.png","right":30,"pivotY":9,"pivotX":9,"name":"rule","left":28,"height":540},
                     "nodeParent":38,
                     "label":"Image(rule)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":22,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":33,"text":"Vip规则","left":97,"fontSize":30,"color":"#2176FF","bold":true},
                             "nodeParent":22,
@@ -336,7 +304,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":132,"width":122.68359375,"text":"1.申请条件:","left":36,"height":24,"fontSize":28,"color":"#100E28","bold":true},
                             "nodeParent":22,
@@ -349,7 +316,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":177,"x":42,"wordWrap":true,"width":513,"text":"您需要准备10000个WWEC,申请VIP我们会冻结您的WWEC。","leading":20,"height":65,"fontSize":24,"color":"#464C51"},
                             "nodeParent":22,
@@ -362,7 +328,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":286,"text":"2.申请周期:","left":36,"fontSize":28,"color":"#100E28","bold":true},
                             "nodeParent":22,
@@ -375,7 +340,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":337,"x":37,"wordWrap":true,"width":513,"text":"申请提交日28天后正式成为VIP","leading":20,"height":33,"fontSize":24,"color":"#464C51"},
                             "nodeParent":22,
@@ -388,7 +352,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":384,"text":"3.退出处理:","left":38,"fontSize":28,"color":"#100E28","bold":true},
                             "nodeParent":22,
@@ -401,7 +364,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":436,"x":41,"wordWrap":true,"width":513,"text":"退出VIP将返还您10000个WWEC,VIP特权也将会失效","leading":20,"height":65,"fontSize":24,"color":"#464C51"},
                             "nodeParent":22,
@@ -414,7 +376,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"top":84,"skin":"img/main/itemSepar.png","right":20,"left":20},
                             "nodeParent":22,
@@ -427,7 +388,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"width":98,"top":0,"skin":"img/main/vip@3x.png","left":0,"height":100},
                             "nodeParent":22,
@@ -446,14 +406,13 @@
                     "props":{"y":980,"skin":"img/main/oneClassBg.png","right":30,"pivotY":-3,"left":28,"layoutEnabled":true,"height":400},
                     "nodeParent":38,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":23,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":33,"width":180,"text":"Vip申请记录","left":98,"height":35,"fontSize":30,"color":"#2176FF","bold":true},
                             "nodeParent":23,
@@ -466,7 +425,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"width":48,"top":122,"text":"时间","left":100,"height":24,"fontSize":28,"color":"#100E28"},
                             "nodeParent":23,
@@ -479,7 +437,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"top":122,"text":"状态","right":88,"fontSize":28,"color":"#100E28"},
                             "nodeParent":23,
@@ -492,7 +449,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":348,"width":48,"top":123,"text":"内容","height":28,"fontSize":28,"color":"#100E28"},
                             "nodeParent":23,
@@ -505,7 +461,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"List",
                             "props":{"width":753,"var":"listHistory","top":147,"right":0,"left":1,"height":204,"bottom":0},
                             "nodeParent":23,
@@ -517,7 +472,6 @@
                             "compId":27,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"right":0,"name":"render","left":0,"height":50},
                                     "nodeParent":27,
@@ -529,7 +483,6 @@
                                     "compId":28,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":2,"width":217,"valign":"middle","text":"2018-3-3 13:13","name":"time","left":21,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
                                             "nodeParent":28,
@@ -542,7 +495,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":4,"width":207,"valign":"middle","text":"申请成为VIP","name":"content","left":267,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
                                             "nodeParent":28,
@@ -555,7 +507,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":4,"width":160,"valign":"middle","text":"申请中","name":"status","left":498,"height":46,"fontSize":24,"color":"#464C51","align":"center"},
                                             "nodeParent":28,
@@ -571,7 +522,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"x":10,"width":98,"top":0,"skin":"img/main/vip@3x.png","left":0,"height":100},
                             "nodeParent":23,
@@ -584,7 +534,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"x":10,"top":84,"skin":"img/main/itemSepar.png","right":20,"left":20},
                             "nodeParent":23,
@@ -597,7 +546,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":227,"width":696,"visible":false,"var":"noRecord","text":"暂无记录","right":0,"left":0,"height":32,"fontSize":32,"color":"#464C51","align":"center"},
                             "nodeParent":23,
@@ -621,6 +569,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":56,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":1208,"x":28,"var":"ApplyBtn","valign":"middle","text":"申请","right":30,"left":28,"height":80,"fontSize":32,"color":"#fff","bottom":46,"bgColor":"#49a2dd","align":"center"},
+            "nodeParent":1,
+            "label":"Label(ApplyBtn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":20,
             "child":[
                 ]
         }],

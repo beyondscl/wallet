@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":10,
+    "selectedBox":25,
+    "selecteID":23,
     "props":{"width":750,"sceneColor":"#ffffff","name":"render","height":1334},
     "nodeParent":-1,
     "label":"View(render)",
@@ -222,7 +222,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":216,"x":35,"visible":false,"text":"暂无记录","fontSize":28},
+                    "props":{"y":216,"x":35,"text":"暂无记录","fontSize":28},
                     "nodeParent":25,
                     "label":"Label",
                     "isDirectory":false,
