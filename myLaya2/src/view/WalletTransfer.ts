@@ -205,7 +205,8 @@ module view {
                     timeNumMax: 0,
                     timeNumMin: 0
                 };
-                let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
+                // let DeTime = new Date(dataAll[i].dealTime).valueOf(); // 每条记录的时间时间戳
+                let DeTime = new Date(util.convertFormate(dataAll[i].dealTime)).valueOf(); // 每条记录的时间时间戳
                 let start  = new Date();
                 start.setHours(0);
                 start.setMinutes(0);
@@ -222,12 +223,17 @@ module view {
                      this.times[i].timeNumMin = 0;
                 } else if ((NoTime - DeTime) >  this.OneDayTime && (NoTime - DeTime) < 2 * this.OneDayTime) {
                         this.times[i].list[0] = "前天";
-                        this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
-                        this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;;
+                        // this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
+                        // this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;;
+                        this.times[i].timeNumMax = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf(); 
+                        this.times[i].timeNumMin = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf() - this.OneDayTime;;
                     } else {
-                        this.times[i].list[0] = dataAll[i].dealTime.split(' ')[0];
-                        this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
-                        this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;
+                        // this.times[i].list[0] = dataAll[i].dealTime.split(' ')[0];
+                        // this.times[i].timeNumMax = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf();
+                        // this.times[i].timeNumMin = NoTime - new Date(dataAll[i].dealTime.split(' ')[0]).valueOf() - this.OneDayTime;
+                        this.times[i].list[0] = util.convertFormate((dataAll[i].dealTime.split(' ')[0]));	                       
+                        this.times[i].timeNumMax = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf();
+                        this.times[i].timeNumMin = NoTime - new Date(util.convertFormate(dataAll[i].dealTime.split(' ')[0])).valueOf() - this.OneDayTime;
                     }
                     for (var j = 0; j < this.times.length;j++) {
                         if ((NoTime - DeTime) <= Number(this.times[j].timeNumMax) && (NoTime - DeTime) >= Number(this.times[j].timeNumMin)) {
@@ -238,11 +244,12 @@ module view {
             /**
              * 去除数组重复值
              */
-            for (var i = 0;i<this.times.length;i++) {
-                for (var j = i + 1; j< this.times.length; j++) {
-                    if (this.times[i].timeNumMax == this.times[j].timeNumMax) {
-                        this.times.splice(j, 1);
-                    }
+            for (var i = 0;i<this.times.length - 1;) {
+                if (this.times[i].timeNumMax == this.times[i+1].timeNumMax) {
+                    this.times.splice(i + 1, 1);
+                    i = i;
+                } else {
+                    i++;
                 }
             }
             var dataRest = []; // 统一为一个数组
@@ -252,25 +259,25 @@ module view {
                 }
             }
             var timeData = [];
-            let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳
+            let TimeStart = new Date(year + "-" + month + "-" + "1").valueOf(); // 取当月第一天的时间戳 
             let TimeEnd = new Date(year + "-" + (Number(month) + 1) + "-" + "1").valueOf(); // 取下个月第一天的时间戳
             for (var i = 0; i < dataRest.length;i++) { // 返回符合日期的数据
                 if (dataRest[i].dealTime) {
                     var dealTime = new Date(dataRest[i].dealTime).valueOf();
                     if (dealTime > TimeStart && dealTime < TimeEnd) {
                         timeData.push(dataRest[i]);
-                    }
+                    }   
                 } else {
                     timeData.push(dataRest[i]);
                 }
-
+                
             }
             for (var i = 0; i<timeData.length;) {
                 if (typeof timeData[i] == 'string' && typeof timeData[i + 1] == 'string') {
                     timeData.splice(i, 1);
                     i = i
                     timeData
-                    // return
+
                 } else {
                     i++;
                 }
@@ -279,24 +286,14 @@ module view {
             if (typeof timeData[timeData.length - 1] == 'string') {
                 timeData.splice(timeData.length - 1, 1); // 去除最后一个日期标题
             }
-            for (var i = 0; i< this.realData.length; i++) {
+            for (var i = 0; i< this.realData.length; i++) { // 去掉相同日期标题
                for (var j =0; j<timeData.length; j++) {
                     if (this.realData[i] == timeData[j] && (typeof this.realData[i] == 'string')) {
                         timeData.splice(j, 1);
                     }
                }
             }
-            for (var m = 0;m<timeData.length - 1;m++) { // 去除相同日期标题
-                for (var n = m+1;n<timeData.length;) {
-                    if (timeData[m] == timeData[n]) {
-                        timeData.splice(n, 1);
-                        n = n
-                    } else {
-                        n++;
-                    }
-                }
-            }
-            return timeData;
+            return timeData; 
         }
         private onListRender(cell: Box, index: number) {
             var data: mod.dealtemMod = this.comp.list.array[index];
