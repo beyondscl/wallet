@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":20,
-    "selecteID":10,
+    "selecteID":12,
     "props":{"y":0,"x":0,"width":750,"sceneColor":"#ffffff","layoutEnabled":true,"height":1334},
     "nodeParent":-1,
     "label":"Dialog",
@@ -42,7 +42,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"width":690,"top":0,"skin":"img/main/white.jpg","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0},
+                    "props":{"width":690,"top":0,"skin":"img/main/dialog_bg.jpg","right":0,"left":0,"layoutEnabled":true,"height":628,"bottom":0},
                     "nodeParent":20,
                     "label":"Image",
                     "isOpen":true,
