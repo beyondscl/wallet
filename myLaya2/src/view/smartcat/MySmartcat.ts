@@ -28,6 +28,7 @@ module view.smartcat{
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
 			this.comp.turn_on.on(Laya.Event.CLICK, this, this.btnClick, [1]);
+			this.comp.turn_off.on(Laya.Event.CLICK, this, this.btnClick, [2]);
 		}
 
 		private btnClick (index: number) {
@@ -42,7 +43,17 @@ module view.smartcat{
 				}, [this]);
 				this.comfirm.popup();
 			}
-			
+			if (2 == index) {
+				this.comfirm = new view.alert.confirm('关闭智能猫', '托管天数低于20天,停止智能猫,将扣除启动智能猫资产的5%,托管天数大于20天,停止智能猫,将扣除启动智能猫资产的1%.');
+				this.comfirm.setCallback((ret, arg) => {
+					if (ret == 2) {
+						arg[0].waiting = new view.alert.waiting('关闭中..');
+						arg[0].waiting.popup();
+						service.smartcatService.closeCat(arg[0].closeCb, arg[0]);
+					}
+				}, [this]);
+				this.comfirm.popup();
+			}
 		}
 
 		private openCb (ret, v) {

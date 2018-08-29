@@ -63,6 +63,7 @@ module config {
 
         // 智能猫相关接口
         public static openCat:string = prod.apiLocalHost + "/api/v3/clienteles"  // 开启智能猫
+        public static closeCat:string = prod.apiLocalHost + "/api/v3/clienteles"  // 关闭智能猫
 
         // 我的伙伴相关接口
         public static apiPartner: string = prod.apiLocalHost + "/partner" // 我的伙伴首页获取123级伙伴的接口
