@@ -4,17 +4,49 @@ module view.smartcat{
 		public claName = 'view.smartcat.MySmartcat';
 		public comp: ui.smartcat.MySmartcatUI;
 		private parentUI: view.SmartCat;
-		private waiting: view.alert.waiting;
-		private comfirm: view.alert.confirm;
-		private info: view.alert.info;
+		private data: mod.smartCatMod;
 		constructor(){
 			super();
 			this.init();
-			this.initEvent();
 		}
 
 		public setParentUI(main: view.SmartCat) {
 			this.parentUI = main;
+		}
+
+		public setData(res, args) {
+			for (var i in res) {
+				mod.smartCatMod[i] = res[i];
+			};
+			let comp = args[0]
+			comp.label_hostAssetsValue.text = '' + mod.smartCatMod.hostAssetsValue;
+			comp.label_todayDividend.text = '' + mod.smartCatMod.todayDividend;
+			comp.label_hostDays.text = '' + mod.smartCatMod.hostDays;
+		}
+
+		// 获取概览数据
+		public getAllMarketValue() {
+			service.smartcatService.getAllMarketValue(this.setData,[this.comp])
+		}
+
+		//获取已持有资产的列表
+		public getHostAssets() {
+			let wait = new view.alert.info(config.msg.WAIT_OPERATOR);
+			wait.popup();
+			service.smartcatService.getHostAssets(function (ret, args){
+				let v: view.smartcat.MySmartcat = args[0];
+				ret = JSON.parse(ret)
+				if (ret.retCode == 0 && ret.data.list.length != 0) {
+					let realData = [].concat(service.smartcatService.getAssetsListItem(ret.data));
+					v.setListData([])
+				} else if(ret.retCode != 0) {
+					new view.alert.info(ret.reason ? ret.reason : config.msg.OPERATOR_ERROR).popup();
+					v.setListData([])
+				} else {
+					v.setListData([])
+				}
+				args[1].stop();
+			}, [this, wait])
 		}
 
 		private init() {
@@ -23,54 +55,63 @@ module view.smartcat{
 			Laya.stage.bgColor = 'white';
 			native.native.setCurrView(this.parentUI, 2);
 			Laya.stage.scaleMode = config.prod.appAdapterType;
+			this.getAllMarketValue();
+			this.initEvent();
 		}
 
 		private initEvent() {
 			this.comp.back_btn.on(Laya.Event.CLICK, this ,this.goBack);
-			this.comp.turn_on.on(Laya.Event.CLICK, this, this.btnClick, [1]);
-			this.comp.turn_off.on(Laya.Event.CLICK, this, this.btnClick, [2]);
+			// this.comp.turn.on(Laya.Event.CLICK, this, this.btnClick);
 		}
 
-		private btnClick (index: number) {
-			if (1 == index) {
-				this.comfirm = new view.alert.confirm('开启智能猫', '确定开启智能猫?');
-				this.comfirm.setCallback((ret, arg) => {
-					if (ret == 2) {
-						arg[0].waiting = new view.alert.waiting('开启中..');
-						arg[0].waiting.popup();
-						service.smartcatService.openCat(arg[0].openCb, arg[0]);
-					}
-				}, [this]);
-				this.comfirm.popup();
-			}
-			if (2 == index) {
-				this.comfirm = new view.alert.confirm('关闭智能猫', '托管天数低于20天,停止智能猫,将扣除启动智能猫资产的5%,托管天数大于20天,停止智能猫,将扣除启动智能猫资产的1%.');
-				this.comfirm.setCallback((ret, arg) => {
-					if (ret == 2) {
-						arg[0].waiting = new view.alert.waiting('关闭中..');
-						arg[0].waiting.popup();
-						service.smartcatService.closeCat(arg[0].closeCb, arg[0]);
-					}
-				}, [this]);
-				this.comfirm.popup();
-			}
-		}
+		private btnClick () {
+			// let str = this.comp.turn.text;
+			// if (str == '开启智能猫') {
 
-		private openCb (ret, v) {
-			v.waiting.stop();
-			try {
-				ret = JSON.parse(ret);
-				v.info = new view.alert.info(ret.message);
-				v.info.popup();
-			} catch (err) {	
-				console.log("openCatErr: " + err);
-			}
+			// }
+			// console.log(str);
 		}
 
 		private goBack() {
 			this.comp.removeSelf();
 			this.parentUI.comp.visible = true;
 			native.native.setCurrView(this.parentUI, 1);
+		}
+
+		// 将格式化的资产列表数据渲染展示
+		private setListData(data: Array<mod.holdAssets>): void {
+
+		}
+
+		private toggleSmartcat() {
+			if (mod.smartCatMod.smartCatStatus) {
+				// 关闭智能猫
+				let info = new view.alert.confirm(config.msg.CLOSE_SMARTCAT_CONFIRM, "确认关闭智能猫，扣去100%手续费");
+				info.setCallback(function confirmCb(ret) {
+					if (ret == 2) { 
+						console.log('关闭智能猫页面ok')
+						var load = new view.alert.waiting(config.msg.WAIT_CLOSE_SMARTCAT);
+						load.popup();
+						service.smartcatService.closeSmartCat(this.toggleSmartcatCb, [load]);
+					}
+				},[]);
+				info.popup();
+			} else {
+				// 开启智能猫
+				let info = new view.alert.confirm(config.msg.START_SMARTCAT_CONFIRM, "确认开启智能猫？");
+				info.setCallback(function confirmCb(ret, args) {
+					if (ret == 2) {
+						console.log('xxxxx')
+						mod.smartCatMod.smartCatStatus = true;
+						return;
+					}
+				}, [smartcat]);
+				info.popup();
+			}
+		}
+		
+		private toggleSmartcatCb() {
+			this.init()
 		}
 	}
 }

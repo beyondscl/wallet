@@ -55,6 +55,10 @@ module view.user {
             this.comp = new ui.user.UserLoginUI();
             Laya.stage.addChild(this.comp);
             native.native.setCurrView(this,1);
+            if(util.isDeubgInfo){
+                // this.comp.inp_uname.text = '1868356';
+                // this.comp.inp_upass.text = '11111111';
+            }
         }
 
         private initEvent() {

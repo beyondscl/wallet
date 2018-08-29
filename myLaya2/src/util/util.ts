@@ -7,6 +7,8 @@ class util {
     private static _mainView: view.WalletMain;
     private static _meView: view.WalletMe;
     private static _catView: view.SmartCat;
+    public static isDeubgInfo:boolean = false;
+
 
     constructor() {
     }
@@ -418,5 +420,12 @@ class util {
     //记录并推送日志
     public static log(cName:string,method:string,params:Array<any>,exceptions:string){
         service.sysLog.log(cName,method,params,exceptions);
+    }
+
+    //添加打印日志开关
+    public static debugInfo(tag:any,arg:any){
+        if(this.isDeubgInfo){
+            console.log(tag,arg);
+        }
     }
 }   

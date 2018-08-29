@@ -618,16 +618,17 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":40,"x":16,"width":718,"left":16,"height":444},
+                    "props":{"y":40,"x":16,"width":718,"var":"box_summary","left":16,"height":444},
                     "nodeParent":178,
-                    "label":"Box",
-                    "isOpen":false,
+                    "label":"Box(box_summary)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":110,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":718,"skin":"img/smartcat/tg@3x.png","height":444},
                             "nodeParent":110,
@@ -639,6 +640,7 @@
                             "compId":112,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":60,"x":66,"width":292,"text":"托管资产市值 ($)","overflow":"hidden","height":25,"fontSize":28,"color":"#ffffff","align":"left"},
                                     "nodeParent":112,
@@ -652,6 +654,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":118,"x":66,"width":476,"text":"999,999","overflow":"visible","height":40,"fontSize":36,"font":"Microsoft YaHei","color":"#ffffff","bold":true,"align":"left"},
                                     "nodeParent":112,
@@ -665,6 +668,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":220,"x":64,"width":277,"text":"今日总分红 (WWEC)","overflow":"hidden","height":25,"fontSize":28,"color":"#ffffff","align":"left"},
                                     "nodeParent":112,
@@ -678,6 +682,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":278,"x":66,"width":201,"text":"0.0000","overflow":"visible","height":40,"fontSize":36,"font":"Microsoft YaHei","color":"#f8f8f8","bold":true,"align":"left"},
                                     "nodeParent":112,
@@ -691,6 +696,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":220,"x":400,"width":296,"text":"可兑换分红 (WWEC)","overflow":"hidden","height":25,"fontSize":28,"color":"#ffffff","align":"left"},
                                     "nodeParent":112,
@@ -704,6 +710,7 @@
                                     "$LOCKED":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":278,"x":404,"width":352,"text":"999,999","overflow":"visible","height":40,"fontSize":36,"font":"Microsoft YaHei","color":"#f9f6f6","bold":true,"align":"left"},
                                     "nodeParent":112,
@@ -719,6 +726,9 @@
                                 {
                                     "type":"Image",
                                     "props":{"top":187,"skin":"img/main/itemSepar.png","right":70,"left":70,"height":2},
+                                    "x":60,
+                                    "type":"Line",
+                                    "props":{"y":188,"x":57,"toY":0,"toX":608,"lineWidth":2,"lineColor":"#4680DC"},
                                     "nodeParent":112,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -729,8 +739,9 @@
                                         ]
                                 },
                                 {
-                                    "type":"Image",
-                                    "props":{"width":2,"top":218,"skin":"img/main/itemSepar.png","left":365,"height":100},
+                                    "x":60,
+                                    "type":"Line",
+                                    "props":{"y":228,"x":358,"toY":102,"toX":0,"lineWidth":2,"lineColor":"4680DC"},
                                     "nodeParent":112,
                                     "label":"Image",
                                     "isDirectory":false,

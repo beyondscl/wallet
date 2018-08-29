@@ -157,9 +157,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":20,"x":274,"text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
+                            "props":{"y":20,"x":274,"var":"label_hostAssetsValue","text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
                             "nodeParent":6,
-                            "label":"Label",
+                            "label":"Label(label_hostAssetsValue)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -170,9 +170,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":75,"x":274,"text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
+                            "props":{"y":75,"x":274,"var":"label_hostDays","text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
                             "nodeParent":6,
-                            "label":"Label",
+                            "label":"Label(label_hostDays)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -183,9 +183,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":130,"x":274,"text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
+                            "props":{"y":130,"x":274,"var":"label_todayDividend","text":"9999,999","fontSize":28,"color":"#FFFFFF","bold":true},
                             "nodeParent":6,
-                            "label":"Label",
+                            "label":"Label(label_todayDividend)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -213,14 +213,13 @@
                     "props":{"y":0,"x":0,"width":690,"renderType":"render","height":150},
                     "nodeParent":16,
                     "label":"Box",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":false,
                     "hasChild":true,
                     "compId":17,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":28,"x":0,"width":104,"skin":"img/coins/ETH.png","height":104},
                             "nodeParent":17,
@@ -233,7 +232,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":40,"x":132,"text":"WWEC","name":"coinType","fontSize":28,"color":"#687076","align":"left"},
                             "nodeParent":17,
@@ -246,7 +244,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":132,"width":174,"text":"0.0000","name":"coinCount","height":44,"fontSize":28,"color":"#4F8CEE","bold":true,"align":"left"},
                             "nodeParent":17,
@@ -260,7 +257,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":318,"width":17.5625,"text":"≈","height":32,"fontSize":32,"color":"#8194A4"},
                             "nodeParent":17,
@@ -273,7 +269,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":352,"width":216,"text":"$ 990","name":"coinPrice","height":34,"fontSize":32,"color":"#8194A4"},
                             "nodeParent":17,
@@ -286,7 +281,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":52,"x":594,"width":100,"stateNum":"1","skin":"img/smartcat/TJ3@3x.png","name":"toCoin","labelSize":28,"height":50},
                             "nodeParent":17,
@@ -300,9 +294,8 @@
                                 ]
                         },
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"skin":"img/main/itemSepar.png","right":0,"left":0,"height":2,"bottom":2},
+                            "type":"Line",
+                            "props":{"y":180,"x":0,"toY":0,"toX":722,"lineWidth":1,"lineColor":"#F3F3F4"},
                             "nodeParent":17,
                             "label":"Image",
                             "isDirectory":false,

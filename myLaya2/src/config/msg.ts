@@ -68,6 +68,10 @@ module config {
         public static LOGIN_EXCEPTION ="状态异常";
         public static TOEKN_EXPIRE ="您的账号在其他地方登录,请重新登录";
 
+        public static CLOSE_SMARTCAT_CONFIRM = "关闭智能猫";
+        public static WAIT_CLOSE_SMARTCAT = "正在关闭智能猫";
+        public static START_SMARTCAT_CONFIRM = "开启智能猫";
+
         //操作类型
         //删除钱包
         public static OP_WAL_DELETE = 1;

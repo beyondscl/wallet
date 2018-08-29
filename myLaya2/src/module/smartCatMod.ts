@@ -4,7 +4,6 @@
 module mod{
 	export class smartCatMod{
 		constructor(){
-
 		}
 
 		public static hostAssetsValue: number = 0.00; // 托管资产市值

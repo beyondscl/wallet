@@ -1,93 +1,19 @@
 <res>
-   <item name="comp/bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=18,30,30,30" picType="0" scale="0"/>
-   <item name="img/icon_box-checked.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/icon_box-empty.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/add.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/deal_history.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/dialog_banner.png" type="Dialog" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/dialog_bg.png" type="Dialog" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/eth.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/ewm.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guid_ewm.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/itemSepar.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/transfer_in.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/transfer_out.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/wallet_manage.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/图层 33.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/图层 33@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/图层 33@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/引导页.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/引导页1文字.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/引导页1文字@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/引导页1文字@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/引导页@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/引导页@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/椭圆 16 拷贝.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/椭圆 16 拷贝@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/椭圆 16 拷贝@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/椭圆 16.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/椭圆 16@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/椭圆 16@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/anliu-@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/anliu@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/Oval22x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/Oval@2x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/back@2x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/fangkuai-@2x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/fangkuai@2x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/qianbaoicon@2x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/white.jpg" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/bg.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ljjr.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/tu16.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ty16_1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_1_word.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_2_word.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_3.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_3_word.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_4.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_4_word.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/Oval22x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/Oval@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/add.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/QDZZ 6@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/anliu-@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/anliu@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/back@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/deal_history.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/dialog_banner.png" type="Dialog" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/dialog_bg.png" type="Dialog" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/fangkuai-@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/fangkuai@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/itemSepar.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/qianbaoicon@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/template.atlas" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/template.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/wallet_manage.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/white.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/bfqb@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/wallet_manage.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/BCH@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/BTH@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/ETH@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/LTC@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/MKR@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/REP@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/coins/WWEC@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/dialog_bg.jpg" type="Dialog" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/e@2x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/white_radius.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/guide/ydy_1.png.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="load" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="load/progress.png" type="ProgressBar" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="load/start.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/QDZZ 6@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="img/main/qx@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
    <item name="img/main/fz@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+<<<<<<< HEAD
    <item name="img/main/anquan@2x.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
    <item name="img/smartcat/turn.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+=======
+   <item name="img/main/qwjt@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/qx@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/white_radius.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/white.jpg" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="img/main/zdl@3x.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+>>>>>>> origin/dev_lm
 </res>
