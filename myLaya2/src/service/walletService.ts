@@ -164,7 +164,9 @@ module service {
                     return allCoins[j];
                 }
             }
-            return null;
+            //添加暂未收录的coin进行容错
+            let unknowCoin:mod.coinItemMod = new mod.coinItemMod("", "未知", "", "", false, "");
+            return unknowCoin;
         }
 
         //获取所有币种：用于钱包添加币种,传入钱包名称，用于初始化
